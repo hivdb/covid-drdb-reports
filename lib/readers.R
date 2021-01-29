@@ -38,7 +38,7 @@ read.dbTables <- function(dirname, colClasses = NA) {
 }
 
 read.suscResults <- function(
-  partialResistFold = 5,
+  partialResistFold = 3,
   resistFold = 10
 ) {
   dfSusc = read.dbTables("susc_results", colClasses = c(fold = "numeric"))
@@ -83,7 +83,7 @@ read.suscResults <- function(
 }
 
 read.suscResultsCP <- function(
-  partialResistFold = 5,
+  partialResistFold = 3,
   resistFold = 10
 ) {
   dfSusc = read.suscResults(
@@ -95,7 +95,7 @@ read.suscResultsCP <- function(
 }
 
 read.suscResultsIP <- function(
-  partialResistFold = 5,
+  partialResistFold = 3,
   resistFold = 10
 ) {
   dfSusc = read.suscResults(
@@ -107,7 +107,7 @@ read.suscResultsIP <- function(
 }
 
 read.suscResultsMAb <- function(
-  partialResistFold = 5,
+  partialResistFold = 3,
   resistFold = 10
 ) {
   dfSusc = read.suscResults(

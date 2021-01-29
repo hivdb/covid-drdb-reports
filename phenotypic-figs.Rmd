@@ -108,7 +108,7 @@ for (strain in filterStrains) {
   df = dfForPlot %>%
     filter(strain_name == strain)
   totalCount = aggregate(cbind(total_count = cumulative_count) ~ ref_rx + group, df, FUN = sum)
-  maxCount = ceiling((max(totalCount$total_count) + 1) / yAxisStep) * yAxisStep
+  maxCount = ceiling((max(totalCount$total_count)) / yAxisStep) * yAxisStep
   numItems = length(unique(df$ref_rx))
   
   plot = df %>%
@@ -129,10 +129,11 @@ for (strain in filterStrains) {
     geom_text(
       aes(x = ref_rx, y = total_count, label = total_count),
       data = totalCount,
-      vjust = -1
+      size = 3,
+      vjust = -0.5
     ) +
     scale_y_continuous(
-      expand = c(0, 0, 0, 0),
+      expand = c(0, 0, 0.15, 0),
       limits = c(0, maxCount),
       breaks = seq(0, maxCount, yAxisStep)
     ) +
@@ -184,6 +185,7 @@ dfForPlot = dfSuscResultsMAb %>%
     strain_name %in% filterStrains
   )  %>%
   mutate(
+    strain_name = factor(strain_name, levels = filterStrains),
     ab_name = factor(
       Vectorize(function(x) paste(x, collapse = "+\n"))(ab_name),
       levels = mAbLevels
@@ -194,42 +196,48 @@ dfForPlot = dfSuscResultsMAb %>%
 plots = list()
 i = 1
 
-for (strain in filterStrains) {
-  df = dfForPlot %>%
-    filter(strain_name == strain)
-  maxFold = max(df$fold)
-  numItems = length(unique(df$ab_name))
-  plot = df %>%
-    ggplot(aes(x = ab_name, y = fold)) +
-    geom_bar(
-      aes(fill = ref_name),
-      size = 0.2,
-      color = "#000000",
-      stat = 'identity', position = position_dodge2(preserve = 'single'), width = 0.04 * numItems) +
-    labs(title = strain) +
-    scale_x_discrete(labels = Vectorize(function(x) ifelse(
-      x %in% mAbHasLabels,
-      yes = mAbLabels[[x]],
-      no = x
-    ))) +
-    scale_y_log10(
-      expand = c(0, 0, 0, 0),
-      limits = c(1, 200)
-    ) +
-    theme(
-      plot.title = element_text(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      strip.background = element_blank(),
-      strip.placement = "outside",
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(), 
-      panel.grid.minor = element_blank(),
-      panel.border = element_rect(fill = NA, color = 'black')
-    )
-  plots[[i]] = plot
-  i = i + 1
-}
-
-grid.arrange(grobs = plots, nrow = 4)
+dfForPlot %>%
+  ggplot(aes(x = ab_name, y = fold)) +
+  geom_bar(
+    aes(fill = ref_name),
+    size = 0.2,
+    color = "#000000",
+    stat = 'identity', position = position_dodge2(preserve = 'single'), width = 0.6) +
+  geom_text(
+    aes(
+      y = Vectorize(function(x) min(x, 190))(fold),
+      label = sprintf(
+        "%s%s",
+        ifelse(fold_cmp == "=", "", fold_cmp),
+        formatC(fold, digits = 1, format = 'fg')
+      )
+    ),
+    position = position_dodge2(preserve = 'single', width = 0.6),
+    size = 2.5,
+    vjust = -0.5
+  ) +
+  scale_x_discrete(labels = Vectorize(function(x) ifelse(
+    x %in% mAbHasLabels,
+    yes = mAbLabels[[x]],
+    no = x
+  ))) +
+  scale_y_continuous(
+    trans=scales::pseudo_log_trans(base = 10),
+    expand = c(0, 0, 0.1, 0),
+    breaks = c(0, 10 ^ seq(0, 10))
+  ) +
+  coord_cartesian(ylim = c(0, 200)) +
+  facet_wrap(~ strain_name, scales = "free_x", nrow = 4) +
+  theme(
+    plot.title = element_text(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    strip.background = element_blank(),
+    strip.placement = "outside",
+    strip.text = element_text(size = 14, hjust = 0),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(fill = NA, color = 'black')
+  )
 ```
