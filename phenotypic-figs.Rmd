@@ -163,16 +163,31 @@ filterMAbs = c(
   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
   "Vir-7831", "C121", "C135", "C144",
   "COV2-2479", "COV2-2832",
-  "CA1", "CC12.1", "BD23", "C119", "P2B-2F6"
+  "CC12.1", "BD23", "C119", "P2B-2F6"
 )
+mAbLevels = c(
+  "Bamlanivimab", "Casirivimab", "Imdevimab", "Casirivimab+\nImdevimab", "Etesevimab",
+  "Vir-7831", "C121", "C135", "C144",
+  "COV2-2479", "COV2-2832",
+  "CC12.1", "BD23", "C119", "P2B-2F6"
+)
+mAbLabels = c(
+  "Vir-7831" = "Vir-7831\n(S309)",
+  "C121" = "C121\n(RBM 1)",
+  "C135" = "C135\n(RBD-core 1)"
+)
+mAbHasLabels = names(mAbLabels)
 
 dfForPlot = dfSuscResultsMAb %>%
   filter(
-    Vectorize(function(x) length(intersect(x, filterMAbs)) > 0)(ab_name) &
+    Vectorize(function(x) length(setdiff(x, filterMAbs)) == 0)(ab_name) &
     strain_name %in% filterStrains
   )  %>%
   mutate(
-    ab_name = Vectorize(function(x) paste(x, collapse = "+\n"))(ab_name)
+    ab_name = factor(
+      Vectorize(function(x) paste(x, collapse = "+\n"))(ab_name),
+      levels = mAbLevels
+    )
   ) %>%
   select(ref_name, ab_name, strain_name, fold_cmp, fold)
 
@@ -192,8 +207,14 @@ for (strain in filterStrains) {
       color = "#000000",
       stat = 'identity', position = position_dodge2(preserve = 'single'), width = 0.04 * numItems) +
     labs(title = strain) +
-    scale_y_continuous(
-      expand = c(0, 0, 0, 0)
+    scale_x_discrete(labels = Vectorize(function(x) ifelse(
+      x %in% mAbHasLabels,
+      yes = mAbLabels[[x]],
+      no = x
+    ))) +
+    scale_y_log10(
+      expand = c(0, 0, 0, 0),
+      limits = c(1, 200)
     ) +
     theme(
       plot.title = element_text(),
