@@ -14,9 +14,17 @@ library(gridExtra)
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 
+partialResistFold = 3
+resistFold = 10
 dfSuscResultsMAb = read.suscResultsMAb()
-dfSuscResultsCP = read.suscResultsCP()
-dfSuscResultsIP = read.suscResultsIP()
+dfSuscResultsCP = read.suscResultsCP(
+  partialResistFold = partialResistFold,
+  resistFold = resistFold
+)
+dfSuscResultsIP = read.suscResultsIP(
+  partialResistFold = partialResistFold,
+  resistFold = resistFold
+)
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = dplyr::bind_rows(dfSuscResultsCP, dfSuscResultsIP)
@@ -27,6 +35,12 @@ filterStrains = c("S:501Y", "B.1.1.7 Spike", "S:484K", "B.1.351 Spike")
 
 ## Convalescent and immune plasma
 
+Resistance levels:
+
+* Resistance (<span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #146aa8; color: white;">dark blue</span>): fold > `r resistFold`
+* Partial-resistance (<span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #7fcbee; color: black;">light blue</span>): fold between `r partialResistFold` and `r resistFold`
+* Susceptible (<span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #ffffff; color: black;">white</span>): fold < `r partialResistFold`
+
 ```{r plasma-fold-fig, fig.height = 10, fig.width = 12}
 shortRefRxNames = c(
   "Rees-Spear21 mild" = "Mild\nRSC",
@@ -35,14 +49,14 @@ shortRefRxNames = c(
   "Wang21b CP" = "WangP",
   "Wang21 BNT" = "WangZ",
   "Wang21b BNT" = "WangP",
-  "Xie21 BNT 2W" = "2 week\nXieX1",
-  "Xie21 BNT 1M" = "1 month\nXieX1",
+  "Xie21 BNT 2W" = "2w\nXieX1",
+  "Xie21 BNT 1M" = "1m\nXieX1",
   "Xie21b BNT" = "XieX2",
   "Shen21 Mod" = "ShenX",
   "Wang21 Mod" = "WangZ",
   "Wang21b Mod" = "WangP",
-  "Hu21 1mon" = "1 month\nHuJ",
-  "Hu21 8mon" = "8 months\nHuJ",
+  "Hu21 1mon" = "1m\nHuJ",
+  "Hu21 8mon" = "8m\nHuJ",
   "Collier21 BNT" = "CollierD",
   "Muik21 BNT" = "MuikA",
   "Wu21 Mod" = "WuK",
@@ -53,8 +67,6 @@ shortRefRxNames = c(
 yAxisStep = 5
 longRefRxNames = names(shortRefRxNames)
 
-partialResistFold = 5
-resistFold = 10
 dfForPlot = dfSuscResultsPlasma %>%
   filter(strain_name %in% filterStrains) %>%
   mutate(
