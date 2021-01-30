@@ -62,7 +62,9 @@ shortRefRxNames = c(
   "Wu21 Mod" = "WuK",
   "Shen21 NVV" = "ShenX",
   "Greaney21 CP" = "GreaneyAJ",
-  "Liu20h CP" = "LiuZ"
+  "Liu20h CP" = "LiuZ",
+  "Jangra21 CP" = "JangraS",
+  "Jangra21 BNT" = "JangraS"
 )
 yAxisStep = 5
 longRefRxNames = names(shortRefRxNames)
@@ -104,10 +106,7 @@ dfForPlot = dfForPlot %>%
       ifelse(group == "CP", "CP", vaccine_name),
       levels = c("CP", "BNT162b2", "mRNA-1273", "NVX-CoV2373")
     ),
-    ref_rx = factor(
-      paste(ref_name, rx_name, sep=" "),
-      levels = longRefRxNames
-    )
+    ref_rx = paste(ref_name, rx_name, sep=" ")
   ) %>%
   mutate(
     ref_rx = factor(ref_rx, levels = unique(c(longRefRxNames, ref_rx)))
