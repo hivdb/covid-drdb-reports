@@ -121,7 +121,7 @@ for (strain in filterStrains) {
   totalCount = aggregate(cbind(total_count = cumulative_count) ~ ref_rx + group, df, FUN = sum)
   maxCount = ceiling((max(totalCount$total_count)) / yAxisStep) * yAxisStep
   numItems = length(unique(df$ref_rx))
-  
+
   plot = df %>%
     ggplot(aes(x = ref_rx, y = cumulative_count)) +
     geom_bar(
@@ -157,7 +157,7 @@ for (strain in filterStrains) {
       strip.background = element_blank(),
       strip.placement = "outside",
       panel.background = element_blank(),
-      panel.grid.major = element_blank(), 
+      panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       legend.position = "none",
       panel.border = element_rect(fill = NA, color = 'black')
@@ -186,7 +186,12 @@ mAbLevels = c(
 mAbLabels = c(
   "Vir-7831" = "Vir-7831\n(S309)",
   "C121" = "C121\n(RBM 1)",
-  "C135" = "C135\n(RBD-core 1)"
+  "C135" = "C135\n(RBD-core 1)",
+  "C144" = "C144\n(RBM 3)",
+  "CC12.1" = "CC12.1\n(RBM 1)",
+  "BD23" = "BD23\n(RBM 3)",
+  "C119" = "C119\n(RBM 2)",
+  "P2B-2F6" = "P2B-2F6\n(RBM 2)"
 )
 mAbHasLabels = names(mAbLabels)
 
