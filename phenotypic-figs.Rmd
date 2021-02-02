@@ -67,9 +67,9 @@ shortRefRxNames = c(
   "Shen21 CP_1M" = "Shen21\n",
   "Shen21 Mod" = "Mod\nShen21",
   "Shen21 NVV" = "NVX\nShen21",
-  "Wang21b CP" = "Wang21b\n",
   "Wang21 BNT" = "BNT\nWang21",
   "Wang21 Mod" = "Mod\nWang21",
+  "Wang21b CP" = "Wang21b\n",
   "Wang21b BNT" = "BNT\nWang21b",
   "Wang21b Mod" = "Mod\nWang21b",
   "Wibmer21 low titer" = "Titer < 400\nWibmer21",
@@ -275,6 +275,7 @@ dfForPlot %>%
     size = 0.2,
     color = "#000000",
     stat = 'identity', position = position_dodge2(preserve = 'single'), width = 0.6) +
+  labs(fill = "References") +
   geom_text(
     aes(
       y = Vectorize(function(x) min(x, 190))(fold),
