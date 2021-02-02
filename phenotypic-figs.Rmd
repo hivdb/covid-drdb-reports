@@ -52,7 +52,7 @@ strainTitle = c(
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #7fcbee; color: black;">fold ↓ susceptibility `r partialResistFold` to `r resistFold`</span>&nbsp;
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #ffffff; color: black;">fold ↓ susceptibility < `r partialResistFold`</span>
 
-```{r plasma-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 8}
+```{r plasma-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 4}
 shortRefRxNames = c(
   "Collier21 BNT" = "BNT\nCollier21",
   "Greaney21 CP" = "Greaney21\n",
@@ -207,7 +207,7 @@ grid.arrange(grobs = plots, nrow = 4)
 
 ## Monoclonal antibodies
 
-```{r mab-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 8}
+```{r mab-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 4}
 filterMAbs = c(
   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
   "Vir-7831", "C121", "C135", "C144",
@@ -221,6 +221,11 @@ mAbLevels = c(
   "CC12.1", "BD23", "C119", "P2B-2F6"
 )
 mAbLabels = c(
+  "Bamlanivimab" = "BAM",
+  "Casirivimab" = "CAS",
+  "Imdevimab" = "IMD",
+  "Casirivimab+\nImdevimab" = "CAS-IMD",
+  "Etesevimab" = "ETE",
   "Vir-7831" = "Vir-7831\n(S309)",
   "C121" = "C121\n(RBM 1)",
   "C135" = "C135\n(RBD-core 1)",
