@@ -1,5 +1,5 @@
 ---
-title: "Phenotypic figures"
+title: "Susceptibility data"
 output:
   html_document:
     keep_md: yes
@@ -14,6 +14,7 @@ library(ggplot2)
 library(gridExtra)
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
+source("./lib/datatables.R", chdir = TRUE)
 
 partialResistFold = 3
 resistFold = 10
@@ -28,7 +29,10 @@ dfSuscResultsIP = read.suscResultsIP(
 )
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
-dfSuscResultsPlasma = dplyr::bind_rows(dfSuscResultsCP, dfSuscResultsIP)
+dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
+dfVirusStrains = read.virusStrains() %>%
+  select(strain_name, num_muts)
+dfAntibodies = read.antibodies()
 
 filterStrains = c("S:501Y", "B.1.1.7 Spike", "S:484K", "B.1.351 Spike")
 
@@ -45,6 +49,62 @@ strainTitle = c(
 )
 ```
 
+
+## Statistic Numbers
+
+```{r numbers}
+phase3MAbs = dfAntibodies %>%
+  filter(availability == "Investigational (human trials)")
+
+structuredMAbs = dfAntibodies %>%
+  filter(!is.na(pdb_id))
+
+dfSuscResults = dfSuscResultsMAb %>%
+  mutate(
+    group = "MAb",
+    rx_group = ifelse(
+      Vectorize(function(x) length(setdiff(x, phase3MAbs$ab_name)) == 0)(ab_name),
+      yes = "phase3MAb",
+      no = ifelse(
+        Vectorize(function(x) length(setdiff(x, structuredMAbs$ab_name)) == 0)(ab_name),
+        yes = "structuredMAb",
+        no = "otherMAb"
+      )
+    )
+  ) %>%
+  bind_rows(dfSuscResultsPlasma) %>%
+  merge(dfVirusStrains, by = "strain_name") %>%
+  mutate(
+    rx_group = factor(
+      ifelse(
+        group %in% c("CP", "IP"),
+        yes = group,
+        no = rx_group
+      ),
+      levels = c("CP", "IP", "phase3MAb", "structuredMAb", "otherMAb")
+    ),
+    strain_group = factor(
+      ifelse(
+        strain_name %in% c("S:501Y", "S:484K", "B.1.1.7 Spike", "B.1.351 Spike"),
+        yes = strain_name,
+        no = ifelse(
+          num_muts > 1,
+          yes = "Other mutation combinations",
+          no = "Other mutations"
+        )
+      ),
+      levels = c("S:501Y", "S:484K", "Other mutations", "B.1.1.7 Spike",
+                 "B.1.351 Spike", "Other mutation combinations")
+    )
+  )
+
+aggregate(cbind(num = ref_name) ~ rx_group + strain_group,
+          dfSuscResults,
+          FUN = length) %>%
+  reshape(idvar = "strain_group", timevar = "rx_group", direction = "wide") %>%
+  styledKBL
+
+```
 
 ## Convalescent and immune plasma
 

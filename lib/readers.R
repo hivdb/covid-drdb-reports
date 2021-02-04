@@ -106,6 +106,24 @@ read.suscResultsIP <- function(
   merge(dfSusc, dfIP, by = c("ref_name", "rx_name"))
 }
 
+read.virusStrains <- function() {
+  dfMuts = read.dbTable("strain_mutations.csv")
+  dfStrains = read.dbTable("virus_strains.csv")
+  merge(
+    dfStrains,
+    aggregate(
+      cbind(num_muts = position) ~ strain_name,
+      dfMuts,
+      FUN = length
+    ),
+    by = "strain_name"
+  )
+}
+
+read.antibodies <- function() {
+  read.dbTable("antibodies.csv")
+}
+
 read.suscResultsMAb <- function(
   partialResistFold = 3,
   resistFold = 10
