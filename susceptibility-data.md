@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/03/2021 04:56 PM PDT
+Report generated at: 02/03/2021 06:26 PM PDT
 
 
 
@@ -72,6 +72,27 @@ Report generated at: 02/03/2021 04:56 PM PDT
    <td style="text-align:right;"> 30 </td>
    <td style="text-align:right;"> 135 </td>
    <td style="text-align:right;"> 256 </td>
+  </tr>
+</tbody>
+</table>
+
+### Unique MAbs
+
+<table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> has_structure </th>
+   <th style="text-align:right;"> count </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Yes </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> No </td>
+   <td style="text-align:right;"> 85 </td>
   </tr>
 </tbody>
 </table>

@@ -106,6 +106,17 @@ aggregate(cbind(num = ref_name) ~ rx_group + strain_group,
 
 ```
 
+### Unique MAbs
+
+```{r unique-mabs}
+dfUsedMAbs = dfAntibodies %>%
+  filter(ab_name %in% unique(unlist(dfSuscResultsMAb$ab_name))) %>%
+  mutate(has_structure = factor(ifelse(is.na(pdb_id), "No", "Yes"), levels = c("Yes", "No")))
+
+aggregate(cbind(count = ab_name) ~ has_structure, dfUsedMAbs, FUN = length) %>%
+  styledKBL
+```
+
 ## Convalescent and immune plasma
 
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #146aa8; color: white;">fold ↓ susceptibility > `r resistFold`</span>&nbsp;
