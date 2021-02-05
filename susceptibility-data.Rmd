@@ -281,7 +281,7 @@ grid.arrange(grobs = plots, nrow = length(strainTitle))
 
 ## Monoclonal antibodies
 
-```{r mab-fold-fig, fig.height = 20, fig.width = 16, fig.retina = 4, message = FALSE}
+```{r mab-fold-fig, fig.height = 20, fig.width = 16, fig.retina = 4, message = FALSE, warning = FALSE}
 strainTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
@@ -293,7 +293,14 @@ strainTitle = c(
   "S:453F" = "Y453F"
 )
 filterStrains = names(strainTitle)
-filterMAbs = structuredMAbs$ab_name
+filterMAbs = setdiff(
+  structuredMAbs$ab_name,
+  c(
+    "DH1041",  # PDB:7LAA, pending
+    "5-24",  # PDB:7L2F, pending
+    "910-30" # PDB:7KS9, pending
+  )
+)
 # c(
 #   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
 #   "Cilgavimab", "Tixagevimab",
@@ -319,13 +326,25 @@ mAbLabels = c(
   "Tixagevimab+\nCilgavimab" = "TIX-CIL",
   "Bamlanivimab+\nEtesevimab" = "BAM-ETE",
   "Vir-7831" = "Vir-7831\n(S309)",
+  "B38" = "B38\n(RBM 1)",
+  "BD-629" = "BD-629\n(RBM 1)",
   "C121" = "C121\n(RBM 1)",
-  "C135" = "C135\n(RBD-core 1)",
-  "C144" = "C144\n(RBM 3)",
   "CC12.1" = "CC12.1\n(RBM 1)",
-  "BD23" = "BD23\n(RBM 3)",
+  "COVA2-04" = "COVA2-04\n(RBM 1)",
+  "DH1047" = "DH1047\n(RBM 1)",
+  "P2C-1F11" = "P2C-1F11\n(RBM 1)",
+  "S2E12" = "S2E12\n(RBM 1)",
+  "BD-368-2" = "BD-368-2\n(RBM 2)",
   "C119" = "C119\n(RBM 2)",
-  "P2B-2F6" = "P2B-2F6\n(RBM 2)"
+  "P2B-2F6" = "P2B-2F6\n(RBM 2)",
+  "2-4" = "2-4\n(RBM 3)",
+  "BD23" = "BD23\n(RBM 3)",
+  "C144" = "C144\n(RBM 3)",
+  "S2M11" = "S2M11\n(RBM 3)",
+  "C135" = "C135\n(RBD-core 1)",
+  "COVA1-16" = "COVA1-16\n(RBD-core 2)",
+  "H014" = "H014\n(RBD-core 2)",
+  "4A8" = "4A8\n(NTD)"
 )
 mAbHasLabels = names(mAbLabels)
 
@@ -343,7 +362,7 @@ dfForPlot = dfSuscResultsMAb %>%
   mutate(
     ab_name = factor(
       ab_name,
-      levels = unique(c(mAbLevels, ab_name))
+      levels = unique(c(mAbHasLabels, ab_name))
     ),
     ref_name = factor(
       ref_name,
@@ -354,10 +373,10 @@ dfForPlot = dfSuscResultsMAb %>%
   group_by(ref_name, ab_name, strain_name, fold_cmp) %>%
   summarise(fold = max(fold))
 
-dfForPlot = dfForPlot %>%
+dfNumAbs = dfForPlot %>%
   group_by(strain_name) %>%
-  summarize(num_abs = length(unique(ab_name))) %>%
-  merge(dfForPlot, by = "strain_name")
+  summarize(num_abs = length(unique(ab_name)))
+dfForPlot = merge(dfForPlot, dfNumAbs, by = "strain_name")
 
 maxNumAbs = max(dfForPlot$num_abs)
 widthTimer = 0.95 / maxNumAbs
@@ -390,7 +409,7 @@ plot = dfForPlot %>%
   
 for (strain in filterStrains) {
   dfPartial = dfForPlot %>% filter(strain_name == strain) %>% arrange(ref_name)
-  numAbs = dfPartial$num_abs[[1]] - 1
+  numAbs = dfPartial$num_abs[[1]]
   plot = plot + geom_text(
     aes(
       y = Vectorize(function(x) min(x, 190))(fold),
@@ -401,7 +420,7 @@ for (strain in filterStrains) {
       )
     ),
     data = dfPartial,
-    position = position_dodge2(preserve = 'single', width = widthTimer * numAbs),
+    position = position_dodge2(preserve = 'single', width = (widthTimer - 0.014) * numAbs),
     size = 1.5,
     vjust = -0.5
   )
@@ -409,9 +428,9 @@ for (strain in filterStrains) {
 plot +
   geom_text(
     aes(x, y, label = text),
+    #nudge_x = 0.5,
     data = dfStrainLabel,
-    nudge_x = 0.5,
-    hjust = 0,
+    hjust = - 0.2,
     vjust = 0
   ) +
   scale_x_discrete(labels = Vectorize(function(x) ifelse(
