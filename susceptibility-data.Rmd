@@ -34,18 +34,9 @@ dfVirusStrains = read.virusStrains() %>%
   select(strain_name, num_muts)
 dfAntibodies = read.antibodies()
 
-filterStrains = c("S:501Y", "B.1.1.7 Spike", "S:484K", "B.1.351 Spike")
-
 groupTitle = c(
   "CP" = "Convalescent plasma",
   "IP" = "Vaccinated plasma"
-)
-
-strainTitle = c(
-  "S:501Y" = "N501Y",
-  "B.1.1.7 Spike" = "B.1.1.7",
-  "S:484K" = "E484K",
-  "B.1.351 Spike" = "B.1.351"
 )
 ```
 
@@ -124,6 +115,18 @@ aggregate(cbind(count = ab_name) ~ has_structure, dfUsedMAbs, FUN = length) %>%
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #ffffff; color: black;">fold ↓ susceptibility < `r partialResistFold`</span>
 
 ```{r plasma-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 4}
+
+strainTitle = c(
+  "S:501Y" = "N501Y",
+  "B.1.1.7 Spike" = "B.1.1.7",
+  "S:484K" = "E484K",
+  "B.1.351 Spike" = "B.1.351"
+  #"S:417N" = "417N",
+  #"S:439K" = "439K",
+  #"S:452R" = "452R",
+  #"S:453F" = "453F"
+)
+filterStrains = names(strainTitle)
 shortRefRxNames = c(
   "Collier21 BNT" = "BNT\nCollier21",
   "Greaney21 CP" = "Greaney21\n",
@@ -273,19 +276,31 @@ for (strain in filterStrains) {
     i = i + 1
   }
 }
-grid.arrange(grobs = plots, nrow = 4)
+grid.arrange(grobs = plots, nrow = length(strainTitle))
 ```
 
 ## Monoclonal antibodies
 
-```{r mab-fold-fig, fig.height = 10, fig.width = 14, fig.retina = 4, message = FALSE}
-filterMAbs = c(
-  "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
-  "Cilgavimab", "Tixagevimab",
-  "Vir-7831", "C121", "C135", "C144",
-  "COV2-2479", "COV2-2832",
-  "CC12.1", "BD23", "C119", "P2B-2F6"
+```{r mab-fold-fig, fig.height = 20, fig.width = 16, fig.retina = 4, message = FALSE}
+strainTitle = c(
+  "S:501Y" = "N501Y",
+  "B.1.1.7 Spike" = "B.1.1.7",
+  "S:484K" = "E484K",
+  "B.1.351 Spike" = "B.1.351",
+  "S:452R" = "L452R",
+  "S:417N" = "K417N",
+  "S:439K" = "N439K",
+  "S:453F" = "Y453F"
 )
+filterStrains = names(strainTitle)
+filterMAbs = structuredMAbs$ab_name
+# c(
+#   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
+#   "Cilgavimab", "Tixagevimab",
+#   "Vir-7831", "C121", "C135", "C144",
+#   "COV2-2479", "COV2-2832",
+#   "CC12.1", "BD23", "C119", "P2B-2F6"
+# )
 mAbLevels = c(
   "Bamlanivimab", "Casirivimab", "Imdevimab", "Casirivimab+\nImdevimab", "Etesevimab",
   "Cilgavimab", "Tixagevimab", "Tixagevimab+\nCilgavimab", "Bamlanivimab+\nEtesevimab",
@@ -329,11 +344,23 @@ dfForPlot = dfSuscResultsMAb %>%
     ab_name = factor(
       ab_name,
       levels = unique(c(mAbLevels, ab_name))
+    ),
+    ref_name = factor(
+      ref_name,
+      levels = sort(unique(ref_name))
     )
   ) %>%
   select(ref_name, ab_name, strain_name, fold_cmp, fold) %>%
   group_by(ref_name, ab_name, strain_name, fold_cmp) %>%
   summarise(fold = max(fold))
+
+dfForPlot = dfForPlot %>%
+  group_by(strain_name) %>%
+  summarize(num_abs = length(unique(ab_name))) %>%
+  merge(dfForPlot, by = "strain_name")
+
+maxNumAbs = max(dfForPlot$num_abs)
+widthTimer = 0.95 / maxNumAbs
 
 plots = list()
 i = 1
@@ -341,7 +368,7 @@ i = 1
 dfStrainLabel = data.frame(
   x = 0,
   y = 190,
-  strain_name = names(strainTitle),
+  strain_name = factor(filterStrains, levels = filterStrains),
   text = strainTitle
 )
 
@@ -349,16 +376,22 @@ dfHLines = data.frame(
   y = c(1, 3, 10, 30, 100)
 )
 
-dfForPlot %>%
+plot = dfForPlot %>%
   ggplot(aes(x = ab_name, y = fold)) +
   geom_hline(aes(yintercept = y), data = dfHLines, linetype = "dashed", color = "#e0e0e0") +
   geom_bar(
-    aes(fill = ref_name),
+    aes(fill = ref_name, width = widthTimer * num_abs),
     size = 0.2,
     color = "#000000",
-    stat = 'identity', position = position_dodge2(preserve = 'single'), width = 0.6) +
-  labs(fill = "References") +
-  geom_text(
+    stat = 'identity',
+    position = position_dodge2(preserve = 'single')
+  ) +
+  labs(fill = "References")
+  
+for (strain in filterStrains) {
+  dfPartial = dfForPlot %>% filter(strain_name == strain) %>% arrange(ref_name)
+  numAbs = dfPartial$num_abs[[1]] - 1
+  plot = plot + geom_text(
     aes(
       y = Vectorize(function(x) min(x, 190))(fold),
       label = ifelse(
@@ -367,10 +400,13 @@ dfForPlot %>%
         ""
       )
     ),
-    position = position_dodge2(preserve = 'single', width = 0.6),
+    data = dfPartial,
+    position = position_dodge2(preserve = 'single', width = widthTimer * numAbs),
     size = 1.5,
     vjust = -0.5
-  ) +
+  )
+}
+plot +
   geom_text(
     aes(x, y, label = text),
     data = dfStrainLabel,
@@ -389,7 +425,7 @@ dfForPlot %>%
     breaks = c(0, 1, 3, 10, 30, 100)
   ) +
   coord_cartesian(ylim = c(0, 200)) +
-  facet_wrap(~ strain_name, scales = "free_x", nrow = 4) +
+  facet_wrap(~ strain_name, scales = "free_x", nrow = length(filterStrains)) +
   theme(
     plot.title = element_text(),
     axis.title.x = element_blank(),

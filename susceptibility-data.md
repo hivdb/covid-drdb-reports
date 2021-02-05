@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/05/2021 11:11 AM PDT
+Report generated at: 02/05/2021 01:46 PM PDT
 
 
 
@@ -37,7 +37,7 @@ Report generated at: 02/05/2021 11:11 AM PDT
    <td style="text-align:left;"> S:484K </td>
    <td style="text-align:right;"> 58 </td>
    <td style="text-align:right;"> 27 </td>
-   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 17 </td>
    <td style="text-align:right;"> 10 </td>
    <td style="text-align:right;"> 29 </td>
   </tr>
@@ -46,7 +46,7 @@ Report generated at: 02/05/2021 11:11 AM PDT
    <td style="text-align:right;"> 410 </td>
    <td style="text-align:right;"> 408 </td>
    <td style="text-align:right;"> 237 </td>
-   <td style="text-align:right;"> 512 </td>
+   <td style="text-align:right;"> 520 </td>
    <td style="text-align:right;"> 1258 </td>
   </tr>
   <tr>
@@ -88,7 +88,7 @@ Report generated at: 02/05/2021 11:11 AM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> Yes </td>
-   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 26 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> No </td>
@@ -107,4 +107,123 @@ Report generated at: 02/05/2021 11:11 AM PDT
 
 ## Monoclonal antibodies
 
-<img src="susceptibility-data_files/figure-html/mab-fold-fig-1.png" width="1344" />
+
+```
+## Warning: Ignoring unknown aesthetics: width
+```
+
+```
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+
+## Warning in FUN(X[[i]], ...): no non-missing arguments to max; returning -Inf
+```
+
+<img src="susceptibility-data_files/figure-html/mab-fold-fig-1.png" width="1536" />
