@@ -293,14 +293,15 @@ strainTitle = c(
   "S:453F" = "Y453F"
 )
 filterStrains = names(strainTitle)
-filterMAbs = setdiff(
-  structuredMAbs$ab_name,
-  c(
-    "DH1041",  # PDB:7LAA, pending
-    "5-24",  # PDB:7L2F, pending
-    "910-30" # PDB:7KS9, pending
-  )
-)
+filterMAbs = structuredMAbs$ab_name %>%
+  setdiff(
+    c(
+      "DH1041",  # PDB:7LAA, pending
+      "5-24",  # PDB:7L2F, pending
+      "910-30" # PDB:7KS9, pending
+    )
+  ) %>%
+  union(c("Cilgavimab", "Tixagevimab"))
 # c(
 #   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
 #   "Cilgavimab", "Tixagevimab",
