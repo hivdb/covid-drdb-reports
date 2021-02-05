@@ -278,15 +278,17 @@ grid.arrange(grobs = plots, nrow = 4)
 
 ## Monoclonal antibodies
 
-```{r mab-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 4}
+```{r mab-fold-fig, fig.height = 10, fig.width = 14, fig.retina = 4, message = FALSE}
 filterMAbs = c(
   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
+  "Cilgavimab", "Tixagevimab",
   "Vir-7831", "C121", "C135", "C144",
   "COV2-2479", "COV2-2832",
   "CC12.1", "BD23", "C119", "P2B-2F6"
 )
 mAbLevels = c(
   "Bamlanivimab", "Casirivimab", "Imdevimab", "Casirivimab+\nImdevimab", "Etesevimab",
+  "Cilgavimab", "Tixagevimab", "Tixagevimab+\nCilgavimab", "Bamlanivimab+\nEtesevimab",
   "Vir-7831", "C121", "C135", "C144",
   "COV2-2479", "COV2-2832",
   "CC12.1", "BD23", "C119", "P2B-2F6"
@@ -297,6 +299,10 @@ mAbLabels = c(
   "Imdevimab" = "IMD",
   "Casirivimab+\nImdevimab" = "CAS-IMD",
   "Etesevimab" = "ETE",
+  "Cilgavimab" = "CIL",
+  "Tixagevimab" = "TIX",
+  "Tixagevimab+\nCilgavimab" = "TIX-CIL",
+  "Bamlanivimab+\nEtesevimab" = "BAM-ETE",
   "Vir-7831" = "Vir-7831\n(S309)",
   "C121" = "C121\n(RBM 1)",
   "C135" = "C135\n(RBD-core 1)",
@@ -314,15 +320,20 @@ dfForPlot = dfSuscResultsMAb %>%
     strain_name %in% filterStrains
   )  %>%
   mutate(
+    strain_name = factor(strain_name, levels = filterStrains),
     fold_cmp = ifelse(fold > 100, ">", fold_cmp),
     fold = ifelse(fold > 100, 100, fold),
-    strain_name = factor(strain_name, levels = filterStrains),
+    ab_name = Vectorize(function(x) paste(x, collapse = "+\n"))(ab_name)
+  ) %>%
+  mutate(
     ab_name = factor(
-      Vectorize(function(x) paste(x, collapse = "+\n"))(ab_name),
-      levels = mAbLevels
+      ab_name,
+      levels = unique(c(mAbLevels, ab_name))
     )
   ) %>%
-  select(ref_name, ab_name, strain_name, fold_cmp, fold)
+  select(ref_name, ab_name, strain_name, fold_cmp, fold) %>%
+  group_by(ref_name, ab_name, strain_name, fold_cmp) %>%
+  summarise(fold = max(fold))
 
 plots = list()
 i = 1
@@ -357,7 +368,7 @@ dfForPlot %>%
       )
     ),
     position = position_dodge2(preserve = 'single', width = 0.6),
-    size = 2.5,
+    size = 1.5,
     vjust = -0.5
   ) +
   geom_text(

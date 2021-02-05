@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/04/2021 06:16 PM PDT
+Report generated at: 02/05/2021 11:11 AM PDT
 
 
 
@@ -29,49 +29,49 @@ Report generated at: 02/04/2021 06:16 PM PDT
    <td style="text-align:left;"> S:501Y </td>
    <td style="text-align:right;"> 37 </td>
    <td style="text-align:right;"> 73 </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 43 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> S:484K </td>
    <td style="text-align:right;"> 58 </td>
    <td style="text-align:right;"> 27 </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 29 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
    <td style="text-align:right;"> 410 </td>
    <td style="text-align:right;"> 408 </td>
-   <td style="text-align:right;"> 189 </td>
-   <td style="text-align:right;"> 500 </td>
-   <td style="text-align:right;"> 1174 </td>
+   <td style="text-align:right;"> 237 </td>
+   <td style="text-align:right;"> 512 </td>
+   <td style="text-align:right;"> 1258 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
    <td style="text-align:right;"> 83 </td>
    <td style="text-align:right;"> 129 </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 35 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
    <td style="text-align:right;"> 102 </td>
    <td style="text-align:right;"> 30 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 26 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
    <td style="text-align:right;"> 162 </td>
    <td style="text-align:right;"> 154 </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 135 </td>
-   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 270 </td>
   </tr>
 </tbody>
 </table>
@@ -88,11 +88,11 @@ Report generated at: 02/04/2021 06:16 PM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> Yes </td>
-   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 24 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:right;"> 95 </td>
   </tr>
 </tbody>
 </table>
@@ -107,4 +107,4 @@ Report generated at: 02/04/2021 06:16 PM PDT
 
 ## Monoclonal antibodies
 
-<img src="susceptibility-data_files/figure-html/mab-fold-fig-1.png" width="1152" />
+<img src="susceptibility-data_files/figure-html/mab-fold-fig-1.png" width="1344" />
