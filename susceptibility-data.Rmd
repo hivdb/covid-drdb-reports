@@ -301,7 +301,7 @@ filterMAbs = structuredMAbs$ab_name %>%
       "910-30" # PDB:7KS9, pending
     )
   ) %>%
-  union(c("Cilgavimab", "Tixagevimab"))
+  union(phase3MAbs$ab_name)
 # c(
 #   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
 #   "Cilgavimab", "Tixagevimab",
@@ -327,6 +327,7 @@ mAbLabels = c(
   "Tixagevimab+\nCilgavimab" = "TIX-CIL",
   "Bamlanivimab+\nEtesevimab" = "BAM-ETE",
   "Vir-7831" = "Vir-7831\n(S309)",
+  "BRII-196" = "BRII-196",
   "B38" = "B38\n(RBM 1)",
   "BD-629" = "BD-629\n(RBM 1)",
   "C121" = "C121\n(RBM 1)",
