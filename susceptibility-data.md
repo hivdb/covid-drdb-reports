@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/05/2021 07:25 PM PDT
+Report generated at: 02/07/2021 02:48 PM PDT
 
 
 
@@ -29,7 +29,7 @@ Report generated at: 02/05/2021 07:25 PM PDT
    <td style="text-align:left;"> S:501Y </td>
    <td style="text-align:right;"> 39 </td>
    <td style="text-align:right;"> 74 </td>
-   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 14 </td>
    <td style="text-align:right;"> 16 </td>
    <td style="text-align:right;"> 43 </td>
   </tr>
@@ -69,7 +69,7 @@ Report generated at: 02/05/2021 07:25 PM PDT
    <td style="text-align:left;"> Other mutation combinations </td>
    <td style="text-align:right;"> 162 </td>
    <td style="text-align:right;"> 154 </td>
-   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 58 </td>
    <td style="text-align:right;"> 137 </td>
    <td style="text-align:right;"> 270 </td>
   </tr>
