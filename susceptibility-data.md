@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/07/2021 08:53 PM PDT
+Report generated at: 02/07/2021 11:49 PM PDT
 
 
 
@@ -27,16 +27,16 @@ Report generated at: 02/07/2021 08:53 PM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> S:501Y </td>
-   <td style="text-align:right;"> 39 </td>
-   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 79 </td>
    <td style="text-align:right;"> 14 </td>
    <td style="text-align:right;"> 15 </td>
    <td style="text-align:right;"> 43 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> S:484K </td>
-   <td style="text-align:right;"> 58 </td>
-   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 32 </td>
    <td style="text-align:right;"> 17 </td>
    <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 29 </td>
@@ -44,7 +44,7 @@ Report generated at: 02/07/2021 08:53 PM PDT
   <tr>
    <td style="text-align:left;"> Other mutations </td>
    <td style="text-align:right;"> 410 </td>
-   <td style="text-align:right;"> 408 </td>
+   <td style="text-align:right;"> 413 </td>
    <td style="text-align:right;"> 237 </td>
    <td style="text-align:right;"> 517 </td>
    <td style="text-align:right;"> 1258 </td>
@@ -59,16 +59,16 @@ Report generated at: 02/07/2021 08:53 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:right;"> 35 </td>
    <td style="text-align:right;"> 14 </td>
    <td style="text-align:right;"> 10 </td>
    <td style="text-align:right;"> 26 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 162 </td>
-   <td style="text-align:right;"> 154 </td>
+   <td style="text-align:right;"> 244 </td>
+   <td style="text-align:right;"> 169 </td>
    <td style="text-align:right;"> 58 </td>
    <td style="text-align:right;"> 137 </td>
    <td style="text-align:right;"> 270 </td>
