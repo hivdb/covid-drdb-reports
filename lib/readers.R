@@ -1,3 +1,4 @@
+library(dplyr)
 library(scales)
 
 .getpwd <- function() {
@@ -10,16 +11,11 @@ library(scales)
 }
 
 TABLES_DIR = normalizePath(sprintf('%s/../covid-drdb-payload/tables', .getpwd()))
-LU_TABLES_DIR = normalizePath(sprintf('%s/../covid-drdb-payload/lu_tables', .getpwd()))
+EXCLUDES_DIR = normalizePath(sprintf('%s/../covid-drdb-payload/excluded', .getpwd()))
 
-read.dbTable <- function(filename, colClasses = NA) {
-  table_prefix = ifelse(
-    startsWith(filename, "lu_"),
-    yes = LU_TABLES_DIR,
-    no = TABLES_DIR
-  )
+read.dbTable <- function(filename, colClasses = NA, tables_dir = TABLES_DIR) {
   read.table(
-    sprintf("%s/%s", table_prefix, filename),
+    sprintf("%s/%s", tables_dir, filename),
     header = TRUE,
     sep = ",",
     quote = '"',
@@ -28,20 +24,40 @@ read.dbTable <- function(filename, colClasses = NA) {
   )
 }
 
-read.dbTables <- function(dirname, colClasses = NA) {
-  files = list.files(sprintf("%s/%s", TABLES_DIR, dirname),
+read.dbTables <- function(dirname, colClasses = NA, tables_dir = TABLES_DIR) {
+  files = list.files(sprintf("%s/%s", tables_dir, dirname),
                      pattern = "*.csv", full.names = FALSE)
+  if (length(files) == 0) {
+    return(data.frame())
+  }
   dfs = lapply(files, function(x) {
-    read.dbTable(sprintf("%s/%s", dirname, x))
+    read.dbTable(
+      sprintf("%s/%s", dirname, x),
+      colClasses = colClasses,
+      tables_dir = tables_dir
+    )
   })
-  do.call(dplyr::bind_rows, dfs)
+  do.call(bind_rows, dfs)
 }
 
 read.suscResults <- function(
   partialResistFold = 3,
-  resistFold = 10
+  resistFold = 10,
+  withExcluded = FALSE
 ) {
   dfSusc = read.dbTables("susc_results", colClasses = c(fold = "numeric"))
+  if (withExcluded) {
+    dfSusc = dfSusc %>%
+      mutate(include = TRUE) %>%
+      bind_rows(
+        read.dbTables(
+          "susc_results",
+          colClasses = c(fold = "numeric"),
+          tables_dir = EXCLUDES_DIR
+        ) %>%
+        mutate(include = FALSE)
+      )
+  }
   dfSusc$fold_cmp = ifelse(
     !is.na(dfSusc$fold) &
     !is.null(dfSusc$fold) & (
@@ -84,30 +100,97 @@ read.suscResults <- function(
 
 read.suscResultsCP <- function(
   partialResistFold = 3,
-  resistFold = 10
+  resistFold = 10,
+  withExcluded = FALSE
 ) {
   dfSusc = read.suscResults(
     partialResistFold = partialResistFold,
-    resistFold = resistFold
+    resistFold = resistFold,
+    withExcluded = withExcluded
   )
   dfCP = read.dbTables("rx_conv_plasma")
+  if (withExcluded) {
+    dfCP = bind_rows(dfCP, read.dbTables(
+      "rx_conv_plasma",
+      tables_dir = EXCLUDES_DIR
+    ))
+  }
   merge(dfSusc, dfCP, by = c("ref_name", "rx_name"))
 }
 
 read.suscResultsIP <- function(
   partialResistFold = 3,
-  resistFold = 10
+  resistFold = 10,
+  withExcluded = FALSE
 ) {
   dfSusc = read.suscResults(
     partialResistFold = partialResistFold,
-    resistFold = resistFold
+    resistFold = resistFold,
+    withExcluded = withExcluded
   )
   dfIP = read.dbTables("rx_immu_plasma")
+  if (withExcluded) {
+    dfIP = bind_rows(dfIP, read.dbTables(
+      "rx_immu_plasma",
+      tables_dir = EXCLUDES_DIR
+    ))
+  }
   merge(dfSusc, dfIP, by = c("ref_name", "rx_name"))
 }
 
+read.suscResultsMAb <- function(
+  partialResistFold = 3,
+  resistFold = 10,
+  withExcluded = FALSE
+) {
+  dfSusc = read.suscResults(
+    partialResistFold = partialResistFold,
+    resistFold = resistFold,
+    withExcluded = withExcluded
+  )
+  dfMAb = read.dbTables("rx_antibodies")
+  if (withExcluded) {
+    dfMAb = bind_rows(dfMAb, read.dbTables(
+      "rx_antibodies",
+      tables_dir = EXCLUDES_DIR
+    ))
+  }
+  dfMAb = dfMAb %>%
+    inner_join(
+      read.antibodies(),
+      by = "ab_name",
+      suffix = c(".rxmab", ".mab")
+    )
+  dfMAb = aggregate(cbind(ab_name, short_ab_name) ~ ref_name + rx_name, dfMAb, FUN = function(x) x)
+  dfSusc %>%
+    inner_join(
+      dfMAb,
+      by = c("ref_name", "rx_name"),
+      suffix = c(".susc", ".rxmab")
+    )
+}
+
+read.antibodies <- function() {
+  read.dbTable("antibodies.csv") %>%
+    mutate(
+      short_ab_name = ifelse(
+        is.na(abbreviation_name),
+        ab_name,
+        abbreviation_name
+      )
+    )
+}
+
+read.articles <- function() {
+  read.dbTable("articles.csv")
+}
+
+read.strainMutations = function() {
+  read.dbTable("strain_mutations.csv")
+}
+
 read.virusStrains <- function() {
-  dfMuts = read.dbTable("strain_mutations.csv")
+  dfMuts = read.strainMutations()
   dfStrains = read.dbTable("virus_strains.csv")
   merge(
     dfStrains,
@@ -118,21 +201,4 @@ read.virusStrains <- function() {
     ),
     by = "strain_name"
   )
-}
-
-read.antibodies <- function() {
-  read.dbTable("antibodies.csv")
-}
-
-read.suscResultsMAb <- function(
-  partialResistFold = 3,
-  resistFold = 10
-) {
-  dfSusc = read.suscResults(
-    partialResistFold = partialResistFold,
-    resistFold = resistFold
-  )
-  dfMAb = read.dbTables("rx_antibodies")
-  dfMAb = aggregate(ab_name ~ ref_name + rx_name, dfMAb, FUN = function(x) x)
-  merge(dfSusc, dfMAb, by = c("ref_name", "rx_name"))
 }
