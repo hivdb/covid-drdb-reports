@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/07/2021 02:48 PM PDT
+Report generated at: 02/07/2021 04:07 PM PDT
 
 
 
@@ -30,7 +30,7 @@ Report generated at: 02/07/2021 02:48 PM PDT
    <td style="text-align:right;"> 39 </td>
    <td style="text-align:right;"> 74 </td>
    <td style="text-align:right;"> 14 </td>
-   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 15 </td>
    <td style="text-align:right;"> 43 </td>
   </tr>
   <tr>
@@ -38,7 +38,7 @@ Report generated at: 02/07/2021 02:48 PM PDT
    <td style="text-align:right;"> 58 </td>
    <td style="text-align:right;"> 27 </td>
    <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 29 </td>
   </tr>
   <tr>
@@ -46,7 +46,7 @@ Report generated at: 02/07/2021 02:48 PM PDT
    <td style="text-align:right;"> 410 </td>
    <td style="text-align:right;"> 408 </td>
    <td style="text-align:right;"> 237 </td>
-   <td style="text-align:right;"> 520 </td>
+   <td style="text-align:right;"> 517 </td>
    <td style="text-align:right;"> 1258 </td>
   </tr>
   <tr>
