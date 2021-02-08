@@ -1,6 +1,8 @@
 library(dplyr)
 library(scales)
 
+`%notin%` <- Negate(`%in%`)
+
 .getpwd <- function() {
   pwd = getSrcDirectory(.getpwd)[1]
   if (is.na(pwd) || startsWith(pwd, '.')) {
@@ -161,7 +163,11 @@ read.suscResultsMAb <- function(
       by = "ab_name",
       suffix = c(".rxmab", ".mab")
     )
-  dfMAb = aggregate(cbind(ab_name, short_ab_name) ~ ref_name + rx_name, dfMAb, FUN = function(x) x)
+  dfMAb = aggregate(cbind(
+    ab_name,
+    short_ab_name,
+    short_ab_name_with_author_target
+  ) ~ ref_name + rx_name, dfMAb, FUN = function(x) x)
   dfSusc %>%
     inner_join(
       dfMAb,
@@ -171,12 +177,30 @@ read.suscResultsMAb <- function(
 }
 
 read.antibodies <- function() {
+  dfMAbTargets = read.dbTable("antibody_targets.csv")
+  dfMAbAuthorTargets = dfMAbTargets %>%
+    filter(
+      source == "author" &
+      ab_name %notin% filter(
+        dfMAbTargets,
+        source == 'structure'
+      )$ab_name
+    ) %>%
+    group_by(ab_name) %>%
+    summarise(ab_author_target = paste(target, collapse = ";"))
+  
   read.dbTable("antibodies.csv") %>%
+    left_join(dfMAbAuthorTargets, by = "ab_name") %>%
     mutate(
       short_ab_name = ifelse(
         is.na(abbreviation_name),
         ab_name,
         abbreviation_name
+      ),
+      short_ab_name_with_author_target = ifelse(
+        is.na(ab_author_target),
+        short_ab_name,
+        sprintf("%s (%s)", short_ab_name, ab_author_target)
       )
     )
 }

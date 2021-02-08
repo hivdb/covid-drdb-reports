@@ -33,7 +33,6 @@ dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
 dfVirusStrains = read.virusStrains() %>%
   select(strain_name, num_muts)
-dfAntibodies = read.antibodies()
 dfArticles = read.articles()
 dfStrainMutations = read.strainMutations()
 
@@ -75,7 +74,7 @@ dfSuscResultsMAb %>%
   ) %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
-    mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name),
+    mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
     Assay = ifelse(is.na(assay), "", assay),
@@ -166,7 +165,7 @@ dfSuscResultsMAb %>%
   filter(num_muts > 1) %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
-    mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name),
+    mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
     Assay = ifelse(is.na(assay), "", assay),
