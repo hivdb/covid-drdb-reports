@@ -355,7 +355,8 @@ mAbLabels = c(
   "COVA1-16" = "COVA1-16\n(RBD-core 2)",
   "H014" = "H014\n(RBD-core 2)",
   "S2X35" = "S2X35\n(RBD-core 2)",
-  "4A8" = "4A8\n(NTD)"
+  "4A8" = "4A8\n(NTD)",
+  "JMB2002" = "JMB2002\n(RBD)"
 )
 mAbHasLabels = names(mAbLabels)
 
