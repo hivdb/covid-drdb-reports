@@ -365,6 +365,11 @@ dfForPlot = dfSuscResultsMAb %>%
     strain_name %in% filterStrains
   )  %>%
   mutate(
+    ref_name = ifelse(
+      ref_name == "Rees-Spear21",
+      "RSC21",
+      ref_name
+    ),
     strain_name = factor(strain_name, levels = filterStrains),
     fold_cmp = ifelse(fold > 100, ">", fold_cmp),
     fold = ifelse(fold > 100, 100, fold),
