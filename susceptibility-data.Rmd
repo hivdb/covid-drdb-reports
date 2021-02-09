@@ -287,7 +287,7 @@ grid.arrange(grobs = plots, nrow = length(strainTitle))
 
 ## Monoclonal antibodies
 
-```{r mab-fold-fig, fig.height = 20, fig.width = 16, fig.retina = 4, message = FALSE, warning = FALSE}
+```{r mab-fold-fig, fig.height = 20, fig.width = 24, fig.retina = 4, message = FALSE, warning = FALSE}
 strainTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",

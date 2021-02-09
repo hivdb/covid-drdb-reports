@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/08/2021 05:45 PM PDT
+Report generated at: 02/08/2021 05:50 PM PDT
 
 
 
@@ -107,4 +107,4 @@ Report generated at: 02/08/2021 05:45 PM PDT
 
 ## Monoclonal antibodies
 
-<img src="susceptibility-data_files/figure-html/mab-fold-fig-1.png" width="1536" />
+<img src="susceptibility-data_files/figure-html/mab-fold-fig-1.png" width="2304" />
