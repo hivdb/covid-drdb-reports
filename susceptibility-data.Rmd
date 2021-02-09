@@ -342,6 +342,7 @@ mAbLabels = c(
   "DH1047" = "DH1047\n(RBM 1)",
   "P2C-1F11" = "P2C-1F11\n(RBM 1)",
   "S2E12" = "S2E12\n(RBM 1)",
+  "S2H14" = "S2H14\n(RBM 1)",
   "BD-368-2" = "BD-368-2\n(RBM 2)",
   "C119" = "C119\n(RBM 2)",
   "C121" = "C121\n(RBM 2)",
@@ -353,6 +354,7 @@ mAbLabels = c(
   "C135" = "C135\n(RBD-core 1)",
   "COVA1-16" = "COVA1-16\n(RBD-core 2)",
   "H014" = "H014\n(RBD-core 2)",
+  "S2X35" = "S2X35\n(RBD-core 2)",
   "4A8" = "4A8\n(NTD)"
 )
 mAbHasLabels = names(mAbLabels)
