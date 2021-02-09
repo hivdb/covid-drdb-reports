@@ -308,20 +308,11 @@ filterMAbs = structuredMAbs$ab_name %>%
     )
   ) %>%
   union(phase3MAbs$ab_name)
-# c(
-#   "Bamlanivimab", "Casirivimab", "Imdevimab", "Etesevimab",
-#   "Cilgavimab", "Tixagevimab",
-#   "Vir-7831", "C121", "C135", "C144",
-#   "COV2-2479", "COV2-2832",
-#   "CC12.1", "BD23", "C119", "P2B-2F6"
-# )
-mAbLevels = c(
-  "Bamlanivimab", "Casirivimab", "Imdevimab", "Casirivimab+\nImdevimab", "Etesevimab",
-  "Cilgavimab", "Tixagevimab", "Tixagevimab+\nCilgavimab", "Bamlanivimab+\nEtesevimab",
-  "Vir-7831", "C121", "C135", "C144",
-  "COV2-2479", "COV2-2832",
-  "CC12.1", "BD23", "C119", "P2B-2F6"
-)
+
+# order of mAbs:
+# - MAbs in clinical trial first; add the new trial MAb at the end of this group; well-known ones don't need class/target
+# - MAbs with structure data should be ordered by their class: RBM 1, 2, 3, RBD-core 1, 2
+# - Within a mAb class, order mAbs in alphabetical order
 mAbLabels = c(
   "Bamlanivimab" = "BAM",
   "Casirivimab" = "CAS",
@@ -334,6 +325,7 @@ mAbLabels = c(
   "Bamlanivimab+\nEtesevimab" = "BAM-ETE",
   "Vir-7831" = "Vir-7831\n(S309)",
   "BRII-196" = "BRII-196",
+  "JMB2002" = "JMB2002\n(RBD)",
   "B38" = "B38\n(RBM 1)",
   "BD-629" = "BD-629\n(RBM 1)",
   "CC12.1" = "CC12.1\n(RBM 1)",
@@ -355,8 +347,7 @@ mAbLabels = c(
   "COVA1-16" = "COVA1-16\n(RBD-core 2)",
   "H014" = "H014\n(RBD-core 2)",
   "S2X35" = "S2X35\n(RBD-core 2)",
-  "4A8" = "4A8\n(NTD)",
-  "JMB2002" = "JMB2002\n(RBD)"
+  "4A8" = "4A8\n(NTD)"
 )
 mAbHasLabels = names(mAbLabels)
 
