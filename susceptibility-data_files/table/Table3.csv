@@ -2,32 +2,32 @@
 501Y,CP,57
 501Y,IP,79
 501Y,mAbs phase3,14
-501Y,mAbs structure,26
+501Y,mAbs structure,28
 484K,CP,68
 484K,IP,32
 484K,mAbs phase3,19
-484K,mAbs structure,23
+484K,mAbs structure,27
 Other individual mutations,CP,413
 Other individual mutations,IP,413
 Other individual mutations,mAbs phase3,272
-Other individual mutations,mAbs structure,747
+Other individual mutations,mAbs structure,771
 All individual mutations,CP,538
 All individual mutations,IP,524
 All individual mutations,mAbs phase3,305
-All individual mutations,mAbs structure,796
+All individual mutations,mAbs structure,826
 B.1.1.7,CP,85
 B.1.1.7,IP,154
 B.1.1.7,mAbs phase3,20
-B.1.1.7,mAbs structure,32
+B.1.1.7,mAbs structure,36
 B.1.351,CP,112
 B.1.351,IP,35
 B.1.351,mAbs phase3,18
-B.1.351,mAbs structure,22
+B.1.351,mAbs structure,26
 B.1.1.7 + B.1.351,CP,197
 B.1.1.7 + B.1.351,IP,189
 B.1.1.7 + B.1.351,mAbs phase3,38
-B.1.1.7 + B.1.351,mAbs structure,54
+B.1.1.7 + B.1.351,mAbs structure,62
 Other muation combinations,CP,144
 Other muation combinations,IP,159
 Other muation combinations,mAbs phase3,58
-Other muation combinations,mAbs structure,190
+Other muation combinations,mAbs structure,194
