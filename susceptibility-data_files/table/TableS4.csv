@@ -1,0 +1,126 @@
+﻿Strain name,Mab name,Class,Target,Source,Resistance level,Fold,Reference
+417N,2-4,RBM Class III,RBD,structure,susceptible,=0.4,Wang21b
+417N,4-8,NTD,NTD,structure,susceptible,=1.6,Wang21b
+417N,4A8,NTD,NTD,structure,susceptible,=0.6,Wang21b
+417N,BRII-196,,,,susceptible,=1.8,Wang21b
+417N,Bamlanivimab,RBM Class II,RBD,structure,susceptible,=0.1,Wang21b
+417N,C121,RBM Class II,RBD,structure,susceptible,=0.8,Wang21b
+417N,C135,RBD Core Cluster I,RBD,structure,susceptible,=0.3,Wang21b
+417N,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=0.3,Wang21b
+417N,Casirivimab,,,,resistance,=13.1,Wang21b
+417N,Cilgavimab,,,,susceptible,=0.6,Wang21b
+417N,Etesevimab,,,,resistance,=4800.5,Starr21
+417N,Etesevimab,,,,resistance,=1000.0,Wang21b
+417N,Imdevimab,,,,susceptible,=1.2,Wang21b
+417N,Tixagevimab,,,,susceptible,=0.4,Wang21b
+417N,Vir-7831,,,,susceptible,=0.6,Wang21b
+417N + 484K + 501Y(B.1.351 RBD),C119,RBM Class II,RBD,structure,resistance,>100.0,Wibmer21
+417N + 484K + 501Y(B.1.351 RBD),CC12.1,RBM Class I,RBD,structure,resistance,>100.0,Wibmer21
+417N + 484K + 501Y(B.1.351 RBD),Casirivimab,,,,resistance,~100.0,Yao21
+417N + 484K + 501Y(B.1.351 RBD),Etesevimab,,,,resistance,>100.0,Wibmer21
+417N + 484K + 501Y(B.1.351 RBD),Etesevimab,,,,resistance,>100.0,Yao21
+417N + 484K + 501Y(B.1.351 RBD),Imdevimab,,,,susceptible,~1.0,Yao21
+417N + 484K + 501Y(B.1.351 RBD),P2B-2F6,RBM Class II,RBD,structure,resistance,>100.0,Wibmer21
+439K,B38,RBM Class I,RBD,structure,susceptible,=1.9,Li20h
+439K,B38,RBM Class I,RBD,structure,susceptible,=0.6,Shen21
+439K,C121,RBM Class II,RBD,structure,susceptible,=2.3,Weisblum20
+439K,C135,RBD Core Cluster I,RBD,structure,resistance,=165.8,Weisblum20
+439K,C144,RBM Class III,RBD,structure,susceptible,=0.9,Weisblum20
+439K,Casirivimab,,,,susceptible,=0.7,Rothenberger21
+439K,Casirivimab,,,,susceptible,=0.8,Starr21
+439K,DH1047,RBD Core Cluster II,RBD,structure,susceptible,=0.1,Shen21
+439K,Etesevimab,,,,susceptible,=0.6,Li20h
+439K,H014,RBD Core Cluster II,RBD,structure,susceptible,=1.1,Li20h
+439K,Imdevimab,,,,partial,=4.9,Rothenberger21
+439K,Imdevimab,,,,resistance,=35.9,Starr21
+439K,P2B-2F6,RBM Class II,RBD,structure,susceptible,=1.0,Li20h
+439K,P2B-2F6,RBM Class II,RBD,structure,susceptible,=2.2,Shen21
+439K,P2C-1F11,RBM Class I,RBD,structure,susceptible,=1.0,Li20h
+439K,REGN10933 + REGN10987,,,,susceptible,=1.7,Starr21
+439K,S2E12,RBM Class I,RBD,structure,susceptible,=0.9,Tortorici20
+439K,S2M11,RBM Class III,RBD,structure,susceptible,=1.1,Tortorici20
+439K,Vir-7831,,,,susceptible,=0.9,Shen21
+484K,2-4,RBM Class III,RBD,structure,resistance,=1000.0,Wang21b
+484K,4-8,NTD,NTD,structure,partial,=3.2,Wang21b
+484K,BRII-196,,,,susceptible,=1.4,Wang21b
+484K,Bamlanivimab,RBM Class II,RBD,structure,resistance,>100.0,Gottlieb21
+484K,Bamlanivimab,RBM Class II,RBD,structure,resistance,>1000.0,Wang21b
+484K,C121,RBM Class II,RBD,structure,resistance,>1000.0,Wang21b
+484K,C121,RBM Class II,RBD,structure,resistance,>2202.2,Weisblum20
+484K,C135,RBD Core Cluster I,RBD,structure,susceptible,=0.4,Wang21b
+484K,C135,RBD Core Cluster I,RBD,structure,susceptible,=1.2,Weisblum20
+484K,C144,RBM Class III,RBD,structure,resistance,>956.2,Weisblum20
+484K,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=1.0,Wang21b
+484K,Casirivimab,,,,resistance,=20.3,Baum20
+484K,Casirivimab,,,,partial,=4.4,Rothenberger21
+484K,Casirivimab,,,,resistance,=10.5,Wang21b
+484K,Cilgavimab,,,,susceptible,~2.0,Dong21
+484K,Cilgavimab,,,,susceptible,=1.4,Wang21b
+484K,Etesevimab,,,,partial,=4.4,Gottlieb21
+484K,Etesevimab,,,,partial,=3.5,Wang21b
+484K,Imdevimab,,,,susceptible,=1.7,Baum20
+484K,Imdevimab,,,,susceptible,=1.0,Rothenberger21
+484K,Imdevimab,,,,susceptible,=1.1,Wang21b
+484K,REGN10933/10987,,,,susceptible,=1.9,Baum20
+484K,REGN10989/10987,,,,resistance,=15.4,Baum20
+484K,Tixagevimab,,,,susceptible,~2.0,Dong21
+484K,Tixagevimab,,,,partial,=8.1,Wang21b
+484K,Vir-7831,,,,susceptible,=0.4,Wang21b
+501Y,2-4,RBM Class III,RBD,structure,susceptible,=2.8,Wang21b
+501Y,4-8,NTD,NTD,structure,partial,=6.7,Wang21b
+501Y,B38,RBM Class I,RBD,structure,susceptible,=2.2,Shen21
+501Y,BRII-196,,,,susceptible,=0.7,Wang21b
+501Y,Bamlanivimab,RBM Class II,RBD,structure,susceptible,=1.0,Wang21b
+501Y,C121,RBM Class II,RBD,structure,susceptible,=0.7,Wang21b
+501Y,C121,RBM Class II,RBD,structure,susceptible,=0.8,Weisblum20
+501Y,C135,RBD Core Cluster I,RBD,structure,susceptible,=0.8,Wang21b
+501Y,C135,RBD Core Cluster I,RBD,structure,susceptible,=2.2,Weisblum20
+501Y,C144,RBM Class III,RBD,structure,susceptible,=1.4,Weisblum20
+501Y,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=0.7,Rees-Spear21
+501Y,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=1.4,Wang21b
+501Y,COVA2-04,RBM Class I,RBD,structure,susceptible,=0.4,Rees-Spear21
+501Y,Casirivimab,,,,susceptible,=1.1,Rothenberger21
+501Y,Casirivimab,,,,susceptible,=1.4,Wang21b
+501Y,Casirivimab,,,,susceptible,~1.0,Yao21
+501Y,Cilgavimab,,,,susceptible,=1.3,Wang21b
+501Y,DH1047,RBD Core Cluster II,RBD,structure,susceptible,=0.5,Shen21
+501Y,Etesevimab,,,,susceptible,=2.6,Wang21b
+501Y,Etesevimab,,,,partial,~5.0,Yao21
+501Y,Imdevimab,,,,susceptible,=1.0,Rothenberger21
+501Y,Imdevimab,,,,susceptible,=0.8,Wang21b
+501Y,Imdevimab,,,,susceptible,~1.0,Yao21
+501Y,P2B-2F6,RBM Class II,RBD,structure,susceptible,=0.6,Shen21
+501Y,Tixagevimab,,,,susceptible,=1.7,Wang21b
+501Y,Vir-7831,,,,partial,=3.1,Shen21
+501Y,Vir-7831,,,,susceptible,=0.8,Wang21b
+∆69/70,2-4,RBM Class III,RBD,structure,susceptible,=1.2,Wang21b
+∆69/70,4-8,NTD,NTD,structure,susceptible,=0.9,Wang21b
+∆69/70,4A8,NTD,NTD,structure,susceptible,=0.7,Wang21b
+∆69/70,BRII-196,,,,susceptible,=0.9,Wang21b
+∆69/70,Bamlanivimab,RBM Class II,RBD,structure,susceptible,=0.9,Wang21b
+∆69/70,C121,RBM Class II,RBD,structure,susceptible,=0.6,Wang21b
+∆69/70,C135,RBD Core Cluster I,RBD,structure,susceptible,=0.6,Wang21b
+∆69/70,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=1.1,Kemp21
+∆69/70,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=0.8,Rees-Spear21
+∆69/70,COVA1-16,RBD Core Cluster II,RBD,structure,susceptible,=0.9,Wang21b
+∆69/70,COVA2-04,RBM Class I,RBD,structure,susceptible,=0.8,Kemp21
+∆69/70,COVA2-04,RBM Class I,RBD,structure,susceptible,=1.0,Rees-Spear21
+∆69/70,COVA2-39,RBM Class I,RBD,structure,susceptible,=2.2,Kemp21
+∆69/70,Casirivimab,,,,susceptible,=0.8,Wang21b
+∆69/70,Cilgavimab,,,,susceptible,=1.3,Wang21b
+∆69/70,Etesevimab,,,,susceptible,=0.7,Wang21b
+∆69/70,Imdevimab,,,,susceptible,=0.8,Wang21b
+∆69/70,Tixagevimab,,,,susceptible,=1.0,Wang21b
+∆69/70,Vir-7831,,,,susceptible,=1.6,Wang21b
+∆69/70 + 501Y,B38,RBM Class I,RBD,structure,susceptible,=1.2,Shen21
+∆69/70 + 501Y,Casirivimab,,,,susceptible,~1.0,Yao21
+∆69/70 + 501Y,DH1047,RBD Core Cluster II,RBD,structure,susceptible,=0.4,Shen21
+∆69/70 + 501Y,Imdevimab,,,,susceptible,~1.0,Yao21
+∆69/70 + 501Y,P2B-2F6,RBM Class II,RBD,structure,susceptible,=0.5,Shen21
+∆69/70 + 501Y,Vir-7831,,,,susceptible,=2.2,Shen21
+∆69/70 + 501Y + 453F,B38,RBM Class I,RBD,structure,susceptible,=0.5,Shen21
+∆69/70 + 501Y + 453F,Casirivimab,,,,resistance,~50.0,Yao21
+∆69/70 + 501Y + 453F,DH1047,RBD Core Cluster II,RBD,structure,susceptible,=0.3,Shen21
+∆69/70 + 501Y + 453F,Imdevimab,,,,susceptible,~1.0,Yao21
+∆69/70 + 501Y + 453F,P2B-2F6,RBM Class II,RBD,structure,susceptible,=1.3,Shen21
+∆69/70 + 501Y + 453F,Vir-7831,,,,susceptible,=2.0,Shen21
