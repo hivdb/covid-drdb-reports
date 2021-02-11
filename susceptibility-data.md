@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/09/2021 04:39 PM PDT
+Report generated at: 02/11/2021 12:20 AM PDT
 
 
 
@@ -29,49 +29,49 @@ Report generated at: 02/09/2021 04:39 PM PDT
    <td style="text-align:left;"> S:501Y </td>
    <td style="text-align:right;"> 57 </td>
    <td style="text-align:right;"> 79 </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 42 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> S:484K </td>
    <td style="text-align:right;"> 68 </td>
    <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 28 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
    <td style="text-align:right;"> 413 </td>
    <td style="text-align:right;"> 413 </td>
-   <td style="text-align:right;"> 246 </td>
-   <td style="text-align:right;"> 520 </td>
-   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 358 </td>
+   <td style="text-align:right;"> 420 </td>
+   <td style="text-align:right;"> 1252 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
    <td style="text-align:right;"> 85 </td>
    <td style="text-align:right;"> 154 </td>
-   <td style="text-align:right;"> 16 </td>
-   <td style="text-align:right;"> 18 </td>
-   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 89 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
    <td style="text-align:right;"> 112 </td>
    <td style="text-align:right;"> 35 </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:right;"> 10 </td>
-   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 24 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
    <td style="text-align:right;"> 260 </td>
    <td style="text-align:right;"> 179 </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 144 </td>
-   <td style="text-align:right;"> 286 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 142 </td>
+   <td style="text-align:right;"> 284 </td>
   </tr>
 </tbody>
 </table>
@@ -88,11 +88,11 @@ Report generated at: 02/09/2021 04:39 PM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> Yes </td>
-   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 32 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 153 </td>
+   <td style="text-align:right;"> 151 </td>
   </tr>
 </tbody>
 </table>

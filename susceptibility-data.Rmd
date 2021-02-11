@@ -45,7 +45,7 @@ groupTitle = c(
 
 ```{r numbers}
 phase3MAbs = dfAntibodies %>%
-  filter(availability == "Investigational (human trials)")
+  filter(!is.na(availability))
 
 structuredMAbs = dfAntibodies %>%
   filter(!is.na(pdb_id))
@@ -325,6 +325,8 @@ mAbLabels = c(
   "Bamlanivimab+\nEtesevimab" = "BAM-ETE",
   "Vir-7831" = "Vir-7831\n(S309)",
   "BRII-196" = "BRII-196",
+  "BRII-198" = "BRII-198",
+  "BRII-196+\nBRII-198" = "BRII-196+\nBRII-198",
   "JMB2002" = "JMB2002\n(RBD)",
   "B38" = "B38\n(RBM 1)",
   "BD-629" = "BD-629\n(RBM 1)",
@@ -414,7 +416,7 @@ plot = dfForPlot %>%
     position = position_dodge2(preserve = 'single')
   ) +
   labs(fill = "References")
-  
+
 for (strain in filterStrains) {
   dfPartial = dfForPlot %>% filter(strain_name == strain) %>% arrange(ref_name)
   numAbs = dfPartial$num_abs[[1]]
