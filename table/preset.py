@@ -98,11 +98,51 @@ RESISTANCE_LEVLE_FILTER = """
         (
             (fold = 10 AND fold_cmp = '>')
             OR (fold > 10))
-        OR (resistance_level = 'partial-resistance'))
+        OR (resistance_level = 'resistance'))
 """
 
 RESISTANCE_FILTER = {
     'susceptible': [SUSCEPTIBLE_LEVEL_FILTER],
     'partial': [PARTIAL_RESISTANCE_LEVEL_FILTER],
     'resistance': [RESISTANCE_LEVLE_FILTER],
+}
+
+
+EXCLUDE_PLASMA = [
+    'Hospitalized_Samples',
+    'Mild_Samples',
+]
+
+PLASMA_RENAME = {
+    'BNT162b2_3Weeks': 'BNT162b2_1M',
+    'CP_5-33d': 'CP_1M',
+    'CP_8mon': 'CP_8M',
+    'Mod_1M': 'mRNA-1273_1M',
+    'Moderna_36d': 'mRNA-1273_1M',
+    'Moderna_D43': 'mRNA-1273_1M',
+    'NVV_1M': 'NVX-CoV2373_1M',
+    'Pfizer_BNT162b2_D28': 'BNT162b2_1M',
+    'Pfizer-BioNTech': 'BNT162b2',
+    'Moderna': 'mRNA-1273',
+    'CP_13': 'CP',
+    'CP_29': 'CP',
+    'CP_35': 'CP',
+    'CP_37': 'CP',
+    'CP_BNT162b2': 'BNT162b2',
+    'CP_ModerateIgG': 'CP',
+    'CP_StrongIgG': 'CP',
+    'CP_weakIgG': 'CP',
+    'Subject_B_d26': 'CP',
+    'Subject_C_d32': 'CP',
+    'Subject_G_d18': 'CP',
+    'Subject_I_d26': 'CP',
+    'CP_BNT162b2_1M': 'BNT162b2_1M',
+    'BNT162b2_2Weeks': 'BNT162b2_1M',
+    'BNT162b2_4Weeks': 'BNT162b2_1M',
+}
+
+MAB_RENAME = {
+    'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
+    'REGN10933/10987': 'Casirivimab/Imdevimab',
+    'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
 }

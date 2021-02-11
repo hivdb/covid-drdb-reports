@@ -4,6 +4,7 @@ from preset import SYNONYM2AB_NAME
 from preset import AB_NAME2MAB_CLASS
 from operator import itemgetter
 from preset import RESISTANCE_FILTER
+from preset import MAB_RENAME
 
 
 MAIN_SQL = """
@@ -16,7 +17,7 @@ SELECT s.ref_name, s.rx_name, ab.class, ab.target, ab.source,
         antibodies AS a LEFT JOIN
         antibody_targets AS b
         ON a.ab_name = b.ab_name
-        WHERE a.availability = 'Investigational (human trials)'
+        WHERE a.availability IS NOT NULL
         OR b.class IS NOT NULL
     ) AS ab
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
@@ -77,11 +78,11 @@ def gen_tableS3(conn):
                         ab_source = ab_class_info['source']
                     records.append({
                         'Strain name': row_name,
-                        'Mab name': ab_name,
+                        'Mab name': MAB_RENAME.get(ab_name, ab_name),
                         'Class': ab_class,
-                        'Target': ab_target,
-                        'Source': ab_source,
-                        'Resistance level': resist_name,
+                        # 'Target': ab_target,
+                        # 'Source': ab_source,
+                        # 'Resistance level': resist_name,
                         'Fold': '{}{}'.format(i[5], i[6]),
                         'Reference': i[0]
                     })

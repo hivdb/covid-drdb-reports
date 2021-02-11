@@ -1,79 +1,46 @@
-﻿Strain name,CP name,Resistance level,#Published,Reference
-417N,CP,susceptible,20,Wang21b
-417N,Moderna,susceptible,11,Wang21
-417N,Moderna_D43,susceptible,12,Wang21b
-417N,Pfizer-BioNTech,susceptible,4,Wang21
-417N,Pfizer_BNT162b2_D28,susceptible,10,Wang21b
-417N + 484K + 501Y(B.1.351 RBD),CP_Titer_GT400,susceptible,6,Wibmer21
-417N + 484K + 501Y(B.1.351 RBD),CP_Titer_GT400,partial,7,Wibmer21
-417N + 484K + 501Y(B.1.351 RBD),CP_Titer_GT400,resistance,9,Wibmer21
-417N + 484K + 501Y(B.1.351 RBD),CP_Titer_LT400,susceptible,6,Wibmer21
-417N + 484K + 501Y(B.1.351 RBD),CP_Titer_LT400,partial,10,Wibmer21
-417N + 484K + 501Y(B.1.351 RBD),CP_Titer_LT400,resistance,6,Wibmer21
-439K,CP_1M,susceptible,3,Shen21
-439K,Mod_1M,susceptible,11,Shen21
-439K,Moderna,susceptible,11,Wang21
-439K,Pfizer-BioNTech,susceptible,4,Wang21
-484K,BNT162b2_1M,susceptible,1,Tada21
-484K,BNT162b2_1M,partial,4,Tada21
-484K,CP,susceptible,10,Tada21
-484K,CP,susceptible,6,Wang21b
-484K,CP,partial,12,Wang21b
-484K,CP,resistance,2,Wang21b
-484K,CP_13,susceptible,1,Liu21
-484K,CP_29,partial,1,Liu21
-484K,CP_35,susceptible,1,Liu21
-484K,CP_37,partial,1,Liu21
-484K,CP_BNT162b2,susceptible,2,Jangra21
-484K,CP_BNT162b2,partial,3,Jangra21
-484K,CP_ModerateIgG,susceptible,4,Jangra21
-484K,CP_ModerateIgG,partial,5,Jangra21
-484K,CP_ModerateIgG,resistance,2,Jangra21
-484K,CP_StrongIgG,susceptible,7,Jangra21
-484K,CP_StrongIgG,partial,4,Jangra21
-484K,CP_weakIgG,susceptible,6,Jangra21
-484K,CP_weakIgG,partial,1,Jangra21
-484K,CP_weakIgG,resistance,1,Jangra21
-484K,Moderna_D43,susceptible,8,Wang21b
-484K,Moderna_D43,partial,4,Wang21b
-484K,Pfizer_BNT162b2_D28,susceptible,6,Wang21b
-484K,Pfizer_BNT162b2_D28,partial,3,Wang21b
-484K,Pfizer_BNT162b2_D28,resistance,1,Wang21b
-484K,Subject_B_d26,resistance,1,Greaney21
-484K,Subject_C_d32,resistance,1,Greaney21
-484K,Subject_G_d18,susceptible,1,Greaney21
-484K,Subject_I_d26,partial,1,Greaney21
-484K + 501Y,CP_BNT162b2_1M,susceptible,20,Xie21b
-501Y,BNT162b2_1M,susceptible,5,Tada21
-501Y,BNT162b2_2Weeks,susceptible,4,Xie21
-501Y,BNT162b2_4Weeks,susceptible,7,Xie21
-501Y,CP,susceptible,19,Edara21
-501Y,CP,partial,1,Edara21
-501Y,CP,susceptible,18,Tada21
-501Y,CP,susceptible,18,Wang21b
-501Y,CP,partial,2,Wang21b
-501Y,CP_1M,susceptible,11,Shen21
-501Y,CP_1M,partial,4,Shen21
-501Y,CP_BNT162b2_1M,susceptible,20,Xie21b
-501Y,Hospitalized_Samples,susceptible,18,Rees-Spear21
-501Y,Mild_Samples,susceptible,18,Rees-Spear21
-501Y,Mod_1M,susceptible,11,Shen21
-501Y,Moderna,susceptible,11,Wang21
-501Y,Moderna_D43,susceptible,12,Wang21b
-501Y,Pfizer-BioNTech,susceptible,4,Wang21
-501Y,Pfizer_BNT162b2_D28,susceptible,10,Wang21b
-501Y,mRNA-1273,susceptible,14,Edara21
-∆69/70,CP,susceptible,3,Kemp21
-∆69/70,CP,susceptible,18,Tada21
-∆69/70,CP,susceptible,20,Wang21b
-∆69/70,Hospitalized_Samples,susceptible,18,Rees-Spear21
-∆69/70,Mild_Samples,susceptible,18,Rees-Spear21
-∆69/70,Moderna_D43,susceptible,12,Wang21b
-∆69/70,Pfizer_BNT162b2_D28,susceptible,10,Wang21b
-∆69/70 + 501Y,CP_1M,susceptible,15,Shen21
-∆69/70 + 501Y,CP_BNT162b2_1M,susceptible,20,Xie21b
-∆69/70 + 501Y,Mod_1M,susceptible,11,Shen21
-∆69/70 + 501Y + 453F,CP_1M,susceptible,12,Shen21
-∆69/70 + 501Y + 453F,CP_1M,partial,3,Shen21
-∆69/70 + 501Y + 453F,Mod_1M,susceptible,11,Shen21
-∆69/70 + 501Y + 570D,BNT162b2_3Weeks,susceptible,15,Collier21
+﻿Strain name,Plasma,S,I,R,Reference
+E484K,BNT162b2,2,3,0,Jangra21
+E484K,BNT162b2_1M,1,4,0,Tada21
+E484K,BNT162b2_1M,6,3,1,Wang21b
+E484K,CP,1,1,2,Greaney21
+E484K,CP,17,10,3,Jangra21
+E484K,CP,2,2,0,Liu21
+E484K,CP,10,0,0,Tada21
+E484K,CP,6,12,2,Wang21b
+E484K,mRNA-1273_1M,8,4,0,Wang21b
+E484K + N501Y,BNT162b2_1M,20,0,0,Xie21b
+K417N,BNT162b2,4,0,0,Wang21
+K417N,BNT162b2_1M,10,0,0,Wang21b
+K417N,CP,20,0,0,Wang21b
+K417N,mRNA-1273,11,0,0,Wang21
+K417N,mRNA-1273_1M,12,0,0,Wang21b
+K417N + E484K + N501Y (B.1.351 RBD),CP_Titer_GT400,6,7,9,Wibmer21
+K417N + E484K + N501Y (B.1.351 RBD),CP_Titer_LT400,6,10,6,Wibmer21
+N439K,BNT162b2,4,0,0,Wang21
+N439K,CP_1M,3,0,0,Shen21
+N439K,mRNA-1273,11,0,0,Wang21
+N439K,mRNA-1273_1M,11,0,0,Shen21
+N501Y,BNT162b2,4,0,0,Wang21
+N501Y,BNT162b2_1M,5,0,0,Tada21
+N501Y,BNT162b2_1M,10,0,0,Wang21b
+N501Y,BNT162b2_1M,11,0,0,Xie21
+N501Y,BNT162b2_1M,20,0,0,Xie21b
+N501Y,CP,19,1,0,Edara21
+N501Y,CP,18,0,0,Tada21
+N501Y,CP,18,2,0,Wang21b
+N501Y,CP_1M,11,4,0,Shen21
+N501Y,mRNA-1273,14,0,0,Edara21
+N501Y,mRNA-1273,11,0,0,Wang21
+N501Y,mRNA-1273_1M,11,0,0,Shen21
+N501Y,mRNA-1273_1M,12,0,0,Wang21b
+∆69/70,BNT162b2_1M,10,0,0,Wang21b
+∆69/70,CP,3,0,0,Kemp21
+∆69/70,CP,18,0,0,Tada21
+∆69/70,CP,20,0,0,Wang21b
+∆69/70,mRNA-1273_1M,12,0,0,Wang21b
+∆69/70 + N501Y,BNT162b2_1M,20,0,0,Xie21b
+∆69/70 + N501Y,CP_1M,15,0,0,Shen21
+∆69/70 + N501Y,mRNA-1273_1M,11,0,0,Shen21
+∆69/70 + N501Y + A570D,BNT162b2_1M,15,0,0,Collier21
+∆69/70 + N501Y + Y453F,CP_1M,12,3,0,Shen21
+∆69/70 + N501Y + Y453F,mRNA-1273_1M,11,0,0,Shen21

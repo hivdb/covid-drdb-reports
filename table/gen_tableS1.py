@@ -2,6 +2,9 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
 from preset import RESISTANCE_FILTER
+from preset import EXCLUDE_PLASMA
+from preset import PLASMA_RENAME
+from collections import defaultdict
 
 
 MAIN_SQL = """
@@ -42,7 +45,7 @@ SUBROWS = {
 def gen_tableS1(conn):
     cursor = conn.cursor()
 
-    records = []
+    records = defaultdict(dict)
     for row_name, attr_r in ROWS.items():
         for subrow_name, attr_subr in SUBROWS.items():
             for resist_name, resist_filter in RESISTANCE_FILTER.items():
@@ -58,16 +61,32 @@ def gen_tableS1(conn):
 
                 cursor.execute(sql)
                 for i in cursor.fetchall():
-                    records.append({
-                        'Strain name': row_name,
-                        'CP name': i[1],
-                        'Resistance level': resist_name,
-                        '#Published': i[2],
-                        'Reference': i[0]
-                    })
+                    strain_name = row_name
+                    cp_name = i[1]
+                    if cp_name in EXCLUDE_PLASMA:
+                        continue
+                    cp_name = PLASMA_RENAME.get(cp_name, cp_name)
+                    reference = i[0]
+                    key = '{}{}{}'.format(strain_name, cp_name, reference)
 
+                    rec = records[key]
+                    rec['Strain name'] = strain_name
+                    rec['Plasma'] = cp_name
+                    rec['S'] = rec.get('S', 0)
+                    rec['I'] = rec.get('I', 0)
+                    rec['R'] = rec.get('R', 0)
+                    if resist_name == 'susceptible':
+                        rec['S'] += i[2]
+                    elif resist_name == 'partial':
+                        rec['I'] += i[2]
+                    else:
+                        rec['R'] += i[2]
+
+                    rec['Reference'] = reference
+
+    records = list(records.values())
     records.sort(key=itemgetter(
-        'Strain name', 'CP name', 'Reference'))
+        'Strain name', 'Plasma', 'Reference'))
 
     save_path = DATA_FILE_PATH / 'TableS1.csv'
     dump_csv(save_path, records)
