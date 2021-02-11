@@ -128,6 +128,7 @@ strainTitle = c(
 )
 filterStrains = names(strainTitle)
 shortRefRxNames = c(
+  "Cele21 CP_WT" = "Cele21\nCP_WT",
   "Collier21 BNT" = "BNT\nCollier21",
   "Edara21 CP" = "Edara21\n",
   "Edara21 Mod" = "Mod\nEdara21",

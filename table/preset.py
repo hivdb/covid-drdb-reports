@@ -139,6 +139,12 @@ PLASMA_RENAME = {
     'CP_BNT162b2_1M': 'BNT162b2_1M',
     'BNT162b2_2Weeks': 'BNT162b2_1M',
     'BNT162b2_4Weeks': 'BNT162b2_1M',
+    'CP_02-0014': 'CP_WT',
+    'CP_02-0015': 'CP_WT',
+    'CP_13-0013': 'CP_WT',
+    'CP_13-0017': 'CP_WT',
+    'CP_13-0033': 'CP_WT',
+    'CP_13-0062': 'CP_WT',
 }
 
 MAB_RENAME = {
