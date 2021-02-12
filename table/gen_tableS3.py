@@ -5,6 +5,8 @@ from preset import AB_NAME2MAB_CLASS
 from operator import itemgetter
 from preset import RESISTANCE_FILTER
 from preset import MAB_RENAME
+from preset import round_number
+from preset import EXCLUDE_MAB
 
 
 MAIN_SQL = """
@@ -66,6 +68,8 @@ def gen_tableS3(conn):
                 cursor.execute(sql)
                 for i in cursor.fetchall():
                     ab_name = SYNONYM2AB_NAME.get(i[1], i[1])
+                    if ab_name in EXCLUDE_MAB:
+                        continue
                     ab_class_info = AB_NAME2MAB_CLASS.get(ab_name)
                     ab_class = i[2]
                     if not ab_class and ab_class_info:
@@ -83,7 +87,7 @@ def gen_tableS3(conn):
                         # 'Target': ab_target,
                         # 'Source': ab_source,
                         # 'Resistance level': resist_name,
-                        'Fold': '{}{}'.format(i[5], i[6]),
+                        'Fold': '{}'.format(round_number(i[6])),
                         'Reference': i[0]
                     })
 

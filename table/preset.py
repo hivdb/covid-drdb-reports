@@ -1,5 +1,10 @@
 import csv
 from pathlib import Path
+import decimal
+from decimal import Decimal
+
+
+decimal.getcontext().rounding = decimal.ROUND_HALF_UP
 
 WS = Path(__file__).absolute().parent.parent
 DATA_FILE_PATH = WS / 'susceptibility-data_files' / 'table'
@@ -151,4 +156,21 @@ MAB_RENAME = {
     'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
     'REGN10933/10987': 'Casirivimab/Imdevimab',
     'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
+    'REGN10933 + REGN10987': 'Casirivimab/Imdevimab',
 }
+
+EXCLUDE_MAB = [
+    'BRII-196',
+    'BRII-198',
+    'REGN10989/10987',
+    'BRII-196/198',
+]
+
+
+def round_number(number):
+    if number < 10:
+        return Decimal(str(number)).quantize(Decimal('1.0'))
+    elif number >= 10 and number < 100:
+        return Decimal(str(number)).quantize(Decimal('1'))
+    else:
+        return '>100'
