@@ -4,6 +4,7 @@ from operator import itemgetter
 from preset import RESISTANCE_FILTER
 from preset import EXCLUDE_PLASMA
 from preset import PLASMA_RENAME
+from preset import PLASMA_POST_RENAME
 from collections import defaultdict
 
 
@@ -71,7 +72,7 @@ def gen_tableS3(conn):
 
                     rec = records[key]
                     rec['Strain name'] = strain_name
-                    rec['Plasma'] = cp_name
+                    rec['Plasma'] = PLASMA_POST_RENAME.get(cp_name, cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)
@@ -88,5 +89,5 @@ def gen_tableS3(conn):
     records.sort(key=itemgetter(
         'Strain name', 'Plasma', 'Reference'))
 
-    save_path = DATA_FILE_PATH / 'TableS1.csv'
+    save_path = DATA_FILE_PATH / 'TableS3.csv'
     dump_csv(save_path, records)

@@ -94,5 +94,5 @@ def gen_tableS4(conn):
     records.sort(key=itemgetter(
         'Strain name', 'Mab name', 'Reference'))
 
-    save_path = DATA_FILE_PATH / 'TableS3.csv'
+    save_path = DATA_FILE_PATH / 'TableS4.csv'
     dump_csv(save_path, records)

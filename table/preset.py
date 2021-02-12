@@ -152,6 +152,17 @@ PLASMA_RENAME = {
     'CP_13-0062': 'CP_WT',
 }
 
+PLASMA_POST_RENAME = {
+    'BNT162b2_1M': 'BNT162b2',
+    'CP_1M': 'CP',
+    'CP_8M': 'CP(8M)',
+    'NVX-CoV2373_1M': 'NVX-CoV',
+    'mRNA-1273_1M': 'mRNA-1273',
+    'CP_Titer_GT400': 'CP(High Titer)',
+    'CP_Titer_LT400': 'CP(Low Titer)',
+    'CP_WT': 'CP(WT)',
+}
+
 MAB_RENAME = {
     'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
     'REGN10933/10987': 'Casirivimab/Imdevimab',
