@@ -127,7 +127,7 @@ def gen_tableS6(conn):
                     records.append({
                         'Strain name': row_name,
                         'Mab name': MAB_RENAME.get(ab_name, ab_name),
-                        'Class': ab_class,
+                        'Class': ab_class or '',
                         # 'Target': ab_target,
                         # 'Source': ab_source,
                         # 'Resistance level': resist_name,
@@ -136,7 +136,7 @@ def gen_tableS6(conn):
                     })
 
     records.sort(key=itemgetter(
-        'Strain name', 'Mab name', 'Reference'))
+        'Strain name', 'Class', 'Reference'))
 
     save_path = DATA_FILE_PATH / 'TableS6.csv'
     dump_csv(save_path, records)
