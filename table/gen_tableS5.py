@@ -18,16 +18,56 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
 """
 
 ROWS = {
-    'B.1.1.7': {
+    'N501Y': {
         'filter': [
-            ("AND (s.strain_name = 'B.1.1.7 Spike'"
-                #  "  OR s.strain_name = 'B.1.1.7 S1'"
-             ")"),
+            "AND s.strain_name = 'S:501Y'",
         ]
     },
-    'B.1.351': {
+    '∆69/70': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 Spike'",
+            "AND s.strain_name = 'S:69del+70del'",
+        ]
+    },
+    '∆69/70 + N501Y': {
+        'filter': [
+            "AND s.strain_name = 'S:69del+70del+501Y'",
+        ]
+    },
+    '∆69/70 + N501Y + A570D': {
+        'filter': [
+            "AND s.strain_name = 'S:69del+70del+501Y+570D'",
+        ]
+    },
+    '∆69/70 + N501Y + Y453F': {
+        'filter': [
+            "AND s.strain_name = 'S:69del+70del+453F'",
+        ]
+    },
+    'E484K': {
+        'filter': [
+            "AND s.strain_name = 'S:484K'"
+        ]
+    },
+    'E484K + N501Y': {
+        'filter': [
+            "AND s.strain_name = 'S:484K+501Y'"
+        ]
+    },
+    'K417N': {
+        'filter': [
+            "AND s.strain_name = 'S:417N'"
+        ]
+    },
+    'K417N + E484K + N501Y (B.1.351 RBD)': {
+        'filter': [
+            ("AND ("
+             "   s.strain_name = 'S:417N+484K+501Y'"
+             "   OR s.strain_name = 'B.1.351 RBD')"),
+        ]
+    },
+    'N439K': {
+        'filter': [
+            "AND s.strain_name = 'S:439K'"
         ]
     },
 }
@@ -42,7 +82,7 @@ SUBROWS = {
 }
 
 
-def gen_tableS1(conn):
+def gen_tableS5(conn):
     cursor = conn.cursor()
 
     records = defaultdict(dict)
@@ -68,7 +108,6 @@ def gen_tableS1(conn):
                     cp_name = PLASMA_RENAME.get(cp_name, cp_name)
                     reference = i[0]
                     key = '{}{}{}'.format(strain_name, cp_name, reference)
-
                     rec = records[key]
                     rec['Strain name'] = strain_name
                     rec['Plasma'] = cp_name
@@ -88,5 +127,5 @@ def gen_tableS1(conn):
     records.sort(key=itemgetter(
         'Strain name', 'Plasma', 'Reference'))
 
-    save_path = DATA_FILE_PATH / 'TableS1.csv'
+    save_path = DATA_FILE_PATH / 'TableS2.csv'
     dump_csv(save_path, records)
