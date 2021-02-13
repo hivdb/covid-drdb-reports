@@ -20,7 +20,7 @@ SELECT s.ref_name, s.rx_name, ab.class, ab.target, ab.source,
         antibody_targets AS b
         ON a.ab_name = b.ab_name
         WHERE a.availability IS NOT NULL
-        OR b.class IS NOT NULL
+        OR a.pdb_id IS NOT NULL
     ) AS ab
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
     AND rxtype.ab_name = ab.ab_name

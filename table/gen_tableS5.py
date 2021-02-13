@@ -54,12 +54,22 @@ ROWS = {
             "AND s.strain_name = 'S:484K+501Y'"
         ]
     },
+    'Y453F': {
+        'filter': [
+            "AND s.strain_name = 'S:453F'"
+        ]
+    },
+    'L452R': {
+        'filter': [
+            "AND s.strain_name = 'S:452R'"
+        ]
+    },
     'K417N': {
         'filter': [
             "AND s.strain_name = 'S:417N'"
         ]
     },
-    'K417N + E484K + N501Y (B.1.351 RBD)': {
+    'K417N + E484K + N501Y': {
         'filter': [
             ("AND ("
              "   s.strain_name = 'S:417N+484K+501Y'"

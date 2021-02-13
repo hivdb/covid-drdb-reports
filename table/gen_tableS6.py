@@ -20,7 +20,7 @@ SELECT s.ref_name, s.rx_name, ab.class, ab.target, ab.source,
         antibody_targets AS b
         ON a.ab_name = b.ab_name
         WHERE a.availability IS NOT NULL
-        OR b.class IS NOT NULL
+        OR a.pdb_id IS NOT NULL
     ) AS ab
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
     AND rxtype.ab_name = ab.ab_name
@@ -59,6 +59,16 @@ ROWS = {
             "AND s.strain_name = 'S:484K'"
         ]
     },
+    'Y453F': {
+        'filter': [
+            "AND s.strain_name = 'S:453F'"
+        ]
+    },
+    'L452R': {
+        'filter': [
+            "AND s.strain_name = 'S:452R'"
+        ]
+    },
     'E484K + N501Y': {
         'filter': [
             "AND s.strain_name = 'S:484K+501Y'"
@@ -69,7 +79,7 @@ ROWS = {
             "AND s.strain_name = 'S:417N'"
         ]
     },
-    'K417N + E484K + N501Y (B.1.351 RBD)': {
+    'K417N + E484K + N501Y': {
         'filter': [
             ("AND ("
              "   s.strain_name = 'S:417N+484K+501Y'"
