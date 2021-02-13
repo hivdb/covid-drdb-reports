@@ -116,10 +116,12 @@ N501Y,C144,RBM Class III,1.4,Weisblum20
 ∆69/70 + N501Y,DH1047,RBD Core Cluster II,0.4,Shen21
 ∆69/70 + N501Y,B38,RBM Class I,1.2,Shen21
 ∆69/70 + N501Y,Casirivimab,RBM Class I,1.0,Yao21
+∆69/70 + N501Y,Etesevimab,RBM Class I,10,Yao21
 ∆69/70 + N501Y,P2B-2F6,RBM Class II,0.5,Shen21
 ∆69/70 + N501Y + Y453F,Vir-7831,RBD Core Cluster I,2.0,Shen21
 ∆69/70 + N501Y + Y453F,Imdevimab,RBD Core Cluster I,1.0,Yao21
 ∆69/70 + N501Y + Y453F,DH1047,RBD Core Cluster II,0.3,Shen21
 ∆69/70 + N501Y + Y453F,B38,RBM Class I,0.5,Shen21
+∆69/70 + N501Y + Y453F,Etesevimab,RBM Class I,3.0,Yao21
 ∆69/70 + N501Y + Y453F,Casirivimab,RBM Class I,50,Yao21
 ∆69/70 + N501Y + Y453F,P2B-2F6,RBM Class II,1.3,Shen21

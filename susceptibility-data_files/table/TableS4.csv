@@ -3,6 +3,7 @@ B.1.1.7,Bamlanivimab/Etesevimab,,1.7,Wang21b
 B.1.1.7,4A8,NTD,>100,Collier21
 B.1.1.7,4-8,NTD,>100,Wang21b
 B.1.1.7,4A8,NTD,>100,Wang21b
+B.1.1.7,Imdevimab,RBD Core Cluster I,1.0,Hoffmann21
 B.1.1.7,Imdevimab,RBD Core Cluster I,0.6,Rothenberger21
 B.1.1.7,Vir-7831,RBD Core Cluster I,>100,Shen21
 B.1.1.7,C135,RBD Core Cluster I,1.4,Wang21b
@@ -16,6 +17,7 @@ B.1.1.7,DH1047,RBD Core Cluster II,1.2,Shen21
 B.1.1.7,COVA1-16,RBD Core Cluster II,0.8,Wang21b
 B.1.1.7,S2E12,RBM Class I,1.1,Collier21
 B.1.1.7,S2H14,RBM Class I,>100,Collier21
+B.1.1.7,Casirivimab,RBM Class I,2.0,Hoffmann21
 B.1.1.7,COVA2-04,RBM Class I,0.6,Rees-Spear21
 B.1.1.7,Casirivimab,RBM Class I,0.6,Rothenberger21
 B.1.1.7,B38,RBM Class I,14,Shen21
@@ -23,6 +25,7 @@ B.1.1.7,Casirivimab,RBM Class I,0.4,Wang21b
 B.1.1.7,Casirivimab/Imdevimab,RBM Class I,0.6,Wang21b
 B.1.1.7,Etesevimab,RBM Class I,3.6,Wang21b
 B.1.1.7,Tixagevimab,RBM Class I ,1.5,Wang21b
+B.1.1.7,Bamlanivimab,RBM Class II,0.7,Hoffmann21
 B.1.1.7,P2B-2F6,RBM Class II,1.1,Shen21
 B.1.1.7,C121,RBM Class II,0.4,Wang21b
 B.1.1.7,Cilgavimab,RBM Class II,1.1,Wang21b
@@ -33,17 +36,20 @@ B.1.1.7,2-4,RBM Class III,1.2,Wang21b
 B.1.351,Bamlanivimab/Etesevimab,,>100,Wang21b
 B.1.351,4-8,NTD,>100,Wang21b
 B.1.351,4A8,NTD,>100,Wang21b
+B.1.351,Imdevimab,RBD Core Cluster I,1.0,Hoffmann21
 B.1.351,C135,RBD Core Cluster I,0.8,Wang21b
 B.1.351,Imdevimab,RBD Core Cluster I,0.6,Wang21b
 B.1.351,Vir-7831,RBD Core Cluster I,0.8,Wang21b
 B.1.351,2-43,RBD Core Cluster I,>100,Wang21b
 B.1.351,COVA1-16,RBD Core Cluster II,0.8,Wang21b
+B.1.351,Casirivimab,RBM Class I,48,Hoffmann21
 B.1.351,Casirivimab/Imdevimab,RBM Class I,1.3,Wang21b
 B.1.351,Etesevimab,RBM Class I,>100,Wang21b
 B.1.351,Casirivimab,RBM Class I,59,Wang21b
 B.1.351,CC12.1,RBM Class I,>100,Wibmer21
 B.1.351,Etesevimab,RBM Class I,>100,Wibmer21
 B.1.351,Tixagevimab,RBM Class I ,3.5,Wang21b
+B.1.351,Bamlanivimab,RBM Class II,>100,Hoffmann21
 B.1.351,Cilgavimab,RBM Class II,1.0,Wang21b
 B.1.351,Cilgavimab/Tixagevimab,RBM Class II,1.3,Wang21b
 B.1.351,C121,RBM Class II,>100,Wang21b
@@ -51,3 +57,6 @@ B.1.351,Bamlanivimab,RBM Class II,>100,Wang21b
 B.1.351,C119,RBM Class II,>100,Wibmer21
 B.1.351,P2B-2F6,RBM Class II,>100,Wibmer21
 B.1.351,2-4,RBM Class III,>100,Wang21b
+P.1,Imdevimab,RBD Core Cluster I,0.7,Hoffmann21
+P.1,Casirivimab,RBM Class I,16,Hoffmann21
+P.1,Bamlanivimab,RBM Class II,>100,Hoffmann21

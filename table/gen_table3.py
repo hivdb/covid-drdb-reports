@@ -63,6 +63,11 @@ TABLE3_ROWS = {
             "AND s.strain_name = 'B.1.351 Spike'",
         ]
     },
+    'P.1': {
+        'filter': [
+            "AND s.strain_name = 'P.1 Spike'",
+        ]
+    },
     'B.1.1.7 + B.1.351': {
         'filter': [
             (

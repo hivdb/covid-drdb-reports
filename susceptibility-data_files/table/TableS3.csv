@@ -1,8 +1,10 @@
 ﻿Strain name,Plasma,S,I,R,Reference
 B.1.1.7,BNT162b2,5,10,0,Collier21
+B.1.1.7,BNT162b2,15,0,0,Hoffmann21
 B.1.1.7,BNT162b2,40,0,0,Muik21
 B.1.1.7,BNT162b2,9,1,0,Wang21b
 B.1.1.7,CP,16,4,0,Edara21
+B.1.1.7,CP,8,1,0,Hoffmann21
 B.1.1.7,CP,13,5,1,Hu21
 B.1.1.7,CP,13,2,0,Shen21
 B.1.1.7,CP,14,5,1,Wang21b
@@ -12,8 +14,10 @@ B.1.1.7,mRNA-1273,14,0,0,Edara21
 B.1.1.7,mRNA-1273,30,10,0,Shen21
 B.1.1.7,mRNA-1273,12,0,0,Wang21b
 B.1.1.7,mRNA-1273,8,0,0,Wu21
+B.1.351,BNT162b2,4,9,2,Hoffmann21
 B.1.351,BNT162b2,2,3,0,Tada21
 B.1.351,BNT162b2,4,4,2,Wang21b
+B.1.351,CP,4,4,1,Hoffmann21
 B.1.351,CP,4,9,6,Hu21
 B.1.351,CP,9,1,0,Tada21
 B.1.351,CP,4,9,7,Wang21b
@@ -23,3 +27,5 @@ B.1.351,CP(Low Titer),6,9,7,Wibmer21
 B.1.351,CP(WT),0,2,4,Cele21
 B.1.351,mRNA-1273,1,8,3,Wang21b
 B.1.351,mRNA-1273,0,8,0,Wu21
+P.1,BNT162b2,7,7,1,Hoffmann21
+P.1,CP,2,6,1,Hoffmann21

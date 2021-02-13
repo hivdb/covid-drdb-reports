@@ -39,6 +39,11 @@ ROWS = {
             "AND s.strain_name = 'B.1.351 Spike'",
         ]
     },
+    'P.1': {
+        'filter': [
+            "AND s.strain_name = 'P.1 Spike'",
+        ]
+    },
 }
 
 SUBROWS = {

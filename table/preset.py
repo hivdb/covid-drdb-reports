@@ -83,8 +83,9 @@ def init_abname2class(conn):
 SUSCEPTIBLE_LEVEL_FILTER = """
     AND (
         (fold < 3
+             OR (fold = 3 AND fold_cmp = '<')
              OR (fold = 3 AND fold_cmp = '=')
-             OR (fold = 3 AND fold_cmp = '<'))
+             OR (fold = 3 AND fold_cmp = '~'))
         OR (resistance_level = 'susceptible'))
 """
 
@@ -94,6 +95,7 @@ PARTIAL_RESISTANCE_LEVEL_FILTER = """
             (fold = 3 AND fold_cmp = '>')
             OR (fold > 3 AND fold < 10)
             OR (fold = 10 AND fold_cmp = '=')
+            OR (fold = 10 AND fold_cmp = '~')
             OR (fold = 10 AND fold_cmp = '<'))
         OR (resistance_level = 'partial-resistance'))
 """
@@ -150,6 +152,30 @@ PLASMA_RENAME = {
     'CP_13-0017': 'CP_WT',
     'CP_13-0033': 'CP_WT',
     'CP_13-0062': 'CP_WT',
+    'BNT162b2_1M:01': 'BNT162b2',
+    'BNT162b2_1M:02': 'BNT162b2',
+    'BNT162b2_1M:03': 'BNT162b2',
+    'BNT162b2_1M:04': 'BNT162b2',
+    'BNT162b2_1M:05': 'BNT162b2',
+    'BNT162b2_1M:06': 'BNT162b2',
+    'BNT162b2_1M:07': 'BNT162b2',
+    'BNT162b2_1M:08': 'BNT162b2',
+    'BNT162b2_1M:09': 'BNT162b2',
+    'BNT162b2_1M:10': 'BNT162b2',
+    'BNT162b2_1M:11': 'BNT162b2',
+    'BNT162b2_1M:12': 'BNT162b2',
+    'BNT162b2_1M:13': 'BNT162b2',
+    'BNT162b2_1M:14': 'BNT162b2',
+    'BNT162b2_1M:15': 'BNT162b2',
+    'CP_ID15': 'CP',
+    'CP_ID18': 'CP',
+    'CP_ID20': 'CP',
+    'CP_ID22': 'CP',
+    'CP_ID23': 'CP',
+    'CP_ID24': 'CP',
+    'CP_ID27': 'CP',
+    'CP_ID33': 'CP',
+    'CP_ID51': 'CP',
 }
 
 PLASMA_POST_RENAME = {
