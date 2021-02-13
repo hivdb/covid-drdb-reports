@@ -273,7 +273,7 @@ for (strain in filterStrains) {
       plot = plot + geom_text(
         aes(x, y, label = text), data = dfStrainLabel,
         hjust = -0.15,
-        vjust = -2
+        vjust = -1
       )
     }
     else {
