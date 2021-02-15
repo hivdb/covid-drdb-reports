@@ -29,22 +29,70 @@ SELECT s.ref_name, s.rx_name, ab.class, ab.target, ab.source,
 """
 
 ROWS = {
-    'B.1.1.7': {
+    'N501Y': {
         'filter': [
-            "AND s.strain_name = 'B.1.1.7 Spike'",
+            "AND s.strain_name = 'S:501Y'",
         ]
     },
-    'B.1.351': {
+    '∆69/70': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 Spike'",
+            "AND s.strain_name = 'S:69del+70del'",
         ]
     },
-    'P.1': {
+    '∆69/70 + N501Y': {
         'filter': [
-            "AND s.strain_name = 'P.1 Spike'",
+            "AND s.strain_name = 'S:69del+70del+501Y'",
+        ]
+    },
+    '∆69/70 + N501Y + A570D': {
+        'filter': [
+            "AND s.strain_name = 'S:69del+70del+501Y+570D'",
+        ]
+    },
+    '∆69/70 + N501Y + Y453F': {
+        'filter': [
+            "AND s.strain_name = 'S:69del+70del+453F'",
+        ]
+    },
+    'E484K': {
+        'filter': [
+            "AND s.strain_name = 'S:484K'"
+        ]
+    },
+    'Y453F': {
+        'filter': [
+            "AND s.strain_name = 'S:453F'"
+        ]
+    },
+    'L452R': {
+        'filter': [
+            "AND s.strain_name = 'S:452R'"
+        ]
+    },
+    'E484K + N501Y': {
+        'filter': [
+            "AND s.strain_name = 'S:484K+501Y'"
+        ]
+    },
+    'K417N': {
+        'filter': [
+            "AND s.strain_name = 'S:417N'"
+        ]
+    },
+    'K417N + E484K + N501Y': {
+        'filter': [
+            ("AND ("
+             "   s.strain_name = 'S:417N+484K+501Y'"
+             "   OR s.strain_name = 'B.1.351 RBD')"),
+        ]
+    },
+    'N439K': {
+        'filter': [
+            "AND s.strain_name = 'S:439K'"
         ]
     },
 }
+
 
 SUBROWS = {
     'mAb': {
@@ -53,7 +101,7 @@ SUBROWS = {
 }
 
 
-def gen_tableS5(conn):
+def gen_tableS7(conn):
     cursor = conn.cursor()
 
     records = []
@@ -75,6 +123,7 @@ def gen_tableS5(conn):
                     ab_name = SYNONYM2AB_NAME.get(i[1], i[1])
                     if ab_name in EXCLUDE_MAB:
                         continue
+
                     ab_class_info = AB_NAME2MAB_CLASS.get(ab_name)
                     ab_class = i[2]
                     if not ab_class and ab_class_info:
@@ -99,5 +148,5 @@ def gen_tableS5(conn):
     records.sort(key=itemgetter(
         'Strain name', 'Class', 'Reference'))
 
-    save_path = DATA_FILE_PATH / 'TableS5.csv'
+    save_path = DATA_FILE_PATH / 'TableS7.csv'
     dump_csv(save_path, records)

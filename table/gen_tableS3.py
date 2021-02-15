@@ -1,29 +1,61 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from operator import itemgetter
-from preset import RESISTANCE_FILTER
-from preset import EXCLUDE_PLASMA
-from preset import PLASMA_RENAME
-from preset import PLASMA_POST_RENAME
-from collections import defaultdict
 
 
-MAIN_SQL = """
-SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
-    FROM
-    susc_results as s,
+TABLE3_MAIN_SQL = """
+SELECT COUNT(*) FROM
+    susc_results AS s,
     {rxtype} AS rxtype
+    {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    {filters}
-    GROUP BY s.ref_name, s.rx_name;
+    {filters};
 """
 
-ROWS = {
+
+TABLE3_ROWS = {
+    'N501Y': {
+        'filter': [
+            "AND s.strain_name = 'S:501Y'"
+        ]
+    },
+    'E484K': {
+        'filter': [
+            "AND s.strain_name = 'S:484K'"
+        ]
+    },
+    'Other individual mutations': {
+        'join': [
+            "virus_strains AS vs",
+            (
+                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+                "strain_mutations GROUP BY strain_name) AS sm"
+            )
+        ],
+        'filter': [
+            "AND vs.strain_name = s.strain_name",
+            "AND vs.site_directed IS TRUE",
+            "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
+            "AND s.strain_name != 'S:484K'",
+            "AND s.strain_name != 'S:501Y'",
+        ]
+    },
+    'All individual mutations': {
+        'join': [
+            "virus_strains AS vs",
+            (
+                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+                "strain_mutations GROUP BY strain_name) AS sm"
+            )
+        ],
+        'filter': [
+            "AND vs.strain_name = s.strain_name",
+            "AND vs.site_directed IS TRUE",
+            "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
+        ]
+    },
     'B.1.1.7': {
         'filter': [
-            ("AND (s.strain_name = 'B.1.1.7 Spike'"
-                #  "  OR s.strain_name = 'B.1.1.7 S1'"
-             ")"),
+            "AND s.strain_name = 'B.1.1.7 Spike'",
         ]
     },
     'B.1.351': {
@@ -36,13 +68,118 @@ ROWS = {
             "AND s.strain_name = 'P.1 Spike'",
         ]
     },
+    'B.1.1.7 + B.1.351': {
+        'filter': [
+            (
+                "AND ("
+                "      s.strain_name = 'B.1.1.7 Spike' "
+                "   OR s.strain_name = 'B.1.351 Spike' "
+                "   )"
+            ),
+        ]
+    },
+    'Other muation combinations': {
+        'join': [
+            "virus_strains AS vs",
+            (
+                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+                "strain_mutations GROUP BY strain_name) AS sm"
+            )
+        ],
+        'filter': [
+            "AND vs.strain_name = s.strain_name",
+            "AND vs.site_directed IS TRUE",
+            "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
+        ]
+    }
 }
 
-SUBROWS = {
+
+TABLE3_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
     },
     'IP': {
+        'rxtype': 'rx_immu_plasma',
+    },
+    'mAbs phase3': {
+        'rxtype': 'rx_antibodies',
+        'join': [
+            "antibodies AS ab",
+        ],
+        'filter': [
+            "AND rxtype.ab_name = ab.ab_name",
+            "AND ab.availability = 'Phase 3'",
+        ]
+    },
+    'mAbs structure': {
+        'rxtype': 'rx_antibodies',
+        'join': [
+            "antibodies AS ab",
+        ],
+        'filter': [
+            "AND rxtype.ab_name = ab.ab_name",
+            "AND ab.pdb_id IS NOT NULL",
+        ]
+    }
+}
+
+FOOT_TABLE_ROWS = {
+    '1 mutation': {
+        'join': [
+            "virus_strains AS vs",
+            (
+                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+                "strain_mutations GROUP BY strain_name) AS sm"
+            )
+        ],
+        'filter': [
+            "AND vs.strain_name = s.strain_name",
+            "AND vs.site_directed IS TRUE",
+            "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
+        ]
+    },
+    'mutation combination': {
+        'join': [
+            "virus_strains AS vs",
+            (
+                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+                "strain_mutations GROUP BY strain_name) AS sm"
+            )
+        ],
+        'filter': [
+            "AND vs.strain_name = s.strain_name",
+            "AND vs.site_directed IS TRUE",
+            "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
+        ]
+    },
+    'VOC': {
+        'filter': [
+            (
+                "AND ("
+                "      s.strain_name = 'B.1.1.7 Spike' "
+                "   OR s.strain_name = 'B.1.351 Spike' "
+                "   )"
+            ),
+        ]
+    },
+}
+
+FOOT_TABLE_COLUMNS = {
+    'mAbs without structure': {
+        'rxtype': 'rx_antibodies',
+        'join': [
+            "antibodies AS ab",
+        ],
+        'filter': [
+            "AND rxtype.ab_name = ab.ab_name",
+            "AND ab.pdb_id IS NULL",
+        ]
+    },
+    'CP': {
+        'rxtype': 'rx_conv_plasma',
+    },
+    'VP': {
         'rxtype': 'rx_immu_plasma',
     },
 }
@@ -51,48 +188,61 @@ SUBROWS = {
 def gen_tableS3(conn):
     cursor = conn.cursor()
 
-    records = defaultdict(dict)
-    for row_name, attr_r in ROWS.items():
-        for subrow_name, attr_subr in SUBROWS.items():
-            for resist_name, resist_filter in RESISTANCE_FILTER.items():
-                rxtype = attr_subr['rxtype']
+    records = []
 
-                r_filter = attr_r.get('filter', [])
-                filter = '\n    '.join(r_filter + resist_filter)
-                sql = MAIN_SQL.format(
-                    rxtype=rxtype,
-                    filters=filter
-                )
-                # print(sql)
+    for row_name, attr_r in TABLE3_ROWS.items():
+        for column_name, attr_c in TABLE3_COLUMNS.items():
+            rxtype = attr_c['rxtype']
 
-                cursor.execute(sql)
-                for i in cursor.fetchall():
-                    strain_name = row_name
-                    cp_name = i[1]
-                    if cp_name in EXCLUDE_PLASMA:
-                        continue
-                    cp_name = PLASMA_RENAME.get(cp_name, cp_name)
-                    reference = i[0]
-                    key = '{}{}{}'.format(strain_name, cp_name, reference)
+            r_join = attr_r.get('join', [])
+            c_join = attr_c.get('join', [])
+            join = ',\n    '.join([''] + r_join + c_join)
 
-                    rec = records[key]
-                    rec['Strain name'] = strain_name
-                    rec['Plasma'] = PLASMA_POST_RENAME.get(cp_name, cp_name)
-                    rec['S'] = rec.get('S', 0)
-                    rec['I'] = rec.get('I', 0)
-                    rec['R'] = rec.get('R', 0)
-                    if resist_name == 'susceptible':
-                        rec['S'] += i[2]
-                    elif resist_name == 'partial':
-                        rec['I'] += i[2]
-                    else:
-                        rec['R'] += i[2]
+            r_filter = attr_r.get('filter', [])
+            c_filter = attr_c.get('filter', [])
+            filter = '\n    '.join(r_filter + c_filter)
+            sql = TABLE3_MAIN_SQL.format(
+                rxtype=rxtype,
+                joins=join,
+                filters=filter
+            )
+            # print(sql)
 
-                    rec['Reference'] = reference
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            result = result[0]
+            records.append({
+                'Strain name': row_name,
+                'Rx name': column_name,
+                '#Published': result
+            })
 
-    records = list(records.values())
-    records.sort(key=itemgetter(
-        'Strain name', 'Plasma', 'Reference'))
+    for row_name, attr_r in FOOT_TABLE_ROWS.items():
+        for column_name, attr_c in FOOT_TABLE_COLUMNS.items():
+            rxtype = attr_c['rxtype']
+
+            r_join = attr_r.get('join', [])
+            c_join = attr_c.get('join', [])
+            join = ',\n    '.join([''] + r_join + c_join)
+
+            r_filter = attr_r.get('filter', [])
+            c_filter = attr_c.get('filter', [])
+            filter = '\n    '.join(r_filter + c_filter)
+            sql = TABLE3_MAIN_SQL.format(
+                rxtype=rxtype,
+                joins=join,
+                filters=filter
+            )
+            # print(sql)
+
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            result = result[0]
+            records.append({
+                'Strain name': row_name,
+                'Rx name': column_name,
+                '#Published': result
+            })
 
     save_path = DATA_FILE_PATH / 'TableS3.csv'
     dump_csv(save_path, records)

@@ -1,31 +1,46 @@
-﻿Strain name,Plasma,S,I,R,Reference
-B.1.1.7,BNT162b2,5,10,0,Collier21
-B.1.1.7,BNT162b2,15,0,0,Hoffmann21
-B.1.1.7,BNT162b2,40,0,0,Muik21
-B.1.1.7,BNT162b2,9,1,0,Wang21b
-B.1.1.7,CP,16,4,0,Edara21
-B.1.1.7,CP,8,1,0,Hoffmann21
-B.1.1.7,CP,13,5,1,Hu21
-B.1.1.7,CP,13,2,0,Shen21
-B.1.1.7,CP,14,5,1,Wang21b
-B.1.1.7,CP(8M),11,8,0,Hu21
-B.1.1.7,NVX-CoV,20,7,1,Shen21
-B.1.1.7,mRNA-1273,14,0,0,Edara21
-B.1.1.7,mRNA-1273,30,10,0,Shen21
-B.1.1.7,mRNA-1273,12,0,0,Wang21b
-B.1.1.7,mRNA-1273,8,0,0,Wu21
-B.1.351,BNT162b2,4,9,2,Hoffmann21
-B.1.351,BNT162b2,2,3,0,Tada21
-B.1.351,BNT162b2,4,4,2,Wang21b
-B.1.351,CP,4,4,1,Hoffmann21
-B.1.351,CP,4,9,6,Hu21
-B.1.351,CP,9,1,0,Tada21
-B.1.351,CP,4,9,7,Wang21b
-B.1.351,CP(8M),5,9,5,Hu21
-B.1.351,CP(High Titer),1,7,14,Wibmer21
-B.1.351,CP(Low Titer),4,2,7,Wibmer21
-B.1.351,CP(WT),0,2,4,Cele21
-B.1.351,mRNA-1273,1,8,3,Wang21b
-B.1.351,mRNA-1273,0,8,0,Wu21
-P.1,BNT162b2,7,7,1,Hoffmann21
-P.1,CP,2,6,1,Hoffmann21
+﻿Strain name,Rx name,#Published
+N501Y,CP,57
+N501Y,IP,79
+N501Y,mAbs phase3,15
+N501Y,mAbs structure,28
+E484K,CP,66
+E484K,IP,32
+E484K,mAbs phase3,20
+E484K,mAbs structure,27
+Other individual mutations,CP,361
+Other individual mutations,IP,413
+Other individual mutations,mAbs phase3,275
+Other individual mutations,mAbs structure,771
+All individual mutations,CP,484
+All individual mutations,IP,524
+All individual mutations,mAbs phase3,310
+All individual mutations,mAbs structure,826
+B.1.1.7,CP,94
+B.1.1.7,IP,169
+B.1.1.7,mAbs phase3,25
+B.1.1.7,mAbs structure,39
+B.1.351,CP,118
+B.1.351,IP,50
+B.1.351,mAbs phase3,23
+B.1.351,mAbs structure,29
+P.1,CP,9
+P.1,IP,15
+P.1,mAbs phase3,3
+P.1,mAbs structure,3
+B.1.1.7 + B.1.351,CP,212
+B.1.1.7 + B.1.351,IP,219
+B.1.1.7 + B.1.351,mAbs phase3,48
+B.1.1.7 + B.1.351,mAbs structure,68
+Other muation combinations,CP,140
+Other muation combinations,IP,159
+Other muation combinations,mAbs phase3,59
+Other muation combinations,mAbs structure,194
+1 mutation,mAbs without structure,1371
+1 mutation,CP,484
+1 mutation,VP,524
+mutation combination,mAbs without structure,270
+mutation combination,CP,140
+mutation combination,VP,159
+VOC,mAbs without structure,123
+VOC,CP,212
+VOC,VP,219
