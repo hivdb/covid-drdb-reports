@@ -114,7 +114,7 @@ aggregate(cbind(count = ab_name) ~ has_structure, dfUsedMAbs, FUN = length) %>%
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #7fcbee; color: black;">fold ↓ susceptibility `r partialResistFold` to `r resistFold`</span>&nbsp;
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #ffffff; color: black;">fold ↓ susceptibility < `r partialResistFold`</span>
 
-```{r plasma-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 4}
+```{r plasma-fold-fig, fig.height = 10, fig.width = 12, fig.retina = 4, message = FALSE}
 
 strainTitle = c(
   "S:501Y" = "N501Y",
@@ -129,13 +129,13 @@ strainTitle = c(
 )
 filterStrains = names(strainTitle)
 shortRefRxNames = c(
-  "Cele21 CP_WT" = "CP_WT\nCele21",
+  "Cele21 CP_WT" = "Cele21\n",
   "Collier21 BNT" = "BNT\nCollier21",
   "Edara21 CP" = "Edara21\n",
   "Edara21 Mod" = "Mod\nEdara21",
   "Greaney21 CP" = "Greaney21\n",
   "Hoffmann21 BNT" = "BNT\nHoffmann21",
-  "Hoffmann21 CP" = "CP\nHoffmann21",
+  "Hoffmann21 CP" = "Hoffmann21\n",
   "Hu21 1mon" = "1M\nHu21",
   "Hu21 8mon" = "8M\nHu21",
   "Jangra21 CP" = "Jangra21\n",
@@ -215,7 +215,11 @@ i = 1
 for (strain in filterStrains) {
   df = dfForPlot %>%
     filter(strain_name == strain)
-  totalCount = aggregate(cbind(total_count = cumulative_count) ~ ref_rx + group, df, FUN = sum)
+  totalCount = df %>%
+    group_by(ref_rx, group) %>%
+    summarise(
+      total_count = sum(cumulative_count)
+    )
   maxCount = ceiling((max(totalCount$total_count)) / yAxisStep) * yAxisStep
 
   for (groupName in c("CP", "IP")) {
