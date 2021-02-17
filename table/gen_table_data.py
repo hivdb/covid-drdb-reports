@@ -2,6 +2,7 @@ import sys
 import sqlite3
 from preset import init_synonyms_map
 from preset import init_abname2class
+from gen_table3 import gen_table3
 from gen_tableS3 import gen_tableS3
 from gen_tableS4 import gen_tableS4
 from gen_tableS5 import gen_tableS5
@@ -19,6 +20,8 @@ def gen_report(db_path):
     gen_tableS5(conn)
     gen_tableS6(conn)
     gen_tableS7(conn)
+
+    gen_table3()
 
 
 if __name__ == '__main__':

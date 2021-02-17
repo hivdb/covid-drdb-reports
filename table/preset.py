@@ -24,6 +24,15 @@ def dump_csv(file_path, records, headers=[]):
         writer.writerows(records)
 
 
+def load_csv(file_path):
+    records = []
+    with open(file_path, encoding='utf-8-sig') as fd:
+        for record in csv.DictReader(fd):
+            records.append(record)
+
+    return records
+
+
 def dump_json(json_path, obj):
     with json_path.open('w') as fd:
         json.dump(obj, fd, indent=4, ensure_ascii=False)
