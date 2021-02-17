@@ -42,6 +42,21 @@ read.dbTables <- function(dirname, colClasses = NA, tables_dir = TABLES_DIR) {
   do.call(bind_rows, dfs)
 }
 
+
+read.invitroResults <- function() {
+  dfInvitro = read.dbTables("invitro_selection_results")
+  # dfInvitro = dfInvitro %>%
+  #   mutate(
+  #     ab_name=rx_name
+  #   ) %>%
+  #   inner_join(
+  #     read.antibodies(),
+  #     by = c("ab_name"),
+  #     suffix = c(".invitro", ".mab")
+  #   )
+  dfInvitro
+}
+
 read.suscResults <- function(
   partialResistFold = 3,
   resistFold = 10,
@@ -187,7 +202,7 @@ read.antibodies <- function() {
       )$ab_name
     ) %>%
     group_by(ab_name) %>%
-    summarise(ab_author_target = paste(target, collapse = ";"))
+    summarise(ab_author_target = paste(target, collapse = ";"), .groups = "drop_last")
   
   read.dbTable("antibodies.csv") %>%
     left_join(dfMAbAuthorTargets, by = "ab_name") %>%

@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
 
+
 partialResistFold = 3
 resistFold = 10
 dfSuscResultsMAb = read.suscResultsMAb(withExcluded = TRUE)
@@ -60,8 +61,8 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
     suffix = c(".susc", ".ref")
   )
 ```
-
-## Phenotypes-Mut_mAb
+ 
+## Individual spike mutations / mAb neutralization
 
 ```{r phenotypes-mut-mab}
 
@@ -102,7 +103,7 @@ dfSuscResultsMAb %>%
   styledDT
 ```
 
-## Phenotypes-Mut_Plasma
+## Individual spike mutations / plasma neutralization
 
 ```{r phenotypes-mut-plasma}
 
@@ -157,7 +158,7 @@ dfMutPlasma %>%
   styledDT
 ```
 
-## Phenotypes-Strain_mAb
+## Spike variants and mutation combinations / mAb neutralization
 
 ```{r phenotypes-strain-mab}
 
@@ -191,7 +192,7 @@ dfSuscResultsMAb %>%
   styledDT
 ```
 
-## Phenotypes-Strain_Plasma
+## Spike variants and mutation combinations / plasma neutralization
 
 ```{r phenotypes-strain-plasma}
 
@@ -235,6 +236,42 @@ dfStrainPlasma %>%
     Strain,
     Plasma,
     Vaccine
+  ) %>%
+  styledDT
+```
+
+## Spike mutation Invitro selection / CP and mAb
+
+```{r invitro-selection}
+invitroResults = read.invitroResults()
+invitroResults = invitroResults %>%
+  inner_join(
+    dfArticles,
+    by = "ref_name",
+    suffix = c(".invitro", ".ref")
+  )
+invitroResults %>%
+  mutate(
+    DOI = ifelse(is.na(doi), url, doi),
+    # mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
+    mAb = rx_name,
+    Position=position,
+    AAMutation=amino_acid
+  ) %>%
+  select(
+    Author = ref_name,
+    DOI,
+    Source = section,
+    Date = date_added.invitro,
+    mAb,
+    Position,
+    AAMutation
+  ) %>%
+  arrange(
+    Author,
+    mAb,
+    Position,
+    AAMutation
   ) %>%
   styledDT
 ```
