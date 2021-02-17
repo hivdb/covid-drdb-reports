@@ -1,11 +1,12 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
+from collections import defaultdict
+from preset import dump_json
 from preset import RESISTANCE_FILTER
 from preset import EXCLUDE_PLASMA
 from preset import PLASMA_RENAME
 from preset import PLASMA_POST_RENAME
-from collections import defaultdict
 
 
 MAIN_SQL = """
@@ -141,3 +142,26 @@ def gen_tableS6(conn):
 
     save_path = DATA_FILE_PATH / 'TableS6.csv'
     dump_csv(save_path, records)
+
+    json_records = defaultdict(list)
+    for r in records:
+        strain = r['Strain name']
+        json_records[strain].append({
+            'strain': strain,
+            'rx': r['Plasma'],
+            's_fold': r['S'],
+            'i_fold': r['I'],
+            'r_fold': r['R'],
+            'reference': r['Reference']
+        })
+
+    records = []
+    for strain, assays in json_records.items():
+        records.append({
+            'strain': strain,
+            'assays': sorted(assays, key=itemgetter('rx')),
+        })
+
+    strain = sorted(records, key=itemgetter('strain'))
+    save_path = DATA_FILE_PATH / 'tableS6.json'
+    dump_json(save_path, records)

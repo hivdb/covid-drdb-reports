@@ -9,7 +9,6 @@ from gen_tableS6 import gen_tableS6
 from gen_tableS7 import gen_tableS7
 
 
-
 def gen_report(db_path):
     conn = sqlite3.connect(db_path)
     init_synonyms_map(conn)

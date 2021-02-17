@@ -1,8 +1,10 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
+from preset import dump_json
 from preset import SYNONYM2AB_NAME
 from preset import AB_NAME2MAB_CLASS
 from operator import itemgetter
+from collections import defaultdict
 from preset import RESISTANCE_FILTER
 from preset import MAB_RENAME
 from preset import round_number
@@ -101,3 +103,25 @@ def gen_tableS5(conn):
 
     save_path = DATA_FILE_PATH / 'TableS5.csv'
     dump_csv(save_path, records)
+
+    json_records = defaultdict(list)
+    for r in records:
+        strain = r['Strain name']
+        json_records[strain].append({
+            'strain': strain,
+            'rx': r['Mab name'],
+            'mab_class': r['Class'],
+            'fold': r['Fold'],
+            'reference': r['Reference']
+        })
+
+    records = []
+    for strain, assays in json_records.items():
+        records.append({
+            'strain': strain,
+            'assays': sorted(assays, key=itemgetter('mab_class')),
+        })
+
+    strain = sorted(records, key=itemgetter('strain'))
+    save_path = DATA_FILE_PATH / 'tableS5.json'
+    dump_json(save_path, records)

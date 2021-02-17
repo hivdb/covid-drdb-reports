@@ -2,6 +2,7 @@ import csv
 from pathlib import Path
 import decimal
 from decimal import Decimal
+import json
 
 
 decimal.getcontext().rounding = decimal.ROUND_HALF_UP
@@ -21,6 +22,11 @@ def dump_csv(file_path, records, headers=[]):
         writer = csv.DictWriter(fd, fieldnames=headers)
         writer.writeheader()
         writer.writerows(records)
+
+
+def dump_json(json_path, obj):
+    with json_path.open('w') as fd:
+        json.dump(obj, fd, indent=4, ensure_ascii=False)
 
 
 SYNONYM2AB_NAME = {}
