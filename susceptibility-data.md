@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/15/2021 08:17 PM PDT
+Report generated at: 02/16/2021 09:03 PM PDT
 
 
 
@@ -51,19 +51,19 @@ Report generated at: 02/15/2021 08:17 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
-   <td style="text-align:right;"> 94 </td>
-   <td style="text-align:right;"> 169 </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 210 </td>
    <td style="text-align:right;"> 22 </td>
    <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 92 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
-   <td style="text-align:right;"> 118 </td>
-   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 121 </td>
+   <td style="text-align:right;"> 91 </td>
    <td style="text-align:right;"> 20 </td>
    <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 27 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> P.1 Spike </td>
@@ -100,7 +100,7 @@ Report generated at: 02/15/2021 08:17 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 153 </td>
   </tr>
 </tbody>
 </table>
@@ -111,7 +111,7 @@ Report generated at: 02/15/2021 08:17 PM PDT
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #7fcbee; color: black;">fold ↓ susceptibility 3 to 10</span>&nbsp;
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #ffffff; color: black;">fold ↓ susceptibility < 3</span>
 
-<img src="susceptibility-data_files/figure-html/plasma-fold-fig-1.png" width="1152" />
+<img src="susceptibility-data_files/figure-html/plasma-fold-fig-1.png" width="1344" />
 
 ## Monoclonal antibodies
 
