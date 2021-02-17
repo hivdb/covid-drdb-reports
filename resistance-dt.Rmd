@@ -240,7 +240,7 @@ dfStrainPlasma %>%
   styledDT
 ```
 
-## Spike mutation Invitro selection / CP and mAb
+## Spike mutation Invitro selection
 
 ```{r invitro-selection}
 invitroResults = read.invitroResults()
