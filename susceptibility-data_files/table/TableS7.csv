@@ -95,9 +95,11 @@ N501Y,C121,RBM Class II,0.8,Weisblum20
 N501Y,2-4,RBM Class III,2.8,Wang21b
 N501Y,C144,RBM Class III,1.4,Weisblum20
 Y453F,Imdevimab,RBD Core Cluster I,2.8,Baum20
+Y453F,Imdevimab,RBD Core Cluster I,1.6,Hoffmann21b
 Y453F,Imdevimab,RBD Core Cluster I,2.0,Rothenberger21
 Y453F,Casirivimab/Imdevimab,RBM Class I,3.5,Baum20
 Y453F,Casirivimab,RBM Class I,>100,Baum20
+Y453F,Casirivimab,RBM Class I,44,Hoffmann21b
 Y453F,Casirivimab,RBM Class I,26,Rothenberger21
 ∆69/70,4A8,NTD,0.7,Wang21b
 ∆69/70,C135,RBD Core Cluster I,0.6,Wang21b

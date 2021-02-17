@@ -35,6 +35,20 @@ N501Y,mRNA-1273,11,0,0,Shen21
 N501Y,mRNA-1273,11,0,0,Wang21
 N501Y,mRNA-1273,12,0,0,Wang21b
 Y453F,BNT162b2,4,0,0,Wang21
+Y453F,ConvPlasma 10,1,0,0,Hoffmann21b
+Y453F,ConvPlasma 11,0,1,0,Hoffmann21b
+Y453F,ConvPlasma 12,0,1,0,Hoffmann21b
+Y453F,ConvPlasma 13,1,0,0,Hoffmann21b
+Y453F,ConvPlasma 14,1,0,0,Hoffmann21b
+Y453F,ConvPlasma 7,0,1,0,Hoffmann21b
+Y453F,ConvPlasma 8,1,0,0,Hoffmann21b
+Y453F,ConvPlasma 9,1,0,0,Hoffmann21b
+Y453F,ConvSerum 1,0,1,0,Hoffmann21b
+Y453F,ConvSerum 2,1,0,0,Hoffmann21b
+Y453F,ConvSerum 3,1,0,0,Hoffmann21b
+Y453F,ConvSerum 4,1,0,0,Hoffmann21b
+Y453F,ConvSerum 5,1,0,0,Hoffmann21b
+Y453F,ConvSerum 6,1,0,0,Hoffmann21b
 Y453F,mRNA-1273,11,0,0,Wang21
 ∆69/70,BNT162b2,10,0,0,Wang21b
 ∆69/70,CP,3,0,0,Kemp21

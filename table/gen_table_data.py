@@ -24,4 +24,3 @@ def gen_report(db_path):
 if __name__ == '__main__':
     db_path = sys.argv[1]
     gen_report(db_path)
-

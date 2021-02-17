@@ -84,11 +84,363 @@
             },
             {
                 "strain": "B.1.1.7",
+                "rx": "CP_M3",
+                "s_fold": 28,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "CP_M6",
+                "s_fold": 25,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "CP_M9",
+                "s_fold": 30,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
                 "rx": "NVX-CoV",
                 "s_fold": 20,
                 "i_fold": 7,
                 "r_fold": 1,
                 "reference": "Shen21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_01_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_01_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_01_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_02_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_02_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_02_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_03_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_03_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_04_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_04_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_04_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_05_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_05_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_05_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_06_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_06_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_06_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_07_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_07_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_07_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_08_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_08_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_08_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_09_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_09_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_09_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_10_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_10_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_10_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_11_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_11_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_11_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_12_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_12_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_13_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_13_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_14_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_15_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_15_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_16_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "VAC_16_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
             },
             {
                 "strain": "B.1.1.7",
@@ -214,6 +566,358 @@
                 "i_fold": 2,
                 "r_fold": 4,
                 "reference": "Cele21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "CP_M3",
+                "s_fold": 0,
+                "i_fold": 28,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "CP_M6",
+                "s_fold": 0,
+                "i_fold": 25,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "CP_M9",
+                "s_fold": 0,
+                "i_fold": 30,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_01_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_01_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_01_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_02_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_02_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_02_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_03_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_03_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_04_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_04_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_04_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_05_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_05_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_05_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_06_W2",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_06_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_06_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_07_W2",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_07_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_07_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_08_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_08_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_08_W4",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_09_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_09_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_09_W4",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_10_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_10_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_10_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_11_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_11_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_11_W4",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_12_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_12_W3",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_13_W2",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_13_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_14_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_15_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_15_W3",
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_16_W2",
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "VAC_16_W3",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Planas21"
             },
             {
                 "strain": "B.1.351",

@@ -448,7 +448,7 @@ for (strain in filterStrains) {
       )
     ),
     data = dfPartial,
-    position = position_dodge2(preserve = 'single', width = (widthTimer - 0.014) * numAbs),
+    position = position_dodge2(preserve = 'single', width = widthTimer * numAbs),
     size = 1.5,
     vjust = -0.5
   )

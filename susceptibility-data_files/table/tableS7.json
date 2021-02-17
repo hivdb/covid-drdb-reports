@@ -708,6 +708,13 @@
                 "strain": "Y453F",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "1.6",
+                "reference": "Hoffmann21b"
+            },
+            {
+                "strain": "Y453F",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "2.0",
                 "reference": "Rothenberger21"
             },
@@ -724,6 +731,13 @@
                 "mab_class": "RBM Class I",
                 "fold": ">100",
                 "reference": "Baum20"
+            },
+            {
+                "strain": "Y453F",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "44",
+                "reference": "Hoffmann21b"
             },
             {
                 "strain": "Y453F",
