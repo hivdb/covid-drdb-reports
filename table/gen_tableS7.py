@@ -56,6 +56,11 @@ ROWS = {
             "AND s.strain_name = 'S:69del+70del+453F'",
         ]
     },
+    '∆144': {
+        'filter': [
+            "AND s.strain_name = 'S:144del'",
+        ]
+    },
     'E484K': {
         'filter': [
             "AND s.strain_name = 'S:484K'"
