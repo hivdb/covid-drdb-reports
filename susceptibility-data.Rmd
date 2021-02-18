@@ -395,6 +395,10 @@ dfForPlot = dfSuscResultsMAb %>%
     ref_name = factor(
       ref_name,
       levels = sort(unique(ref_name))
+    ),
+    resistance_level = factor(
+      resistance_level,
+      levels = sort(resistance_levels)
     )
   ) %>%
   select(ref_name, ab_name, strain_name, in_trial, resistance_level, fold_cmp, fold) %>%
