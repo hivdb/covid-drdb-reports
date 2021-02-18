@@ -298,7 +298,7 @@ grid.arrange(grobs = plots, nrow = length(strainTitle))
 
 ## Monoclonal antibodies
 
-```{r mab-fold-fig, fig.height = 20, fig.width = 24, fig.retina = 4, message = FALSE, warning = FALSE}
+```{r mab-fold-fig, fig.height=20, fig.retina=4, fig.width=24, message=FALSE, warning=FALSE}
 
 groupTitle = c(
   "In clinical trial",
@@ -354,7 +354,7 @@ mAbLabels = c(
   "C144" = "C144\n(RBM 3)",
   "S2M11" = "S2M11\n(RBM 3)",
   "Imdevimab" = "IMD\n(RBD-core 1)",
-  "Vir-7831" = "Vir-7831(S309)\n(RBD-core 1)",
+  "Vir-7831" = "SOT\n(RBD-core 1)",
   "C135" = "C135\n(RBD-core 1)",
   "COVA1-16" = "COVA1-16\n(RBD-core 2)",
   "H014" = "H014\n(RBD-core 2)",
