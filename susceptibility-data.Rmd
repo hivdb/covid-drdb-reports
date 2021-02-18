@@ -34,17 +34,13 @@ dfVirusStrains = read.virusStrains() %>%
   select(strain_name, num_muts)
 dfAntibodies = read.antibodies()
 
-groupTitle = c(
-  "CP" = "Convalescent plasma",
-  "IP" = "Vaccinated plasma"
-)
 ```
 
 
 ## Statistic Numbers
 
 ```{r numbers}
-phase3MAbs = dfAntibodies %>%
+inTrialMAbs = dfAntibodies %>%
   filter(!is.na(availability))
 
 structuredMAbs = dfAntibodies %>%
@@ -54,7 +50,7 @@ dfSuscResults = dfSuscResultsMAb %>%
   mutate(
     group = "MAb",
     rx_group = ifelse(
-      Vectorize(function(x) length(setdiff(x, phase3MAbs$ab_name)) == 0)(ab_name),
+      Vectorize(function(x) length(setdiff(x, inTrialMAbs$ab_name)) == 0)(ab_name),
       yes = "phase3MAb",
       no = ifelse(
         Vectorize(function(x) length(setdiff(x, structuredMAbs$ab_name)) == 0)(ab_name),
@@ -116,6 +112,10 @@ aggregate(cbind(count = ab_name) ~ has_structure, dfUsedMAbs, FUN = length) %>%
 
 ```{r plasma-fold-fig, fig.height = 10, fig.width = 14, fig.retina = 4, message = FALSE}
 
+groupTitle = c(
+  "CP" = "Convalescent plasma",
+  "IP" = "Vaccinated plasma"
+)
 strainTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
@@ -194,16 +194,6 @@ resistance_levels = c(
 )
 
 dfForPlot = dfForPlot %>%
-  select(ref_name, rx_name, vaccine_name, strain_name, group) %>%
-  unique %>%
-  merge(
-    data.frame(resistance_level = resistance_levels)
-  ) %>%
-  merge(
-    dfForPlot,
-    by = c('ref_name', 'rx_name', 'vaccine_name', 'strain_name', 'group', 'resistance_level'),
-    all.x = TRUE
-  ) %>%
   mutate(
     cumulative_count = ifelse(is.na(cumulative_count), 0, cumulative_count),
     resistance_level = factor(resistance_level, levels = resistance_levels),
@@ -266,7 +256,11 @@ for (strain in filterStrains) {
         breaks = seq(0, maxCount, yAxisStep)
       ) +
       # labs(title = strain) +
-      scale_fill_manual(values = c("#146aa8", "#7fcbee", "#ffffff")) +
+      scale_fill_manual(values = c(
+        'resistance' = "#146aa8",
+        'partial-resistance' = "#7fcbee",
+        'susceptible' = "#ffffff"
+      )) +
       theme(
         plot.title = element_text(hjust = 0.5),
         axis.title.x = element_blank(),
@@ -305,6 +299,11 @@ grid.arrange(grobs = plots, nrow = length(strainTitle))
 ## Monoclonal antibodies
 
 ```{r mab-fold-fig, fig.height = 20, fig.width = 24, fig.retina = 4, message = FALSE, warning = FALSE}
+
+groupTitle = c(
+  "In clinical trial",
+  "Other"
+)
 strainTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
@@ -325,7 +324,7 @@ filterMAbs = structuredMAbs$ab_name %>%
       "910-30" # PDB:7KS9, pending
     )
   ) %>%
-  union(phase3MAbs$ab_name)
+  union(inTrialMAbs$ab_name)
 
 # order of mAbs:
 # - MAbs in clinical trial first; add the new trial MAb at the end of this group; well-known ones don't need class/target
@@ -385,6 +384,7 @@ dfForPlot = dfSuscResultsMAb %>%
     strain_name = factor(strain_name, levels = filterStrains),
     fold_cmp = ifelse(fold > 100, ">", fold_cmp),
     fold = ifelse(fold > 100, 100, fold),
+    in_trial = Vectorize(function(x) length(setdiff(x, inTrialMAbs$ab_name)) == 0)(ab_name),
     ab_name = Vectorize(function(x) paste(x, collapse = "+\n"))(ab_name)
   ) %>%
   mutate(
@@ -397,91 +397,144 @@ dfForPlot = dfSuscResultsMAb %>%
       levels = sort(unique(ref_name))
     )
   ) %>%
-  select(ref_name, ab_name, strain_name, fold_cmp, fold) %>%
-  group_by(ref_name, ab_name, strain_name, fold_cmp) %>%
-  summarise(fold = max(fold))
+  select(ref_name, ab_name, strain_name, in_trial, resistance_level, fold_cmp, fold) %>%
+  group_by(ref_name, ab_name, strain_name, in_trial, fold_cmp) %>%
+  summarise(
+    fold = max(fold),
+    resistance_level = tail(sort(resistance_level), n=1)
+  )
 
 dfNumAbs = dfForPlot %>%
-  group_by(strain_name) %>%
+  group_by(strain_name, in_trial) %>%
   summarize(num_abs = length(unique(ab_name)))
-dfForPlot = merge(dfForPlot, dfNumAbs, by = "strain_name")
+dfNumRefs = dfForPlot %>%
+  group_by(strain_name, in_trial, ab_name) %>%
+  summarize(num_refs = length(unique(ref_name))) %>%
+  group_by(strain_name, in_trial) %>%
+  summarize(num_refs = max(num_refs))
+  
+dfForPlot = dfForPlot %>%
+  inner_join(dfNumAbs, by = c("strain_name", "in_trial")) %>%
+  inner_join(dfNumRefs, by = c("strain_name", "in_trial"))
 
 maxNumAbs = max(dfForPlot$num_abs)
-widthTimer = 0.95 / maxNumAbs
+maxNumRefs = max(dfForPlot$num_refs)
+widthTimer = 0.95 / maxNumAbs / maxNumRefs
 
 plots = list()
 i = 1
-
-dfStrainLabel = data.frame(
-  x = 0,
-  y = 190,
-  strain_name = factor(filterStrains, levels = filterStrains),
-  text = strainTitle
-)
 
 dfHLines = data.frame(
   y = c(1, 3, 10, 30, 100)
 )
 
-plot = dfForPlot %>%
-  ggplot(aes(x = ab_name, y = fold)) +
-  geom_hline(aes(yintercept = y), data = dfHLines, linetype = "dashed", color = "#e0e0e0") +
-  geom_bar(
-    aes(fill = ref_name, width = widthTimer * num_abs),
-    size = 0.2,
-    color = "#000000",
-    stat = 'identity',
-    position = position_dodge2(preserve = 'single')
-  ) +
-  labs(fill = "References")
-
 for (strain in filterStrains) {
   dfPartial = dfForPlot %>% filter(strain_name == strain) %>% arrange(ref_name)
-  numAbs = dfPartial$num_abs[[1]]
-  plot = plot + geom_text(
-    aes(
-      y = Vectorize(function(x) min(x, 190))(fold),
-      label = ifelse(
-        fold_cmp == ">",
-        sprintf(">%s", formatC(fold, digits = 1, format = 'fg')),
-        ""
+  dfStrainLabel = data.frame(
+    x = 0,
+    y = 190,
+    strain_name = strain,
+    text = strainTitle[[strain]]
+  )
+  
+  for (cond in c(TRUE, FALSE)) {
+    dfPartial2 = dfPartial %>%
+      filter(in_trial == cond)
+    isEmpty = nrow(dfPartial2) == 0
+    if (isEmpty) {
+      dfPartial2 = data.frame(
+        ref_name = "",
+        ab_name = "\n",
+        strain_name = strain,
+        in_trial = cond,
+        fold_cmp = "=",
+        fold = 0,
+        num_abs = 1,
+        num_refs = 1,
+        resistance_level = 'susceptible'
       )
-    ),
-    data = dfPartial,
-    position = position_dodge2(preserve = 'single', width = widthTimer * numAbs),
-    size = 1.5,
-    vjust = -0.5
-  )
+    }
+    numAbs = dfPartial2$num_abs[[1]]
+    numRefs = max(dfPartial2$num_refs)
+    plot = dfPartial2 %>%
+      ggplot(aes(x = ab_name, y = fold)) +
+      geom_hline(aes(yintercept = y), data = dfHLines, linetype = "dashed", color = "#e0e0e0") +
+      geom_bar(
+        aes(color = ref_name, fill = resistance_level, width = widthTimer * num_abs * num_refs),
+        size = 0.2,
+        color = "#000000",
+        stat = 'identity',
+        position = position_dodge2(preserve = 'single')
+      ) +
+      labs(fill = "References") +
+      scale_color_manual(values = rep("#000000", maxNumRefs)) +
+      scale_fill_manual(values = c(
+        'resistance' = "#146aa8",
+        'partial-resistance' = "#7fcbee",
+        'susceptible' = "#ffffff"
+      )) +
+      geom_text(
+        aes(
+          y = Vectorize(function(x) min(x, 190))(fold),
+          label = ifelse(
+            fold_cmp == ">",
+            sprintf(">%s", formatC(fold, digits = 1, format = 'fg')),
+            ""
+          )
+        ),
+        position = position_dodge2(preserve = 'single', width = widthTimer * numAbs * numRefs),
+        size = 1.5,
+        vjust = -0.5
+      ) +
+      scale_x_discrete(labels = Vectorize(function(x) ifelse(
+        x %in% mAbHasLabels,
+        yes = mAbLabels[[x]],
+        no = x
+      ))) +
+      scale_y_continuous(
+        trans=scales::pseudo_log_trans(base = 10),
+        expand = c(0, 0, 0.1, 0),
+        breaks = c(0, 1, 3, 10, 30, 100)
+      ) +
+      coord_cartesian(ylim = c(0, 200)) +
+      theme(
+        legend.position = "none", 
+        plot.title = element_text(hjust = 0.5),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+      )
+    if (cond) {
+      plot = plot +
+        geom_text(
+          aes(x, y, label = text),
+          #nudge_x = 0.5,
+          data = dfStrainLabel,
+          hjust = - 0.2,
+          vjust = 0
+        )
+    }
+    else {
+      plot = plot +
+        theme(
+          axis.ticks.y = element_blank(),
+          axis.text.y = element_blank()
+        )
+    }
+    if (isEmpty) {
+      plot = plot + theme(axis.ticks.x = element_blank())
+    }
+    if (i %in% c(1, 2)) {
+      plot = plot + ggtitle(groupTitle[[i]])
+    }
+    plots[[i]] = plot
+    i = i + 1
+  }
 }
-plot +
-  geom_text(
-    aes(x, y, label = text),
-    #nudge_x = 0.5,
-    data = dfStrainLabel,
-    hjust = - 0.2,
-    vjust = 0
-  ) +
-  scale_x_discrete(labels = Vectorize(function(x) ifelse(
-    x %in% mAbHasLabels,
-    yes = mAbLabels[[x]],
-    no = x
-  ))) +
-  scale_y_continuous(
-    trans=scales::pseudo_log_trans(base = 10),
-    expand = c(0, 0, 0.1, 0),
-    breaks = c(0, 1, 3, 10, 30, 100)
-  ) +
-  coord_cartesian(ylim = c(0, 200)) +
-  facet_wrap(~ strain_name, scales = "free_x", nrow = length(filterStrains)) +
-  theme(
-    plot.title = element_text(),
-    axis.title.x = element_blank(),
-    axis.title.y = element_blank(),
-    strip.background = element_blank(),
-    strip.text = element_blank(),
-    panel.background = element_blank(),
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    panel.border = element_rect(fill = NA, color = 'black')
-  )
+grid.arrange(grobs = plots, nrow = length(filterStrains))
 ```
