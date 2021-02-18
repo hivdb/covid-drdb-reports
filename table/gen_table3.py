@@ -74,6 +74,8 @@ def process_record(strain, records):
 
         rec_list.sort(key=parse_fold)
         max_value = rec_list[-1]['Fold']
+        max_value = max_value.replace('>', '&gt;')
+        num_rec_list = len(set([i['Reference'] for i in rec_list]))
 
         tmpl = '{}<sub>{}</sub>'
         for s, m in DATA_PROBLEM:
@@ -82,7 +84,7 @@ def process_record(strain, records):
                 break
 
         result[short_name] = tmpl.format(
-            max_value, len(rec_list)
+            max_value, num_rec_list if num_rec_list > 1 else ''
         )
 
     return result

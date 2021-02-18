@@ -243,7 +243,11 @@ EXCLUDE_MAB = [
 
 def round_number(number):
     if number < 10:
-        return Decimal(str(number)).quantize(Decimal('1.0'))
+        number = float(number)
+        if number.is_integer():
+            return Decimal(str(number)).quantize(Decimal('1'))
+        else:
+            return Decimal(str(number)).quantize(Decimal('1.0'))
     elif number >= 10 and number < 100:
         return Decimal(str(number)).quantize(Decimal('1'))
     else:

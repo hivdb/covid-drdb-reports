@@ -165,7 +165,7 @@ def gen_tableS7(conn):
             'strain': strain,
             'rx': r['Mab name'],
             'mab_class': r['Class'],
-            'fold': r['Fold'],
+            'fold': r['Fold'].replace('>', '&gt;'),
             'reference': r['Reference']
         })
 
