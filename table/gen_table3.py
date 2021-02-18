@@ -22,7 +22,7 @@ SHOW_MABS = {
     'Bamlanivimab': 'bam',
     'Cilgavimab': 'cil',
     'Imdevimab': 'imd',
-    'Vir-7831': 'sot',
+    'Sotrovimab': 'sot',
     'Regdanvimab': 'reg',
     'BRII-196': 'BRII-196',
     'BRII-198': 'BRII-198',
@@ -31,6 +31,11 @@ SHOW_MABS = {
     'JMB2002': 'JMB2002',
     'S2E12': 'S2E12',
 }
+
+DATA_PROBLEM = [
+    ('B.1.1.7', 'sot'),
+    ('N501Y', 'sot'),
+]
 
 
 def group_strains(records):
@@ -69,7 +74,14 @@ def process_record(strain, records):
 
         rec_list.sort(key=parse_fold)
         max_value = rec_list[-1]['Fold']
-        result[short_name] = '{}<sub>{}</sub>'.format(
+
+        tmpl = '{}<sub>{}</sub>'
+        for s, m in DATA_PROBLEM:
+            if s == strain and m == short_name:
+                tmpl += '*'
+                break
+
+        result[short_name] = tmpl.format(
             max_value, len(rec_list)
         )
 

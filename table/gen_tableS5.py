@@ -99,7 +99,7 @@ def gen_tableS5(conn):
                     })
 
     records.sort(key=itemgetter(
-        'Strain name', 'Class', 'Reference'))
+        'Strain name', 'Class', 'Mab name'))
 
     save_path = DATA_FILE_PATH / 'TableS5.csv'
     dump_csv(save_path, records)
