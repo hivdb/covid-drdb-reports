@@ -7,6 +7,7 @@ from preset import RESISTANCE_FILTER
 from preset import EXCLUDE_PLASMA
 from preset import PLASMA_RENAME
 from preset import PLASMA_POST_RENAME
+from preset import RENAME_CP_EXECUTOR
 
 
 MAIN_SQL = """
@@ -120,10 +121,18 @@ def gen_tableS6(conn):
                 for i in cursor.fetchall():
                     strain_name = row_name
                     cp_name = i[1]
+                    reference = i[0]
+
                     if cp_name in EXCLUDE_PLASMA:
                         continue
+
                     cp_name = PLASMA_RENAME.get(cp_name, cp_name)
-                    reference = i[0]
+                    rename_executor = RENAME_CP_EXECUTOR.get(reference)
+                    if rename_executor:
+                        tester, new_name = rename_executor
+                        if tester(cp_name):
+                            cp_name = new_name
+
                     key = '{}{}{}'.format(strain_name, cp_name, reference)
 
                     rec = records[key]

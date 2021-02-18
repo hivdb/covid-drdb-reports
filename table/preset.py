@@ -130,10 +130,28 @@ RESISTANCE_FILTER = {
 }
 
 
+EXCLUDE_STUDIES = {
+    'Planas21': lambda x: x.startswith('CP') or (not x.endswith('W4'))
+}
+
+
 EXCLUDE_PLASMA = [
     'Hospitalized_Samples',
     'Mild_Samples',
 ]
+
+
+RENAME_CP_EXECUTOR = {
+    'Planas21': (
+        lambda x: x.startswith('VAC'),
+        'BNT162b2'
+    ),
+    'Hoffmann21b': (
+        lambda x: x.startswith('ConvSerum') or x.startswith('ConvPlasma'),
+        'CP',
+    )
+}
+
 
 PLASMA_RENAME = {
     'BNT162b2_3Weeks': 'BNT162b2_1M',
