@@ -23,6 +23,13 @@ SHOW_MABS = {
     'Cilgavimab': 'cil',
     'Imdevimab': 'imd',
     'Vir-7831': 'sot',
+    'Regdanvimab': 'reg',
+    'BRII-196': 'BRII-196',
+    'BRII-198': 'BRII-198',
+    'C135': 'C135',
+    'C144': 'C144',
+    'JMB2002': 'JMB2002',
+    'S2E12': 'S2E12',
 }
 
 
