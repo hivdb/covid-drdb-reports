@@ -110,11 +110,15 @@ aggregate(cbind(count = ab_name) ~ has_structure, dfUsedMAbs, FUN = length) %>%
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #7fcbee; color: black;">fold ↓ susceptibility `r partialResistFold` to `r resistFold`</span>&nbsp;
 <span style="padding: .1rem .2rem; margin: 0 .2rem; border: 1px solid black; background-color: #ffffff; color: black;">fold ↓ susceptibility < `r partialResistFold`</span>
 
-```{r plasma-fold-fig, fig.height = 10, fig.width = 14, fig.retina = 4, message = FALSE}
+```{r plasma-fold-fig, fig.height = 10, fig.width = 16, fig.retina = 4, message = FALSE}
 
 groupTitle = c(
   "CP" = "Convalescent plasma",
   "IP" = "Vaccinated plasma"
+)
+authenticStrains = c(
+  "B.1.1.7 authentic" = "B.1.1.7 Spike",
+  "B.1.351 authentic" = "B.1.351 Spike"
 )
 strainTitle = c(
   "S:501Y" = "N501Y",
@@ -136,10 +140,10 @@ excludedRefRxNames = c(
   "Planas21 BNT_W3"
 )
 shortRefRxNames = c(
-  "Cele21 CP_WT" = "Cele21\n",
+  "Cele21 CP_WT LiveVirus" = "Cele21*\n",
   "Collier21 BNT" = "BNT\nCollier21",
-  "Edara21 CP" = "Edara21\n",
-  "Edara21 Mod" = "Mod\nEdara21",
+  "Edara21 CP LiveVirus" = "Edara21*\n",
+  "Edara21 Mod LiveVirus" = "Mod\nEdara21*",
   "Greaney21 CP" = "Greaney21\n",
   "Hoffmann21 BNT" = "BNT\nHoffmann21",
   "Hoffmann21 CP" = "Hoffmann21\n",
@@ -163,8 +167,11 @@ shortRefRxNames = c(
   "Wang21 BNT" = "BNT\nWang21",
   "Wang21 Mod" = "Mod\nWang21",
   "Wang21b CP" = "Wang21b\n",
+  "Wang21b CP LiveVirus" = "Wang21b*\n",
   "Wang21b BNT" = "BNT\nWang21b",
+  "Wang21b BNT LiveVirus" = "BNT\nWang21b*",
   "Wang21b Mod" = "Mod\nWang21b",
+  "Wang21b Mod LiveVirus" = "Mod\nWang21b*",
   "Wibmer21 low titer" = "Titer < 400\nWibmer21",
   "Wibmer21 high titer" = "Titer > 400\nWibmer21",
   "Wu21 Mod" = "Mod\nWu21",
@@ -174,36 +181,38 @@ shortRefRxNames = c(
 yAxisStep = 5
 longRefRxNames = names(shortRefRxNames)
 
-dfForPlot = dfSuscResultsPlasma %>%
-  filter(strain_name %in% filterStrains) %>%
-  mutate(
-    rx_name = ifelse(is.na(cumulative_group), rx_name, cumulative_group),
-    vaccine_name = ifelse(is.na(vaccine_name), "NA", vaccine_name)
-  )
-dfForPlot = aggregate(
-  cumulative_count ~ ref_name + rx_name + vaccine_name + strain_name + resistance_level + group,
-  dfForPlot,
-  FUN=sum,
-  na.action = na.pass
-)
-
 resistance_levels = c(
   'resistance',
   'partial-resistance',
   'susceptible'
 )
 
-dfForPlot = dfForPlot %>%
+dfForPlot = dfSuscResultsPlasma %>%
+  mutate(
+    strain_name = ifelse(
+      strain_name %in% names(authenticStrains),
+      yes = authenticStrains[strain_name],
+      no = strain_name
+    )
+  ) %>%
+  filter(strain_name %in% filterStrains) %>%
+  mutate(
+    rx_name = ifelse(is.na(cumulative_group), rx_name, cumulative_group),
+    vaccine_name = ifelse(is.na(vaccine_name), "NA", vaccine_name)
+  ) %>%
+  group_by(ref_name, rx_name, vaccine_name, strain_name, resistance_level, group, assay) %>%
+  dplyr::summarise(
+    cumulative_count = sum(cumulative_count)
+  ) %>%
   mutate(
     cumulative_count = ifelse(is.na(cumulative_count), 0, cumulative_count),
     resistance_level = factor(resistance_level, levels = resistance_levels),
-    group = factor(
-      group,
-      levels = c("CP", "IP")
-    ),
-    ref_rx = paste(ref_name, rx_name, sep=" ")
+    group = factor(group, levels = c("CP", "IP")),
+    ref_rx = sprintf(ifelse(is.na(assay), "%s %s", "%s %s LiveVirus"), ref_name, rx_name)
   ) %>%
-  filter(ref_rx %notin% excludedRefRxNames) %>%
+  filter(
+    ref_rx %notin% excludedRefRxNames
+  ) %>%
   mutate(
     ref_rx = factor(ref_rx, levels = unique(c(longRefRxNames, ref_rx)))
   )
@@ -216,7 +225,7 @@ for (strain in filterStrains) {
     filter(strain_name == strain)
   totalCount = df %>%
     group_by(ref_rx, group) %>%
-    summarise(
+    dplyr::summarise(
       total_count = sum(cumulative_count)
     )
   maxCount = ceiling((max(totalCount$total_count)) / yAxisStep) * yAxisStep
@@ -403,19 +412,19 @@ dfForPlot = dfSuscResultsMAb %>%
   ) %>%
   select(ref_name, ab_name, strain_name, in_trial, resistance_level, fold_cmp, fold) %>%
   group_by(ref_name, ab_name, strain_name, in_trial, fold_cmp) %>%
-  summarise(
+  dplyr::summarise(
     fold = max(fold),
     resistance_level = tail(sort(resistance_level), n=1)
   )
 
 dfNumAbs = dfForPlot %>%
   group_by(strain_name, in_trial) %>%
-  summarize(num_abs = length(unique(ab_name)))
+  dplyr::summarize(num_abs = length(unique(ab_name)))
 dfNumRefs = dfForPlot %>%
   group_by(strain_name, in_trial, ab_name) %>%
-  summarize(num_refs = length(unique(ref_name))) %>%
+  dplyr::summarize(num_refs = length(unique(ref_name))) %>%
   group_by(strain_name, in_trial) %>%
-  summarize(num_refs = max(num_refs))
+  dplyr::summarize(num_refs = max(num_refs))
   
 dfForPlot = dfForPlot %>%
   inner_join(dfNumAbs, by = c("strain_name", "in_trial")) %>%

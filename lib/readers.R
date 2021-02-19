@@ -202,7 +202,7 @@ read.antibodies <- function() {
       )$ab_name
     ) %>%
     group_by(ab_name) %>%
-    summarise(ab_author_target = paste(target, collapse = ";"), .groups = "drop_last")
+    dplyr::summarise(ab_author_target = paste(target, collapse = ";"), .groups = "drop_last")
   
   read.dbTable("antibodies.csv") %>%
     left_join(dfMAbAuthorTargets, by = "ab_name") %>%
