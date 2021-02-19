@@ -59,9 +59,12 @@ def process_record(strain, records):
 
         result['{}_studies'.format(plasma)] = num_studies
         result['{}_samples'.format(plasma)] = num_samples
-        result['{}_s_fold'.format(plasma)] = pcnt_s
-        result['{}_i_fold'.format(plasma)] = pcnt_i
-        result['{}_r_fold'.format(plasma)] = pcnt_r
+        result['{}_s_fold'.format(plasma)] = '{}%'.format(
+            pcnt_s) if pcnt_s else 0
+        result['{}_i_fold'.format(plasma)] = '{}%'.format(
+            pcnt_i) if pcnt_i else 0
+        result['{}_r_fold'.format(plasma)] = '{}%'.format(
+            pcnt_r) if pcnt_r else 0
 
     return result
 
