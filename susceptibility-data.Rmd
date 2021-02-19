@@ -137,7 +137,9 @@ excludedRefRxNames = c(
   "Planas21 CP_M6",
   "Planas21 CP_M9",
   "Planas21 BNT_W2",
-  "Planas21 BNT_W3"
+  "Planas21 BNT_W3",
+  "Garcia-Beltran21 BNT",
+  "Garcia-Beltran21 Mod"
 )
 shortRefRxNames = c(
   "Cele21 CP_WT LiveVirus" = "Cele21*\n",
@@ -330,7 +332,8 @@ filterMAbs = structuredMAbs$ab_name %>%
     c(
       "DH1041",  # PDB:7LAA, pending
       "5-24",  # PDB:7L2F, pending
-      "910-30" # PDB:7KS9, pending
+      "910-30", # PDB:7KS9, published, pending for structure
+      "CV05-163" # PDB:7LOP, pending
     )
   ) %>%
   union(inTrialMAbs$ab_name)
