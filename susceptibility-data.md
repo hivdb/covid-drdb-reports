@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 02/19/2021 03:53 PM PDT
+Report generated at: 02/19/2021 05:10 PM PDT
 
 
 
@@ -29,7 +29,7 @@ Report generated at: 02/19/2021 03:53 PM PDT
    <td style="text-align:left;"> S:501Y </td>
    <td style="text-align:right;"> 57 </td>
    <td style="text-align:right;"> 79 </td>
-   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 20 </td>
    <td style="text-align:right;"> 12 </td>
    <td style="text-align:right;"> 42 </td>
   </tr>
@@ -37,7 +37,7 @@ Report generated at: 02/19/2021 03:53 PM PDT
    <td style="text-align:left;"> S:484K </td>
    <td style="text-align:right;"> 66 </td>
    <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 26 </td>
    <td style="text-align:right;"> 10 </td>
    <td style="text-align:right;"> 30 </td>
   </tr>
@@ -45,7 +45,7 @@ Report generated at: 02/19/2021 03:53 PM PDT
    <td style="text-align:left;"> Other mutations </td>
    <td style="text-align:right;"> 375 </td>
    <td style="text-align:right;"> 418 </td>
-   <td style="text-align:right;"> 361 </td>
+   <td style="text-align:right;"> 395 </td>
    <td style="text-align:right;"> 423 </td>
    <td style="text-align:right;"> 1254 </td>
   </tr>
@@ -61,7 +61,7 @@ Report generated at: 02/19/2021 03:53 PM PDT
    <td style="text-align:left;"> B.1.351 Spike </td>
    <td style="text-align:right;"> 115 </td>
    <td style="text-align:right;"> 110 </td>
-   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 22 </td>
    <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 27 </td>
   </tr>
@@ -77,7 +77,7 @@ Report generated at: 02/19/2021 03:53 PM PDT
    <td style="text-align:left;"> Other mutation combinations </td>
    <td style="text-align:right;"> 299 </td>
    <td style="text-align:right;"> 315 </td>
-   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 103 </td>
    <td style="text-align:right;"> 154 </td>
    <td style="text-align:right;"> 312 </td>
   </tr>
