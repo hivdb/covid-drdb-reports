@@ -1,6 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import load_csv
 from preset import dump_json
+from preset import dump_csv
 from collections import defaultdict
 
 SHOW_STRAIN = [
@@ -66,6 +67,10 @@ def process_record(strain, records):
         result['{}_r_fold'.format(plasma)] = '{}%'.format(
             pcnt_r) if pcnt_r else 0
 
+        result['{}_num_s_fold'.format(plasma)] = num_s
+        result['{}_num_i_fold'.format(plasma)] = num_i
+        result['{}_num_r_fold'.format(plasma)] = num_r
+
     return result
 
 
@@ -86,3 +91,6 @@ def gen_table4():
 
     save_file = DATA_FILE_PATH / 'table4.json'
     dump_json(save_file, result)
+
+    save_file = DATA_FILE_PATH / 'table4.csv'
+    dump_csv(save_file, result)
