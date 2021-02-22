@@ -12,20 +12,27 @@ from preset import EXCLUDE_MAB
 
 
 MAIN_SQL = """
-SELECT s.ref_name, s.rx_name, ab.class, ab.target, ab.source,
-       s.fold_cmp, s.fold
+SELECT  s.ref_name,
+        s.rx_name,
+        rxtype.class,
+        s.fold_cmp,
+        s.fold
     FROM
     susc_results as s,
-    {rxtype} AS rxtype,
-    (SELECT a.ab_name, b.class, b.target, b.source FROM
-        antibodies AS a LEFT JOIN
-        antibody_targets AS b
-        ON a.ab_name = b.ab_name
-        WHERE a.availability IS NOT NULL
-        OR a.pdb_id IS NOT NULL
-    ) AS ab
+    (
+        SELECT DISTINCT _rxtype.ref_name, _rxtype.rx_name, ab.class
+        FROM {rxtype} AS _rxtype,
+        (
+            SELECT a.ab_name, b.class, b.target, b.source FROM
+                antibodies AS a LEFT JOIN
+                antibody_targets AS b
+                ON a.ab_name = b.ab_name
+            WHERE a.availability IS NOT NULL
+            OR a.pdb_id IS NOT NULL
+        ) AS ab
+        WHERE _rxtype.ab_name = ab.ab_name
+    ) as rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND rxtype.ab_name = ab.ab_name
     {filters}
     GROUP BY s.ref_name, s.rx_name;
 """
@@ -127,6 +134,8 @@ def gen_tableS7(conn):
 
                 cursor.execute(sql)
                 for i in cursor.fetchall():
+                    reference = i[0]
+
                     ab_name = SYNONYM2AB_NAME.get(i[1], i[1])
                     if ab_name in EXCLUDE_MAB:
                         continue
@@ -135,21 +144,17 @@ def gen_tableS7(conn):
                     ab_class = i[2]
                     if not ab_class and ab_class_info:
                         ab_class = ab_class_info['class']
-                    ab_target = i[3]
-                    if not ab_target and ab_class_info:
-                        ab_target = ab_class_info['target']
-                    ab_source = i[4]
-                    if not ab_source and ab_class_info:
-                        ab_source = ab_class_info['source']
+                    if '/' in ab_name or '+' in ab_name:
+                        ab_class = ''
+
+                    fold = '{}'.format(round_number(i[4]))
                     records.append({
                         'Strain name': row_name,
                         'Mab name': MAB_RENAME.get(ab_name, ab_name),
                         'Class': ab_class or '',
-                        # 'Target': ab_target,
-                        # 'Source': ab_source,
                         # 'Resistance level': resist_name,
-                        'Fold': '{}'.format(round_number(i[6])),
-                        'Reference': i[0]
+                        'Fold': fold,
+                        'Reference': reference
                     })
 
     records.sort(key=itemgetter(

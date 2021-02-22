@@ -1,46 +1,46 @@
 ﻿Strain name,Rx name,#Published
 N501Y,CP,57
 N501Y,IP,79
-N501Y,mAbs phase3,15
-N501Y,mAbs structure,28
+N501Y,mAbs phase3,25
+N501Y,mAbs structure,14
 E484K,CP,66
 E484K,IP,32
-E484K,mAbs phase3,20
-E484K,mAbs structure,27
-Other individual mutations,CP,375
-Other individual mutations,IP,413
-Other individual mutations,mAbs phase3,277
-Other individual mutations,mAbs structure,773
-All individual mutations,CP,498
-All individual mutations,IP,524
-All individual mutations,mAbs phase3,312
-All individual mutations,mAbs structure,828
-B.1.1.7,CP,97
-B.1.1.7,IP,210
-B.1.1.7,mAbs phase3,25
-B.1.1.7,mAbs structure,39
-B.1.351,CP,121
+E484K,mAbs phase3,32
+E484K,mAbs structure,12
+Other individual mutations,CP,376
+Other individual mutations,IP,419
+Other individual mutations,mAbs phase3,416
+Other individual mutations,mAbs structure,427
+All individual mutations,CP,499
+All individual mutations,IP,530
+All individual mutations,mAbs phase3,473
+All individual mutations,mAbs structure,453
+B.1.1.7,CP,96
+B.1.1.7,IP,215
+B.1.1.7,mAbs phase3,27
+B.1.1.7,mAbs structure,19
+B.1.351,CP,116
 B.1.351,IP,111
-B.1.351,mAbs phase3,23
-B.1.351,mAbs structure,29
+B.1.351,mAbs phase3,27
+B.1.351,mAbs structure,11
 P.1,CP,9
-P.1,IP,15
+P.1,IP,20
 P.1,mAbs phase3,3
-P.1,mAbs structure,3
-B.1.1.7 + B.1.351,CP,218
-B.1.1.7 + B.1.351,IP,321
-B.1.1.7 + B.1.351,mAbs phase3,48
-B.1.1.7 + B.1.351,mAbs structure,68
-Other muation combinations,CP,140
-Other muation combinations,IP,199
-Other muation combinations,mAbs phase3,59
-Other muation combinations,mAbs structure,194
-1 mutation,mAbs without structure,1372
-1 mutation,CP,498
-1 mutation,VP,524
-mutation combination,mAbs without structure,270
-mutation combination,CP,140
-mutation combination,VP,199
-VOC,mAbs without structure,127
-VOC,CP,218
-VOC,VP,321
+P.1,mAbs structure,0
+B.1.1.7 + B.1.351,CP,212
+B.1.1.7 + B.1.351,IP,326
+B.1.1.7 + B.1.351,mAbs phase3,54
+B.1.1.7 + B.1.351,mAbs structure,30
+Other muation combinations,CP,142
+Other muation combinations,IP,200
+Other muation combinations,mAbs phase3,83
+Other muation combinations,mAbs structure,143
+1 mutation,mAbs without structure,1423
+1 mutation,CP,499
+1 mutation,VP,530
+mutation combination,mAbs without structure,315
+mutation combination,CP,142
+mutation combination,VP,200
+VOC,mAbs without structure,155
+VOC,CP,212
+VOC,VP,326

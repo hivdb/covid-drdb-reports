@@ -11,6 +11,19 @@ SELECT COUNT(*) FROM
     {filters};
 """
 
+TABLE3_MAB_SQL = """
+SELECT COUNT(*) FROM
+    susc_results AS s,
+    (
+        SELECT DISTINCT _rxtype.ref_name, _rxtype.rx_name
+        FROM {rxtype} AS _rxtype, antibodies AS ab
+        WHERE _rxtype.ab_name = ab.ab_name
+        {ab_filters}
+    ) as rxtype
+    {joins}
+    WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+    {filters};
+"""
 
 TABLE3_ROWS = {
     'N501Y': {
@@ -104,23 +117,16 @@ TABLE3_COLUMNS = {
     },
     'mAbs phase3': {
         'rxtype': 'rx_antibodies',
-        'join': [
-            "antibodies AS ab",
+        'ab_filters': [
+            "AND ab.availability IS NOT NULL",
         ],
-        'filter': [
-            "AND rxtype.ab_name = ab.ab_name",
-            "AND ab.availability = 'Phase 3'",
-        ]
     },
     'mAbs structure': {
         'rxtype': 'rx_antibodies',
-        'join': [
-            "antibodies AS ab",
-        ],
-        'filter': [
-            "AND rxtype.ab_name = ab.ab_name",
+        'ab_filters': [
             "AND ab.pdb_id IS NOT NULL",
-        ]
+            "AND ab.availability IS NULL",
+        ],
     }
 }
 
@@ -168,13 +174,9 @@ FOOT_TABLE_ROWS = {
 FOOT_TABLE_COLUMNS = {
     'mAbs without structure': {
         'rxtype': 'rx_antibodies',
-        'join': [
-            "antibodies AS ab",
-        ],
-        'filter': [
-            "AND rxtype.ab_name = ab.ab_name",
+        'ab_filters': [
             "AND ab.pdb_id IS NULL",
-        ]
+        ],
     },
     'CP': {
         'rxtype': 'rx_conv_plasma',
@@ -201,11 +203,22 @@ def gen_tableS3(conn):
             r_filter = attr_r.get('filter', [])
             c_filter = attr_c.get('filter', [])
             filter = '\n    '.join(r_filter + c_filter)
+
             sql = TABLE3_MAIN_SQL.format(
                 rxtype=rxtype,
                 joins=join,
                 filters=filter
             )
+            if column_name.lower().startswith('mab'):
+                abfilters = attr_c.get('ab_filters', [])
+                abfilters = '\n     '.join(abfilters)
+
+                sql = TABLE3_MAB_SQL.format(
+                    rxtype=rxtype,
+                    ab_filters=abfilters,
+                    joins=join,
+                    filters=filter
+                )
             # print(sql)
 
             cursor.execute(sql)
@@ -228,11 +241,23 @@ def gen_tableS3(conn):
             r_filter = attr_r.get('filter', [])
             c_filter = attr_c.get('filter', [])
             filter = '\n    '.join(r_filter + c_filter)
+
             sql = TABLE3_MAIN_SQL.format(
                 rxtype=rxtype,
                 joins=join,
                 filters=filter
             )
+            if column_name.lower().startswith('mab'):
+                ab_filters = attr_c.get('ab_filters', [])
+                ab_filters = '\n     '.join(ab_filters)
+
+                sql = TABLE3_MAB_SQL.format(
+                    rxtype=rxtype,
+                    ab_filters=ab_filters,
+                    joins=join,
+                    filters=filter,
+                )
+
             # print(sql)
 
             cursor.execute(sql)
