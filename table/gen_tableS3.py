@@ -292,15 +292,6 @@ def gen_tableS3(conn):
     json_info = defaultdict(dict)
     for item in records:
         strain = item['Strain name']
-        if strain == 'Other individual mutations':
-            strain = 'other_indiv'
-        elif strain == 'All individual mutations':
-            strain = 'all_indiv'
-        elif strain == 'Other muation combinations':
-            strain = 'other_combi'
-        elif strain == 'All combinations of mutations':
-            strain = 'all_combi'
-
         rx = item['Rx name']
         if rx == 'mAbs phase3':
             rx = 'phase3'
