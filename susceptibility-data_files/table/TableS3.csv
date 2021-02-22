@@ -27,20 +27,11 @@ P.1,CP,9
 P.1,IP,20
 P.1,mAbs phase3,3
 P.1,mAbs structure,0
-B.1.1.7 + B.1.351,CP,212
-B.1.1.7 + B.1.351,IP,326
-B.1.1.7 + B.1.351,mAbs phase3,54
-B.1.1.7 + B.1.351,mAbs structure,30
-Other muation combinations,CP,142
-Other muation combinations,IP,200
-Other muation combinations,mAbs phase3,83
-Other muation combinations,mAbs structure,143
-1 mutation,mAbs without structure,1423
-1 mutation,CP,499
-1 mutation,VP,530
-mutation combination,mAbs without structure,315
-mutation combination,CP,142
-mutation combination,VP,200
-VOC,mAbs without structure,155
-VOC,CP,212
-VOC,VP,326
+Other muation combinations,CP,301
+Other muation combinations,IP,316
+Other muation combinations,mAbs phase3,118
+Other muation combinations,mAbs structure,160
+All combinations of mutations,CP,522
+All combinations of mutations,IP,662
+All combinations of mutations,mAbs phase3,175
+All combinations of mutations,mAbs structure,190

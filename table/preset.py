@@ -131,7 +131,9 @@ RESISTANCE_FILTER = {
 
 
 EXCLUDE_STUDIES = {
-    'Planas21': lambda x: x.startswith('CP') or (not x.endswith('W4'))
+    'Planas21': lambda x: x.startswith('CP') or (not x.endswith('W4')),
+    'Diamond21': lambda x: x.startswith('CP') or x == 'BNT162b2',
+    'Garcia-Beltran21': lambda x: x.startswith('BNT') or x.startswith('mRNA')
 }
 
 

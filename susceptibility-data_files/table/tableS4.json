@@ -13,22 +13,6 @@
             {
                 "strain": "B.1.1.7",
                 "rx": "BNT162b2",
-                "s_fold": 24,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Diamond21"
-            },
-            {
-                "strain": "B.1.1.7",
-                "rx": "BNT162b2",
-                "s_fold": 22,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Garcia-Beltran21"
-            },
-            {
-                "strain": "B.1.1.7",
-                "rx": "BNT162b2",
                 "s_fold": 15,
                 "i_fold": 0,
                 "r_fold": 0,
@@ -57,14 +41,6 @@
                 "i_fold": 1,
                 "r_fold": 0,
                 "reference": "Wang21b"
-            },
-            {
-                "strain": "B.1.1.7",
-                "rx": "CP",
-                "s_fold": 19,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Diamond21"
             },
             {
                 "strain": "B.1.1.7",
@@ -117,14 +93,6 @@
             {
                 "strain": "B.1.1.7",
                 "rx": "mRNA-1273",
-                "s_fold": 4,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Garcia-Beltran21"
-            },
-            {
-                "strain": "B.1.1.7",
-                "rx": "mRNA-1273",
                 "s_fold": 30,
                 "i_fold": 10,
                 "r_fold": 0,
@@ -151,14 +119,6 @@
     {
         "strain": "B.1.351",
         "assays": [
-            {
-                "strain": "B.1.351",
-                "rx": "BNT162b2",
-                "s_fold": 0,
-                "i_fold": 24,
-                "r_fold": 0,
-                "reference": "Diamond21"
-            },
             {
                 "strain": "B.1.351",
                 "rx": "BNT162b2",
@@ -198,14 +158,6 @@
                 "i_fold": 4,
                 "r_fold": 1,
                 "reference": "Wang21b"
-            },
-            {
-                "strain": "B.1.351",
-                "rx": "CP",
-                "s_fold": 0,
-                "i_fold": 19,
-                "r_fold": 0,
-                "reference": "Diamond21"
             },
             {
                 "strain": "B.1.351",
@@ -287,14 +239,6 @@
             {
                 "strain": "P.1",
                 "rx": "BNT162b2",
-                "s_fold": 0,
-                "i_fold": 0,
-                "r_fold": 22,
-                "reference": "Garcia-Beltran21"
-            },
-            {
-                "strain": "P.1",
-                "rx": "BNT162b2",
                 "s_fold": 7,
                 "i_fold": 7,
                 "r_fold": 1,
@@ -307,14 +251,6 @@
                 "i_fold": 6,
                 "r_fold": 1,
                 "reference": "Hoffmann21"
-            },
-            {
-                "strain": "P.1",
-                "rx": "mRNA-1273",
-                "s_fold": 0,
-                "i_fold": 0,
-                "r_fold": 4,
-                "reference": "Garcia-Beltran21"
             }
         ]
     }

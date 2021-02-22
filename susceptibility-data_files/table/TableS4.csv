@@ -1,29 +1,23 @@
 ﻿Strain name,Plasma,S,I,R,Reference
 B.1.1.7,BNT162b2,5,10,0,Collier21
-B.1.1.7,BNT162b2,24,0,0,Diamond21
-B.1.1.7,BNT162b2,22,0,0,Garcia-Beltran21
 B.1.1.7,BNT162b2,15,0,0,Hoffmann21
 B.1.1.7,BNT162b2,40,0,0,Muik21
 B.1.1.7,BNT162b2,8,2,0,Planas21
 B.1.1.7,BNT162b2,9,1,0,Wang21b
-B.1.1.7,CP,19,0,0,Diamond21
 B.1.1.7,CP,8,1,0,Hoffmann21
 B.1.1.7,CP,13,5,1,Hu21
 B.1.1.7,CP,13,2,0,Shen21
 B.1.1.7,CP,14,5,1,Wang21b
 B.1.1.7,CP(8M),11,8,0,Hu21
 B.1.1.7,NVX-CoV,20,7,1,Shen21
-B.1.1.7,mRNA-1273,4,0,0,Garcia-Beltran21
 B.1.1.7,mRNA-1273,30,10,0,Shen21
 B.1.1.7,mRNA-1273,12,0,0,Wang21b
 B.1.1.7,mRNA-1273,8,0,0,Wu21
-B.1.351,BNT162b2,0,24,0,Diamond21
 B.1.351,BNT162b2,4,9,2,Hoffmann21
 B.1.351,BNT162b2,15,5,0,Liu21b
 B.1.351,BNT162b2,3,6,1,Planas21
 B.1.351,BNT162b2,2,3,0,Tada21
 B.1.351,BNT162b2,4,4,1,Wang21b
-B.1.351,CP,0,19,0,Diamond21
 B.1.351,CP,4,4,1,Hoffmann21
 B.1.351,CP,4,9,6,Hu21
 B.1.351,CP,9,1,0,Tada21
@@ -33,7 +27,5 @@ B.1.351,CP(High Titer),1,7,14,Wibmer21
 B.1.351,CP(Low Titer),4,2,7,Wibmer21
 B.1.351,mRNA-1273,1,8,3,Wang21b
 B.1.351,mRNA-1273,0,8,0,Wu21
-P.1,BNT162b2,0,0,22,Garcia-Beltran21
 P.1,BNT162b2,7,7,1,Hoffmann21
 P.1,CP,2,6,1,Hoffmann21
-P.1,mRNA-1273,0,0,4,Garcia-Beltran21

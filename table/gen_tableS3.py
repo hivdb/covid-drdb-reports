@@ -1,5 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
+from preset import dump_json
+from collections import defaultdict
 
 
 TABLE3_MAIN_SQL = """
@@ -81,16 +83,16 @@ TABLE3_ROWS = {
             "AND s.strain_name = 'P.1 Spike'",
         ]
     },
-    'B.1.1.7 + B.1.351': {
-        'filter': [
-            (
-                "AND ("
-                "      s.strain_name = 'B.1.1.7 Spike' "
-                "   OR s.strain_name = 'B.1.351 Spike' "
-                "   )"
-            ),
-        ]
-    },
+    # 'B.1.1.7 + B.1.351': {
+    #     'filter': [
+    #         (
+    #             "AND ("
+    #             "      s.strain_name = 'B.1.1.7 Spike' "
+    #             "   OR s.strain_name = 'B.1.351 Spike' "
+    #             "   )"
+    #         ),
+    #     ]
+    # },
     'Other muation combinations': {
         'join': [
             "virus_strains AS vs",
@@ -101,7 +103,22 @@ TABLE3_ROWS = {
         ],
         'filter': [
             "AND vs.strain_name = s.strain_name",
-            "AND vs.site_directed IS TRUE",
+            "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
+            "AND s.strain_name != 'B.1.1.7 Spike'",
+            "AND s.strain_name != 'B.1.351 Spike'",
+            "AND s.strain_name != 'P.1 Spike'",
+        ]
+    },
+    "All combinations of mutations": {
+        'join': [
+            "virus_strains AS vs",
+            (
+                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+                "strain_mutations GROUP BY strain_name) AS sm"
+            )
+        ],
+        'filter': [
+            "AND vs.strain_name = s.strain_name",
             "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
         ]
     }
@@ -230,44 +247,75 @@ def gen_tableS3(conn):
                 '#Published': result
             })
 
-    for row_name, attr_r in FOOT_TABLE_ROWS.items():
-        for column_name, attr_c in FOOT_TABLE_COLUMNS.items():
-            rxtype = attr_c['rxtype']
+    # for row_name, attr_r in FOOT_TABLE_ROWS.items():
+    #     for column_name, attr_c in FOOT_TABLE_COLUMNS.items():
+    #         rxtype = attr_c['rxtype']
 
-            r_join = attr_r.get('join', [])
-            c_join = attr_c.get('join', [])
-            join = ',\n    '.join([''] + r_join + c_join)
+    #         r_join = attr_r.get('join', [])
+    #         c_join = attr_c.get('join', [])
+    #         join = ',\n    '.join([''] + r_join + c_join)
 
-            r_filter = attr_r.get('filter', [])
-            c_filter = attr_c.get('filter', [])
-            filter = '\n    '.join(r_filter + c_filter)
+    #         r_filter = attr_r.get('filter', [])
+    #         c_filter = attr_c.get('filter', [])
+    #         filter = '\n    '.join(r_filter + c_filter)
 
-            sql = TABLE3_MAIN_SQL.format(
-                rxtype=rxtype,
-                joins=join,
-                filters=filter
-            )
-            if column_name.lower().startswith('mab'):
-                ab_filters = attr_c.get('ab_filters', [])
-                ab_filters = '\n     '.join(ab_filters)
+    #         sql = TABLE3_MAIN_SQL.format(
+    #             rxtype=rxtype,
+    #             joins=join,
+    #             filters=filter
+    #         )
+    #         if column_name.lower().startswith('mab'):
+    #             ab_filters = attr_c.get('ab_filters', [])
+    #             ab_filters = '\n     '.join(ab_filters)
 
-                sql = TABLE3_MAB_SQL.format(
-                    rxtype=rxtype,
-                    ab_filters=ab_filters,
-                    joins=join,
-                    filters=filter,
-                )
+    #             sql = TABLE3_MAB_SQL.format(
+    #                 rxtype=rxtype,
+    #                 ab_filters=ab_filters,
+    #                 joins=join,
+    #                 filters=filter,
+    #             )
 
-            # print(sql)
+    #         # print(sql)
 
-            cursor.execute(sql)
-            result = cursor.fetchone()
-            result = result[0]
-            records.append({
-                'Strain name': row_name,
-                'Rx name': column_name,
-                '#Published': result
-            })
+    #         cursor.execute(sql)
+    #         result = cursor.fetchone()
+    #         result = result[0]
+    #         records.append({
+    #             'Strain name': row_name,
+    #             'Rx name': column_name,
+    #             '#Published': result
+    #         })
 
     save_path = DATA_FILE_PATH / 'TableS3.csv'
     dump_csv(save_path, records)
+
+    json_info = defaultdict(dict)
+    for item in records:
+        strain = item['Strain name']
+        if strain == 'Other individual mutations':
+            strain = 'other_indiv'
+        elif strain == 'All individual mutations':
+            strain = 'all_indiv'
+        elif strain == 'Other muation combinations':
+            strain = 'other_combi'
+        elif strain == 'All combinations of mutations':
+            strain = 'all_combi'
+
+        rx = item['Rx name']
+        if rx == 'mAbs phase3':
+            rx = 'phase3'
+        elif rx == 'mAbs structure':
+            rx = 'structure'
+        else:
+            rx = rx.lower()
+        count = item['#Published']
+        json_info[strain][rx] = count
+
+    result = []
+    for key, value in json_info.items():
+        rec = {'strain': key}
+        rec.update(value)
+        result.append(rec)
+
+    save_path = DATA_FILE_PATH / 'tableS3.json'
+    dump_json(save_path, result)
