@@ -61,8 +61,24 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
     suffix = c(".susc", ".ref")
   )
 ```
- 
+
 ## Individual spike mutations / mAb neutralization
+
+Columns explained:
+
+- __Author__: first author name + publish date, a unique reference to each paper.
+- __DOI__: DOI of the paper.
+- __Source__: where to find the data in corresponding paper.
+- __Date__: when was the data added into database.
+- __mAb__: monoclonal antibodies, including names and categories, multiple mAbs are combined by plus sign, you can find abbreviations [here](https://covdb.stanford.edu/page/susceptibility-data/).
+- __Position__: SARS-CoV-2 Spike protein position according to reference sequence(Genbank: [NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/1798174254)).
+- __AA__: amino acid mutation.
+- __FoldCmp__: for data from charts we provide estimate fold value(<: less than, >: great than, ~:approximately).
+- __Fold__: drug susceptibility fold change compare to wild type(<3: susceptible, 3~10: partial resistance, >10: resistance).
+- __Assay__: pseudo virus or live virus, default is pseudo virus.
+- __Include__: if the data have some issues we would exclude them from analysis.
+
+You can copy, download, or print the table using buttons below:
 
 ```{r phenotypes-mut-mab}
 
@@ -104,6 +120,25 @@ dfSuscResultsMAb %>%
 ```
 
 ## Individual spike mutations / plasma neutralization
+
+Columns explained:
+
+- __Author__: first author name + publish date, a unique reference to each paper.
+- __DOI__: DOI of the paper.
+- __Source__: where to find the data in corresponding paper.
+- __Date__: when was the data added into database.
+- __Plasma__: which kinds of plasma was used(CP: convalescent plasma, BNT162b2: plasma from BNT162b2 vaccinated persons, mRNA-1273: plasma from mRNA-1273 vaccinated persons).
+- __Vaccine__: vaccine name.
+- __Position__: SARS-CoV-2 Spike protein position according to reference sequence(Genbank: [NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/1798174254)).
+- __AA__: amino acid mutation.
+- __FoldCmp__: for data from charts we provide estimate fold value(<: less than, >: great than, ~:approximately).
+- __Fold__: drug susceptibility fold change compare to wild type(<3: susceptible, 3~10: partial resistance, >10: resistance).
+- __Level__: for some papers only provide susceptibility level not fold change data, so we keep the susceptibility level data.
+- __Assay__: pseudo virus or live virus, default is pseudo virus.
+- __Count__: for some papers the fold change or susceptibility level apply to multiple experiments, default is 1.
+- __Include__: if the data have some issues we would exclude them from analysis.
+
+You can copy, download, or print the table using buttons below:
 
 ```{r phenotypes-mut-plasma}
 
@@ -160,6 +195,22 @@ dfMutPlasma %>%
 
 ## Spike variants and mutation combinations / mAb neutralization
 
+Columns explained:
+
+- __Author__: first author name + publish date, a unique reference to each paper.
+- __DOI__: DOI of the paper.
+- __Source__: where to find the data in corresponding paper.
+- __Date__: when was the data added into database.
+- __mAb__: monoclonal antibodies, including names and categories, multiple mAbs are combined by plus sign, you can find abbreviations [here](https://covdb.stanford.edu/page/susceptibility-data/).
+- __Strain__: variants of concern(B.1.1.7, B.1.351, P.1, etc), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations(like S:69del+70del+453F).
+- __FoldCmp__: for data from charts we provide estimate fold value(<: less than, >: great than, ~:approximately).
+- __Fold__: drug susceptibility fold change compare to wild type(<3: susceptible, 3~10: partial resistance, >10: resistance).
+- __Assay__: pseudo virus or live virus, default is pseudo virus.
+- __Include__: if the data have some issues we would exclude them from analysis.
+
+You can copy, download, or print the table using buttons below:
+
+
 ```{r phenotypes-strain-mab}
 
 dfSuscResultsMAb %>%
@@ -193,6 +244,25 @@ dfSuscResultsMAb %>%
 ```
 
 ## Spike variants and mutation combinations / plasma neutralization
+
+Columns explained:
+
+- __Author__: first author name + publish date, a unique reference to each paper.
+- __DOI__: DOI of the paper.
+- __Source__: where to find the data in corresponding paper.
+- __Date__: when was the data added into database.
+- __Plasma__: which kinds of plasma was used(CP: convalescent plasma, BNT162b2: plasma from BNT162b2 vaccinated persons, mRNA-1273: plasma from mRNA-1273 vaccinated persons).
+- __Vaccine__: vaccine name.
+- __Strain__: variants of concern(B.1.1.7, B.1.351, P.1, etc), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations(like S:69del+70del+453F).
+- __FoldCmp__: for data from charts we provide estimate fold value(<: less than, >: great than, ~:approximately).
+- __Fold__: drug susceptibility fold change compare to wild type(<3: susceptible, 3~10: partial resistance, >10: resistance).
+- __Level__: for some papers only provide susceptibility level not fold change data, so we keep the susceptibility level data.
+- __Assay__: pseudo virus or live virus, default is pseudo virus.
+- __Count__: for some papers the fold change or susceptibility level apply to multiple experiments, default is 1.
+- __Include__: if the data have some issues we would exclude them from analysis.
+
+You can copy, download, or print the table using buttons below:
+
 
 ```{r phenotypes-strain-plasma}
 
@@ -241,6 +311,18 @@ dfStrainPlasma %>%
 ```
 
 ## Spike mutation Invitro selection
+
+Columns explained:
+
+- __Author__: first author name + publish date, a unique reference to each paper.
+- __DOI__: DOI of the paper.
+- __Source__: where to find the data in corresponding paper.
+- __Date__: when was the data added into database.
+- __mAb__: monoclonal antibodies, including names and categories, multiple mAbs are combined by plus sign, you can find abbreviations [here](https://covdb.stanford.edu/page/susceptibility-data/).
+- __Position__: SARS-CoV-2 Spike protein position according to reference sequence(Genbank: [NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/1798174254)).
+- __AAMutation__: amino acid mutation.
+
+You can copy, download, or print the table using buttons below:
 
 ```{r invitro-selection}
 invitroResults = read.invitroResults()
