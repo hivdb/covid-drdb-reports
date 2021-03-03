@@ -141,7 +141,8 @@ excludedRefRxNames = c(
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
   "Diamond21 BNT LiveVirus",
-  "Diamond21 CP"
+  "Diamond21 CP",
+  "Collier21 CP"
 )
 shortRefRxNames = c(
   "Cele21 CP_WT LiveVirus" = "Cele21*\n",
@@ -186,7 +187,7 @@ yAxisStep = 5
 longRefRxNames = names(shortRefRxNames)
 
 resistance_levels = c(
-  'resistance',
+  'resistant',
   'partial-resistance',
   'susceptible'
 )
@@ -270,7 +271,7 @@ for (strain in filterStrains) {
       ) +
       # labs(title = strain) +
       scale_fill_manual(values = c(
-        'resistance' = "#146aa8",
+        'resistant' = "#146aa8",
         'partial-resistance' = "#7fcbee",
         'susceptible' = "#ffffff"
       )) +
@@ -430,7 +431,7 @@ dfNumRefs = dfForPlot %>%
   dplyr::summarize(num_refs = length(unique(ref_name))) %>%
   group_by(strain_name, in_trial) %>%
   dplyr::summarize(num_refs = max(num_refs))
-  
+
 dfForPlot = dfForPlot %>%
   inner_join(dfNumAbs, by = c("strain_name", "in_trial")) %>%
   inner_join(dfNumRefs, by = c("strain_name", "in_trial"))
@@ -454,7 +455,7 @@ for (strain in filterStrains) {
     strain_name = strain,
     text = strainTitle[[strain]]
   )
-  
+
   for (cond in c(TRUE, FALSE)) {
     dfPartial2 = dfPartial %>%
       filter(in_trial == cond)
@@ -487,7 +488,7 @@ for (strain in filterStrains) {
       labs(fill = "References") +
       scale_color_manual(values = rep("#000000", maxNumRefs)) +
       scale_fill_manual(values = c(
-        'resistance' = "#146aa8",
+        'resistant' = "#146aa8",
         'partial-resistance' = "#7fcbee",
         'susceptible' = "#ffffff"
       )) +
@@ -516,7 +517,7 @@ for (strain in filterStrains) {
       ) +
       coord_cartesian(ylim = c(0, 200)) +
       theme(
-        legend.position = "none", 
+        legend.position = "none",
         plot.title = element_text(hjust = 0.5),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),

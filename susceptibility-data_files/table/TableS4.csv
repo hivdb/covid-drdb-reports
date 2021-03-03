@@ -1,9 +1,10 @@
 ﻿Strain name,Plasma,S,I,R,Reference
-B.1.1.7,BNT162b2,5,10,0,Collier21
+B.1.1.7,BNT162b2,21,0,0,Collier21
 B.1.1.7,BNT162b2,15,0,0,Hoffmann21
 B.1.1.7,BNT162b2,40,0,0,Muik21
 B.1.1.7,BNT162b2,8,2,0,Planas21
 B.1.1.7,BNT162b2,9,1,0,Wang21b
+B.1.1.7,CP,0,27,0,Collier21
 B.1.1.7,CP,8,1,0,Hoffmann21
 B.1.1.7,CP,13,5,1,Hu21
 B.1.1.7,CP,13,2,0,Shen21

@@ -24,6 +24,7 @@ def gen_report(db_path):
 
     gen_table3()
     gen_table4()
+    print('done')
 
 
 if __name__ == '__main__':

@@ -115,18 +115,18 @@ PARTIAL_RESISTANCE_LEVEL_FILTER = """
         OR (resistance_level = 'partial-resistance'))
 """
 
-RESISTANCE_LEVLE_FILTER = """
+RESISTANT_LEVLE_FILTER = """
     AND (
         (
             (fold = 10 AND fold_cmp = '>')
             OR (fold > 10))
-        OR (resistance_level = 'resistance'))
+        OR (resistance_level = 'resistant'))
 """
 
 RESISTANCE_FILTER = {
     'susceptible': [SUSCEPTIBLE_LEVEL_FILTER],
     'partial': [PARTIAL_RESISTANCE_LEVEL_FILTER],
-    'resistance': [RESISTANCE_LEVLE_FILTER],
+    'resistant': [RESISTANT_LEVLE_FILTER],
 }
 
 

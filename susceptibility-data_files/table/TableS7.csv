@@ -70,17 +70,22 @@ K417N,Cilgavimab,RBM Class II,0.6,Wang21b
 K417N,2-4,RBM Class III,0.4,Wang21b
 K417N + E484K + N501Y,Tixagevimab + Cilgavimab,,0.8,Diamond21
 K417N + E484K + N501Y,Vir-7831+S2E12,,1,Diamond21
+K417N + E484K + N501Y,4A8,NTD,1,Collier21
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,1,Yao21
 K417N + E484K + N501Y,Sotrovimab,RBD Core Cluster I,2.1,Diamond21
+K417N + E484K + N501Y,S2X35,RBD Core Cluster II,1.2,Collier21
 K417N + E484K + N501Y,CC12.1,RBM Class I,>100,Wibmer21
 K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Yao21
 K417N + E484K + N501Y,Etesevimab,RBM Class I,>100,Wibmer21
 K417N + E484K + N501Y,Etesevimab,RBM Class I,>100,Yao21
+K417N + E484K + N501Y,S2E12,RBM Class I,1.8,Collier21
 K417N + E484K + N501Y,S2E12,RBM Class I,1,Diamond21
+K417N + E484K + N501Y,S2H14,RBM Class I,>100,Collier21
 K417N + E484K + N501Y,Tixagevimab,RBM Class I,1.5,Diamond21
 K417N + E484K + N501Y,C119,RBM Class II,>100,Wibmer21
 K417N + E484K + N501Y,Cilgavimab,RBM Class II,0.5,Diamond21
 K417N + E484K + N501Y,P2B-2F6,RBM Class II,>100,Wibmer21
+K417N + E484K + N501Y,S2M11,RBM Class III,>100,Collier21
 L452R,JMB2002,,42,Gu21
 L452R,H014,RBD Core Cluster II,1.3,Li20h
 L452R,B38,RBM Class I,1.5,Li20h

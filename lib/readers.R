@@ -104,13 +104,13 @@ read.suscResults <- function(
         dfSusc$fold_cmp %in% c("<", "~", "=") &
         dfSusc$fold <= resistFold,
         "partial-resistance",
-        "resistance"
+        "resistant"
       )
     )
   )
   dfSusc$resistance_level = factor(
     dfSusc$resistance_level,
-    levels = c("susceptible", "partial-resistance", "resistance")
+    levels = c("susceptible", "partial-resistance", "resistant")
   )
   dfSusc
 }
@@ -203,7 +203,7 @@ read.antibodies <- function() {
     ) %>%
     group_by(ab_name) %>%
     dplyr::summarise(ab_author_target = paste(target, collapse = ";"), .groups = "drop_last")
-  
+
   read.dbTable("antibodies.csv") %>%
     left_join(dfMAbAuthorTargets, by = "ab_name") %>%
     mutate(

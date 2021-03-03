@@ -1,5 +1,5 @@
 ﻿strain,vac_studies,vac_samples,vac_s_fold,vac_i_fold,vac_r_fold,vac_num_s_fold,vac_num_i_fold,vac_num_r_fold,cp_studies,cp_samples,cp_s_fold,cp_i_fold,cp_r_fold,cp_num_s_fold,cp_num_i_fold,cp_num_r_fold
-B.1.1.7,7,178,83%,17%,0,147,30,1,4,82,72%,26%,2%,59,21,2
+B.1.1.7,7,184,89%,11%,0,163,20,1,5,109,54%,44%,2%,59,48,2
 B.1.351,6,79,37%,54%,9%,29,43,7,5,112,28%,37%,35%,31,41,40
 P.1,1,15,47%,47%,6%,7,7,1,1,9,22%,67%,11%,2,6,1
 E484K,3,32,53%,44%,3%,17,14,1,5,66,52%,38%,10%,34,25,7

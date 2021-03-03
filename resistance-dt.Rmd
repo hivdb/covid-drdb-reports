@@ -11,6 +11,7 @@ Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), 
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
+library(stringr) 
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
@@ -163,8 +164,9 @@ dfMutPlasma %>%
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
-    Assay = ifelse(is.na(assay), "", assay),
-    Count = ifelse(cumulative_count == 1, "", cumulative_count),
+    Level = str_to_sentence(resistance_level),
+    Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
+    Count = cumulative_count,
     Include = ifelse(include, "Yes", "No")
   ) %>%
   select(
@@ -178,7 +180,7 @@ dfMutPlasma %>%
     AA = amino_acid,
     FoldCmp,
     Fold,
-    Level = resistance_level,
+    Level,
     Assay,
     Count,
     Include
@@ -282,8 +284,9 @@ dfStrainPlasma %>%
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
-    Assay = ifelse(is.na(assay), "", assay),
-    Count = ifelse(cumulative_count == 1, "", cumulative_count),
+    Level = str_to_sentence(resistance_level),
+    Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
+    Count = cumulative_count,
     Include = ifelse(include, "Yes", "No")
   ) %>%
   select(
@@ -296,7 +299,7 @@ dfStrainPlasma %>%
     Strain = strain_name,
     FoldCmp,
     Fold,
-    Level = resistance_level,
+    Level,
     Assay,
     Count,
     Include
