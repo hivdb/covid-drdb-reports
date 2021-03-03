@@ -11,7 +11,7 @@ Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), 
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
-library(stringr) 
+library(stringr)
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
@@ -150,6 +150,7 @@ dfMutPlasma = dfSuscResultsPlasma %>%
     by = "strain_name",
     suffix = c(".susc", ".strainMut")
   )
+dfMutPlasma$resistance_level = as.character(dfMutPlasma$resistance_level)
 dfMutPlasma %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
@@ -164,7 +165,11 @@ dfMutPlasma %>%
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
-    Level = str_to_sentence(resistance_level),
+    Level =
+      ifelse(
+        resistance_level == "partial-resistance",
+        "partial resistance",
+        resistance_level),
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
     Include = ifelse(include, "Yes", "No")
@@ -270,6 +275,7 @@ You can copy, download, or print the table using buttons below:
 
 dfStrainPlasma = dfSuscResultsPlasma %>%
   filter(num_muts > 1)
+dfStrainPlasma$resistance_level = as.character(dfStrainPlasma$resistance_level)
 dfStrainPlasma %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
@@ -284,7 +290,11 @@ dfStrainPlasma %>%
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
-    Level = str_to_sentence(resistance_level),
+    Level = str_to_sentence(
+      ifelse(
+        resistance_level == "partial-resistance",
+        "partial resistance",
+        resistance_level)),
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
     Include = ifelse(include, "Yes", "No")
