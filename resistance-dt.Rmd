@@ -127,16 +127,16 @@ Columns explained:
 - __Author__: Internal unique reference identifier
 - __DOI__: DOI
 - __Source__: Location of data within reference
-- __Date__: Date data added to database.
-- __Plasma__: which kinds of plasma was used(CP: convalescent plasma, BNT162b2: plasma from BNT162b2 vaccinated persons, mRNA-1273: plasma from mRNA-1273 vaccinated persons).
-- __Vaccine__: vaccine name.
+- __Date__: Date data added to database
+- __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
+- __Vaccine__: Vaccine name
 - __Position__: Spike amino acid position
 - __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2)
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
-- __Level__: for some papers only provide susceptibility level not fold change data, so we keep the susceptibility level data.
+- __Level__: Susceptibility level
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
-- __Count__: for some papers the fold change or susceptibility level apply to multiple experiments, default is 1.
+- __Count__: For some studies, data are presented in aggregate. In this case, the count indicates the number of experiments having the same entries in the Foldcmp and Fold columns.
 - __Include__: Entries containing "Exclude" are not displayed on the web
 
 You can copy, download, or print the table using buttons below:
@@ -209,7 +209,7 @@ Columns explained:
 - __Source__: Location of data within reference
 - __Date__: Date data added to database.
 - __mAb__: mAb name or abbreviation
-- __Strain__: variants of concern(B.1.1.7, B.1.351, P.1, etc), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations(like S:69del+70del+453F).
+- __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
@@ -257,15 +257,15 @@ Columns explained:
 - __Author__: Internal unique reference identifier
 - __DOI__: DOI
 - __Source__: Location of data within reference
-- __Date__: Date data added to database.
-- __Plasma__: which kinds of plasma was used(CP: convalescent plasma, BNT162b2: plasma from BNT162b2 vaccinated persons, mRNA-1273: plasma from mRNA-1273 vaccinated persons).
-- __Vaccine__: vaccine name.
-- __Strain__: variants of concern(B.1.1.7, B.1.351, P.1, etc), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations(like S:69del+70del+453F).
+- __Date__: Date data added to database
+- __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
+- __Vaccine__: Vaccine name
+- __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
-- __Level__: for some papers only provide susceptibility level not fold change data, so we keep the susceptibility level data.
+- __Level__: Susceptibility level
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
-- __Count__: for some papers the fold change or susceptibility level apply to multiple experiments, default is 1.
+- __Count__: For some studies, data are presented in aggregate. In this case, the count indicates the number of experiments having the same entries in the Foldcmp and Fold columns
 - __Include__: Entries containing "Exclude" are not displayed on the web
 
 You can copy, download, or print the table using buttons below:
@@ -330,10 +330,10 @@ Columns explained:
 - __Author__: Internal unique reference identifier
 - __DOI__: DOI
 - __Source__: Location of data within reference
-- __Date__: Date data added to database.
+- __Date__: Date data added to database
 - __mAb__: mAb name or abbreviation
 - __Position__: Spike amino acid position
-- __AAMutation__: amino acid mutation.
+- __AAMutation__: amino acid mutation
 
 You can copy, download, or print the table using buttons below:
 

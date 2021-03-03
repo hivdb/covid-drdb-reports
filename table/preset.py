@@ -138,8 +138,8 @@ EXCLUDE_STUDIES = {
 
 
 EXCLUDE_PLASMA = [
-    'Hospitalized_Samples',
-    'Mild_Samples',
+    'Hospitalized',
+    'Mild',
 ]
 
 
@@ -156,9 +156,9 @@ RENAME_CP_EXECUTOR = {
 
 
 PLASMA_RENAME = {
-    'BNT162b2_3Weeks': 'BNT162b2_1M',
+    'BNT162b2_3W': 'BNT162b2_1M',
     'CP_5-33d': 'CP_1M',
-    'CP_8mon': 'CP_8M',
+    'CP_8M': 'CP_8M',
     'Mod_1M': 'mRNA-1273_1M',
     'Moderna_36d': 'mRNA-1273_1M',
     'Moderna_D43': 'mRNA-1273_1M',
@@ -179,8 +179,8 @@ PLASMA_RENAME = {
     'Subject_G_d18': 'CP',
     'Subject_I_d26': 'CP',
     'CP_BNT162b2_1M': 'BNT162b2_1M',
-    'BNT162b2_2Weeks': 'BNT162b2_1M',
-    'BNT162b2_4Weeks': 'BNT162b2_1M',
+    'BNT162b2_2W': 'BNT162b2_1M',
+    'BNT162b2_4W': 'BNT162b2_1M',
     'CP_02-0014': 'CP_WT',
     'CP_02-0015': 'CP_WT',
     'CP_13-0013': 'CP_WT',
