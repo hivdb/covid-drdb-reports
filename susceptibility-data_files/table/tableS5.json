@@ -413,6 +413,20 @@
             },
             {
                 "strain": "P.1",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.4",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1.4",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "16",
@@ -420,10 +434,52 @@
             },
             {
                 "strain": "P.1",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "3.5",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Hoffmann21"
+            },
+            {
+                "strain": "P.1",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
+                "rx": "C121",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.4",
+                "reference": "Wang21c"
             }
         ]
     }

@@ -10,11 +10,11 @@ E484K,mAbs structure,12
 Other individual mutations,CP,376
 Other individual mutations,IP,419
 Other individual mutations,mAbs phase3,416
-Other individual mutations,mAbs structure,427
+Other individual mutations,mAbs structure,432
 All individual mutations,CP,499
 All individual mutations,IP,530
 All individual mutations,mAbs phase3,473
-All individual mutations,mAbs structure,453
+All individual mutations,mAbs structure,458
 B.1.1.7,CP,96
 B.1.1.7,IP,200
 B.1.1.7,mAbs phase3,22
@@ -23,15 +23,15 @@ B.1.351,CP,115
 B.1.351,IP,110
 B.1.351,mAbs phase3,22
 B.1.351,mAbs structure,9
-P.1,CP,9
-P.1,IP,20
-P.1,mAbs phase3,3
-P.1,mAbs structure,0
+P.1,CP,29
+P.1,IP,42
+P.1,mAbs phase3,10
+P.1,mAbs structure,2
 Other muation combinations,CP,314
 Other muation combinations,IP,307
 Other muation combinations,mAbs phase3,128
 Other muation combinations,mAbs structure,169
-All combinations of mutations,CP,534
-All combinations of mutations,IP,637
-All combinations of mutations,mAbs phase3,175
-All combinations of mutations,mAbs structure,195
+All combinations of mutations,CP,554
+All combinations of mutations,IP,659
+All combinations of mutations,mAbs phase3,182
+All combinations of mutations,mAbs structure,197
