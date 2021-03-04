@@ -157,6 +157,7 @@ shortRefRxNames = c(
   "Jangra21 CP" = "Jangra21\n",
   "Jangra21 BNT" = "BNT\nJangra21",
   "Liu21 CP" = "Liu21\n",
+  "Liu21b BNT" = "BNT\nLiu21b",
   "Muik21 BNT" = "BNT\nMuik21",
   "Planas21 BNT_W4" = "BNT\nPlanas21",
   "Rees-Spear21 mild" = "Mild\nRSC21",
