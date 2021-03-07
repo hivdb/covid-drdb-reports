@@ -140,13 +140,13 @@ excludedRefRxNames = c(
   "Planas21 BNT_W3",
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
-  "Diamond21 BNT LiveVirus",
-  "Diamond21 CP LiveVirus",
   "Collier21 CP"
 )
 shortRefRxNames = c(
   "Cele21 CP_WT LiveVirus" = "Cele21*\n",
   "Collier21 BNT" = "BNT\nCollier21",
+  "Diamond21 CP LiveVirus" = "Diamond21*",
+  "Diamond21 BNT LiveVirus" = "BNT\nDiamond21*",
   "Edara21 CP LiveVirus" = "Edara21*\n",
   "Edara21 Mod LiveVirus" = "Mod\nEdara21*",
   "Greaney21 CP" = "Greaney21\n",

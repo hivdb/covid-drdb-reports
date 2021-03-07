@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 03/03/2021 09:07 PM PDT
+Report generated at: 03/07/2021 03:13 PM PDT
 
 
 
@@ -43,43 +43,43 @@ Report generated at: 03/03/2021 09:07 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
-   <td style="text-align:right;"> 376 </td>
-   <td style="text-align:right;"> 419 </td>
+   <td style="text-align:right;"> 394 </td>
+   <td style="text-align:right;"> 442 </td>
    <td style="text-align:right;"> 403 </td>
    <td style="text-align:right;"> 432 </td>
    <td style="text-align:right;"> 1309 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
-   <td style="text-align:right;"> 96 </td>
-   <td style="text-align:right;"> 200 </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:right;"> 224 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 107 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
-   <td style="text-align:right;"> 115 </td>
-   <td style="text-align:right;"> 110 </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 42 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> P.1 Spike </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 57 </td>
    <td style="text-align:right;"> 10 </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 20 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 314 </td>
-   <td style="text-align:right;"> 307 </td>
-   <td style="text-align:right;"> 123 </td>
-   <td style="text-align:right;"> 169 </td>
-   <td style="text-align:right;"> 442 </td>
+   <td style="text-align:right;"> 348 </td>
+   <td style="text-align:right;"> 328 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:right;"> 165 </td>
+   <td style="text-align:right;"> 412 </td>
   </tr>
 </tbody>
 </table>
