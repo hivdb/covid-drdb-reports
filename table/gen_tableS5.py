@@ -46,31 +46,31 @@ ROWS = {
             "AND s.strain_name = 'B.1.1.7 Spike'",
         ]
     },
-    # 'B.1.1.7 authentic': {
-    #     'filter': [
-    #         "AND s.strain_name = 'B.1.1.7 authentic'",
-    #     ]
-    # },
+    'B.1.1.7 authentic': {
+        'filter': [
+            "AND s.strain_name = 'B.1.1.7 authentic'",
+        ]
+    },
     'B.1.351': {
         'filter': [
             "AND s.strain_name = 'B.1.351 Spike'",
         ]
     },
-    # 'B.1.351 authentic': {
-    #     'filter': [
-    #         "AND s.strain_name = 'B.1.351 authentic'",
-    #     ]
-    # },
+    'B.1.351 authentic': {
+        'filter': [
+            "AND s.strain_name = 'B.1.351 authentic'",
+        ]
+    },
     'P.1': {
         'filter': [
             "AND s.strain_name = 'P.1 Spike'",
         ]
     },
-    # 'P.1 authentic': {
-    #     'filter': [
-    #         "AND s.strain_name = 'P.1 authentic'",
-    #     ]
-    # },
+    'P.1 authentic': {
+        'filter': [
+            "AND s.strain_name = 'P.1 authentic'",
+        ]
+    },
 }
 
 SUBROWS = {

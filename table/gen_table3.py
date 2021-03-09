@@ -57,20 +57,58 @@ def parse_fold(rec):
         return float(fold[1:])
 
 
+def get_mab_names(mab_name):
+    return [mab_name]
+    if '/' in mab_name:
+        mab_names = mab_name.split('/')
+    elif '+' in mab_name:
+        mab_names = mab_name.split('+')
+    else:
+        mab_names = mab_name.split()
+    mab_names = [m.strip() for m in mab_names]
+
+    return mab_names
+
+
+def unique_reference(rec_list):
+    unique_rec_list = {}
+    for r in rec_list:
+        reference = r['Reference']
+        reference = reference.replace('*', '')
+
+        previous = unique_rec_list.get(reference)
+        if not previous:
+            unique_rec_list[reference] = r
+            continue
+
+        if previous['Fold'] < r['Fold']:
+            unique_rec_list[reference] = r
+
+    rec_list = list(unique_rec_list.values())
+
+    return rec_list
+
+
 def process_record(strain, records):
     mab_groups = defaultdict(list)
     for r in records:
         mab_name = r['Mab name']
-        if mab_name not in SHOW_MABS.keys():
-            continue
-        mab_groups[mab_name].append(r)
+        for name in get_mab_names(mab_name):
+            if name in SHOW_MABS.keys():
+                short_name = SHOW_MABS[name]
+            else:
+                continue
+            mab_groups[short_name].append(r)
 
     result = {'strain': strain}
     for mab_name, short_name in SHOW_MABS.items():
-        rec_list = mab_groups.get(mab_name)
+        rec_list = mab_groups.get(short_name)
+
         if not rec_list:
             result[short_name] = '-'
             continue
+
+        rec_list = unique_reference(rec_list)
 
         rec_list.sort(key=parse_fold)
         max_value = rec_list[-1]['Fold']

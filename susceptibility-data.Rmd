@@ -419,6 +419,13 @@ mAbLabels = c(
 mAbHasLabels = names(mAbLabels)
 
 dfForPlot = dfSuscResultsMAb %>%
+  mutate(
+    strain_name = ifelse(
+      strain_name %in% names(authenticStrains),
+      yes = authenticStrains[strain_name],
+      no = strain_name
+    )
+  ) %>%
   filter(
     Vectorize(function(x) length(setdiff(x, filterMAbs)) == 0)(ab_name) &
     strain_name %in% filterStrains

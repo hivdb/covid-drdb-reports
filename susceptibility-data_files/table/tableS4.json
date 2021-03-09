@@ -16,7 +16,7 @@
                 "s_fold": 20,
                 "i_fold": 4,
                 "r_fold": 0,
-                "reference": "Diamond21"
+                "reference": "Diamond21*"
             },
             {
                 "strain": "B.1.1.7",
@@ -72,7 +72,7 @@
                 "s_fold": 18,
                 "i_fold": 1,
                 "r_fold": 0,
-                "reference": "Diamond21"
+                "reference": "Diamond21*"
             },
             {
                 "strain": "B.1.1.7",
@@ -205,7 +205,7 @@
                 "s_fold": 0,
                 "i_fold": 12,
                 "r_fold": 12,
-                "reference": "Diamond21"
+                "reference": "Diamond21*"
             },
             {
                 "strain": "B.1.351",
@@ -261,7 +261,7 @@
                 "s_fold": 9,
                 "i_fold": 7,
                 "r_fold": 3,
-                "reference": "Diamond21"
+                "reference": "Diamond21*"
             },
             {
                 "strain": "B.1.351",
@@ -386,7 +386,7 @@
                 "s_fold": 12,
                 "i_fold": 3,
                 "r_fold": 0,
-                "reference": "Diamond21"
+                "reference": "Diamond21*"
             },
             {
                 "strain": "P.1",
@@ -410,7 +410,7 @@
                 "s_fold": 7,
                 "i_fold": 2,
                 "r_fold": 1,
-                "reference": "Diamond21"
+                "reference": "Diamond21*"
             },
             {
                 "strain": "P.1",

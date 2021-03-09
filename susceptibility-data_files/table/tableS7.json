@@ -53,13 +53,6 @@
             },
             {
                 "strain": "E484K",
-                "rx": "IMD",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "10",
-                "reference": "Yuan21"
-            },
-            {
-                "strain": "E484K",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.7",
@@ -88,6 +81,13 @@
             },
             {
                 "strain": "E484K",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "10",
+                "reference": "Yuan21"
+            },
+            {
+                "strain": "E484K",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.2",
@@ -106,13 +106,6 @@
                 "mab_class": "RBD Core Cluster II",
                 "fold": "1",
                 "reference": "Wang21b"
-            },
-            {
-                "strain": "E484K",
-                "rx": "CAS",
-                "mab_class": "RBM Class I",
-                "fold": "30",
-                "reference": "Yuan21"
             },
             {
                 "strain": "E484K",
@@ -148,6 +141,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "11",
                 "reference": "Wang21b"
+            },
+            {
+                "strain": "E484K",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "30",
+                "reference": "Yuan21"
             },
             {
                 "strain": "E484K",
@@ -392,13 +392,6 @@
             },
             {
                 "strain": "K417N",
-                "rx": "CAS",
-                "mab_class": "RBM Class I",
-                "fold": "30",
-                "reference": "Yuan21"
-            },
-            {
-                "strain": "K417N",
                 "rx": "CC12.1",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
@@ -424,6 +417,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "13",
                 "reference": "Wang21b"
+            },
+            {
+                "strain": "K417N",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "30",
+                "reference": "Yuan21"
             },
             {
                 "strain": "K417N",

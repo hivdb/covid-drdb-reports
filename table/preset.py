@@ -39,6 +39,7 @@ def dump_json(json_path, obj):
 
 
 SYNONYM2AB_NAME = {}
+AB_NAME2SYNONYM = {}
 SYNONYM_GROUP = {}
 
 
@@ -53,6 +54,7 @@ def init_synonyms_map(conn):
         ab_name = item[0]
         synonym = item[1]
         SYNONYM2AB_NAME[synonym] = ab_name
+        AB_NAME2SYNONYM[ab_name] = synonym
 
         if synonym in SYNONYM_GROUP:
             SYNONYM_GROUP[synonym].add(ab_name)
@@ -65,6 +67,25 @@ def init_synonyms_map(conn):
             SYNONYM_GROUP[ab_name].add(ab_name)
             SYNONYM_GROUP[ab_name].add(synonym)
             SYNONYM_GROUP[synonym] = SYNONYM_GROUP[ab_name]
+
+    cursor = conn.cursor()
+    sql = """
+        SELECT ab_name, abbreviation_name
+        FROM antibodies WHERE abbreviation_name IS NOT NULL;
+    """
+    cursor.execute(sql)
+
+    for item in cursor.fetchall():
+        ab_name = item[0]
+        abbr_name = item[1]
+        if ab_name in AB_NAME2SYNONYM.keys():
+            SYNONYM2AB_NAME[abbr_name] = ab_name
+        elif ab_name in SYNONYM2AB_NAME.keys():
+            SYNONYM2AB_NAME[abbr_name] = SYNONYM2AB_NAME[ab_name]
+
+        SYNONYM_GROUP[ab_name].add(abbr_name)
+
+    print(SYNONYM2AB_NAME)
 
 
 AB_NAME2MAB_CLASS = {}
