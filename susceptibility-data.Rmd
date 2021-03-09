@@ -16,23 +16,48 @@ knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
 
+ControlStrainNames = c(
+  "Control",
+  "Wuhan",
+  "S:614G"
+)
+CPVariantNames = c(
+  "S:614G",
+  "Generic",
+  "Wuhan"
+)
 partialResistFold = 3
 resistFold = 10
+
 dfSuscResultsMAb = read.suscResultsMAb()
+dfSuscResultsMAb = dfSuscResultsMAb %>%
+  filter(control_strain_name %in% ControlStrainNames)
+
 dfSuscResultsCP = read.suscResultsCP(
   partialResistFold = partialResistFold,
   resistFold = resistFold
 )
+dfSuscResultsCP = dfSuscResultsCP %>%
+  filter(control_strain_name %in% ControlStrainNames) %>%
+  filter(variant %in% CPVariantNames)
+
 dfSuscResultsIP = read.suscResultsIP(
   partialResistFold = partialResistFold,
   resistFold = resistFold
 )
+dfSuscResultsIP = dfSuscResultsIP %>%
+  filter(control_strain_name %in% ControlStrainNames)
+
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
 dfVirusStrains = read.virusStrains() %>%
   select(strain_name, num_muts)
 dfAntibodies = read.antibodies()
+
+
+
+
 
 ```
 
@@ -118,7 +143,8 @@ groupTitle = c(
 )
 authenticStrains = c(
   "B.1.1.7 authentic" = "B.1.1.7 Spike",
-  "B.1.351 authentic" = "B.1.351 Spike"
+  "B.1.351 authentic" = "B.1.351 Spike",
+  "P.1 authentic" = "P.1 Spike"
 )
 strainTitle = c(
   "S:501Y" = "N501Y",
@@ -149,6 +175,8 @@ shortRefRxNames = c(
   "Diamond21 BNT LiveVirus" = "BNT\nDiamond21*",
   "Edara21 CP LiveVirus" = "Edara21*\n",
   "Edara21 Mod LiveVirus" = "Mod\nEdara21*",
+  "Faulkner21 CP_Mild LiveVirus" = "Mild\nFaulkner21*",
+  "Faulkner21 CP_Patient LiveVirus" = "Severe\nFaulkner21*",
   "Greaney21 CP" = "Greaney21\n",
   "Hoffmann21 BNT" = "BNT\nHoffmann21",
   "Hoffmann21 CP" = "Hoffmann21\n",
@@ -281,6 +309,7 @@ for (strain in filterStrains) {
       )) +
       theme(
         plot.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(size=7),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         strip.background = element_blank(),

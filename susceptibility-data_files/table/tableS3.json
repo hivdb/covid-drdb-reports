@@ -29,17 +29,17 @@
     },
     {
         "strain": "B.1.1.7",
-        "cp": 115,
-        "ip": 224,
-        "phase3": 27,
-        "structure": 19
+        "cp": 167,
+        "ip": 247,
+        "phase3": 41,
+        "structure": 25
     },
     {
         "strain": "B.1.351",
-        "cp": 134,
-        "ip": 134,
-        "phase3": 27,
-        "structure": 11
+        "cp": 188,
+        "ip": 155,
+        "phase3": 41,
+        "structure": 17
     },
     {
         "strain": "P.1",
@@ -50,14 +50,14 @@
     },
     {
         "strain": "Other muation combinations",
-        "cp": 348,
-        "ip": 328,
-        "phase3": 118,
-        "structure": 165
+        "cp": 300,
+        "ip": 284,
+        "phase3": 90,
+        "structure": 153
     },
     {
         "strain": "All combinations of mutations",
-        "cp": 636,
+        "cp": 694,
         "ip": 743,
         "phase3": 182,
         "structure": 197

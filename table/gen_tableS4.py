@@ -17,8 +17,8 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
     susc_results as s,
     {rxtype} AS rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name = 'Control'
-    AND s.ineffective IS NULL
+    AND s.control_strain_name IN ('Control', 'Wuhan')
+    -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
 """
@@ -26,9 +26,12 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
 ROWS = {
     'B.1.1.7': {
         'filter': [
-            ("AND (s.strain_name = 'B.1.1.7 Spike'"
-                #  "  OR s.strain_name = 'B.1.1.7 S1'"
-             ")"),
+            "AND s.strain_name = 'B.1.1.7 Spike'",
+        ]
+    },
+    'B.1.1.7 authentic': {
+        'filter': [
+            "AND s.strain_name = 'B.1.1.7 authentic'",
         ]
     },
     'B.1.351': {
@@ -36,9 +39,19 @@ ROWS = {
             "AND s.strain_name = 'B.1.351 Spike'",
         ]
     },
+    'B.1.351 authentic': {
+        'filter': [
+            "AND s.strain_name = 'B.1.351 authentic'",
+        ]
+    },
     'P.1': {
         'filter': [
             "AND s.strain_name = 'P.1 Spike'",
+        ]
+    },
+    'P.1 authentic': {
+        'filter': [
+            "AND s.strain_name = 'P.1 authentic'",
         ]
     },
 }
@@ -47,7 +60,7 @@ SUBROWS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
-            "AND rxtype.variant = 'Generic'",
+            "AND rxtype.variant IN ('Generic', 'S:614G')",
         ]
     },
     'IP': {
@@ -98,6 +111,10 @@ def gen_tableS4(conn):
                             cp_name = new_name
 
                     key = '{}{}{}'.format(strain_name, cp_name, reference)
+
+                    if strain_name.endswith('authentic'):
+                        reference = '{}*'.format(reference)
+                        strain_name = strain_name.split()[0]
 
                     rec = records[key]
                     rec['Strain name'] = strain_name

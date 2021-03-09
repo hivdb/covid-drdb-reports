@@ -34,8 +34,8 @@ SELECT  s.ref_name,
         WHERE _rxtype.ab_name = ab.ab_name
     ) as rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name = 'Control'
-    AND s.ineffective IS NULL
+    AND s.control_strain_name IN ('Control', 'Wuhan')
+    -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
 """
@@ -46,16 +46,31 @@ ROWS = {
             "AND s.strain_name = 'B.1.1.7 Spike'",
         ]
     },
+    # 'B.1.1.7 authentic': {
+    #     'filter': [
+    #         "AND s.strain_name = 'B.1.1.7 authentic'",
+    #     ]
+    # },
     'B.1.351': {
         'filter': [
             "AND s.strain_name = 'B.1.351 Spike'",
         ]
     },
+    # 'B.1.351 authentic': {
+    #     'filter': [
+    #         "AND s.strain_name = 'B.1.351 authentic'",
+    #     ]
+    # },
     'P.1': {
         'filter': [
             "AND s.strain_name = 'P.1 Spike'",
         ]
     },
+    # 'P.1 authentic': {
+    #     'filter': [
+    #         "AND s.strain_name = 'P.1 authentic'",
+    #     ]
+    # },
 }
 
 SUBROWS = {
@@ -98,8 +113,14 @@ def gen_tableS5(conn):
                         ab_class = ''
 
                     fold = '{}'.format(round_number(i[4]))
+
+                    strain_name = row_name
+                    if strain_name.endswith('authentic'):
+                        reference = '{}*'.format(reference)
+                        strain_name = strain_name.split()[0]
+
                     records.append({
-                        'Strain name': row_name,
+                        'Strain name': strain_name,
                         'Mab name': MAB_RENAME.get(ab_name, ab_name),
                         'Class': ab_class or '',
                         # 'Resistance level': resist_name,

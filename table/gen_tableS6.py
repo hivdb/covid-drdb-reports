@@ -16,8 +16,8 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
     susc_results as s,
     {rxtype} AS rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name = 'Control'
-    AND s.ineffective IS NULL
+    AND s.control_strain_name IN ('Control', 'Wuhan')
+    -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
 """
@@ -96,7 +96,7 @@ SUBROWS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
-            "AND rxtype.variant = 'Generic'",
+            "AND rxtype.variant IN ('Generic', 'S:614G')",
         ]
     },
     'IP': {
@@ -147,7 +147,7 @@ def gen_tableS6(conn):
 
                     rec = records[key]
                     rec['Strain name'] = strain_name
-                    rec['Plasma'] =  PLASMA_POST_RENAME.get(cp_name, cp_name)
+                    rec['Plasma'] = PLASMA_POST_RENAME.get(cp_name, cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)

@@ -10,8 +10,8 @@ SELECT COUNT(*) FROM
     {rxtype} AS rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name = 'Control'
-    AND s.ineffective IS NULL
+    AND s.control_strain_name IN ('Control', 'Wuhan')
+    -- AND s.ineffective IS NULL
     {filters};
 """
 
@@ -26,8 +26,8 @@ SELECT COUNT(*) FROM
     ) as rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name = 'Control'
-    AND s.ineffective IS NULL
+    AND s.control_strain_name IN ('Control', 'Wuhan')
+    -- AND s.ineffective IS NULL
     {filters};
 """
 
@@ -74,25 +74,29 @@ TABLE3_ROWS = {
     },
     'B.1.1.7': {
         'filter': [
-            "AND s.strain_name = 'B.1.1.7 Spike'",
+            "AND s.strain_name IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 Spike'",
+            "AND s.strain_name IN ('B.1.351 Spike', 'B.1.351 authentic')",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.strain_name = 'P.1 Spike'",
+            "AND s.strain_name IN ('P.1 Spike', 'P.1 authentic')",
         ]
     },
     # 'B.1.1.7 + B.1.351': {
     #     'filter': [
     #         (
     #             "AND ("
-    #             "      s.strain_name = 'B.1.1.7 Spike' "
-    #             "   OR s.strain_name = 'B.1.351 Spike' "
+    #             "      s.strain_name IN ('B.1.1.7 Spike',
+    #                                      'B.1.1.7 authentic')"
+    #             "   OR s.strain_name IN ('B.1.351 Spike',
+    #                                      'B.1.351 authentic')"
+    #             "   OR s.strain_name IN ('P.1 Spike',
+    #                                      'P.1 authentic')"
     #             "   )"
     #         ),
     #     ]
@@ -108,9 +112,9 @@ TABLE3_ROWS = {
         'filter': [
             "AND vs.strain_name = s.strain_name",
             "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
-            "AND s.strain_name != 'B.1.1.7 Spike'",
-            "AND s.strain_name != 'B.1.351 Spike'",
-            "AND s.strain_name != 'P.1 Spike'",
+            "AND s.strain_name NOT IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
+            "AND s.strain_name NOT IN ('B.1.351 Spike', 'B.1.351 authentic')",
+            "AND s.strain_name NOT IN ('P.1 Spike', 'P.1 authentic')",
         ]
     },
     "All combinations of mutations": {
@@ -133,7 +137,7 @@ TABLE3_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
-            "AND rxtype.variant = 'Generic'",
+            "AND rxtype.variant IN ('Generic', 'S:614G')",
         ]
     },
     'IP': {
@@ -187,8 +191,12 @@ TABLE3_COLUMNS = {
 #         'filter': [
 #             (
 #                 "AND ("
-#                 "      s.strain_name = 'B.1.1.7 Spike' "
-#                 "   OR s.strain_name = 'B.1.351 Spike' "
+#                 "      s.strain_name IN ('B.1.1.7 Spike',
+#                                          'B.1.1.7 authentic')"
+#                 "   OR s.strain_name IN ('B.1.351 Spike'
+#                                          'B.1.351 authentic')"
+#                 "   OR s.strain_name IN ('P.1 Spike'
+#                                          'P.1 authentic')"
 #                 "   )"
 #             ),
 #         ]

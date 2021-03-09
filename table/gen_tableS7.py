@@ -33,8 +33,8 @@ SELECT  s.ref_name,
         WHERE _rxtype.ab_name = ab.ab_name
     ) as rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name = 'Control'
-    AND s.ineffective IS NULL
+    AND s.control_strain_name IN ('Control', 'Wuhan')
+    -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
 """
