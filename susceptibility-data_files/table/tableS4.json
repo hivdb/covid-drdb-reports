@@ -29,6 +29,14 @@
             {
                 "strain": "B.1.1.7",
                 "rx": "BNT162b2",
+                "s_fold": 17,
+                "i_fold": 12,
+                "r_fold": 0,
+                "reference": "Marot21*"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "BNT162b2",
                 "s_fold": 40,
                 "i_fold": 0,
                 "r_fold": 0,
@@ -97,6 +105,14 @@
                 "i_fold": 5,
                 "r_fold": 1,
                 "reference": "Hu21"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "CP",
+                "s_fold": 6,
+                "i_fold": 3,
+                "r_fold": 0,
+                "reference": "Marot21*"
             },
             {
                 "strain": "B.1.1.7",
@@ -227,6 +243,14 @@
                 "strain": "B.1.351",
                 "rx": "BNT162b2",
                 "s_fold": 3,
+                "i_fold": 23,
+                "r_fold": 3,
+                "reference": "Marot21*"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "BNT162b2",
+                "s_fold": 3,
                 "i_fold": 6,
                 "r_fold": 1,
                 "reference": "Planas21"
@@ -278,6 +302,14 @@
                 "i_fold": 9,
                 "r_fold": 6,
                 "reference": "Hu21"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "CP",
+                "s_fold": 0,
+                "i_fold": 8,
+                "r_fold": 1,
+                "reference": "Marot21*"
             },
             {
                 "strain": "B.1.351",

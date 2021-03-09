@@ -188,6 +188,8 @@ shortRefRxNames = c(
   "Liu21b BNT" = "BNT\nLiu21b",
   "Muik21 BNT" = "BNT\nMuik21",
   "Moyo-Gwete21 CP" = "Moyo-G21\n",
+  "Marot21 CP LiveVirus" = "Marot21*\n",
+  "Marot21 BNT LiveVirus" = "BNT\nMarot21*",
   "Planas21 BNT_W4" = "BNT\nPlanas21",
   "Rees-Spear21 mild" = "Mild\nRSC21",
   "Rees-Spear21 severe" = "Severe\nRSC21",
@@ -283,7 +285,7 @@ for (strain in filterStrains) {
         aes(fill = resistance_level),
         size = 0.2,
         color = "#000000",
-        stat = 'identity', position = 'stack', width = 0.07 * numItems) +
+        stat = 'identity', position = 'stack', width = 0.06 * numItems) +
       scale_x_discrete(
         labels = Vectorize(function(x) ifelse(
           x %in% longRefRxNames,
