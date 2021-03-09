@@ -17,6 +17,8 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
     susc_results as s,
     {rxtype} AS rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+    AND s.control_strain_name = 'Control'
+    AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
 """
@@ -44,6 +46,9 @@ ROWS = {
 SUBROWS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
+        'cp_filters': [
+            "AND rxtype.variant = 'Generic'",
+        ]
     },
     'IP': {
         'rxtype': 'rx_immu_plasma',
@@ -62,6 +67,11 @@ def gen_tableS4(conn):
 
                 r_filter = attr_r.get('filter', [])
                 filter = '\n    '.join(r_filter + resist_filter)
+
+                if subrow_name.lower().startswith('cp'):
+                    filter += '\n   '
+                    filter += '\n   '.join(attr_subr.get('cp_filters', []))
+
                 sql = MAIN_SQL.format(
                     rxtype=rxtype,
                     filters=filter

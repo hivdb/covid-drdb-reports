@@ -75,6 +75,10 @@ read.suscResults <- function(
         mutate(include = FALSE)
       )
   }
+  dfSusc = dfSusc %>%
+    filter(control_strain_name == 'Control') %>%
+    filter(is.na(ineffective))
+
   dfSusc$fold_cmp = ifelse(
     !is.na(dfSusc$fold) &
     !is.null(dfSusc$fold) & (
@@ -132,6 +136,8 @@ read.suscResultsCP <- function(
       tables_dir = EXCLUDES_DIR
     ))
   }
+  dfCP = dfCP %>%
+    filter(variant == 'Generic')
   merge(dfSusc, dfCP, by = c("ref_name", "rx_name"))
 }
 

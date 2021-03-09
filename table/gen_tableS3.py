@@ -10,6 +10,8 @@ SELECT COUNT(*) FROM
     {rxtype} AS rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+    AND s.control_strain_name = 'Control'
+    AND s.ineffective IS NULL
     {filters};
 """
 
@@ -24,6 +26,8 @@ SELECT COUNT(*) FROM
     ) as rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+    AND s.control_strain_name = 'Control'
+    AND s.ineffective IS NULL
     {filters};
 """
 
@@ -128,6 +132,9 @@ TABLE3_ROWS = {
 TABLE3_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
+        'cp_filters': [
+            "AND rxtype.variant = 'Generic'",
+        ]
     },
     'IP': {
         'rxtype': 'rx_immu_plasma',
@@ -147,61 +154,61 @@ TABLE3_COLUMNS = {
     }
 }
 
-FOOT_TABLE_ROWS = {
-    '1 mutation': {
-        'join': [
-            "virus_strains AS vs",
-            (
-                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-                "strain_mutations GROUP BY strain_name) AS sm"
-            )
-        ],
-        'filter': [
-            "AND vs.strain_name = s.strain_name",
-            "AND vs.site_directed IS TRUE",
-            "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
-        ]
-    },
-    'mutation combination': {
-        'join': [
-            "virus_strains AS vs",
-            (
-                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-                "strain_mutations GROUP BY strain_name) AS sm"
-            )
-        ],
-        'filter': [
-            "AND vs.strain_name = s.strain_name",
-            "AND vs.site_directed IS TRUE",
-            "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
-        ]
-    },
-    'VOC': {
-        'filter': [
-            (
-                "AND ("
-                "      s.strain_name = 'B.1.1.7 Spike' "
-                "   OR s.strain_name = 'B.1.351 Spike' "
-                "   )"
-            ),
-        ]
-    },
-}
+# TABLES3_2_ROWS = {
+#     '1 mutation': {
+#         'join': [
+#             "virus_strains AS vs",
+#             (
+#                 "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+#                 "strain_mutations GROUP BY strain_name) AS sm"
+#             )
+#         ],
+#         'filter': [
+#             "AND vs.strain_name = s.strain_name",
+#             "AND vs.site_directed IS TRUE",
+#             "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
+#         ]
+#     },
+#     'mutation combination': {
+#         'join': [
+#             "virus_strains AS vs",
+#             (
+#                 "(SELECT strain_name, COUNT(*) AS num_muts FROM "
+#                 "strain_mutations GROUP BY strain_name) AS sm"
+#             )
+#         ],
+#         'filter': [
+#             "AND vs.strain_name = s.strain_name",
+#             "AND vs.site_directed IS TRUE",
+#             "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
+#         ]
+#     },
+#     'VOC': {
+#         'filter': [
+#             (
+#                 "AND ("
+#                 "      s.strain_name = 'B.1.1.7 Spike' "
+#                 "   OR s.strain_name = 'B.1.351 Spike' "
+#                 "   )"
+#             ),
+#         ]
+#     },
+# }
 
-FOOT_TABLE_COLUMNS = {
-    'mAbs without structure': {
-        'rxtype': 'rx_antibodies',
-        'ab_filters': [
-            "AND ab.pdb_id IS NULL",
-        ],
-    },
-    'CP': {
-        'rxtype': 'rx_conv_plasma',
-    },
-    'VP': {
-        'rxtype': 'rx_immu_plasma',
-    },
-}
+# TABLES3_2_COLUMNS = {
+#     'mAbs without structure': {
+#         'rxtype': 'rx_antibodies',
+#         'ab_filters': [
+#             "AND ab.pdb_id IS NULL",
+#         ],
+#     },
+#     'CP': {
+#         'rxtype': 'rx_conv_plasma',
+#     },
+#     'VP': {
+#         'rxtype': 'rx_immu_plasma',
+#     },
+# }
 
 
 def gen_tableS3(conn):
@@ -220,6 +227,10 @@ def gen_tableS3(conn):
             r_filter = attr_r.get('filter', [])
             c_filter = attr_c.get('filter', [])
             filter = '\n    '.join(r_filter + c_filter)
+
+            if column_name.lower().startswith('cp'):
+                filter += '\n   '
+                filter += '\n   '.join(attr_c.get('cp_filters', []))
 
             sql = TABLE3_MAIN_SQL.format(
                 rxtype=rxtype,
@@ -247,8 +258,8 @@ def gen_tableS3(conn):
                 '#Published': result
             })
 
-    # for row_name, attr_r in FOOT_TABLE_ROWS.items():
-    #     for column_name, attr_c in FOOT_TABLE_COLUMNS.items():
+    # for row_name, attr_r in TABLES3_2_ROWS.items():
+    #     for column_name, attr_c in TABLES3_2_COLUMNS.items():
     #         rxtype = attr_c['rxtype']
 
     #         r_join = attr_r.get('join', [])

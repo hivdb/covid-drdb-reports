@@ -74,6 +74,7 @@ Columns explained:
 - __mAb__: mAb name or abbreviation
 - __Position__: Spike amino acid position
 - __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2)
+- __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
@@ -96,7 +97,8 @@ dfSuscResultsMAb %>%
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
     Assay = ifelse(is.na(assay), "", assay),
-    Include = ifelse(include, "Yes", "No")
+    Include = ifelse(include, "Yes", "No"),
+    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
   ) %>%
   select(
     Author = ref_name,
@@ -106,6 +108,7 @@ dfSuscResultsMAb %>%
     mAb,
     Position = position,
     AA = amino_acid,
+    Control,
     FoldCmp,
     Fold,
     Assay,
@@ -130,8 +133,10 @@ Columns explained:
 - __Date__: Date data added to database
 - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
 - __Vaccine__: Vaccine name
+- __Variant__: Infected variant
 - __Position__: Spike amino acid position
 - __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2)
+- __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
 - __Level__: Susceptibility level
@@ -172,7 +177,8 @@ dfMutPlasma %>%
         resistance_level),
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
-    Include = ifelse(include, "Yes", "No")
+    Include = ifelse(include, "Yes", "No"),
+    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
   ) %>%
   select(
     Author = ref_name,
@@ -181,8 +187,10 @@ dfMutPlasma %>%
     Date = date_added.susc,
     Plasma,
     Vaccine,
+    Variant = variant,
     Position = position,
     AA = amino_acid,
+    Control,
     FoldCmp,
     Fold,
     Level,
@@ -210,6 +218,7 @@ Columns explained:
 - __Date__: Date data added to database.
 - __mAb__: mAb name or abbreviation
 - __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
+- __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
@@ -228,7 +237,8 @@ dfSuscResultsMAb %>%
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
     Assay = ifelse(is.na(assay), "", assay),
-    Include = ifelse(include, "Yes", "No")
+    Include = ifelse(include, "Yes", "No"),
+    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
   ) %>%
   select(
     Author = ref_name,
@@ -237,6 +247,7 @@ dfSuscResultsMAb %>%
     Date = date_added.susc,
     mAb,
     Strain = strain_name,
+    Control,
     FoldCmp,
     Fold,
     Assay,
@@ -260,7 +271,9 @@ Columns explained:
 - __Date__: Date data added to database
 - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
 - __Vaccine__: Vaccine name
+- __Variant__: Infected variant
 - __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
+- __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
 - __Level__: Susceptibility level
@@ -297,7 +310,8 @@ dfStrainPlasma %>%
         resistance_level)),
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
-    Include = ifelse(include, "Yes", "No")
+    Include = ifelse(include, "Yes", "No"),
+    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
   ) %>%
   select(
     Author = ref_name,
@@ -306,7 +320,9 @@ dfStrainPlasma %>%
     Date = date_added.susc,
     Plasma,
     Vaccine,
+    Variant = variant,
     Strain = strain_name,
+    Control,
     FoldCmp,
     Fold,
     Level,
