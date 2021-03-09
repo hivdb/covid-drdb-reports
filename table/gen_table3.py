@@ -57,17 +57,17 @@ def parse_fold(rec):
         return float(fold[1:])
 
 
-def get_mab_names(mab_name):
-    return [mab_name]
-    if '/' in mab_name:
-        mab_names = mab_name.split('/')
-    elif '+' in mab_name:
-        mab_names = mab_name.split('+')
-    else:
-        mab_names = mab_name.split()
-    mab_names = [m.strip() for m in mab_names]
+# def get_mab_names(mab_name):
+#     return [mab_name]
+#     if '/' in mab_name:
+#         mab_names = mab_name.split('/')
+#     elif '+' in mab_name:
+#         mab_names = mab_name.split('+')
+#     else:
+#         mab_names = mab_name.split()
+#     mab_names = [m.strip() for m in mab_names]
 
-    return mab_names
+#     return mab_names
 
 
 def unique_reference(rec_list):
@@ -93,11 +93,8 @@ def process_record(strain, records):
     mab_groups = defaultdict(list)
     for r in records:
         mab_name = r['Mab name']
-        for name in get_mab_names(mab_name):
-            if name in SHOW_MABS.keys():
-                short_name = SHOW_MABS[name]
-            else:
-                continue
+        if mab_name in SHOW_MABS.keys():
+            short_name = SHOW_MABS[mab_name]
             mab_groups[short_name].append(r)
 
     result = {'strain': strain}

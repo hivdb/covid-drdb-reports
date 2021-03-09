@@ -28,14 +28,14 @@
         "vac_num_s_fold": 29,
         "vac_num_i_fold": 65,
         "vac_num_r_fold": 30,
-        "cp_studies": 9,
-        "cp_samples": 185,
-        "cp_s_fold": "25%",
-        "cp_i_fold": "42%",
-        "cp_r_fold": "33%",
-        "cp_num_s_fold": 47,
-        "cp_num_i_fold": 77,
-        "cp_num_r_fold": 61
+        "cp_studies": 10,
+        "cp_samples": 229,
+        "cp_s_fold": "23%",
+        "cp_i_fold": "38%",
+        "cp_r_fold": "39%",
+        "cp_num_s_fold": 52,
+        "cp_num_i_fold": 87,
+        "cp_num_r_fold": 90
     },
     {
         "strain": "P.1",

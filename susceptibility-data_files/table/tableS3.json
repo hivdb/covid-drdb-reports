@@ -36,7 +36,7 @@
     },
     {
         "strain": "B.1.351",
-        "cp": 188,
+        "cp": 232,
         "ip": 155,
         "phase3": 41,
         "structure": 17
@@ -57,7 +57,7 @@
     },
     {
         "strain": "All combinations of mutations",
-        "cp": 694,
+        "cp": 738,
         "ip": 743,
         "phase3": 182,
         "structure": 197

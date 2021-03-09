@@ -10,7 +10,7 @@ SELECT COUNT(*) FROM
     {rxtype} AS rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan')
+    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -26,7 +26,7 @@ SELECT COUNT(*) FROM
     ) as rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan')
+    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters};
 """

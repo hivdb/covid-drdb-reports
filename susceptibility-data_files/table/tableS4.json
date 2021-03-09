@@ -337,6 +337,14 @@
             },
             {
                 "strain": "B.1.351",
+                "rx": "CP_614G",
+                "s_fold": 5,
+                "i_fold": 10,
+                "r_fold": 29,
+                "reference": "Moyo-Gwete21"
+            },
+            {
+                "strain": "B.1.351",
                 "rx": "CP_Mild",
                 "s_fold": 0,
                 "i_fold": 8,

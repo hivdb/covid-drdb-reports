@@ -85,8 +85,6 @@ def init_synonyms_map(conn):
 
         SYNONYM_GROUP[ab_name].add(abbr_name)
 
-    print(SYNONYM2AB_NAME)
-
 
 AB_NAME2MAB_CLASS = {}
 
