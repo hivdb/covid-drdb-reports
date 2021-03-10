@@ -640,6 +640,13 @@
             },
             {
                 "strain": "L452R",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "5",
+                "reference": "Wang21e"
+            },
+            {
+                "strain": "L452R",
                 "rx": "H014",
                 "mab_class": "RBD Core Cluster II",
                 "fold": "1.3",
@@ -661,10 +668,24 @@
             },
             {
                 "strain": "L452R",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "Wang21e"
+            },
+            {
+                "strain": "L452R",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "1",
                 "reference": "Li20h"
+            },
+            {
+                "strain": "L452R",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.6",
+                "reference": "Wang21e"
             },
             {
                 "strain": "L452R",
@@ -679,6 +700,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Du20"
+            },
+            {
+                "strain": "L452R",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
             },
             {
                 "strain": "L452R",

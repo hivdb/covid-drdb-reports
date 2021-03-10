@@ -118,6 +118,13 @@
                 "strain": "B.1.1.7",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.2",
+                "reference": "Wang21e"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "reference": "Wang21b*"
             },
@@ -230,8 +237,22 @@
                 "strain": "B.1.1.7",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "0.9",
+                "reference": "Wang21e"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "1",
                 "reference": "Wang21b*"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1.5",
+                "reference": "Wang21e"
             },
             {
                 "strain": "B.1.1.7",
@@ -302,6 +323,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "0.6",
                 "reference": "Wang21b"
+            },
+            {
+                "strain": "B.1.1.7",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.6",
+                "reference": "Wang21e"
             },
             {
                 "strain": "B.1.1.7",
@@ -487,6 +515,13 @@
                 "strain": "B.1.351",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.2",
+                "reference": "Wang21e"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "3.5",
                 "reference": "Wang21b*"
             },
@@ -558,6 +593,13 @@
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
+                "reference": "Wang21e"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
                 "reference": "Wang21b*"
             },
             {
@@ -566,6 +608,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Wang21b"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
             },
             {
                 "strain": "B.1.351",
@@ -622,6 +671,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21b"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
             },
             {
                 "strain": "B.1.351",
