@@ -166,7 +166,9 @@ excludedRefRxNames = c(
   "Planas21 BNT_W3",
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
-  "Collier21 CP"
+  "Collier21 CP",
+  "Widera21 CP LiveVirus",
+  "Widera21 BNT LiveVirus"
 )
 shortRefRxNames = c(
   "Cele21 CP_WT LiveVirus" = "Cele21*\n",
@@ -215,6 +217,8 @@ shortRefRxNames = c(
   "Wibmer21 low titer" = "Titer < 400\nWibmer21",
   "Wibmer21 high titer" = "Titer > 400\nWibmer21",
   "Wu21 Mod" = "Mod\nWu21",
+  "Widera21 CP LiveVirus" = "Widera21*\n",
+  "Widera21 BNT LiveVirus" = "BNT\nWidera21*",
   "Xie21 BNT" = "BNT\nXie21",
   "Xie21b BNT" = "BNT\nXie21b"
 )

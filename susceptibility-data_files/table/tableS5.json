@@ -340,6 +340,13 @@
             },
             {
                 "strain": "B.1.1.7",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "1",
+                "reference": "Widera21*"
+            },
+            {
+                "strain": "B.1.1.7",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
                 "fold": "0.4",
@@ -685,6 +692,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21b*"
+            },
+            {
+                "strain": "B.1.351",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Widera21*"
             },
             {
                 "strain": "B.1.351",

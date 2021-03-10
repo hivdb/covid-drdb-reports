@@ -151,7 +151,8 @@ RESISTANCE_FILTER = {
 
 EXCLUDE_STUDIES = {
     'Planas21': lambda x: x.startswith('CP') or (not x.endswith('W4')),
-    'Garcia-Beltran21': lambda x: x.startswith('BNT') or x.startswith('mRNA')
+    'Garcia-Beltran21': lambda x: x.startswith('BNT') or x.startswith('mRNA'),
+    'Widera21': lambda x: x.startswith('CP') or x.startswith('BNT'),
 }
 
 
@@ -184,10 +185,14 @@ PLASMA_RENAME = {
     'Pfizer_BNT162b2_D28': 'BNT162b2_1M',
     'Pfizer-BioNTech': 'BNT162b2',
     'Moderna': 'mRNA-1273',
+    'BNT162b2_infected': 'BNT162b2',
+    'CP_Mild': 'CP',
+    "CP_Patient": 'CP',
     'CP_13': 'CP',
     'CP_29': 'CP',
     'CP_35': 'CP',
     'CP_37': 'CP',
+    'CP_614G': 'CP',
     'CP_BNT162b2': 'BNT162b2',
     'CP_ModerateIgG': 'CP',
     'CP_StrongIgG': 'CP',
