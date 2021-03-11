@@ -54,6 +54,11 @@ ROWS = {
             "AND s.strain_name = 'P.1 authentic'",
         ]
     },
+    'CAL.20C': {
+        'filter': [
+            "AND s.strain_name IN ('B.1.427 authentic', 'B.1.429 authentic')",
+        ]
+    },
 }
 
 SUBROWS = {

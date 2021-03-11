@@ -7,6 +7,7 @@ SHOW_STRAIN = [
     'B.1.1.7',
     'B.1.351',
     'P.1',
+    'CAL.20C',
     'E484K',
     'N501Y',
     'K417N',
@@ -135,7 +136,9 @@ def gen_table3():
 
     result = []
     for strain in SHOW_STRAIN:
-        records = strain_groups[strain]
+        records = strain_groups.get(strain)
+        if not records:
+            continue
         result.append(
             process_record(strain, records)
         )

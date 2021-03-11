@@ -49,6 +49,13 @@
         "structure": 5
     },
     {
+        "strain": "CAL.20C",
+        "cp": 18,
+        "ip": 11,
+        "phase3": 0,
+        "structure": 0
+    },
+    {
         "strain": "Other muation combinations",
         "cp": 376,
         "ip": 298,

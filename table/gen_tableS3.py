@@ -87,6 +87,11 @@ TABLE3_ROWS = {
             "AND s.strain_name IN ('P.1 Spike', 'P.1 authentic')",
         ]
     },
+    'CAL.20C': {
+        'filter': [
+            "AND s.strain_name IN ('B.1.427 authentic', 'B.1.429 authentic')",
+        ]
+    },
     # 'B.1.1.7 + B.1.351': {
     #     'filter': [
     #         (
