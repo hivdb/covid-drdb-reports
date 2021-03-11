@@ -1,65 +1,65 @@
 [
     {
         "strain": "N501Y",
-        "cp": 57,
+        "cp": 81,
         "ip": 79,
-        "phase3": 25,
-        "structure": 14
-    },
-    {
-        "strain": "E484K",
-        "cp": 66,
-        "ip": 32,
-        "phase3": 32,
-        "structure": 12
-    },
-    {
-        "strain": "Other individual mutations",
-        "cp": 408,
-        "ip": 445,
-        "phase3": 452,
-        "structure": 432
-    },
-    {
-        "strain": "All individual mutations",
-        "cp": 531,
-        "ip": 556,
-        "phase3": 509,
-        "structure": 458
-    },
-    {
-        "strain": "B.1.1.7",
-        "cp": 186,
-        "ip": 279,
-        "phase3": 46,
-        "structure": 25
-    },
-    {
-        "strain": "B.1.351",
-        "cp": 251,
-        "ip": 187,
-        "phase3": 46,
+        "phase3": 29,
         "structure": 17
     },
     {
+        "strain": "E484K",
+        "cp": 90,
+        "ip": 32,
+        "phase3": 36,
+        "structure": 15
+    },
+    {
+        "strain": "Other individual mutations",
+        "cp": 480,
+        "ip": 445,
+        "phase3": 528,
+        "structure": 489
+    },
+    {
+        "strain": "All individual mutations",
+        "cp": 651,
+        "ip": 556,
+        "phase3": 593,
+        "structure": 521
+    },
+    {
+        "strain": "B.1.1.7",
+        "cp": 210,
+        "ip": 279,
+        "phase3": 50,
+        "structure": 28
+    },
+    {
+        "strain": "B.1.351",
+        "cp": 275,
+        "ip": 187,
+        "phase3": 50,
+        "structure": 20
+    },
+    {
         "strain": "P.1",
-        "cp": 39,
+        "cp": 63,
         "ip": 57,
-        "phase3": 10,
-        "structure": 2
+        "phase3": 14,
+        "structure": 5
     },
     {
         "strain": "Other muation combinations",
-        "cp": 328,
+        "cp": 376,
         "ip": 298,
-        "phase3": 135,
-        "structure": 153
+        "phase3": 147,
+        "structure": 162
     },
     {
         "strain": "All combinations of mutations",
-        "cp": 804,
+        "cp": 924,
         "ip": 821,
-        "phase3": 237,
-        "structure": 197
+        "phase3": 261,
+        "structure": 215
     }
 ]

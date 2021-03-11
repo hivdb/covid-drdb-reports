@@ -214,6 +214,7 @@ shortRefRxNames = c(
   "Wang21c CP" = "Wang21c\n",
   "Wang21c BNT" = "BNT\nWang21c",
   "Wang21c Mod" = "Mod\nWang21c",
+  "Wang21f CP" = "Wang21f\n",
   "Wibmer21 low titer" = "Titer < 400\nWibmer21",
   "Wibmer21 high titer" = "Titer > 400\nWibmer21",
   "Wu21 Mod" = "Mod\nWu21",

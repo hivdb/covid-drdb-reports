@@ -148,6 +148,14 @@
             },
             {
                 "strain": "B.1.1.7",
+                "rx": "CP",
+                "s_fold": 23,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Wang21f"
+            },
+            {
+                "strain": "B.1.1.7",
                 "rx": "CP(8M)",
                 "s_fold": 11,
                 "i_fold": 8,
@@ -345,6 +353,14 @@
             },
             {
                 "strain": "B.1.351",
+                "rx": "CP",
+                "s_fold": 3,
+                "i_fold": 7,
+                "r_fold": 14,
+                "reference": "Wang21f"
+            },
+            {
+                "strain": "B.1.351",
                 "rx": "CP(8M)",
                 "s_fold": 5,
                 "i_fold": 9,
@@ -451,6 +467,14 @@
                 "i_fold": 7,
                 "r_fold": 1,
                 "reference": "Wang21c"
+            },
+            {
+                "strain": "P.1",
+                "rx": "CP",
+                "s_fold": 15,
+                "i_fold": 5,
+                "r_fold": 4,
+                "reference": "Wang21f"
             },
             {
                 "strain": "P.1",
