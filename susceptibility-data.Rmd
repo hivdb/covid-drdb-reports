@@ -144,14 +144,22 @@ groupTitle = c(
 authenticStrains = c(
   "B.1.1.7 authentic" = "B.1.1.7 Spike",
   "B.1.351 authentic" = "B.1.351 Spike",
-  "P.1 authentic" = "P.1 Spike"
+  "P.1 authentic" = "P.1 Spike",
+  "B.1.429 authentic" = "CAL20C Spike",
+  "B.1.427 authentic" = "CAL20C Spike"
 )
+
+paddingTitle <- function(title) {
+  paste("  ", title)
+}
+
 strainTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
   "S:484K" = "E484K",
   "B.1.351 Spike" = "B.1.351",
-  "P.1 Spike" = "P.1"
+  "P.1 Spike" = "P.1",
+  "CAL20C Spike" = "CAL.20C (S:S13I+S:W152C+S:L452R)"
   #"S:417N" = "417N",
   #"S:439K" = "439K",
   #"S:452R" = "452R",
@@ -173,6 +181,9 @@ excludedRefRxNames = c(
 shortRefRxNames = c(
   "Cele21 CP_WT LiveVirus" = "Cele21*\n",
   "Collier21 BNT" = "BNT\nCollier21",
+  "Deng21 CP LiveVirus" = "Deng21*\n",
+  "Deng21 BNT LiveVirus" = "BNT\nDeng21*",
+  "Deng21 Mod LiveVirus" = "Mod\nDeng21*",
   "Diamond21 CP LiveVirus" = "Diamond21*",
   "Diamond21 BNT LiveVirus" = "BNT\nDiamond21*",
   "Edara21 CP LiveVirus" = "Edara21*\n",
@@ -332,11 +343,20 @@ for (strain in filterStrains) {
       plot = plot + ggtitle(groupTitle[[groupName]])
     }
     if (i %% 2 == 1) {
-      plot = plot + geom_text(
-        aes(x, y, label = text), data = dfStrainLabel,
-        hjust = -0.15,
-        vjust = -1
-      )
+      plot = plot + annotate(
+          "text",
+          y=Inf,
+          x=0,
+          label=paddingTitle(strainTitle[[strain]]),
+          size=3,
+          vjust=1.5,
+          hjust=0
+          )
+      # plot = plot + geom_text(
+      #   aes(x, y, label = text), data = dfStrainLabel,
+      #  # hjust = -0.15,
+      #  # vjust = -1
+      #)
     }
     else {
       plot = plot + theme(
