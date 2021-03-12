@@ -125,6 +125,10 @@ TABLE3_ROWS = {
             "AND s.strain_name NOT IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
             "AND s.strain_name NOT IN ('B.1.351 Spike', 'B.1.351 authentic')",
             "AND s.strain_name NOT IN ('P.1 Spike', 'P.1 authentic')",
+            "AND s.strain_name NOT IN ("
+            "    'B.1.427 authentic',"
+            "    'B.1.429 authentic',"
+            "    'B.1.429 Spike')",
         ]
     },
     "All combinations of mutations": {
