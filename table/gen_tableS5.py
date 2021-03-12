@@ -73,7 +73,10 @@ ROWS = {
     },
     'CAL.20C': {
         'filter': [
-            "AND s.strain_name IN ('B.1.427 authentic', 'B.1.429 authentic')",
+            "AND s.strain_name IN ("
+            "    'B.1.427 authentic',"
+            "    'B.1.429 authentic',"
+            "    'B.1.429 Spike')",
         ]
     },
 }

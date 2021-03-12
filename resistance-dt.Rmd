@@ -34,7 +34,7 @@ dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
 dfVirusStrains = read.virusStrains() %>%
-  select(strain_name, num_muts)
+  select(strain_name, num_muts, expandable, spike_muts)
 dfArticles = read.articles()
 dfStrainMutations = read.strainMutations()
 
@@ -63,149 +63,149 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
   )
 ```
 
-## Individual spike mutations / mAb neutralization
+<!-- ## Individual spike mutations / mAb neutralization -->
 
-Columns explained:
+<!-- Columns explained: -->
 
-- __Author__: Internal unique reference identifier
-- __DOI__: DOI
-- __Source__: Location of data within reference
-- __Date__: Date data added to database
-- __mAb__: mAb name or abbreviation
-- __Position__: Spike amino acid position
-- __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2)
-- __Control__: Variant used in control group
-- __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
-- __Fold__: Fold difference from the control "wildtype" virus
-- __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
-- __Include__: Entries containing "Exclude" are not displayed on the web
+<!-- - __Author__: Internal unique reference identifier -->
+<!-- - __DOI__: DOI -->
+<!-- - __Source__: Location of data within reference -->
+<!-- - __Date__: Date data added to database -->
+<!-- - __mAb__: mAb name or abbreviation -->
+<!-- - __Position__: Spike amino acid position -->
+<!-- - __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2) -->
+<!-- - __Control__: Variant used in control group -->
+<!-- - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~ -->
+<!-- - __Fold__: Fold difference from the control "wildtype" virus -->
+<!-- - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated -->
+<!-- - __Include__: Entries containing "Exclude" are not displayed on the web -->
 
-You can copy, download, or print the table using buttons below:
+<!-- You can copy, download, or print the table using buttons below: -->
 
 ```{r phenotypes-mut-mab}
 
-dfSuscResultsMAb %>%
-  filter(num_muts == 1) %>%
-  inner_join(
-    dfStrainMutations,
-    by = "strain_name",
-    suffix = c(".susc", ".strainMut")
-  ) %>%
-  mutate(
-    DOI = ifelse(is.na(doi), url, doi),
-    mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
-    FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
-    Fold = ifelse(is.na(fold), "", fold),
-    Assay = ifelse(is.na(assay), "", assay),
-    Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
-  ) %>%
-  select(
-    Author = ref_name,
-    DOI,
-    Source = section,
-    Date = date_added.susc,
-    mAb,
-    Position = position,
-    AA = amino_acid,
-    Control,
-    FoldCmp,
-    Fold,
-    Assay,
-    Include
-  ) %>%
-  arrange(
-    Author,
-    Position,
-    AA,
-    mAb
-  ) %>%
-  styledDT
+# dfSuscResultsMAb %>%
+#   filter(num_muts == 1) %>%
+#   inner_join(
+#     dfStrainMutations,
+#     by = "strain_name",
+#     suffix = c(".susc", ".strainMut")
+#   ) %>%
+#   mutate(
+#     DOI = ifelse(is.na(doi), url, doi),
+#     mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
+#     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
+#     Fold = ifelse(is.na(fold), "", fold),
+#     Assay = ifelse(is.na(assay), "", assay),
+#     Include = ifelse(include, "Yes", "No"),
+#     Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
+#   ) %>%
+#   select(
+#     Author = ref_name,
+#     DOI,
+#     Source = section,
+#     Date = date_added.susc,
+#     mAb,
+#     Position = position,
+#     AA = amino_acid,
+#     Control,
+#     FoldCmp,
+#     Fold,
+#     Assay,
+#     Include
+#   ) %>%
+#   arrange(
+#     Author,
+#     Position,
+#     AA,
+#     mAb
+#   ) %>%
+#   styledDT
 ```
 
-## Individual spike mutations / plasma neutralization
+<!-- ## Individual spike mutations / plasma neutralization -->
 
-Columns explained:
+<!-- Columns explained: -->
 
-- __Author__: Internal unique reference identifier
-- __DOI__: DOI
-- __Source__: Location of data within reference
-- __Date__: Date data added to database
-- __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
-- __Vaccine__: Vaccine name
-- __Variant__: Infected variant
-- __Position__: Spike amino acid position
-- __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2)
-- __Control__: Variant used in control group
-- __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
-- __Fold__: Fold difference from the control "wildtype" virus
-- __Level__: Susceptibility level
-- __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
-- __Count__: For some studies, data are presented in aggregate. In this case, the count indicates the number of experiments having the same entries in the Foldcmp and Fold columns.
-- __Include__: Entries containing "Exclude" are not displayed on the web
+<!-- - __Author__: Internal unique reference identifier -->
+<!-- - __DOI__: DOI -->
+<!-- - __Source__: Location of data within reference -->
+<!-- - __Date__: Date data added to database -->
+<!-- - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M) -->
+<!-- - __Vaccine__: Vaccine name -->
+<!-- - __Variant__: Infected variant -->
+<!-- - __Position__: Spike amino acid position -->
+<!-- - __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2) -->
+<!-- - __Control__: Variant used in control group -->
+<!-- - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~ -->
+<!-- - __Fold__: Fold difference from the control "wildtype" virus -->
+<!-- - __Level__: Susceptibility level -->
+<!-- - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated -->
+<!-- - __Count__: For some studies, data are presented in aggregate. In this case, the count indicates the number of experiments having the same entries in the Foldcmp and Fold columns. -->
+<!-- - __Include__: Entries containing "Exclude" are not displayed on the web -->
 
-You can copy, download, or print the table using buttons below:
+<!-- You can copy, download, or print the table using buttons below: -->
 
 ```{r phenotypes-mut-plasma}
 
-dfMutPlasma = dfSuscResultsPlasma %>%
-  filter(num_muts == 1) %>%
-  inner_join(
-    dfStrainMutations,
-    by = "strain_name",
-    suffix = c(".susc", ".strainMut")
-  )
-dfMutPlasma$resistance_level = as.character(dfMutPlasma$resistance_level)
-dfMutPlasma %>%
-  mutate(
-    DOI = ifelse(is.na(doi), url, doi),
-    Plasma = Vectorize(function(refName, rxName, strainName, ordNum) {
-      total = nrow(filter(dfMutPlasma, rx_name == rxName & ref_name == refName & strain_name == strainName))
-      ifelse(
-        total == 1,
-        yes = rxName,
-        no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
-      )
-    })(ref_name, rx_name, strain_name, ordinal_number),
-    Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
-    FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
-    Fold = ifelse(is.na(fold), "", fold),
-    Level =
-      ifelse(
-        resistance_level == "partial-resistance",
-        "partial resistance",
-        resistance_level),
-    Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
-    Count = cumulative_count,
-    Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
-  ) %>%
-  select(
-    Author = ref_name,
-    DOI,
-    Source = section,
-    Date = date_added.susc,
-    Plasma,
-    Vaccine,
-    Variant = variant,
-    Position = position,
-    AA = amino_acid,
-    Control,
-    FoldCmp,
-    Fold,
-    Level,
-    Assay,
-    Count,
-    Include
-  ) %>%
-  arrange(
-    Author,
-    Position,
-    AA,
-    Plasma,
-    Vaccine
-  ) %>%
-  styledDT
+# dfMutPlasma = dfSuscResultsPlasma %>%
+#   filter(num_muts == 1) %>%
+#   inner_join(
+#     dfStrainMutations,
+#     by = "strain_name",
+#     suffix = c(".susc", ".strainMut")
+#   )
+# dfMutPlasma$resistance_level = as.character(dfMutPlasma$resistance_level)
+# dfMutPlasma %>%
+#   mutate(
+#     DOI = ifelse(is.na(doi), url, doi),
+#     Plasma = Vectorize(function(refName, rxName, strainName, ordNum) {
+#       total = nrow(filter(dfMutPlasma, rx_name == rxName & ref_name == refName & strain_name == strainName))
+#       ifelse(
+#         total == 1,
+#         yes = rxName,
+#         no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
+#       )
+#     })(ref_name, rx_name, strain_name, ordinal_number),
+#     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
+#     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
+#     Fold = ifelse(is.na(fold), "", fold),
+#     Level =
+#       ifelse(
+#         resistance_level == "partial-resistance",
+#         "partial resistance",
+#         resistance_level),
+#     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
+#     Count = cumulative_count,
+#     Include = ifelse(include, "Yes", "No"),
+#     Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
+#   ) %>%
+#   select(
+#     Author = ref_name,
+#     DOI,
+#     Source = section,
+#     Date = date_added.susc,
+#     Plasma,
+#     Vaccine,
+#     Variant = variant,
+#     Position = position,
+#     AA = amino_acid,
+#     Control,
+#     FoldCmp,
+#     Fold,
+#     Level,
+#     Assay,
+#     Count,
+#     Include
+#   ) %>%
+#   arrange(
+#     Author,
+#     Position,
+#     AA,
+#     Plasma,
+#     Vaccine
+#   ) %>%
+#   styledDT
 ```
 
 ## Spike variants and mutation combinations / mAb neutralization
@@ -218,9 +218,11 @@ Columns explained:
 - __Date__: Date data added to database.
 - __mAb__: mAb name or abbreviation
 - __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
+- __SpikeMutations__: SARS-CoV2 spike mutation list
 - __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
+- __Level__: Susceptibility level
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
 - __Include__: Entries containing "Exclude" are not displayed on the web
 
@@ -229,16 +231,24 @@ You can copy, download, or print the table using buttons below:
 
 ```{r phenotypes-strain-mab}
 
+dfSuscResultsMAb$resistance_level = as.character(dfSuscResultsMAb$resistance_level)
+
 dfSuscResultsMAb %>%
-  filter(num_muts > 1) %>%
+  # filter(num_muts > 1) %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
     mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
+    Level = str_to_sentence(
+      ifelse(
+        resistance_level == "partial-resistance",
+        "partial resistance",
+        resistance_level)),
     Assay = ifelse(is.na(assay), "", assay),
     Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
+    Control = ifelse(control_strain_name == 'Control', "", control_strain_name),
+    SpikeMutations = ifelse(expandable, spike_muts, strain_name)
   ) %>%
   select(
     Author = ref_name,
@@ -247,9 +257,11 @@ dfSuscResultsMAb %>%
     Date = date_added.susc,
     mAb,
     Strain = strain_name,
+    SpikeMutations = spike_muts,
     Control,
     FoldCmp,
     Fold,
+    Level,
     Assay,
     Include
   ) %>%
@@ -273,6 +285,7 @@ Columns explained:
 - __Vaccine__: Vaccine name
 - __Variant__: Infected variant
 - __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
+- __SpikeMutations__: SARS-CoV2 spike mutation list
 - __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
@@ -286,8 +299,9 @@ You can copy, download, or print the table using buttons below:
 
 ```{r phenotypes-strain-plasma}
 
-dfStrainPlasma = dfSuscResultsPlasma %>%
-  filter(num_muts > 1)
+# dfStrainPlasma = dfSuscResultsPlasma %>%
+#   filter(num_muts > 1)
+dfStrainPlasma = dfSuscResultsPlasma
 dfStrainPlasma$resistance_level = as.character(dfStrainPlasma$resistance_level)
 dfStrainPlasma %>%
   mutate(
@@ -311,7 +325,8 @@ dfStrainPlasma %>%
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
     Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
+    Control = ifelse(control_strain_name == 'Control', "", control_strain_name),
+    SpikeMutations = ifelse(expandable, spike_muts, strain_name)
   ) %>%
   select(
     Author = ref_name,
@@ -322,6 +337,7 @@ dfStrainPlasma %>%
     Vaccine,
     Variant = variant,
     Strain = strain_name,
+    SpikeMutations,
     Control,
     FoldCmp,
     Fold,

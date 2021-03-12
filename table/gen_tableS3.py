@@ -5,7 +5,8 @@ from collections import defaultdict
 
 
 TABLE3_MAIN_SQL = """
-SELECT COUNT(*) FROM
+SELECT SUM(s.cumulative_count) FROM
+-- SELECT COUNT(1) FROM
     susc_results AS s,
     {rxtype} AS rxtype
     {joins}
@@ -16,7 +17,8 @@ SELECT COUNT(*) FROM
 """
 
 TABLE3_MAB_SQL = """
-SELECT COUNT(*) FROM
+SELECT SUM(s.cumulative_count) FROM
+-- SELECT COUNT(1) FROM
     susc_results AS s,
     (
         SELECT DISTINCT _rxtype.ref_name, _rxtype.rx_name
@@ -89,7 +91,10 @@ TABLE3_ROWS = {
     },
     'CAL.20C': {
         'filter': [
-            "AND s.strain_name IN ('B.1.427 authentic', 'B.1.429 authentic')",
+            "AND s.strain_name IN ("
+            "    'B.1.427 authentic',"
+            "    'B.1.429 authentic',"
+            "    'B.1.429 Spike')",
         ]
     },
     # 'B.1.1.7 + B.1.351': {
@@ -268,7 +273,7 @@ def gen_tableS3(conn):
             records.append({
                 'Strain name': row_name,
                 'Rx name': column_name,
-                '#Published': result
+                '#Published': result or 0
             })
 
     # for row_name, attr_r in TABLES3_2_ROWS.items():
@@ -323,7 +328,7 @@ def gen_tableS3(conn):
             rx = 'structure'
         else:
             rx = rx.lower()
-        count = item['#Published']
+        count = item.get('#Published', 0)
         json_info[strain][rx] = count
 
     result = []

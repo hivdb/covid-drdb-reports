@@ -231,8 +231,15 @@ read.strainMutations = function() {
 
 read.virusStrains <- function() {
   dfMuts = read.strainMutations()
+  dfSpikeMuts = dfMuts %>%
+    filter(gene == "S") %>%
+    mutate(mutation = paste0(position, amino_acid, split="")) %>%
+    group_by(strain_name) %>%
+    mutate(spike_muts=paste0(mutation, collapse="+")) %>%
+    select(strain_name, gene, spike_muts) %>%
+    unique()
   dfStrains = read.dbTable("virus_strains.csv")
-  merge(
+  dfStrains = merge(
     dfStrains,
     aggregate(
       cbind(num_muts = position) ~ strain_name,
@@ -241,4 +248,10 @@ read.virusStrains <- function() {
     ),
     by = "strain_name"
   )
+  dfStrains = dfStrains %>%
+    left_join(
+      dfSpikeMuts,
+      by = c("strain_name"),
+      suffix = c(".strain", ".mut")
+    )
 }

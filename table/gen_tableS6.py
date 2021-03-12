@@ -5,6 +5,7 @@ from collections import defaultdict
 from preset import dump_json
 from preset import RESISTANCE_FILTER
 from preset import EXCLUDE_PLASMA
+from preset import EXCLUDE_STUDIES
 from preset import PLASMA_RENAME
 from preset import PLASMA_POST_RENAME
 from preset import RENAME_CP_EXECUTOR
@@ -134,6 +135,9 @@ def gen_tableS6(conn):
                     reference = i[0]
 
                     if cp_name in EXCLUDE_PLASMA:
+                        continue
+                    exclude_tester = EXCLUDE_STUDIES.get(reference)
+                    if exclude_tester and exclude_tester(cp_name):
                         continue
 
                     cp_name = PLASMA_RENAME.get(cp_name, cp_name)

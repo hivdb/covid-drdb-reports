@@ -1,41 +1,41 @@
 ﻿Strain name,Rx name,#Published
-N501Y,CP,81
-N501Y,IP,79
+N501Y,CP,133
+N501Y,IP,98
 N501Y,mAbs phase3,29
 N501Y,mAbs structure,17
 E484K,CP,90
 E484K,IP,32
 E484K,mAbs phase3,36
 E484K,mAbs structure,15
-Other individual mutations,CP,480
-Other individual mutations,IP,445
+Other individual mutations,CP,616
+Other individual mutations,IP,466
 Other individual mutations,mAbs phase3,528
 Other individual mutations,mAbs structure,489
-All individual mutations,CP,651
-All individual mutations,IP,556
+All individual mutations,CP,839
+All individual mutations,IP,596
 All individual mutations,mAbs phase3,593
 All individual mutations,mAbs structure,521
-B.1.1.7,CP,210
-B.1.1.7,IP,279
+B.1.1.7,CP,360
+B.1.1.7,IP,333
 B.1.1.7,mAbs phase3,50
 B.1.1.7,mAbs structure,28
-B.1.351,CP,275
+B.1.351,CP,355
 B.1.351,IP,187
 B.1.351,mAbs phase3,50
 B.1.351,mAbs structure,20
 P.1,CP,63
-P.1,IP,57
+P.1,IP,78
 P.1,mAbs phase3,14
 P.1,mAbs structure,5
 CAL.20C,CP,18
-CAL.20C,IP,11
+CAL.20C,IP,37
 CAL.20C,mAbs phase3,0
 CAL.20C,mAbs structure,0
-Other muation combinations,CP,376
-Other muation combinations,IP,298
+Other muation combinations,CP,498
+Other muation combinations,IP,507
 Other muation combinations,mAbs phase3,147
 Other muation combinations,mAbs structure,162
-All combinations of mutations,CP,924
-All combinations of mutations,IP,821
+All combinations of mutations,CP,1276
+All combinations of mutations,IP,1105
 All combinations of mutations,mAbs phase3,261
 All combinations of mutations,mAbs structure,215
