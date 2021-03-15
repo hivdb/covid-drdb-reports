@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 03/15/2021 03:06 PM PDT
+Report generated at: 03/15/2021 04:28 PM PDT
 
 
 
@@ -27,7 +27,7 @@ Report generated at: 03/15/2021 03:06 PM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> S:501Y </td>
-   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 83 </td>
    <td style="text-align:right;"> 79 </td>
    <td style="text-align:right;"> 31 </td>
    <td style="text-align:right;"> 17 </td>
@@ -43,7 +43,7 @@ Report generated at: 03/15/2021 03:06 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
-   <td style="text-align:right;"> 480 </td>
+   <td style="text-align:right;"> 486 </td>
    <td style="text-align:right;"> 445 </td>
    <td style="text-align:right;"> 566 </td>
    <td style="text-align:right;"> 489 </td>
@@ -51,7 +51,7 @@ Report generated at: 03/15/2021 03:06 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
-   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 211 </td>
    <td style="text-align:right;"> 279 </td>
    <td style="text-align:right;"> 53 </td>
    <td style="text-align:right;"> 28 </td>
@@ -75,7 +75,7 @@ Report generated at: 03/15/2021 03:06 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 376 </td>
+   <td style="text-align:right;"> 371 </td>
    <td style="text-align:right;"> 298 </td>
    <td style="text-align:right;"> 163 </td>
    <td style="text-align:right;"> 162 </td>

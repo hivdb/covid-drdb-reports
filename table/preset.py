@@ -157,7 +157,7 @@ EXCLUDE_STUDIES = {
 
 
 EXCLUDE_PLASMA = [
-    'Hospitalized',
+    'Severe',
     'Mild',
 ]
 

@@ -57,14 +57,14 @@
     },
     {
         "strain": "Other muation combinations",
-        "cp": 480,
+        "cp": 498,
         "ip": 470,
         "phase3": 166,
         "structure": 162
     },
     {
         "strain": "All combinations of mutations",
-        "cp": 1276,
+        "cp": 1294,
         "ip": 1105,
         "phase3": 292,
         "structure": 215
