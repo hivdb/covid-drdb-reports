@@ -68,7 +68,7 @@ SUBROWS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
-            "AND rxtype.variant IN ('Generic', 'S:614G')",
+            "AND rxtype.variant IN ('Unknown', 'S:614G')",
         ]
     },
     'IP': {

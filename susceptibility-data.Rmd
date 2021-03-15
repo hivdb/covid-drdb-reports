@@ -23,7 +23,7 @@ ControlStrainNames = c(
 )
 CPVariantNames = c(
   "S:614G",
-  "Generic",
+  "Unknown",
   "Wuhan"
 )
 authenticStrains = c(
