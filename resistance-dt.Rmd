@@ -33,8 +33,9 @@ dfSuscResultsIP = read.suscResultsIP(
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
-dfVirusStrains = read.virusStrains() %>%
-  select(strain_name, num_muts, expandable, spike_muts)
+dfVirusStrains = read.virusStrains()
+# dfVirusStrains = read.virusStrains() %>%
+#   select(strain_name, num_muts, expandable, spike_muts)
 dfArticles = read.articles()
 dfStrainMutations = read.strainMutations()
 
@@ -133,7 +134,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 <!-- - __Date__: Date data added to database -->
 <!-- - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M) -->
 <!-- - __Vaccine__: Vaccine name -->
-<!-- - __Variant__: Infected variant -->
+<!-- - __Infection__: Infected variant -->
 <!-- - __Position__: Spike amino acid position -->
 <!-- - __AA__: Amino acid difference from Wuhan reference sequence (Genbank accession NC_045512.2) -->
 <!-- - __Control__: Variant used in control group -->
@@ -187,7 +188,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #     Date = date_added.susc,
 #     Plasma,
 #     Vaccine,
-#     Variant = variant,
+#     Infection = infection,
 #     Position = position,
 #     AA = amino_acid,
 #     Control,
@@ -283,7 +284,7 @@ Columns explained:
 - __Date__: Date data added to database
 - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
 - __Vaccine__: Vaccine name
-- __Variant__: Infected variant
+- __Infection__: Infected variant
 - __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
 - __SpikeMutations__: SARS-CoV2 spike mutation list
 - __Control__: Variant used in control group
@@ -335,7 +336,7 @@ dfStrainPlasma %>%
     Date = date_added.susc,
     Plasma,
     Vaccine,
-    Variant = variant,
+    Infection = infection,
     Strain = strain_name,
     SpikeMutations,
     Control,

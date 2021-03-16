@@ -239,19 +239,26 @@ read.virusStrains <- function() {
     select(strain_name, gene, spike_muts) %>%
     unique()
   dfStrains = read.dbTable("virus_strains.csv")
-  dfStrains = merge(
-    dfStrains,
-    aggregate(
-      cbind(num_muts = position) ~ strain_name,
-      dfMuts,
-      FUN = length
-    ),
-    by = "strain_name"
-  )
+  dfStrains = dfStrains %>%
+    left_join(
+      aggregate(
+        cbind(num_muts = position) ~ strain_name,
+        dfMuts,
+        FUN = length
+      ),
+    by = c("strain_name"),
+    suffix = c(".strain", ".mut")
+    ) %>%
+    mutate(
+      num_muts = ifelse(is.na(num_muts), 0, num_muts)
+    )
   dfStrains = dfStrains %>%
     left_join(
       dfSpikeMuts,
       by = c("strain_name"),
       suffix = c(".strain", ".mut")
+    ) %>%
+    mutate(
+      spike_muts = ifelse(is.na(spike_muts), "", spike_muts)
     )
 }

@@ -21,7 +21,7 @@ ControlStrainNames = c(
   "Wuhan",
   "S:614G"
 )
-CPVariantNames = c(
+CPInfectionNames = c(
   "S:614G",
   "Unknown",
   "Wuhan"
@@ -52,7 +52,7 @@ dfSuscResultsCP = read.suscResultsCP(
 )
 dfSuscResultsCP = dfSuscResultsCP %>%
   filter(control_strain_name %in% ControlStrainNames) %>%
-  filter(variant %in% CPVariantNames)
+  filter(infection %in% CPInfectionNames)
 
 dfSuscResultsIP = read.suscResultsIP(
   partialResistFold = partialResistFold,
