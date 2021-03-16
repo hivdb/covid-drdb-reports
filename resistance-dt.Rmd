@@ -252,7 +252,7 @@ dfSuscResultsMAb %>%
   ) %>%
   mutate(
     variant_name = str_replace(variant_name, 'authentic', 'Spike'),
-    Control = str_replace(variant_name, 'authentic', 'Spike')
+    Control = str_replace(Control, 'authentic', 'Spike')
   ) %>%
   select(
     Author = ref_name,
@@ -334,8 +334,8 @@ dfVariantPlasma %>%
   ) %>%
   mutate(
     variant_name = str_replace(variant_name, 'authentic', 'Spike'),
-    Control = str_replace(variant_name, 'authentic', 'Spike'),
-    infection = str_replace(variant_name, 'authentic', 'Spike')
+    Control = str_replace(Control, 'authentic', 'Spike'),
+    infection = str_replace(infection, 'authentic', 'Spike')
   ) %>%
   select(
     Author = ref_name,
