@@ -95,3 +95,19 @@ def gen_table4():
 
     save_file = DATA_FILE_PATH / 'table4.csv'
     dump_csv(save_file, result)
+
+    figure_results = []
+    for item in result:
+        variant = item['variant']
+        for plasma in ['vac', 'cp']:
+            for susc in ['s', 'i', 'r']:
+                figure_results.append({
+                    'variant': variant,
+                    'study': plasma,
+                    'num_study': item['{}_studies'.format(plasma)],
+                    'susc': susc.upper(),
+                    'sample_num': item['{}_num_{}_fold'.format(plasma, susc)]
+                })
+
+    save_file = DATA_FILE_PATH / 'table4-figure.csv'
+    dump_csv(save_file, figure_results)
