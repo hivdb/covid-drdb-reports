@@ -53,6 +53,17 @@ E484K + N501Y,Sotrovimab,RBD Core Cluster I,5.4,Diamond21
 E484K + N501Y,S2E12,RBM Class I,6,Diamond21
 E484K + N501Y,Tixagevimab,RBM Class I,12,Diamond21
 E484K + N501Y,Cilgavimab,RBM Class II,1.9,Diamond21
+F490S,Casirivimab/Imdevimab,,1,Baum20
+F490S,C135,RBD Core Cluster I,1.2,Weisblum20
+F490S,Imdevimab,RBD Core Cluster I,1.2,Baum20
+F490S,Imdevimab,RBD Core Cluster I,1.5,Rothenberger21
+F490S,Sotrovimab,RBD Core Cluster I,0.9,Cathcart21
+F490S,Casirivimab,RBM Class I,1.2,Baum20
+F490S,Casirivimab,RBM Class I,0.8,Rothenberger21
+F490S,Etesevimab,RBM Class I,0.8,Gottlieb21
+F490S,Bamlanivimab,RBM Class II,>100,Gottlieb21
+F490S,C121,RBM Class II,>100,Weisblum20
+F490S,C144,RBM Class III,4.5,Weisblum20
 K417N,CC12.3,,>100,Yuan21
 K417N,Tixagevimab + Cilgavimab,,0.5,Diamond21
 K417N,Vir-7831+S2E12,,0.2,Diamond21
