@@ -194,6 +194,23 @@ N501Y,Cilgavimab,RBM Class II,1.3,Wang21b
 N501Y,P2B-2F6,RBM Class II,0.6,Shen21
 N501Y,2-4,RBM Class III,2.8,Wang21b
 N501Y,C144,RBM Class III,1.4,Weisblum20
+S494P,Casirivimab+Imdevimab,,1.1,Copin21
+S494P,4A8,NTD,0.9,Wang21f
+S494P,C135,RBD Core Cluster I,0.8,Weisblum20
+S494P,Imdevimab,RBD Core Cluster I,1,Copin21
+S494P,Imdevimab,RBD Core Cluster I,0.8,Wang21f
+S494P,Sotrovimab,RBD Core Cluster I,1.5,Wang21f
+S494P,Casirivimab,RBM Class I,2.1,Wang21f
+S494P,Casirivimab,RBM Class I,4.5,Copin21
+S494P,Etesevimab,RBM Class I,0.5,Gottlieb21
+S494P,Etesevimab,RBM Class I,0.6,Wang21f
+S494P,P2C-1F11,RBM Class I,0.7,Wang21f
+S494P,S2E12,RBM Class I,0.5,Tortorici20
+S494P,BD-368-2,RBM Class II,1.5,Wang21f
+S494P,Bamlanivimab,RBM Class II,>100,Gottlieb21
+S494P,C121,RBM Class II,27,Weisblum20
+S494P,C144,RBM Class III,45,Weisblum20
+S494P,S2M11,RBM Class III,>100,Tortorici20
 Y453F,Casirivimab/Imdevimab,,3.5,Baum20
 Y453F,4A8,NTD,0.7,Wang21f
 Y453F,Imdevimab,RBD Core Cluster I,2.8,Baum20

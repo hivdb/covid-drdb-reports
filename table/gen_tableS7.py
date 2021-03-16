@@ -95,6 +95,16 @@ ROWS = {
             "AND s.variant_name = 'S:417N'"
         ]
     },
+    'R190S': {
+        'filter': [
+            "AND s.variant_name = 'S:190S'"
+        ]
+    },
+    'S494P': {
+        'filter': [
+            "AND s.variant_name = 'S:494P'"
+        ]
+    },
     'K417N + E484K + N501Y': {
         'filter': [
             ("AND ("

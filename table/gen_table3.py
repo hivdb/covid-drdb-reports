@@ -14,6 +14,8 @@ SHOW_VARIANT = [
     'N439K',
     'L452R',
     'Y453F',
+    'R190S',
+    'S494P',
 ]
 
 SHOW_MABS = {
