@@ -36,8 +36,8 @@
     },
     {
         "variant": "B.1.351",
-        "cp": 355,
-        "ip": 187,
+        "cp": 362,
+        "ip": 193,
         "phase3": 54,
         "structure": 20
     },
@@ -64,8 +64,8 @@
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 1328,
-        "ip": 1140,
+        "cp": 1335,
+        "ip": 1146,
         "phase3": 296,
         "structure": 215
     }

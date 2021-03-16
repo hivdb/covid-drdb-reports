@@ -242,6 +242,14 @@
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
+                "s_fold": 1,
+                "i_fold": 3,
+                "r_fold": 2,
+                "reference": "Becker21*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2",
                 "s_fold": 0,
                 "i_fold": 12,
                 "r_fold": 12,
@@ -302,6 +310,14 @@
                 "i_fold": 5,
                 "r_fold": 4,
                 "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "CP",
+                "s_fold": 3,
+                "i_fold": 1,
+                "r_fold": 3,
+                "reference": "Becker21*"
             },
             {
                 "variant": "B.1.351",

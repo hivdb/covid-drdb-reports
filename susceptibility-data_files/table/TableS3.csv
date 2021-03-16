@@ -19,8 +19,8 @@ B.1.1.7,CP,394
 B.1.1.7,IP,368
 B.1.1.7,mAbs phase3,58
 B.1.1.7,mAbs structure,28
-B.1.351,CP,355
-B.1.351,IP,187
+B.1.351,CP,362
+B.1.351,IP,193
 B.1.351,mAbs phase3,54
 B.1.351,mAbs structure,20
 P.1,CP,63
@@ -35,7 +35,7 @@ Other muation combinations,CP,498
 Other muation combinations,IP,470
 Other muation combinations,mAbs phase3,166
 Other muation combinations,mAbs structure,162
-All combinations of mutations,CP,1328
-All combinations of mutations,IP,1140
+All combinations of mutations,CP,1335
+All combinations of mutations,IP,1146
 All combinations of mutations,mAbs phase3,296
 All combinations of mutations,mAbs structure,215

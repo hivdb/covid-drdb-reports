@@ -196,6 +196,8 @@ excludedRefRxNames = c(
   "Widera21 BNT LiveVirus"
 )
 shortRefRxNames = c(
+  "Becker21 CP LiveVirus" = "Becker21*\n",
+  "Becker21 BNT LiveVirus" = "BNT\nBecker21*",
   "Cele21 CP_WT LiveVirus" = "Cele21*\n",
   "Collier21 BNT" = "BNT\nCollier21",
   "Deng21 CP LiveVirus" = "Deng21*\n",
@@ -314,7 +316,7 @@ for (variant in filterVariants) {
         aes(fill = resistance_level),
         size = 0.2,
         color = "#000000",
-        stat = 'identity', position = 'stack', width = 0.06 * numItems) +
+        stat = 'identity', position = 'stack', width = 0.05 * numItems) +
       scale_x_discrete(
         labels = Vectorize(function(x) ifelse(
           x %in% longRefRxNames,
@@ -341,7 +343,7 @@ for (variant in filterVariants) {
       )) +
       theme(
         plot.title = element_text(hjust = 0.5),
-        axis.text.x = element_text(size=7),
+        axis.text.x = element_text(size=6.5),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         strip.background = element_blank(),
