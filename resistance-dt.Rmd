@@ -33,9 +33,8 @@ dfSuscResultsIP = read.suscResultsIP(
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
-dfVirusVariants = read.virusVariants()
-# dfVirusVariants = read.virusVariants() %>%
-#   select(variant_name, num_muts, expandable, spike_muts)
+dfVirusVariants = read.virusVariants() %>%
+  select(variant_name, num_muts, expandable, spike_muts)
 dfArticles = read.articles()
 dfVariantMutations = read.variantMutations()
 
@@ -251,6 +250,10 @@ dfSuscResultsMAb %>%
     Control = ifelse(control_variant_name == 'Control', "", control_variant_name),
     SpikeMutations = ifelse(expandable, spike_muts, variant_name)
   ) %>%
+  mutate(
+    variant_name = str_replace(variant_name, 'authentic', 'Spike'),
+    Control = str_replace(variant_name, 'authentic', 'Spike')
+  ) %>%
   select(
     Author = ref_name,
     DOI,
@@ -328,6 +331,11 @@ dfVariantPlasma %>%
     Include = ifelse(include, "Yes", "No"),
     Control = ifelse(control_variant_name == 'Control', "", control_variant_name),
     SpikeMutations = ifelse(expandable, spike_muts, variant_name)
+  ) %>%
+  mutate(
+    variant_name = str_replace(variant_name, 'authentic', 'Spike'),
+    Control = str_replace(variant_name, 'authentic', 'Spike'),
+    infection = str_replace(variant_name, 'authentic', 'Spike')
   ) %>%
   select(
     Author = ref_name,
