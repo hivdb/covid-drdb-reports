@@ -154,6 +154,13 @@
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1",
+                "reference": "Supasa21*"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1",
                 "reference": "Wang21b*"
             },
             {
@@ -300,6 +307,13 @@
                 "variant": "B.1.1.7",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "3",
+                "reference": "Supasa21*"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "1",
                 "reference": "Wang21b*"
             },
@@ -377,6 +391,13 @@
                 "variant": "B.1.1.7",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "Supasa21*"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
                 "fold": "0.3",
                 "reference": "Wang21b*"
             },
@@ -449,6 +470,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "0.5",
                 "reference": "Diamond21*"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "1",
+                "reference": "Supasa21*"
             },
             {
                 "variant": "B.1.1.7",

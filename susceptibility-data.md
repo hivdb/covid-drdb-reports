@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 03/15/2021 09:51 PM PDT
+Report generated at: 03/15/2021 10:52 PM PDT
 
 
 
@@ -51,9 +51,9 @@ Report generated at: 03/15/2021 09:51 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
-   <td style="text-align:right;"> 211 </td>
-   <td style="text-align:right;"> 279 </td>
-   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 212 </td>
+   <td style="text-align:right;"> 281 </td>
+   <td style="text-align:right;"> 57 </td>
    <td style="text-align:right;"> 28 </td>
    <td style="text-align:right;"> 132 </td>
   </tr>
