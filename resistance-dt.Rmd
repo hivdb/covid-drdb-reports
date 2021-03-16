@@ -33,17 +33,17 @@ dfSuscResultsIP = read.suscResultsIP(
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
-dfVirusStrains = read.virusStrains()
-# dfVirusStrains = read.virusStrains() %>%
-#   select(strain_name, num_muts, expandable, spike_muts)
+dfVirusVariants = read.virusVariants()
+# dfVirusVariants = read.virusVariants() %>%
+#   select(variant_name, num_muts, expandable, spike_muts)
 dfArticles = read.articles()
-dfStrainMutations = read.strainMutations()
+dfVariantMutations = read.variantMutations()
 
 dfSuscResultsMAb = dfSuscResultsMAb %>%
   inner_join(
-    dfVirusStrains,
-    by = "strain_name",
-    suffix = c(".susc", ".strain")
+    dfVirusVariants,
+    by = "variant_name",
+    suffix = c(".susc", ".variant")
   ) %>%
   inner_join(
     dfArticles,
@@ -53,9 +53,9 @@ dfSuscResultsMAb = dfSuscResultsMAb %>%
 
 dfSuscResultsPlasma = dfSuscResultsPlasma %>%
   inner_join(
-    dfVirusStrains,
-    by = "strain_name",
-    suffix = c(".susc", ".strain")
+    dfVirusVariants,
+    by = "variant_name",
+    suffix = c(".susc", ".variant")
   ) %>%
   inner_join(
     dfArticles,
@@ -88,9 +88,9 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 # dfSuscResultsMAb %>%
 #   filter(num_muts == 1) %>%
 #   inner_join(
-#     dfStrainMutations,
-#     by = "strain_name",
-#     suffix = c(".susc", ".strainMut")
+#     dfVariantMutations,
+#     by = "variant_name",
+#     suffix = c(".susc", ".variantMut")
 #   ) %>%
 #   mutate(
 #     DOI = ifelse(is.na(doi), url, doi),
@@ -99,7 +99,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #     Fold = ifelse(is.na(fold), "", fold),
 #     Assay = ifelse(is.na(assay), "", assay),
 #     Include = ifelse(include, "Yes", "No"),
-#     Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
+#     Control = ifelse(control_variant_name == 'Control', "", control_variant_name)
 #   ) %>%
 #   select(
 #     Author = ref_name,
@@ -152,22 +152,22 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 # dfMutPlasma = dfSuscResultsPlasma %>%
 #   filter(num_muts == 1) %>%
 #   inner_join(
-#     dfStrainMutations,
-#     by = "strain_name",
-#     suffix = c(".susc", ".strainMut")
+#     dfVariantMutations,
+#     by = "variant_name",
+#     suffix = c(".susc", ".variantMut")
 #   )
 # dfMutPlasma$resistance_level = as.character(dfMutPlasma$resistance_level)
 # dfMutPlasma %>%
 #   mutate(
 #     DOI = ifelse(is.na(doi), url, doi),
-#     Plasma = Vectorize(function(refName, rxName, strainName, ordNum) {
-#       total = nrow(filter(dfMutPlasma, rx_name == rxName & ref_name == refName & strain_name == strainName))
+#     Plasma = Vectorize(function(refName, rxName, variantName, ordNum) {
+#       total = nrow(filter(dfMutPlasma, rx_name == rxName & ref_name == refName & variant_name == variantName))
 #       ifelse(
 #         total == 1,
 #         yes = rxName,
 #         no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
 #       )
-#     })(ref_name, rx_name, strain_name, ordinal_number),
+#     })(ref_name, rx_name, variant_name, ordinal_number),
 #     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
 #     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
 #     Fold = ifelse(is.na(fold), "", fold),
@@ -179,7 +179,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
 #     Count = cumulative_count,
 #     Include = ifelse(include, "Yes", "No"),
-#     Control = ifelse(control_strain_name == 'Control', "", control_strain_name)
+#     Control = ifelse(control_variant_name == 'Control', "", control_variant_name)
 #   ) %>%
 #   select(
 #     Author = ref_name,
@@ -218,7 +218,7 @@ Columns explained:
 - __Source__: Location of data within reference
 - __Date__: Date data added to database.
 - __mAb__: mAb name or abbreviation
-- __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
+- __Variant__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
 - __SpikeMutations__: SARS-CoV2 spike mutation list
 - __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
@@ -230,7 +230,7 @@ Columns explained:
 You can copy, download, or print the table using buttons below:
 
 
-```{r phenotypes-strain-mab}
+```{r phenotypes-variant-mab}
 
 dfSuscResultsMAb$resistance_level = as.character(dfSuscResultsMAb$resistance_level)
 
@@ -248,8 +248,8 @@ dfSuscResultsMAb %>%
         resistance_level)),
     Assay = ifelse(is.na(assay), "", assay),
     Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_strain_name == 'Control', "", control_strain_name),
-    SpikeMutations = ifelse(expandable, spike_muts, strain_name)
+    Control = ifelse(control_variant_name == 'Control', "", control_variant_name),
+    SpikeMutations = ifelse(expandable, spike_muts, variant_name)
   ) %>%
   select(
     Author = ref_name,
@@ -257,7 +257,7 @@ dfSuscResultsMAb %>%
     Source = section,
     Date = date_added.susc,
     mAb,
-    Strain = strain_name,
+    Variant = variant_name,
     SpikeMutations = spike_muts,
     Control,
     FoldCmp,
@@ -268,7 +268,7 @@ dfSuscResultsMAb %>%
   ) %>%
   arrange(
     Author,
-    Strain,
+    Variant,
     mAb
   ) %>%
   styledDT
@@ -285,7 +285,7 @@ Columns explained:
 - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
 - __Vaccine__: Vaccine name
 - __Infection__: Infected variant
-- __Strain__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
+- __Variant__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
 - __SpikeMutations__: SARS-CoV2 spike mutation list
 - __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
@@ -298,23 +298,23 @@ Columns explained:
 You can copy, download, or print the table using buttons below:
 
 
-```{r phenotypes-strain-plasma}
+```{r phenotypes-variant-plasma}
 
-# dfStrainPlasma = dfSuscResultsPlasma %>%
+# dfVariantPlasma = dfSuscResultsPlasma %>%
 #   filter(num_muts > 1)
-dfStrainPlasma = dfSuscResultsPlasma
-dfStrainPlasma$resistance_level = as.character(dfStrainPlasma$resistance_level)
-dfStrainPlasma %>%
+dfVariantPlasma = dfSuscResultsPlasma
+dfVariantPlasma$resistance_level = as.character(dfVariantPlasma$resistance_level)
+dfVariantPlasma %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
-    Plasma = Vectorize(function(refName, rxName, strainName, ordNum) {
-      total = nrow(filter(dfStrainPlasma, rx_name == rxName & ref_name == refName & strain_name == strainName))
+    Plasma = Vectorize(function(refName, rxName, variantName, ordNum) {
+      total = nrow(filter(dfVariantPlasma, rx_name == rxName & ref_name == refName & variant_name == variantName))
       ifelse(
         total == 1,
         yes = rxName,
         no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
       )
-    })(ref_name, rx_name, strain_name, ordinal_number),
+    })(ref_name, rx_name, variant_name, ordinal_number),
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
@@ -326,8 +326,8 @@ dfStrainPlasma %>%
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
     Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_strain_name == 'Control', "", control_strain_name),
-    SpikeMutations = ifelse(expandable, spike_muts, strain_name)
+    Control = ifelse(control_variant_name == 'Control', "", control_variant_name),
+    SpikeMutations = ifelse(expandable, spike_muts, variant_name)
   ) %>%
   select(
     Author = ref_name,
@@ -337,7 +337,7 @@ dfStrainPlasma %>%
     Plasma,
     Vaccine,
     Infection = infection,
-    Strain = strain_name,
+    Variant = variant_name,
     SpikeMutations,
     Control,
     FoldCmp,
@@ -349,7 +349,7 @@ dfStrainPlasma %>%
   ) %>%
   arrange(
     Author,
-    Strain,
+    Variant,
     Plasma,
     Vaccine
   ) %>%

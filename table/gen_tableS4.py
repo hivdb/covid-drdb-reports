@@ -17,7 +17,7 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
     susc_results as s,
     {rxtype} AS rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
@@ -26,37 +26,37 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
 ROWS = {
     'B.1.1.7': {
         'filter': [
-            "AND s.strain_name = 'B.1.1.7 Spike'",
+            "AND s.variant_name = 'B.1.1.7 Spike'",
         ]
     },
     'B.1.1.7 authentic': {
         'filter': [
-            "AND s.strain_name = 'B.1.1.7 authentic'",
+            "AND s.variant_name = 'B.1.1.7 authentic'",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 Spike'",
+            "AND s.variant_name = 'B.1.351 Spike'",
         ]
     },
     'B.1.351 authentic': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 authentic'",
+            "AND s.variant_name = 'B.1.351 authentic'",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.strain_name = 'P.1 Spike'",
+            "AND s.variant_name = 'P.1 Spike'",
         ]
     },
     'P.1 authentic': {
         'filter': [
-            "AND s.strain_name = 'P.1 authentic'",
+            "AND s.variant_name = 'P.1 authentic'",
         ]
     },
     'CAL.20C': {
         'filter': [
-            "AND s.strain_name IN ("
+            "AND s.variant_name IN ("
             "    'B.1.427 authentic',"
             "    'B.1.429 authentic',"
             "    'B.1.429 Spike')",
@@ -101,7 +101,7 @@ def gen_tableS4(conn):
 
                 cursor.execute(sql)
                 for i in cursor.fetchall():
-                    strain_name = row_name
+                    variant_name = row_name
                     cp_name = i[1]
                     reference = i[0]
 
@@ -118,14 +118,14 @@ def gen_tableS4(conn):
                         if tester(cp_name):
                             cp_name = new_name
 
-                    key = '{}{}{}'.format(strain_name, cp_name, reference)
+                    key = '{}{}{}'.format(variant_name, cp_name, reference)
 
-                    if strain_name.endswith('authentic'):
+                    if variant_name.endswith('authentic'):
                         reference = '{}*'.format(reference)
-                        strain_name = strain_name.split()[0]
+                        variant_name = variant_name.split()[0]
 
                     rec = records[key]
-                    rec['Strain name'] = strain_name
+                    rec['Variant name'] = variant_name
                     rec['Plasma'] = PLASMA_POST_RENAME.get(cp_name, cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
@@ -141,16 +141,16 @@ def gen_tableS4(conn):
 
     records = list(records.values())
     records.sort(key=itemgetter(
-        'Strain name', 'Plasma', 'Reference'))
+        'Variant name', 'Plasma', 'Reference'))
 
     save_path = DATA_FILE_PATH / 'TableS4.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
-        strain = r['Strain name']
-        json_records[strain].append({
-            'strain': strain,
+        variant = r['Variant name']
+        json_records[variant].append({
+            'variant': variant,
             'rx': r['Plasma'],
             's_fold': r['S'],
             'i_fold': r['I'],
@@ -159,12 +159,12 @@ def gen_tableS4(conn):
         })
 
     records = []
-    for strain, assays in json_records.items():
+    for variant, assays in json_records.items():
         records.append({
-            'strain': strain,
+            'variant': variant,
             'assays': sorted(assays, key=itemgetter('rx')),
         })
 
-    strain = sorted(records, key=itemgetter('strain'))
+    variant = sorted(records, key=itemgetter('variant'))
     save_path = DATA_FILE_PATH / 'tableS4.json'
     dump_json(save_path, records)

@@ -3,7 +3,7 @@ from preset import load_csv
 from preset import dump_json
 from collections import defaultdict
 
-SHOW_STRAIN = [
+SHOW_VARIANT = [
     'B.1.1.7',
     'B.1.351',
     'P.1',
@@ -39,15 +39,15 @@ DATA_PROBLEM = [
 ]
 
 
-def group_strains(records):
-    strain_groups = defaultdict(list)
+def group_variants(records):
+    variant_groups = defaultdict(list)
     for r in records:
-        strain = r['Strain name']
-        if strain not in SHOW_STRAIN:
+        variant = r['Variant name']
+        if variant not in SHOW_VARIANT:
             continue
-        strain_groups[strain].append(r)
+        variant_groups[variant].append(r)
 
-    return strain_groups
+    return variant_groups
 
 
 def parse_fold(rec):
@@ -90,7 +90,7 @@ def unique_reference(rec_list):
     return rec_list
 
 
-def process_record(strain, records):
+def process_record(variant, records):
     mab_groups = defaultdict(list)
     for r in records:
         mab_name = r['Mab name']
@@ -98,7 +98,7 @@ def process_record(strain, records):
             short_name = SHOW_MABS[mab_name]
             mab_groups[short_name].append(r)
 
-    result = {'strain': strain}
+    result = {'variant': variant}
     for mab_name, short_name in SHOW_MABS.items():
         rec_list = mab_groups.get(short_name)
 
@@ -115,7 +115,7 @@ def process_record(strain, records):
 
         tmpl = '{}<sub>{}</sub>'
         for s, m in DATA_PROBLEM:
-            if s == strain and m == short_name:
+            if s == variant and m == short_name:
                 tmpl += '*'
                 break
 
@@ -127,20 +127,20 @@ def process_record(strain, records):
 
 
 def gen_table3():
-    mab_strain_records = load_csv(DATA_FILE_PATH / 'TableS5.csv')
+    mab_variant_records = load_csv(DATA_FILE_PATH / 'TableS5.csv')
     mab_mut_records = load_csv(DATA_FILE_PATH / 'TableS7.csv')
 
-    strain_groups = {}
-    strain_groups.update(group_strains(mab_strain_records))
-    strain_groups.update(group_strains(mab_mut_records))
+    variant_groups = {}
+    variant_groups.update(group_variants(mab_variant_records))
+    variant_groups.update(group_variants(mab_mut_records))
 
     result = []
-    for strain in SHOW_STRAIN:
-        records = strain_groups.get(strain)
+    for variant in SHOW_VARIANT:
+        records = variant_groups.get(variant)
         if not records:
             continue
         result.append(
-            process_record(strain, records)
+            process_record(variant, records)
         )
 
     save_file = DATA_FILE_PATH / 'table3.json'

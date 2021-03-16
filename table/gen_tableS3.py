@@ -11,7 +11,7 @@ SELECT SUM(s.cumulative_count) FROM
     {rxtype} AS rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -28,7 +28,7 @@ SELECT SUM(s.cumulative_count) FROM
     ) as rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -36,62 +36,62 @@ SELECT SUM(s.cumulative_count) FROM
 TABLE3_ROWS = {
     'N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:501Y'"
+            "AND s.variant_name = 'S:501Y'"
         ]
     },
     'E484K': {
         'filter': [
-            "AND s.strain_name = 'S:484K'"
+            "AND s.variant_name = 'S:484K'"
         ]
     },
     'Other individual mutations': {
         'join': [
-            "virus_strains AS vs",
+            "virus_variants AS vs",
             (
-                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-                "strain_mutations GROUP BY strain_name) AS sm"
+                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
+                "variant_mutations GROUP BY variant_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.strain_name = s.strain_name",
+            "AND vs.variant_name = s.variant_name",
             "AND vs.site_directed IS TRUE",
-            "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
-            "AND s.strain_name != 'S:484K'",
-            "AND s.strain_name != 'S:501Y'",
+            "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
+            "AND s.variant_name != 'S:484K'",
+            "AND s.variant_name != 'S:501Y'",
         ]
     },
     'All individual mutations': {
         'join': [
-            "virus_strains AS vs",
+            "virus_variants AS vs",
             (
-                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-                "strain_mutations GROUP BY strain_name) AS sm"
+                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
+                "variant_mutations GROUP BY variant_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.strain_name = s.strain_name",
+            "AND vs.variant_name = s.variant_name",
             "AND vs.site_directed IS TRUE",
-            "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
+            "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
         ]
     },
     'B.1.1.7': {
         'filter': [
-            "AND s.strain_name IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
+            "AND s.variant_name IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.strain_name IN ('B.1.351 Spike', 'B.1.351 authentic')",
+            "AND s.variant_name IN ('B.1.351 Spike', 'B.1.351 authentic')",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.strain_name IN ('P.1 Spike', 'P.1 authentic')",
+            "AND s.variant_name IN ('P.1 Spike', 'P.1 authentic')",
         ]
     },
     'CAL.20C': {
         'filter': [
-            "AND s.strain_name IN ("
+            "AND s.variant_name IN ("
             "    'B.1.427 authentic',"
             "    'B.1.429 authentic',"
             "    'B.1.429 Spike')",
@@ -101,11 +101,11 @@ TABLE3_ROWS = {
     #     'filter': [
     #         (
     #             "AND ("
-    #             "      s.strain_name IN ('B.1.1.7 Spike',
+    #             "      s.variant_name IN ('B.1.1.7 Spike',
     #                                      'B.1.1.7 authentic')"
-    #             "   OR s.strain_name IN ('B.1.351 Spike',
+    #             "   OR s.variant_name IN ('B.1.351 Spike',
     #                                      'B.1.351 authentic')"
-    #             "   OR s.strain_name IN ('P.1 Spike',
+    #             "   OR s.variant_name IN ('P.1 Spike',
     #                                      'P.1 authentic')"
     #             "   )"
     #         ),
@@ -113,19 +113,19 @@ TABLE3_ROWS = {
     # },
     'Other muation combinations': {
         'join': [
-            "virus_strains AS vs",
+            "virus_variants AS vs",
             (
-                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-                "strain_mutations GROUP BY strain_name) AS sm"
+                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
+                "variant_mutations GROUP BY variant_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.strain_name = s.strain_name",
-            "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
-            "AND s.strain_name NOT IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
-            "AND s.strain_name NOT IN ('B.1.351 Spike', 'B.1.351 authentic')",
-            "AND s.strain_name NOT IN ('P.1 Spike', 'P.1 authentic')",
-            "AND s.strain_name NOT IN ("
+            "AND vs.variant_name = s.variant_name",
+            "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
+            "AND s.variant_name NOT IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
+            "AND s.variant_name NOT IN ('B.1.351 Spike', 'B.1.351 authentic')",
+            "AND s.variant_name NOT IN ('P.1 Spike', 'P.1 authentic')",
+            "AND s.variant_name NOT IN ("
             "    'B.1.427 authentic',"
             "    'B.1.429 authentic',"
             "    'B.1.429 Spike')",
@@ -133,15 +133,15 @@ TABLE3_ROWS = {
     },
     "All combinations of mutations": {
         'join': [
-            "virus_strains AS vs",
+            "virus_variants AS vs",
             (
-                "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-                "strain_mutations GROUP BY strain_name) AS sm"
+                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
+                "variant_mutations GROUP BY variant_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.strain_name = s.strain_name",
-            "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
+            "AND vs.variant_name = s.variant_name",
+            "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
         ]
     }
 }
@@ -175,41 +175,41 @@ TABLE3_COLUMNS = {
 # TABLES3_2_ROWS = {
 #     '1 mutation': {
 #         'join': [
-#             "virus_strains AS vs",
+#             "virus_variants AS vs",
 #             (
-#                 "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-#                 "strain_mutations GROUP BY strain_name) AS sm"
+#                 "(SELECT variant_name, COUNT(*) AS num_muts FROM "
+#                 "variant_mutations GROUP BY variant_name) AS sm"
 #             )
 #         ],
 #         'filter': [
-#             "AND vs.strain_name = s.strain_name",
+#             "AND vs.variant_name = s.variant_name",
 #             "AND vs.site_directed IS TRUE",
-#             "AND sm.num_muts = 1 AND sm.strain_name = s.strain_name",
+#             "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
 #         ]
 #     },
 #     'mutation combination': {
 #         'join': [
-#             "virus_strains AS vs",
+#             "virus_variants AS vs",
 #             (
-#                 "(SELECT strain_name, COUNT(*) AS num_muts FROM "
-#                 "strain_mutations GROUP BY strain_name) AS sm"
+#                 "(SELECT variant_name, COUNT(*) AS num_muts FROM "
+#                 "variant_mutations GROUP BY variant_name) AS sm"
 #             )
 #         ],
 #         'filter': [
-#             "AND vs.strain_name = s.strain_name",
+#             "AND vs.variant_name = s.variant_name",
 #             "AND vs.site_directed IS TRUE",
-#             "AND sm.num_muts > 1 AND sm.strain_name = s.strain_name",
+#             "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
 #         ]
 #     },
 #     'VOC': {
 #         'filter': [
 #             (
 #                 "AND ("
-#                 "      s.strain_name IN ('B.1.1.7 Spike',
+#                 "      s.variant_name IN ('B.1.1.7 Spike',
 #                                          'B.1.1.7 authentic')"
-#                 "   OR s.strain_name IN ('B.1.351 Spike'
+#                 "   OR s.variant_name IN ('B.1.351 Spike'
 #                                          'B.1.351 authentic')"
-#                 "   OR s.strain_name IN ('P.1 Spike'
+#                 "   OR s.variant_name IN ('P.1 Spike'
 #                                          'P.1 authentic')"
 #                 "   )"
 #             ),
@@ -275,7 +275,7 @@ def gen_tableS3(conn):
             result = cursor.fetchone()
             result = result[0]
             records.append({
-                'Strain name': row_name,
+                'Variant name': row_name,
                 'Rx name': column_name,
                 '#Published': result or 0
             })
@@ -314,7 +314,7 @@ def gen_tableS3(conn):
     #         result = cursor.fetchone()
     #         result = result[0]
     #         records.append({
-    #             'Strain name': row_name,
+    #             'Variant name': row_name,
     #             'Rx name': column_name,
     #             '#Published': result
     #         })
@@ -324,7 +324,7 @@ def gen_tableS3(conn):
 
     json_info = defaultdict(dict)
     for item in records:
-        strain = item['Strain name']
+        variant = item['Variant name']
         rx = item['Rx name']
         if rx == 'mAbs phase3':
             rx = 'phase3'
@@ -333,11 +333,11 @@ def gen_tableS3(conn):
         else:
             rx = rx.lower()
         count = item.get('#Published', 0)
-        json_info[strain][rx] = count
+        json_info[variant][rx] = count
 
     result = []
     for key, value in json_info.items():
-        rec = {'strain': key}
+        rec = {'variant': key}
         rec.update(value)
         result.append(rec)
 

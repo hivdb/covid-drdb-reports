@@ -1,6 +1,6 @@
 [
     {
-        "strain": "B.1.1.7",
+        "variant": "B.1.1.7",
         "vac_studies": 11,
         "vac_samples": 273,
         "vac_s_fold": "86%",
@@ -19,7 +19,7 @@
         "cp_num_r_fold": 3
     },
     {
-        "strain": "B.1.351",
+        "variant": "B.1.351",
         "vac_studies": 9,
         "vac_samples": 153,
         "vac_s_fold": "21%",
@@ -38,7 +38,7 @@
         "cp_num_r_fold": 105
     },
     {
-        "strain": "P.1",
+        "variant": "P.1",
         "vac_studies": 3,
         "vac_samples": 52,
         "vac_s_fold": "62%",
@@ -57,7 +57,7 @@
         "cp_num_r_fold": 7
     },
     {
-        "strain": "CAL.20C",
+        "variant": "CAL.20C",
         "vac_studies": 1,
         "vac_samples": 11,
         "vac_s_fold": "91%",
@@ -76,7 +76,7 @@
         "cp_num_r_fold": 1
     },
     {
-        "strain": "E484K",
+        "variant": "E484K",
         "vac_studies": 3,
         "vac_samples": 32,
         "vac_s_fold": "53%",
@@ -95,7 +95,7 @@
         "cp_num_r_fold": 7
     },
     {
-        "strain": "N501Y",
+        "variant": "N501Y",
         "vac_studies": 7,
         "vac_samples": 98,
         "vac_s_fold": "100%",
@@ -114,7 +114,7 @@
         "cp_num_r_fold": 0
     },
     {
-        "strain": "K417N",
+        "variant": "K417N",
         "vac_studies": 3,
         "vac_samples": 61,
         "vac_s_fold": "98%",
@@ -133,7 +133,7 @@
         "cp_num_r_fold": 0
     },
     {
-        "strain": "N439K",
+        "variant": "N439K",
         "vac_studies": 2,
         "vac_samples": 26,
         "vac_s_fold": "100%",
@@ -152,7 +152,7 @@
         "cp_num_r_fold": 0
     },
     {
-        "strain": "Y453F",
+        "variant": "Y453F",
         "vac_studies": 1,
         "vac_samples": 15,
         "vac_s_fold": "100%",
@@ -171,7 +171,7 @@
         "cp_num_r_fold": 0
     },
     {
-        "strain": "∆69/70",
+        "variant": "∆69/70",
         "vac_studies": 1,
         "vac_samples": 22,
         "vac_s_fold": "100%",
@@ -190,7 +190,7 @@
         "cp_num_r_fold": 0
     },
     {
-        "strain": "∆144",
+        "variant": "∆144",
         "vac_studies": 1,
         "vac_samples": 22,
         "vac_s_fold": "100%",

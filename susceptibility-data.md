@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 03/15/2021 09:20 PM PDT
+Report generated at: 03/15/2021 09:51 PM PDT
 
 
 
@@ -16,7 +16,7 @@ Report generated at: 03/15/2021 09:20 PM PDT
 <table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
  <thead>
   <tr>
-   <th style="text-align:left;"> strain_group </th>
+   <th style="text-align:left;"> variant_group </th>
    <th style="text-align:right;"> num.CP </th>
    <th style="text-align:right;"> num.IP </th>
    <th style="text-align:right;"> num.phase3MAb </th>

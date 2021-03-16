@@ -225,38 +225,38 @@ read.articles <- function() {
   read.dbTable("articles.csv")
 }
 
-read.strainMutations = function() {
-  read.dbTable("strain_mutations.csv")
+read.variantMutations = function() {
+  read.dbTable("variant_mutations.csv")
 }
 
-read.virusStrains <- function() {
-  dfMuts = read.strainMutations()
+read.virusVariants <- function() {
+  dfMuts = read.variantMutations()
   dfSpikeMuts = dfMuts %>%
     filter(gene == "S") %>%
     mutate(mutation = paste0(position, amino_acid, split="")) %>%
-    group_by(strain_name) %>%
+    group_by(variant_name) %>%
     mutate(spike_muts=paste0(mutation, collapse="+")) %>%
-    select(strain_name, gene, spike_muts) %>%
+    select(variant_name, gene, spike_muts) %>%
     unique()
-  dfStrains = read.dbTable("virus_strains.csv")
-  dfStrains = dfStrains %>%
+  dfVariants = read.dbTable("virus_variants.csv")
+  dfVariants = dfVariants %>%
     left_join(
       aggregate(
-        cbind(num_muts = position) ~ strain_name,
+        cbind(num_muts = position) ~ variant_name,
         dfMuts,
         FUN = length
       ),
-    by = c("strain_name"),
-    suffix = c(".strain", ".mut")
+    by = c("variant_name"),
+    suffix = c(".variant", ".mut")
     ) %>%
     mutate(
       num_muts = ifelse(is.na(num_muts), 0, num_muts)
     )
-  dfStrains = dfStrains %>%
+  dfVariants = dfVariants %>%
     left_join(
       dfSpikeMuts,
-      by = c("strain_name"),
-      suffix = c(".strain", ".mut")
+      by = c("variant_name"),
+      suffix = c(".variant", ".mut")
     ) %>%
     mutate(
       spike_muts = ifelse(is.na(spike_muts), "", spike_muts)

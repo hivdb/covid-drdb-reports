@@ -17,7 +17,7 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
     susc_results as s,
     {rxtype} AS rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
@@ -26,69 +26,69 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
 ROWS = {
     'N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:501Y'",
+            "AND s.variant_name = 'S:501Y'",
         ]
     },
     '∆69/70': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del'",
+            "AND s.variant_name = 'S:69del+70del'",
         ]
     },
     '∆69/70 + N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del+501Y'",
+            "AND s.variant_name = 'S:69del+70del+501Y'",
         ]
     },
     '∆69/70 + N501Y + A570D': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del+501Y+570D'",
+            "AND s.variant_name = 'S:69del+70del+501Y+570D'",
         ]
     },
     '∆69/70 + N501Y + Y453F': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del+453F'",
+            "AND s.variant_name = 'S:69del+70del+453F'",
         ]
     },
     '∆144': {
         'filter': [
-            "AND s.strain_name = 'S:144del'",
+            "AND s.variant_name = 'S:144del'",
         ]
     },
     'E484K': {
         'filter': [
-            "AND s.strain_name = 'S:484K'"
+            "AND s.variant_name = 'S:484K'"
         ]
     },
     'E484K + N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:484K+501Y'"
+            "AND s.variant_name = 'S:484K+501Y'"
         ]
     },
     'Y453F': {
         'filter': [
-            "AND s.strain_name = 'S:453F'"
+            "AND s.variant_name = 'S:453F'"
         ]
     },
     'L452R': {
         'filter': [
-            "AND s.strain_name = 'S:452R'"
+            "AND s.variant_name = 'S:452R'"
         ]
     },
     'K417N': {
         'filter': [
-            "AND s.strain_name = 'S:417N'"
+            "AND s.variant_name = 'S:417N'"
         ]
     },
     'K417N + E484K + N501Y': {
         'filter': [
             ("AND ("
-             "   s.strain_name = 'S:417N+484K+501Y'"
-             "   OR s.strain_name = 'B.1.351 RBD')"),
+             "   s.variant_name = 'S:417N+484K+501Y'"
+             "   OR s.variant_name = 'B.1.351 RBD')"),
         ]
     },
     'N439K': {
         'filter': [
-            "AND s.strain_name = 'S:439K'"
+            "AND s.variant_name = 'S:439K'"
         ]
     },
 }
@@ -130,7 +130,7 @@ def gen_tableS6(conn):
 
                 cursor.execute(sql)
                 for i in cursor.fetchall():
-                    strain_name = row_name
+                    variant_name = row_name
                     cp_name = i[1]
                     reference = i[0]
 
@@ -147,10 +147,10 @@ def gen_tableS6(conn):
                         if tester(cp_name):
                             cp_name = new_name
 
-                    key = '{}{}{}'.format(strain_name, cp_name, reference)
+                    key = '{}{}{}'.format(variant_name, cp_name, reference)
 
                     rec = records[key]
-                    rec['Strain name'] = strain_name
+                    rec['Variant name'] = variant_name
                     rec['Plasma'] = PLASMA_POST_RENAME.get(cp_name, cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
@@ -166,16 +166,16 @@ def gen_tableS6(conn):
 
     records = list(records.values())
     records.sort(key=itemgetter(
-        'Strain name', 'Plasma', 'Reference'))
+        'Variant name', 'Plasma', 'Reference'))
 
     save_path = DATA_FILE_PATH / 'TableS6.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
-        strain = r['Strain name']
-        json_records[strain].append({
-            'strain': strain,
+        variant = r['Variant name']
+        json_records[variant].append({
+            'variant': variant,
             'rx': r['Plasma'],
             's_fold': r['S'],
             'i_fold': r['I'],
@@ -184,12 +184,12 @@ def gen_tableS6(conn):
         })
 
     records = []
-    for strain, assays in json_records.items():
+    for variant, assays in json_records.items():
         records.append({
-            'strain': strain,
+            'variant': variant,
             'assays': sorted(assays, key=itemgetter('rx')),
         })
 
-    strain = sorted(records, key=itemgetter('strain'))
+    variant = sorted(records, key=itemgetter('variant'))
     save_path = DATA_FILE_PATH / 'tableS6.json'
     dump_json(save_path, records)

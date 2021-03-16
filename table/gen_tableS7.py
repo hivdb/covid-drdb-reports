@@ -33,7 +33,7 @@ SELECT  s.ref_name,
         WHERE _rxtype.ab_name = ab.ab_name
     ) as rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
@@ -42,69 +42,69 @@ SELECT  s.ref_name,
 ROWS = {
     'N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:501Y'",
+            "AND s.variant_name = 'S:501Y'",
         ]
     },
     '∆69/70': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del'",
+            "AND s.variant_name = 'S:69del+70del'",
         ]
     },
     '∆69/70 + N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del+501Y'",
+            "AND s.variant_name = 'S:69del+70del+501Y'",
         ]
     },
     '∆69/70 + N501Y + A570D': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del+501Y+570D'",
+            "AND s.variant_name = 'S:69del+70del+501Y+570D'",
         ]
     },
     '∆69/70 + N501Y + Y453F': {
         'filter': [
-            "AND s.strain_name = 'S:69del+70del+453F'",
+            "AND s.variant_name = 'S:69del+70del+453F'",
         ]
     },
     '∆144': {
         'filter': [
-            "AND s.strain_name = 'S:144del'",
+            "AND s.variant_name = 'S:144del'",
         ]
     },
     'E484K': {
         'filter': [
-            "AND s.strain_name = 'S:484K'"
+            "AND s.variant_name = 'S:484K'"
         ]
     },
     'Y453F': {
         'filter': [
-            "AND s.strain_name = 'S:453F'"
+            "AND s.variant_name = 'S:453F'"
         ]
     },
     'L452R': {
         'filter': [
-            "AND s.strain_name = 'S:452R'"
+            "AND s.variant_name = 'S:452R'"
         ]
     },
     'E484K + N501Y': {
         'filter': [
-            "AND s.strain_name = 'S:484K+501Y'"
+            "AND s.variant_name = 'S:484K+501Y'"
         ]
     },
     'K417N': {
         'filter': [
-            "AND s.strain_name = 'S:417N'"
+            "AND s.variant_name = 'S:417N'"
         ]
     },
     'K417N + E484K + N501Y': {
         'filter': [
             ("AND ("
-             "   s.strain_name = 'S:417N+484K+501Y'"
-             "   OR s.strain_name = 'B.1.351 RBD')"),
+             "   s.variant_name = 'S:417N+484K+501Y'"
+             "   OR s.variant_name = 'B.1.351 RBD')"),
         ]
     },
     'N439K': {
         'filter': [
-            "AND s.strain_name = 'S:439K'"
+            "AND s.variant_name = 'S:439K'"
         ]
     },
 }
@@ -151,7 +151,7 @@ def gen_tableS7(conn):
 
                     fold = '{}'.format(round_number(i[4]))
                     records.append({
-                        'Strain name': row_name,
+                        'Variant name': row_name,
                         'Mab name': MAB_RENAME.get(ab_name, ab_name),
                         'Class': ab_class or '',
                         # 'Resistance level': resist_name,
@@ -160,16 +160,16 @@ def gen_tableS7(conn):
                     })
 
     records.sort(key=itemgetter(
-        'Strain name', 'Class', 'Mab name'))
+        'Variant name', 'Class', 'Mab name'))
 
     save_path = DATA_FILE_PATH / 'TableS7.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
-        strain = r['Strain name']
-        json_records[strain].append({
-            'strain': strain,
+        variant = r['Variant name']
+        json_records[variant].append({
+            'variant': variant,
             'rx': r['Mab name'],
             'mab_class': r['Class'],
             'fold': r['Fold'].replace('>', '&gt;'),
@@ -177,12 +177,12 @@ def gen_tableS7(conn):
         })
 
     records = []
-    for strain, assays in json_records.items():
+    for variant, assays in json_records.items():
         records.append({
-            'strain': strain,
+            'variant': variant,
             'assays': sorted(assays, key=itemgetter('mab_class')),
         })
 
-    strain = sorted(records, key=itemgetter('strain'))
+    variant = sorted(records, key=itemgetter('variant'))
     save_path = DATA_FILE_PATH / 'tableS7.json'
     dump_json(save_path, records)

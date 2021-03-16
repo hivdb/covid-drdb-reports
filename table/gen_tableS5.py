@@ -34,7 +34,7 @@ SELECT  s.ref_name,
         WHERE _rxtype.ab_name = ab.ab_name
     ) as rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_strain_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters}
     GROUP BY s.ref_name, s.rx_name;
@@ -43,37 +43,37 @@ SELECT  s.ref_name,
 ROWS = {
     'B.1.1.7': {
         'filter': [
-            "AND s.strain_name = 'B.1.1.7 Spike'",
+            "AND s.variant_name = 'B.1.1.7 Spike'",
         ]
     },
     'B.1.1.7 authentic': {
         'filter': [
-            "AND s.strain_name = 'B.1.1.7 authentic'",
+            "AND s.variant_name = 'B.1.1.7 authentic'",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 Spike'",
+            "AND s.variant_name = 'B.1.351 Spike'",
         ]
     },
     'B.1.351 authentic': {
         'filter': [
-            "AND s.strain_name = 'B.1.351 authentic'",
+            "AND s.variant_name = 'B.1.351 authentic'",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.strain_name = 'P.1 Spike'",
+            "AND s.variant_name = 'P.1 Spike'",
         ]
     },
     'P.1 authentic': {
         'filter': [
-            "AND s.strain_name = 'P.1 authentic'",
+            "AND s.variant_name = 'P.1 authentic'",
         ]
     },
     'CAL.20C': {
         'filter': [
-            "AND s.strain_name IN ("
+            "AND s.variant_name IN ("
             "    'B.1.427 authentic',"
             "    'B.1.429 authentic',"
             "    'B.1.429 Spike')",
@@ -122,13 +122,13 @@ def gen_tableS5(conn):
 
                     fold = '{}'.format(round_number(i[4]))
 
-                    strain_name = row_name
-                    if strain_name.endswith('authentic'):
+                    variant_name = row_name
+                    if variant_name.endswith('authentic'):
                         reference = '{}*'.format(reference)
-                        strain_name = strain_name.split()[0]
+                        variant_name = variant_name.split()[0]
 
                     records.append({
-                        'Strain name': strain_name,
+                        'Variant name': variant_name,
                         'Mab name': MAB_RENAME.get(ab_name, ab_name),
                         'Class': ab_class or '',
                         # 'Resistance level': resist_name,
@@ -137,16 +137,16 @@ def gen_tableS5(conn):
                     })
 
     records.sort(key=itemgetter(
-        'Strain name', 'Class', 'Mab name'))
+        'Variant name', 'Class', 'Mab name'))
 
     save_path = DATA_FILE_PATH / 'TableS5.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
-        strain = r['Strain name']
-        json_records[strain].append({
-            'strain': strain,
+        variant = r['Variant name']
+        json_records[variant].append({
+            'variant': variant,
             'rx': r['Mab name'],
             'mab_class': r['Class'],
             'fold': r['Fold'].replace('>', '&gt;'),
@@ -154,12 +154,12 @@ def gen_tableS5(conn):
         })
 
     records = []
-    for strain, assays in json_records.items():
+    for variant, assays in json_records.items():
         records.append({
-            'strain': strain,
+            'variant': variant,
             'assays': sorted(assays, key=itemgetter('mab_class')),
         })
 
-    strain = sorted(records, key=itemgetter('strain'))
+    variant = sorted(records, key=itemgetter('variant'))
     save_path = DATA_FILE_PATH / 'tableS5.json'
     dump_json(save_path, records)

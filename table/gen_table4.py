@@ -4,7 +4,7 @@ from preset import dump_json
 from preset import dump_csv
 from collections import defaultdict
 
-SHOW_STRAIN = [
+SHOW_VARIANT = [
     'B.1.1.7',
     'B.1.351',
     'P.1',
@@ -19,15 +19,15 @@ SHOW_STRAIN = [
 ]
 
 
-def group_strains(records):
-    strain_groups = defaultdict(list)
+def group_variants(records):
+    variant_groups = defaultdict(list)
     for r in records:
-        strain = r['Strain name']
-        if strain not in SHOW_STRAIN:
+        variant = r['Variant name']
+        if variant not in SHOW_VARIANT:
             continue
-        strain_groups[strain].append(r)
+        variant_groups[variant].append(r)
 
-    return strain_groups
+    return variant_groups
 
 
 def parse_fold(rec):
@@ -38,7 +38,7 @@ def parse_fold(rec):
         return float(fold[1:])
 
 
-def process_record(strain, records):
+def process_record(variant, records):
     cp_groups = defaultdict(list)
     for r in records:
         plasma = r['Plasma']
@@ -47,7 +47,7 @@ def process_record(strain, records):
         else:
             cp_groups['vac'].append(r)
 
-    result = {'strain': strain}
+    result = {'variant': variant}
     for plasma, rec_list in cp_groups.items():
         num_studies = len(set([r['Reference'] for r in rec_list]))
         num_s = sum([int(r['S']) for r in rec_list])
@@ -76,18 +76,18 @@ def process_record(strain, records):
 
 
 def gen_table4():
-    cp_strain_records = load_csv(DATA_FILE_PATH / 'TableS4.csv')
+    cp_variant_records = load_csv(DATA_FILE_PATH / 'TableS4.csv')
     cp_mut_records = load_csv(DATA_FILE_PATH / 'TableS6.csv')
 
-    strain_groups = {}
-    strain_groups.update(group_strains(cp_strain_records))
-    strain_groups.update(group_strains(cp_mut_records))
+    variant_groups = {}
+    variant_groups.update(group_variants(cp_variant_records))
+    variant_groups.update(group_variants(cp_mut_records))
 
     result = []
-    for strain in SHOW_STRAIN:
-        records = strain_groups[strain]
+    for variant in SHOW_VARIANT:
+        records = variant_groups[variant]
         result.append(
-            process_record(strain, records)
+            process_record(variant, records)
         )
 
     save_file = DATA_FILE_PATH / 'table4.json'

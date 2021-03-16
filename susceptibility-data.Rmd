@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
 
-ControlStrainNames = c(
+ControlVariantNames = c(
   "Control",
   "Wuhan",
   "S:614G"
@@ -26,7 +26,7 @@ CPInfectionNames = c(
   "Unknown",
   "Wuhan"
 )
-authenticStrains = c(
+authenticVariants = c(
   "B.1.1.7 authentic" = "B.1.1.7 Spike",
   "B.1.351 authentic" = "B.1.351 Spike",
   "P.1 authentic" = "P.1 Spike",
@@ -38,12 +38,12 @@ resistFold = 10
 
 dfSuscResultsMAb = read.suscResultsMAb()
 dfSuscResultsMAb = dfSuscResultsMAb %>%
-  filter(control_strain_name %in% ControlStrainNames) %>%
+  filter(control_variant_name %in% ControlVariantNames) %>%
   mutate(
-    strain_name = ifelse(
-      strain_name %in% names(authenticStrains),
-      yes = authenticStrains[strain_name],
-      no = strain_name
+    variant_name = ifelse(
+      variant_name %in% names(authenticVariants),
+      yes = authenticVariants[variant_name],
+      no = variant_name
     )
   )
 dfSuscResultsCP = read.suscResultsCP(
@@ -51,7 +51,7 @@ dfSuscResultsCP = read.suscResultsCP(
   resistFold = resistFold
 )
 dfSuscResultsCP = dfSuscResultsCP %>%
-  filter(control_strain_name %in% ControlStrainNames) %>%
+  filter(control_variant_name %in% ControlVariantNames) %>%
   filter(infection %in% CPInfectionNames)
 
 dfSuscResultsIP = read.suscResultsIP(
@@ -59,22 +59,22 @@ dfSuscResultsIP = read.suscResultsIP(
   resistFold = resistFold
 )
 dfSuscResultsIP = dfSuscResultsIP %>%
-  filter(control_strain_name %in% ControlStrainNames)
+  filter(control_variant_name %in% ControlVariantNames)
 
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
 dfSuscResultsPlasma = dfSuscResultsPlasma %>%
   mutate(
-    strain_name = ifelse(
-      strain_name %in% names(authenticStrains),
-      yes = authenticStrains[strain_name],
-      no = strain_name
+    variant_name = ifelse(
+      variant_name %in% names(authenticVariants),
+      yes = authenticVariants[variant_name],
+      no = variant_name
     )
   )
 
-dfVirusStrains = read.virusStrains() %>%
-  select(strain_name, num_muts)
+dfVirusVariants = read.virusVariants() %>%
+  select(variant_name, num_muts)
 dfAntibodies = read.antibodies()
 
 
@@ -107,7 +107,7 @@ dfSuscResults = dfSuscResultsMAb %>%
     )
   ) %>%
   bind_rows(dfSuscResultsPlasma) %>%
-  merge(dfVirusStrains, by = "strain_name") %>%
+  merge(dfVirusVariants, by = "variant_name") %>%
   mutate(
     rx_group = factor(
       ifelse(
@@ -117,10 +117,10 @@ dfSuscResults = dfSuscResultsMAb %>%
       ),
       levels = c("CP", "IP", "phase3MAb", "structuredMAb", "otherMAb")
     ),
-    strain_group = factor(
+    variant_group = factor(
       ifelse(
-        strain_name %in% c("S:501Y", "S:484K", "B.1.1.7 Spike", "B.1.351 Spike", "P.1 Spike"),
-        yes = strain_name,
+        variant_name %in% c("S:501Y", "S:484K", "B.1.1.7 Spike", "B.1.351 Spike", "P.1 Spike"),
+        yes = variant_name,
         no = ifelse(
           num_muts > 1,
           yes = "Other mutation combinations",
@@ -132,10 +132,10 @@ dfSuscResults = dfSuscResultsMAb %>%
     )
   )
 
-aggregate(cbind(num = ref_name) ~ rx_group + strain_group,
+aggregate(cbind(num = ref_name) ~ rx_group + variant_group,
           dfSuscResults,
           FUN = length) %>%
-  reshape(idvar = "strain_group", timevar = "rx_group", direction = "wide") %>%
+  reshape(idvar = "variant_group", timevar = "rx_group", direction = "wide") %>%
   styledKBL
 
 ```
@@ -168,7 +168,7 @@ paddingTitle <- function(title) {
   paste("  ", title)
 }
 
-strainTitle = c(
+variantTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
   "S:484K" = "E484K",
@@ -180,7 +180,7 @@ strainTitle = c(
   #"S:439K" = "439K",
   #"S:453F" = "453F"
 )
-filterStrains = names(strainTitle)
+filterVariants = names(variantTitle)
 excludedRefRxNames = c(
   "Planas21 CP_M3",
   "Planas21 CP_M6",
@@ -259,12 +259,12 @@ resistance_levels = c(
 )
 
 dfForPlot = dfSuscResultsPlasma %>%
-  filter(strain_name %in% filterStrains) %>%
+  filter(variant_name %in% filterVariants) %>%
   mutate(
     rx_name = ifelse(is.na(cumulative_group), rx_name, cumulative_group),
     vaccine_name = ifelse(is.na(vaccine_name), "NA", vaccine_name)
   ) %>%
-  group_by(ref_name, rx_name, vaccine_name, strain_name, resistance_level, group, assay) %>%
+  group_by(ref_name, rx_name, vaccine_name, variant_name, resistance_level, group, assay) %>%
   dplyr::summarise(
     cumulative_count = sum(cumulative_count)
   ) %>%
@@ -284,9 +284,9 @@ dfForPlot = dfSuscResultsPlasma %>%
 plots = list()
 i = 1
 
-for (strain in filterStrains) {
+for (variant in filterVariants) {
   df = dfForPlot %>%
-    filter(strain_name == strain)
+    filter(variant_name == variant)
   totalCount = df %>%
     group_by(ref_rx, group) %>%
     dplyr::summarise(
@@ -297,10 +297,10 @@ for (strain in filterStrains) {
   for (groupName in c("CP", "IP")) {
     dfGroup = df %>%
       filter(group == groupName)
-    dfStrainLabel = data.frame(
+    dfVariantLabel = data.frame(
       x = 0,
       y = maxCount,
-      text = strainTitle[[strain]]
+      text = variantTitle[[variant]]
     )
     numItems = length(unique(dfGroup$ref_rx))
     plot = dfGroup %>%
@@ -328,7 +328,7 @@ for (strain in filterStrains) {
         limits = c(0, maxCount),
         breaks = seq(0, maxCount, yAxisStep)
       ) +
-      # labs(title = strain) +
+      # labs(title = variant) +
       scale_fill_manual(values = c(
         'resistant' = "#146aa8",
         'partial-resistance' = "#7fcbee",
@@ -355,13 +355,13 @@ for (strain in filterStrains) {
           "text",
           y=Inf,
           x=0,
-          label=paddingTitle(strainTitle[[strain]]),
+          label=paddingTitle(variantTitle[[variant]]),
           size=3,
           vjust=1.5,
           hjust=0
           )
       # plot = plot + geom_text(
-      #   aes(x, y, label = text), data = dfStrainLabel,
+      #   aes(x, y, label = text), data = dfVariantLabel,
       #  # hjust = -0.15,
       #  # vjust = -1
       #)
@@ -376,7 +376,7 @@ for (strain in filterStrains) {
     i = i + 1
   }
 }
-grid.arrange(grobs = plots, nrow = length(strainTitle))
+grid.arrange(grobs = plots, nrow = length(variantTitle))
 ```
 
 ## Monoclonal antibodies
@@ -387,7 +387,7 @@ groupTitle = c(
   "In clinical trial",
   "Other"
 )
-strainTitle = c(
+variantTitle = c(
   "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
   "S:484K" = "E484K",
@@ -399,7 +399,7 @@ strainTitle = c(
   "S:439K" = "N439K",
   "S:453F" = "Y453F"
 )
-filterStrains = names(strainTitle)
+filterVariants = names(variantTitle)
 filterMAbs = structuredMAbs$ab_name %>%
   setdiff(
     c(
@@ -458,7 +458,7 @@ mAbHasLabels = names(mAbLabels)
 dfForPlot = dfSuscResultsMAb %>%
   filter(
     Vectorize(function(x) length(setdiff(x, filterMAbs)) == 0)(ab_name) &
-    strain_name %in% filterStrains
+    variant_name %in% filterVariants
   )  %>%
   mutate(
     ref_name = ifelse(
@@ -466,7 +466,7 @@ dfForPlot = dfSuscResultsMAb %>%
       "RSC21",
       ref_name
     ),
-    strain_name = factor(strain_name, levels = filterStrains),
+    variant_name = factor(variant_name, levels = filterVariants),
     fold_cmp = ifelse(fold > 100, ">", fold_cmp),
     fold = ifelse(fold > 100, 100, fold),
     in_trial = Vectorize(function(x) length(setdiff(x, inTrialMAbs$ab_name)) == 0)(ab_name),
@@ -486,25 +486,25 @@ dfForPlot = dfSuscResultsMAb %>%
       levels = sort(resistance_levels)
     )
   ) %>%
-  select(ref_name, ab_name, strain_name, in_trial, resistance_level, fold_cmp, fold) %>%
-  group_by(ref_name, ab_name, strain_name, in_trial, fold_cmp) %>%
+  select(ref_name, ab_name, variant_name, in_trial, resistance_level, fold_cmp, fold) %>%
+  group_by(ref_name, ab_name, variant_name, in_trial, fold_cmp) %>%
   dplyr::summarise(
     fold = max(fold),
     resistance_level = tail(sort(resistance_level), n=1)
   )
 
 dfNumAbs = dfForPlot %>%
-  group_by(strain_name, in_trial) %>%
+  group_by(variant_name, in_trial) %>%
   dplyr::summarize(num_abs = length(unique(ab_name)))
 dfNumRefs = dfForPlot %>%
-  group_by(strain_name, in_trial, ab_name) %>%
+  group_by(variant_name, in_trial, ab_name) %>%
   dplyr::summarize(num_refs = length(unique(ref_name))) %>%
-  group_by(strain_name, in_trial) %>%
+  group_by(variant_name, in_trial) %>%
   dplyr::summarize(num_refs = max(num_refs))
 
 dfForPlot = dfForPlot %>%
-  inner_join(dfNumAbs, by = c("strain_name", "in_trial")) %>%
-  inner_join(dfNumRefs, by = c("strain_name", "in_trial"))
+  inner_join(dfNumAbs, by = c("variant_name", "in_trial")) %>%
+  inner_join(dfNumRefs, by = c("variant_name", "in_trial"))
 
 maxNumAbs = max(dfForPlot$num_abs)
 maxNumRefs = max(dfForPlot$num_refs)
@@ -517,13 +517,13 @@ dfHLines = data.frame(
   y = c(1, 3, 10, 30, 100)
 )
 
-for (strain in filterStrains) {
-  dfPartial = dfForPlot %>% filter(strain_name == strain) %>% arrange(ref_name)
-  dfStrainLabel = data.frame(
+for (variant in filterVariants) {
+  dfPartial = dfForPlot %>% filter(variant_name == variant) %>% arrange(ref_name)
+  dfVariantLabel = data.frame(
     x = 0,
     y = 190,
-    strain_name = strain,
-    text = strainTitle[[strain]]
+    variant_name = variant,
+    text = variantTitle[[variant]]
   )
 
   for (cond in c(TRUE, FALSE)) {
@@ -534,7 +534,7 @@ for (strain in filterStrains) {
       dfPartial2 = data.frame(
         ref_name = "",
         ab_name = "\n",
-        strain_name = strain,
+        variant_name = variant,
         in_trial = cond,
         fold_cmp = "=",
         fold = 0,
@@ -603,7 +603,7 @@ for (strain in filterStrains) {
         geom_text(
           aes(x, y, label = text),
           #nudge_x = 0.5,
-          data = dfStrainLabel,
+          data = dfVariantLabel,
           hjust = - 0.2,
           vjust = 0
         )
@@ -625,5 +625,5 @@ for (strain in filterStrains) {
     i = i + 1
   }
 }
-grid.arrange(grobs = plots, nrow = length(filterStrains))
+grid.arrange(grobs = plots, nrow = length(filterVariants))
 ```
