@@ -274,6 +274,14 @@
             {
                 "variant": "B.1.351",
                 "rx": "AZD1222",
+                "s_fold": 0,
+                "i_fold": 3,
+                "r_fold": 22,
+                "reference": "Madhi21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "AZD1222",
                 "s_fold": 2,
                 "i_fold": 11,
                 "r_fold": 12,
