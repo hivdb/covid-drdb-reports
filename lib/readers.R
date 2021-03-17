@@ -94,6 +94,16 @@ read.suscResults <- function(
     yes = 1,
     no = dfSusc$cumulative_count
   )
+
+  dfSusc = dfSusc %>%
+    mutate(
+      ineffective = ifelse(is.na(ineffective), "", ineffective)
+    ) %>%
+    mutate(
+      fold_cmp = ifelse(ineffective == 'experimental', ">", fold_cmp),
+      fold = ifelse(ineffective == 'experimental', 100, fold)
+    )
+
   dfSusc$resistance_level = ifelse(
     !is.na(dfSusc$resistance_level),
     dfSusc$resistance_level,

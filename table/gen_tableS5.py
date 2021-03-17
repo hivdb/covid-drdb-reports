@@ -16,7 +16,8 @@ SELECT  s.ref_name,
         s.rx_name,
         rxtype.class,
         s.fold_cmp,
-        s.fold
+        s.fold,
+        s.ineffective
     FROM
     susc_results as s,
     (
@@ -120,7 +121,11 @@ def gen_tableS5(conn):
                     if '/' in ab_name or '+' in ab_name:
                         ab_class = ''
 
-                    fold = '{}'.format(round_number(i[4]))
+                    ineffective = i[5]
+                    fold = i[4]
+                    if ineffective:
+                        fold = 100
+                    fold = '{}'.format(round_number(fold))
 
                     variant_name = row_name
                     if variant_name.endswith('authentic'):

@@ -120,7 +120,9 @@ SUSCEPTIBLE_LEVEL_FILTER = """
              OR (fold = 3 AND fold_cmp = '<')
              OR (fold = 3 AND fold_cmp = '=')
              OR (fold = 3 AND fold_cmp = '~'))
-        OR (resistance_level = 'susceptible'))
+        OR (resistance_level = 'susceptible')
+        )
+    AND (ineffective IS NULL)
 """
 
 PARTIAL_RESISTANCE_LEVEL_FILTER = """
@@ -132,6 +134,7 @@ PARTIAL_RESISTANCE_LEVEL_FILTER = """
             OR (fold = 10 AND fold_cmp = '~')
             OR (fold = 10 AND fold_cmp = '<'))
         OR (resistance_level = 'partial-resistance'))
+    AND (ineffective IS NULL)
 """
 
 RESISTANT_LEVLE_FILTER = """
@@ -139,7 +142,9 @@ RESISTANT_LEVLE_FILTER = """
         (
             (fold = 10 AND fold_cmp = '>')
             OR (fold > 10))
-        OR (resistance_level = 'resistant'))
+        OR (resistance_level = 'resistant')
+        OR (ineffective = 'experimental')
+        )
 """
 
 RESISTANCE_FILTER = {

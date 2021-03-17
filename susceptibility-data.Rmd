@@ -190,12 +190,13 @@ excludedRefRxNames = c(
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
   "Collier21 CP",
-  "Supasa21 CP LiveVirus",
-  "Supasa21 BNT LiveVirus",
   "Widera21 CP LiveVirus",
   "Widera21 BNT LiveVirus",
   "Brown21 CP",
-  "Brown21 BNT"
+  "Brown21 BNT",
+  "Supasa21 CP LiveVirus",
+  "Supasa21 BNT LiveVirus",
+  "Supasa21 AZD LiveVirus"
 )
 shortRefRxNames = c(
   "Becker21 CP LiveVirus" = "Becker21*\n",
@@ -237,6 +238,12 @@ shortRefRxNames = c(
   "Supasa21 CP LiveVirus" = "Supasa21\n",
   "Supasa21 BNT LiveVirus" = "BNT\nSupasa21",
   "Supasa21 AZD LiveVirus" = "AZD\nSupasa21",
+  "Zhou21b CP LiveVirus" = "Zhou21b\n",
+  "Zhou21b BNT LiveVirus" = "BNT\nZhou21b",
+  "Zhou21b AZD LiveVirus" = "AZD\nZhou21b",
+  "Dejnirattisai21 CP LiveVirus" = "Dej21\n",
+  "Dejnirattisai21 BNT LiveVirus" = "BNT\nDej21",
+  "Dejnirattisai21 AZD LiveVirus" = "AZD\nDej21",
   "Stamatatos21 CP" = "Statmatatos21\n",
   "Stamatatos21 BNT" = "BNT\nStatmatatos21",
   "Stamatatos21 Mod" = "Mod\nStatmatatos21",

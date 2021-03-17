@@ -31,21 +31,21 @@
         "variant": "B.1.1.7",
         "cp": 407,
         "ip": 385,
-        "phase3": 58,
+        "phase3": 61,
         "structure": 28
     },
     {
         "variant": "B.1.351",
-        "cp": 362,
-        "ip": 193,
-        "phase3": 54,
+        "cp": 396,
+        "ip": 242,
+        "phase3": 61,
         "structure": 20
     },
     {
         "variant": "P.1",
-        "cp": 63,
-        "ip": 78,
-        "phase3": 18,
+        "cp": 97,
+        "ip": 127,
+        "phase3": 25,
         "structure": 5
     },
     {
@@ -64,9 +64,9 @@
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 1348,
-        "ip": 1163,
-        "phase3": 296,
+        "cp": 1416,
+        "ip": 1261,
+        "phase3": 313,
         "structure": 215
     }
 ]
