@@ -13,25 +13,42 @@ from preset import EXCLUDE_MAB
 
 MAIN_SQL = """
 SELECT  s.ref_name,
-        s.rx_name,
-        rxtype.class,
+        rxtype.ab_name,
+        rxtype.ab_class,
         s.fold_cmp,
         s.fold,
         s.ineffective
     FROM
     susc_results as s,
     (
-        SELECT DISTINCT _rxtype.ref_name, _rxtype.rx_name, ab.class
+        SELECT * FROM
+        (
+        SELECT
+            _rxtype.ref_name,
+            _rxtype.rx_name,
+            group_concat(_rxtype.ab_name, "+") as ab_name,
+            group_concat(ab.class, "+") as ab_class,
+            group_concat(ab.pdb_id) as pdb_id,
+            group_concat(ab.availability) as availability
         FROM {rxtype} AS _rxtype,
         (
-            SELECT a.ab_name, b.class, b.target, b.source FROM
+            SELECT DISTINCT
+                a.ab_name,
+                a.pdb_id,
+                a.availability,
+                b.class,
+                b.target
+            FROM
                 antibodies AS a LEFT JOIN
                 antibody_targets AS b
                 ON a.ab_name = b.ab_name
-            WHERE a.availability IS NOT NULL
-            OR a.pdb_id IS NOT NULL
         ) AS ab
         WHERE _rxtype.ab_name = ab.ab_name
+        GROUP BY _rxtype.ref_name, _rxtype.rx_name
+        )
+        WHERE
+            availability IS NOT NULL
+            OR pdb_id IS NOT NULL
     ) as rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
     AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
