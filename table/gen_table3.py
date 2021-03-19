@@ -2,6 +2,8 @@ from preset import DATA_FILE_PATH
 from preset import load_csv
 from preset import dump_json
 from collections import defaultdict
+from statistics import median
+from preset import round_number
 
 SHOW_VARIANT = [
     'B.1.1.7',
@@ -114,8 +116,13 @@ def process_record(variant, records):
         rec_list = unique_reference(rec_list)
 
         rec_list.sort(key=parse_fold)
-        max_value = rec_list[-1]['Fold']
-        max_value = max_value.replace('>', '&gt;')
+        fold_values = [100 if (i['Fold'] == '>100') else float(i['Fold']) for i in rec_list]
+        medium_value = median(fold_values)
+
+        if medium_value >= 100:
+            medium_value = '&gt;100'
+        else:
+            medium_value = str(round_number(medium_value))
         num_rec_list = len(set([i['Reference'] for i in rec_list]))
 
         tmpl = '{}<sub>{}</sub>'
@@ -125,7 +132,7 @@ def process_record(variant, records):
                 break
 
         result[short_name] = tmpl.format(
-            max_value, num_rec_list if num_rec_list > 1 else ''
+            medium_value, num_rec_list if num_rec_list > 1 else ''
         )
 
     return result
