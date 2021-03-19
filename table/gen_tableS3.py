@@ -3,6 +3,9 @@ from preset import dump_csv
 from preset import dump_json
 from collections import defaultdict
 
+from variant_filter import include_mutations
+from variant_filter import exclude_mutations
+
 
 TABLE3_MAIN_SQL = """
 SELECT SUM(s.cumulative_count) FROM
@@ -36,12 +39,16 @@ SELECT SUM(s.cumulative_count) FROM
 TABLE3_ROWS = {
     'N501Y': {
         'filter': [
-            "AND s.variant_name = 'S:501Y'"
+            include_mutations([
+                'S:501Y',
+                'S:501Y+614G'])
         ]
     },
     'E484K': {
         'filter': [
-            "AND s.variant_name = 'S:484K'"
+            include_mutations([
+                'S:484K',
+                'S:484K+614G'])
         ]
     },
     'Other individual mutations': {
@@ -56,8 +63,14 @@ TABLE3_ROWS = {
             "AND vs.variant_name = s.variant_name",
             "AND vs.site_directed IS TRUE",
             "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
-            "AND s.variant_name != 'S:484K'",
-            "AND s.variant_name != 'S:501Y'",
+            exclude_mutations([
+                'S:484K',
+                'S:484K+614G'
+            ]),
+            exclude_mutations([
+                'S:501Y',
+                'S:501Y+614G'
+            ]),
         ]
     },
     'All individual mutations': {
@@ -122,13 +135,31 @@ TABLE3_ROWS = {
         'filter': [
             "AND vs.variant_name = s.variant_name",
             "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
-            "AND s.variant_name NOT IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
-            "AND s.variant_name NOT IN ('B.1.351 Spike', 'B.1.351 authentic')",
-            "AND s.variant_name NOT IN ('P.1 Spike', 'P.1 authentic')",
-            "AND s.variant_name NOT IN ("
-            "    'B.1.427 authentic',"
-            "    'B.1.429 authentic',"
-            "    'B.1.429 Spike')",
+            exclude_mutations([
+                'B.1.1.7 Spike',
+                'B.1.1.7 authentic',
+            ]),
+            exclude_mutations([
+                'B.1.351 Spike',
+                'B.1.351 authentic',
+            ]),
+            exclude_mutations([
+                'P.1 Spike',
+                'P.1 authentic',
+            ]),
+            exclude_mutations([
+                'B.1.427 authentic',
+                'B.1.429 authentic',
+                'B.1.429 Spike'
+            ]),
+            exclude_mutations([
+                'S:484K',
+                'S:484K+614G'
+            ]),
+            exclude_mutations([
+                'S:501Y',
+                'S:501Y+614G'
+            ]),
         ]
     },
     "All combinations of mutations": {

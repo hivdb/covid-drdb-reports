@@ -113,17 +113,20 @@ def process_record(variant, records):
             result[short_name] = '-'
             continue
 
-        rec_list = unique_reference(rec_list)
+        # rec_list = unique_reference(rec_list)
 
         rec_list.sort(key=parse_fold)
-        fold_values = [100 if (i['Fold'] == '>100') else float(i['Fold']) for i in rec_list]
+        fold_values = [
+            100 if (i['Fold'] == '>100') else float(i['Fold'])
+            for i in rec_list]
         medium_value = median(fold_values)
 
         if medium_value >= 100:
             medium_value = '&gt;100'
         else:
             medium_value = str(round_number(medium_value))
-        num_rec_list = len(set([i['Reference'] for i in rec_list]))
+        # num_rec_list = len(set([i['Reference'] for i in rec_list]))
+        num_rec_list = len(rec_list)
 
         tmpl = '{}<sub>{}</sub>'
         for s, m in DATA_PROBLEM:

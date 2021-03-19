@@ -1,19 +1,12 @@
 ﻿Variant name,Plasma,S,I,R,Reference
-B.1.1.7,AZD1222,10,0,0,Supasa21*
-B.1.1.7,BNT162b2,8,0,0,Brown21
-B.1.1.7,BNT162b2,8,1,0,Brown21*
 B.1.1.7,BNT162b2,21,0,0,Collier21
 B.1.1.7,BNT162b2,20,4,0,Diamond21*
 B.1.1.7,BNT162b2,15,0,0,Hoffmann21
 B.1.1.7,BNT162b2,16,10,3,Marot21*
 B.1.1.7,BNT162b2,40,0,0,Muik21
 B.1.1.7,BNT162b2,8,2,0,Planas21
-B.1.1.7,BNT162b2,0,25,0,Supasa21*
 B.1.1.7,BNT162b2,9,1,0,Wang21b
 B.1.1.7,BNT162b2,10,0,0,Wang21b*
-B.1.1.7,CP,5,0,0,Brown21
-B.1.1.7,CP,8,0,0,Brown21*
-B.1.1.7,CP,0,27,0,Collier21
 B.1.1.7,CP,18,1,0,Diamond21*
 B.1.1.7,CP,16,4,0,Edara21*
 B.1.1.7,CP,27,3,0,Faulkner21*
@@ -21,7 +14,6 @@ B.1.1.7,CP,8,1,0,Hoffmann21
 B.1.1.7,CP,13,5,1,Hu21
 B.1.1.7,CP,5,2,2,Marot21*
 B.1.1.7,CP,13,2,0,Shen21
-B.1.1.7,CP,34,0,0,Supasa21*
 B.1.1.7,CP,14,5,1,Wang21b
 B.1.1.7,CP,20,0,0,Wang21b*
 B.1.1.7,CP,23,0,1,Wang21f

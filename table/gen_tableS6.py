@@ -10,6 +10,8 @@ from preset import PLASMA_RENAME
 from preset import PLASMA_POST_RENAME
 from preset import RENAME_CP_EXECUTOR
 
+from variant_filter import include_mutations
+
 
 MAIN_SQL = """
 SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
@@ -26,69 +28,95 @@ SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
 ROWS = {
     'N501Y': {
         'filter': [
-            "AND s.variant_name = 'S:501Y'",
+            include_mutations([
+                'S:501Y',
+                'S:501Y+614G'])
         ]
     },
     '∆69/70': {
         'filter': [
-            "AND s.variant_name = 'S:69del+70del'",
+            include_mutations([
+                'S:69del+70del',
+                'S:69del+70del+614G'])
         ]
     },
     '∆69/70 + N501Y': {
         'filter': [
-            "AND s.variant_name = 'S:69del+70del+501Y'",
+            include_mutations([
+                'S:69del+70del+501Y',
+                'S:69del+70del+501Y+614G'])
         ]
     },
     '∆69/70 + N501Y + A570D': {
         'filter': [
-            "AND s.variant_name = 'S:69del+70del+501Y+570D'",
+            include_mutations([
+                'S:69del+70del+501Y+570D',
+                'S:69del+70del+501Y+570D+614G'])
         ]
     },
     '∆69/70 + N501Y + Y453F': {
         'filter': [
-            "AND s.variant_name = 'S:69del+70del+453F'",
+            include_mutations([
+                'S:69del+70del+453F',
+                'S:69del+70del+453F+614G'])
         ]
     },
     '∆144': {
         'filter': [
-            "AND s.variant_name = 'S:144del'",
+            include_mutations([
+                'S:144del',
+                'S:144del+614G'])
         ]
     },
     'E484K': {
         'filter': [
-            "AND s.variant_name = 'S:484K'"
+            include_mutations([
+                'S:484K',
+                'S:484K+614G'])
         ]
     },
     'E484K + N501Y': {
         'filter': [
-            "AND s.variant_name = 'S:484K+501Y'"
+            include_mutations([
+                'S:484K+501Y',
+                'S:484K+501Y+614G'])
         ]
     },
     'Y453F': {
         'filter': [
-            "AND s.variant_name = 'S:453F'"
+            include_mutations([
+                'S:453F',
+                'S:453F+614G'])
         ]
     },
     'L452R': {
         'filter': [
-            "AND s.variant_name = 'S:452R'"
+            include_mutations([
+                'S:452R',
+                'S:452R+614G'])
         ]
     },
     'K417N': {
         'filter': [
-            "AND s.variant_name = 'S:417N'"
+            include_mutations([
+                'S:417N',
+                'S:417N+614G'])
         ]
     },
     'K417N + E484K + N501Y': {
         'filter': [
-            ("AND ("
-             "   s.variant_name = 'S:417N+484K+501Y'"
-             "   OR s.variant_name = 'B.1.351 RBD')"),
+            include_mutations([
+                'S:417N+484K+501Y',
+                'S:417N+484K+501Y+614G',
+                'B.1.351 RBD'
+                ])
         ]
     },
     'N439K': {
         'filter': [
-            "AND s.variant_name = 'S:439K'"
+            include_mutations([
+                'S:439K',
+                'S:439K+614G'])
         ]
     },
 }
