@@ -156,14 +156,6 @@
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "CP_acute",
-                "s_fold": 15,
-                "i_fold": 1,
-                "r_fold": 0,
-                "reference": "Edara21*"
-            },
-            {
-                "variant": "B.1.1.7",
                 "rx": "NVX-CoV",
                 "s_fold": 20,
                 "i_fold": 7,

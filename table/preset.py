@@ -162,6 +162,7 @@ EXCLUDE_STUDIES = {
     'Brown21': lambda x: x.startswith('CP') or x.startswith('BNT'),
     'Supasa21': lambda x: x.startswith('CP')
                           or x.startswith('BNT') or x.startswith('AZD'),
+    'Edara21': lambda x: x == 'CP_acute',
 }
 
 

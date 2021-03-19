@@ -378,14 +378,6 @@
             },
             {
                 "variant": "N501Y",
-                "rx": "CP_acute",
-                "s_fold": 16,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Edara21"
-            },
-            {
-                "variant": "N501Y",
                 "rx": "mRNA-1273",
                 "s_fold": 14,
                 "i_fold": 0,
