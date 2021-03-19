@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 03/19/2021 04:24 PM PDT
+Report generated at: 03/19/2021 04:42 PM PDT
 
 
 
@@ -28,26 +28,26 @@ Report generated at: 03/19/2021 04:24 PM PDT
   <tr>
    <td style="text-align:left;"> S:501Y </td>
    <td style="text-align:right;"> 116 </td>
-   <td style="text-align:right;"> 92 </td>
-   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 35 </td>
    <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 67 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> S:484K </td>
    <td style="text-align:right;"> 90 </td>
    <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 37 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 55 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
    <td style="text-align:right;"> 521 </td>
    <td style="text-align:right;"> 459 </td>
-   <td style="text-align:right;"> 566 </td>
-   <td style="text-align:right;"> 489 </td>
-   <td style="text-align:right;"> 1452 </td>
+   <td style="text-align:right;"> 574 </td>
+   <td style="text-align:right;"> 491 </td>
+   <td style="text-align:right;"> 1462 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
@@ -76,10 +76,10 @@ Report generated at: 03/19/2021 04:24 PM PDT
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
    <td style="text-align:right;"> 371 </td>
-   <td style="text-align:right;"> 323 </td>
-   <td style="text-align:right;"> 163 </td>
-   <td style="text-align:right;"> 162 </td>
-   <td style="text-align:right;"> 454 </td>
+   <td style="text-align:right;"> 322 </td>
+   <td style="text-align:right;"> 141 </td>
+   <td style="text-align:right;"> 156 </td>
+   <td style="text-align:right;"> 429 </td>
   </tr>
 </tbody>
 </table>
