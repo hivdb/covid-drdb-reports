@@ -8,7 +8,7 @@ B.1.1.7,BNT162b2,8,2,0,Planas21
 B.1.1.7,BNT162b2,9,1,0,Wang21b
 B.1.1.7,BNT162b2,10,0,0,Wang21b*
 B.1.1.7,CP,18,1,0,Diamond21*
-B.1.1.7,CP,16,4,0,Edara21*
+B.1.1.7,CP,19,0,0,Edara21*
 B.1.1.7,CP,27,3,0,Faulkner21*
 B.1.1.7,CP,8,1,0,Hoffmann21
 B.1.1.7,CP,13,5,1,Hu21
@@ -18,6 +18,7 @@ B.1.1.7,CP,14,5,1,Wang21b
 B.1.1.7,CP,20,0,0,Wang21b*
 B.1.1.7,CP,23,0,1,Wang21f
 B.1.1.7,CP(8M),11,8,0,Hu21
+B.1.1.7,CP_acute,15,1,0,Edara21*
 B.1.1.7,NVX-CoV,20,7,1,Shen21
 B.1.1.7,mRNA-1273,14,0,0,Edara21*
 B.1.1.7,mRNA-1273,30,10,0,Shen21
