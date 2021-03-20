@@ -227,7 +227,7 @@ def gen_tableS7(conn):
     records.sort(key=itemgetter(
         'Variant name', 'Class', 'Mab name'))
 
-    save_path = DATA_FILE_PATH / 'TableS7.csv'
+    save_path = DATA_FILE_PATH / 'tableS7.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
