@@ -110,6 +110,14 @@ TABLE3_ROWS = {
             "    'B.1.429 Spike')",
         ]
     },
+    'B.1.526': {
+        'filter': [
+            include_mutations([
+                'B.1.526 Spike',
+                'B.1.526 authentic',
+            ])
+        ]
+    },
     # 'B.1.1.7 + B.1.351': {
     #     'filter': [
     #         (
@@ -160,6 +168,10 @@ TABLE3_ROWS = {
                 'S:501Y',
                 'S:501Y+614G'
             ]),
+            exclude_mutations([
+                'B.1.526 Spike',
+                'B.1.526 authentic',
+            ])
         ]
     },
     "All combinations of mutations": {
