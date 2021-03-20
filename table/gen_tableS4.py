@@ -10,6 +10,8 @@ from collections import defaultdict
 from preset import EXCLUDE_STUDIES
 from preset import RENAME_CP_EXECUTOR
 
+from variant_filter import include_mutations
+
 
 MAIN_SQL = """
 SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
@@ -60,6 +62,14 @@ ROWS = {
             "    'B.1.427 authentic',"
             "    'B.1.429 authentic',"
             "    'B.1.429 Spike')",
+        ]
+    },
+    'B.1.526': {
+        'filter': [
+            include_mutations([
+                'B.1.526 Spike',
+                'B.1.526 authentic',
+            ])
         ]
     },
 }

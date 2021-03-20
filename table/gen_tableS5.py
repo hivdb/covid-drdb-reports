@@ -10,6 +10,8 @@ from preset import MAB_RENAME
 from preset import round_number
 from preset import EXCLUDE_MAB
 
+from variant_filter import include_mutations
+
 
 MAIN_SQL = """
 SELECT  s.ref_name,
@@ -94,6 +96,14 @@ ROWS = {
             "    'B.1.427 authentic',"
             "    'B.1.429 authentic',"
             "    'B.1.429 Spike')",
+        ]
+    },
+    'B.1.526': {
+        'filter': [
+            include_mutations([
+                'B.1.526 Spike',
+                'B.1.526 authentic',
+            ])
         ]
     },
 }
