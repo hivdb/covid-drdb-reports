@@ -17,6 +17,7 @@ B.1.1.7,4A8,NTD,>100,Wang21b*
 B.1.1.7,C135,RBD Core Cluster I,1.4,Wang21b
 B.1.1.7,C135,RBD Core Cluster I,0.3,Wang21b*
 B.1.1.7,Imdevimab,RBD Core Cluster I,0.7,Copin21
+B.1.1.7,Imdevimab,RBD Core Cluster I,1,FDA21
 B.1.1.7,Imdevimab,RBD Core Cluster I,1,Hoffmann21
 B.1.1.7,Imdevimab,RBD Core Cluster I,0.6,Rothenberger21
 B.1.1.7,Imdevimab,RBD Core Cluster I,0.5,Wang21b
@@ -40,6 +41,7 @@ B.1.1.7,S2X35,RBD Core Cluster II,1,Collier21
 B.1.1.7,B38,RBM Class I,14,Shen21
 B.1.1.7,COVA2-04,RBM Class I,0.6,Rees-Spear21
 B.1.1.7,Casirivimab,RBM Class I,1.2,Copin21
+B.1.1.7,Casirivimab,RBM Class I,1,FDA21
 B.1.1.7,Casirivimab,RBM Class I,2,Hoffmann21
 B.1.1.7,Casirivimab,RBM Class I,0.6,Rothenberger21
 B.1.1.7,Casirivimab,RBM Class I,0.4,Wang21b
@@ -152,7 +154,7 @@ B.1.351,2-4,RBM Class III,>100,Wang21b*
 B.1.526,Bamlanivimab+Etesevimab,,17,FDA21
 B.1.526,Casirivimab+Imdevimab,,1,FDA21
 B.1.526,Bamlanivimab,RBM Class II,>100,FDA21
-CAL.20C,Bamlanivimab+Etesevimab,,7.4,FDA21
+CAL.20C,Bamlanivimab+Etesevimab,,7.7,FDA21
 CAL.20C,Casirivimab+Imdevimab,,1,FDA21
 CAL.20C,Bamlanivimab,RBM Class II,>100,FDA21
 P.1,Bamlanivimab+Etesevimab,,>100,FDA21
