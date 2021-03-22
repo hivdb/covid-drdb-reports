@@ -162,11 +162,11 @@ def gen_tableS6(conn):
                     cp_name = i[1]
                     reference = i[0]
 
-                    if cp_name in EXCLUDE_PLASMA:
-                        continue
-                    exclude_tester = EXCLUDE_STUDIES.get(reference)
-                    if exclude_tester and exclude_tester(cp_name):
-                        continue
+                    # if cp_name in EXCLUDE_PLASMA:
+                    #     continue
+                    # exclude_tester = EXCLUDE_STUDIES.get(reference)
+                    # if exclude_tester and exclude_tester(cp_name):
+                    #     continue
 
                     cp_name = PLASMA_RENAME.get(cp_name, cp_name)
                     rename_executor = RENAME_CP_EXECUTOR.get(reference)
