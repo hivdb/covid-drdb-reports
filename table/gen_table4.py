@@ -42,7 +42,6 @@ def process_record(variant, records):
     cp_groups = defaultdict(list)
     for r in records:
         plasma = r['Plasma']
-        print(plasma)
         if plasma.startswith('CP'):
             cp_groups['cp'].append(r)
         elif plasma.lower() in ('mild', 'severe'):
