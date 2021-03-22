@@ -244,6 +244,7 @@ PLASMA_RENAME = {
     'CP_ID27': 'CP',
     'CP_ID33': 'CP',
     'CP_ID51': 'CP',
+    'hCoV-2IG': 'IVIG',
 }
 
 PLASMA_POST_RENAME = {

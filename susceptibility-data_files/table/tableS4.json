@@ -213,6 +213,14 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "CP",
+                "s_fold": 3,
+                "i_fold": 5,
+                "r_fold": 0,
+                "reference": "Tang21"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "CP",
                 "s_fold": 14,
                 "i_fold": 5,
                 "r_fold": 1,
@@ -281,6 +289,22 @@
                 "i_fold": 1,
                 "r_fold": 0,
                 "reference": "Edara21*"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "IVIG",
+                "s_fold": 6,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Tang21"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "IVIG",
+                "s_fold": 6,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Tang21*"
             },
             {
                 "variant": "B.1.1.7",
@@ -530,6 +554,14 @@
             {
                 "variant": "B.1.351",
                 "rx": "CP",
+                "s_fold": 1,
+                "i_fold": 1,
+                "r_fold": 6,
+                "reference": "Tang21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "CP",
                 "s_fold": 4,
                 "i_fold": 9,
                 "r_fold": 7,
@@ -625,6 +657,22 @@
             },
             {
                 "variant": "B.1.351",
+                "rx": "IVIG",
+                "s_fold": 0,
+                "i_fold": 3,
+                "r_fold": 3,
+                "reference": "Tang21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "IVIG",
+                "s_fold": 1,
+                "i_fold": 4,
+                "r_fold": 1,
+                "reference": "Tang21*"
+            },
+            {
+                "variant": "B.1.351",
                 "rx": "mRNA-1273",
                 "s_fold": 1,
                 "i_fold": 8,
@@ -675,6 +723,22 @@
                 "i_fold": 10,
                 "r_fold": 1,
                 "reference": "Deng21"
+            },
+            {
+                "variant": "CAL.20C",
+                "rx": "CP",
+                "s_fold": 6,
+                "i_fold": 2,
+                "r_fold": 0,
+                "reference": "Tang21"
+            },
+            {
+                "variant": "CAL.20C",
+                "rx": "IVIG",
+                "s_fold": 6,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Tang21"
             },
             {
                 "variant": "CAL.20C",
@@ -772,6 +836,14 @@
             {
                 "variant": "P.1",
                 "rx": "CP",
+                "s_fold": 4,
+                "i_fold": 2,
+                "r_fold": 2,
+                "reference": "Tang21"
+            },
+            {
+                "variant": "P.1",
+                "rx": "CP",
                 "s_fold": 12,
                 "i_fold": 7,
                 "r_fold": 1,
@@ -784,6 +856,14 @@
                 "i_fold": 5,
                 "r_fold": 4,
                 "reference": "Wang21f"
+            },
+            {
+                "variant": "P.1",
+                "rx": "IVIG",
+                "s_fold": 2,
+                "i_fold": 4,
+                "r_fold": 0,
+                "reference": "Tang21"
             },
             {
                 "variant": "P.1",

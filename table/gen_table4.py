@@ -46,6 +46,8 @@ def process_record(variant, records):
             cp_groups['cp'].append(r)
         elif plasma.lower() in ('mild', 'severe'):
             cp_groups['cp'].append(r)
+        elif plasma == 'IVIG':
+            cp_groups['cp'].append(r)
         else:
             cp_groups['vac'].append(r)
 

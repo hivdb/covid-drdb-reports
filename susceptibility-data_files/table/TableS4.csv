@@ -25,6 +25,7 @@ B.1.1.7,CP,13,5,1,Hu21
 B.1.1.7,CP,5,2,2,Marot21*
 B.1.1.7,CP,13,2,0,Shen21
 B.1.1.7,CP,34,0,0,Supasa21*
+B.1.1.7,CP,3,5,0,Tang21
 B.1.1.7,CP,14,5,1,Wang21b
 B.1.1.7,CP,20,0,0,Wang21b*
 B.1.1.7,CP,23,0,1,Wang21f
@@ -34,6 +35,8 @@ B.1.1.7,CP_M3,28,0,0,Planas21
 B.1.1.7,CP_M6,25,0,0,Planas21
 B.1.1.7,CP_M9,30,0,0,Planas21
 B.1.1.7,CP_acute,15,1,0,Edara21*
+B.1.1.7,IVIG,6,0,0,Tang21
+B.1.1.7,IVIG,6,0,0,Tang21*
 B.1.1.7,Mild,14,3,1,Rees-Spear21
 B.1.1.7,NVX-CoV,20,7,1,Shen21
 B.1.1.7,Severe,15,3,0,Rees-Spear21
@@ -64,6 +67,7 @@ B.1.351,CP,4,9,6,Hu21
 B.1.351,CP,0,2,7,Marot21*
 B.1.351,CP,5,10,29,Moyo-Gwete21
 B.1.351,CP,9,1,0,Tada21
+B.1.351,CP,1,1,6,Tang21
 B.1.351,CP,4,9,7,Wang21b
 B.1.351,CP,6,9,5,Wang21b*
 B.1.351,CP,3,7,14,Wang21f
@@ -76,12 +80,16 @@ B.1.351,CP(WT),0,2,4,Cele21*
 B.1.351,CP_M3,0,28,0,Planas21
 B.1.351,CP_M6,0,25,0,Planas21
 B.1.351,CP_M9,0,30,0,Planas21
+B.1.351,IVIG,0,3,3,Tang21
+B.1.351,IVIG,1,4,1,Tang21*
 B.1.351,mRNA-1273,1,8,3,Wang21b
 B.1.351,mRNA-1273,0,5,7,Wang21b*
 B.1.351,mRNA-1273,0,8,0,Wu21
 CAL.20C,BNT162b2,3,0,0,Deng21
 CAL.20C,BNT162b2,22,0,0,Garcia-Beltran21
 CAL.20C,CP,7,10,1,Deng21
+CAL.20C,CP,6,2,0,Tang21
+CAL.20C,IVIG,6,0,0,Tang21
 CAL.20C,mRNA-1273,7,1,0,Deng21
 CAL.20C,mRNA-1273,3,1,0,Garcia-Beltran21
 P.1,AZD1222,17,7,1,Dejnirattisai21*
@@ -93,7 +101,9 @@ P.1,BNT162b2,8,1,1,Wang21c
 P.1,CP,7,2,1,Chen21*
 P.1,CP,18,14,2,Dejnirattisai21*
 P.1,CP,2,6,1,Hoffmann21
+P.1,CP,4,2,2,Tang21
 P.1,CP,12,7,1,Wang21c
 P.1,CP,15,5,4,Wang21f
+P.1,IVIG,2,4,0,Tang21
 P.1,mRNA-1273,0,0,4,Garcia-Beltran21
 P.1,mRNA-1273,5,7,0,Wang21c

@@ -259,6 +259,9 @@ shortRefRxNames = c(
   "Stamatatos21 Mod" = "Mod\nStatmatatos21",
   "Tada21 CP" = "Tada21\n",
   "Tada21 BNT" = "BNT\nTada21",
+  "Tang21 CP" = "Tang21\n",
+  "Tang21 IVIG" = "IVIG\nTang21",
+  "Tang21 IVIG LiveVirus" = "IVIG\nTang21*",
   "Wang21 BNT" = "BNT\nWang21",
   "Wang21 Mod" = "Mod\nWang21",
   "Wang21b CP" = "Wang21b\n",
@@ -339,7 +342,7 @@ for (variant in filterVariants) {
         aes(fill = resistance_level),
         size = 0.2,
         color = "#000000",
-        stat = 'identity', position = 'stack', width = 0.05 * numItems) +
+        stat = 'identity', position = 'stack', width = 0.04 * numItems) +
       scale_x_discrete(
         labels = Vectorize(function(x) ifelse(
           x %in% longRefRxNames,
@@ -366,7 +369,7 @@ for (variant in filterVariants) {
       )) +
       theme(
         plot.title = element_text(hjust = 0.5),
-        axis.text.x = element_text(size=6.5),
+        axis.text.x = element_text(size=5.5),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         strip.background = element_blank(),
