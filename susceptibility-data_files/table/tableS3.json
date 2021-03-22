@@ -30,7 +30,7 @@
     {
         "variant": "B.1.1.7",
         "cp": 422,
-        "ip": 385,
+        "ip": 431,
         "phase3": 66,
         "structure": 28
     },
@@ -72,7 +72,7 @@
     {
         "variant": "All combinations of mutations",
         "cp": 1431,
-        "ip": 1311,
+        "ip": 1357,
         "phase3": 336,
         "structure": 215
     }

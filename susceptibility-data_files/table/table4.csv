@@ -1,5 +1,5 @@
 ﻿variant,vac_studies,vac_samples,vac_s_fold,vac_i_fold,vac_r_fold,vac_num_s_fold,vac_num_i_fold,vac_num_r_fold,cp_studies,cp_samples,cp_s_fold,cp_i_fold,cp_r_fold,cp_num_s_fold,cp_num_i_fold,cp_num_r_fold
-B.1.1.7,14,385,79%,19%,2%,306,73,6,15,422,82%,15%,3%,346,63,13
+B.1.1.7,15,431,71%,28%,1%,306,119,6,15,422,82%,15%,3%,346,63,13
 B.1.351,12,267,17%,49%,34%,46,131,90,15,396,15%,47%,38%,61,186,149
 P.1,5,127,50%,28%,22%,63,35,29,5,97,56%,35%,9%,54,34,9
 CAL.20C,2,37,95%,5%,0,35,2,0,1,18,39%,56%,5%,7,10,1
