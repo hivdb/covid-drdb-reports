@@ -47,6 +47,12 @@ N439K,vac,2,R,0
 N439K,cp,1,S,3
 N439K,cp,1,I,0
 N439K,cp,1,R,0
+L452R,vac,0,S,0
+L452R,vac,0,I,0
+L452R,vac,0,R,0
+L452R,cp,1,S,0
+L452R,cp,1,I,1
+L452R,cp,1,R,1
 Y453F,vac,1,S,15
 Y453F,vac,1,I,0
 Y453F,vac,1,R,0

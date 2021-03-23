@@ -13,6 +13,7 @@ SHOW_VARIANT = [
     'N501Y',
     'K417N',
     'N439K',
+    'L452R',
     'Y453F',
     '∆69/70',
     '∆144',
@@ -51,6 +52,12 @@ def process_record(variant, records):
         else:
             cp_groups['vac'].append(r)
 
+    if 'vac' not in cp_groups:
+        cp_groups['vac'] = []
+
+    if 'cp' not in cp_groups:
+        cp_groups['cp'] = []
+
     result = {'variant': variant}
     for plasma, rec_list in cp_groups.items():
         num_studies = len(
@@ -60,9 +67,14 @@ def process_record(variant, records):
         num_r = sum([int(r['R']) for r in rec_list])
         num_samples = num_i + num_r + num_s
 
-        pcnt_s = round(num_s / num_samples * 100)
-        pcnt_i = round(num_i / num_samples * 100)
-        pcnt_r = 100 - pcnt_s - pcnt_i
+        if num_samples:
+            pcnt_s = round(num_s / num_samples * 100)
+            pcnt_i = round(num_i / num_samples * 100)
+            pcnt_r = 100 - pcnt_s - pcnt_i
+        else:
+            pcnt_i = 0
+            pcnt_r = 0
+            pcnt_s = 0
 
         result['{}_studies'.format(plasma)] = num_studies
         result['{}_samples'.format(plasma)] = num_samples
@@ -109,9 +121,10 @@ def gen_table4():
                 figure_results.append({
                     'variant': variant,
                     'study': plasma,
-                    'num_study': item['{}_studies'.format(plasma)],
+                    'num_study': item.get('{}_studies'.format(plasma), 0),
                     'susc': susc.upper(),
-                    'sample_num': item['{}_num_{}_fold'.format(plasma, susc)]
+                    'sample_num': item.get(
+                        '{}_num_{}_fold'.format(plasma, susc), 0)
                 })
 
     save_file = DATA_FILE_PATH / 'table4-figure.csv'
