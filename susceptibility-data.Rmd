@@ -204,7 +204,8 @@ excludedRefRxNames = c(
   "Supasa21 CP LiveVirus",
   "Supasa21 BNT LiveVirus",
   "Supasa21 AZD LiveVirus",
-  "Edara21 CP_acute LiveVirus"
+  "Edara21 CP_acute LiveVirus",
+  "Emary21 AZD LiveVirus"
 )
 shortRefRxNames = c(
   "Becker21 CP LiveVirus" = "Becker21*\n",
