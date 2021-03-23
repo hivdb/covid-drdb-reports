@@ -251,6 +251,7 @@ PLASMA_POST_RENAME = {
     'BNT162b2_1M': 'BNT162b2',
     'CP_1M': 'CP',
     'CP_8M': 'CP(8M)',
+    'CP_6M': 'CP(6M)',
     'NVX-CoV2373_1M': 'NVX-CoV',
     'mRNA-1273_1M': 'mRNA-1273',
     'CP_Titer_GT400': 'CP(High Titer)',
