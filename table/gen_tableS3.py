@@ -197,7 +197,12 @@ TABLE3_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
-            "AND rxtype.infection IN ('Unknown', 'S:614G')",
+            (
+                "AND ("
+                "      rxtype.infection IN ('S:614G')"
+                "   OR rxtype.infection IS NULL"
+                "    )"
+            ),
         ]
     },
     'IP': {

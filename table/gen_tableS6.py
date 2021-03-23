@@ -14,7 +14,7 @@ from variant_filter import include_mutations
 
 
 MAIN_SQL = """
-SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count)
+SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count), COUNT(1)
     FROM
     susc_results as s,
     {rxtype} AS rxtype
@@ -125,7 +125,12 @@ SUBROWS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
-            "AND rxtype.infection IN ('Unknown', 'S:614G')",
+            (
+                "AND ("
+                "      rxtype.infection IN ('S:614G')"
+                "   OR rxtype.infection IS NULL"
+                "    )"
+            ),
         ]
     },
     'IP': {
@@ -161,6 +166,12 @@ def gen_tableS6(conn):
                     variant_name = row_name
                     cp_name = i[1]
                     reference = i[0]
+                    num_results = i[2]
+                    num_records = i[3]
+
+                    aggregated_results = False
+                    if num_records < num_results and num_results > 1:
+                        aggregated_results = True
 
                     # if cp_name in EXCLUDE_PLASMA:
                     #     continue
@@ -169,13 +180,15 @@ def gen_tableS6(conn):
                     #     continue
 
                     cp_name = PLASMA_RENAME.get(cp_name, cp_name)
-                    rename_executor = RENAME_CP_EXECUTOR.get(reference)
-                    if rename_executor:
-                        tester, new_name = rename_executor
+                    rename_executors = RENAME_CP_EXECUTOR.get(reference, [])
+                    for tester, new_name in rename_executors:
                         if tester(cp_name):
                             cp_name = new_name
 
                     key = '{}{}{}'.format(variant_name, cp_name, reference)
+
+                    if aggregated_results:
+                        reference = '{}†'.format(reference)
 
                     rec = records[key]
                     rec['Variant name'] = variant_name
@@ -184,11 +197,11 @@ def gen_tableS6(conn):
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)
                     if resist_name == 'susceptible':
-                        rec['S'] += i[2]
+                        rec['S'] += num_results
                     elif resist_name == 'partial':
-                        rec['I'] += i[2]
+                        rec['I'] += num_results
                     else:
-                        rec['R'] += i[2]
+                        rec['R'] += num_results
 
                     rec['Reference'] = reference
 

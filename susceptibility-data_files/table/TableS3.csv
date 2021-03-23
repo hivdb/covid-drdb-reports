@@ -1,26 +1,26 @@
 ﻿Variant name,Rx name,#Published
 N501Y,CP,148
-N501Y,IP,106
+N501Y,IP,116
 N501Y,mAbs phase3,51
 N501Y,mAbs structure,17
 E484K,CP,90
-E484K,IP,47
+E484K,IP,57
 E484K,mAbs phase3,58
 E484K,mAbs structure,17
 Other individual mutations,CP,616
-Other individual mutations,IP,466
+Other individual mutations,IP,476
 Other individual mutations,mAbs phase3,652
 Other individual mutations,mAbs structure,489
 All individual mutations,CP,854
-All individual mutations,IP,611
+All individual mutations,IP,641
 All individual mutations,mAbs phase3,752
 All individual mutations,mAbs structure,521
-B.1.1.7,CP,442
-B.1.1.7,IP,431
+B.1.1.7,CP,452
+B.1.1.7,IP,444
 B.1.1.7,mAbs phase3,66
 B.1.1.7,mAbs structure,28
-B.1.351,CP,416
-B.1.351,IP,267
+B.1.351,CP,426
+B.1.351,IP,277
 B.1.351,mAbs phase3,64
 B.1.351,mAbs structure,20
 P.1,CP,111
@@ -36,10 +36,10 @@ B.1.526,IP,0
 B.1.526,mAbs phase3,3
 B.1.526,mAbs structure,0
 Other muation combinations,CP,588
-Other muation combinations,IP,472
+Other muation combinations,IP,512
 Other muation combinations,mAbs phase3,172
 Other muation combinations,mAbs structure,160
-All combinations of mutations,CP,1589
-All combinations of mutations,IP,1342
+All combinations of mutations,CP,1609
+All combinations of mutations,IP,1405
 All combinations of mutations,mAbs phase3,345
 All combinations of mutations,mAbs structure,215

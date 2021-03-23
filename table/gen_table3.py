@@ -83,7 +83,7 @@ def unique_reference(rec_list):
     unique_rec_list = {}
     for r in rec_list:
         reference = r['Reference']
-        reference = reference.replace('*', '')
+        reference = reference.replace('*', '').replace('†', '')
 
         previous = unique_rec_list.get(reference)
         if not previous:

@@ -173,14 +173,26 @@ EXCLUDE_PLASMA = [
 
 
 RENAME_CP_EXECUTOR = {
-    'Planas21': (
-        lambda x: x.startswith('VAC'),
-        'BNT162b2'
-    ),
-    'Hoffmann21b': (
-        lambda x: x.startswith('ConvSerum') or x.startswith('ConvPlasma'),
-        'CP',
-    )
+    'Planas21': [
+        (
+            lambda x: x.startswith('VAC') and x.endswith('W4'),
+            'BNT162b2'
+        ),
+        (
+            lambda x: x.startswith('VAC') and x.endswith('W2'),
+            'BNT162b2_W2'
+        ),
+        (
+            lambda x: x.startswith('VAC') and x.endswith('W3'),
+            'BNT162b2_W3'
+        ),
+    ],
+    'Hoffmann21b': [
+        (
+            lambda x: x.startswith('ConvSerum') or x.startswith('ConvPlasma'),
+            'CP',
+        ),
+    ]
 }
 
 

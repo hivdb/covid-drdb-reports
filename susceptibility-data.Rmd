@@ -23,7 +23,7 @@ ControlVariantNames = c(
 )
 CPInfectionNames = c(
   "S:614G",
-  "Unknown",
+  "",
   "Wuhan"
 )
 
@@ -197,6 +197,7 @@ excludedRefRxNames = c(
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
   "Collier21 CP",
+  "Collier21 BNT",
   "Widera21 CP LiveVirus",
   "Widera21 BNT LiveVirus",
   "Brown21 CP",
@@ -205,7 +206,8 @@ excludedRefRxNames = c(
   "Supasa21 BNT LiveVirus",
   "Supasa21 AZD LiveVirus",
   "Edara21 CP_acute LiveVirus",
-  "Emary21 AZD LiveVirus"
+  "Kuzmina21 CP",
+  "Kuzmina21 BNT"
 )
 shortRefRxNames = c(
   "Becker21 CP LiveVirus" = "Becker21*\n",

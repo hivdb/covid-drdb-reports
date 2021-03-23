@@ -141,7 +141,10 @@ read.suscResultsCP <- function(
     resistFold = resistFold,
     withExcluded = withExcluded
   )
-  dfCP = read.dbTables("rx_conv_plasma")
+  dfCP = read.dbTables("rx_conv_plasma") %>%
+    mutate(
+      infection = ifelse(is.na(infection), "", infection)
+    )
   if (withExcluded) {
     dfCP = bind_rows(dfCP, read.dbTables(
       "rx_conv_plasma",
