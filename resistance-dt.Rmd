@@ -310,14 +310,16 @@ dfVariantPlasma$resistance_level = as.character(dfVariantPlasma$resistance_level
 dfVariantPlasma %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
-    Plasma = Vectorize(function(refName, rxName, variantName, ordNum) {
-      total = nrow(filter(dfVariantPlasma, rx_name == rxName & ref_name == refName & variant_name == variantName))
-      ifelse(
-        total == 1,
-        yes = rxName,
-        no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
-      )
-    })(ref_name, rx_name, variant_name, ordinal_number),
+    # Plasma = Vectorize(function(refName, rxName, variantName, ordNum) {
+    #   total = nrow(filter(dfVariantPlasma, rx_name == rxName & ref_name == refName & variant_name == variantName))
+    #   ifelse(
+    #     total == 1,
+    #     yes = rxName,
+    #     no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
+    #   )
+    # })(ref_name, rx_name, variant_name, ordinal_number),
+    Plasma = rx_name,
+    SampleID = ordinal_number,
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
     Fold = ifelse(is.na(fold), "", fold),
@@ -343,6 +345,7 @@ dfVariantPlasma %>%
     Source = section,
     Date = date_added.susc,
     Plasma,
+    SampleID,
     Vaccine,
     Infection = infection,
     Variant = variant_name,
@@ -359,6 +362,7 @@ dfVariantPlasma %>%
     Author,
     Variant,
     Plasma,
+    SampleID,
     Vaccine
   ) %>%
   styledDT
