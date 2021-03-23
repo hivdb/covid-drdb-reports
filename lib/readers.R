@@ -57,6 +57,11 @@ read.invitroResults <- function() {
   dfInvitro
 }
 
+read.invivoResults <- function() {
+  dfInvivo = read.dbTables("invivo_selection_results")
+  dfInvivo
+}
+
 read.suscResults <- function(
   partialResistFold = 3,
   resistFold = 10,

@@ -411,3 +411,71 @@ invitroResults %>%
   ) %>%
   styledDT
 ```
+
+
+## Spike mutation Invivo selection
+
+Columns explained:
+
+- __Author__: Internal unique reference identifier
+- __DOI__: DOI
+- __Source__: Location of data within reference
+- __Date__: Date data added to database
+- __mAb__: mAb name or abbreviation
+- __
+- __Position__: Spike amino acid position
+- __AAMutation__: amino acid mutation
+
+    mAb,
+    Dosage=dosage,
+    Host = host,
+    Patient=patient,
+    Sampling=sampling,
+    Infection = infection_name,
+    SelectedMutations = SpikeMutations,
+    TotalPatients = num_patients,
+    PatientsWithMut = num_patients_with_mut,
+    Note=note
+
+
+You can copy, download, or print the table using buttons below:
+
+```{r invivo-selection}
+invivoResults = read.invivoResults()
+invivoResults = invivoResults %>%
+  inner_join(
+    dfArticles,
+    by = "ref_name",
+    suffix = c(".invitro", ".ref")
+  )
+invivoResults %>%
+  mutate(
+    DOI = ifelse(is.na(doi), url, doi),
+    # mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
+    mAb = rx_name,
+    Position=position,
+    AAMutation=amino_acid
+  ) %>%
+  select(
+    Author = ref_name,
+    DOI,
+    Source = section,
+    Date = date_added.invitro,
+    mAb,
+    Dosage=dosage,
+    Host = host,
+    Patient=patient,
+    Sampling=sampling,
+    Infection = infection_name,
+    Position=position,
+    AAMutation=amino_acid,
+    TotalPatients = num_patients,
+    PatientsWithMut = num_patients_with_mut,
+    Note=note
+  ) %>%
+  arrange(
+    Author,
+    mAb,
+  ) %>%
+  styledDT
+```
