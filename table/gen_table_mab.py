@@ -9,16 +9,18 @@ SHOW_VARIANT = [
     'B.1.1.7',
     'B.1.351',
     'P.1',
-    'CAL.20C',
     'B.1.526',
-    'E484K',
+    'CAL.20C',
     'N501Y',
+    'E484K',
     'K417N',
-    'N439K',
     'L452R',
+    'N439K',
     'Y453F',
     'F490S',
     'S494P',
+    # '∆69/70',
+    # '∆144',
 ]
 
 SHOW_MABS = {
@@ -33,12 +35,12 @@ SHOW_MABS = {
     'Casirivimab+Imdevimab': 'cas_imd',
     'Cilgavimab+Tixagevimab': 'cil_tix',
     'Bamlanivimab+Etesevimab': 'bam_ete',
-    'BRII-196': 'BRII-196',
-    'BRII-198': 'BRII-198',
-    'C135': 'C135',
-    'C144': 'C144',
-    'JMB2002': 'JMB2002',
-    'S2E12': 'S2E12',
+    # 'BRII-196': 'BRII-196',
+    # 'BRII-198': 'BRII-198',
+    # 'C135': 'C135',
+    # 'C144': 'C144',
+    # 'JMB2002': 'JMB2002',
+    # 'S2E12': 'S2E12',
 }
 
 DATA_PROBLEM = [

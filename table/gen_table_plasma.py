@@ -8,13 +8,16 @@ SHOW_VARIANT = [
     'B.1.1.7',
     'B.1.351',
     'P.1',
+    'B.1.526',
     'CAL.20C',
-    'E484K',
     'N501Y',
+    'E484K',
     'K417N',
-    'N439K',
     'L452R',
+    'N439K',
     'Y453F',
+    'F490S',
+    'S494P',
     '∆69/70',
     '∆144',
 ]
@@ -103,7 +106,7 @@ def gen_table_plasma():
 
     result = []
     for variant in SHOW_VARIANT:
-        records = variant_groups[variant]
+        records = variant_groups.get(variant, [])
         result.append(
             process_record(variant, records)
         )
