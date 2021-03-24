@@ -14,8 +14,12 @@ from variant_filter import include_mutations
 
 
 MAIN_SQL = """
-SELECT s.ref_name, s.rx_name, SUM(s.cumulative_count), COUNT(1)
-    FROM
+SELECT
+    s.ref_name as ref_name,
+    s.rx_name as rx_name,
+    SUM(s.cumulative_count) as sample_count,
+    COUNT(1) as study_count
+FROM
     susc_results as s,
     {rxtype} AS rxtype
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
@@ -164,10 +168,10 @@ def gen_table_plasma_muts(conn):
                 cursor.execute(sql)
                 for i in cursor.fetchall():
                     variant_name = row_name
-                    cp_name = i[1]
-                    reference = i[0]
-                    num_results = i[2]
-                    num_records = i[3]
+                    cp_name = i['rx_name']
+                    reference = i['ref_name']
+                    num_results = i['sample_count']
+                    num_records = i['study_count']
 
                     aggregated_results = False
                     if num_records < num_results and num_results > 1:

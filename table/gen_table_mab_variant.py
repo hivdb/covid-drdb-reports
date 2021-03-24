@@ -14,12 +14,12 @@ from variant_filter import include_mutations
 
 
 MAIN_SQL = """
-SELECT  s.ref_name,
-        rxtype.ab_name,
-        rxtype.ab_class,
-        s.fold_cmp,
-        s.fold,
-        s.ineffective
+SELECT  s.ref_name as ref_name,
+        rxtype.ab_name as ab_name,
+        rxtype.ab_class as ab_class,
+        s.fold_cmp as fold_cmp,
+        s.fold as fold,
+        s.ineffective as ineffective
     FROM
     susc_results as s,
     (
@@ -134,21 +134,21 @@ def gen_table_mab_variant(conn):
 
                 cursor.execute(sql)
                 for i in cursor.fetchall():
-                    reference = i[0]
+                    reference = i['ref_name']
 
-                    ab_name = SYNONYM2AB_NAME.get(i[1], i[1])
+                    ab_name = SYNONYM2AB_NAME.get(i['ab_name'], i['ab_name'])
                     if ab_name in EXCLUDE_MAB:
                         continue
 
                     ab_class_info = AB_NAME2MAB_CLASS.get(ab_name)
-                    ab_class = i[2]
+                    ab_class = i['ab_class']
                     if not ab_class and ab_class_info:
                         ab_class = ab_class_info['class']
                     if '/' in ab_name or '+' in ab_name:
                         ab_class = ''
 
-                    ineffective = i[5]
-                    fold = i[4]
+                    ineffective = i['ineffective']
+                    fold = i['fold']
                     if ineffective:
                         fold = 100
                     fold = '{}'.format(round_number(fold))

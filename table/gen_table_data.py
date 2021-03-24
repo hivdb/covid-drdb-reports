@@ -13,13 +13,18 @@ from gen_table_mab_variant import gen_table_mab_variant
 from gen_table_plasma_muts import gen_table_plasma_muts
 from gen_table_mab_muts import gen_table_mab_muts
 
+from lookup_view import get_aggregated_studies
+
 
 def gen_report(db_path):
     db_path = Path(db_path).resolve()
     print(db_path)
     conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
     init_synonyms_map(conn)
     init_abname2class(conn)
+
+    get_aggregated_studies(conn)
 
     gen_table_plasma_variant(conn)
     gen_table_mab_variant(conn)

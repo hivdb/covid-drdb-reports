@@ -50,9 +50,9 @@ def init_synonyms_map(conn):
     """
     cursor.execute(sql)
 
-    for item in cursor.fetchall():
-        ab_name = item[0]
-        synonym = item[1]
+    for row in cursor.fetchall():
+        ab_name = row['ab_name']
+        synonym = row['synonym']
         SYNONYM2AB_NAME[synonym] = ab_name
         AB_NAME2SYNONYM[ab_name] = synonym
 
@@ -75,9 +75,9 @@ def init_synonyms_map(conn):
     """
     cursor.execute(sql)
 
-    for item in cursor.fetchall():
-        ab_name = item[0]
-        abbr_name = item[1]
+    for row in cursor.fetchall():
+        ab_name = row['ab_name']
+        abbr_name = row['abbreviation_name']
         if ab_name in AB_NAME2SYNONYM.keys():
             SYNONYM2AB_NAME[abbr_name] = ab_name
         elif ab_name in SYNONYM2AB_NAME.keys():
@@ -97,11 +97,11 @@ def init_abname2class(conn):
 
     cursor.execute(sql)
 
-    for item in cursor.fetchall():
-        ab_name = item[0]
-        target = item[1]
-        ab_class = item[2]
-        source = item[3]
+    for row in cursor.fetchall():
+        ab_name = row['ab_name']
+        target = row['target']
+        ab_class = row['class']
+        source = row['source']
         class_info = {
             'target': target,
             'class': ab_class,
