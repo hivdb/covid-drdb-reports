@@ -166,12 +166,12 @@ def gen_table_plasma_muts(conn):
                 # print(sql)
 
                 cursor.execute(sql)
-                for i in cursor.fetchall():
+                for row in cursor.fetchall():
                     variant_name = row_name
-                    cp_name = i['rx_name']
-                    reference = i['ref_name']
-                    num_results = i['sample_count']
-                    num_records = i['study_count']
+                    cp_name = row['rx_name']
+                    reference = row['ref_name']
+                    num_results = row['sample_count']
+                    num_records = row['study_count']
 
                     aggregated_results = False
                     if num_records < num_results and num_results > 1:

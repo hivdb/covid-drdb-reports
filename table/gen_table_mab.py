@@ -128,7 +128,7 @@ def process_record(variant, records):
             medium_value = '&gt;100'
         else:
             medium_value = str(round_number(medium_value))
-        # num_rec_list = len(set([i['Reference'] for i in rec_list]))
+        # num_rec_list = len(set([row['Reference'] for i in rec_list]))
         num_rec_list = len(rec_list)
 
         tmpl = '{}<sub>{}</sub>'

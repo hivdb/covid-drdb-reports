@@ -133,22 +133,22 @@ def gen_table_mab_variant(conn):
                 # print(sql)
 
                 cursor.execute(sql)
-                for i in cursor.fetchall():
-                    reference = i['ref_name']
+                for row in cursor.fetchall():
+                    reference = row['ref_name']
 
-                    ab_name = SYNONYM2AB_NAME.get(i['ab_name'], i['ab_name'])
+                    ab_name = SYNONYM2AB_NAME.get(row['ab_name'], row['ab_name'])
                     if ab_name in EXCLUDE_MAB:
                         continue
 
                     ab_class_info = AB_NAME2MAB_CLASS.get(ab_name)
-                    ab_class = i['ab_class']
+                    ab_class = row['ab_class']
                     if not ab_class and ab_class_info:
                         ab_class = ab_class_info['class']
                     if '/' in ab_name or '+' in ab_name:
                         ab_class = ''
 
-                    ineffective = i['ineffective']
-                    fold = i['fold']
+                    ineffective = row['ineffective']
+                    fold = row['fold']
                     if ineffective:
                         fold = 100
                     fold = '{}'.format(round_number(fold))
