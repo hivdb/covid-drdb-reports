@@ -177,7 +177,7 @@ SUBROWS = {
 }
 
 
-def gen_tableS7(conn):
+def gen_table_mab_muts(conn):
     cursor = conn.cursor()
 
     records = []
@@ -227,7 +227,7 @@ def gen_tableS7(conn):
     records.sort(key=itemgetter(
         'Variant name', 'Class', 'Mab name'))
 
-    save_path = DATA_FILE_PATH / 'tableS7.csv'
+    save_path = DATA_FILE_PATH / 'table_mab_muts.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
@@ -249,5 +249,5 @@ def gen_tableS7(conn):
         })
 
     variant = sorted(records, key=itemgetter('variant'))
-    save_path = DATA_FILE_PATH / 'tableS7.json'
+    save_path = DATA_FILE_PATH / 'table_mab_muts.json'
     dump_json(save_path, records)

@@ -142,9 +142,9 @@ def process_record(variant, records):
     return result
 
 
-def gen_table3():
-    mab_variant_records = load_csv(DATA_FILE_PATH / 'TableS5.csv')
-    mab_mut_records = load_csv(DATA_FILE_PATH / 'TableS7.csv')
+def gen_table_mab():
+    mab_variant_records = load_csv(DATA_FILE_PATH / 'table_mab_variant.csv')
+    mab_mut_records = load_csv(DATA_FILE_PATH / 'table_mab_muts.csv')
 
     variant_groups = {}
     variant_groups.update(group_variants(mab_variant_records))
@@ -159,5 +159,5 @@ def gen_table3():
             process_record(variant, records)
         )
 
-    save_file = DATA_FILE_PATH / 'table3.json'
+    save_file = DATA_FILE_PATH / 'table_mab.json'
     dump_json(save_file, result)

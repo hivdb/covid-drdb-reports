@@ -93,9 +93,9 @@ def process_record(variant, records):
     return result
 
 
-def gen_table4():
-    cp_variant_records = load_csv(DATA_FILE_PATH / 'TableS4.csv')
-    cp_mut_records = load_csv(DATA_FILE_PATH / 'TableS6.csv')
+def gen_table_plasma():
+    cp_variant_records = load_csv(DATA_FILE_PATH / 'table_plasma_variant.csv')
+    cp_mut_records = load_csv(DATA_FILE_PATH / 'table_plasma_muts.csv')
 
     variant_groups = {}
     variant_groups.update(group_variants(cp_variant_records))
@@ -108,10 +108,10 @@ def gen_table4():
             process_record(variant, records)
         )
 
-    save_file = DATA_FILE_PATH / 'table4.json'
+    save_file = DATA_FILE_PATH / 'table_plasma.json'
     dump_json(save_file, result)
 
-    save_file = DATA_FILE_PATH / 'table4.csv'
+    save_file = DATA_FILE_PATH / 'table_plasma.csv'
     dump_csv(save_file, result)
 
     figure_results = []
@@ -128,5 +128,5 @@ def gen_table4():
                         '{}_num_{}_fold'.format(plasma, susc), 0)
                 })
 
-    save_file = DATA_FILE_PATH / 'table4-figure.csv'
+    save_file = DATA_FILE_PATH / 'table_plasma_figure.csv'
     dump_csv(save_file, figure_results)

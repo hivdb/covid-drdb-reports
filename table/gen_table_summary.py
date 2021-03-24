@@ -10,7 +10,7 @@ from variant_filter import include_mutations
 from variant_filter import exclude_mutations
 
 
-TABLE3_MAIN_SQL = """
+TABLE_SUMMARY_MAIN_SQL = """
 SELECT SUM(s.cumulative_count) FROM
 -- SELECT COUNT(1) FROM
     susc_results AS s,
@@ -22,7 +22,7 @@ SELECT SUM(s.cumulative_count) FROM
     {filters};
 """
 
-TABLE3_MAB_SQL = """
+TABLE_SUMMARY_MAB_SQL = """
 SELECT SUM(s.cumulative_count) FROM
 -- SELECT COUNT(1) FROM
     susc_results AS s,
@@ -39,7 +39,7 @@ SELECT SUM(s.cumulative_count) FROM
     {filters};
 """
 
-TABLE3_ROWS = {
+TABLE_SUMMARY_ROWS = {
     'N501Y': {
         'filter': [
             include_mutations([
@@ -193,7 +193,7 @@ TABLE3_ROWS = {
 }
 
 
-TABLE3_COLUMNS = {
+TABLE_SUMMARY_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
@@ -223,7 +223,7 @@ TABLE3_COLUMNS = {
     }
 }
 
-# TABLES3_2_ROWS = {
+# TABLE_SUMMARY_ADDITIONAL_ROWS = {
 #     '1 mutation': {
 #         'join': [
 #             "virus_variants AS vs",
@@ -268,7 +268,7 @@ TABLE3_COLUMNS = {
 #     },
 # }
 
-# TABLES3_2_COLUMNS = {
+# TABLE_SUMMARY_ADDITIONAL_COLUMNS = {
 #     'mAbs without structure': {
 #         'rxtype': 'rx_antibodies',
 #         'ab_filters': [
@@ -284,13 +284,13 @@ TABLE3_COLUMNS = {
 # }
 
 
-def gen_tableS3(conn):
+def gen_table_summary(conn):
     cursor = conn.cursor()
 
     records = []
 
-    for row_name, attr_r in TABLE3_ROWS.items():
-        for column_name, attr_c in TABLE3_COLUMNS.items():
+    for row_name, attr_r in TABLE_SUMMARY_ROWS.items():
+        for column_name, attr_c in TABLE_SUMMARY_COLUMNS.items():
             rxtype = attr_c['rxtype']
 
             r_join = attr_r.get('join', [])
@@ -305,7 +305,7 @@ def gen_tableS3(conn):
                 filter += '\n   '
                 filter += '\n   '.join(attr_c.get('cp_filters', []))
 
-            sql = TABLE3_MAIN_SQL.format(
+            sql = TABLE_SUMMARY_MAIN_SQL.format(
                 rxtype=rxtype,
                 joins=join,
                 filters=filter
@@ -314,7 +314,7 @@ def gen_tableS3(conn):
                 abfilters = attr_c.get('ab_filters', [])
                 abfilters = '\n     '.join(abfilters)
 
-                sql = TABLE3_MAB_SQL.format(
+                sql = TABLE_SUMMARY_MAB_SQL.format(
                     rxtype=rxtype,
                     ab_filters=abfilters,
                     joins=join,
@@ -331,8 +331,8 @@ def gen_tableS3(conn):
                 '#Published': result or 0
             })
 
-    # for row_name, attr_r in TABLES3_2_ROWS.items():
-    #     for column_name, attr_c in TABLES3_2_COLUMNS.items():
+    # for row_name, attr_r in TABLE_SUMMARY_ADDITIONAL_ROWS.items():
+    #     for column_name, attr_c in TABLE_SUMMARY_ADDITIONAL_COLUMNS.items():
     #         rxtype = attr_c['rxtype']
 
     #         r_join = attr_r.get('join', [])
@@ -343,7 +343,7 @@ def gen_tableS3(conn):
     #         c_filter = attr_c.get('filter', [])
     #         filter = '\n    '.join(r_filter + c_filter)
 
-    #         sql = TABLE3_MAIN_SQL.format(
+    #         sql = TABLE_SUMMARY_MAIN_SQL.format(
     #             rxtype=rxtype,
     #             joins=join,
     #             filters=filter
@@ -352,7 +352,7 @@ def gen_tableS3(conn):
     #             ab_filters = attr_c.get('ab_filters', [])
     #             ab_filters = '\n     '.join(ab_filters)
 
-    #             sql = TABLE3_MAB_SQL.format(
+    #             sql = TABLE_SUMMARY_MAB_SQL.format(
     #                 rxtype=rxtype,
     #                 ab_filters=ab_filters,
     #                 joins=join,
@@ -370,7 +370,7 @@ def gen_tableS3(conn):
     #             '#Published': result
     #         })
 
-    save_path = DATA_FILE_PATH / 'TableS3.csv'
+    save_path = DATA_FILE_PATH / 'table_summary.csv'
     dump_csv(save_path, records)
 
     json_info = defaultdict(dict)
@@ -392,5 +392,5 @@ def gen_tableS3(conn):
         rec.update(value)
         result.append(rec)
 
-    save_path = DATA_FILE_PATH / 'tableS3.json'
+    save_path = DATA_FILE_PATH / 'table_summary.json'
     dump_json(save_path, result)

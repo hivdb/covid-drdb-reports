@@ -139,7 +139,7 @@ SUBROWS = {
 }
 
 
-def gen_tableS6(conn):
+def gen_table_plasma_muts(conn):
     cursor = conn.cursor()
 
     records = defaultdict(dict)
@@ -209,7 +209,7 @@ def gen_tableS6(conn):
     records.sort(key=itemgetter(
         'Variant name', 'Plasma', 'Reference'))
 
-    save_path = DATA_FILE_PATH / 'TableS6.csv'
+    save_path = DATA_FILE_PATH / 'table_plasma_muts.csv'
     dump_csv(save_path, records)
 
     json_records = defaultdict(list)
@@ -232,5 +232,5 @@ def gen_tableS6(conn):
         })
 
     variant = sorted(records, key=itemgetter('variant'))
-    save_path = DATA_FILE_PATH / 'tableS6.json'
+    save_path = DATA_FILE_PATH / 'table_plasma_muts.json'
     dump_json(save_path, records)

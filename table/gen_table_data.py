@@ -2,13 +2,15 @@ import sys
 import sqlite3
 from preset import init_synonyms_map
 from preset import init_abname2class
-from gen_table3 import gen_table3
-from gen_table4 import gen_table4
-from gen_tableS3 import gen_tableS3
-from gen_tableS4 import gen_tableS4
-from gen_tableS5 import gen_tableS5
-from gen_tableS6 import gen_tableS6
-from gen_tableS7 import gen_tableS7
+
+
+from gen_table_summary import gen_table_summary
+from gen_table_plasma import gen_table_plasma
+from gen_table_mab import gen_table_mab
+from gen_table_plasma_variant import gen_table_plasma_variant
+from gen_table_mab_variant import gen_table_mab_variant
+from gen_table_plasma_muts import gen_table_plasma_muts
+from gen_table_mab_muts import gen_table_mab_muts
 
 
 def gen_report(db_path):
@@ -16,14 +18,14 @@ def gen_report(db_path):
     init_synonyms_map(conn)
     init_abname2class(conn)
 
-    gen_tableS3(conn)
-    gen_tableS4(conn)
-    gen_tableS5(conn)
-    gen_tableS6(conn)
-    gen_tableS7(conn)
+    gen_table_plasma_variant(conn)
+    gen_table_mab_variant(conn)
+    gen_table_plasma_muts(conn)
+    gen_table_mab_muts(conn)
 
-    gen_table3()
-    gen_table4()
+    gen_table_summary(conn)
+    gen_table_plasma()
+    gen_table_mab()
     print('done')
 
 
