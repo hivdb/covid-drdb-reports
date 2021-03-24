@@ -287,7 +287,7 @@ Columns explained:
 - __Date__: Date data added to database
 - __Plasma__: CP (convalescent plasma), BNT162b2 (BNT162b2 vaccinated persons), mRNA-1273 (mRNA-1273 vaccinated persons), NVX-CoV2373 (NVX-CoV2373 vaccinated persons). For some CP, author-defined disease severity is provided (e.g., Mild, Hospitalized). For some samples, time since convalescence or vaccination is provided in weeks or months (e.g. 4W, 8M)
 - __Vaccine__: Vaccine name
-- __Infection__: Infected variant
+- __Infection__: For convalescent plasma samples, the infection is the variant that convalescent patients were infected. It is variant name if is known to be one of VOC(variants of concern) of VOI(variants of interest), otherwise by default it's "Unknown".
 - __Variant__: Variants of concern (for example, B.1.1.7, B.1.351, P.1), you can find all mutations [here](https://covdb.stanford.edu/page/mutation-viewer/), or combination of spike mutations (for example, S:69del+70del+453F)
 - __SpikeMutations__: SARS-CoV2 spike mutation list
 - __Control__: Variant used in control group
@@ -426,21 +426,16 @@ Columns explained:
 - __Source__: Location of data within reference
 - __Date__: Date data added to database
 - __mAb__: mAb name or abbreviation
-- __
+- __Dosage__: mAb dosage being used. "Low", "High", or actual dosage data(like 700mg)
+- __Host__: Host of _in vivo_ test, Human, Hamster, etc.
+- __Patient__: Patient population. Patient sample ID, "Hospitalized"/"NonHospitalized"
+- __Sampling__: Sampling date. "D": days, "M": months
+- __Infection__: For convalescent plasma samples, the infection is the variant that convalescent patients were infected. It is variant name if is known to be one of VOC(variants of concern) of VOI(variants of interest), otherwise by default it's "Unknown".
 - __Position__: Spike amino acid position
 - __AAMutation__: amino acid mutation
-
-    mAb,
-    Dosage=dosage,
-    Host = host,
-    Patient=patient,
-    Sampling=sampling,
-    Infection = infection_name,
-    SelectedMutations = SpikeMutations,
-    TotalPatients = num_patients,
-    PatientsWithMut = num_patients_with_mut,
-    Note=note
-
+- __TotalPatients__: Number of patients in the study
+- __PatientsWithMut__: Number of patients which the samples have the mutation
+- __Note__: Additional information
 
 You can copy, download, or print the table using buttons below:
 
