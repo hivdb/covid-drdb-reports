@@ -1,5 +1,6 @@
 import sys
 import sqlite3
+from pathlib import Path
 from preset import init_synonyms_map
 from preset import init_abname2class
 
@@ -14,7 +15,9 @@ from gen_table_mab_muts import gen_table_mab_muts
 
 
 def gen_report(db_path):
-    conn = sqlite3.connect(db_path)
+    db_path = Path(db_path).resolve()
+    print(db_path)
+    conn = sqlite3.connect(str(db_path))
     init_synonyms_map(conn)
     init_abname2class(conn)
 
