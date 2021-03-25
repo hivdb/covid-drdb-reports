@@ -1,82 +1,82 @@
 [
     {
         "mutation": "E484K",
-        "rx_name": "COV2-2130",
-        "escape_score": 0.001
-    },
-    {
-        "mutation": "E484K",
-        "rx_name": "COV2-2196",
-        "escape_score": 0.03
-    },
-    {
-        "mutation": "E484K",
-        "rx_name": "LY-CoV016",
-        "escape_score": 0.001
-    },
-    {
-        "mutation": "E484K",
-        "rx_name": "LY-CoV555",
+        "rx_name": "Bamlanivimab",
         "escape_score": 0.97
     },
     {
         "mutation": "E484K",
-        "rx_name": "LY-CoV555+LY-CoV016",
+        "rx_name": "Bamlanivimab/Etesevimab",
         "escape_score": 0.002
     },
     {
         "mutation": "E484K",
-        "rx_name": "REGN10933",
+        "rx_name": "Casirivimab",
         "escape_score": 0.008
     },
     {
         "mutation": "E484K",
-        "rx_name": "REGN10933+REGN10987",
+        "rx_name": "Casirivimab/Imdevimab",
         "escape_score": 0.001
     },
     {
         "mutation": "E484K",
-        "rx_name": "REGN10987",
+        "rx_name": "Cilgavimab",
+        "escape_score": 0.001
+    },
+    {
+        "mutation": "E484K",
+        "rx_name": "Etesevimab",
+        "escape_score": 0.001
+    },
+    {
+        "mutation": "E484K",
+        "rx_name": "Imdevimab",
+        "escape_score": 0.002
+    },
+    {
+        "mutation": "E484K",
+        "rx_name": "Tixagevimab",
+        "escape_score": 0.03
+    },
+    {
+        "mutation": "N501Y",
+        "rx_name": "Bamlanivimab",
         "escape_score": 0.002
     },
     {
         "mutation": "N501Y",
-        "rx_name": "COV2-2130",
+        "rx_name": "Bamlanivimab/Etesevimab",
+        "escape_score": 0.001
+    },
+    {
+        "mutation": "N501Y",
+        "rx_name": "Casirivimab",
         "escape_score": 0.003
     },
     {
         "mutation": "N501Y",
-        "rx_name": "COV2-2196",
-        "escape_score": 0.018
+        "rx_name": "Casirivimab/Imdevimab",
+        "escape_score": 0.001
     },
     {
         "mutation": "N501Y",
-        "rx_name": "LY-CoV016",
+        "rx_name": "Cilgavimab",
+        "escape_score": 0.003
+    },
+    {
+        "mutation": "N501Y",
+        "rx_name": "Etesevimab",
         "escape_score": 0.014
     },
     {
         "mutation": "N501Y",
-        "rx_name": "LY-CoV555",
+        "rx_name": "Imdevimab",
         "escape_score": 0.002
     },
     {
         "mutation": "N501Y",
-        "rx_name": "LY-CoV555+LY-CoV016",
-        "escape_score": 0.001
-    },
-    {
-        "mutation": "N501Y",
-        "rx_name": "REGN10933",
-        "escape_score": 0.003
-    },
-    {
-        "mutation": "N501Y",
-        "rx_name": "REGN10933+REGN10987",
-        "escape_score": 0.001
-    },
-    {
-        "mutation": "N501Y",
-        "rx_name": "REGN10987",
-        "escape_score": 0.002
+        "rx_name": "Tixagevimab",
+        "escape_score": 0.018
     }
 ]

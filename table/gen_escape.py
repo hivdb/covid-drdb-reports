@@ -2,6 +2,8 @@ from preset import DATA_FILE_PATH
 from operator import itemgetter
 from preset import dump_csv
 from preset import dump_json
+from preset import SYNONYM2AB_NAME
+from preset import MAB_RENAME
 
 
 EUA_RX_SQL = """
@@ -54,9 +56,12 @@ def gen_escape(
 
         cursor.execute(sql)
         for row in cursor.fetchall():
+            rx_name = row['rx_name']
+            rx_name = SYNONYM2AB_NAME.get(rx_name, rx_name)
+            rx_name = MAB_RENAME.get(rx_name, rx_name)
             results.append({
                 'mutation': mut,
-                'rx_name': row['rx_name'],
+                'rx_name': rx_name,
                 'escape_score': row['escape_score']
             })
 
