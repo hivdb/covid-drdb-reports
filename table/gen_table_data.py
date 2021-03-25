@@ -17,6 +17,7 @@ from plasma.gen_table_variant_aggre import gen_table_plasma_variant_aggre
 from plasma.gen_table_mut_aggre import gen_table_plasma_muts_aggre
 
 from gen_escape import gen_escape
+from gen_binding import gen_table_binding
 
 from lookup_view import get_aggregated_studies
 
@@ -44,6 +45,7 @@ def gen_report(db_path):
     gen_table_mab()
 
     gen_escape(conn)
+    gen_table_binding(conn)
     print('done')
 
 
