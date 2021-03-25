@@ -1,5 +1,5 @@
 ﻿mutation,ace2_binding,expression,ace2_contact
-E484K,0.06,-0.1,0
-K417N,-0.45,0.1,1
-L452R,0.02,0.32,0
-N501Y,0.24,-0.14,1
+E484K,0.06,-0.1,False
+K417N,-0.45,0.1,True
+L452R,0.02,0.32,False
+N501Y,0.24,-0.14,True

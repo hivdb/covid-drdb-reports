@@ -56,11 +56,16 @@ def gen_table_binding(
 
         cursor.execute(sql)
         for row in cursor.fetchall():
+            ace2_contact = row['ace2_contact']
+            if ace2_contact:
+                ace2_contact = True
+            else:
+                ace2_contact = False
             results.append({
                 'mutation': mut,
                 'ace2_binding': row['ace2_binding'],
                 'expression': row['expression'],
-                'ace2_contact': row['ace2_contact']
+                'ace2_contact': ace2_contact
             })
 
     results.sort(key=itemgetter('mutation'))
