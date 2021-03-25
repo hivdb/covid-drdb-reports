@@ -176,13 +176,13 @@ paddingTitle <- function(title) {
 }
 
 variantTitle = c(
-  "S:501Y" = "N501Y",
   "B.1.1.7 Spike" = "B.1.1.7",
-  "S:484K" = "E484K",
   "B.1.351 Spike" = "B.1.351",
   "P.1 Spike" = "P.1",
   # "S:452R" = "L452R",
-  "B.1.429 Spike" = "CAL.20C (S:S13I+W152C+L452R)"
+  "B.1.429 Spike" = "CAL.20C",
+  "S:501Y" = "N501Y",
+  "S:484K" = "E484K"
   #"S:417N" = "417N",
   #"S:439K" = "439K",
   #"S:453F" = "453F"
@@ -287,7 +287,7 @@ shortRefRxNames = c(
   "Xie21 BNT" = "BNT\nXie21",
   "Xie21b BNT" = "BNT\nXie21b"
 )
-yAxisStep = 5
+yAxisStep = 10
 longRefRxNames = names(shortRefRxNames)
 
 resistance_levels = c(
@@ -363,8 +363,8 @@ for (variant in filterVariants) {
       ) +
       scale_y_continuous(
         expand = c(0, 0, 0.3, 0),
-        limits = c(0, maxCount),
-        breaks = seq(0, maxCount, yAxisStep)
+        limits = c(0, 50),
+        breaks = seq(0, 50, yAxisStep)
       ) +
       # labs(title = variant) +
       scale_fill_manual(values = c(
