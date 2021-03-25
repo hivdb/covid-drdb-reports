@@ -115,7 +115,11 @@ SUBROWS = {
 }
 
 
-def gen_table_mab_variant(conn):
+def gen_table_mab_variant(
+        conn,
+        csv_save_path=DATA_FILE_PATH / 'table_mab_variant.csv',
+        json_save_path=DATA_FILE_PATH / 'table_mab_muts.json'
+        ):
     cursor = conn.cursor()
 
     records = []
@@ -170,8 +174,7 @@ def gen_table_mab_variant(conn):
     records.sort(key=itemgetter(
         'Variant name', 'Class', 'Mab name'))
 
-    save_path = DATA_FILE_PATH / 'table_mab_variant.csv'
-    dump_csv(save_path, records)
+    dump_csv(csv_save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
@@ -192,5 +195,4 @@ def gen_table_mab_variant(conn):
         })
 
     variant = sorted(records, key=itemgetter('variant'))
-    save_path = DATA_FILE_PATH / 'table_mab_variant.json'
-    dump_json(save_path, records)
+    dump_json(json_save_path, records)

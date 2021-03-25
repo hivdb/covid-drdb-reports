@@ -13,7 +13,7 @@ from preset import EXCLUDE_MAB
 from variant_filter import include_mutations
 
 
-MAIN_SQL = """
+MAB_MUTS_SQL = """
 SELECT  s.ref_name as ref_name,
         rxtype.ab_name as ab_name,
         rxtype.ab_class as ab_class,
@@ -177,7 +177,11 @@ SUBROWS = {
 }
 
 
-def gen_table_mab_muts(conn):
+def gen_table_mab_muts(
+        conn,
+        csv_save_path=DATA_FILE_PATH / 'table_mab_muts.csv',
+        json_save_path=DATA_FILE_PATH / 'table_mab_muts.json'
+        ):
     cursor = conn.cursor()
 
     records = []
@@ -188,7 +192,7 @@ def gen_table_mab_muts(conn):
 
                 r_filter = attr_r.get('filter', [])
                 filter = '\n    '.join(r_filter + resist_filter)
-                sql = MAIN_SQL.format(
+                sql = MAB_MUTS_SQL.format(
                     rxtype=rxtype,
                     filters=filter
                 )
@@ -227,8 +231,7 @@ def gen_table_mab_muts(conn):
     records.sort(key=itemgetter(
         'Variant name', 'Class', 'Mab name'))
 
-    save_path = DATA_FILE_PATH / 'table_mab_muts.csv'
-    dump_csv(save_path, records)
+    dump_csv(csv_save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
@@ -249,5 +252,4 @@ def gen_table_mab_muts(conn):
         })
 
     variant = sorted(records, key=itemgetter('variant'))
-    save_path = DATA_FILE_PATH / 'table_mab_muts.json'
-    dump_json(save_path, records)
+    dump_json(json_save_path, records)

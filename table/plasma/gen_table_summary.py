@@ -64,7 +64,7 @@ def process_record(variant, records):
     result = {'variant': variant}
     for plasma, rec_list in cp_groups.items():
         num_studies = len(
-            set([r['Reference'].replace('*', '').replace('†', '')
+            set([r['Reference'].replace('*', '')
                  for r in rec_list]))
         num_s = sum([int(r['S']) for r in rec_list])
         num_i = sum([int(r['I']) for r in rec_list])
