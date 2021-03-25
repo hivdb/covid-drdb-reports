@@ -35,10 +35,10 @@ B.1.526,CP,0
 B.1.526,IP,0
 B.1.526,mAbs phase3,3
 B.1.526,mAbs structure,0
-Other muation combinations,CP,588
-Other muation combinations,IP,512
-Other muation combinations,mAbs phase3,172
-Other muation combinations,mAbs structure,160
+Other combinations of mutations,CP,588
+Other combinations of mutations,IP,512
+Other combinations of mutations,mAbs phase3,172
+Other combinations of mutations,mAbs structure,160
 All combinations of mutations,CP,1609
 All combinations of mutations,IP,1405
 All combinations of mutations,mAbs phase3,345

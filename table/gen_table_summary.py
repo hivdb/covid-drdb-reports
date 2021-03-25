@@ -135,7 +135,7 @@ TABLE_SUMMARY_ROWS = {
     #         ),
     #     ]
     # },
-    'Other muation combinations': {
+    'Other combinations of mutations': {
         'join': [
             "virus_variants AS vs",
             (
