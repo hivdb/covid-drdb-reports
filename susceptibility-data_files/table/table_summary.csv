@@ -27,10 +27,10 @@ P.1,CP,111
 P.1,IP,127
 P.1,mAbs phase3,28
 P.1,mAbs structure,5
-CAL.20C,CP,32
-CAL.20C,IP,37
-CAL.20C,mAbs phase3,3
-CAL.20C,mAbs structure,0
+B.1.429/B.1.427,CP,32
+B.1.429/B.1.427,IP,37
+B.1.429/B.1.427,mAbs phase3,3
+B.1.429/B.1.427,mAbs structure,0
 B.1.526,CP,0
 B.1.526,IP,0
 B.1.526,mAbs phase3,3

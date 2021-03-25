@@ -105,7 +105,7 @@ TABLE_SUMMARY_ROWS = {
             "AND s.variant_name IN ('P.1 Spike', 'P.1 authentic')",
         ]
     },
-    'CAL.20C': {
+    'B.1.429/B.1.427': {
         'filter': [
             "AND s.variant_name IN ("
             "    'B.1.427 authentic',"

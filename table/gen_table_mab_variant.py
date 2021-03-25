@@ -90,7 +90,7 @@ ROWS = {
             "AND s.variant_name = 'P.1 authentic'",
         ]
     },
-    'CAL.20C': {
+    'B.1.429/B.1.427': {
         'filter': [
             "AND s.variant_name IN ("
             "    'B.1.427 authentic',"
@@ -118,7 +118,7 @@ SUBROWS = {
 def gen_table_mab_variant(
         conn,
         csv_save_path=DATA_FILE_PATH / 'table_mab_variant.csv',
-        json_save_path=DATA_FILE_PATH / 'table_mab_muts.json'
+        json_save_path=DATA_FILE_PATH / 'table_mab_variant.json'
         ):
     cursor = conn.cursor()
 
