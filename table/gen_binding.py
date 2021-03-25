@@ -58,9 +58,9 @@ def gen_table_binding(
         for row in cursor.fetchall():
             ace2_contact = row['ace2_contact']
             if ace2_contact:
-                ace2_contact = True
+                ace2_contact = 'Yes'
             else:
-                ace2_contact = False
+                ace2_contact = 'No'
             results.append({
                 'mutation': mut,
                 'ace2_binding': row['ace2_binding'],
