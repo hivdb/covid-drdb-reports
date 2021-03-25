@@ -24,7 +24,19 @@ ROWS = {
             "AND position = 484",
             "AND amino_acid = 'K'",
         ]
-    }
+    },
+    'K417N': {
+        'filter': [
+            "AND position = 417",
+            "AND amino_acid = 'N'",
+        ]
+    },
+    'L452R': {
+        'filter': [
+            "AND position = 452",
+            "AND amino_acid = 'R'",
+        ]
+    },
 }
 
 
