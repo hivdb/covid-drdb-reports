@@ -293,6 +293,7 @@ Columns explained:
 - __Control__: Variant used in control group
 - __FoldCmp__: Modifier of estimate of fold difference from the control "wildtype" virus: <, >, ~
 - __Fold__: Fold difference from the control "wildtype" virus
+- __Ineffective__: Some samples can't detect neutralizing activity on experimental testing, control testing, or both.
 - __Level__: Susceptibility level
 - __Assay__: Default assay is pseudovirus. Assays performed using "authentic" virus are indicated
 - __Count__: For some studies, data are presented in aggregate. In this case, the count indicates the number of experiments having the same entries in the Foldcmp and Fold columns
@@ -353,6 +354,7 @@ dfVariantPlasma %>%
     Control,
     FoldCmp,
     Fold,
+    Ineffective=ineffective,
     Level,
     Assay,
     Count,
