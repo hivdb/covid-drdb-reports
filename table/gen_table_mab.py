@@ -175,7 +175,9 @@ def process_record(variant, records):
 
         color = get_color(medium_value)
         if color:
-            color_tmpl = '<span style="color:{color}">{content}</span>'
+            color_tmpl = ('<span '
+                'style="padding: 0.1rem 0.2rem;margin: 0px 0.2rem;background-color:{color};color:white">'
+                '{content}</span>')
             result_markdown = color_tmpl.format(
                 color=color,
                 content=result_markdown
