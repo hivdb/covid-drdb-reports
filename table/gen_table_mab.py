@@ -49,6 +49,38 @@ DATA_PROBLEM = [
 ]
 
 
+def resistant_tester(x):
+    return x >= 10
+
+
+def partially_resistant_tester(x):
+    return x > 3 and x < 10
+
+
+COLOR_SETTING = {
+    'resistant': {
+        'tester': resistant_tester,
+        'color': '#146aa8',
+    },
+    'partially-resistant': {
+        'tester': partially_resistant_tester,
+        'color': '#7fcbee'
+    },
+}
+
+
+def get_color(medium_value):
+    medium_value = float(medium_value)
+
+    color = None
+    for level, attr in COLOR_SETTING.items():
+        tester = attr['tester']
+        if tester(medium_value):
+            color = attr['color']
+
+    return color
+
+
 def group_variants(records):
     variant_groups = defaultdict(list)
     for r in records:
@@ -125,9 +157,9 @@ def process_record(variant, records):
         medium_value = median(fold_values)
 
         if medium_value >= 100:
-            medium_value = '&gt;100'
+            medium_value_str = '&gt;100'
         else:
-            medium_value = str(round_number(medium_value))
+            medium_value_str = str(round_number(medium_value))
         # num_rec_list = len(set([row['Reference'] for i in rec_list]))
         num_rec_list = len(rec_list)
 
@@ -137,9 +169,19 @@ def process_record(variant, records):
                 tmpl += '*'
                 break
 
-        result[short_name] = tmpl.format(
-            medium_value, num_rec_list if num_rec_list > 1 else ''
+        result_markdown = tmpl.format(
+            medium_value_str, num_rec_list if num_rec_list > 1 else ''
         )
+
+        color = get_color(medium_value)
+        if color:
+            color_tmpl = '<span style="color:{color}">{content}</span>'
+            result_markdown = color_tmpl.format(
+                color=color,
+                content=result_markdown
+            )
+
+        result[short_name] = result_markdown
 
     return result
 
