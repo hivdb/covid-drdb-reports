@@ -12,7 +12,7 @@ K417N,Bamlanivimab/Etesevimab,0.002
 K417N,Casirivimab,0.003
 K417N,Casirivimab/Imdevimab,0.002
 K417N,Cilgavimab,0.001
-K417N,Etesevimab,0.997
+K417N,Etesevimab,0.995
 K417N,Imdevimab,0.002
 K417N,Tixagevimab,0.012
 L452R,Bamlanivimab,0.933
@@ -28,6 +28,6 @@ N501Y,Bamlanivimab/Etesevimab,0.001
 N501Y,Casirivimab,0.003
 N501Y,Casirivimab/Imdevimab,0.001
 N501Y,Cilgavimab,0.003
-N501Y,Etesevimab,0.014
+N501Y,Etesevimab,0.013
 N501Y,Imdevimab,0.002
 N501Y,Tixagevimab,0.018
