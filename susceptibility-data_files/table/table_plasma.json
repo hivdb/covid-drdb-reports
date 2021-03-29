@@ -9,14 +9,14 @@
         "vac_num_s_fold": 256,
         "vac_num_i_fold": 71,
         "vac_num_r_fold": 29,
-        "cp_studies": 12,
-        "cp_samples": 262,
-        "cp_s_fold": "82%",
-        "cp_i_fold": "13%",
-        "cp_r_fold": "5%",
-        "cp_num_s_fold": 215,
-        "cp_num_i_fold": 35,
-        "cp_num_r_fold": 12
+        "cp_studies": 13,
+        "cp_samples": 271,
+        "cp_s_fold": "80%",
+        "cp_i_fold": "14%",
+        "cp_r_fold": "6%",
+        "cp_num_s_fold": 218,
+        "cp_num_i_fold": 38,
+        "cp_num_r_fold": 15
     },
     {
         "variant": "B.1.351",
@@ -28,14 +28,14 @@
         "vac_num_s_fold": 46,
         "vac_num_i_fold": 131,
         "vac_num_r_fold": 90,
-        "cp_studies": 15,
-        "cp_samples": 333,
+        "cp_studies": 16,
+        "cp_samples": 341,
         "cp_s_fold": "19%",
         "cp_i_fold": "33%",
         "cp_r_fold": "48%",
-        "cp_num_s_fold": 63,
-        "cp_num_i_fold": 111,
-        "cp_num_r_fold": 159
+        "cp_num_s_fold": 64,
+        "cp_num_i_fold": 112,
+        "cp_num_r_fold": 165
     },
     {
         "variant": "P.1",

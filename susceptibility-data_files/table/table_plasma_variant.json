@@ -182,6 +182,14 @@
                 "variant": "B.1.1.7",
                 "rx": "CP",
                 "s_fold": 3,
+                "i_fold": 3,
+                "r_fold": 3,
+                "reference": "Skelly21"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "CP",
+                "s_fold": 3,
                 "i_fold": 5,
                 "r_fold": 0,
                 "reference": "Tang21"
@@ -476,7 +484,7 @@
                 "rx": "CP",
                 "s_fold": 0,
                 "i_fold": 2,
-                "r_fold": 7,
+                "r_fold": 6,
                 "reference": "Marot21*"
             },
             {
@@ -486,6 +494,14 @@
                 "i_fold": 10,
                 "r_fold": 29,
                 "reference": "Moyo-Gwete21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "CP",
+                "s_fold": 1,
+                "i_fold": 1,
+                "r_fold": 7,
+                "reference": "Skelly21"
             },
             {
                 "variant": "B.1.351",

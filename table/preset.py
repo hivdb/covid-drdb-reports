@@ -192,7 +192,13 @@ RENAME_CP_EXECUTOR = {
             lambda x: x.startswith('ConvSerum') or x.startswith('ConvPlasma'),
             'CP',
         ),
-    ]
+    ],
+    'Skelly21': [
+        (
+            lambda x: x.startswith('CP'),
+            'CP'
+        ),
+    ],
 }
 
 

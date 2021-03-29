@@ -285,7 +285,9 @@ shortRefRxNames = c(
   "Widera21 CP LiveVirus" = "Widera21*\n",
   "Widera21 BNT LiveVirus" = "BNT\nWidera21*",
   "Xie21 BNT" = "BNT\nXie21",
-  "Xie21b BNT" = "BNT\nXie21b"
+  "Xie21b BNT" = "BNT\nXie21b",
+  "Skelly21 BNT LiveVirus" = "BNT\nSkelly21",
+  "Skelly21 CP" = "Skelly21\n"
 )
 yAxisStep = 10
 longRefRxNames = names(shortRefRxNames)
