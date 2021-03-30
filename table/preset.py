@@ -264,24 +264,22 @@ PLASMA_POST_RENAME = {
 
 MAB_RENAME = {
     'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
-    'REGN10933/10987': 'Casirivimab/Imdevimab',
-    'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
-    'REGN10933 + REGN10987': 'Casirivimab/Imdevimab',
-    'Vir-7831': 'Sotrovimab',
-    'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
     'LY-CoV555+LY-CoV016': 'Bamlanivimab/Etesevimab',
+    'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
     'COV2-2196+COV2-2130': 'Cilgavimab/Tixagevimab',
+    'Vir-7831': 'Sotrovimab',
+    'REGN10933 + REGN10987': 'Casirivimab/Imdevimab',
+    'REGN10933/10987': 'Casirivimab/Imdevimab',
+    'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
+    'BRII-196+BRII-198': 'BRII-196/BRII-198',
+    'BRII-196/198': 'BRII-196/BRII-198',
 }
 
 EXCLUDE_MAB = [
-    'BRII-196',
-    'BRII-198',
     'REGN10989/10987',
-    'BRII-196/198',
     'DH1041',
     '5-24',
     '910-30',
-    'BRII-196+BRII-198',
 ]
 
 
