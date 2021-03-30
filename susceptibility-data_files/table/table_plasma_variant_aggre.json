@@ -115,10 +115,10 @@
         ]
     },
     {
-        "variant": "B.1.429/B.1.427",
+        "variant": "B.1.427/9",
         "assays": [
             {
-                "variant": "B.1.429/B.1.427",
+                "variant": "B.1.427/9",
                 "rx": "BNT162b2",
                 "fold": "2.9",
                 "samples": 22,

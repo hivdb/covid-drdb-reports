@@ -92,7 +92,7 @@ VARIANTS = {
             "AND s.variant_name = 'P.1 authentic'",
         ]
     },
-    'B.1.429/B.1.427': {
+    'B.1.427/9': {
         'filter': [
             "AND s.variant_name IN ("
             "    'B.1.427 authentic',"
