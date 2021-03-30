@@ -33,6 +33,13 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "BNT162b2",
+                "fold": "2.0",
+                "samples": 25,
+                "reference": "Skelly21"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "BNT162b2",
                 "fold": "3.3",
                 "samples": 25,
                 "reference": "Supasa21*"
@@ -83,6 +90,13 @@
                 "fold": "6.8",
                 "samples": 10,
                 "reference": "Kuzmina21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2",
+                "fold": "5.0",
+                "samples": 25,
+                "reference": "Skelly21"
             },
             {
                 "variant": "B.1.351",
