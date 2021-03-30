@@ -46,6 +46,13 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "BNT162b2",
+                "fold": "2.0",
+                "samples": 18,
+                "reference": "Zuckerman21*"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "CP",
                 "fold": "4.5",
                 "samples": 27,
