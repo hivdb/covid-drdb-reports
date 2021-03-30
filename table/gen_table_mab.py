@@ -35,12 +35,12 @@ SHOW_MABS = {
     'Casirivimab+Imdevimab': 'cas_imd',
     'Cilgavimab+Tixagevimab': 'cil_tix',
     'Bamlanivimab+Etesevimab': 'bam_ete',
-    # 'BRII-196': 'BRII-196',
-    # 'BRII-198': 'BRII-198',
-    # 'C135': 'C135',
-    # 'C144': 'C144',
-    # 'JMB2002': 'JMB2002',
-    # 'S2E12': 'S2E12',
+    'BRII-196': 'BRII-196',
+    'BRII-198': 'BRII-198',
+    'C135': 'C135',
+    'C144': 'C144',
+    'JMB2002': 'JMB2002',
+    'ADG20': 'ADG20',
 }
 
 DATA_PROBLEM = [

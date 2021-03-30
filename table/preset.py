@@ -271,7 +271,6 @@ MAB_RENAME = {
     'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
     'LY-CoV555+LY-CoV016': 'Bamlanivimab/Etesevimab',
     'COV2-2196+COV2-2130': 'Cilgavimab/Tixagevimab',
-
 }
 
 EXCLUDE_MAB = [
