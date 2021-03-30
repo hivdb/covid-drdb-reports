@@ -3,9 +3,6 @@ from preset import dump_csv
 from preset import dump_json
 from collections import defaultdict
 
-from preset import EXCLUDE_PLASMA
-from preset import EXCLUDE_STUDIES
-
 from variant_filter import include_mutations
 from variant_filter import exclude_mutations
 

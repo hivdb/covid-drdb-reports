@@ -191,9 +191,10 @@ filterVariants = names(variantTitle)
 excludedRefRxNames = c(
   "Planas21 CP_M3",
   "Planas21 CP_M6",
-  "Planas21 CP_M9",
   "Planas21 BNT_W2",
   "Planas21 BNT_W3",
+  "Planas21 BNT_W4",
+  "Planas21 BNT_W5",
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
   "Collier21 CP",
@@ -287,7 +288,9 @@ shortRefRxNames = c(
   "Xie21 BNT" = "BNT\nXie21",
   "Xie21b BNT" = "BNT\nXie21b",
   "Skelly21 BNT LiveVirus" = "BNT\nSkelly21",
-  "Skelly21 CP" = "Skelly21\n"
+  "Skelly21 CP" = "Skelly21\n",
+  "Planas21 CP_M9" = "Planas21\n",
+  "Planas21 BNT_W6" = "BNT\nPlanas21"
 )
 yAxisStep = 10
 longRefRxNames = names(shortRefRxNames)

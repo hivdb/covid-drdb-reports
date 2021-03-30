@@ -155,7 +155,6 @@ RESISTANCE_FILTER = {
 
 
 EXCLUDE_STUDIES = {
-    'Planas21': lambda x: x.startswith('CP') or (not x.endswith('W4')),
     'Garcia-Beltran21': lambda x: x.startswith('BNT') or x.startswith('mRNA'),
     'Collier21': lambda x: x.startswith('CP'),
     'Widera21': lambda x: x.startswith('CP') or x.startswith('BNT'),
@@ -173,20 +172,6 @@ EXCLUDE_PLASMA = [
 
 
 RENAME_CP_EXECUTOR = {
-    'Planas21': [
-        (
-            lambda x: x.startswith('VAC') and x.endswith('W4'),
-            'BNT162b2'
-        ),
-        (
-            lambda x: x.startswith('VAC') and x.endswith('W2'),
-            'BNT162b2_W2'
-        ),
-        (
-            lambda x: x.startswith('VAC') and x.endswith('W3'),
-            'BNT162b2_W3'
-        ),
-    ],
     'Hoffmann21b': [
         (
             lambda x: x.startswith('ConvSerum') or x.startswith('ConvPlasma'),
