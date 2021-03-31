@@ -8,8 +8,8 @@ INDIVIDUAL_RESULTS_SQL = """
 SELECT
     s.ref_name as ref_name,
     s.rx_name as rx_name,
-    SUM(s.cumulative_count) as sample_count,
-    COUNT(1) as study_count
+    s.cumulative_count as sample_count,
+    s.fold as fold
 FROM
     (
 """ + INDIVIDUAL_SAMPLE_SQL + """
@@ -19,7 +19,6 @@ FROM
     AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     -- AND s.ineffective IS NULL
     {filters}
-    GROUP BY s.ref_name, s.rx_name;
 """
 
 

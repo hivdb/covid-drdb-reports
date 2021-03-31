@@ -1,9 +1,9 @@
 from preset import DATA_FILE_PATH
 
 from .common import gen_plasma_aggre_table
-from .prefix import SUBROWS
-from .prefix import VARIANTS
-from .prefix import AGGREGATED_RESULTS_SQL
+from .preset import SUBROWS
+from .preset import VARIANTS
+from .preset import AGGREGATED_RESULTS_SQL
 from .common import record_modifier
 
 

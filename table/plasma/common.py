@@ -1,6 +1,8 @@
+import statistics
 from preset import dump_csv
 from operator import itemgetter
 from collections import defaultdict
+from preset import round_number
 from preset import dump_json
 from preset import RESISTANCE_FILTER
 from preset import EXCLUDE_PLASMA
@@ -42,7 +44,7 @@ def gen_plasma_table(
                     cp_name = row['rx_name']
                     reference = row['ref_name']
                     num_results = row['sample_count']
-                    # num_records = row['study_count']
+                    fold = row['fold']
 
                     # if cp_name in EXCLUDE_PLASMA:
                     #     continue
@@ -64,6 +66,14 @@ def gen_plasma_table(
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)
+
+                    if not rec.get('folds'):
+                        rec['folds'] = []
+
+                    fold_list = rec.get('folds')
+                    if fold is not None:
+                        fold_list.append(fold)
+
                     if resist_name == 'susceptible':
                         rec['S'] += num_results
                     elif resist_name == 'partial':
@@ -72,6 +82,14 @@ def gen_plasma_table(
                         rec['R'] += num_results
 
                     rec['Reference'] = reference
+
+    for rec in records.values():
+        folds = rec.get('folds', [])
+        if folds:
+            rec['Median'] = str(round_number(statistics.median(folds)))
+        else:
+            rec['Median'] = '-'
+        del rec['folds']
 
     records = list(records.values())
 
@@ -108,7 +126,8 @@ def convert_to_json(json_save_path, records):
             's_fold': r['S'],
             'i_fold': r['I'],
             'r_fold': r['R'],
-            'reference': r['Reference']
+            'reference': r['Reference'],
+            'median': r['Median'],
         })
 
     results = []

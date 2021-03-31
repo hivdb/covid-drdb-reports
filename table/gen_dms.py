@@ -54,7 +54,7 @@ def gen_dms(conn,
 
     headers = [
         'gene', 'position', 'amino_acid',
-        'ace2_binding', 'expression', 'ace2_contact'] + list(headers)
+        'ace2_binding', 'expression', 'ace2_contact'] + sorted(list(headers))
 
     dump_csv(csv_save_path, list(dms_info.values()), headers)
     # dump_json(json_save_path, list(dms_info.values()))
