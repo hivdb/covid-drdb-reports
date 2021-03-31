@@ -64,16 +64,16 @@
     },
     {
         "variant": "Other combinations of mutations",
-        "cp": 588,
-        "ip": 530,
+        "cp": 592,
+        "ip": 636,
         "phase3": 172,
-        "structure": 160
+        "structure": 161
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 1626,
-        "ip": 1543,
+        "cp": 1630,
+        "ip": 1649,
         "phase3": 348,
-        "structure": 215
+        "structure": 216
     }
 ]

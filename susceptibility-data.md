@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 03/30/2021 12:37 PM PDT
+Report generated at: 03/31/2021 02:25 PM PDT
 
 
 
@@ -75,11 +75,11 @@ Report generated at: 03/30/2021 12:37 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 475 </td>
-   <td style="text-align:right;"> 312 </td>
+   <td style="text-align:right;"> 479 </td>
+   <td style="text-align:right;"> 418 </td>
    <td style="text-align:right;"> 162 </td>
-   <td style="text-align:right;"> 156 </td>
-   <td style="text-align:right;"> 412 </td>
+   <td style="text-align:right;"> 157 </td>
+   <td style="text-align:right;"> 414 </td>
   </tr>
 </tbody>
 </table>
@@ -100,7 +100,7 @@ Report generated at: 03/30/2021 12:37 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 181 </td>
+   <td style="text-align:right;"> 180 </td>
   </tr>
 </tbody>
 </table>
