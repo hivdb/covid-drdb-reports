@@ -28,11 +28,11 @@ CPInfectionNames = c(
 )
 
 variantSynonyms = c(
-  "B.1.1.7 authentic" = "B.1.1.7 Spike",
-  "B.1.351 authentic" = "B.1.351 Spike",
-  "P.1 authentic" = "P.1 Spike",
-  "B.1.429 authentic" = "B.1.429 Spike",
-  "B.1.427 authentic" = "B.1.429 Spike",
+  "B.1.1.7 full genome" = "B.1.1.7 Spike",
+  "B.1.351 full genome" = "B.1.351 Spike",
+  "P.1 full genome" = "P.1 Spike",
+  "B.1.429 full genome" = "B.1.429 Spike",
+  "B.1.427 full genome" = "B.1.429 Spike",
   "S:501Y+614G" = "S:501Y",
   "S:484K+614G" = "S:484K",
   "S:452R+614G" = "S:452R",

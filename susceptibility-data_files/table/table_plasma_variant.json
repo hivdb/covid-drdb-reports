@@ -52,7 +52,7 @@
                 "rx": "BNT162b2",
                 "s_fold": 16,
                 "i_fold": 10,
-                "r_fold": 3,
+                "r_fold": 0,
                 "reference": "Marot21*",
                 "median": "2"
             },
@@ -205,9 +205,9 @@
                 "rx": "CP",
                 "s_fold": 5,
                 "i_fold": 2,
-                "r_fold": 2,
+                "r_fold": 0,
                 "reference": "Marot21*",
-                "median": "2"
+                "median": "1"
             },
             {
                 "variant": "B.1.1.7",
@@ -223,9 +223,9 @@
                 "rx": "CP",
                 "s_fold": 3,
                 "i_fold": 3,
-                "r_fold": 3,
+                "r_fold": 1,
                 "reference": "Skelly21",
-                "median": "3.4"
+                "median": "3.2"
             },
             {
                 "variant": "B.1.1.7",
@@ -259,7 +259,7 @@
                 "rx": "CP",
                 "s_fold": 23,
                 "i_fold": 0,
-                "r_fold": 1,
+                "r_fold": 0,
                 "reference": "Wang21f",
                 "median": "1.2"
             },
@@ -268,9 +268,9 @@
                 "rx": "CP",
                 "s_fold": 1,
                 "i_fold": 2,
-                "r_fold": 7,
+                "r_fold": 1,
                 "reference": "Widera21*",
-                "median": ">100"
+                "median": "8"
             },
             {
                 "variant": "B.1.1.7",
@@ -408,27 +408,27 @@
                 "rx": "AZD1222",
                 "s_fold": 0,
                 "i_fold": 3,
-                "r_fold": 22,
+                "r_fold": 3,
                 "reference": "Madhi21",
-                "median": "6.6"
+                "median": "8.6"
             },
             {
                 "variant": "B.1.351",
                 "rx": "AZD1222",
                 "s_fold": 2,
                 "i_fold": 11,
-                "r_fold": 12,
+                "r_fold": 3,
                 "reference": "Zhou21b*",
-                "median": "7.5"
+                "median": "7.3"
             },
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
                 "s_fold": 1,
                 "i_fold": 3,
-                "r_fold": 2,
+                "r_fold": 1,
                 "reference": "Becker21*",
-                "median": "5.6"
+                "median": "5.3"
             },
             {
                 "variant": "B.1.351",
@@ -462,7 +462,7 @@
                 "rx": "BNT162b2",
                 "s_fold": 3,
                 "i_fold": 19,
-                "r_fold": 7,
+                "r_fold": 1,
                 "reference": "Marot21*",
                 "median": "4"
             },
@@ -507,9 +507,9 @@
                 "rx": "BNT162b2",
                 "s_fold": 1,
                 "i_fold": 14,
-                "r_fold": 9,
+                "r_fold": 8,
                 "reference": "Zhou21b*",
-                "median": "7.6"
+                "median": "7.5"
             },
             {
                 "variant": "B.1.351",
@@ -561,9 +561,9 @@
                 "rx": "CP",
                 "s_fold": 3,
                 "i_fold": 1,
-                "r_fold": 3,
+                "r_fold": 2,
                 "reference": "Becker21*",
-                "median": "10"
+                "median": "6.1"
             },
             {
                 "variant": "B.1.351",
@@ -579,7 +579,7 @@
                 "rx": "CP",
                 "s_fold": 1,
                 "i_fold": 11,
-                "r_fold": 16,
+                "r_fold": 7,
                 "reference": "Faulkner21*",
                 "median": "8.8"
             },
@@ -606,18 +606,18 @@
                 "rx": "CP",
                 "s_fold": 0,
                 "i_fold": 2,
-                "r_fold": 6,
+                "r_fold": 0,
                 "reference": "Marot21*",
-                "median": "4"
+                "median": "6"
             },
             {
                 "variant": "B.1.351",
                 "rx": "CP",
                 "s_fold": 5,
                 "i_fold": 10,
-                "r_fold": 29,
+                "r_fold": 8,
                 "reference": "Moyo-Gwete21",
-                "median": "8.8"
+                "median": "7.6"
             },
             {
                 "variant": "B.1.351",
@@ -642,9 +642,9 @@
                 "rx": "CP",
                 "s_fold": 1,
                 "i_fold": 1,
-                "r_fold": 6,
+                "r_fold": 2,
                 "reference": "Tang21",
-                "median": "8.3"
+                "median": "9.4"
             },
             {
                 "variant": "B.1.351",
@@ -669,27 +669,27 @@
                 "rx": "CP",
                 "s_fold": 3,
                 "i_fold": 7,
-                "r_fold": 14,
+                "r_fold": 2,
                 "reference": "Wang21f",
-                "median": "64"
+                "median": "5.6"
             },
             {
                 "variant": "B.1.351",
                 "rx": "CP",
                 "s_fold": 0,
                 "i_fold": 2,
-                "r_fold": 8,
+                "r_fold": 2,
                 "reference": "Widera21*",
-                "median": ">100"
+                "median": "12"
             },
             {
                 "variant": "B.1.351",
                 "rx": "CP",
-                "s_fold": 3,
+                "s_fold": 2,
                 "i_fold": 11,
-                "r_fold": 20,
+                "r_fold": 4,
                 "reference": "Zhou21b*",
-                "median": "8.4"
+                "median": "6"
             },
             {
                 "variant": "B.1.351",
@@ -705,27 +705,27 @@
                 "rx": "CP(High Titer)",
                 "s_fold": 1,
                 "i_fold": 7,
-                "r_fold": 14,
+                "r_fold": 7,
                 "reference": "Wibmer21",
-                "median": "14"
+                "median": "8.7"
             },
             {
                 "variant": "B.1.351",
                 "rx": "CP(Low Titer)",
                 "s_fold": 4,
                 "i_fold": 2,
-                "r_fold": 7,
+                "r_fold": 0,
                 "reference": "Wibmer21",
-                "median": "11"
+                "median": "1.2"
             },
             {
                 "variant": "B.1.351",
                 "rx": "CP(WT)",
                 "s_fold": 0,
                 "i_fold": 2,
-                "r_fold": 4,
+                "r_fold": 3,
                 "reference": "Cele21*",
-                "median": "46"
+                "median": "38"
             },
             {
                 "variant": "B.1.351",
@@ -868,7 +868,7 @@
                 "rx": "AZD1222",
                 "s_fold": 17,
                 "i_fold": 7,
-                "r_fold": 1,
+                "r_fold": 0,
                 "reference": "Dejnirattisai21*",
                 "median": "2.7"
             },
@@ -904,7 +904,7 @@
                 "rx": "BNT162b2",
                 "s_fold": 8,
                 "i_fold": 1,
-                "r_fold": 1,
+                "r_fold": 0,
                 "reference": "Wang21c",
                 "median": "1.9"
             },
@@ -940,9 +940,9 @@
                 "rx": "CP",
                 "s_fold": 4,
                 "i_fold": 2,
-                "r_fold": 2,
+                "r_fold": 0,
                 "reference": "Tang21",
-                "median": "4.0"
+                "median": "2.8"
             },
             {
                 "variant": "P.1",
@@ -958,9 +958,9 @@
                 "rx": "CP",
                 "s_fold": 15,
                 "i_fold": 5,
-                "r_fold": 4,
+                "r_fold": 0,
                 "reference": "Wang21f",
-                "median": "2.3"
+                "median": "2.0"
             },
             {
                 "variant": "P.1",
@@ -976,9 +976,9 @@
                 "rx": "mRNA-1273",
                 "s_fold": 0,
                 "i_fold": 0,
-                "r_fold": 4,
+                "r_fold": 3,
                 "reference": "Garcia-Beltran21",
-                "median": "22"
+                "median": "19"
             },
             {
                 "variant": "P.1",

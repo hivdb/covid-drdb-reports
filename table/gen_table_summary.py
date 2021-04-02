@@ -89,24 +89,24 @@ TABLE_SUMMARY_ROWS = {
     },
     'B.1.1.7': {
         'filter': [
-            "AND s.variant_name IN ('B.1.1.7 Spike', 'B.1.1.7 authentic')",
+            "AND s.variant_name IN ('B.1.1.7 Spike', 'B.1.1.7 full genome')",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.variant_name IN ('B.1.351 Spike', 'B.1.351 authentic')",
+            "AND s.variant_name IN ('B.1.351 Spike', 'B.1.351 full genome')",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.variant_name IN ('P.1 Spike', 'P.1 authentic')",
+            "AND s.variant_name IN ('P.1 Spike', 'P.1 full genome')",
         ]
     },
     'B.1.427/9': {
         'filter': [
             "AND s.variant_name IN ("
-            "    'B.1.427 authentic',"
-            "    'B.1.429 authentic',"
+            "    'B.1.427 full genome',"
+            "    'B.1.429 full genome',"
             "    'B.1.429 Spike')",
         ]
     },
@@ -114,7 +114,7 @@ TABLE_SUMMARY_ROWS = {
         'filter': [
             include_mutations([
                 'B.1.526 Spike',
-                'B.1.526 authentic',
+                'B.1.526 full genome',
             ])
         ]
     },
@@ -123,11 +123,11 @@ TABLE_SUMMARY_ROWS = {
     #         (
     #             "AND ("
     #             "      s.variant_name IN ('B.1.1.7 Spike',
-    #                                      'B.1.1.7 authentic')"
+    #                                      'B.1.1.7 full genome')"
     #             "   OR s.variant_name IN ('B.1.351 Spike',
-    #                                      'B.1.351 authentic')"
+    #                                      'B.1.351 full genome')"
     #             "   OR s.variant_name IN ('P.1 Spike',
-    #                                      'P.1 authentic')"
+    #                                      'P.1 full genome')"
     #             "   )"
     #         ),
     #     ]
@@ -145,19 +145,19 @@ TABLE_SUMMARY_ROWS = {
             "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
             exclude_mutations([
                 'B.1.1.7 Spike',
-                'B.1.1.7 authentic',
+                'B.1.1.7 full genome',
             ]),
             exclude_mutations([
                 'B.1.351 Spike',
-                'B.1.351 authentic',
+                'B.1.351 full genome',
             ]),
             exclude_mutations([
                 'P.1 Spike',
-                'P.1 authentic',
+                'P.1 full genome',
             ]),
             exclude_mutations([
-                'B.1.427 authentic',
-                'B.1.429 authentic',
+                'B.1.427 full genome',
+                'B.1.429 full genome',
                 'B.1.429 Spike'
             ]),
             exclude_mutations([
@@ -170,7 +170,7 @@ TABLE_SUMMARY_ROWS = {
             ]),
             exclude_mutations([
                 'B.1.526 Spike',
-                'B.1.526 authentic',
+                'B.1.526 full genome',
             ])
         ]
     },
@@ -254,11 +254,11 @@ TABLE_SUMMARY_COLUMNS = {
 #             (
 #                 "AND ("
 #                 "      s.variant_name IN ('B.1.1.7 Spike',
-#                                          'B.1.1.7 authentic')"
+#                                          'B.1.1.7 full genome')"
 #                 "   OR s.variant_name IN ('B.1.351 Spike'
-#                                          'B.1.351 authentic')"
+#                                          'B.1.351 full genome')"
 #                 "   OR s.variant_name IN ('P.1 Spike'
-#                                          'P.1 authentic')"
+#                                          'P.1 full genome')"
 #                 "   )"
 #             ),
 #         ]

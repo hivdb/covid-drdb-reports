@@ -160,7 +160,7 @@ EXCLUDE_STUDIES = {
     'Widera21': lambda x: x.startswith('CP') or x.startswith('BNT'),
     'Brown21': lambda x: x.startswith('CP') or x.startswith('BNT'),
     'Supasa21': lambda x: x.startswith('CP')
-                          or x.startswith('BNT') or x.startswith('AZD'),
+                or x.startswith('BNT') or x.startswith('AZD'),
     'Edara21': lambda x: x == 'CP_acute',
 }
 

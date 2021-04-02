@@ -145,7 +145,7 @@ def record_modifier(record):
     variant_name = record['Variant name']
     reference = record['Reference']
 
-    if variant_name.endswith('authentic'):
+    if variant_name.endswith('full genome'):
         reference = '{}*'.format(reference)
         variant_name = variant_name.split()[0]
 

@@ -251,8 +251,8 @@ dfSuscResultsMAb %>%
     SpikeMutations = ifelse(expandable, spike_muts, variant_name)
   ) %>%
   mutate(
-    variant_name = str_replace(variant_name, 'authentic', 'Spike'),
-    Control = str_replace(Control, 'authentic', 'Spike')
+    variant_name = str_replace(variant_name, 'full genome', 'Spike'),
+    Control = str_replace(Control, 'full genome', 'Spike')
   ) %>%
   select(
     Author = ref_name,
@@ -336,9 +336,9 @@ dfVariantPlasma %>%
     SpikeMutations = ifelse(expandable, spike_muts, variant_name)
   ) %>%
   mutate(
-    variant_name = str_replace(variant_name, 'authentic', 'Spike'),
-    Control = str_replace(Control, 'authentic', 'Spike'),
-    infection = str_replace(infection, 'authentic', 'Spike')
+    variant_name = str_replace(variant_name, 'full genome', 'Spike'),
+    Control = str_replace(Control, 'full genome', 'Spike'),
+    infection = str_replace(infection, 'full genome', 'Spike')
   ) %>%
   select(
     Author = ref_name,

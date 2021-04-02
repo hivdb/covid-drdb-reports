@@ -65,9 +65,9 @@ ROWS = {
             "AND s.variant_name = 'B.1.1.7 Spike'",
         ]
     },
-    'B.1.1.7 authentic': {
+    'B.1.1.7 full genome': {
         'filter': [
-            "AND s.variant_name = 'B.1.1.7 authentic'",
+            "AND s.variant_name = 'B.1.1.7 full genome'",
         ]
     },
     'B.1.351': {
@@ -75,9 +75,9 @@ ROWS = {
             "AND s.variant_name = 'B.1.351 Spike'",
         ]
     },
-    'B.1.351 authentic': {
+    'B.1.351 full genome': {
         'filter': [
-            "AND s.variant_name = 'B.1.351 authentic'",
+            "AND s.variant_name = 'B.1.351 full genome'",
         ]
     },
     'P.1': {
@@ -85,16 +85,16 @@ ROWS = {
             "AND s.variant_name = 'P.1 Spike'",
         ]
     },
-    'P.1 authentic': {
+    'P.1 full genome': {
         'filter': [
-            "AND s.variant_name = 'P.1 authentic'",
+            "AND s.variant_name = 'P.1 full genome'",
         ]
     },
     'B.1.427/9': {
         'filter': [
             "AND s.variant_name IN ("
-            "    'B.1.427 authentic',"
-            "    'B.1.429 authentic',"
+            "    'B.1.427 full genome',"
+            "    'B.1.429 full genome',"
             "    'B.1.429 Spike')",
         ]
     },
@@ -102,7 +102,7 @@ ROWS = {
         'filter': [
             include_mutations([
                 'B.1.526 Spike',
-                'B.1.526 authentic',
+                'B.1.526 full genome',
             ])
         ]
     },
@@ -158,7 +158,7 @@ def gen_table_mab_variant(
                     fold = '{}'.format(round_number(fold))
 
                     variant_name = row_name
-                    if variant_name.endswith('authentic'):
+                    if variant_name.endswith('full genome'):
                         reference = '{}*'.format(reference)
                         variant_name = variant_name.split()[0]
 
