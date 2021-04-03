@@ -183,6 +183,10 @@ RENAME_CP_EXECUTOR = {
             lambda x: x.startswith('CP'),
             'CP'
         ),
+        (
+            lambda x: x.startswith('BNTsd'),
+            'BNT_one_dose'
+        )
     ],
 }
 

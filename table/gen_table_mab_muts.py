@@ -213,10 +213,10 @@ def gen_table_mab_muts(
                     if '/' in ab_name or '+' in ab_name:
                         ab_class = ''
 
-                    ineffective = row['ineffective']
+                    # ineffective = row['ineffective']
                     fold = row['fold']
-                    if ineffective:
-                        fold = 100
+                    # if ineffective:
+                    #     fold = 100
                     fold = '{}'.format(round_number(fold))
 
                     records.append({
