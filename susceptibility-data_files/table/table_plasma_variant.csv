@@ -5,6 +5,7 @@ B.1.1.7,BNT162b2,8,1,0,Brown21*,0.8
 B.1.1.7,BNT162b2,20,4,0,Chen21*,1.9
 B.1.1.7,BNT162b2,15,0,0,Hoffmann21,1.4
 B.1.1.7,BNT162b2,16,10,0,Marot21*,2
+B.1.1.7,BNT162b2,12,1,0,McCallum21b,1.1
 B.1.1.7,BNT162b2,40,0,0,Muik21,1.3
 B.1.1.7,BNT162b2,9,1,0,Wang21b,1.9
 B.1.1.7,BNT162b2,10,0,0,Wang21b*,0.9
@@ -14,7 +15,8 @@ B.1.1.7,BNT162b2_W3,11,4,1,Planas21,2.5
 B.1.1.7,BNT162b2_W4,8,2,0,Planas21,0.9
 B.1.1.7,BNT162b2_W5,13,0,0,Planas21,0.9
 B.1.1.7,BNT162b2_W6,13,0,0,Planas21,0.3
-B.1.1.7,BNT_one_dose,0,0,5,Skelly21*,67
+B.1.1.7,BNT162b2_infected,4,1,0,McCallum21b,1.6
+B.1.1.7,BNT162b2_one_dose,0,0,5,Skelly21*,67
 B.1.1.7,CP,5,0,0,Brown21,0.8
 B.1.1.7,CP,8,0,0,Brown21*,0.7
 B.1.1.7,CP,18,1,0,Chen21*,1.4
@@ -51,6 +53,7 @@ B.1.351,BNT162b2,0,12,12,Chen21*,10
 B.1.351,BNT162b2,4,9,2,Hoffmann21,5
 B.1.351,BNT162b2,15,5,0,Liu21b,2
 B.1.351,BNT162b2,3,19,2,Marot21*,4
+B.1.351,BNT162b2,3,9,1,McCallum21b,4
 B.1.351,BNT162b2,2,3,0,Tada21,3.8
 B.1.351,BNT162b2,4,4,1,Wang21b,3.5
 B.1.351,BNT162b2,0,5,4,Wang21b*,9.3
@@ -61,7 +64,8 @@ B.1.351,BNT162b2_W3,4,6,6,Planas21,6.2
 B.1.351,BNT162b2_W4,3,6,1,Planas21,3.8
 B.1.351,BNT162b2_W5,3,3,7,Planas21,11
 B.1.351,BNT162b2_W6,2,6,5,Planas21,7.2
-B.1.351,BNT_one_dose,0,0,10,Skelly21*,60
+B.1.351,BNT162b2_infected,3,2,0,McCallum21b,2.1
+B.1.351,BNT162b2_one_dose,0,0,10,Skelly21*,60
 B.1.351,CP,3,1,3,Becker21*,10
 B.1.351,CP,9,7,3,Chen21*,3.3
 B.1.351,CP,1,11,9,Faulkner21*,9.3
@@ -90,16 +94,21 @@ B.1.351,mRNA-1273,1,8,3,Wang21b,7.3
 B.1.351,mRNA-1273,0,5,7,Wang21b*,11
 B.1.351,mRNA-1273,0,8,0,Wu21,6.9
 B.1.427/9,BNT162b2,3,0,0,Deng21,2
+B.1.427/9,BNT162b2,8,5,0,McCallum21b,2.8
+B.1.427/9,BNT162b2_infected,3,2,0,McCallum21b,2.9
 B.1.427/9,CP,7,10,1,Deng21,4
 B.1.427/9,CP,6,2,0,Tang21,2.3
 B.1.427/9,IVIG,6,0,0,Tang21,1.5
 B.1.427/9,mRNA-1273,7,1,0,Deng21,2
 B.1.427/9,mRNA-1273,3,1,0,Garcia-Beltran21,2.6
+B.1.427/9,mRNA-1273,6,2,3,McCallum21b,2.6
 P.1,AZD1222,17,7,1,Dejnirattisai21*,2.7
 P.1,BNT162b2,12,3,0,Chen21*,2.2
 P.1,BNT162b2,14,10,0,Dejnirattisai21*,2.8
 P.1,BNT162b2,7,7,1,Hoffmann21,4
+P.1,BNT162b2,12,1,0,McCallum21b,1.9
 P.1,BNT162b2,8,1,1,Wang21c,1.9
+P.1,BNT162b2_infected,4,1,0,McCallum21b,1
 P.1,CP,7,2,1,Chen21*,2.1
 P.1,CP,18,14,2,Dejnirattisai21*,3
 P.1,CP,2,6,1,Hoffmann21,6.1

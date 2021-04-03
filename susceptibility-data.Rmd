@@ -180,7 +180,7 @@ variantTitle = c(
   "B.1.351 Spike" = "B.1.351",
   "P.1 Spike" = "P.1",
   # "S:452R" = "L452R",
-  "B.1.429 Spike" = "B.1.429/B.1.427",
+  "B.1.429 Spike" = "B.1.427/9",
   "S:501Y" = "N501Y",
   "S:484K" = "E484K"
   #"S:417N" = "417N",
@@ -211,7 +211,9 @@ excludedRefRxNames = c(
   "Kuzmina21 BNT",
   "Skelly21 BNT",
   "Skelly21 BNT_sd LiveVirus",
-  "Zuckerman21 BNT LiveVirus"
+  "Zuckerman21 BNT LiveVirus",
+  "McCallum21b BNT_antibody",
+  "McCallum21b BNT_infected"
 )
 shortRefRxNames = c(
   "Becker21 CP LiveVirus" = "Becker21*\n",
@@ -262,8 +264,8 @@ shortRefRxNames = c(
   "Dejnirattisai21 BNT LiveVirus" = "BNT\nDej21",
   "Dejnirattisai21 AZD LiveVirus" = "AZD\nDej21",
   "Stamatatos21 CP" = "Statmatatos21\n",
-  "Stamatatos21 BNT" = "BNT\nStatmatatos21",
-  "Stamatatos21 Mod" = "Mod\nStatmatatos21",
+  "Stamatatos21 BNT" = "BNT\nSTA21",
+  "Stamatatos21 Mod" = "Mod\nSTA21",
   "Tada21 CP" = "Tada21\n",
   "Tada21 BNT" = "BNT\nTada21",
   "Tang21 CP" = "Tang21\n",
@@ -293,7 +295,10 @@ shortRefRxNames = c(
   "Skelly21 BNT LiveVirus" = "BNT\nSkelly21",
   "Skelly21 CP" = "Skelly21\n",
   "Planas21 CP_M9" = "Planas21\n",
-  "Planas21 BNT_W6" = "BNT\nPlanas21"
+  "Planas21 BNT_W6" = "BNT\nPlanas21",
+  "McCallum21b BNT" = "BNT\nMC21b",
+  "McCallum21b CP" = "MC21b\n",
+  "McCallum21b MOD LiveVirus" = "MOD\nMC21b"
 )
 yAxisStep = 10
 longRefRxNames = names(shortRefRxNames)
@@ -382,7 +387,7 @@ for (variant in filterVariants) {
       )) +
       theme(
         plot.title = element_text(hjust = 0.5),
-        axis.text.x = element_text(size=5.5),
+        axis.text.x = element_text(size=5),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         strip.background = element_blank(),
@@ -439,6 +444,7 @@ variantTitle = c(
   "S:484K" = "E484K",
   "B.1.351 Spike" = "B.1.351",
   "P.1 Spike" = "P.1",
+  "B.1.429 Spike" = "B.1.427/9",
   "S:452R" = "L452R",
   # "CAL.20C" = "CAL.20C",
   "S:417N" = "K417N",

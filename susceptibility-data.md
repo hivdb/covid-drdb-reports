@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 04/02/2021 07:19 PM PDT
+Report generated at: 04/02/2021 10:57 PM PDT
 
 
 
@@ -51,35 +51,35 @@ Report generated at: 04/02/2021 07:19 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
-   <td style="text-align:right;"> 359 </td>
-   <td style="text-align:right;"> 391 </td>
+   <td style="text-align:right;"> 368 </td>
+   <td style="text-align:right;"> 409 </td>
    <td style="text-align:right;"> 66 </td>
    <td style="text-align:right;"> 26 </td>
    <td style="text-align:right;"> 124 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
-   <td style="text-align:right;"> 378 </td>
-   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 387 </td>
+   <td style="text-align:right;"> 294 </td>
    <td style="text-align:right;"> 60 </td>
    <td style="text-align:right;"> 15 </td>
    <td style="text-align:right;"> 54 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> P.1 Spike </td>
-   <td style="text-align:right;"> 106 </td>
-   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:right;"> 123 </td>
    <td style="text-align:right;"> 25 </td>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:right;"> 16 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 468 </td>
-   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 477 </td>
+   <td style="text-align:right;"> 425 </td>
+   <td style="text-align:right;"> 160 </td>
    <td style="text-align:right;"> 154 </td>
-   <td style="text-align:right;"> 151 </td>
-   <td style="text-align:right;"> 387 </td>
+   <td style="text-align:right;"> 412 </td>
   </tr>
 </tbody>
 </table>
@@ -96,7 +96,7 @@ Report generated at: 04/02/2021 07:19 PM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> Yes </td>
-   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 35 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> No </td>

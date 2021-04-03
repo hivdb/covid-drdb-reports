@@ -59,6 +59,15 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "BNT162b2",
+                "s_fold": 12,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "1.1"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "BNT162b2",
                 "s_fold": 40,
                 "i_fold": 0,
                 "r_fold": 0,
@@ -139,7 +148,16 @@
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "BNT_one_dose",
+                "rx": "BNT162b2_infected",
+                "s_fold": 4,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "1.6"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "BNT162b2_one_dose",
                 "s_fold": 0,
                 "i_fold": 0,
                 "r_fold": 5,
@@ -478,6 +496,15 @@
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
+                "s_fold": 3,
+                "i_fold": 9,
+                "r_fold": 1,
+                "reference": "McCallum21b",
+                "median": "4"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2",
                 "s_fold": 2,
                 "i_fold": 3,
                 "r_fold": 0,
@@ -567,7 +594,16 @@
             },
             {
                 "variant": "B.1.351",
-                "rx": "BNT_one_dose",
+                "rx": "BNT162b2_infected",
+                "s_fold": 3,
+                "i_fold": 2,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "2.1"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2_one_dose",
                 "s_fold": 0,
                 "i_fold": 0,
                 "r_fold": 10,
@@ -833,6 +869,24 @@
             },
             {
                 "variant": "B.1.427/9",
+                "rx": "BNT162b2",
+                "s_fold": 8,
+                "i_fold": 5,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "2.8"
+            },
+            {
+                "variant": "B.1.427/9",
+                "rx": "BNT162b2_infected",
+                "s_fold": 3,
+                "i_fold": 2,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "2.9"
+            },
+            {
+                "variant": "B.1.427/9",
                 "rx": "CP",
                 "s_fold": 7,
                 "i_fold": 10,
@@ -874,6 +928,15 @@
                 "i_fold": 1,
                 "r_fold": 0,
                 "reference": "Garcia-Beltran21",
+                "median": "2.6"
+            },
+            {
+                "variant": "B.1.427/9",
+                "rx": "mRNA-1273",
+                "s_fold": 6,
+                "i_fold": 2,
+                "r_fold": 3,
+                "reference": "McCallum21b",
                 "median": "2.6"
             }
         ]
@@ -920,11 +983,29 @@
             {
                 "variant": "P.1",
                 "rx": "BNT162b2",
+                "s_fold": 12,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "1.9"
+            },
+            {
+                "variant": "P.1",
+                "rx": "BNT162b2",
                 "s_fold": 8,
                 "i_fold": 1,
                 "r_fold": 1,
                 "reference": "Wang21c",
                 "median": "1.9"
+            },
+            {
+                "variant": "P.1",
+                "rx": "BNT162b2_infected",
+                "s_fold": 4,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "McCallum21b",
+                "median": "1"
             },
             {
                 "variant": "P.1",

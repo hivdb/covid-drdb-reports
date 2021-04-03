@@ -185,9 +185,19 @@ RENAME_CP_EXECUTOR = {
         ),
         (
             lambda x: x.startswith('BNTsd'),
-            'BNT_one_dose'
+            'BNT162b2_one_dose'
         )
     ],
+    'McCallum21b': [
+        (
+            lambda x: x.startswith('BNT_uninfected'),
+            'BNT162b2'
+        ),
+        (
+            lambda x: x.startswith('BNT_infected'),
+            'BNT162b2_infected'
+        ),
+    ]
 }
 
 
