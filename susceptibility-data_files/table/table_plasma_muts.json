@@ -292,9 +292,9 @@
                 "rx": "CP(Low Titer)",
                 "s_fold": 5,
                 "i_fold": 6,
-                "r_fold": 0,
+                "r_fold": 6,
                 "reference": "Wibmer21",
-                "median": "3.4"
+                "median": "6.8"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -315,9 +315,9 @@
                 "rx": "CP",
                 "s_fold": 0,
                 "i_fold": 1,
-                "r_fold": 0,
+                "r_fold": 1,
                 "reference": "Liu21",
-                "median": "3.9"
+                "median": "9.9"
             }
         ]
     },

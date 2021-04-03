@@ -139,6 +139,15 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "BNT_one_dose",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 5,
+                "reference": "Skelly21*",
+                "median": "67"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "CP",
                 "s_fold": 5,
                 "i_fold": 0,
@@ -223,9 +232,9 @@
                 "rx": "CP",
                 "s_fold": 3,
                 "i_fold": 3,
-                "r_fold": 1,
+                "r_fold": 3,
                 "reference": "Skelly21",
-                "median": "3.2"
+                "median": "3.4"
             },
             {
                 "variant": "B.1.1.7",
@@ -408,27 +417,27 @@
                 "rx": "AZD1222",
                 "s_fold": 0,
                 "i_fold": 3,
-                "r_fold": 3,
+                "r_fold": 6,
                 "reference": "Madhi21",
-                "median": "8.6"
+                "median": "23"
             },
             {
                 "variant": "B.1.351",
                 "rx": "AZD1222",
                 "s_fold": 2,
                 "i_fold": 11,
-                "r_fold": 3,
+                "r_fold": 5,
                 "reference": "Zhou21b*",
-                "median": "7.3"
+                "median": "7.8"
             },
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
                 "s_fold": 1,
                 "i_fold": 3,
-                "r_fold": 1,
+                "r_fold": 2,
                 "reference": "Becker21*",
-                "median": "5.3"
+                "median": "5.6"
             },
             {
                 "variant": "B.1.351",
@@ -462,7 +471,7 @@
                 "rx": "BNT162b2",
                 "s_fold": 3,
                 "i_fold": 19,
-                "r_fold": 1,
+                "r_fold": 2,
                 "reference": "Marot21*",
                 "median": "4"
             },
@@ -558,12 +567,21 @@
             },
             {
                 "variant": "B.1.351",
+                "rx": "BNT_one_dose",
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 10,
+                "reference": "Skelly21*",
+                "median": "60"
+            },
+            {
+                "variant": "B.1.351",
                 "rx": "CP",
                 "s_fold": 3,
                 "i_fold": 1,
-                "r_fold": 2,
+                "r_fold": 3,
                 "reference": "Becker21*",
-                "median": "6.1"
+                "median": "10"
             },
             {
                 "variant": "B.1.351",
@@ -579,9 +597,9 @@
                 "rx": "CP",
                 "s_fold": 1,
                 "i_fold": 11,
-                "r_fold": 7,
+                "r_fold": 9,
                 "reference": "Faulkner21*",
-                "median": "8.8"
+                "median": "9.3"
             },
             {
                 "variant": "B.1.351",
@@ -615,9 +633,9 @@
                 "rx": "CP",
                 "s_fold": 5,
                 "i_fold": 10,
-                "r_fold": 8,
+                "r_fold": 21,
                 "reference": "Moyo-Gwete21",
-                "median": "7.6"
+                "median": "10"
             },
             {
                 "variant": "B.1.351",
@@ -642,9 +660,9 @@
                 "rx": "CP",
                 "s_fold": 1,
                 "i_fold": 1,
-                "r_fold": 2,
+                "r_fold": 4,
                 "reference": "Tang21",
-                "median": "9.4"
+                "median": "12"
             },
             {
                 "variant": "B.1.351",
@@ -687,9 +705,9 @@
                 "rx": "CP",
                 "s_fold": 2,
                 "i_fold": 11,
-                "r_fold": 4,
+                "r_fold": 16,
                 "reference": "Zhou21b*",
-                "median": "6"
+                "median": "14"
             },
             {
                 "variant": "B.1.351",
@@ -705,18 +723,18 @@
                 "rx": "CP(High Titer)",
                 "s_fold": 1,
                 "i_fold": 7,
-                "r_fold": 7,
+                "r_fold": 14,
                 "reference": "Wibmer21",
-                "median": "8.7"
+                "median": "14"
             },
             {
                 "variant": "B.1.351",
                 "rx": "CP(Low Titer)",
                 "s_fold": 4,
                 "i_fold": 2,
-                "r_fold": 0,
+                "r_fold": 7,
                 "reference": "Wibmer21",
-                "median": "1.2"
+                "median": "11"
             },
             {
                 "variant": "B.1.351",
@@ -868,7 +886,7 @@
                 "rx": "AZD1222",
                 "s_fold": 17,
                 "i_fold": 7,
-                "r_fold": 0,
+                "r_fold": 1,
                 "reference": "Dejnirattisai21*",
                 "median": "2.7"
             },
@@ -904,7 +922,7 @@
                 "rx": "BNT162b2",
                 "s_fold": 8,
                 "i_fold": 1,
-                "r_fold": 0,
+                "r_fold": 1,
                 "reference": "Wang21c",
                 "median": "1.9"
             },
@@ -940,9 +958,9 @@
                 "rx": "CP",
                 "s_fold": 4,
                 "i_fold": 2,
-                "r_fold": 0,
+                "r_fold": 1,
                 "reference": "Tang21",
-                "median": "2.8"
+                "median": "2.9"
             },
             {
                 "variant": "P.1",

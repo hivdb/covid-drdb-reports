@@ -130,6 +130,20 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "4A8",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "4A8",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.4",
@@ -723,6 +737,20 @@
             },
             {
                 "variant": "B.1.351",
+                "rx": "4A8",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "4A8",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.8",
@@ -879,12 +907,54 @@
                 "variant": "B.1.351",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "13",
                 "reference": "Wang21f"
             },
             {
                 "variant": "B.1.351",
                 "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Zhou21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Zhou21b*"
@@ -947,6 +1017,41 @@
             },
             {
                 "variant": "B.1.351",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Zhou21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "C121",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "C121",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
                 "fold": "1",
@@ -972,6 +1077,20 @@
                 "mab_class": "RBM Class II",
                 "fold": "1.1",
                 "reference": "Zhou21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "2-4",
+                "mab_class": "RBM Class III",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "2-4",
+                "mab_class": "RBM Class III",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
             }
         ]
     },

@@ -17,6 +17,8 @@ B.1.1.7,Cilgavimab+Tixagevimab,,0.8,Wang21b
 B.1.1.7,Cilgavimab+Tixagevimab,,0.5,Chen21*
 B.1.1.7,Cilgavimab+Tixagevimab,,1,Wang21b*
 B.1.1.7,S2E12+Vir-7831,,0.7,Chen21*
+B.1.1.7,4A8,NTD,>100,Wang21b
+B.1.1.7,4A8,NTD,>100,Wang21b*
 B.1.1.7,C135,RBD Core Cluster I,1.4,Wang21b
 B.1.1.7,C135,RBD Core Cluster I,0.3,Wang21b*
 B.1.1.7,Imdevimab,RBD Core Cluster I,0.7,Copin21
@@ -101,6 +103,8 @@ B.1.351,Cilgavimab+Tixagevimab,,1.3,Wang21b
 B.1.351,Cilgavimab+Tixagevimab,,0.8,Chen21*
 B.1.351,Cilgavimab+Tixagevimab,,12,Wang21b*
 B.1.351,S2E12+Vir-7831,,0.6,Chen21*
+B.1.351,4A8,NTD,>100,Wang21b
+B.1.351,4A8,NTD,>100,Wang21b*
 B.1.351,C135,RBD Core Cluster I,0.8,Wang21b
 B.1.351,C135,RBD Core Cluster I,1,Wang21b*
 B.1.351,Imdevimab,RBD Core Cluster I,0.1,Copin21
@@ -123,8 +127,14 @@ B.1.351,Casirivimab,RBM Class I,45,Copin21
 B.1.351,Casirivimab,RBM Class I,48,Hoffmann21
 B.1.351,Casirivimab,RBM Class I,76,Tada21b
 B.1.351,Casirivimab,RBM Class I,59,Wang21b
+B.1.351,Casirivimab,RBM Class I,>100,Wang21e
 B.1.351,Casirivimab,RBM Class I,13,Wang21f
+B.1.351,Casirivimab,RBM Class I,>100,Wang21b*
 B.1.351,Casirivimab,RBM Class I,>100,Zhou21b*
+B.1.351,Etesevimab,RBM Class I,>100,Wang21b
+B.1.351,Etesevimab,RBM Class I,>100,Wang21e
+B.1.351,Etesevimab,RBM Class I,>100,Wang21b*
+B.1.351,Etesevimab,RBM Class I,>100,Zhou21b*
 B.1.351,P2C-1F11,RBM Class I,0.5,Wang21f
 B.1.351,S2E12,RBM Class I,0.4,Chen21*
 B.1.351,Tixagevimab,RBM Class I,3.5,Wang21b
@@ -133,10 +143,17 @@ B.1.351,Tixagevimab,RBM Class I,6.3,Wang21b*
 B.1.351,Tixagevimab,RBM Class I,8.9,Zhou21b*
 B.1.351,Bamlanivimab,RBM Class II,>100,FDA21
 B.1.351,Bamlanivimab,RBM Class II,>100,Wang21b
+B.1.351,Bamlanivimab,RBM Class II,>100,Wang21e
+B.1.351,Bamlanivimab,RBM Class II,>100,Wang21b*
+B.1.351,Bamlanivimab,RBM Class II,>100,Zhou21b*
+B.1.351,C121,RBM Class II,>100,Wang21b
+B.1.351,C121,RBM Class II,>100,Wang21b*
 B.1.351,Cilgavimab,RBM Class II,1,Wang21b
 B.1.351,Cilgavimab,RBM Class II,0.3,Chen21*
 B.1.351,Cilgavimab,RBM Class II,0.3,Wang21b*
 B.1.351,Cilgavimab,RBM Class II,1.1,Zhou21b*
+B.1.351,2-4,RBM Class III,>100,Wang21b
+B.1.351,2-4,RBM Class III,>100,Wang21b*
 B.1.427/9,Bamlanivimab+Etesevimab,,7.7,FDA21
 B.1.427/9,Casirivimab+Imdevimab,,1,FDA21
 B.1.427/9,Bamlanivimab,RBM Class II,>100,FDA21
