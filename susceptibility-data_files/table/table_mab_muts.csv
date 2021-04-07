@@ -148,8 +148,8 @@ K417N + E484K + N501Y,Casirivimab+Imdevimab,,0.7,Wang21
 K417N + E484K + N501Y,Cilgavimab+Tixagevimab,,1,Chen21
 K417N + E484K + N501Y,Cilgavimab+Tixagevimab,,0.8,Wang21
 K417N + E484K + N501Y,S2E12+Vir-7831,,0.9,Chen21
-K417N + E484K + N501Y,4A8,NTD,1,Collier21
 K417N + E484K + N501Y,4A8,NTD,0.6,Wang21f
+K417N + E484K + N501Y,4A8,NTD,>100,Collier21
 K417N + E484K + N501Y,C135,RBD Core Cluster I,0.2,Wang21
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.2,Wang21
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.4,Wang21e
@@ -157,7 +157,7 @@ K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.7,Wang21f
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,1,Yao21
 K417N + E484K + N501Y,Sotrovimab,RBD Core Cluster I,1,Chen21
 K417N + E484K + N501Y,Sotrovimab,RBD Core Cluster I,0.8,Wang21f
-K417N + E484K + N501Y,S2X35,RBD Core Cluster II,1.2,Collier21
+K417N + E484K + N501Y,S2X35,RBD Core Cluster II,1.3,Collier21
 K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Wang21
 K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Wang21e
 K417N + E484K + N501Y,Casirivimab,RBM Class I,36,Wang21f
@@ -165,7 +165,7 @@ K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Yao21
 K417N + E484K + N501Y,Etesevimab,RBM Class I,>100,Wang21e
 K417N + E484K + N501Y,P2C-1F11,RBM Class I,0.5,Wang21f
 K417N + E484K + N501Y,S2E12,RBM Class I,0.5,Chen21
-K417N + E484K + N501Y,S2E12,RBM Class I,1.8,Collier21
+K417N + E484K + N501Y,S2E12,RBM Class I,1.3,Collier21
 K417N + E484K + N501Y,S2H14,RBM Class I,>100,Collier21
 K417N + E484K + N501Y,Tixagevimab,RBM Class I,3.6,Chen21
 K417N + E484K + N501Y,Tixagevimab,RBM Class I,4,Wang21
@@ -173,7 +173,7 @@ K417N + E484K + N501Y,Bamlanivimab,RBM Class II,>100,Wang21e
 K417N + E484K + N501Y,Cilgavimab,RBM Class II,0.6,Chen21
 K417N + E484K + N501Y,Cilgavimab,RBM Class II,0.6,Wang21
 K417N + E484K + N501Y,C144,RBM Class III,>100,Wang21
-K417N + E484K + N501Y,S2M11,RBM Class III,>100,Collier21
+K417N + E484K + N501Y,S2M11,RBM Class III,0.4,Collier21
 L452R,Bamlanivimab+Etesevimab,,7.4,FDA21
 L452R,Casirivimab+Imdevimab,,1.2,Copin21
 L452R,Casirivimab+Imdevimab,,1,FDA21

@@ -1,12 +1,10 @@
 ﻿Variant name,Plasma,Reference,Fold,Samples
 B.1.1.7,AZD1222,Supasa21*,2.1,10
-B.1.1.7,BNT162b2,Collier21,1.9,21
 B.1.1.7,BNT162b2,Garcia-Beltran21,2.3,22
 B.1.1.7,BNT162b2,Kuzmina21,1.0,10
 B.1.1.7,BNT162b2,Skelly21,2.0,25
 B.1.1.7,BNT162b2,Supasa21*,3.3,25
 B.1.1.7,BNT162b2,Zuckerman21*,2.0,18
-B.1.1.7,CP,Collier21,4.5,27
 B.1.1.7,CP,Kuzmina21,1.5,10
 B.1.1.7,CP,Supasa21*,2.9,34
 B.1.1.7,Mild,Rees-Spear21,<3.0,13

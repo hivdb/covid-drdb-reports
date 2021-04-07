@@ -1,5 +1,6 @@
 ﻿Variant name,Plasma,S,I,R,Reference,Median
 B.1.1.7,AZD1222,3,23,23,Emary21*,8.7
+B.1.1.7,BBIBP-CorV,16,0,3,Wang21g,0.9
 B.1.1.7,BNT162b2,8,0,0,Brown21,1
 B.1.1.7,BNT162b2,8,1,0,Brown21*,0.8
 B.1.1.7,BNT162b2,20,4,0,Chen21*,1.9
@@ -10,6 +11,8 @@ B.1.1.7,BNT162b2,40,0,0,Muik21,1.3
 B.1.1.7,BNT162b2,9,1,0,Wang21b,1.9
 B.1.1.7,BNT162b2,10,0,0,Wang21b*,0.9
 B.1.1.7,BNT162b2,0,2,1,Widera21*,8
+B.1.1.7,BNT162b2_1ds,28,7,2,Collier21,1.6
+B.1.1.7,BNT162b2_2ds,18,3,0,Collier21,2
 B.1.1.7,BNT162b2_W2,8,7,0,Planas21,2.2
 B.1.1.7,BNT162b2_W3,11,4,1,Planas21,2.5
 B.1.1.7,BNT162b2_W4,8,2,0,Planas21,0.9
@@ -20,6 +23,7 @@ B.1.1.7,BNT162b2_one_dose,0,0,5,Skelly21*,67
 B.1.1.7,CP,5,0,0,Brown21,0.8
 B.1.1.7,CP,8,0,0,Brown21*,0.7
 B.1.1.7,CP,18,1,0,Chen21*,1.4
+B.1.1.7,CP,11,8,1,Collier21,2.7
 B.1.1.7,CP,19,0,0,Edara21*,0.6
 B.1.1.7,CP,27,3,0,Faulkner21*,1.6
 B.1.1.7,CP,8,1,0,Hoffmann21,1.2
@@ -31,12 +35,14 @@ B.1.1.7,CP,3,5,0,Tang21,3.3
 B.1.1.7,CP,14,5,1,Wang21b,2.3
 B.1.1.7,CP,20,0,0,Wang21b*,0.9
 B.1.1.7,CP,23,0,0,Wang21f,1.2
+B.1.1.7,CP,23,1,6,Wang21g,1
 B.1.1.7,CP,1,2,1,Widera21*,8
 B.1.1.7,CP(8M),11,8,0,Hu21,2.2
 B.1.1.7,CP_M3,27,1,0,Planas21,0.9
 B.1.1.7,CP_M6,21,4,0,Planas21,0.9
 B.1.1.7,CP_M9,30,0,0,Planas21,0.9
 B.1.1.7,CP_acute,15,1,0,Edara21*,0.9
+B.1.1.7,CoronaVac,12,1,9,Wang21g,1.6
 B.1.1.7,IVIG,6,0,0,Tang21,1.7
 B.1.1.7,IVIG,6,0,0,Tang21*,2.4
 B.1.1.7,NVX-CoV,20,7,1,Shen21,2.2
@@ -48,6 +54,7 @@ B.1.1.7,mRNA-1273,12,0,0,Wang21b*,0.7
 B.1.1.7,mRNA-1273,8,0,0,Wu21,1.2
 B.1.351,AZD1222,0,3,6,Madhi21,23
 B.1.351,AZD1222,2,11,5,Zhou21b*,7.8
+B.1.351,BBIBP-CorV,5,1,13,Wang21g,4.2
 B.1.351,BNT162b2,1,3,2,Becker21*,5.6
 B.1.351,BNT162b2,0,12,12,Chen21*,10
 B.1.351,BNT162b2,4,9,2,Hoffmann21,5
@@ -79,6 +86,7 @@ B.1.351,CP,1,1,4,Tang21,12
 B.1.351,CP,4,9,7,Wang21b,6.5
 B.1.351,CP,6,9,5,Wang21b*,5.1
 B.1.351,CP,3,7,2,Wang21f,5.6
+B.1.351,CP,20,1,9,Wang21g,2.0
 B.1.351,CP,0,2,2,Widera21*,12
 B.1.351,CP,2,11,16,Zhou21b*,14
 B.1.351,CP(8M),5,9,5,Hu21,6
@@ -87,6 +95,7 @@ B.1.351,CP(Low Titer),4,2,7,Wibmer21,11
 B.1.351,CP_M3,12,11,5,Planas21,4.2
 B.1.351,CP_M6,12,6,7,Planas21,3.8
 B.1.351,CP_M9,18,12,0,Planas21,2.6
+B.1.351,CoronaVac,5,1,16,Wang21g,4.9
 B.1.351,IVIG,0,3,3,Tang21,9.8
 B.1.351,IVIG,1,4,1,Tang21*,6.5
 B.1.351,mRNA-1273,1,8,3,Wang21b,7.3
