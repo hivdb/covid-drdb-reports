@@ -114,6 +114,28 @@ def init_abname2class(conn):
             AB_NAME2MAB_CLASS[synonym] = class_info
 
 
+def get_susceptibilidy(fold):
+    try:
+        fold = float(fold)
+        fold_cmp = '='
+    except ValueError:
+        fold_cmp = fold[0]
+        fold = float(fold[1:])
+
+    if fold < 3:
+        return 'susceptible'
+    elif fold == 3 and fold_cmp in ['<', '=', '~']:
+        return 'susceptible'
+    elif fold == 3 and fold_cmp == '>':
+        return 'partial-resistance'
+    elif (fold > 3 and fold < 10):
+        return 'partial-resistance'
+    elif fold == 10 and fold_cmp in ['<', '=', '~']:
+        return 'partial-resistance'
+    else:
+        return 'resistant'
+
+
 SUSCEPTIBLE_LEVEL_FILTER = """
     AND (
         (fold < 3

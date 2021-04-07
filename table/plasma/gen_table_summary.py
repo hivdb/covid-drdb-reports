@@ -2,6 +2,7 @@ from preset import DATA_FILE_PATH
 from preset import load_csv
 from preset import dump_json
 from preset import dump_csv
+from preset import get_susceptibilidy
 from collections import defaultdict
 
 SHOW_VARIANT = [
@@ -23,8 +24,7 @@ SHOW_VARIANT = [
 ]
 
 
-def group_variants(records):
-    variant_groups = defaultdict(list)
+def group_variants(variant_groups, records):
     for r in records:
         variant = r['Variant name']
         if variant not in SHOW_VARIANT:
@@ -40,6 +40,29 @@ def parse_fold(rec):
         return float(fold)
     else:
         return float(fold[1:])
+
+
+def get_sample_number_pair(indiv_list, aggre_list):
+
+    num_s = sum([int(r['S']) for r in indiv_list])
+    num_i = sum([int(r['I']) for r in indiv_list])
+    num_r = sum([int(r['R']) for r in indiv_list])
+
+    aggre_s = [
+        r for r in aggre_list
+        if get_susceptibilidy(r['Fold']) == 'susceptible']
+    aggre_i = [
+        r for r in aggre_list
+        if get_susceptibilidy(r['Fold']) == 'partial-resistance']
+    aggre_r = [
+        r for r in aggre_list
+        if get_susceptibilidy(r['Fold']) == 'resistant']
+
+    num_s_aggre = sum([int(r['Samples']) for r in aggre_s])
+    num_i_aggre = sum([int(r['Samples']) for r in aggre_i])
+    num_r_aggre = sum([int(r['Samples']) for r in aggre_r])
+
+    return (num_s + num_s_aggre), (num_i + num_i_aggre), (num_r + num_r_aggre)
 
 
 def process_record(variant, records):
@@ -66,9 +89,12 @@ def process_record(variant, records):
         num_studies = len(
             set([r['Reference'].replace('*', '')
                  for r in rec_list]))
-        num_s = sum([int(r['S']) for r in rec_list])
-        num_i = sum([int(r['I']) for r in rec_list])
-        num_r = sum([int(r['R']) for r in rec_list])
+
+        aggre_list = [r for r in rec_list if 'Fold' in r.keys()]
+        indiv_list = [r for r in rec_list if 'Fold' not in r.keys()]
+
+        num_s, num_i, num_r = get_sample_number_pair(indiv_list, aggre_list)
+
         num_samples = num_i + num_r + num_s
 
         if num_samples:
@@ -100,9 +126,17 @@ def gen_table_plasma():
     cp_variant_records = load_csv(DATA_FILE_PATH / 'table_plasma_variant.csv')
     cp_mut_records = load_csv(DATA_FILE_PATH / 'table_plasma_muts.csv')
 
-    variant_groups = {}
-    variant_groups.update(group_variants(cp_variant_records))
-    variant_groups.update(group_variants(cp_mut_records))
+    cp_variant_aggre_records = load_csv(
+        DATA_FILE_PATH / 'table_plasma_variant_aggre.csv')
+    cp_mut_aggre_records = load_csv(
+        DATA_FILE_PATH / 'table_plasma_muts_aggre.csv')
+
+    variant_groups = defaultdict(list)
+    group_variants(variant_groups, cp_variant_records)
+    group_variants(variant_groups, cp_mut_records)
+
+    group_variants(variant_groups, cp_variant_aggre_records)
+    group_variants(variant_groups, cp_mut_aggre_records)
 
     result = []
     for variant in SHOW_VARIANT:
