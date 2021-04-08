@@ -6,16 +6,11 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 04/08/2021 11:15 AM PDT
+Report generated at: 04/08/2021 11:24 AM PDT
 
 
 
 ## Database summary
-
-
-```
-## [1] "."
-```
 
 <table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
  <thead>
@@ -131,10 +126,4 @@ Report generated at: 04/08/2021 11:15 AM PDT
 
 ## CP and VP summary
 
-
-```
-## `summarise()` regrouping output by 'variant' (override with `.groups` argument)
-## `summarise()` regrouping output by 'variant' (override with `.groups` argument)
-```
-
-![](summary_files/figure-html/cpvp-1.png)<!-- -->
+<img src="summary_files/figure-html/cpvp-1.png" width="960" />

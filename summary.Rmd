@@ -15,19 +15,21 @@ library(gridExtra)
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
+
+TABLEDIR = normalizePath(sprintf('%s/susceptibility-data_files/table', .getpwd()))
+
 ```
 
 ## Database summary
 
 ```{r summary}
-TABLEDIR = normalizePath(sprintf('%s/susceptibility-data_files/table', .getpwd()))
 summaryDT = read.dbTable('table_summary_figure.csv', tables_dir=TABLEDIR)
 styledKBL(summaryDT)
 ```
 
 ## CP and VP summary
 
-```{r cpvp, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE}
+```{r cpvp, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
 plasmaDT = read.dbTable('table_plasma_figure.csv', tables_dir=TABLEDIR) %>%
   mutate(
