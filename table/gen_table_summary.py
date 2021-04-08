@@ -51,6 +51,27 @@ TABLE_SUMMARY_ROWS = {
                 'S:484K+614G'])
         ]
     },
+    'K417N': {
+        'filter': [
+            include_mutations([
+                'S:417N',
+                'S:417N+614G'])
+        ]
+    },
+    'K417T': {
+        'filter': [
+            include_mutations([
+                'S:417T',
+                'S:417T+614G'])
+        ]
+    },
+    'L452R': {
+        'filter': [
+            include_mutations([
+                'S:452R',
+                'S:452R+614G'])
+        ]
+    },
     'Other individual mutations': {
         'join': [
             "virus_variants AS vs",
@@ -70,6 +91,18 @@ TABLE_SUMMARY_ROWS = {
             exclude_mutations([
                 'S:501Y',
                 'S:501Y+614G'
+            ]),
+            exclude_mutations([
+                'S:417N',
+                'S:417N+614G'
+            ]),
+            exclude_mutations([
+                'S:417T',
+                'S:417T+614G'
+            ]),
+            exclude_mutations([
+                'S:452R',
+                'S:452R+614G'
             ]),
         ]
     },
@@ -391,3 +424,22 @@ def gen_table_summary(conn):
 
     save_path = DATA_FILE_PATH / 'table_summary.json'
     dump_json(save_path, result)
+
+    variant_summary = defaultdict(dict)
+    for item in records:
+        variant = item['Variant name']
+        rx = item['Rx name']
+        published = item['#Published']
+        variant_summary[variant][rx] = published
+        variant_summary[variant]['Variant name'] = variant
+
+    variant_summary = list(variant_summary.values())
+    save_path = DATA_FILE_PATH / 'table_summary_figure.csv'
+    headers = [
+        'Variant name',
+        'CP',
+        'IP',
+        'mAbs phase3',
+        'mAbs structure'
+    ]
+    dump_csv(save_path, variant_summary, headers)

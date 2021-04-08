@@ -14,11 +14,32 @@
         "structure": 16
     },
     {
+        "variant": "K417N",
+        "cp": 63,
+        "ip": 71,
+        "phase3": 38,
+        "structure": 14
+    },
+    {
+        "variant": "K417T",
+        "cp": 24,
+        "ip": 0,
+        "phase3": 3,
+        "structure": 3
+    },
+    {
+        "variant": "L452R",
+        "cp": 2,
+        "ip": 0,
+        "phase3": 14,
+        "structure": 5
+    },
+    {
         "variant": "Other individual mutations",
-        "cp": 642,
-        "ip": 517,
-        "phase3": 644,
-        "structure": 484
+        "cp": 553,
+        "ip": 446,
+        "phase3": 593,
+        "structure": 462
     },
     {
         "variant": "All individual mutations",
