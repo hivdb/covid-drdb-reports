@@ -165,3 +165,9 @@ styledKBL(CP_Variant_aggre_DT)
 ```{r vaccine}
 VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
 styledKBL(VP_DT)
+```
+
+
+### CP distribution
+```
+```
