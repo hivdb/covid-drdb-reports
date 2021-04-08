@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 04/07/2021 03:18 PM PDT
+Report generated at: 04/08/2021 10:38 AM PDT
 
 
 
@@ -59,8 +59,8 @@ Report generated at: 04/07/2021 03:18 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
-   <td style="text-align:right;"> 412 </td>
-   <td style="text-align:right;"> 337 </td>
+   <td style="text-align:right;"> 423 </td>
+   <td style="text-align:right;"> 385 </td>
    <td style="text-align:right;"> 60 </td>
    <td style="text-align:right;"> 15 </td>
    <td style="text-align:right;"> 54 </td>
@@ -75,8 +75,8 @@ Report generated at: 04/07/2021 03:18 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 496 </td>
-   <td style="text-align:right;"> 482 </td>
+   <td style="text-align:right;"> 510 </td>
+   <td style="text-align:right;"> 531 </td>
    <td style="text-align:right;"> 160 </td>
    <td style="text-align:right;"> 154 </td>
    <td style="text-align:right;"> 412 </td>
