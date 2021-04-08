@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 04/08/2021 11:33 AM PDT
+Report generated at: 04/08/2021 11:47 AM PDT
 
 
 
@@ -2202,6 +2202,42 @@ Report generated at: 04/08/2021 11:33 AM PDT
    <td style="text-align:left;"> Garcia-Beltran21 </td>
    <td style="text-align:left;"> 15.1 </td>
    <td style="text-align:right;"> 22 </td>
+  </tr>
+</tbody>
+</table>
+
+### Vaccine
+<table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Vaccine </th>
+   <th style="text-align:right;"> Samples </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> AZD1222 </td>
+   <td style="text-align:right;"> 115 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BBIBP-CorV </td>
+   <td style="text-align:right;"> 57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BNT162b2 </td>
+   <td style="text-align:right;"> 1230 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CoronaVac </td>
+   <td style="text-align:right;"> 66 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NVX-CoV2373 </td>
+   <td style="text-align:right;"> 73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mRNA-1273 </td>
+   <td style="text-align:right;"> 648 </td>
   </tr>
 </tbody>
 </table>

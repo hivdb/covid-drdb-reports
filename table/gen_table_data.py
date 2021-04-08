@@ -15,6 +15,7 @@ from plasma.gen_table_variant_indiv import gen_table_plasma_variant
 from plasma.gen_table_mut_indiv import gen_table_plasma_muts
 from plasma.gen_table_variant_aggre import gen_table_plasma_variant_aggre
 from plasma.gen_table_mut_aggre import gen_table_plasma_muts_aggre
+from plasma.gen_table_vp import gen_table_vp
 
 from gen_escape import gen_escape
 from gen_binding import gen_table_binding
@@ -37,6 +38,7 @@ def gen_report(db_path):
     gen_table_plasma_variant_aggre(conn)
     gen_table_plasma_muts(conn)
     gen_table_plasma_muts_aggre(conn)
+    gen_table_vp(conn)
 
     gen_table_mab_variant(conn)
     gen_table_mab_muts(conn)

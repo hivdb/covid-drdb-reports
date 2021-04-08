@@ -160,3 +160,8 @@ styledKBL(CP_Variant_DT)
 CP_Variant_aggre_DT = read.dbTable('table_plasma_variant_aggre.csv', tables_dir=TABLEDIR)
 styledKBL(CP_Variant_aggre_DT)
 ```
+
+### Vaccine
+```{r vaccine}
+VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
+styledKBL(VP_DT)
