@@ -6,7 +6,7 @@ from preset import dump_json
 
 
 MAB_SCORE_SQL = """
-SELECT * FROM dms_escape_score;
+SELECT * FROM dms_escape_results;
 """
 
 BINDING_SCORE_SQL = """

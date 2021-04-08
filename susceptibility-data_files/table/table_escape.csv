@@ -4,6 +4,7 @@ E484K,Bamlanivimab/Etesevimab,0.002
 E484K,Casirivimab,0.008
 E484K,Casirivimab/Imdevimab,0.001
 E484K,Cilgavimab,0.001
+E484K,Cilgavimab/Tixagevimab,0.011
 E484K,Etesevimab,0.001
 E484K,Imdevimab,0.002
 E484K,Tixagevimab,0.03
@@ -12,6 +13,7 @@ K417N,Bamlanivimab/Etesevimab,0.002
 K417N,Casirivimab,0.003
 K417N,Casirivimab/Imdevimab,0.002
 K417N,Cilgavimab,0.001
+K417N,Cilgavimab/Tixagevimab,0.002
 K417N,Etesevimab,0.995
 K417N,Imdevimab,0.002
 K417N,Tixagevimab,0.012
@@ -20,6 +22,7 @@ L452R,Bamlanivimab/Etesevimab,0.002
 L452R,Casirivimab,0.001
 L452R,Casirivimab/Imdevimab,0.002
 L452R,Cilgavimab,0.001
+L452R,Cilgavimab/Tixagevimab,0.004
 L452R,Etesevimab,0.001
 L452R,Imdevimab,0.002
 L452R,Tixagevimab,0.012
@@ -28,6 +31,7 @@ N501Y,Bamlanivimab/Etesevimab,0.001
 N501Y,Casirivimab,0.003
 N501Y,Casirivimab/Imdevimab,0.001
 N501Y,Cilgavimab,0.003
+N501Y,Cilgavimab/Tixagevimab,0.002
 N501Y,Etesevimab,0.013
 N501Y,Imdevimab,0.002
 N501Y,Tixagevimab,0.018

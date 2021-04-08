@@ -10,7 +10,7 @@ EUA_RX_SQL = """
 SELECT
     a.rx_name
 FROM
-    dms_rx AS a,
+    rx_dms AS a,
     antibodies AS b
 ON a.ab_name = b.ab_name
 WHERE b.availability = 'Phase 3'
@@ -18,7 +18,7 @@ WHERE b.availability = 'Phase 3'
 
 ESCAPE_SCORE_SQL = """
 SELECT *
-FROM dms_escape_score
+FROM dms_escape_results
 WHERE rx_name IN (""" + EUA_RX_SQL + """)
     AND gene = 'S'
     {filter};
