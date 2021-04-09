@@ -4,12 +4,11 @@ from operator import itemgetter
 from collections import defaultdict
 from preset import round_number
 from preset import dump_json
-from preset import RESISTANCE_FILTER
-from preset import EXCLUDE_PLASMA
-from preset import EXCLUDE_STUDIES
-from preset import PLASMA_RENAME
-from preset import PLASMA_POST_RENAME
-from preset import RENAME_CP_EXECUTOR
+from resistancy import RESISTANCE_FILTER
+
+from .preset import PLASMA_RENAME
+from .preset import PLASMA_POST_RENAME
+from .preset import RENAME_CP_EXECUTOR
 
 
 def gen_plasma_table(

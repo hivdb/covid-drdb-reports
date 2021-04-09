@@ -5,6 +5,9 @@ from collections import defaultdict
 from statistics import median
 from preset import round_number
 
+from resistancy import is_partial_resistant
+from resistancy import is_resistant
+
 SHOW_VARIANT = [
     'B.1.1.7',
     'B.1.351',
@@ -50,21 +53,13 @@ DATA_PROBLEM = [
 ]
 
 
-def resistant_tester(x):
-    return x >= 10
-
-
-def partially_resistant_tester(x):
-    return x > 3 and x < 10
-
-
 COLOR_SETTING = {
     'resistant': {
-        'tester': resistant_tester,
+        'tester': is_resistant,
         'color': '#146aa8',
     },
     'partially-resistant': {
-        'tester': partially_resistant_tester,
+        'tester': is_partial_resistant,
         'color': '#7fcbee'
     },
 }

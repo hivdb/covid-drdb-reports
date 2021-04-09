@@ -3,7 +3,7 @@ from preset import dump_csv
 from preset import dump_json
 from operator import itemgetter
 from collections import defaultdict
-from preset import RESISTANCE_FILTER
+from resistancy import RESISTANCE_FILTER
 from preset import round_number
 
 from .preset import SYNONYM2AB_NAME

@@ -2,7 +2,8 @@ from preset import DATA_FILE_PATH
 from preset import load_csv
 from preset import dump_json
 from preset import dump_csv
-from preset import get_susceptibilidy
+
+from resistancy import get_susceptibility
 from collections import defaultdict
 
 SHOW_VARIANT = [
@@ -50,13 +51,13 @@ def get_sample_number_pair(indiv_list, aggre_list):
 
     aggre_s = [
         r for r in aggre_list
-        if get_susceptibilidy(r['Fold']) == 'susceptible']
+        if get_susceptibility(r['Fold']) == 'susceptible']
     aggre_i = [
         r for r in aggre_list
-        if get_susceptibilidy(r['Fold']) == 'partial-resistance']
+        if get_susceptibility(r['Fold']) == 'partial-resistance']
     aggre_r = [
         r for r in aggre_list
-        if get_susceptibilidy(r['Fold']) == 'resistant']
+        if get_susceptibility(r['Fold']) == 'resistant']
 
     num_s_aggre = sum([int(r['Samples']) for r in aggre_s])
     num_i_aggre = sum([int(r['Samples']) for r in aggre_i])
