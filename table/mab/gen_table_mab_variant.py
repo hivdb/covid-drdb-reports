@@ -1,14 +1,16 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import dump_json
-from preset import SYNONYM2AB_NAME
-from preset import AB_NAME2MAB_CLASS
 from operator import itemgetter
 from collections import defaultdict
 from preset import RESISTANCE_FILTER
-from preset import MAB_RENAME
 from preset import round_number
-from preset import EXCLUDE_MAB
+
+from .preset import SYNONYM2AB_NAME
+from .preset import AB_NAME2MAB_CLASS
+from .preset import EXCLUDE_MAB
+from .preset import MAB_RENAME
+
 
 from variant_filter import include_mutations
 

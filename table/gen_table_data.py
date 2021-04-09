@@ -1,14 +1,17 @@
 import sys
 import sqlite3
 from pathlib import Path
-from preset import init_synonyms_map
-from preset import init_abname2class
-
 
 from gen_table_summary import gen_table_summary
-from gen_table_mab import gen_table_mab
-from gen_table_mab_variant import gen_table_mab_variant
-from gen_table_mab_muts import gen_table_mab_muts
+
+from mab.preset import init_synonyms_map
+from mab.preset import init_abname2class
+from mab.gen_table_mab import gen_table_mab
+from mab.gen_table_mab_variant import gen_table_mab_variant
+from mab.gen_table_mab_muts import gen_table_mab_muts
+from mab.gen_escape import gen_escape
+from mab.gen_binding import gen_table_binding
+from mab.gen_dms import gen_dms
 
 from plasma.gen_table_summary import gen_table_plasma
 from plasma.gen_table_variant_indiv import gen_table_plasma_variant
@@ -17,9 +20,7 @@ from plasma.gen_table_variant_aggre import gen_table_plasma_variant_aggre
 from plasma.gen_table_mut_aggre import gen_table_plasma_muts_aggre
 from plasma.gen_table_vp import gen_table_vp
 
-from gen_escape import gen_escape
-from gen_binding import gen_table_binding
-from gen_dms import gen_dms
+
 
 from lookup_view import get_aggregated_studies
 

@@ -1,5 +1,3 @@
-
-
 def include_mutations(mutations):
     selector = ["s.variant_name = '{}'".format(m) for m in mutations]
 
@@ -47,4 +45,3 @@ def exclude_mutations(mutations):
 #         if position == 614 and amino_acid != 'G':
 #             if variant_name in final_variant_name:
 #                 final_variant_name.remove(variant_name)
-

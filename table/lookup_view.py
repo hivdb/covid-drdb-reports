@@ -62,5 +62,3 @@ def get_aggregated_studies(conn):
     AGGREGATED_SAMPLES = result
 
     return result
-
-

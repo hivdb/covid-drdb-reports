@@ -1,8 +1,8 @@
 from collections import defaultdict
-from preset import MAB_RENAME
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from preset import dump_json
+
+from .preset import MAB_RENAME
 
 
 MAB_SCORE_SQL = """

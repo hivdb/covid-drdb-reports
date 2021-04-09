@@ -2,8 +2,9 @@ from preset import DATA_FILE_PATH
 from operator import itemgetter
 from preset import dump_csv
 from preset import dump_json
-from preset import SYNONYM2AB_NAME
-from preset import MAB_RENAME
+
+from .preset import SYNONYM2AB_NAME
+from .preset import MAB_RENAME
 
 
 EUA_RX_SQL = """
