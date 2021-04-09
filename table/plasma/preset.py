@@ -54,7 +54,7 @@ SUBROWS = {
             ),
         ]
     },
-    'IP': {
+    'VP': {
         'rxtype': 'rx_immu_plasma',
     },
 }

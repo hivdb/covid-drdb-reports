@@ -235,7 +235,7 @@ TABLE_SUMMARY_COLUMNS = {
             ),
         ]
     },
-    'IP': {
+    'VP': {
         'rxtype': 'rx_immu_plasma',
     },
     'mAbs phase3': {
@@ -438,7 +438,7 @@ def gen_table_summary(conn):
     headers = [
         'Variant name',
         'CP',
-        'IP',
+        'VP',
         'mAbs phase3',
         'mAbs structure'
     ]
