@@ -7,7 +7,7 @@ from variant_filter import include_mutations
 from variant_filter import exclude_mutations
 
 
-TABLE_SUMMARY_MAIN_SQL = """
+TABLE_SUMMARY_CP_SQL = """
 SELECT SUM(s.cumulative_count) FROM
 -- SELECT COUNT(1) FROM
     susc_results AS s,
@@ -314,7 +314,7 @@ TABLE_SUMMARY_COLUMNS = {
 # }
 
 
-def gen_table_summary(conn):
+def gen_table_key_variant(conn):
     cursor = conn.cursor()
 
     records = []
@@ -335,7 +335,7 @@ def gen_table_summary(conn):
                 filter += '\n   '
                 filter += '\n   '.join(attr_c.get('cp_filters', []))
 
-            sql = TABLE_SUMMARY_MAIN_SQL.format(
+            sql = TABLE_SUMMARY_CP_SQL.format(
                 rxtype=rxtype,
                 joins=join,
                 filters=filter
@@ -373,7 +373,7 @@ def gen_table_summary(conn):
     #         c_filter = attr_c.get('filter', [])
     #         filter = '\n    '.join(r_filter + c_filter)
 
-    #         sql = TABLE_SUMMARY_MAIN_SQL.format(
+    #         sql = TABLE_SUMMARY_CP_SQL.format(
     #             rxtype=rxtype,
     #             joins=join,
     #             filters=filter

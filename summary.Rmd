@@ -20,13 +20,19 @@ TABLEDIR = normalizePath(sprintf('%s/susceptibility-data_files/table', .getpwd()
 
 ```
 
-## Database summary
+## Variant {.tabset}
 
-```{r summary}
-summaryDT = read.dbTable('table_summary_figure.csv', tables_dir=TABLEDIR)
+### Individual mutation
+```{r var-indiv}
+summaryDT = read.dbTable('table_variant_indiv_figure.csv', tables_dir=TABLEDIR)
 styledKBL(summaryDT)
 ```
 
+### Multiple mutation or variant
+```{r var-multi}
+summaryDT = read.dbTable('table_variant_multi_figure.csv', tables_dir=TABLEDIR)
+styledKBL(summaryDT)
+```
 ## Plasmas {.tabset}
 
 ### CP and VP summary

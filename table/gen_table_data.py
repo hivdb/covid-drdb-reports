@@ -2,7 +2,9 @@ import sys
 import sqlite3
 from pathlib import Path
 
-from gen_table_summary import gen_table_summary
+from variant.gen_table_key_variant import gen_table_key_variant
+from variant.preset import get_grouped_variants
+from variant.gen_table_variant import gen_table_variant
 
 from mab.preset import init_synonyms_map
 from mab.preset import init_abname2class
@@ -25,8 +27,11 @@ def gen_report(db_path):
     print(db_path)
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
+
     init_synonyms_map(conn)
     init_abname2class(conn)
+
+    get_grouped_variants(conn)
 
     get_aggregated_studies(conn)
 
@@ -39,7 +44,9 @@ def gen_report(db_path):
     gen_table_mab_variant(conn)
     gen_table_mab_muts(conn)
 
-    gen_table_summary(conn)
+    gen_table_key_variant(conn)
+    gen_table_variant(conn)
+
     gen_table_plasma()
     gen_table_mab()
 
