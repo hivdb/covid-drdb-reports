@@ -30,7 +30,7 @@ SELECT  s.ref_name as ref_name,
         SELECT
             _rxtype.ref_name,
             _rxtype.rx_name,
-            group_concat(_rxtype.ab_name, "+") as ab_name,
+            group_concat(_rxtype.ab_name, "/") as ab_name,
             group_concat(ab.class, "+") as ab_class,
             group_concat(ab.pdb_id) as pdb_id,
             group_concat(ab.availability) as availability

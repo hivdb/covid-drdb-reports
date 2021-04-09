@@ -25,20 +25,21 @@ TABLEDIR = normalizePath(sprintf('%s/susceptibility-data_files/table', .getpwd()
 ### Individual mutation
 ```{r var-indiv}
 indivDT = read.dbTable('table_variant_indiv_figure.csv', tables_dir=TABLEDIR)
-styledKBL(indivDT)
+styledDT(indivDT)
 ```
 
 ### Multiple mutation or variant
 ```{r var-multi}
 multiDT = read.dbTable('table_variant_multi_figure.csv', tables_dir=TABLEDIR)
-styledKBL(multiDT)
+styledDT(multiDT)
 ```
+
 ## Mab {.tabset}
 
 ### Mab results
 ```{r mab}
 mabDT = read.dbTable('table_mab_figure.csv', tables_dir=TABLEDIR)
-styledKBL(mabDT)
+styledDT(mabDT)
 ```
 
 ## Plasmas {.tabset}
@@ -162,23 +163,23 @@ grid.arrange(grobs = plots)
 ### Plasma by reference (mutations)
 ```{r cp_muts}
 CP_Muts_DT = read.dbTable('table_plasma_muts.csv', tables_dir=TABLEDIR)
-styledKBL(CP_Muts_DT)
+styledDT(CP_Muts_DT)
 CP_Muts_aggre_DT = read.dbTable('table_plasma_muts_aggre.csv', tables_dir=TABLEDIR)
-styledKBL(CP_Muts_aggre_DT)
+styledDT(CP_Muts_aggre_DT)
 ```
 
 ### Plasma by reference (variants)
 ```{r cp_variants}
 CP_Variant_DT = read.dbTable('table_plasma_variant.csv', tables_dir=TABLEDIR)
-styledKBL(CP_Variant_DT)
+styledDT(CP_Variant_DT)
 CP_Variant_aggre_DT = read.dbTable('table_plasma_variant_aggre.csv', tables_dir=TABLEDIR)
-styledKBL(CP_Variant_aggre_DT)
+styledDT(CP_Variant_aggre_DT)
 ```
 
 ### Vaccine
 ```{r vaccine}
 VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
-styledKBL(VP_DT)
+styledDT(VP_DT)
 ```
 
 

@@ -30,7 +30,7 @@ SELECT  s.ref_name as ref_name,
         SELECT
             _rxtype.ref_name,
             _rxtype.rx_name,
-            group_concat(_rxtype.ab_name, "+") as ab_name,
+            group_concat(_rxtype.ab_name, "/") as ab_name,
             group_concat(ab.class, "+") as ab_class,
             group_concat(ab.pdb_id) as pdb_id,
             group_concat(ab.availability) as availability
@@ -203,7 +203,7 @@ def gen_table_mab_muts(
                 cursor.execute(sql)
                 for row in cursor.fetchall():
                     reference = row['ref_name']
-
+                    print(row['ab_name'])
                     ab_name = SYNONYM2AB_NAME.get(row['ab_name'], row['ab_name'])
                     if ab_name in EXCLUDE_MAB:
                         continue
