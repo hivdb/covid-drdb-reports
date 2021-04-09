@@ -11,6 +11,7 @@ from mab.preset import init_abname2class
 from mab.gen_table_mab import gen_table_mab
 from mab.gen_table_mab_variant import gen_table_mab_variant
 from mab.gen_table_mab_muts import gen_table_mab_muts
+from mab.gen_table_all_mab import gen_table_all_mab
 
 from plasma.gen_table_summary import gen_table_plasma
 from plasma.gen_table_variant_indiv import gen_table_plasma_variant
@@ -43,6 +44,7 @@ def gen_report(db_path):
 
     gen_table_mab_variant(conn)
     gen_table_mab_muts(conn)
+    gen_table_all_mab(conn)
 
     gen_table_key_variant(conn)
     gen_table_variant(conn)
