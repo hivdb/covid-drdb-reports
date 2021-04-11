@@ -63,14 +63,20 @@ TABLE_SUMMARY_COLUMNS = {
     'mAbs structure': {
         'rxtype': 'rx_antibodies',
         'ab_filters': [
-            "AND ab.pdb_id IS NOT NULL",
+            (
+                "AND ab.ab_name in " +
+                "(SELECT ab_name FROM antibody_targets"
+                " WHERE pdb_id IS NOT NULL)"),
             "AND ab.availability IS NULL",
         ],
     },
     'other mAbs': {
         'rxtype': 'rx_antibodies',
         'ab_filters': [
-            "AND ab.pdb_id IS NULL",
+            (
+                "AND ab.ab_name in " +
+                "(SELECT ab_name FROM antibody_targets"
+                " WHERE pdb_id IS NOT NULL)"),
             "AND ab.availability IS NULL",
         ],
     },
@@ -134,8 +140,8 @@ def gen_table_variant(conn):
                     '#Published': count_num or 0
                 })
 
-    print(len(indiv_results))
-    print(len(multi_results))
+    # print(len(indiv_results))
+    # print(len(multi_results))
 
     save_indiv = []
     for main_name, record_list in indiv_results.items():

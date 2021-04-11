@@ -247,7 +247,10 @@ TABLE_SUMMARY_COLUMNS = {
     'mAbs structure': {
         'rxtype': 'rx_antibodies',
         'ab_filters': [
-            "AND ab.pdb_id IS NOT NULL",
+            (
+                "AND ab.ab_name in " +
+                "(SELECT ab_name FROM antibody_targets"
+                " WHERE pdb_id IS NOT NULL)"),
             "AND ab.availability IS NULL",
         ],
     }

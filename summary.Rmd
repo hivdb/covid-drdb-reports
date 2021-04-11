@@ -34,9 +34,15 @@ multiDT = read.dbTable('table_variant_multi_figure.csv', tables_dir=TABLEDIR)
 styledDT(multiDT)
 ```
 
+### Variant vs Mab
+```{r variant-mab}
+variantMabDT = read.dbTable('table_variant_mab_figure.csv', tables_dir=TABLEDIR)
+styledDT(variantMabDT)
+```
+
 ## Mab {.tabset}
 
-### Mab results
+### Mab summary
 ```{r mab}
 mabDT = read.dbTable('table_mab_figure.csv', tables_dir=TABLEDIR)
 styledDT(mabDT)

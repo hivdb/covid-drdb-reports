@@ -11,6 +11,8 @@ from .preset import SYNONYM2AB_NAME
 from .preset import AB_NAME2MAB_CLASS
 from .preset import MAB_RENAME
 from .preset import EXCLUDE_MAB
+from mab.preset import ANTIBODY_TARGET_SQL
+
 
 from variant_filter import include_mutations
 
@@ -38,13 +40,13 @@ SELECT  s.ref_name as ref_name,
         (
             SELECT DISTINCT
                 a.ab_name,
-                a.pdb_id,
+                b.pdb_id,
                 a.availability,
                 b.class,
                 b.target
             FROM
                 antibodies AS a LEFT JOIN
-                antibody_targets AS b
+                """ + ANTIBODY_TARGET_SQL + """ AS b
                 ON a.ab_name = b.ab_name
         ) AS ab
         WHERE _rxtype.ab_name = ab.ab_name
@@ -203,7 +205,6 @@ def gen_table_mab_muts(
                 cursor.execute(sql)
                 for row in cursor.fetchall():
                     reference = row['ref_name']
-                    print(row['ab_name'])
                     ab_name = SYNONYM2AB_NAME.get(row['ab_name'], row['ab_name'])
                     if ab_name in EXCLUDE_MAB:
                         continue

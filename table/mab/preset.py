@@ -115,3 +115,13 @@ EXCLUDE_MAB = [
     '5-24',
     '910-30',
 ]
+
+
+ANTIBODY_TARGET_SQL = """
+(SELECT DISTINCT * FROM antibody_targets
+WHERE ab_name NOT IN (
+    SELECT ab_name FROM 'antibody_targets' WHERE pdb_id IS NOT null)
+UNION
+SELECT DISTINCT * FROM antibody_targets
+WHERE pdb_id IS NOT null)
+"""

@@ -4,6 +4,27 @@
         "assays": [
             {
                 "variant": "E484K",
+                "rx": "1-57",
+                "mab_class": "",
+                "fold": "1.1",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "2-15",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "2-7",
+                "mab_class": "",
+                "fold": "3.4",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "E484K",
                 "rx": "BRII-196",
                 "mab_class": "",
                 "fold": "1.4",
@@ -29,6 +50,20 @@
                 "mab_class": "",
                 "fold": "2.2",
                 "reference": "Wang21"
+            },
+            {
+                "variant": "E484K",
+                "rx": "COV2-3025",
+                "mab_class": "",
+                "fold": "4.6",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "E484K",
+                "rx": "COVA2-15",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Yuan21"
             },
             {
                 "variant": "E484K",
@@ -92,6 +127,13 @@
                 "mab_class": "",
                 "fold": "15",
                 "reference": "Baum20"
+            },
+            {
+                "variant": "E484K",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
             },
             {
                 "variant": "E484K",
@@ -506,6 +548,13 @@
         "assays": [
             {
                 "variant": "E484K + N501Y",
+                "rx": "COV2-3025",
+                "mab_class": "",
+                "fold": "9.7",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "E484K + N501Y",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
                 "fold": "2",
@@ -570,6 +619,27 @@
                 "rx": "Imdevimab/REGN10989",
                 "mab_class": "",
                 "fold": "5.4",
+                "reference": "Baum20"
+            },
+            {
+                "variant": "F490S",
+                "rx": "REGN10934",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Baum20"
+            },
+            {
+                "variant": "F490S",
+                "rx": "REGN10934/REGN10989",
+                "mab_class": "",
+                "fold": "51",
+                "reference": "Baum20"
+            },
+            {
+                "variant": "F490S",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "31",
                 "reference": "Baum20"
             },
             {
@@ -670,6 +740,27 @@
         "assays": [
             {
                 "variant": "K417N",
+                "rx": "1-57",
+                "mab_class": "",
+                "fold": "0.1",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "K417N",
+                "rx": "2-15",
+                "mab_class": "",
+                "fold": "0.3",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "K417N",
+                "rx": "2-7",
+                "mab_class": "",
+                "fold": "0.5",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "K417N",
                 "rx": "BRII-196",
                 "mab_class": "",
                 "fold": "1.8",
@@ -705,6 +796,20 @@
             },
             {
                 "variant": "K417N",
+                "rx": "COV2-3025",
+                "mab_class": "",
+                "fold": "0.5",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "K417N",
+                "rx": "COVA2-07",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Yuan21"
+            },
+            {
+                "variant": "K417N",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "0.8",
@@ -723,6 +828,13 @@
                 "mab_class": "",
                 "fold": "0.3",
                 "reference": "Wang21"
+            },
+            {
+                "variant": "K417N",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "0.7",
+                "reference": "Wang21e"
             },
             {
                 "variant": "K417N",
@@ -1032,6 +1144,13 @@
             },
             {
                 "variant": "K417N + E484K + N501Y",
+                "rx": "COV2-3025",
+                "mab_class": "",
+                "fold": "1.6",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
@@ -1057,6 +1176,20 @@
                 "mab_class": "",
                 "fold": "0.8",
                 "reference": "Wang21"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "S2E11",
+                "mab_class": "",
+                "fold": "0.6",
+                "reference": "Collier21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -1282,6 +1415,20 @@
             },
             {
                 "variant": "L452R",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "1.4",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "L452R",
+                "rx": "X503",
+                "mab_class": "",
+                "fold": "63",
+                "reference": "Li20h"
+            },
+            {
+                "variant": "L452R",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.1",
@@ -1392,6 +1539,20 @@
         "assays": [
             {
                 "variant": "N439K",
+                "rx": "COVA1-18",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N439K",
+                "rx": "COVA2-15",
+                "mab_class": "",
+                "fold": "1.9",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N439K",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
@@ -1403,6 +1564,34 @@
                 "mab_class": "",
                 "fold": "1.7",
                 "reference": "Starr21"
+            },
+            {
+                "variant": "N439K",
+                "rx": "DH1042",
+                "mab_class": "",
+                "fold": "0.6",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N439K",
+                "rx": "DH1043",
+                "mab_class": "",
+                "fold": "2.1",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N439K",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "1.6",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "N439K",
+                "rx": "X503",
+                "mab_class": "",
+                "fold": "1.1",
+                "reference": "Li20h"
             },
             {
                 "variant": "N439K",
@@ -1628,6 +1817,27 @@
         "assays": [
             {
                 "variant": "N501Y",
+                "rx": "1-57",
+                "mab_class": "",
+                "fold": "0.3",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "2-15",
+                "mab_class": "",
+                "fold": "0.7",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "2-7",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "N501Y",
                 "rx": "BRII-196",
                 "mab_class": "",
                 "fold": "0.7",
@@ -1653,6 +1863,69 @@
                 "mab_class": "",
                 "fold": "1",
                 "reference": "Wang21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COV2-3025",
+                "mab_class": "",
+                "fold": "0.9",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA1-12",
+                "mab_class": "",
+                "fold": "44",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA1-18",
+                "mab_class": "",
+                "fold": "3.9",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA1-18",
+                "mab_class": "",
+                "fold": "5.2",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA1-21",
+                "mab_class": "",
+                "fold": "2.5",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA2-07",
+                "mab_class": "",
+                "fold": "0.3",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA2-15",
+                "mab_class": "",
+                "fold": "15",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA2-17",
+                "mab_class": "",
+                "fold": "3.7",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "COVA2-29",
+                "mab_class": "",
+                "fold": "0.5",
+                "reference": "Rees-Spear21"
             },
             {
                 "variant": "N501Y",
@@ -1688,6 +1961,27 @@
                 "mab_class": "",
                 "fold": "0.7",
                 "reference": "Wang21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "DH1042",
+                "mab_class": "",
+                "fold": "1.1",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "DH1043",
+                "mab_class": "",
+                "fold": "1.8",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "N501Y",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "0.1",
+                "reference": "Wang21e"
             },
             {
                 "variant": "N501Y",
@@ -2254,6 +2548,41 @@
             },
             {
                 "variant": "Y453F",
+                "rx": "REGN10934",
+                "mab_class": "",
+                "fold": "3.6",
+                "reference": "Baum20"
+            },
+            {
+                "variant": "Y453F",
+                "rx": "REGN10934/REGN10989",
+                "mab_class": "",
+                "fold": "4.3",
+                "reference": "Baum20"
+            },
+            {
+                "variant": "Y453F",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "1.2",
+                "reference": "Hoffmann21b"
+            },
+            {
+                "variant": "Y453F",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "0.8",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "Y453F",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "3.8",
+                "reference": "Baum20"
+            },
+            {
+                "variant": "Y453F",
                 "rx": "4A8",
                 "mab_class": "NTD",
                 "fold": "0.7",
@@ -2404,6 +2733,27 @@
     {
         "variant": "∆144",
         "assays": [
+            {
+                "variant": "∆144",
+                "rx": "1-57",
+                "mab_class": "",
+                "fold": "0.9",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "∆144",
+                "rx": "2-15",
+                "mab_class": "",
+                "fold": "0.8",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "∆144",
+                "rx": "2-7",
+                "mab_class": "",
+                "fold": "0.8",
+                "reference": "Wang21b"
+            },
             {
                 "variant": "∆144",
                 "rx": "BRII-196",
@@ -2572,6 +2922,27 @@
         "assays": [
             {
                 "variant": "∆69/70",
+                "rx": "1-57",
+                "mab_class": "",
+                "fold": "0.9",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "2-15",
+                "mab_class": "",
+                "fold": "0.8",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "2-7",
+                "mab_class": "",
+                "fold": "1.2",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "∆69/70",
                 "rx": "BRII-196",
                 "mab_class": "",
                 "fold": "0.9",
@@ -2583,6 +2954,97 @@
                 "mab_class": "",
                 "fold": "0.9",
                 "reference": "Wang21b"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA1-12",
+                "mab_class": "",
+                "fold": "0.6",
+                "reference": "Kemp21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA1-12",
+                "mab_class": "",
+                "fold": "0.5",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA1-18",
+                "mab_class": "",
+                "fold": "1.2",
+                "reference": "Kemp21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA1-18",
+                "mab_class": "",
+                "fold": "1.9",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA1-21",
+                "mab_class": "",
+                "fold": "5.1",
+                "reference": "Kemp21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA1-21",
+                "mab_class": "",
+                "fold": "7.3",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA2-02",
+                "mab_class": "",
+                "fold": "1.1",
+                "reference": "Kemp21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA2-07",
+                "mab_class": "",
+                "fold": "0.8",
+                "reference": "Kemp21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA2-07",
+                "mab_class": "",
+                "fold": "0.7",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA2-17",
+                "mab_class": "",
+                "fold": "0.9",
+                "reference": "Kemp21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA2-17",
+                "mab_class": "",
+                "fold": "0.6",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "COVA2-29",
+                "mab_class": "",
+                "fold": "0.6",
+                "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "∆69/70",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "0.5",
+                "reference": "Wang21e"
             },
             {
                 "variant": "∆69/70",
@@ -2808,10 +3270,52 @@
             },
             {
                 "variant": "∆69/70 + N501Y",
+                "rx": "COV2-3025",
+                "mab_class": "",
+                "fold": "0.9",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "∆69/70 + N501Y",
+                "rx": "COVA1-18",
+                "mab_class": "",
+                "fold": "4.3",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "∆69/70 + N501Y",
+                "rx": "COVA2-15",
+                "mab_class": "",
+                "fold": "8.8",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "∆69/70 + N501Y",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
                 "fold": "1.4",
                 "reference": "Chen21"
+            },
+            {
+                "variant": "∆69/70 + N501Y",
+                "rx": "DH1042",
+                "mab_class": "",
+                "fold": "0.6",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "∆69/70 + N501Y",
+                "rx": "DH1043",
+                "mab_class": "",
+                "fold": "0.9",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "∆69/70 + N501Y",
+                "rx": "REGN10989",
+                "mab_class": "",
+                "fold": "0.3",
+                "reference": "Wang21e"
             },
             {
                 "variant": "∆69/70 + N501Y",

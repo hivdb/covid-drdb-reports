@@ -3,13 +3,14 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
 from .preset import MAB_RENAME
+from mab.preset import ANTIBODY_TARGET_SQL
 
 SQL = """
 SELECT
     s.rx_name,
     s.cumulative_count as count,
     a.availability as avail,
-    a.pdb_id as pdb,
+    t.pdb_id as pdb,
     t.target as target
 FROM
     susc_results as s
@@ -17,15 +18,13 @@ INNER JOIN rx_antibodies as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
 LEFT JOIN antibodies as a ON a.ab_name = r.ab_name
-LEFT JOIN antibody_targets as t ON a.ab_name = t.ab_name
+LEFT JOIN """ + ANTIBODY_TARGET_SQL + """ as t ON a.ab_name = t.ab_name
 WHERE
     r.ab_name in (
         SELECT ab_name FROM 'antibodies'
     )
 """
 
-
-# 3951
 
 def gen_table_all_mab(conn):
     cursor = conn.cursor()
