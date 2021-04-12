@@ -20,6 +20,10 @@ def get_susceptibility(fold):
         return 'resistant'
 
 
+def is_susc(x):
+    return x <= 3
+
+
 def is_resistant(x):
     return x >= 10
 

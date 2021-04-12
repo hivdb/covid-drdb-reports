@@ -8,7 +8,9 @@ from .preset import INDIV_VARIANT
 from .preset import MULTI_VARIANT
 from mab.preset import ANTIBODY_TARGET_SQL
 from preset import round_number
-
+from resistancy import is_partial_resistant
+from resistancy import is_resistant
+from resistancy import is_susc
 
 SQL = """
 SELECT
@@ -58,7 +60,7 @@ def by_variant(conn, indiv_or_multi, save_path):
     variant_group = defaultdict(list)
     for rec in cursor.fetchall():
         variant = rec['variant_name']
-        variant = variant_mapper.get(variant, )
+        variant = variant_mapper.get(variant)
         if not variant:
             continue
         variant = variant['disp']
@@ -76,10 +78,12 @@ def by_variant(conn, indiv_or_multi, save_path):
             avail = rx_list[0]['avail']
             target = rx_list[0]['target']
 
-            all_fold = [
-                [r['fold']] * r['count']
-                for r in rx_list
-                ]
+            all_fold = [(r['fold'], r['count']) for r in rx_list if r['fold']]
+            num_s = sum([r[1] for r in all_fold if is_susc(r[0])])
+            num_i = sum([r[1] for r in all_fold if is_partial_resistant(r[0])])
+            num_r = sum([r[1] for r in all_fold if is_resistant(r[0])])
+
+            all_fold = [[i[0]] * i[1] for i in all_fold]
             all_fold = [i for j in all_fold for i in j if i]
             median_fold = round_number(median(all_fold)) if all_fold else ''
 
@@ -98,6 +102,9 @@ def by_variant(conn, indiv_or_multi, save_path):
                     'target': target,
                     'median_fold': median_fold,
                     'samples': num_results,
+                    'S': num_s,
+                    'I': num_i,
+                    'R': num_r,
                 })
             else:
                 record_list.append({
@@ -107,6 +114,9 @@ def by_variant(conn, indiv_or_multi, save_path):
                     'target': target,
                     'median_fold': median_fold,
                     'samples': num_results,
+                    'S': num_s,
+                    'I': num_i,
+                    'R': num_r,
                 })
 
     record_list.sort(key=itemgetter(

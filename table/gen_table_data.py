@@ -57,7 +57,6 @@ def gen_report(db_path):
     gen_table_variant_vp(conn)
     gen_table_variant_cp(conn)
 
-
     gen_table_plasma()
     gen_table_mab()
 
