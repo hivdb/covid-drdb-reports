@@ -40,6 +40,12 @@ variantMabDT = read.dbTable('table_variant_mab_figure.csv', tables_dir=TABLEDIR)
 styledDT(variantMabDT)
 ```
 
+### Variant vs CP
+```{r variant-cp}
+variantCPDT = read.dbTable('table_variant_cp_figure.csv', tables_dir=TABLEDIR)
+styledDT(variantCPDT)
+```
+
 ### Variant vs Vaccine
 
 ```{r variant-vaccine}
