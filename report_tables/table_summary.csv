@@ -2,15 +2,15 @@
 N501Y,CP,148
 N501Y,VP,116
 N501Y,mAbs phase3,51
-N501Y,mAbs structure,32
+N501Y,mAbs structure,20
 E484K,CP,88
 E484K,VP,57
 E484K,mAbs phase3,58
-E484K,mAbs structure,23
+E484K,mAbs structure,19
 K417N,CP,63
 K417N,VP,71
 K417N,mAbs phase3,38
-K417N,mAbs structure,20
+K417N,mAbs structure,17
 K417T,CP,24
 K417T,VP,0
 K417T,mAbs phase3,3
@@ -18,27 +18,27 @@ K417T,mAbs structure,3
 L452R,CP,2
 L452R,VP,0
 L452R,mAbs phase3,14
-L452R,mAbs structure,7
+L452R,mAbs structure,5
 Other individual mutations,CP,553
 Other individual mutations,VP,446
 Other individual mutations,mAbs phase3,593
-Other individual mutations,mAbs structure,678
+Other individual mutations,mAbs structure,495
 All individual mutations,CP,878
 All individual mutations,VP,682
 All individual mutations,mAbs phase3,744
-All individual mutations,mAbs structure,758
+All individual mutations,mAbs structure,557
 B.1.1.7,CP,475
 B.1.1.7,VP,611
 B.1.1.7,mAbs phase3,67
-B.1.1.7,mAbs structure,55
+B.1.1.7,mAbs structure,33
 B.1.351,CP,423
 B.1.351,VP,418
 B.1.351,mAbs phase3,61
-B.1.351,mAbs structure,30
+B.1.351,mAbs structure,21
 P.1,CP,106
 P.1,VP,144
 P.1,mAbs phase3,25
-P.1,mAbs structure,6
+P.1,mAbs structure,5
 B.1.427/9,CP,46
 B.1.427/9,VP,115
 B.1.427/9,mAbs phase3,9
@@ -50,8 +50,8 @@ B.1.526,mAbs structure,0
 Other combinations of mutations,CP,581
 Other combinations of mutations,VP,651
 Other combinations of mutations,mAbs phase3,164
-Other combinations of mutations,mAbs structure,246
+Other combinations of mutations,mAbs structure,162
 All combinations of mutations,CP,1631
 All combinations of mutations,VP,1947
 All combinations of mutations,mAbs phase3,338
-All combinations of mutations,mAbs structure,344
+All combinations of mutations,mAbs structure,226
