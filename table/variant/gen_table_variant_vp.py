@@ -33,6 +33,7 @@ def gen_table_variant_vp(conn):
         variant = INDIV_VARIANT.get(variant, MULTI_VARIANT.get(variant))
         if not variant:
             continue
+        variant = variant['disp']
         variant_group[variant].append(rec)
 
     record_list = []

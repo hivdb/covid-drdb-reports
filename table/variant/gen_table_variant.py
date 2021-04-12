@@ -125,8 +125,9 @@ def gen_table_variant(conn):
             count_num = rec['cumulative_count']
             main_name = INDIV_VARIANT.get(variant)
             if main_name:
-                indiv_results[main_name].append({
-                    'Variant name': main_name,
+                disp_name = main_name['disp']
+                indiv_results[disp_name].append({
+                    'Variant name': disp_name,
                     'Rx name': column_name,
                     '#Published': count_num or 0
                 })
@@ -134,8 +135,10 @@ def gen_table_variant(conn):
                 main_name = MULTI_VARIANT.get(variant)
                 if not main_name:
                     continue
-                multi_results[main_name].append({
-                    'Variant name': main_name,
+                disp_name = main_name['disp']
+                multi_results[disp_name].append({
+                    'Variant name': disp_name,
+                    'Nickname': main_name['nickname'],
                     'Rx name': column_name,
                     '#Published': count_num or 0
                 })
@@ -145,6 +148,8 @@ def gen_table_variant(conn):
 
     save_indiv = []
     for main_name, record_list in indiv_results.items():
+
+        variant_info = INDIV_VARIANT[main_name]
         rx_group = defaultdict(int)
         for item in record_list:
             rx = item['Rx name']
@@ -153,6 +158,9 @@ def gen_table_variant(conn):
 
         record = {
             'Variant name': main_name,
+            'RefAA': variant_info['ref_aa'],
+            'Position': variant_info['position'],
+            'AA': variant_info['aa'],
             'CP': 0,
             'VP': 0,
             'mAbs phase3': 0,
@@ -164,16 +172,18 @@ def gen_table_variant(conn):
         save_indiv.append(record)
 
     save_indiv.sort(key=itemgetter(
+        'Position',
         'CP',
         'VP',
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
-        ), reverse=True)
+        ))
 
     save_multi = []
     for main_name, record_list in multi_results.items():
         rx_group = defaultdict(int)
+        nickname = record_list[0]['Nickname']
         for item in record_list:
             rx = item['Rx name']
             num = item['#Published']
@@ -181,6 +191,7 @@ def gen_table_variant(conn):
 
         record = {
             'Variant name': main_name,
+            'Nickname': nickname,
             'CP': 0,
             'VP': 0,
             'mAbs phase3': 0,
@@ -192,23 +203,37 @@ def gen_table_variant(conn):
         save_multi.append(record)
 
     save_multi.sort(key=itemgetter(
+        'Nickname',
         'CP',
         'VP',
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
-        ), reverse=True)
+        ))
 
     headers = [
         'Variant name',
+        'RefAA',
+        'Position',
+        'AA',
         'CP',
         'VP',
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
     ]
+
     save_path = DATA_FILE_PATH / 'table_variant_indiv_figure.csv'
     dump_csv(save_path, save_indiv, headers)
 
+    headers = [
+        'Variant name',
+        'Nickname',
+        'CP',
+        'VP',
+        'mAbs phase3',
+        'mAbs structure',
+        'other mAbs',
+    ]
     save_path = DATA_FILE_PATH / 'table_variant_multi_figure.csv'
     dump_csv(save_path, save_multi, headers)

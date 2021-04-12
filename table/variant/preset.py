@@ -37,6 +37,30 @@ INDIV_VARIANT = {}
 MULTI_VARIANT = {}
 NO_MUT = []
 
+NTD_DELETION = [
+    (69, 70, '69-70∆'),
+    (141, 145, '141-145∆'),
+    (242, 244, '242-244∆'),
+]
+
+
+SPIKE_REF = {}
+SPIKE_REF_SQL = """
+SELECT * FROM 'ref_amino_acid' WHERE gene = 'S';
+"""
+
+
+def get_spike_ref(conn):
+    global SPIKE_REF
+
+    cursor = conn.cursor()
+    cursor.execute(SPIKE_REF_SQL)
+
+    for rec in cursor.fetchall():
+        position = rec['position']
+        aa = rec['amino_acid']
+        SPIKE_REF[position] = aa
+
 
 def get_grouped_variants(conn):
 
@@ -53,20 +77,30 @@ def get_grouped_variants(conn):
         variant = rec['variant_name']
         variant_info[variant].append(rec)
 
-    uniq_variant = get_uniq_variant(variant_info)
+    uniq_variant_info = get_uniq_variant(variant_info)
 
-    for i in uniq_variant:
-        main_name = i['main_name']
-        if i['mut_count'] == 1:
-            for name in i['variant_names']:
-                INDIV_VARIANT[name] = main_name
+    for mut_key, variant_info in uniq_variant_info.items():
+        if '20A.EU2' in variant_info['variant_names']:
+            print(variant_info['variant_names'])
+        if variant_info['mut_count'] == 1:
+            mutation = variant_info['mut_list'][0]
+            INDIV_VARIANT[mutation['disp']] = mutation
+
+            for name in variant_info['variant_names']:
+                INDIV_VARIANT[name] = mutation
         else:
-            for name in i['variant_names']:
-                MULTI_VARIANT[name] = main_name
+            main_name, nickname = get_combi_mutation_main_name(variant_info)
+            for name in variant_info['variant_names']:
+                MULTI_VARIANT[name] = {
+                    'disp': main_name,
+                    'nickname': nickname,
+                    }
 
     cursor.execute(NO_MUT_SQL)
     for rec in cursor.fetchall():
         NO_MUT.append(rec['variant_name'])
+
+    # pprint(MULTI_VARIANT)
 
 
 def get_uniq_variant(variant_info):
@@ -78,45 +112,70 @@ def get_uniq_variant(variant_info):
         for rec in info_list:
             position = rec['position']
             aa = rec['amino_acid']
+            ref_aa = SPIKE_REF[position]
             if (position, aa) in IGNORE_MUTATION:
                 continue
-            mut_list.append((position, aa))
 
-        mut_list = sorted(mut_list, key=lambda x: x[0])
+            mut_list.append({
+                'ref_aa': ref_aa,
+                'position': position,
+                'aa': aa,
+                'disp': '{}{}{}'.format(ref_aa, position, aa)
+            })
+
+        mut_list = sorted(mut_list, key=lambda x: x['position'])
+
         mut_count = len(mut_list)
+        if mut_count == 0:
+            continue
+
         mut_key = ','.join(
-            ['{}{}'.format(mut[0], mut[1]) for mut in mut_list])
+            [mut['disp'] for mut in mut_list])
 
         uniq_variant = uniq_variant_info[mut_key]
-
         uniq_variant['mut_count'] = mut_count
 
         uniq_variant['variant_names'] = uniq_variant.get('variant_names', [])
         uniq_variant['variant_names'].append(variant)
 
-        # uniq_variant['mut_list'] = uniq_variant.get('mut_list', [])
-        # uniq_variant['mut_list'].append(mut_list)
+        uniq_variant['mut_list'] = mut_list
 
     for mut_key, uniq_variant in uniq_variant_info.items():
-        variant_names = uniq_variant['variant_names']
-        variant_names = [name.replace('+614G', '') for name in variant_names]
-        variant_names = [name.replace('614G+', '') for name in variant_names]
-        variant_names = sorted(variant_names)
-        variant_names = merge_spike_and_full_genome(variant_names)
+        mut_list = uniq_variant['mut_list']
+        mut_list = merge_ntd_deletion(mut_list)
+        uniq_variant['mut_list'] = mut_list
+        uniq_variant['mut_count'] = len(mut_list)
 
-        if len(variant_names) == 1:
-            uniq_variant['main_name'] = variant_names[0]
-        else:
-            variant_names = [
-                i for i in variant_names if i not in IGNORE_VARIANT_SYNYNOMS]
-            if len(variant_names) == 1:
-                uniq_variant['main_name'] = variant_names[0]
-            else:
-                variant_names = [
-                    i for i in variant_names if not i.startswith('S:')]
-                uniq_variant['main_name'] = variant_names[0]
+    return uniq_variant_info
 
-    return list(uniq_variant_info.values())
+
+def get_main_name(variant):
+    pass
+
+
+def merge_ntd_deletion(mut_list):
+    new_mut_list = []
+    used_ntd_deletion = set()
+    for mut in mut_list:
+        if mut['aa'] != 'del':
+            new_mut_list.append(mut)
+            continue
+
+        ref_aa = mut['ref_aa']
+        position = mut['position']
+        for ntd_start, ntd_stop, ntd_disp in NTD_DELETION:
+            if ntd_disp in used_ntd_deletion:
+                break
+            if position >= ntd_start and position <= ntd_stop:
+                new_mut_list.append({
+                    'position': position,
+                    'aa': 'del',
+                    'ref_aa': ref_aa,
+                    'disp': ntd_disp
+                })
+                used_ntd_deletion.add(ntd_disp)
+
+    return new_mut_list
 
 
 def merge_spike_and_full_genome(variant_names):
@@ -127,3 +186,28 @@ def merge_spike_and_full_genome(variant_names):
     variant_names = sorted(list(set(variant_names)))
 
     return variant_names
+
+
+def get_combi_mutation_main_name(variant_info):
+    mut_list = variant_info['mut_list']
+    nickname = ''
+    if len(mut_list) > 20:
+        main_name = variant_info['variant_names'][0]
+    else:
+        main_name = ','.join([m['disp'] for m in mut_list])
+        variant_names = variant_info['variant_names']
+        for name in variant_names:
+            if nickname:
+                break
+            if name.startswith('S:'):
+                continue
+            nickname = name
+            nickname = name.replace('Spike', '').strip()
+            nickname = nickname.replace('full genome', '').strip()
+            if 'S:' in nickname:
+                nickname = nickname.replace('S:', '')
+                nickname += '(Variation)'
+            if ':-' in nickname:
+                nickname += '(Variation)'
+
+    return main_name, nickname
