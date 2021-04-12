@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
 
-TABLEDIR = normalizePath(sprintf('%s/susceptibility-data_files/table', .getpwd()))
+TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
 
 ```
 
@@ -38,6 +38,13 @@ styledDT(multiDT)
 ```{r variant-mab}
 variantMabDT = read.dbTable('table_variant_mab_figure.csv', tables_dir=TABLEDIR)
 styledDT(variantMabDT)
+```
+
+### Variant vs Vaccine
+
+```{r variant-vaccine}
+VP_DT = read.dbTable('table_variant_vp_figure.csv', tables_dir=TABLEDIR)
+styledDT(VP_DT)
 ```
 
 ## Mab {.tabset}
@@ -92,7 +99,7 @@ for (st in STUDY_TYPE) {
         variant = factor(variant, VARIANT),
         susc = factor(susc, SUSC_VALUE)
       )
-    
+
     dfAgg = dfPlot %>%
       group_by(variant, num_study) %>%
       summarise(total=sum(sample_num)) %>%
@@ -102,17 +109,17 @@ for (st in STUDY_TYPE) {
           yes=sprintf('%s studies', num_study),
           no=sprintf('%s study', num_study)
         )
-        
+
       )
-    
-    p <- ggplot(data=dfPlot, aes(x=variant, y=sample_num)) + 
+
+    p <- ggplot(data=dfPlot, aes(x=variant, y=sample_num)) +
       geom_bar(
         aes(fill=susc),
         size=0.2,
         color="#000000",
         stat="identity",
         position='stack'
-      ) + 
+      ) +
       scale_fill_manual(values = c(
         'R' = "#146aa8",
         'I' = "#7fcbee",
@@ -120,7 +127,7 @@ for (st in STUDY_TYPE) {
       )) +
       scale_y_continuous(
         expand=expansion(mult = c(0, .1))
-        ) + 
+        ) +
       geom_text(
         data=dfAgg,
         aes(y=total, label=total_label),
@@ -152,13 +159,13 @@ for (st in STUDY_TYPE) {
     # p = p + ggtitle("Convalescent plasma")
     p = p + annotate(
           "text",
-          y= Inf, 
+          y= Inf,
           x = Inf,
           label=figLabel,
           size=8,
           vjust=2,
           hjust=1.1)
-    
+
     plots[[i]] = p
     i = i + 1
 }
@@ -182,13 +189,8 @@ CP_Variant_aggre_DT = read.dbTable('table_plasma_variant_aggre.csv', tables_dir=
 styledDT(CP_Variant_aggre_DT)
 ```
 
-### Vaccine
+### Vaccine summary
 ```{r vaccine}
 VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
 styledDT(VP_DT)
-```
-
-
-### CP distribution
-```
 ```

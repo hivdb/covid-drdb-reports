@@ -5,7 +5,7 @@ from decimal import Decimal
 import json
 
 WS = Path(__file__).absolute().parent.parent
-DATA_FILE_PATH = WS / 'susceptibility-data_files' / 'table'
+DATA_FILE_PATH = WS / 'report_tables'
 DATA_FILE_PATH.mkdir(exist_ok=True)
 
 
