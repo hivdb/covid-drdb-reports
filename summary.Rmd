@@ -34,23 +34,46 @@ multiDT = read.dbTable('table_variant_multi_figure.csv', tables_dir=TABLEDIR)
 styledDT(multiDT)
 ```
 
+## Indiv mutation vs treatments  {.tabset}
+
 ### Variant vs Mab
-```{r variant-mab}
-variantMabDT = read.dbTable('table_variant_mab_figure.csv', tables_dir=TABLEDIR)
-styledDT(variantMabDT)
+```{r indiv-variant-mab}
+indivDT = read.dbTable('table_variant_indiv_mab_figure.csv', tables_dir=TABLEDIR)
+styledDT(indivDT)
 ```
 
 ### Variant vs CP
-```{r variant-cp}
-variantCPDT = read.dbTable('table_variant_cp_figure.csv', tables_dir=TABLEDIR)
-styledDT(variantCPDT)
+```{r indiv-variant-cp}
+indivDT = read.dbTable('table_variant_indiv_cp_figure.csv', tables_dir=TABLEDIR)
+styledDT(indivDT)
 ```
 
 ### Variant vs Vaccine
 
-```{r variant-vaccine}
-VP_DT = read.dbTable('table_variant_vp_figure.csv', tables_dir=TABLEDIR)
-styledDT(VP_DT)
+```{r indiv-variant-vp}
+indivDT = read.dbTable('table_variant_indiv_vp_figure.csv', tables_dir=TABLEDIR)
+styledDT(indivDT)
+```
+
+## Combination of mutations vs treatments  {.tabset}
+
+### Variant vs Mab
+```{r mult-variant-mab}
+indivDT = read.dbTable('table_variant_multi_mab_figure.csv', tables_dir=TABLEDIR)
+styledDT(indivDT)
+```
+
+### Variant vs CP
+```{r mult-varian-cp}
+indivDT = read.dbTable('table_variant_multi_cp_figure.csv', tables_dir=TABLEDIR)
+styledDT(indivDT)
+```
+
+### Variant vs Vaccine
+
+```{r mult-varian-vp}
+indivDT = read.dbTable('table_variant_multi_vp_figure.csv', tables_dir=TABLEDIR)
+styledDT(indivDT)
 ```
 
 ## Mab {.tabset}
