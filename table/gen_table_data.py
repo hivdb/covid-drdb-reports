@@ -6,6 +6,7 @@ from variant.gen_table_key_variant import gen_table_key_variant
 from variant.preset import get_grouped_variants
 from variant.gen_table_variant import gen_table_variant
 from variant.gen_table_variant_mab import gen_table_variant_mab
+from variant.gen_table_variant_vp import gen_table_variant_vp
 
 from mab.preset import init_synonyms_map
 from mab.preset import init_abname2class
@@ -50,6 +51,7 @@ def gen_report(db_path):
     gen_table_key_variant(conn)
     gen_table_variant(conn)
     gen_table_variant_mab(conn)
+    gen_table_variant_vp(conn)
 
     gen_table_plasma()
     gen_table_mab()
