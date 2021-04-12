@@ -34,14 +34,31 @@ WHERE
 
 
 def gen_table_variant_mab(conn):
-    cursor = conn.cursor()
+    by_variant(
+        conn,
+        'indiv',
+        save_path=DATA_FILE_PATH / 'table_variant_indiv_mab_figure.csv'
+    )
+    by_variant(
+        conn,
+        'multi',
+        save_path=DATA_FILE_PATH / 'table_variant_multi_mab_figure.csv'
+    )
 
+
+def by_variant(conn, indiv_or_multi, save_path):
+    if indiv_or_multi == 'indiv':
+        variant_mapper = INDIV_VARIANT
+    else:
+        variant_mapper = MULTI_VARIANT
+
+    cursor = conn.cursor()
     cursor.execute(SQL)
 
     variant_group = defaultdict(list)
     for rec in cursor.fetchall():
         variant = rec['variant_name']
-        variant = INDIV_VARIANT.get(variant, MULTI_VARIANT.get(variant))
+        variant = variant_mapper.get(variant, )
         if not variant:
             continue
         variant = variant['disp']
@@ -57,6 +74,7 @@ def gen_table_variant_mab(conn):
         for rx_name, rx_list in rx_group.items():
             rx_name = MAB_RENAME.get(rx_name, rx_name)
             avail = rx_list[0]['avail']
+            target = rx_list[0]['target']
 
             all_fold = [
                 [r['fold']] * r['count']
@@ -67,19 +85,33 @@ def gen_table_variant_mab(conn):
 
             num_results = sum([r['count'] for r in rx_list] + [0])
 
-            record_list.append({
-                'variant': variant,
-                'mab': rx_name,
-                'avail': avail,
-                'median_fold': median_fold,
-                'samples': num_results,
-            })
+            if indiv_or_multi == 'indiv':
+                variant_info = INDIV_VARIANT.get(variant)
+                record_list.append({
+                    'variant': variant,
+                    'RefAA': variant_info['ref_aa'],
+                    'Position': variant_info['position'],
+                    'AA': variant_info['aa'],
+                    'Domain': variant_info['domain'],
+                    'mab': rx_name,
+                    'avail': avail,
+                    'target': target,
+                    'median_fold': median_fold,
+                    'samples': num_results,
+                })
+            else:
+                record_list.append({
+                    'variant': variant,
+                    'mab': rx_name,
+                    'avail': avail,
+                    'target': target,
+                    'median_fold': median_fold,
+                    'samples': num_results,
+                })
 
     record_list.sort(key=itemgetter(
         'variant',
         'mab',
         'avail',
         ))
-
-    save_path = DATA_FILE_PATH / 'table_variant_mab_figure.csv'
     dump_csv(save_path, record_list)

@@ -161,6 +161,7 @@ def gen_table_variant(conn):
             'RefAA': variant_info['ref_aa'],
             'Position': variant_info['position'],
             'AA': variant_info['aa'],
+            'Domain': variant_info['domain'],
             'CP': 0,
             'VP': 0,
             'mAbs phase3': 0,
@@ -169,6 +170,9 @@ def gen_table_variant(conn):
         }
         for rx, num in rx_group.items():
             record[rx] = num
+        record['all mAbs'] = (
+            record['mAbs phase3'] + record['mAbs structure'] +
+            record['other mAbs'])
         save_indiv.append(record)
 
     save_indiv.sort(key=itemgetter(
@@ -200,6 +204,9 @@ def gen_table_variant(conn):
         }
         for rx, num in rx_group.items():
             record[rx] = num
+        record['all mAbs'] = (
+            record['mAbs phase3'] + record['mAbs structure'] +
+            record['other mAbs'])
         save_multi.append(record)
 
     save_multi.sort(key=itemgetter(
@@ -216,11 +223,13 @@ def gen_table_variant(conn):
         'RefAA',
         'Position',
         'AA',
+        'Domain',
         'CP',
         'VP',
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
+        'all mAbs',
     ]
 
     save_path = DATA_FILE_PATH / 'table_variant_indiv_figure.csv'
@@ -234,6 +243,7 @@ def gen_table_variant(conn):
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
+        'all mAbs',
     ]
     save_path = DATA_FILE_PATH / 'table_variant_multi_figure.csv'
     dump_csv(save_path, save_multi, headers)

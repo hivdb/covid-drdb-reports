@@ -49,6 +49,13 @@ SPIKE_REF_SQL = """
 SELECT * FROM 'ref_amino_acid' WHERE gene = 'S';
 """
 
+DOMAINS = {
+    'NTD': (1, 305),
+    'RBD': (306, 534),
+    'CTD': (535, 686),
+    'S2': (687, 1273),
+}
+
 
 def get_spike_ref(conn):
     global SPIKE_REF
@@ -120,7 +127,8 @@ def get_uniq_variant(variant_info):
                 'ref_aa': ref_aa,
                 'position': position,
                 'aa': aa,
-                'disp': '{}{}{}'.format(ref_aa, position, aa)
+                'disp': '{}{}{}'.format(ref_aa, position, aa),
+                'domain': get_domain(position)
             })
 
         mut_list = sorted(mut_list, key=lambda x: x['position'])
@@ -171,7 +179,8 @@ def merge_ntd_deletion(mut_list):
                     'position': position,
                     'aa': 'del',
                     'ref_aa': ref_aa,
-                    'disp': ntd_disp
+                    'disp': ntd_disp,
+                    'domain': get_domain(position),
                 })
                 used_ntd_deletion.add(ntd_disp)
 
@@ -211,3 +220,9 @@ def get_combi_mutation_main_name(variant_info):
                 nickname += '(Variation)'
 
     return main_name, nickname
+
+
+def get_domain(position):
+    for domain, range in DOMAINS.items():
+        if position >= range[0] and position <= range[1]:
+            return domain
