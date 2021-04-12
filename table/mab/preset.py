@@ -1,3 +1,5 @@
+from pprint import pprint
+
 SYNONYM2AB_NAME = {}
 AB_NAME2SYNONYM = {}
 SYNONYM_GROUP = {}
@@ -45,6 +47,8 @@ def init_synonyms_map(conn):
 
         SYNONYM_GROUP[ab_name].add(abbr_name)
 
+    MAB_RENAME.update(SYNONYM2AB_NAME)
+
 
 AB_NAME2MAB_CLASS = {}
 
@@ -78,35 +82,17 @@ MAB_RENAME = {
     'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
     'LY-CoV555+LY-CoV016': 'Bamlanivimab/Etesevimab',
     'Bamlanivimab+Etesevimab': 'Bamlanivimab/Etesevimab',
-    'LY-CoV555': 'Bamlanivimab',
-    'LY-CoV016': 'Etesevimab',
-    'CB6': 'Etesevimab',
-    'JS-016': 'Etesevimab',
-    'LY3819253': 'Bamlanivimab',
-    'LY3832479': 'Etesevimab',
     'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
     'COV2-2196+COV2-2130': 'Cilgavimab/Tixagevimab',
     'COV2-2130+COV2-2196': 'Cilgavimab/Tixagevimab',
     'Tixagevimab + Cilgavimab': 'Cilgavimab/Tixagevimab',
-    'COV2-2130': 'Cilgavimab',
-    'AZD1061': 'Cilgavimab',
-    'COV2-2130': 'Cilgavimab',
-    'COV2-2196': 'Tixagevimab',
-    'AZD8895': 'Tixagevimab',
-    'Vir-7831': 'Sotrovimab',
     'REGN10933 + REGN10987': 'Casirivimab/Imdevimab',
     'Casirivimab+Imdevimab': 'Casirivimab/Imdevimab',
     'Casirivimab + Imdevimab': 'Casirivimab/Imdevimab',
     'REGN10933/10987': 'Casirivimab/Imdevimab',
     'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
-    'REGN10933': 'Casirivimab',
-    'REGN10987': 'Imdevimab',
     'BRII-196+BRII-198': 'BRII-196/BRII-198',
     'BRII-196/198': 'BRII-196/BRII-198',
-    'S309': 'Vir-7831',
-    'GSK4182136': 'Vir-7831',
-    'Sotrovimab': 'Vir-7831',
-    'CT-P59': 'Regdanvimab',
 }
 
 EXCLUDE_MAB = [

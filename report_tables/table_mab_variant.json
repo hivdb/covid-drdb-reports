@@ -270,56 +270,56 @@
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.5",
                 "reference": "Wang21b"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "reference": "Wang21f"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "3.1",
                 "reference": "Wang21b"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "&gt;100",
                 "reference": "Shen21"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.5",
                 "reference": "Supasa21*"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "4",
                 "reference": "Wang21b*"
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "13",
                 "reference": "Chen21*"
@@ -912,42 +912,42 @@
             },
             {
                 "variant": "B.1.351",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "B.1.351",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.8",
                 "reference": "Wang21b"
             },
             {
                 "variant": "B.1.351",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "reference": "Wang21f"
             },
             {
                 "variant": "B.1.351",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "reference": "Chen21*"
             },
             {
                 "variant": "B.1.351",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.2",
                 "reference": "Wang21b*"
             },
             {
                 "variant": "B.1.351",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2",
                 "reference": "Zhou21b*"
@@ -1211,7 +1211,7 @@
             },
             {
                 "variant": "B.1.427/9",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.8",
                 "reference": "McCallum21b"
@@ -1389,28 +1389,28 @@
             },
             {
                 "variant": "P.1",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "P.1",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.4",
                 "reference": "Wang21d"
             },
             {
                 "variant": "P.1",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Wang21f"
             },
             {
                 "variant": "P.1",
-                "rx": "Sotrovimab",
+                "rx": "Vir-7831",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.9",
                 "reference": "Dejnirattisai21*"
