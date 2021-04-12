@@ -7,6 +7,7 @@ from mab.preset import MAB_RENAME
 from .preset import INDIV_VARIANT
 from .preset import MULTI_VARIANT
 from mab.preset import ANTIBODY_TARGET_SQL
+from preset import round_number
 
 
 SQL = """
@@ -61,7 +62,7 @@ def gen_table_variant_mab(conn):
                 for r in rx_list
                 ]
             all_fold = [i for j in all_fold for i in j if i]
-            median_fold = median(all_fold) if all_fold else ''
+            median_fold = round_number(median(all_fold)) if all_fold else ''
 
             num_results = sum([r['count'] for r in rx_list] + [0])
 

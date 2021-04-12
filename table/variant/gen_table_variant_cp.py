@@ -7,10 +7,8 @@ from .preset import INDIV_VARIANT
 from .preset import MULTI_VARIANT
 from preset import round_number
 
-
 SQL = """
 SELECT
-    r.vaccine_name,
     s.variant_name,
     s.fold,
     s.cumulative_count as count
@@ -19,10 +17,11 @@ FROM
 INNER JOIN rx_immu_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
+WHERE s.control_variant_name in ('Wuhan', 'Control')
 """
 
 
-def gen_table_variant_vp(conn):
+def gen_table_variant_cp(conn):
     cursor = conn.cursor()
 
     cursor.execute(SQL)
@@ -37,32 +36,24 @@ def gen_table_variant_vp(conn):
 
     record_list = []
     for variant, rlist in variant_group.items():
-        vacc_group = defaultdict(list)
-        for rec in rlist:
-            vacc_name = rec['vaccine_name']
-            vacc_group[vacc_name].append(rec)
+        all_fold = [
+            [r['fold']] * r['count']
+            for r in rlist
+            ]
+        all_fold = [i for j in all_fold for i in j if i]
+        median_fold = round_number(median(all_fold)) if all_fold else ''
 
-        for vacc_name, rx_list in vacc_group.items():
-            all_fold = [
-                [r['fold']] * r['count']
-                for r in rx_list
-                ]
-            all_fold = [i for j in all_fold for i in j if i]
-            median_fold = round_number(median(all_fold)) if all_fold else ''
+        num_results = sum([r['count'] for r in rlist] + [0])
 
-            num_results = sum([r['count'] for r in rx_list] + [0])
-
-            record_list.append({
-                'variant': variant,
-                'vaccine': vacc_name,
-                'median_fold': median_fold,
-                'samples': num_results,
-            })
+        record_list.append({
+            'variant': variant,
+            'median_fold': median_fold,
+            'samples': num_results,
+        })
 
     record_list.sort(key=itemgetter(
         'variant',
-        'vaccine',
         ))
 
-    save_path = DATA_FILE_PATH / 'table_variant_vp_figure.csv'
+    save_path = DATA_FILE_PATH / 'table_variant_cp_figure.csv'
     dump_csv(save_path, record_list)
