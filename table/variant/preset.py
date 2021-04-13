@@ -99,6 +99,10 @@ def get_grouped_variants(conn):
                 INDIV_VARIANT[name] = mutation
         else:
             main_name, nickname = get_combi_mutation_main_name(variant_info)
+            MULTI_VARIANT[main_name] = {
+                'disp': main_name,
+                'nickname': nickname,
+                }
             for name in variant_info['variant_names']:
                 MULTI_VARIANT[name] = {
                     'disp': main_name,

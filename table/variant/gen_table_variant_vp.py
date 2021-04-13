@@ -21,6 +21,7 @@ FROM
 INNER JOIN rx_immu_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
+WHERE s.control_variant_name in ('Control', 'Wuhan', 'S:614G');
 """
 
 
@@ -90,8 +91,11 @@ def by_variant(conn, indiv_or_multi, save_path):
                     'R': num_r,
                 })
             else:
+                variant_info = MULTI_VARIANT.get(variant)
+                nickname = variant_info['nickname']
                 record_list.append({
                     'variant': variant,
+                    'nickname': nickname,
                     'vaccine': vacc_name,
                     'median_fold': median_fold,
                     'samples': num_results,

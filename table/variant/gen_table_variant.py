@@ -40,14 +40,14 @@ WHERE
 TABLE_SUMMARY_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
-        'cp_filters': [
-            (
-                "AND ("
-                "      rxtype.infection IN ('S:614G')"
-                "   OR rxtype.infection IS NULL"
-                "    )"
-            ),
-        ]
+        # 'cp_filters': [
+        #     (
+        #         "AND ("
+        #         "      rxtype.infection IN ('S:614G')"
+        #         "   OR rxtype.infection IS NULL"
+        #         "    )"
+        #     ),
+        # ]
     },
     'VP': {
         'rxtype': 'rx_immu_plasma',
@@ -85,7 +85,7 @@ def gen_table_variant(conn):
         c_filter = attr_c.get('filters', [])
         filter = '\n    '.join(c_filter)
 
-        if column_name.lower().startswith('cp'):
+        if column_name.lower() in ['cp', 'vp']:
             rxtype = attr_c['rxtype']
             filter += '\n   '
             filter += '\n   '.join(attr_c.get('cp_filters', []))

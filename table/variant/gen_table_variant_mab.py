@@ -107,8 +107,11 @@ def by_variant(conn, indiv_or_multi, save_path):
                     'R': num_r,
                 })
             else:
+                variant_info = MULTI_VARIANT.get(variant)
+                nickname = variant_info['nickname']
                 record_list.append({
                     'variant': variant,
+                    'nickname': nickname,
                     'mab': ab_name,
                     'avail': avail,
                     'target': target,
