@@ -3,36 +3,36 @@ from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from mab.preset import MAB_RENAME
 from .preset import INDIV_VARIANT
 from .preset import MULTI_VARIANT
-from mab.preset import ANTIBODY_TARGET_SQL
+
+from mab.preset import MAB_RENAME
+from mab.preset import RX_MAB
+
 from preset import round_number
+
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import is_susc
 
 SQL = """
 SELECT
-    s.rx_name,
+    rx.ab_name,
     s.variant_name,
     s.fold,
     s.cumulative_count as count,
-    a.availability as avail,
-    t.pdb_id as pdb,
-    t.target as target
+    rx.availability as avail,
+    rx.pdb_id as pdb,
+    rx.target as target
 FROM
-    susc_results as s
-INNER JOIN rx_antibodies as r ON
-    s.ref_name = r.ref_name
-    AND s.rx_name = r.rx_name
-LEFT JOIN antibodies as a ON a.ab_name = r.ab_name
-LEFT JOIN """ + ANTIBODY_TARGET_SQL + """ as t ON a.ab_name = t.ab_name
+    susc_results as s,
+    ({rx_type}) as rx
+ON
+    s.ref_name = rx.ref_name
+    AND s.rx_name = rx.rx_name
 WHERE
-    r.ab_name in (
-        SELECT ab_name FROM 'antibodies'
-    )
-"""
+    s.control_variant_name IN ('Control', 'Wuhan', 'S:614G');
+""".format(rx_type=RX_MAB)
 
 
 def gen_table_variant_mab(conn):
@@ -70,11 +70,11 @@ def by_variant(conn, indiv_or_multi, save_path):
     for variant, rlist in variant_group.items():
         rx_group = defaultdict(list)
         for rec in rlist:
-            rx_name = rec['rx_name']
-            rx_group[rx_name].append(rec)
+            ab_name = rec['ab_name']
+            rx_group[ab_name].append(rec)
 
-        for rx_name, rx_list in rx_group.items():
-            rx_name = MAB_RENAME.get(rx_name, rx_name)
+        for ab_name, rx_list in rx_group.items():
+            ab_name = MAB_RENAME.get(ab_name, ab_name)
             avail = rx_list[0]['avail']
             target = rx_list[0]['target']
 
@@ -97,7 +97,7 @@ def by_variant(conn, indiv_or_multi, save_path):
                     'Position': variant_info['position'],
                     'AA': variant_info['aa'],
                     'Domain': variant_info['domain'],
-                    'mab': rx_name,
+                    'mab': ab_name,
                     'avail': avail,
                     'target': target,
                     'median_fold': median_fold,
@@ -109,7 +109,7 @@ def by_variant(conn, indiv_or_multi, save_path):
             else:
                 record_list.append({
                     'variant': variant,
-                    'mab': rx_name,
+                    'mab': ab_name,
                     'avail': avail,
                     'target': target,
                     'median_fold': median_fold,

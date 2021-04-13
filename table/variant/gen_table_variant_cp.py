@@ -20,7 +20,7 @@ FROM
 INNER JOIN rx_conv_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
-WHERE s.control_variant_name in ('Wuhan', 'Control')
+WHERE s.control_variant_name in ('Control', 'Wuhan', 'S:614G');
 """
 
 

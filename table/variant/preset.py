@@ -22,6 +22,10 @@ NOT IN (
 );
 """
 
+CONTROL_VARIANTS_SQL = """
+('Control', 'Wuhan', 'S:614G')
+"""
+
 IGNORE_MUTATION = [
     (614, 'G')
 ]
@@ -87,8 +91,6 @@ def get_grouped_variants(conn):
     uniq_variant_info = get_uniq_variant(variant_info)
 
     for mut_key, variant_info in uniq_variant_info.items():
-        if '20A.EU2' in variant_info['variant_names']:
-            print(variant_info['variant_names'])
         if variant_info['mut_count'] == 1:
             mutation = variant_info['mut_list'][0]
             INDIV_VARIANT[mutation['disp']] = mutation

@@ -46,6 +46,20 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "910-30",
+                "mab_class": "",
+                "fold": "14",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "910-30",
+                "mab_class": "",
+                "fold": "10",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "ADG20",
                 "mab_class": "",
                 "fold": "1.4",
@@ -165,6 +179,13 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "DH1041",
+                "mab_class": "",
+                "fold": "1.6",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "S2E11",
                 "mab_class": "",
                 "fold": "0.6",
@@ -172,7 +193,7 @@
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "S2E12/Vir-7831",
+                "rx": "Vir-7831/S2E12",
                 "mab_class": "",
                 "fold": "0.7",
                 "reference": "Chen21*"
@@ -187,6 +208,20 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "4A8",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "5-24",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "5-24",
                 "mab_class": "NTD",
                 "fold": "&gt;100",
                 "reference": "Wang21b*"
@@ -702,6 +737,20 @@
             },
             {
                 "variant": "B.1.351",
+                "rx": "910-30",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "910-30",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
                 "rx": "ADG20",
                 "mab_class": "",
                 "fold": "2.5",
@@ -821,7 +870,7 @@
             },
             {
                 "variant": "B.1.351",
-                "rx": "S2E12/Vir-7831",
+                "rx": "Vir-7831/S2E12",
                 "mab_class": "",
                 "fold": "0.6",
                 "reference": "Chen21*"
@@ -836,6 +885,20 @@
             {
                 "variant": "B.1.351",
                 "rx": "4A8",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "5-24",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "5-24",
                 "mab_class": "NTD",
                 "fold": "&gt;100",
                 "reference": "Wang21b*"
@@ -1351,6 +1414,13 @@
                 "mab_class": "NTD",
                 "fold": "7.9",
                 "reference": "Wang21f"
+            },
+            {
+                "variant": "P.1",
+                "rx": "5-24",
+                "mab_class": "NTD",
+                "fold": "1",
+                "reference": "Wang21d"
             },
             {
                 "variant": "P.1",

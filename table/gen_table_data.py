@@ -10,8 +10,6 @@ from variant.gen_table_variant_mab import gen_table_variant_mab
 from variant.gen_table_variant_vp import gen_table_variant_vp
 from variant.gen_table_variant_cp import gen_table_variant_cp
 
-from mab.preset import init_synonyms_map
-from mab.preset import init_abname2class
 from mab.gen_table_mab import gen_table_mab
 from mab.gen_table_mab_variant import gen_table_mab_variant
 from mab.gen_table_mab_muts import gen_table_mab_muts
@@ -33,8 +31,6 @@ def gen_report(db_path):
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
 
-    init_synonyms_map(conn)
-    init_abname2class(conn)
     get_spike_ref(conn)
 
     get_grouped_variants(conn)

@@ -5,6 +5,7 @@ from operator import itemgetter
 
 from .preset import INDIV_VARIANT
 from .preset import MULTI_VARIANT
+from mab.preset import RX_MAB
 
 
 TABLE_SUMMARY_CP_SQL = """
@@ -22,19 +23,16 @@ FROM
 
 TABLE_SUMMARY_MAB_SQL = """
 SELECT
-    variant_name,
-    cumulative_count
+    s.variant_name,
+    s.cumulative_count
 FROM
     susc_results AS s,
-    (
-        SELECT DISTINCT _rxtype.ref_name, _rxtype.rx_name
-        FROM {rxtype} AS _rxtype, antibodies AS ab
-        WHERE _rxtype.ab_name = ab.ab_name
-        {ab_filters}
-    ) as rxtype
-    {joins}
-    WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+    ({rxtype}) as rx
+ON
+    s.ref_name = rx.ref_name
+    AND s.rx_name = rx.rx_name
+WHERE
+    s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     {filters};
 """
 
@@ -55,29 +53,20 @@ TABLE_SUMMARY_COLUMNS = {
         'rxtype': 'rx_immu_plasma',
     },
     'mAbs phase3': {
-        'rxtype': 'rx_antibodies',
-        'ab_filters': [
-            "AND ab.availability IS NOT NULL",
+        'filters': [
+            "AND rx.availability IS NOT NULL",
         ],
     },
     'mAbs structure': {
-        'rxtype': 'rx_antibodies',
-        'ab_filters': [
-            (
-                "AND ab.ab_name in " +
-                "(SELECT ab_name FROM antibody_targets"
-                " WHERE pdb_id IS NOT NULL)"),
-            "AND ab.availability IS NULL",
+        'filters': [
+            "AND rx.availability IS NULL",
+            "AND rx.pdb_id IS NOT NULL"
         ],
     },
     'other mAbs': {
-        'rxtype': 'rx_antibodies',
-        'ab_filters': [
-            (
-                "AND ab.ab_name in " +
-                "(SELECT ab_name FROM antibody_targets"
-                " WHERE pdb_id IS NOT NULL)"),
-            "AND ab.availability IS NULL",
+        'filters': [
+            "AND rx.availability IS NULL",
+            "AND rx.pdb_id IS NULL"
         ],
     },
 }
@@ -90,31 +79,25 @@ def gen_table_variant(conn):
     multi_results = defaultdict(list)
 
     for column_name, attr_c in TABLE_SUMMARY_COLUMNS.items():
-        rxtype = attr_c['rxtype']
-
         c_join = attr_c.get('join', [])
         join = ',\n    '.join([''] + c_join)
 
-        c_filter = attr_c.get('filter', [])
+        c_filter = attr_c.get('filters', [])
         filter = '\n    '.join(c_filter)
 
         if column_name.lower().startswith('cp'):
+            rxtype = attr_c['rxtype']
             filter += '\n   '
             filter += '\n   '.join(attr_c.get('cp_filters', []))
 
-        sql = TABLE_SUMMARY_CP_SQL.format(
-            rxtype=rxtype,
-            joins=join,
-            filters=filter
-        )
-        if column_name.lower().startswith('mab'):
-            abfilters = attr_c.get('ab_filters', [])
-            abfilters = '\n     '.join(abfilters)
-
-            sql = TABLE_SUMMARY_MAB_SQL.format(
+            sql = TABLE_SUMMARY_CP_SQL.format(
                 rxtype=rxtype,
-                ab_filters=abfilters,
                 joins=join,
+                filters=filter
+            )
+        if 'mab' in column_name.lower():
+            sql = TABLE_SUMMARY_MAB_SQL.format(
+                rxtype=RX_MAB,
                 filters=filter
             )
         # print(sql)

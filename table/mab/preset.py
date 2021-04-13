@@ -1,107 +1,26 @@
-from pprint import pprint
-
-SYNONYM2AB_NAME = {}
-AB_NAME2SYNONYM = {}
-SYNONYM_GROUP = {}
-
-
-def init_synonyms_map(conn):
-    cursor = conn.cursor()
-    sql = """
-        SELECT * FROM antibody_synonyms
-    """
-    cursor.execute(sql)
-
-    for row in cursor.fetchall():
-        ab_name = row['ab_name']
-        synonym = row['synonym']
-        SYNONYM2AB_NAME[synonym] = ab_name
-        AB_NAME2SYNONYM[ab_name] = synonym
-
-        if synonym in SYNONYM_GROUP:
-            SYNONYM_GROUP[synonym].add(ab_name)
-            SYNONYM_GROUP[ab_name] = SYNONYM_GROUP[synonym]
-        elif ab_name in SYNONYM_GROUP:
-            SYNONYM_GROUP[ab_name].add(synonym)
-            SYNONYM_GROUP[synonym] = SYNONYM_GROUP[ab_name]
-        else:
-            SYNONYM_GROUP[ab_name] = set()
-            SYNONYM_GROUP[ab_name].add(ab_name)
-            SYNONYM_GROUP[ab_name].add(synonym)
-            SYNONYM_GROUP[synonym] = SYNONYM_GROUP[ab_name]
-
-    cursor = conn.cursor()
-    sql = """
-        SELECT ab_name, abbreviation_name
-        FROM antibodies WHERE abbreviation_name IS NOT NULL;
-    """
-    cursor.execute(sql)
-
-    for row in cursor.fetchall():
-        ab_name = row['ab_name']
-        abbr_name = row['abbreviation_name']
-        if ab_name in AB_NAME2SYNONYM.keys():
-            SYNONYM2AB_NAME[abbr_name] = ab_name
-        elif ab_name in SYNONYM2AB_NAME.keys():
-            SYNONYM2AB_NAME[abbr_name] = SYNONYM2AB_NAME[ab_name]
-
-        SYNONYM_GROUP[ab_name].add(abbr_name)
-
-    MAB_RENAME.update(SYNONYM2AB_NAME)
-
-
-AB_NAME2MAB_CLASS = {}
-
-
-def init_abname2class(conn):
-    cursor = conn.cursor()
-    sql = """
-        SELECT * FROM antibody_targets
-    """
-
-    cursor.execute(sql)
-
-    for row in cursor.fetchall():
-        ab_name = row['ab_name']
-        target = row['target']
-        ab_class = row['class']
-        source = row['source']
-        class_info = {
-            'target': target,
-            'class': ab_class,
-            'source': source
-        }
-
-        AB_NAME2MAB_CLASS[ab_name] = class_info
-
-        for synonym in SYNONYM_GROUP.get(ab_name, []):
-            AB_NAME2MAB_CLASS[synonym] = class_info
-
-
 MAB_RENAME = {
     'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
-    'LY-CoV555+LY-CoV016': 'Bamlanivimab/Etesevimab',
     'Bamlanivimab+Etesevimab': 'Bamlanivimab/Etesevimab',
+
     'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
-    'COV2-2196+COV2-2130': 'Cilgavimab/Tixagevimab',
-    'COV2-2130+COV2-2196': 'Cilgavimab/Tixagevimab',
     'Tixagevimab + Cilgavimab': 'Cilgavimab/Tixagevimab',
+
+    'REGN10933/10987': 'Casirivimab/Imdevimab',
+    'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
     'REGN10933 + REGN10987': 'Casirivimab/Imdevimab',
     'Casirivimab+Imdevimab': 'Casirivimab/Imdevimab',
     'Casirivimab + Imdevimab': 'Casirivimab/Imdevimab',
-    'REGN10933/10987': 'Casirivimab/Imdevimab',
-    'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
-    'BRII-196+BRII-198': 'BRII-196/BRII-198',
+    'CAS/IMD': 'Casirivimab/Imdevimab',
+
     'BRII-196/198': 'BRII-196/BRII-198',
+
+    'C144+C135': 'C135/C144',
+
+    'Vir-7831+S2E12': 'Vir-7831/S2E12',
+
+    'REGN10989/10987': 'REGN10989/Imdevimab',
+    'REGN10989+10934': 'REGN10989+10934',
 }
-
-EXCLUDE_MAB = [
-    'REGN10989/10987',
-    'DH1041',
-    '5-24',
-    '910-30',
-]
-
 
 ANTIBODY_TARGET_SQL = """
 (SELECT DISTINCT * FROM antibody_targets
@@ -111,3 +30,49 @@ UNION
 SELECT DISTINCT * FROM antibody_targets
 WHERE pdb_id IS NOT null)
 """
+
+ANTIBODY_INFO_SQL = """
+SELECT
+    a.ab_name,
+    a.availability,
+    b.pdb_id,
+    b.target,
+    b.class
+FROM antibodies AS a, {antibody_target_sql} AS b
+ON a.ab_name = b.ab_name
+""".format(antibody_target_sql=ANTIBODY_TARGET_SQL)
+
+RX_SINGLE_MAB_SQL = """
+SELECT
+    r.ref_name as ref_name,
+    r.rx_name as rx_name,
+    r.ab_name as ab_name,
+    ab.availability,
+    ab.pdb_id,
+    ab.target,
+    ab.class
+FROM
+    rx_antibodies as r,
+    ({antibody_info_sql}) as ab
+ON r.ab_name = ab.ab_name
+GROUP BY r.ref_name, r.rx_name
+HAVING count(r.ab_name) = 1
+""".format(antibody_info_sql=ANTIBODY_INFO_SQL)
+
+RX_COMBO_MAB_SQL = """
+SELECT
+    ref_name,
+    rx_name,
+    rx_name as ab_name,
+    '' as availability,
+    '' as pdb_id,
+    '' as target,
+    '' as class
+FROM rx_antibodies
+GROUP BY ref_name, rx_name
+HAVING count(ab_name) > 1
+"""
+
+RX_MAB = """{single_mab} UNION {combo_mab}""".format(
+    single_mab=RX_SINGLE_MAB_SQL,
+    combo_mab=RX_COMBO_MAB_SQL)
