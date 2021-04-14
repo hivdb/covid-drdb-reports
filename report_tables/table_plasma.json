@@ -10,13 +10,13 @@
         "vac_num_i_fold": 109,
         "vac_num_r_fold": 45,
         "cp_studies": 19,
-        "cp_samples": 465,
-        "cp_s_fold": "86%",
-        "cp_i_fold": "11%",
+        "cp_samples": 468,
+        "cp_s_fold": "85%",
+        "cp_i_fold": "12%",
         "cp_r_fold": "3%",
         "cp_num_s_fold": 400,
-        "cp_num_i_fold": 52,
-        "cp_num_r_fold": 13
+        "cp_num_i_fold": 54,
+        "cp_num_r_fold": 14
     },
     {
         "variant": "B.1.351",
@@ -105,12 +105,12 @@
         "vac_num_i_fold": 0,
         "vac_num_r_fold": 0,
         "cp_studies": 6,
-        "cp_samples": 146,
-        "cp_s_fold": "96%",
-        "cp_i_fold": "4%",
+        "cp_samples": 147,
+        "cp_s_fold": "95%",
+        "cp_i_fold": "5%",
         "cp_r_fold": 0,
         "cp_num_s_fold": 140,
-        "cp_num_i_fold": 6,
+        "cp_num_i_fold": 7,
         "cp_num_r_fold": 0
     },
     {

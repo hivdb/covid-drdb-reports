@@ -554,6 +554,26 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "Mild",
+                "samples": 1,
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Rees-Spear21",
+                "median": "5.9"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Mild",
+                "samples": 1,
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 1,
+                "reference": "Rees-Spear21",
+                "median": "10.5"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "NVX-CoV",
                 "samples": 28,
                 "s_fold": 20,
@@ -571,6 +591,16 @@
                 "r_fold": 0,
                 "reference": "Rees-Spear21",
                 "median": "<3.0"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Severe",
+                "samples": 1,
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Rees-Spear21",
+                "median": "4.0"
             },
             {
                 "variant": "B.1.1.7",

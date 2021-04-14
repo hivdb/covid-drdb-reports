@@ -21,8 +21,6 @@ from plasma.gen_table_variants import gen_table_plasma_variant
 from plasma.gen_table_muts import gen_table_plasma_muts
 from plasma.gen_table_vp import gen_table_vp
 
-from lookup_view import get_aggregated_studies
-
 
 def gen_report(db_path):
     db_path = Path(db_path).resolve()
@@ -33,8 +31,6 @@ def gen_report(db_path):
     get_spike_ref(conn)
 
     get_grouped_variants(conn)
-
-    get_aggregated_studies(conn)
 
     gen_table_plasma_variant(conn)
     gen_table_plasma_muts(conn)

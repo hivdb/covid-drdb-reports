@@ -594,6 +594,16 @@
             },
             {
                 "variant": "N501Y",
+                "rx": "Mild",
+                "samples": 1,
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Rees-Spear21",
+                "median": "3.3"
+            },
+            {
+                "variant": "N501Y",
                 "rx": "Severe",
                 "samples": 18,
                 "s_fold": 18,
