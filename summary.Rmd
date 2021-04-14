@@ -83,8 +83,35 @@ styledDT(indivDT)
 mabDT = read.dbTable('table_mab_figure.csv', tables_dir=TABLEDIR)
 styledDT(mabDT)
 ```
+## Plasmas Table {.tabset}
 
-## Plasmas {.tabset}
+### Plasma by reference (mutations)
+```{r cp_muts}
+CP_Muts_DT = read.dbTable('table_plasma_muts.csv', tables_dir=TABLEDIR)
+styledDT(CP_Muts_DT)
+```
+
+### Plasma by reference (variants)
+```{r cp_variants}
+CP_Variant_DT = read.dbTable('table_plasma_variant.csv', tables_dir=TABLEDIR)
+styledDT(CP_Variant_DT)
+```
+
+### Vaccine summary
+```{r vaccine}
+VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
+styledDT(VP_DT)
+```
+
+### Plasma aggregated
+```{r plasma-aggre}
+VP_DT = read.dbTable('table_variant_aggre_plasma_figure.csv', tables_dir=TABLEDIR)
+styledDT(VP_DT)
+```
+
+
+
+## Plasmas Figure {.tabset}
 
 ### CP and VP summary
 
@@ -200,27 +227,4 @@ for (st in STUDY_TYPE) {
 }
 
 grid.arrange(grobs = plots)
-```
-
-### Plasma by reference (mutations)
-```{r cp_muts}
-CP_Muts_DT = read.dbTable('table_plasma_muts.csv', tables_dir=TABLEDIR)
-styledDT(CP_Muts_DT)
-```
-
-### Plasma by reference (variants)
-```{r cp_variants}
-CP_Variant_DT = read.dbTable('table_plasma_variant.csv', tables_dir=TABLEDIR)
-styledDT(CP_Variant_DT)
-```
-
-### Vaccine summary
-```{r vaccine}
-VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
-styledDT(VP_DT)
-```
-### Plasma aggregated
-```{r plasma-aggre}
-VP_DT = read.dbTable('table_variant_aggre_plasma_figure.csv', tables_dir=TABLEDIR)
-styledDT(VP_DT)
 ```
