@@ -206,20 +206,21 @@ grid.arrange(grobs = plots)
 ```{r cp_muts}
 CP_Muts_DT = read.dbTable('table_plasma_muts.csv', tables_dir=TABLEDIR)
 styledDT(CP_Muts_DT)
-CP_Muts_aggre_DT = read.dbTable('table_plasma_muts_aggre.csv', tables_dir=TABLEDIR)
-styledDT(CP_Muts_aggre_DT)
 ```
 
 ### Plasma by reference (variants)
 ```{r cp_variants}
 CP_Variant_DT = read.dbTable('table_plasma_variant.csv', tables_dir=TABLEDIR)
 styledDT(CP_Variant_DT)
-CP_Variant_aggre_DT = read.dbTable('table_plasma_variant_aggre.csv', tables_dir=TABLEDIR)
-styledDT(CP_Variant_aggre_DT)
 ```
 
 ### Vaccine summary
 ```{r vaccine}
 VP_DT = read.dbTable('table_vp_figure.csv', tables_dir=TABLEDIR)
+styledDT(VP_DT)
+```
+### Plasma aggregated
+```{r plasma-aggre}
+VP_DT = read.dbTable('table_variant_aggre_plasma_figure.csv', tables_dir=TABLEDIR)
 styledDT(VP_DT)
 ```

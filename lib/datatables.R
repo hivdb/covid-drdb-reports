@@ -9,7 +9,8 @@ styledDT <- function(data, pageLength = 20) {
     rownames = FALSE,
     height = "auto",
     extensions = 'Buttons',
-    options = list(pageLength = pageLength, dom = 'Bfrtip', buttons = c('copy', 'csv', 'excel', 'print'))
+    options = list(pageLength = pageLength, dom = 'Bfrtip',
+    buttons = list('copy', 'csv', list(extend = 'excel', title = NULL), 'print'))
   )
 }
 styledKBL <- function(data, caption = NA) {
