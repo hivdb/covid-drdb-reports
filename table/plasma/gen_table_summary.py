@@ -127,17 +127,9 @@ def gen_table_plasma():
     cp_variant_records = load_csv(DATA_FILE_PATH / 'table_plasma_variant.csv')
     cp_mut_records = load_csv(DATA_FILE_PATH / 'table_plasma_muts.csv')
 
-    cp_variant_aggre_records = load_csv(
-        DATA_FILE_PATH / 'table_plasma_variant_aggre.csv')
-    cp_mut_aggre_records = load_csv(
-        DATA_FILE_PATH / 'table_plasma_muts_aggre.csv')
-
     variant_groups = defaultdict(list)
     group_variants(variant_groups, cp_variant_records)
     group_variants(variant_groups, cp_mut_records)
-
-    group_variants(variant_groups, cp_variant_aggre_records)
-    group_variants(variant_groups, cp_mut_aggre_records)
 
     result = []
     for variant in SHOW_VARIANT:

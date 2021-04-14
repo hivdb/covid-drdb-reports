@@ -1,19 +1,19 @@
 import statistics
-from preset import dump_csv
 from operator import itemgetter
 from collections import defaultdict
 from preset import round_number
 from preset import dump_json
 from resistancy import RESISTANCE_FILTER
-
+from resistancy import is_susc
+from resistancy import is_partial_resistant
+from resistancy import is_resistant
 from .preset import PLASMA_RENAME
 from .preset import PLASMA_POST_RENAME
 from .preset import RENAME_CP_EXECUTOR
 
 
-def gen_plasma_table(
+def gen_plasma_indiv_table(
         conn, row_filters, subrow_filters,
-        csv_save_path, json_save_path,
         sql_template, record_modifier=None):
 
     cursor = conn.cursor()
@@ -90,16 +90,13 @@ def gen_plasma_table(
             rec['Median'] = '-'
         del rec['folds']
 
+        rec['Samples'] = rec['S'] + rec['I'] + rec['R']
+
     records = list(records.values())
 
     records = apply_modifier(records, record_modifier)
 
-    records.sort(key=itemgetter(
-        'Variant name', 'Plasma', 'Reference'))
-
-    dump_csv(csv_save_path, records)
-
-    convert_to_json(json_save_path, records)
+    return records
 
 
 def apply_modifier(records, record_modifier):
@@ -113,31 +110,6 @@ def apply_modifier(records, record_modifier):
         results = records
 
     return results
-
-
-def convert_to_json(json_save_path, records):
-    json_results = defaultdict(list)
-    for r in records:
-        variant = r['Variant name']
-        json_results[variant].append({
-            'variant': variant,
-            'rx': r['Plasma'],
-            's_fold': r['S'],
-            'i_fold': r['I'],
-            'r_fold': r['R'],
-            'reference': r['Reference'],
-            'median': r['Median'],
-        })
-
-    results = []
-    for variant, assays in json_results.items():
-        results.append({
-            'variant': variant,
-            'assays': sorted(assays, key=itemgetter('rx')),
-        })
-
-    variant = sorted(results, key=itemgetter('variant'))
-    dump_json(json_save_path, results)
 
 
 def record_modifier(record):
@@ -155,7 +127,6 @@ def record_modifier(record):
 
 def gen_plasma_aggre_table(
         conn, row_filters, subrow_filters,
-        csv_save_path, json_save_path,
         sql_template, record_modifier=None):
 
     cursor = conn.cursor()
@@ -198,34 +169,43 @@ def gen_plasma_aggre_table(
                         if tester(cp_name):
                             cp_name = new_name
 
-                    records.append({
+                    rec = {
                         'Variant name': variant_name,
                         'Plasma': PLASMA_POST_RENAME.get(cp_name, cp_name),
-                        'Reference': reference,
-                        'Fold': fold_change,
                         'Samples': num_results,
-                    })
+                        'Reference': reference,
+                        'Median': fold_change,
+                        'S': 0,
+                        'I': 0,
+                        'R': 0,
+                    }
+                    if is_susc(fold):
+                        rec['S'] = num_results
+                    if is_partial_resistant(fold):
+                        rec['I'] = num_results
+                    if is_resistant(fold):
+                        rec['R'] = num_results
+
+                    records.append(rec)
 
     records = apply_modifier(records, record_modifier)
 
-    records.sort(key=itemgetter(
-        'Variant name', 'Plasma', 'Reference'))
-
-    dump_csv(csv_save_path, records)
-
-    aggre_convert_to_json(json_save_path, records)
+    return records
 
 
-def aggre_convert_to_json(json_save_path, records):
+def convert_to_json(json_save_path, records):
     json_results = defaultdict(list)
     for r in records:
         variant = r['Variant name']
         json_results[variant].append({
             'variant': variant,
             'rx': r['Plasma'],
-            'fold': r['Fold'],
             'samples': r['Samples'],
-            'reference': r['Reference']
+            's_fold': r['S'],
+            'i_fold': r['I'],
+            'r_fold': r['R'],
+            'reference': r['Reference'],
+            'median': r['Median'],
         })
 
     results = []

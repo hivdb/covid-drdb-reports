@@ -17,10 +17,8 @@ from mab.gen_table_mab_muts import gen_table_mab_muts
 from mab.gen_table_all_mab import gen_table_all_mab
 
 from plasma.gen_table_summary import gen_table_plasma
-from plasma.gen_table_variant_indiv import gen_table_plasma_variant
-from plasma.gen_table_mut_indiv import gen_table_plasma_muts
-from plasma.gen_table_variant_aggre import gen_table_plasma_variant_aggre
-from plasma.gen_table_mut_aggre import gen_table_plasma_muts_aggre
+from plasma.gen_table_variants import gen_table_plasma_variant
+from plasma.gen_table_muts import gen_table_plasma_muts
 from plasma.gen_table_vp import gen_table_vp
 
 from lookup_view import get_aggregated_studies
@@ -39,9 +37,7 @@ def gen_report(db_path):
     get_aggregated_studies(conn)
 
     gen_table_plasma_variant(conn)
-    gen_table_plasma_variant_aggre(conn)
     gen_table_plasma_muts(conn)
-    gen_table_plasma_muts_aggre(conn)
     gen_table_vp(conn)
 
     gen_table_mab_variant(conn)
