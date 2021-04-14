@@ -10,7 +10,9 @@ SELECT
     s.resistance_level,
     s.ineffective
 FROM
-    susc_results AS s,
+    susc_results AS s
+WHERE
+    (s.ref_name, s.rx_name, s.variant_name, s.control_variant_name) IN
     (
     SELECT
         ref_name,
@@ -19,12 +21,7 @@ FROM
         control_variant_name
     FROM susc_results
     WHERE cumulative_count > 1
-    ) AS b
-ON
-    s.ref_name = b.ref_name
-    AND s.rx_name = b.rx_name
-    AND s.variant_name = b.variant_name
-    AND s.control_variant_name = b.control_variant_name
+    )
 """
 
 INDIVIDUAL_SAMPLE_SQL = """
@@ -39,7 +36,9 @@ SELECT
     s.resistance_level,
     s.ineffective
 FROM
-    susc_results AS s,
+    susc_results AS s
+WHERE
+    (s.ref_name, s.rx_name, s.variant_name, s.control_variant_name) IN
     (SELECT
         ref_name,
         rx_name,
@@ -54,10 +53,5 @@ FROM
         control_variant_name
     FROM susc_results
     WHERE cumulative_count > 1
-    ) AS b
-ON
-    s.ref_name = b.ref_name
-    AND s.rx_name = b.rx_name
-    AND s.variant_name = b.variant_name
-    AND s.control_variant_name = b.control_variant_name
+    )
 """

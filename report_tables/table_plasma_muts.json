@@ -20,7 +20,7 @@
                 "i_fold": 10,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "3.4"
+                "median": 3.4
             },
             {
                 "variant": "E484K",
@@ -145,7 +145,7 @@
                 "i_fold": 10,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "3.8"
+                "median": 3.8
             },
             {
                 "variant": "E484K + N501Y",
@@ -190,7 +190,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "1.1"
+                "median": 1.1
             },
             {
                 "variant": "K417N",
@@ -285,7 +285,7 @@
                 "i_fold": 10,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "4.5"
+                "median": 4.5
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -385,7 +385,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Wu21",
-                "median": "2.7"
+                "median": 2.7
             }
         ]
     },
@@ -460,7 +460,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "1.1"
+                "median": 1.1
             },
             {
                 "variant": "N501Y",
@@ -495,22 +495,12 @@
             {
                 "variant": "N501Y",
                 "rx": "BNT162b2",
-                "samples": 3,
-                "s_fold": 3,
+                "samples": 11,
+                "s_fold": 11,
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Xie21",
-                "median": "0.5"
-            },
-            {
-                "variant": "N501Y",
-                "rx": "BNT162b2",
-                "samples": 5,
-                "s_fold": 5,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Xie21",
-                "median": "0.5"
+                "median": 0.5
             },
             {
                 "variant": "N501Y",
@@ -585,22 +575,12 @@
             {
                 "variant": "N501Y",
                 "rx": "Mild",
-                "samples": 16,
-                "s_fold": 16,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Rees-Spear21",
-                "median": "<3.0"
-            },
-            {
-                "variant": "N501Y",
-                "rx": "Mild",
-                "samples": 1,
-                "s_fold": 0,
+                "samples": 18,
+                "s_fold": 17,
                 "i_fold": 1,
                 "r_fold": 0,
                 "reference": "Rees-Spear21",
-                "median": "3.3"
+                "median": 3.0
             },
             {
                 "variant": "N501Y",
@@ -610,7 +590,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Rees-Spear21",
-                "median": "<3.0"
+                "median": 3.0
             },
             {
                 "variant": "N501Y",
@@ -660,7 +640,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Wu21",
-                "median": "0.9"
+                "median": 0.9
             }
         ]
     },
@@ -785,7 +765,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Rees-Spear21",
-                "median": "<3.0"
+                "median": 3.0
             },
             {
                 "variant": "∆69/70",
@@ -795,7 +775,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Rees-Spear21",
-                "median": "<3.0"
+                "median": 3.0
             },
             {
                 "variant": "∆69/70",

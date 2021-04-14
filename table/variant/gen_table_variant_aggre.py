@@ -9,23 +9,7 @@ from preset import round_number
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import is_susc
-
-
-SQL = """
-SELECT
-    s.ref_name,
-    s.variant_name,
-    s.fold,
-    s.cumulative_count
-FROM
-    susc_results AS s,
-    {rxtype} as rx
-ON
-    s.ref_name = rx.ref_name
-    AND s.rx_name = rx.rx_name
-WHERE
-    s.cumulative_count > 1
-"""
+from plasma.preset import AGGREGATED_RESULTS_SQL
 
 RXTYPE = {
     'rx_immu_plasma': 'vp',
@@ -42,8 +26,10 @@ def gen_table_variant_aggre(
     result = []
 
     for rxtype, plasma in RXTYPE.items():
-        sql = SQL.format(rxtype=rxtype)
+        sql = AGGREGATED_RESULTS_SQL.format(
+            rxtype=rxtype, filters='')
 
+        # print(sql)
         cursor.execute(sql)
 
         single_mut_group = defaultdict(list)
@@ -62,10 +48,8 @@ def gen_table_variant_aggre(
             variant = variant['disp']
             combo_mut_group[variant].append(rec)
 
-        # result.append(get_fold_results(single_mut_group, 'single', plasma))
-        # result.append(get_fold_results(combo_mut_group, 'combo', plasma))
         result += get_fold_results(single_mut_group, 'single', plasma)
-        result += get_fold_results(single_mut_group, 'combo', plasma)
+        result += get_fold_results(combo_mut_group, 'combo', plasma)
 
     result.sort(key=itemgetter(
         'plasma',
@@ -81,25 +65,9 @@ def get_fold_results(mut_group, mut_type, plasma):
                 'variant': variant,
                 'plasma': plasma,
                 'reference': r['ref_name'],
-                'fold': r['fold'],
-                'count': r['cumulative_count']
+                'fold_cmp': r['fold_cmp'],
+                'median': r['fold'],
+                'count': r['sample_count']
             })
 
     return results
-    # fold_result = []
-    # for variant, r_list in mut_group.items():
-    #     fold_result += [
-    #         (r['ref_name'], r['fold']) for r in r_list if r['fold']]
-
-    # num_result = len(fold_result)
-    # num_ref = len(set(r[0] for r in fold_result))
-    # fold = [r[1] for r in fold_result]
-    # median_fold = median(fold) if fold else ''
-
-    # return {
-    #     'mut_type': mut_type,
-    #     'plasma': plasma,
-    #     'num_ref': num_ref,
-    #     'num_result': num_result,
-    #     'median_fold': median_fold
-    # }

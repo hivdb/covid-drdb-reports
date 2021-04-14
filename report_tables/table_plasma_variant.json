@@ -20,7 +20,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Supasa21*",
-                "median": "2.1"
+                "median": 2.1
             },
             {
                 "variant": "B.1.1.7",
@@ -70,7 +70,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Garcia-Beltran21",
-                "median": "2.3"
+                "median": 2.3
             },
             {
                 "variant": "B.1.1.7",
@@ -90,7 +90,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "1.0"
+                "median": 1.0
             },
             {
                 "variant": "B.1.1.7",
@@ -130,7 +130,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Skelly21",
-                "median": "2.0"
+                "median": 2.0
             },
             {
                 "variant": "B.1.1.7",
@@ -140,7 +140,7 @@
                 "i_fold": 25,
                 "r_fold": 0,
                 "reference": "Supasa21*",
-                "median": "3.3"
+                "median": 3.3
             },
             {
                 "variant": "B.1.1.7",
@@ -180,7 +180,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Zuckerman21*",
-                "median": "2.0"
+                "median": 2.0
             },
             {
                 "variant": "B.1.1.7",
@@ -360,7 +360,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "1.5"
+                "median": 1.5
             },
             {
                 "variant": "B.1.1.7",
@@ -400,7 +400,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Supasa21*",
-                "median": "2.9"
+                "median": 2.9
             },
             {
                 "variant": "B.1.1.7",
@@ -545,32 +545,12 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "Mild",
-                "samples": 13,
-                "s_fold": 13,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Rees-Spear21",
-                "median": "<3.0"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "Mild",
-                "samples": 1,
-                "s_fold": 0,
-                "i_fold": 1,
-                "r_fold": 0,
-                "reference": "Rees-Spear21",
-                "median": "5.9"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "Mild",
-                "samples": 1,
-                "s_fold": 0,
-                "i_fold": 0,
+                "samples": 18,
+                "s_fold": 14,
+                "i_fold": 3,
                 "r_fold": 1,
                 "reference": "Rees-Spear21",
-                "median": "10.5"
+                "median": 3.0
             },
             {
                 "variant": "B.1.1.7",
@@ -585,22 +565,12 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "Severe",
-                "samples": 13,
-                "s_fold": 13,
-                "i_fold": 0,
-                "r_fold": 0,
+                "samples": 18,
+                "s_fold": 15,
+                "i_fold": 2,
+                "r_fold": 1,
                 "reference": "Rees-Spear21",
-                "median": "<3.0"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "Severe",
-                "samples": 1,
-                "s_fold": 0,
-                "i_fold": 1,
-                "r_fold": 0,
-                "reference": "Rees-Spear21",
-                "median": "4.0"
+                "median": 3.0
             },
             {
                 "variant": "B.1.1.7",
@@ -735,7 +705,7 @@
                 "i_fold": 10,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "6.8"
+                "median": 6.8
             },
             {
                 "variant": "B.1.351",
@@ -775,7 +745,7 @@
                 "i_fold": 25,
                 "r_fold": 0,
                 "reference": "Skelly21",
-                "median": "5.0"
+                "median": 5.0
             },
             {
                 "variant": "B.1.351",
@@ -955,7 +925,7 @@
                 "i_fold": 10,
                 "r_fold": 0,
                 "reference": "Kuzmina21",
-                "median": "6.9"
+                "median": 6.9
             },
             {
                 "variant": "B.1.351",
@@ -1240,7 +1210,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Garcia-Beltran21",
-                "median": "2.9"
+                "median": 2.9
             },
             {
                 "variant": "B.1.427/9",
@@ -1395,7 +1365,7 @@
                 "i_fold": 0,
                 "r_fold": 22,
                 "reference": "Garcia-Beltran21",
-                "median": "15.1"
+                "median": 15.1
             },
             {
                 "variant": "P.1",

@@ -8,6 +8,8 @@ INDIVIDUAL_RESULTS_SQL = """
 SELECT
     s.ref_name as ref_name,
     s.rx_name as rx_name,
+    s.control_variant_name as control,
+    s.variant_name as variant_name,
     s.cumulative_count as sample_count,
     s.fold_cmp as fold_cmp,
     s.fold as fold
@@ -26,6 +28,8 @@ AGGREGATED_RESULTS_SQL = """
 SELECT
     s.ref_name as ref_name,
     s.rx_name as rx_name,
+    s.control_variant_name as control,
+    s.variant_name as variant_name,
     s.cumulative_count as sample_count,
     s.fold_cmp as fold_cmp,
     s.fold as fold
@@ -37,7 +41,6 @@ FROM
 ON rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
 WHERE s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
     {filters}
-GROUP BY s.ref_name, s.rx_name;
 """
 
 

@@ -7,6 +7,7 @@ from resistancy import RESISTANCE_FILTER
 from resistancy import is_susc
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
+from statistics import median
 from .preset import PLASMA_RENAME
 from .preset import PLASMA_POST_RENAME
 from .preset import RENAME_CP_EXECUTOR
@@ -134,59 +135,72 @@ def gen_plasma_aggre_table(
     records = []
     for row_name, attr_r in row_filters.items():
         for subrow_name, attr_subr in subrow_filters.items():
-            for resist_name, resist_filter in RESISTANCE_FILTER.items():
-                rxtype = attr_subr['rxtype']
+            rxtype = attr_subr['rxtype']
 
-                r_filter = attr_r.get('filter', [])
-                filter = '\n    '.join(r_filter + resist_filter)
+            r_filter = attr_r.get('filter', [])
+            filter = '\n    '.join(r_filter)
 
-                if subrow_name.lower().startswith('cp'):
-                    filter += '\n   '
-                    filter += '\n   '.join(attr_subr.get('cp_filters', []))
+            if subrow_name.lower().startswith('cp'):
+                filter += '\n   '
+                filter += '\n   '.join(attr_subr.get('cp_filters', []))
 
-                sql = sql_template.format(
-                    rxtype=rxtype,
-                    filters=filter
+            sql = sql_template.format(
+                rxtype=rxtype,
+                filters=filter
+            )
+            # print(sql)
+
+            cursor.execute(sql)
+
+            groups = defaultdict(list)
+            for row in cursor.fetchall():
+                variant_name = row_name
+                control = row['control']
+                cp_name = row['rx_name']
+                reference = row['ref_name']
+
+                cp_name = rename_cp(cp_name, reference)
+
+                group_key = '{}{}{}{}'.format(
+                    variant_name,
+                    control,
+                    cp_name,
+                    reference
                 )
-                # print(sql)
+                groups[group_key].append(row)
 
-                cursor.execute(sql)
-                for row in cursor.fetchall():
-                    variant_name = row_name
-                    cp_name = row['rx_name']
-                    reference = row['ref_name']
-                    num_results = row['sample_count']
-                    fold_cmp = row['fold_cmp']
-                    fold = row['fold']
+            for _, r_list in groups.items():
+                cp_name = r_list[0]['rx_name']
+                reference = r_list[0]['ref_name']
+                cp_name = rename_cp(cp_name, reference)
 
-                    if fold_cmp == '=':
-                        fold_cmp = ''
-                    fold_change = '{}{}'.format(fold_cmp, fold)
+                all_fold = [
+                    [r['fold']] * r['sample_count']
+                    for r in r_list if r['fold']]
+                all_fold = [r for j in all_fold for r in j]
+                s_fold = [r for r in all_fold if is_susc(r)]
+                i_fold = [
+                    r for r in all_fold if is_partial_resistant(r)]
+                r_fold = [r for r in all_fold if is_resistant(r)]
 
-                    cp_name = PLASMA_RENAME.get(cp_name, cp_name)
-                    rename_executors = RENAME_CP_EXECUTOR.get(reference, [])
-                    for tester, new_name in rename_executors:
-                        if tester(cp_name):
-                            cp_name = new_name
+                num_s_fold = len(s_fold)
+                num_i_fold = len(i_fold)
+                num_r_fold = len(r_fold)
+                num_results = num_s_fold + num_i_fold + num_r_fold
+                median_fold = median(all_fold)
 
-                    rec = {
-                        'Variant name': variant_name,
-                        'Plasma': PLASMA_POST_RENAME.get(cp_name, cp_name),
-                        'Samples': num_results,
-                        'Reference': reference,
-                        'Median': fold_change,
-                        'S': 0,
-                        'I': 0,
-                        'R': 0,
-                    }
-                    if is_susc(fold):
-                        rec['S'] = num_results
-                    if is_partial_resistant(fold):
-                        rec['I'] = num_results
-                    if is_resistant(fold):
-                        rec['R'] = num_results
+                rec = {
+                    'Variant name': variant_name,
+                    'Plasma': PLASMA_POST_RENAME.get(cp_name, cp_name),
+                    'Samples': num_results,
+                    'Reference': reference,
+                    'Median': median_fold,
+                    'S': num_s_fold,
+                    'I': num_i_fold,
+                    'R': num_r_fold,
+                }
 
-                    records.append(rec)
+                records.append(rec)
 
     records = apply_modifier(records, record_modifier)
 
@@ -217,3 +231,13 @@ def convert_to_json(json_save_path, records):
 
     variant = sorted(results, key=itemgetter('variant'))
     dump_json(json_save_path, results)
+
+
+def rename_cp(cp_name, reference):
+    cp_name = PLASMA_RENAME.get(cp_name, cp_name)
+    rename_executors = RENAME_CP_EXECUTOR.get(reference, [])
+    for tester, new_name in rename_executors:
+        if tester(cp_name):
+            cp_name = new_name
+
+    return cp_name
