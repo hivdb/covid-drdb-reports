@@ -1,69 +1,59 @@
-from collections import defaultdict
-from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from operator import itemgetter
-from .preset import INDIV_VARIANT
-from .preset import MULTI_VARIANT
-from preset import round_number
-from resistancy import is_partial_resistant
-from resistancy import is_resistant
-from resistancy import is_susc
+from variant.preset import INDIV_VARIANT
+from variant.preset import COMBO_VARIANT
+from variant.preset import group_by_variant
 from plasma.preset import AGGREGATED_RESULTS_SQL
+from variant.preset import CONTROL_VARIANTS_SQL
+
 
 RXTYPE = {
-    'rx_immu_plasma': 'vp',
-    'rx_conv_plasma': 'cp',
+    'rx_immu_plasma': DATA_FILE_PATH / 'summary_vp_aggre.csv',
+    'rx_conv_plasma': DATA_FILE_PATH / 'summary_cp_aggre.csv',
 }
 
 
-def gen_table_variant_aggre(
-        conn,
-        save_path=DATA_FILE_PATH / 'table_variant_aggre_plasma_figure.csv'):
+def gen_table_variant_aggre(conn):
 
     cursor = conn.cursor()
-
-    result = []
-
-    for rxtype, plasma in RXTYPE.items():
+    for rxtype, save_path in RXTYPE.items():
         sql = AGGREGATED_RESULTS_SQL.format(
-            rxtype=rxtype, filters='')
+            rxtype=rxtype,
+            filters='',
+            control_variants=CONTROL_VARIANTS_SQL,
+            )
 
         # print(sql)
         cursor.execute(sql)
 
-        single_mut_group = defaultdict(list)
-        combo_mut_group = defaultdict(list)
-        for rec in cursor.fetchall():
-            variant_name = rec['variant_name']
-            variant = INDIV_VARIANT.get(variant_name)
-            if variant:
-                variant = variant['disp']
-                single_mut_group[variant].append(rec)
-                continue
+        records = cursor.fetchall()
 
-            variant = MULTI_VARIANT.get(variant_name)
-            if not variant:
-                continue
-            variant = variant['disp']
-            combo_mut_group[variant].append(rec)
+        indiv_records, combo_records = group_by_variant(records)
 
-        result += get_fold_results(single_mut_group, 'single', plasma)
-        result += get_fold_results(combo_mut_group, 'combo', plasma)
+        results = []
+        results += get_fold_results(indiv_records, 'indiv')
+        results += get_fold_results(combo_records, 'combo')
 
-    result.sort(key=itemgetter(
-        'plasma',
-        ))
-    dump_csv(save_path, result)
+        dump_csv(save_path, results)
 
 
-def get_fold_results(mut_group, mut_type, plasma):
+def get_variant_group(group_name):
+    if group_name == 'indiv':
+        return INDIV_VARIANT
+    else:
+        return COMBO_VARIANT
+
+
+def get_fold_results(mut_group, variant_group_name):
     results = []
+    variant_group = get_variant_group(variant_group_name)
     for variant, r_list in mut_group.items():
         for r in r_list:
+            variant_info = variant_group.get(variant)
             results.append({
                 'variant': variant,
-                'plasma': plasma,
+                'domain': variant_info.get('domain'),
+                'nickname': variant_info.get('nickname'),
                 'reference': r['ref_name'],
                 'fold_cmp': r['fold_cmp'],
                 'median': r['fold'],

@@ -4,6 +4,7 @@ from preset import dump_csv
 from operator import itemgetter
 from .preset import MAB_RENAME
 from mab.preset import RX_MAB
+from variant.preset import CONTROL_VARIANTS_SQL
 
 SQL = """
 SELECT
@@ -18,7 +19,9 @@ FROM
 ON
     s.ref_name = rx.ref_name AND
     s.rx_name = rx.rx_name
-""".format(rx_type=RX_MAB)
+WHERE
+    s.control_variant_name in {control_variants}
+""".format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 
 
 def gen_table_all_mab(conn):
@@ -55,5 +58,5 @@ def gen_table_all_mab(conn):
         'pdb',
         ), reverse=True)
 
-    save_path = DATA_FILE_PATH / 'table_mab_figure.csv'
+    save_path = DATA_FILE_PATH / 'summary_mab.csv'
     dump_csv(save_path, record_list)

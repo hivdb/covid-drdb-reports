@@ -21,6 +21,8 @@ from plasma.gen_table_variants import gen_table_plasma_variant
 from plasma.gen_table_muts import gen_table_plasma_muts
 from plasma.gen_table_vp import gen_table_vp
 
+from study.gen_study import gen_study
+
 
 def gen_report(db_path):
     db_path = Path(db_path).resolve()
@@ -46,6 +48,8 @@ def gen_report(db_path):
     gen_table_variant_vp(conn)
     gen_table_variant_cp(conn)
     gen_table_variant_aggre(conn)
+
+    gen_study(conn)
 
     gen_table_plasma()
     gen_table_mab()

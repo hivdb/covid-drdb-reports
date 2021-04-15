@@ -3,7 +3,6 @@ from variant_filter import include_mutations
 from lookup_view import INDIVIDUAL_SAMPLE_SQL
 from lookup_view import AGGREGATED_SUSC_VIEW_SQL
 
-
 INDIVIDUAL_RESULTS_SQL = """
 SELECT
     s.ref_name as ref_name,
@@ -19,7 +18,7 @@ FROM
 ) as s,
     {rxtype} AS rxtype
 ON rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-WHERE s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+WHERE s.control_variant_name IN {control_variants}
     {filters}
 """
 
@@ -39,7 +38,7 @@ FROM
 ) as s,
     {rxtype} AS rxtype
 ON rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-WHERE s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+WHERE s.control_variant_name IN {control_variants}
     {filters}
 """
 

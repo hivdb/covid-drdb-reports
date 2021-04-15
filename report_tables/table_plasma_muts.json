@@ -130,16 +130,6 @@
             {
                 "variant": "E484K + N501Y",
                 "rx": "BNT162b2",
-                "samples": 24,
-                "s_fold": 4,
-                "i_fold": 19,
-                "r_fold": 1,
-                "reference": "Chen21",
-                "median": "4.2"
-            },
-            {
-                "variant": "E484K + N501Y",
-                "rx": "BNT162b2",
                 "samples": 10,
                 "s_fold": 0,
                 "i_fold": 10,
@@ -159,6 +149,16 @@
             },
             {
                 "variant": "E484K + N501Y",
+                "rx": "BNT162b2_7d",
+                "samples": 24,
+                "s_fold": 4,
+                "i_fold": 19,
+                "r_fold": 1,
+                "reference": "Chen21",
+                "median": "4.2"
+            },
+            {
+                "variant": "E484K + N501Y",
                 "rx": "CP",
                 "samples": 19,
                 "s_fold": 6,
@@ -172,16 +172,6 @@
     {
         "variant": "K417N",
         "assays": [
-            {
-                "variant": "K417N",
-                "rx": "BNT162b2",
-                "samples": 24,
-                "s_fold": 23,
-                "i_fold": 1,
-                "r_fold": 0,
-                "reference": "Chen21",
-                "median": "0.9"
-            },
             {
                 "variant": "K417N",
                 "rx": "BNT162b2",
@@ -211,6 +201,16 @@
                 "r_fold": 0,
                 "reference": "Wang21b",
                 "median": "0.7"
+            },
+            {
+                "variant": "K417N",
+                "rx": "BNT162b2_7d",
+                "samples": 24,
+                "s_fold": 23,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Chen21",
+                "median": "0.9"
             },
             {
                 "variant": "K417N",
@@ -829,7 +829,7 @@
         "assays": [
             {
                 "variant": "∆69/70 + N501Y + A570D",
-                "rx": "BNT162b2_1ds",
+                "rx": "BNT162b2_1ds_3W",
                 "samples": 15,
                 "s_fold": 15,
                 "i_fold": 0,

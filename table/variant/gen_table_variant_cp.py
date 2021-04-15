@@ -4,11 +4,12 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
 from .preset import INDIV_VARIANT
-from .preset import MULTI_VARIANT
+from .preset import COMBO_VARIANT
 from preset import round_number
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import is_susc
+from variant.preset import CONTROL_VARIANTS_SQL
 
 SQL = """
 SELECT
@@ -20,28 +21,28 @@ FROM
 INNER JOIN rx_conv_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
-WHERE s.control_variant_name in ('Control', 'Wuhan', 'S:614G');
-"""
+WHERE s.control_variant_name in {control_variants};
+""".format(control_variants=CONTROL_VARIANTS_SQL)
 
 
 def gen_table_variant_cp(conn):
     by_variant(
         conn,
         'indiv',
-        save_path=DATA_FILE_PATH / 'table_variant_indiv_cp_figure.csv'
+        save_path=DATA_FILE_PATH / 'summary_variant_indiv_cp.csv'
     )
     by_variant(
         conn,
-        'multi',
-        save_path=DATA_FILE_PATH / 'table_variant_multi_cp_figure.csv'
+        'combo',
+        save_path=DATA_FILE_PATH / 'summary_variant_combo_cp.csv'
     )
 
 
-def by_variant(conn, indiv_or_multi, save_path):
-    if indiv_or_multi == 'indiv':
+def by_variant(conn, indiv_or_combo, save_path):
+    if indiv_or_combo == 'indiv':
         variant_mapper = INDIV_VARIANT
     else:
-        variant_mapper = MULTI_VARIANT
+        variant_mapper = COMBO_VARIANT
 
     cursor = conn.cursor()
 
@@ -57,8 +58,8 @@ def by_variant(conn, indiv_or_multi, save_path):
         variant_group[variant].append(rec)
 
     record_list = []
-    for variant, rlist in variant_group.items():
-        all_fold = [(r['fold'], r['count']) for r in rlist if r['fold']]
+    for variant, rx_list in variant_group.items():
+        all_fold = [(r['fold'], r['count']) for r in rx_list if r['fold']]
         num_s = sum([r[1] for r in all_fold if is_susc(r[0])])
         num_i = sum([r[1] for r in all_fold if is_partial_resistant(r[0])])
         num_r = sum([r[1] for r in all_fold if is_resistant(r[0])])
@@ -67,9 +68,9 @@ def by_variant(conn, indiv_or_multi, save_path):
         all_fold = [i for j in all_fold for i in j if i]
         median_fold = round_number(median(all_fold)) if all_fold else ''
 
-        num_results = sum([r['count'] for r in rlist] + [0])
+        num_results = sum([r['count'] for r in rx_list] + [0])
 
-        if indiv_or_multi == 'indiv':
+        if indiv_or_combo == 'indiv':
             variant_info = INDIV_VARIANT.get(variant)
             record_list.append({
                 'variant': variant,
@@ -84,7 +85,7 @@ def by_variant(conn, indiv_or_multi, save_path):
                 'R': num_r,
             })
         else:
-            variant_info = MULTI_VARIANT.get(variant)
+            variant_info = COMBO_VARIANT.get(variant)
             nickname = variant_info['nickname']
             record_list.append({
                 'variant': variant,

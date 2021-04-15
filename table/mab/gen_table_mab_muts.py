@@ -10,7 +10,7 @@ from preset import round_number
 from .preset import MAB_RENAME
 from mab.preset import RX_MAB
 from variant_filter import include_mutations
-
+from variant.preset import CONTROL_VARIANTS_SQL
 
 MAB_MUTS_SQL = """
 SELECT
@@ -27,7 +27,7 @@ ON
     s.ref_name = rx.ref_name AND
     s.rx_name = rx.rx_name
 WHERE
-    s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+    s.control_variant_name IN {control_variants}
     -- AND s.ineffective IS NULL
     {filters}
     AND (
@@ -164,6 +164,7 @@ def gen_table_mab_muts(
             sql = MAB_MUTS_SQL.format(
                 filters=filter,
                 rx_type=RX_MAB,
+                control_variants=CONTROL_VARIANTS_SQL,
             )
             # print(sql)
 

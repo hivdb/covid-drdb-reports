@@ -50,28 +50,28 @@
     },
     {
         "variant": "B.1.1.7",
-        "cp": 475,
+        "cp": 484,
         "vp": 611,
         "phase3": 67,
         "structure": 33
     },
     {
         "variant": "B.1.351",
-        "cp": 423,
+        "cp": 432,
         "vp": 418,
         "phase3": 61,
         "structure": 21
     },
     {
         "variant": "P.1",
-        "cp": 106,
+        "cp": 115,
         "vp": 144,
         "phase3": 25,
         "structure": 5
     },
     {
         "variant": "B.1.427/9",
-        "cp": 46,
+        "cp": 55,
         "vp": 115,
         "phase3": 9,
         "structure": 3
@@ -92,7 +92,7 @@
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 1631,
+        "cp": 1667,
         "vp": 1947,
         "phase3": 338,
         "structure": 226

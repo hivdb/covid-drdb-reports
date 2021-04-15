@@ -11,6 +11,7 @@ from statistics import median
 from .preset import PLASMA_RENAME
 from .preset import PLASMA_POST_RENAME
 from .preset import RENAME_CP_EXECUTOR
+from variant.preset import CONTROL_VARIANTS_SQL
 
 
 def gen_plasma_indiv_table(
@@ -34,7 +35,8 @@ def gen_plasma_indiv_table(
 
                 sql = sql_template.format(
                     rxtype=rxtype,
-                    filters=filter
+                    filters=filter,
+                    control_variants=CONTROL_VARIANTS_SQL,
                 )
                 # print(sql)
 
@@ -146,7 +148,8 @@ def gen_plasma_aggre_table(
 
             sql = sql_template.format(
                 rxtype=rxtype,
-                filters=filter
+                filters=filter,
+                control_variants=CONTROL_VARIANTS_SQL,
             )
             # print(sql)
 

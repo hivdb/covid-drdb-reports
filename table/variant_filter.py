@@ -18,7 +18,7 @@ def exclude_mutations(mutations):
     return filter
 
 
-# def include_single_mutation(conn, mutation_str, include_614G=True):
+# def include_indiv_mutation(conn, mutation_str, include_614G=True):
 #     cursor = conn.cursor()
 
 #     SQL = """

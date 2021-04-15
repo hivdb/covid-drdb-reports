@@ -1,22 +1,26 @@
 from preset import dump_csv
 from preset import DATA_FILE_PATH
+from variant.preset import CONTROL_VARIANTS_SQL
 
 
 VP_SQL = """
 SELECT
-    b.vaccine_name as vaccine_name,
-    count(a.cumulative_count) as samples
+    rx.vaccine_name as vaccine_name,
+    COUNT(s.cumulative_count) as samples
 FROM
-    susc_results as a,
-    rx_immu_plasma as b
+    susc_results as s,
+    rx_immu_plasma as rx
 ON
-    a.ref_name = b.ref_name AND a.rx_name = b.rx_name
-GROUP BY b.vaccine_name
-"""
+    s.ref_name = rx.ref_name
+    AND s.rx_name = rx.rx_name
+WHERE
+    s.control_variant_name in {control_variants}
+GROUP BY rx.vaccine_name
+""".format(control_variants=CONTROL_VARIANTS_SQL)
 
 
 def gen_table_vp(
-        conn, csv_save_path=DATA_FILE_PATH / "table_vp_figure.csv"):
+        conn, csv_save_path=DATA_FILE_PATH / "summary_vp.csv"):
 
     cursor = conn.cursor()
     cursor.execute(VP_SQL)

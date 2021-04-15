@@ -4,20 +4,22 @@ from collections import defaultdict
 from operator import itemgetter
 
 from .preset import INDIV_VARIANT
-from .preset import MULTI_VARIANT
+from .preset import COMBO_VARIANT
 from mab.preset import RX_MAB
+from variant.preset import CONTROL_VARIANTS_SQL
 
 
 TABLE_SUMMARY_CP_SQL = """
 SELECT
-    variant_name,
-    cumulative_count
+    s.variant_name,
+    s.cumulative_count
 FROM
     susc_results AS s,
     {rxtype} AS rxtype
-    {joins}
-    WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+ON
+    rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+WHERE
+    s.control_variant_name IN {control_variants}
     {filters};
 """
 
@@ -32,7 +34,7 @@ ON
     s.ref_name = rx.ref_name
     AND s.rx_name = rx.rx_name
 WHERE
-    s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+    s.control_variant_name IN {control_variants}
     {filters};
 """
 
@@ -76,7 +78,7 @@ def gen_table_variant(conn):
     cursor = conn.cursor()
 
     indiv_results = defaultdict(list)
-    multi_results = defaultdict(list)
+    combo_results = defaultdict(list)
 
     for column_name, attr_c in TABLE_SUMMARY_COLUMNS.items():
         c_join = attr_c.get('join', [])
@@ -93,12 +95,14 @@ def gen_table_variant(conn):
             sql = TABLE_SUMMARY_CP_SQL.format(
                 rxtype=rxtype,
                 joins=join,
-                filters=filter
+                filters=filter,
+                control_variants=CONTROL_VARIANTS_SQL,
             )
         if 'mab' in column_name.lower():
             sql = TABLE_SUMMARY_MAB_SQL.format(
                 rxtype=RX_MAB,
-                filters=filter
+                filters=filter,
+                control_variants=CONTROL_VARIANTS_SQL,
             )
         # print(sql)
 
@@ -115,11 +119,11 @@ def gen_table_variant(conn):
                     '#Published': count_num or 0
                 })
             else:
-                main_name = MULTI_VARIANT.get(variant)
+                main_name = COMBO_VARIANT.get(variant)
                 if not main_name:
                     continue
                 disp_name = main_name['disp']
-                multi_results[disp_name].append({
+                combo_results[disp_name].append({
                     'Variant name': disp_name,
                     'Nickname': main_name['nickname'],
                     'Rx name': column_name,
@@ -127,7 +131,7 @@ def gen_table_variant(conn):
                 })
 
     # print(len(indiv_results))
-    # print(len(multi_results))
+    # print(len(combo_results))
 
     save_indiv = []
     for main_name, record_list in indiv_results.items():
@@ -167,8 +171,8 @@ def gen_table_variant(conn):
         'other mAbs',
         ))
 
-    save_multi = []
-    for main_name, record_list in multi_results.items():
+    save_combo = []
+    for main_name, record_list in combo_results.items():
         rx_group = defaultdict(int)
         nickname = record_list[0]['Nickname']
         for item in record_list:
@@ -190,9 +194,9 @@ def gen_table_variant(conn):
         record['all mAbs'] = (
             record['mAbs phase3'] + record['mAbs structure'] +
             record['other mAbs'])
-        save_multi.append(record)
+        save_combo.append(record)
 
-    save_multi.sort(key=itemgetter(
+    save_combo.sort(key=itemgetter(
         'Nickname',
         'CP',
         'VP',
@@ -215,7 +219,7 @@ def gen_table_variant(conn):
         'all mAbs',
     ]
 
-    save_path = DATA_FILE_PATH / 'table_variant_indiv_figure.csv'
+    save_path = DATA_FILE_PATH / 'summary_variant_indiv.csv'
     dump_csv(save_path, save_indiv, headers)
 
     headers = [
@@ -228,5 +232,5 @@ def gen_table_variant(conn):
         'other mAbs',
         'all mAbs',
     ]
-    save_path = DATA_FILE_PATH / 'table_variant_multi_figure.csv'
-    dump_csv(save_path, save_multi, headers)
+    save_path = DATA_FILE_PATH / 'summary_variant_combo.csv'
+    dump_csv(save_path, save_combo, headers)

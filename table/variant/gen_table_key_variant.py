@@ -5,6 +5,7 @@ from collections import defaultdict
 
 from variant_filter import include_mutations
 from variant_filter import exclude_mutations
+from variant.preset import CONTROL_VARIANTS_SQL
 
 
 TABLE_SUMMARY_CP_SQL = """
@@ -14,7 +15,7 @@ SELECT SUM(s.cumulative_count) FROM
     {rxtype} AS rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN {control_variants}
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -31,7 +32,7 @@ SELECT SUM(s.cumulative_count) FROM
     ) as rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_variant_name IN ('Control', 'Wuhan', 'S:614G')
+    AND s.control_variant_name IN {control_variants}
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -341,7 +342,8 @@ def gen_table_key_variant(conn):
             sql = TABLE_SUMMARY_CP_SQL.format(
                 rxtype=rxtype,
                 joins=join,
-                filters=filter
+                filters=filter,
+                control_variants=CONTROL_VARIANTS_SQL,
             )
             if column_name.lower().startswith('mab'):
                 abfilters = attr_c.get('ab_filters', [])
@@ -351,7 +353,8 @@ def gen_table_key_variant(conn):
                     rxtype=rxtype,
                     ab_filters=abfilters,
                     joins=join,
-                    filters=filter
+                    filters=filter,
+                    control_variants=CONTROL_VARIANTS_SQL,
                 )
             # print(sql)
 
@@ -437,7 +440,7 @@ def gen_table_key_variant(conn):
         variant_summary[variant]['Variant name'] = variant
 
     variant_summary = list(variant_summary.values())
-    save_path = DATA_FILE_PATH / 'table_summary_figure.csv'
+    save_path = DATA_FILE_PATH / 'summary_variant.csv'
     headers = [
         'Variant name',
         'CP',

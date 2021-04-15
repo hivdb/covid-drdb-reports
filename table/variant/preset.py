@@ -30,6 +30,26 @@ IGNORE_MUTATION = [
     (614, 'G')
 ]
 
+IGNORE_VARIANTS = [
+    'SARS-CoV Spike',
+    'L455Y,F456L',
+    'T470N,E471V,I472P',
+    'E324G,S325D',
+    'K444T,V445S,G446T',
+    'WIV1 Spike',
+]
+
+VARIANT_NICKNAMES = {
+    '69-70∆,N501Y': 'B.1.1.7 (variation)',
+    '69-70∆,N501Y,P681H': 'B.1.1.7 (variation)',
+    '69-70∆,N501Y,A570D': 'B.1.1.7 (variation)',
+    'K417T,E484K,N501Y': 'P.1 (variation)',
+    'K417T,E484K': 'P.1 (variation)',
+    'K417N,N501Y': 'B.1.351 (variation)',
+    'K417N,E484K': 'B.1.351 (variation)',
+    'B.1.427': 'B.1.427/9',
+}
+
 IGNORE_VARIANT_SYNYNOMS = [
     'Kemp21-d101',
     'WA-RML/d85',
@@ -38,7 +58,7 @@ IGNORE_VARIANT_SYNYNOMS = [
 ]
 
 INDIV_VARIANT = {}
-MULTI_VARIANT = {}
+COMBO_VARIANT = {}
 NO_MUT = []
 
 NTD_DELETION = [
@@ -76,7 +96,7 @@ def get_spike_ref(conn):
 def get_grouped_variants(conn):
 
     global INDIV_VARIANT
-    global MULTI_VARIANT
+    global COMBO_VARIANT
     global NO_MUT
 
     cursor = conn.cursor()
@@ -99,12 +119,18 @@ def get_grouped_variants(conn):
                 INDIV_VARIANT[name] = mutation
         else:
             main_name, nickname = get_combi_mutation_main_name(variant_info)
-            MULTI_VARIANT[main_name] = {
+            if main_name in IGNORE_VARIANTS:
+                continue
+
+            nickname = VARIANT_NICKNAMES.get(
+                main_name,
+                VARIANT_NICKNAMES.get(nickname, nickname))
+            COMBO_VARIANT[main_name] = {
                 'disp': main_name,
                 'nickname': nickname,
                 }
             for name in variant_info['variant_names']:
-                MULTI_VARIANT[name] = {
+                COMBO_VARIANT[name] = {
                     'disp': main_name,
                     'nickname': nickname,
                     }
@@ -113,7 +139,7 @@ def get_grouped_variants(conn):
     for rec in cursor.fetchall():
         NO_MUT.append(rec['variant_name'])
 
-    # pprint(MULTI_VARIANT)
+    # pprint(COMBO_VARIANT)
 
 
 def get_uniq_variant(variant_info):
@@ -220,10 +246,10 @@ def get_combi_mutation_main_name(variant_info):
             nickname = name.replace('Spike', '').strip()
             nickname = nickname.replace('full genome', '').strip()
             if 'S:' in nickname:
-                nickname = nickname.replace('S:', '')
-                nickname += '(Variation)'
+                nickname = nickname.replace('S:', ' ')
+                nickname += ' (variation)'
             if ':-' in nickname:
-                nickname += '(Variation)'
+                nickname += ' (variation)'
 
     return main_name, nickname
 
@@ -232,3 +258,23 @@ def get_domain(position):
     for domain, range in DOMAINS.items():
         if position >= range[0] and position <= range[1]:
             return domain
+
+
+def group_by_variant(records):
+    indiv_records = defaultdict(list)
+    combo_records = defaultdict(list)
+
+    for rec in records:
+        variant = rec['variant_name']
+        main_name = INDIV_VARIANT.get(variant)
+        if main_name:
+            disp_name = main_name['disp']
+            indiv_records[disp_name].append(rec)
+        else:
+            main_name = COMBO_VARIANT.get(variant)
+            if not main_name:
+                continue
+            disp_name = main_name['disp']
+            combo_records[disp_name].append(rec)
+
+    return indiv_records, combo_records

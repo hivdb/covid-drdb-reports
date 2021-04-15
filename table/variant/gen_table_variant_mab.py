@@ -4,7 +4,7 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
 from .preset import INDIV_VARIANT
-from .preset import MULTI_VARIANT
+from .preset import COMBO_VARIANT
 
 from mab.preset import MAB_RENAME
 from mab.preset import RX_MAB
@@ -14,6 +14,8 @@ from preset import round_number
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import is_susc
+from variant.preset import CONTROL_VARIANTS_SQL
+
 
 SQL = """
 SELECT
@@ -31,28 +33,28 @@ ON
     s.ref_name = rx.ref_name
     AND s.rx_name = rx.rx_name
 WHERE
-    s.control_variant_name IN ('Control', 'Wuhan', 'S:614G');
-""".format(rx_type=RX_MAB)
+    s.control_variant_name IN {control_variants};
+""".format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 
 
 def gen_table_variant_mab(conn):
     by_variant(
         conn,
         'indiv',
-        save_path=DATA_FILE_PATH / 'table_variant_indiv_mab_figure.csv'
+        save_path=DATA_FILE_PATH / 'summary_variant_indiv_mab.csv'
     )
     by_variant(
         conn,
-        'multi',
-        save_path=DATA_FILE_PATH / 'table_variant_multi_mab_figure.csv'
+        'combo',
+        save_path=DATA_FILE_PATH / 'summary_variant_combo_mab.csv'
     )
 
 
-def by_variant(conn, indiv_or_multi, save_path):
-    if indiv_or_multi == 'indiv':
+def by_variant(conn, indiv_or_combo, save_path):
+    if indiv_or_combo == 'indiv':
         variant_mapper = INDIV_VARIANT
     else:
-        variant_mapper = MULTI_VARIANT
+        variant_mapper = COMBO_VARIANT
 
     cursor = conn.cursor()
     cursor.execute(SQL)
@@ -89,7 +91,7 @@ def by_variant(conn, indiv_or_multi, save_path):
 
             num_results = sum([r['count'] for r in rx_list] + [0])
 
-            if indiv_or_multi == 'indiv':
+            if indiv_or_combo == 'indiv':
                 variant_info = INDIV_VARIANT.get(variant)
                 record_list.append({
                     'variant': variant,
@@ -107,7 +109,7 @@ def by_variant(conn, indiv_or_multi, save_path):
                     'R': num_r,
                 })
             else:
-                variant_info = MULTI_VARIANT.get(variant)
+                variant_info = COMBO_VARIANT.get(variant)
                 nickname = variant_info['nickname']
                 record_list.append({
                     'variant': variant,
