@@ -453,8 +453,8 @@ invivoResults %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
     # mAb = Vectorize(function(x) paste0(x, collapse = "+"))(short_ab_name_with_author_target),
-    mAb = rx_name,
     Position=position,
+    Rx=rx_name,
     AAMutation=amino_acid
   ) %>%
   select(
@@ -462,7 +462,7 @@ invivoResults %>%
     DOI,
     Source = section,
     Date = date_added.invitro,
-    mAb,
+    Rx,
     Dosage=dosage,
     Host = host,
     Patient=patient,
@@ -476,7 +476,7 @@ invivoResults %>%
   ) %>%
   arrange(
     Author,
-    mAb,
+    Rx,
   ) %>%
   styledDT
 ```
