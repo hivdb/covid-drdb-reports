@@ -3,14 +3,12 @@ from operator import itemgetter
 from collections import defaultdict
 from preset import round_number
 from preset import dump_json
+from .preset import VP_RENAME
 from resistancy import RESISTANCE_FILTER
 from resistancy import is_susc
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from statistics import median
-from .preset import PLASMA_RENAME
-from .preset import PLASMA_POST_RENAME
-from .preset import RENAME_CP_EXECUTOR
 from variant.preset import CONTROL_VARIANTS_SQL
 
 
@@ -48,23 +46,11 @@ def gen_plasma_indiv_table(
                     num_results = row['sample_count']
                     fold = row['fold']
 
-                    # if cp_name in EXCLUDE_PLASMA:
-                    #     continue
-                    # exclude_tester = EXCLUDE_STUDIES.get(reference)
-                    # if exclude_tester and exclude_tester(cp_name):
-                    #     continue
-
-                    cp_name = PLASMA_RENAME.get(cp_name, cp_name)
-                    rename_executors = RENAME_CP_EXECUTOR.get(reference, [])
-                    for tester, new_name in rename_executors:
-                        if tester(cp_name):
-                            cp_name = new_name
-
                     key = '{}{}{}'.format(variant_name, cp_name, reference)
 
                     rec = records[key]
                     rec['Variant name'] = variant_name
-                    rec['Plasma'] = PLASMA_POST_RENAME.get(cp_name, cp_name)
+                    rec['Plasma'] = VP_RENAME.get(cp_name.upper(), cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)
@@ -162,8 +148,6 @@ def gen_plasma_aggre_table(
                 cp_name = row['rx_name']
                 reference = row['ref_name']
 
-                cp_name = rename_cp(cp_name, reference)
-
                 group_key = '{}{}{}{}'.format(
                     variant_name,
                     control,
@@ -175,7 +159,6 @@ def gen_plasma_aggre_table(
             for _, r_list in groups.items():
                 cp_name = r_list[0]['rx_name']
                 reference = r_list[0]['ref_name']
-                cp_name = rename_cp(cp_name, reference)
 
                 all_fold = [
                     [r['fold']] * r['sample_count']
@@ -194,7 +177,7 @@ def gen_plasma_aggre_table(
 
                 rec = {
                     'Variant name': variant_name,
-                    'Plasma': PLASMA_POST_RENAME.get(cp_name, cp_name),
+                    'Plasma': VP_RENAME.get(cp_name.upper(), cp_name),
                     'Samples': num_results,
                     'Reference': reference,
                     'Median': median_fold,
@@ -234,13 +217,3 @@ def convert_to_json(json_save_path, records):
 
     variant = sorted(results, key=itemgetter('variant'))
     dump_json(json_save_path, results)
-
-
-def rename_cp(cp_name, reference):
-    cp_name = PLASMA_RENAME.get(cp_name, cp_name)
-    rename_executors = RENAME_CP_EXECUTOR.get(reference, [])
-    for tester, new_name in rename_executors:
-        if tester(cp_name):
-            cp_name = new_name
-
-    return cp_name

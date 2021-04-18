@@ -141,13 +141,17 @@ read.suscResultsCP <- function(
     resistFold = resistFold,
     withExcluded = withExcluded
   )
-  dfCP = read.dbTables("rx_conv_plasma") %>%
+  dfCP = read.dbTables(
+      "rx_conv_plasma",
+      colClasses = c(titer = "character")
+      ) %>%
     mutate(
       infection = ifelse(is.na(infection), "", infection)
     )
   if (withExcluded) {
     dfCP = bind_rows(dfCP, read.dbTables(
       "rx_conv_plasma",
+       colClasses = c(titer = "character"),
       tables_dir = EXCLUDES_DIR
     ))
   }
@@ -221,10 +225,23 @@ read.antibodies <- function() {
       )$ab_name
     ) %>%
     group_by(ab_name) %>%
-    dplyr::summarise(ab_author_target = paste(target, collapse = ";"), .groups = "drop_last")
+    mutate(
+      ab_author_target = paste(target, collapse = ";")
+    )
+
+  dfMabPDBTargets = dfMAbTargets %>%
+    filter(
+      source == "structure"
+    ) %>%
+    group_by(ab_name) %>%
+    mutate(
+      ab_author_target = paste(target, collapse = ";")
+    )
+
+  dfMabTargets = bind_rows(dfMAbAuthorTargets, dfMabPDBTargets)
 
   read.dbTable("antibodies.csv") %>%
-    left_join(dfMAbAuthorTargets, by = "ab_name") %>%
+    left_join(dfMabTargets, by = "ab_name") %>%
     mutate(
       short_ab_name = ifelse(
         is.na(abbreviation_name),
