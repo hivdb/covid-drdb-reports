@@ -9,10 +9,12 @@ B.1.1.7,910-30,,14,Wang21b
 B.1.1.7,910-30,,10,Wang21b*
 B.1.1.7,ADG20,,1.4,Supasa21*
 B.1.1.7,BRII-196,,0.5,Wang21b
+B.1.1.7,BRII-196,,0.7,Wang21f
 B.1.1.7,BRII-196,,0.1,Wang21b*
 B.1.1.7,BRII-196/BRII-198,,0.5,Wang21b
 B.1.1.7,BRII-196/BRII-198,,0.2,Wang21b*
 B.1.1.7,BRII-198,,0.2,Wang21b
+B.1.1.7,BRII-198,,0.8,Wang21f
 B.1.1.7,BRII-198,,0.2,Wang21b*
 B.1.1.7,Bamlanivimab/Etesevimab,,1,FDA21
 B.1.1.7,Bamlanivimab/Etesevimab,,1.7,Wang21b
@@ -71,7 +73,6 @@ B.1.1.7,Etesevimab,RBM Class I,3.6,Wang21b
 B.1.1.7,Etesevimab,RBM Class I,4.9,Wang21f
 B.1.1.7,Etesevimab,RBM Class I,1.5,Supasa21*
 B.1.1.7,Etesevimab,RBM Class I,0.7,Wang21b*
-B.1.1.7,P2C-1F11,RBM Class I,0.7,Wang21f
 B.1.1.7,S2E12,RBM Class I,1.1,Collier21
 B.1.1.7,S2E12,RBM Class I,0.7,Chen21*
 B.1.1.7,S2H14,RBM Class I,>100,Collier21
@@ -107,10 +108,12 @@ B.1.351,910-30,,>100,Wang21b
 B.1.351,910-30,,>100,Wang21b*
 B.1.351,ADG20,,2.5,Zhou21b*
 B.1.351,BRII-196,,0.6,Wang21b
+B.1.351,BRII-196,,0.5,Wang21f
 B.1.351,BRII-196,,0.5,Wang21b*
 B.1.351,BRII-196/BRII-198,,0.8,Wang21b
 B.1.351,BRII-196/BRII-198,,1.1,Wang21b*
 B.1.351,BRII-198,,3.4,Wang21b
+B.1.351,BRII-198,,6,Wang21f
 B.1.351,BRII-198,,15,Wang21b*
 B.1.351,Bamlanivimab/Etesevimab,,45,FDA21
 B.1.351,Bamlanivimab/Etesevimab,,>100,Wang21b
@@ -157,7 +160,6 @@ B.1.351,Etesevimab,RBM Class I,>100,Wang21b
 B.1.351,Etesevimab,RBM Class I,>100,Wang21e
 B.1.351,Etesevimab,RBM Class I,>100,Wang21b*
 B.1.351,Etesevimab,RBM Class I,>100,Zhou21b*
-B.1.351,P2C-1F11,RBM Class I,0.5,Wang21f
 B.1.351,S2E12,RBM Class I,0.4,Chen21*
 B.1.351,Tixagevimab,RBM Class I,3.5,Wang21b
 B.1.351,Tixagevimab,RBM Class I,1.7,Chen21*
@@ -194,6 +196,8 @@ B.1.526,Bamlanivimab,RBM Class II,>100,FDA21
 P.1,1-57,,1.2,Wang21d
 P.1,2-7,,0.8,Wang21d
 P.1,ADG20,,2.2,Dejnirattisai21*
+P.1,BRII-196,,0.3,Wang21f
+P.1,BRII-198,,0.7,Wang21f
 P.1,Bamlanivimab/Etesevimab,,>100,FDA21
 P.1,Casirivimab/Imdevimab,,0.1,Copin21
 P.1,Casirivimab/Imdevimab,,1,FDA21
@@ -214,7 +218,6 @@ P.1,Casirivimab,RBM Class I,16,Hoffmann21
 P.1,Casirivimab,RBM Class I,>100,Wang21d
 P.1,Casirivimab,RBM Class I,>100,Dejnirattisai21*
 P.1,Etesevimab,RBM Class I,>100,Dejnirattisai21*
-P.1,P2C-1F11,RBM Class I,0.3,Wang21f
 P.1,Tixagevimab,RBM Class I,3.5,Wang21d
 P.1,Tixagevimab,RBM Class I,8.8,Dejnirattisai21*
 P.1,Bamlanivimab,RBM Class II,>100,FDA21

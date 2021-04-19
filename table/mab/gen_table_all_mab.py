@@ -21,6 +21,7 @@ ON
     s.rx_name = rx.rx_name
 WHERE
     s.control_variant_name in {control_variants}
+    AND s.fold IS NOT NULL
 """.format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 
 

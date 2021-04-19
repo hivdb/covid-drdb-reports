@@ -20,6 +20,7 @@ ON
     AND s.rx_name = rx.rx_name
 WHERE
     s.control_variant_name IN {control_variants}
+    AND s.fold IS NOT NULL
 """
 
 # MAB_SQL = """
@@ -35,6 +36,7 @@ WHERE
 #     AND s.rx_name = rx.rx_name
 # WHERE
 #     s.control_variant_name IN {control_variants}
+#     AND s.fold IS NOT NULL
 # """
 
 

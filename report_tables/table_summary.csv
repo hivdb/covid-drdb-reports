@@ -1,44 +1,44 @@
 ﻿Variant name,Rx name,#Published
 N501Y,CP,148
 N501Y,VP,116
-N501Y,mAbs phase3,51
-N501Y,mAbs structure,20
+N501Y,mAbs phase3,53
+N501Y,mAbs structure,19
 E484K,CP,93
 E484K,VP,75
-E484K,mAbs phase3,58
-E484K,mAbs structure,19
+E484K,mAbs phase3,60
+E484K,mAbs structure,18
 K417N,CP,69
 K417N,VP,77
-K417N,mAbs phase3,38
-K417N,mAbs structure,17
+K417N,mAbs phase3,40
+K417N,mAbs structure,16
 K417T,CP,24
 K417T,VP,0
-K417T,mAbs phase3,3
-K417T,mAbs structure,3
+K417T,mAbs phase3,5
+K417T,mAbs structure,2
 L452R,CP,8
 L452R,VP,6
-L452R,mAbs phase3,14
-L452R,mAbs structure,5
+L452R,mAbs phase3,15
+L452R,mAbs structure,4
 Other individual mutations,CP,563
 Other individual mutations,VP,470
-Other individual mutations,mAbs phase3,591
-Other individual mutations,mAbs structure,495
+Other individual mutations,mAbs phase3,688
+Other individual mutations,mAbs structure,415
 All individual mutations,CP,905
 All individual mutations,VP,736
-All individual mutations,mAbs phase3,742
-All individual mutations,mAbs structure,557
+All individual mutations,mAbs phase3,848
+All individual mutations,mAbs structure,472
 B.1.1.7,CP,484
 B.1.1.7,VP,623
-B.1.1.7,mAbs phase3,67
-B.1.1.7,mAbs structure,33
+B.1.1.7,mAbs phase3,69
+B.1.1.7,mAbs structure,32
 B.1.351,CP,445
 B.1.351,VP,430
-B.1.351,mAbs phase3,61
-B.1.351,mAbs structure,21
+B.1.351,mAbs phase3,63
+B.1.351,mAbs structure,20
 P.1,CP,115
 P.1,VP,144
-P.1,mAbs phase3,25
-P.1,mAbs structure,5
+P.1,mAbs phase3,27
+P.1,mAbs structure,4
 B.1.427/9,CP,55
 B.1.427/9,VP,115
 B.1.427/9,mAbs phase3,9
@@ -49,9 +49,9 @@ B.1.526,mAbs phase3,3
 B.1.526,mAbs structure,0
 Other combinations of mutations,CP,600
 Other combinations of mutations,VP,657
-Other combinations of mutations,mAbs phase3,166
-Other combinations of mutations,mAbs structure,162
+Other combinations of mutations,mAbs phase3,190
+Other combinations of mutations,mAbs structure,141
 All combinations of mutations,CP,1699
 All combinations of mutations,VP,1977
-All combinations of mutations,mAbs phase3,340
-All combinations of mutations,mAbs structure,226
+All combinations of mutations,mAbs phase3,370
+All combinations of mutations,mAbs structure,202

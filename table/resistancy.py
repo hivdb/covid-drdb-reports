@@ -1,27 +1,29 @@
-def get_susceptibility(fold):
+def get_susceptibility(fold_str):
     try:
-        fold = float(fold)
+        fold = float(fold_str)
         fold_cmp = '='
     except ValueError:
-        fold_cmp = fold[0]
-        fold = float(fold[1:])
+        fold_cmp = fold_str[0]
+        fold = float(fold_str[1:])
 
     if fold < 3:
         return 'susceptible'
-    elif fold == 3 and fold_cmp in ['<', '=', '~']:
+    elif fold == 3 and fold_cmp in ['~', '<']:
         return 'susceptible'
-    elif fold == 3 and fold_cmp == '>':
+    elif fold == 3 and fold_cmp in ['=', '>']:
         return 'partial-resistance'
     elif (fold > 3 and fold < 10):
         return 'partial-resistance'
-    elif fold == 10 and fold_cmp in ['<', '=', '~']:
+    elif fold == 10 and fold_cmp in ['~', '<']:
         return 'partial-resistance'
-    else:
+    elif fold == 10 and fold_cmp in ['=', '>']:
         return 'resistant'
+    else:
+        raise Exception(fold_str)
 
 
 def is_susc(x):
-    return x <= 3
+    return x < 3
 
 
 def is_resistant(x):
@@ -29,14 +31,13 @@ def is_resistant(x):
 
 
 def is_partial_resistant(x):
-    return x > 3 and x < 10
+    return x >= 3 and x < 10
 
 
 SUSCEPTIBLE_LEVEL_FILTER = """
     AND (
         (fold < 3
              OR (fold = 3 AND fold_cmp = '<')
-             OR (fold = 3 AND fold_cmp = '=')
              OR (fold = 3 AND fold_cmp = '~'))
         OR (resistance_level = 'susceptible')
         )
@@ -47,8 +48,8 @@ PARTIAL_RESISTANCE_LEVEL_FILTER = """
     AND (
         (
             (fold = 3 AND fold_cmp = '>')
+            OR (fold = 3 AND fold_cmp = '=')
             OR (fold > 3 AND fold < 10)
-            OR (fold = 10 AND fold_cmp = '=')
             OR (fold = 10 AND fold_cmp = '~')
             OR (fold = 10 AND fold_cmp = '<'))
         OR (resistance_level = 'partial-resistance'))
@@ -59,6 +60,7 @@ RESISTANT_LEVLE_FILTER = """
     AND (
         (
             (fold = 10 AND fold_cmp = '>')
+            OR (fold = 10 AND fold_cmp = '=')
             OR (fold > 10))
         OR (resistance_level = 'resistant')
         OR (ineffective = 'experimental')

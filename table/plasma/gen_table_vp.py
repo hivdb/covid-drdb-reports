@@ -15,6 +15,7 @@ ON
     AND s.rx_name = rx.rx_name
 WHERE
     s.control_variant_name in {control_variants}
+    AND s.fold IS NOT NULL
 GROUP BY rx.vaccine_name
 """.format(control_variants=CONTROL_VARIANTS_SQL)
 
