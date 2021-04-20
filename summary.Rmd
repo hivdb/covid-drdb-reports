@@ -11,6 +11,7 @@ Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), 
 ```{r setup, include=FALSE}
 library(dplyr)
 library(ggplot2)
+library(stringr)
 library(gridExtra)
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
@@ -24,38 +25,148 @@ TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
 
 ### Individual mutation
 ```{r var-indiv}
-indivDT = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR)
-styledDT(indivDT)
+dt = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR)
+styledDT(dt)
+```
+
+### Individual mutation summary
+```{r var-indiv-sum}
+dt = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR)
+dt = dt %>%
+  group_by(Domain) %>%
+  summarise(
+    Mutations = length(unique(Variant.name)),
+    Positions = length(unique(Position))
+  )
+styledDT(dt)
+```
+
+### Individual mutation vs exp summary
+```{r var-indiv-exp-sum}
+dt = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR)
+dt = dt %>%
+  group_by(Domain) %>%
+  summarise(
+    CP_sum = sum(CP),
+    VP_sum = sum(VP),
+    mAbs_phase3 = sum(mAbs.phase3),
+    mAbs_struct = sum(mAbs.structure),
+    mAbs_other = sum(other.mAbs),
+    mAbs_all = sum(all.mAbs)
+    )
+styledDT(dt)
 ```
 
 ### Multiple mutation or variant
 ```{r var-combo}
-multiDT = read.dbTable('summary_variant_combo.csv', tables_dir=TABLEDIR)
-styledDT(multiDT)
+dt = read.dbTable('summary_variant_combo.csv', tables_dir=TABLEDIR)
+styledDT(dt)
 ```
 
-## Indiv mutation vs treatments {.tabset}
+### Multiple mutation or variant summary
+```{r var-combo-sum}
+dt = read.dbTable('summary_variant_combo.csv', tables_dir=TABLEDIR)
+dt = dt %>%
+  summarise(
+    CP_sum = sum(CP),
+    VP_sum = sum(VP),
+    mAbs_phase3 = sum(mAbs.phase3),
+    mAbs_struct = sum(mAbs.structure),
+    mAbs_other = sum(other.mAbs),
+    mAbs_all = sum(all.mAbs)
+    )
+styledDT(dt)
+```
+
+## Indiv mutation vs experiments {.tabset}
 
 ### Variant vs Mab
-```{r indiv-variant-mab}
-indivDT = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
-styledDT(indivDT)
+```{r var-indiv-mab}
+dt = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
+styledDT(dt)
+```
+
+### Variant vs Mab summary
+```{r var-indiv-mab-sum}
+dt = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
+dt = dt %>%
+  group_by(Domain, target) %>%
+  summarise(
+    mab_num = length(unique(mab)),
+    sample_sum = sum(samples),
+    S_sum = sum(S),
+    I_sum = sum(I),
+    R_sum = sum(R)
+  )
+styledDT(dt)
+```
+
+### Variants vs cocktail
+```{r var-indiv-mab-cocktail}
+dt = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
+dt = dt %>%
+  filter(
+    str_detect(mab, '/')
+  )
+styledDT(dt)
+```
+
+### Variants vs cocktail summary
+```{r var-indiv-mab-cocktail-sum}
+dt = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
+dt = dt %>%
+  filter(
+    str_detect(mab, '/')
+  ) %>%
+  group_by(mab, Domain) %>%
+  summarise(
+    sample_sum = sum(samples),
+    S_sum = sum(S),
+    I_sum = sum(I),
+    R_sum = sum(R)
+  )
+styledDT(dt)
 ```
 
 ### Variant vs CP
-```{r indiv-variant-cp}
-indivDT = read.dbTable('summary_variant_indiv_cp.csv', tables_dir=TABLEDIR)
-styledDT(indivDT)
+```{r var-indiv-cp}
+dt = read.dbTable('summary_variant_indiv_cp.csv', tables_dir=TABLEDIR)
+styledDT(dt)
+```
+
+### Variant vs CP summary
+```{r var-indiv-cp-sum}
+dt = dt %>%
+  group_by(Domain) %>%
+  summarise(
+    sample_sum = sum(samples),
+    S_sum = sum(S),
+    I_sum = sum(I),
+    R_sum = sum(R)
+  )
+styledDT(dt)
 ```
 
 ### Variant vs VP
-
-```{r indiv-variant-vp}
-indivDT = read.dbTable('summary_variant_indiv_vp.csv', tables_dir=TABLEDIR)
-styledDT(indivDT)
+```{r var-indiv-vp}
+dt = read.dbTable('summary_variant_indiv_vp.csv', tables_dir=TABLEDIR)
+styledDT(dt)
 ```
 
-## Combination of mutations vs treatments {.tabset}
+### Variant vs VP summary
+```{r var-indiv-vp-sum}
+dt = dt %>%
+  group_by(Domain) %>%
+  summarise(
+    sample_sum = sum(samples),
+    S_sum = sum(S),
+    I_sum = sum(I),
+    R_sum = sum(R)
+  )
+styledDT(dt)
+```
+
+## Combination of mutations vs experiments {.tabset}
 
 ### Variant vs Mab
 ```{r combo-variant-mab}
@@ -70,7 +181,6 @@ styledDT(indivDT)
 ```
 
 ### Variant vs VP
-
 ```{r combo-varian-vp}
 indivDT = read.dbTable('summary_variant_combo_vp.csv', tables_dir=TABLEDIR)
 styledDT(indivDT)
@@ -136,11 +246,9 @@ CP_Variant_DT = read.dbTable('table_plasma_variant.csv', tables_dir=TABLEDIR)
 styledDT(CP_Variant_DT)
 ```
 
-
 ## Plasmas Figure {.tabset}
 
 ### CP and VP summary
-
 ```{r cpvp, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
 plasmaDT = read.dbTable('table_plasma_figure.csv', tables_dir=TABLEDIR) %>%
@@ -254,3 +362,19 @@ for (st in STUDY_TYPE) {
 
 grid.arrange(grobs = plots)
 ```
+
+## Ignored experiments {.tabset}
+
+### Fold is null
+```{r ignore-fold-is-null}
+df = read.dbTable('summary_null_fold.csv', tables_dir=TABLEDIR)
+styledDT(df)
+```
+Total experiments: `r sum(df$sample)`
+
+### Control is not wild type
+```{r ignore-control-not-wildtype}
+df = read.dbTable('summary_not_wildtype.csv', tables_dir=TABLEDIR)
+styledDT(df)
+```
+Total experiments: `r sum(df$sample)`

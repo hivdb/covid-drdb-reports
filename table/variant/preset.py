@@ -139,7 +139,8 @@ def get_grouped_variants(conn):
     for rec in cursor.fetchall():
         NO_MUT.append(rec['variant_name'])
 
-    # pprint(COMBO_VARIANT)
+    # from pprint import pprint
+    # pprint(list(COMBO_VARIANT.keys()))
 
 
 def get_uniq_variant(variant_info):
@@ -242,7 +243,7 @@ def get_combi_mutation_main_name(variant_info):
                 break
             if name.startswith('S:'):
                 continue
-            nickname = name
+
             nickname = name.replace('Spike', '').strip()
             nickname = nickname.replace('full genome', '').strip()
             if 'S:' in nickname:
@@ -278,3 +279,15 @@ def group_by_variant(records):
             combo_records[disp_name].append(rec)
 
     return indiv_records, combo_records
+
+
+def filter_by_variant(records):
+    results = []
+    for rec in records:
+        variant_name = rec['variant_name']
+        if variant_name in INDIV_VARIANT.keys():
+            results.append(rec)
+        if variant_name in COMBO_VARIANT.keys():
+            results.append(rec)
+
+    return results

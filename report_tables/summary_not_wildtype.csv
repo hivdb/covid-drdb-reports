@@ -1,0 +1,15 @@
+﻿ref_name,rx_name,control_variant,variant,sample
+Rondinone21,CP,B.1 clade G full genome,B.1.1.7 full genome,12
+Faulkner21,CP,B.1.1.7 full genome,B.1.351 full genome,12
+Faulkner21,CP,B.1.1.7 full genome,Wuhan,17
+McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,B.1.351 Spike,13
+McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,B.1.429 Spike,13
+McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,P.1 Spike,13
+Brown21,CP_B.1.1.7,B.1.1.7 Spike,S:614G,3
+McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,S:614G,13
+Brown21,CP_B.1.1.7,B.1.1.7 full genome,S:614G,8
+Supasa21,CP_B.1.1.7,B.1.1.7 full genome,Wuhan,13
+Moyo-Gwete21,CP_B.1.351,B.1.351 Spike,B.1.351 RBD,16
+Moyo-Gwete21,CP_B.1.351,B.1.351 Spike,P.1 Spike,10
+Moyo-Gwete21,CP_B.1.351,B.1.351 Spike,S:614G,19
+Cele21,CP_B.1.351,B.1.351 full genome,S:614G,6

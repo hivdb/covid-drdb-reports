@@ -17,7 +17,8 @@ FROM
     susc_results AS s,
     {rxtype} AS rxtype
 ON
-    rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+    rxtype.ref_name = s.ref_name
+    AND rxtype.rx_name = s.rx_name
 WHERE
     s.control_variant_name IN {control_variants}
     AND s.fold IS NOT NULL
@@ -224,8 +225,6 @@ def gen_table_variant(conn):
     save_path = DATA_FILE_PATH / 'summary_variant_indiv.csv'
     dump_csv(save_path, save_indiv, headers)
 
-    indiv_summary(save_indiv)
-
     headers = [
         'Variant name',
         'Nickname',
@@ -238,26 +237,3 @@ def gen_table_variant(conn):
     ]
     save_path = DATA_FILE_PATH / 'summary_variant_combo.csv'
     dump_csv(save_path, save_combo, headers)
-
-
-def indiv_summary(indiv_records):
-    domain_groups = defaultdict(list)
-
-    for rec in indiv_records:
-        domain = rec['Domain']
-        domain_groups[domain].append(rec)
-
-    results = []
-    for domain, rx_list in domain_groups.items():
-        results.append({
-            'Domain': domain,
-            'CP': sum([r['CP'] for r in rx_list]),
-            'VP': sum([r['VP'] for r in rx_list]),
-            'mAbs phase3': sum([r['mAbs phase3'] for r in rx_list]),
-            'mAbs structure': sum([r['mAbs structure'] for r in rx_list]),
-            'other mAbs': sum([r['other mAbs'] for r in rx_list]),
-            'all mAbs': sum([r['all mAbs'] for r in rx_list]),
-        })
-
-    save_path = DATA_FILE_PATH / 'summary_variant_indiv_sum.csv'
-    dump_csv(save_path, results)

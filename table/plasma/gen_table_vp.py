@@ -1,12 +1,16 @@
 from preset import dump_csv
 from preset import DATA_FILE_PATH
+from collections import defaultdict
+from operator import itemgetter
 from variant.preset import CONTROL_VARIANTS_SQL
+from variant.preset import filter_by_variant
 
 
 VP_SQL = """
 SELECT
-    rx.vaccine_name as vaccine_name,
-    COUNT(s.cumulative_count) as samples
+    s.variant_name,
+    rx.vaccine_name,
+    SUM(s.cumulative_count) as samples
 FROM
     susc_results as s,
     rx_immu_plasma as rx
@@ -16,7 +20,9 @@ ON
 WHERE
     s.control_variant_name in {control_variants}
     AND s.fold IS NOT NULL
-GROUP BY rx.vaccine_name
+GROUP BY
+    s.variant_name,
+    rx.vaccine_name
 """.format(control_variants=CONTROL_VARIANTS_SQL)
 
 
@@ -27,10 +33,20 @@ def gen_table_vp(
     cursor.execute(VP_SQL)
 
     results = []
-    for item in cursor.fetchall():
+    records = cursor.fetchall()
+    records = filter_by_variant(records)
+
+    vaccine_groups = defaultdict(list)
+    for rec in records:
+        vaccine = rec['vaccine_name']
+        vaccine_groups[vaccine].append(rec)
+
+    for vaccine, rx_list in vaccine_groups.items():
         results.append({
-            'Vaccine': item['vaccine_name'],
-            'Samples': item['samples']
+            'Vaccine': vaccine,
+            'Samples': sum([r['samples'] for r in rx_list])
         })
+
+    results.sort(key=itemgetter('Vaccine'))
 
     dump_csv(csv_save_path, results)

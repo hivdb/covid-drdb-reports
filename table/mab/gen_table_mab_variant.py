@@ -34,8 +34,6 @@ WHERE
         rx.availability IS NOT NULL
         OR rx.pdb_id IS NOT NULL
     )
-GROUP BY
-    s.ref_name, s.rx_name;
 """
 
 ROWS = {
