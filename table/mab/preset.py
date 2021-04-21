@@ -4,6 +4,7 @@ MAB_RENAME = {
 
     'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
     'Tixagevimab + Cilgavimab': 'Cilgavimab/Tixagevimab',
+    'AZD7442': 'Cilgavimab/Tixagevimab',
 
     'REGN10933/10987': 'Casirivimab/Imdevimab',
     'REGN10933+REGN10987': 'Casirivimab/Imdevimab',

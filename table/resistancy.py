@@ -1,3 +1,7 @@
+import decimal
+from decimal import Decimal
+
+
 def get_susceptibility(fold_str):
     try:
         fold = float(fold_str)
@@ -72,3 +76,19 @@ RESISTANCE_FILTER = {
     'partial': [PARTIAL_RESISTANCE_LEVEL_FILTER],
     'resistant': [RESISTANT_LEVLE_FILTER],
 }
+
+
+decimal.getcontext().rounding = decimal.ROUND_HALF_UP
+
+
+def round_fold(number):
+    if number < 10:
+        number = float(number)
+        if number.is_integer():
+            return Decimal(str(number)).quantize(Decimal('1'))
+        else:
+            return Decimal(str(number)).quantize(Decimal('1.0'))
+    elif number >= 10 and number < 100:
+        return Decimal(str(number)).quantize(Decimal('1'))
+    else:
+        return '>100'

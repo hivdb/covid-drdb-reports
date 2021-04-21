@@ -287,7 +287,11 @@ def filter_by_variant(records):
         variant_name = rec['variant_name']
         if variant_name in INDIV_VARIANT.keys():
             results.append(rec)
-        if variant_name in COMBO_VARIANT.keys():
+        elif variant_name == 'S:614G':
+            results.append(rec)
+        elif variant_name in NO_MUT:
+            results.append(rec)
+        elif variant_name in COMBO_VARIANT.keys():
             results.append(rec)
 
     return results

@@ -4,7 +4,7 @@ from preset import dump_json
 from operator import itemgetter
 from collections import defaultdict
 from resistancy import RESISTANCE_FILTER
-from preset import round_number
+from resistancy import round_fold
 
 from .preset import MAB_RENAME
 from mab.preset import RX_MAB
@@ -115,7 +115,7 @@ def gen_table_mab_variant(
                 # ineffective = row['ineffective']
                 # if ineffective:
                 #     fold = 100
-                fold = '{}'.format(round_number(fold))
+                fold = '{}'.format(round_fold(fold))
 
                 ab_name = MAB_RENAME.get(ab_name, ab_name)
                 variant_name = row_name

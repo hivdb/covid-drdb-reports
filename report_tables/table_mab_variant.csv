@@ -25,6 +25,7 @@ B.1.1.7,Casirivimab/Imdevimab,,0.6,Wang21b
 B.1.1.7,Casirivimab/Imdevimab,,1,Wang21b*
 B.1.1.7,Cilgavimab/Tixagevimab,,0.8,Wang21b
 B.1.1.7,Cilgavimab/Tixagevimab,,0.5,Chen21*
+B.1.1.7,Cilgavimab/Tixagevimab,,0.8,Supasa21*
 B.1.1.7,Cilgavimab/Tixagevimab,,1,Wang21b*
 B.1.1.7,DH1041,,1.6,Shen21
 B.1.1.7,S2E11,,0.6,Collier21
@@ -125,6 +126,7 @@ B.1.351,Casirivimab/Imdevimab,,1.3,Wang21b
 B.1.351,Casirivimab/Imdevimab,,8.1,Wang21b*
 B.1.351,Cilgavimab/Tixagevimab,,1.3,Wang21b
 B.1.351,Cilgavimab/Tixagevimab,,0.8,Chen21*
+B.1.351,Cilgavimab/Tixagevimab,,1.4,Zhou21b*
 B.1.351,Cilgavimab/Tixagevimab,,12,Wang21b*
 B.1.351,Vir-7831/S2E12,,0.6,Chen21*
 B.1.351,4A8,NTD,>100,Wang21b
@@ -204,6 +206,7 @@ P.1,BRII-198,,0.7,Wang21f
 P.1,Bamlanivimab/Etesevimab,,>100,FDA21
 P.1,Casirivimab/Imdevimab,,0.1,Copin21
 P.1,Casirivimab/Imdevimab,,1,FDA21
+P.1,Cilgavimab/Tixagevimab,,0.7,Dejnirattisai21*
 P.1,4A8,NTD,7.9,Wang21f
 P.1,5-24,NTD,1,Wang21d
 P.1,Imdevimab,RBD Core Cluster I,0.7,Copin21

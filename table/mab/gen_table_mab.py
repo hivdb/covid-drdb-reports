@@ -3,7 +3,7 @@ from preset import load_csv
 from preset import dump_json
 from collections import defaultdict
 from statistics import median
-from preset import round_number
+from resistancy import round_fold
 
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
@@ -156,7 +156,7 @@ def process_record(variant, records):
         if medium_value >= 100:
             medium_value_str = '&gt;100'
         else:
-            medium_value_str = str(round_number(medium_value))
+            medium_value_str = str(round_fold(medium_value))
         # num_rec_list = len(set([row['Reference'] for i in rec_list]))
         num_rec_list = len(rec_list)
 

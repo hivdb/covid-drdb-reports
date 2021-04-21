@@ -19,12 +19,14 @@ from mab.gen_table_all_mab import gen_table_all_mab
 from plasma.gen_table_summary import gen_table_plasma
 from plasma.gen_table_variants import gen_table_plasma_variant
 from plasma.gen_table_muts import gen_table_plasma_muts
-from plasma.gen_table_vp import gen_table_vp
+from plasma.gen_vp_summary import gen_vp_summary
+from plasma.gen_cp_summary import gen_cp_summary
 
 from study.gen_study import gen_study
 
 from experiment.gen_null_fold import gen_null_fold
 from experiment.gen_not_wildtype import gen_not_wildtype
+from experiment.gen_exp import gen_exp
 
 
 def gen_report(db_path):
@@ -39,7 +41,8 @@ def gen_report(db_path):
 
     gen_table_plasma_variant(conn)
     gen_table_plasma_muts(conn)
-    gen_table_vp(conn)
+    gen_cp_summary(conn)
+    gen_vp_summary(conn)
 
     gen_table_mab_variant(conn)
     gen_table_mab_muts(conn)
@@ -56,6 +59,7 @@ def gen_report(db_path):
 
     gen_null_fold(conn)
     gen_not_wildtype(conn)
+    gen_exp(conn)
 
     gen_table_plasma()
     gen_table_mab()

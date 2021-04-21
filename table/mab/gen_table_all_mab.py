@@ -21,9 +21,7 @@ FROM
 ON
     s.ref_name = rx.ref_name AND
     s.rx_name = rx.rx_name
-WHERE
-    s.control_variant_name in {control_variants}
-    AND s.fold IS NOT NULL
+;
 """.format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 
 
@@ -38,6 +36,7 @@ def gen_table_all_mab(conn):
     for rec in records:
         ab_name = rec['ab_name']
         ab_name = MAB_RENAME.get(ab_name, ab_name)
+        mab_group[ab_name].append(rec)
 
     record_list = []
     for ab_name, rlist in mab_group.items():

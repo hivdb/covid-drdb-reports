@@ -5,7 +5,7 @@ from preset import dump_csv
 from operator import itemgetter
 from .preset import INDIV_VARIANT
 from .preset import COMBO_VARIANT
-from preset import round_number
+from resistancy import round_fold
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import is_susc
@@ -73,7 +73,7 @@ def by_variant(conn, indiv_or_combo, save_path):
 
             all_fold = [[i[0]] * i[1] for i in all_fold]
             all_fold = [i for j in all_fold for i in j if i]
-            median_fold = round_number(median(all_fold)) if all_fold else ''
+            median_fold = round_fold(median(all_fold)) if all_fold else ''
 
             num_results = sum([r['count'] for r in rx_list] + [0])
 

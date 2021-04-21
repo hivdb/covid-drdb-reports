@@ -1,7 +1,7 @@
 import statistics
 from operator import itemgetter
 from collections import defaultdict
-from preset import round_number
+from resistancy import round_fold
 from preset import dump_json
 from .preset import VP_RENAME
 from resistancy import RESISTANCE_FILTER
@@ -74,7 +74,7 @@ def gen_plasma_indiv_table(
     for rec in records.values():
         folds = rec.get('folds', [])
         if folds:
-            rec['Median'] = str(round_number(statistics.median(folds)))
+            rec['Median'] = str(round_fold(statistics.median(folds)))
         else:
             rec['Median'] = '-'
         del rec['folds']
