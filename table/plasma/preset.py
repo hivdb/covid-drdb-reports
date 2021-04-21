@@ -53,7 +53,7 @@ SUBROWS = {
         'cp_filters': [
             (
                 "AND ("
-                "      rx.infection IN ('Wuhan', 'S:614G')"
+                "      rx.infection IN ('Wildtype', 'S:614G')"
                 "   OR rx.infection IS NULL"
                 "    )"
             ),

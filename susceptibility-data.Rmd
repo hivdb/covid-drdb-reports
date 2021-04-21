@@ -18,13 +18,13 @@ source("./lib/datatables.R", chdir = TRUE)
 
 ControlVariantNames = c(
   "Control",
-  "Wuhan",
+  "Wildtype",
   "S:614G"
 )
 CPInfectionNames = c(
   "S:614G",
   "",
-  "Wuhan"
+  "Wildtype"
 )
 
 variantSynonyms = c(

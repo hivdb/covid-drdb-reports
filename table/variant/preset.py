@@ -23,7 +23,7 @@ NOT IN (
 """
 
 CONTROL_VARIANTS_SQL = """
-('Control', 'Wuhan', 'S:614G')
+('Control', 'Wildtype', 'S:614G')
 """
 
 IGNORE_MUTATION = [
