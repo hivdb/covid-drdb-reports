@@ -848,14 +848,14 @@
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.3",
-                "reference": "Wang21b"
+                "reference": "Wang21"
             },
             {
                 "variant": "K417N",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.3",
-                "reference": "Wang21"
+                "reference": "Wang21b"
             },
             {
                 "variant": "K417N",
@@ -1896,15 +1896,15 @@
                 "variant": "N501Y",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.4",
-                "reference": "Wang21"
+                "fold": "0.8",
+                "reference": "Wang21b"
             },
             {
                 "variant": "N501Y",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.8",
-                "reference": "Wang21b"
+                "fold": "1.4",
+                "reference": "Wang21"
             },
             {
                 "variant": "N501Y",

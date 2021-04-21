@@ -16,11 +16,21 @@
                 "variant": "B.1.1.7",
                 "rx": "AZD1222",
                 "samples": 10,
-                "s_fold": 10,
-                "i_fold": 0,
+                "s_fold": 9,
+                "i_fold": 1,
                 "r_fold": 0,
                 "reference": "Supasa21*",
-                "median": 2.1
+                "median": "1.8"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "AZD_14d",
+                "samples": 15,
+                "s_fold": 13,
+                "i_fold": 2,
+                "r_fold": 0,
+                "reference": "Supasa21*",
+                "median": "2.2"
             },
             {
                 "variant": "B.1.1.7",
@@ -145,12 +155,12 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "BNT162b2",
-                "samples": 25,
-                "s_fold": 0,
-                "i_fold": 25,
+                "samples": 24,
+                "s_fold": 10,
+                "i_fold": 14,
                 "r_fold": 0,
                 "reference": "Supasa21*",
-                "median": 3.3
+                "median": "3.3"
             },
             {
                 "variant": "B.1.1.7",
@@ -376,11 +386,11 @@
                 "variant": "B.1.1.7",
                 "rx": "CP",
                 "samples": 34,
-                "s_fold": 34,
-                "i_fold": 0,
+                "s_fold": 20,
+                "i_fold": 14,
                 "r_fold": 0,
                 "reference": "Supasa21*",
-                "median": 2.9
+                "median": "2.5"
             },
             {
                 "variant": "B.1.1.7",
