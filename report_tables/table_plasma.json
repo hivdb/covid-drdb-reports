@@ -97,11 +97,11 @@
     {
         "variant": "N501Y",
         "vac_studies": 9,
-        "vac_samples": 116,
+        "vac_samples": 125,
         "vac_s_fold": "100%",
         "vac_i_fold": 0,
         "vac_r_fold": 0,
-        "vac_num_s_fold": 116,
+        "vac_num_s_fold": 125,
         "vac_num_i_fold": 0,
         "vac_num_r_fold": 0,
         "cp_studies": 6,

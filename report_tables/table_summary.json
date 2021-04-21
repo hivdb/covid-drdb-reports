@@ -2,7 +2,7 @@
     {
         "variant": "N501Y",
         "cp": 148,
-        "vp": 116,
+        "vp": 125,
         "phase3": 53,
         "structure": 19
     },
@@ -44,7 +44,7 @@
     {
         "variant": "All individual mutations",
         "cp": 905,
-        "vp": 736,
+        "vp": 745,
         "phase3": 848,
         "structure": 472
     },

@@ -1,13 +1,8 @@
 ﻿variant,domain,nickname,reference,fold_cmp,median,count
-N501Y,RBD,,Xie21,=,0.5,3
-N501Y,RBD,,Xie21,=,0.3,1
-N501Y,RBD,,Kuzmina21,=,1.1,10
-N501Y,RBD,,Xie21,=,0.5,5
-N501Y,RBD,,Xie21,=,0.3,1
-N501Y,RBD,,Xie21,=,2.0,1
-N501Y,RBD,,Wu21,=,0.9,8
 K417N,RBD,,Kuzmina21,=,1.1,10
 E484K,RBD,,Kuzmina21,=,3.4,10
+N501Y,RBD,,Kuzmina21,=,1.1,10
+N501Y,RBD,,Wu21,=,0.9,8
 "69-70∆,N501Y,A570D,P681H,T716I,S982A,D1118H",,B.1.1.7,Supasa21,=,2.1,10
 "69-70∆,N501Y,A570D,P681H,T716I,S982A,D1118H",,B.1.1.7,Garcia-Beltran21,=,2.3,22
 "69-70∆,N501Y,A570D,P681H,T716I,S982A,D1118H",,B.1.1.7,Skelly21,=,2.0,25

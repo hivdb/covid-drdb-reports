@@ -1,6 +1,6 @@
 ﻿Variant name,Rx name,#Published
 N501Y,CP,148
-N501Y,VP,116
+N501Y,VP,125
 N501Y,mAbs phase3,53
 N501Y,mAbs structure,19
 E484K,CP,93
@@ -24,7 +24,7 @@ Other individual mutations,VP,470
 Other individual mutations,mAbs phase3,688
 Other individual mutations,mAbs structure,415
 All individual mutations,CP,905
-All individual mutations,VP,736
+All individual mutations,VP,745
 All individual mutations,mAbs phase3,848
 All individual mutations,mAbs structure,472
 B.1.1.7,CP,484

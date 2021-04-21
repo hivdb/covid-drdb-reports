@@ -565,12 +565,12 @@
             {
                 "variant": "N501Y",
                 "rx": "BNT162b2",
-                "samples": 11,
-                "s_fold": 11,
+                "samples": 20,
+                "s_fold": 20,
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Xie21",
-                "median": 0.5
+                "median": "0.8"
             },
             {
                 "variant": "N501Y",
