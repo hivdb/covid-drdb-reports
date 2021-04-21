@@ -168,10 +168,10 @@ read.suscResultsIP <- function(
     resistFold = resistFold,
     withExcluded = withExcluded
   )
-  dfIP = read.dbTables("rx_immu_plasma")
+  dfIP = read.dbTables("rx_vacc_plasma")
   if (withExcluded) {
     dfIP = bind_rows(dfIP, read.dbTables(
-      "rx_immu_plasma",
+      "rx_vacc_plasma",
       tables_dir = EXCLUDES_DIR
     ))
   }

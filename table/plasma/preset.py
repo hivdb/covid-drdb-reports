@@ -60,7 +60,7 @@ SUBROWS = {
         ]
     },
     'VP': {
-        'rxtype': 'rx_immu_plasma',
+        'rxtype': 'rx_vacc_plasma',
     },
 }
 

@@ -19,7 +19,7 @@ SELECT
     s.cumulative_count as count
 FROM
     susc_results as s
-INNER JOIN rx_immu_plasma as r ON
+INNER JOIN rx_vacc_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
 WHERE s.control_variant_name in {control_variants}

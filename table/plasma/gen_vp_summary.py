@@ -20,7 +20,7 @@ SELECT
     SUM(s.cumulative_count) as samples
 FROM
     ({susc_results}) as s,
-    rx_immu_plasma as rx
+    rx_vacc_plasma as rx
 ON
     s.ref_name = rx.ref_name
     AND s.rx_name = rx.rx_name

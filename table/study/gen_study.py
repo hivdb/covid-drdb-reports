@@ -42,7 +42,7 @@ WHERE
 
 RX_TYPE = {
     'rx_conv_plasma': DATA_FILE_PATH / 'summary_study_cp.csv',
-    'rx_immu_plasma': DATA_FILE_PATH / 'summary_study_vp.csv',
+    'rx_vacc_plasma': DATA_FILE_PATH / 'summary_study_vp.csv',
     '({})'.format(RX_MAB): DATA_FILE_PATH / 'summary_study_mab.csv',
 }
 

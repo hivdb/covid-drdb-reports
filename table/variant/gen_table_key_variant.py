@@ -237,7 +237,7 @@ TABLE_SUMMARY_COLUMNS = {
         ]
     },
     'VP': {
-        'rxtype': 'rx_immu_plasma',
+        'rxtype': 'rx_vacc_plasma',
     },
     'mAbs phase3': {
         'rxtype': 'rx_antibodies',
@@ -313,7 +313,7 @@ TABLE_SUMMARY_COLUMNS = {
 #         'rxtype': 'rx_conv_plasma',
 #     },
 #     'VP': {
-#         'rxtype': 'rx_immu_plasma',
+#         'rxtype': 'rx_vacc_plasma',
 #     },
 # }
 

@@ -8,7 +8,7 @@ from variant.preset import CONTROL_VARIANTS_SQL
 
 
 RXTYPE = {
-    'rx_immu_plasma': DATA_FILE_PATH / 'summary_vp_aggre.csv',
+    'rx_vacc_plasma': DATA_FILE_PATH / 'summary_vp_aggre.csv',
     'rx_conv_plasma': DATA_FILE_PATH / 'summary_cp_aggre.csv',
 }
 
