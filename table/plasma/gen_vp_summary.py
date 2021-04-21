@@ -2,18 +2,22 @@ from preset import dump_csv
 from preset import DATA_FILE_PATH
 from preset import round_number
 from collections import defaultdict
+from statistics import median
 from operator import itemgetter
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import filter_by_variant
 from lookup_view import INDIVIDUAL_SAMPLE_SQL
 from lookup_view import AGGREGATED_SUSC_VIEW_SQL
-
+from resistancy import is_susc
+from resistancy import is_partial_resistant
+from resistancy import is_resistant
 
 SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
     s.variant_name,
+    s.fold,
     rx.timing,
     rx.dosage,
     rx.vaccine_name,
@@ -96,10 +100,27 @@ def gen_vp_summary(conn):
 
     vaccine_results = []
     for vaccine, rx_list in vaccine_group.items():
-        samples = sum([r['samples'] for r in rx_list])
+
+        all_fold = [[r['fold']] * r['samples'] for r in rx_list]
+        all_fold = [r for j in all_fold for r in j]
+        samples = len(all_fold)
+
+        s_fold = [r for r in all_fold if is_susc(r)]
+        i_fold = [r for r in all_fold if is_partial_resistant(r)]
+        r_fold = [r for r in all_fold if is_resistant(r)]
+
+        num_s_fold = len(s_fold)
+        num_i_fold = len(i_fold)
+        num_r_fold = len(r_fold)
+        median_fold = median(all_fold)
+
         vaccine_results.append({
             'Vaccine': vaccine,
             'Samples': samples,
+            'S': num_s_fold,
+            'I': num_i_fold,
+            'R': num_r_fold,
+            'median fold': median_fold,
             'Percent': round_number(samples / num_records * 100),
         })
     save_path = DATA_FILE_PATH / 'summary_vp_vaccine.csv'
