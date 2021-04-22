@@ -1,0 +1,314 @@
+---
+title: "Susceptibility summary figures"
+output:
+  html_document:
+    keep_md: yes
+    css: "css/main.css"
+---
+
+Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), "%m/%d/%Y %I:%M %p")` PDT
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(gridExtra)
+knitr::opts_chunk$set(echo = FALSE)
+source("./lib/readers.R", chdir = TRUE)
+source("./lib/datatables.R", chdir = TRUE)
+
+TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
+
+```
+## CP Figure {.tabset}
+
+### CP indiv muts
+```{r indiv-cp-iqr, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+INDIV_MUT_LIST = c(
+  'N501Y',
+  'E484K',
+  'K417N',
+  'L452R'
+)
+
+df = read.dbTable('figure_variant_indiv_cp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(variant %in% INDIV_MUT_LIST) %>%
+  mutate(
+    variant = factor(variant, levels=INDIV_MUT_LIST)
+  )
+plot = ggplot(df, aes(variant, fold)) +
+  geom_boxplot() +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold change (CP)")
+plot
+```
+
+### CP combo muts
+```{r combo-cp-iqr, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+COMBO_MUT_LIST = c(
+  'B.1.1.7',
+  'B.1.351',
+  'P.1',
+  'B.1.427/9'
+)
+
+df = read.dbTable('figure_variant_combo_cp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(nickname %in% COMBO_MUT_LIST)  %>%
+  mutate(
+    nickname = factor(nickname, levels=COMBO_MUT_LIST)
+  )
+plot = ggplot(df, aes(nickname, fold)) +
+  geom_boxplot() +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold change (CP)")
+plot
+```
+
+## VP Figure {.tabset}
+
+### VP indiv muts
+```{r indiv-vp-iqr, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+VACCINE_LIST = c(
+  "BNT162b2",
+  "mRNA-1273",
+  "AZD1222",
+  "NVX-CoV2373",
+  "Sptunik V",
+  "CoronaVac",
+  "BBIBP-CorV"
+)
+
+INDIV_MUT_LIST = c(
+  'N501Y',
+  'E484K',
+  'K417N',
+  'L452R'
+)
+
+df = read.dbTable('figure_variant_indiv_vp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(variant %in% INDIV_MUT_LIST) %>%
+  mutate(
+    variant = factor(variant, levels=INDIV_MUT_LIST),
+    vaccine = factor(vaccine, levels=VACCINE_LIST)
+  )
+plot = ggplot(df, aes(variant, fold, fill=vaccine)) +
+  geom_boxplot() +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  scale_fill_brewer(palette="Spectral") +
+  theme(
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold change (VP)")
+plot
+```
+
+### VP combo muts
+```{r combo-vp-iqr, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+COMBO_MUT_LIST = c(
+  'B.1.1.7',
+  'B.1.351',
+  'P.1',
+  'B.1.427/9'
+)
+
+df = read.dbTable('figure_variant_combo_vp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(nickname %in% COMBO_MUT_LIST) %>%
+  mutate(
+    nickname = factor(nickname, levels=COMBO_MUT_LIST),
+    vaccine = factor(vaccine, levels=VACCINE_LIST)
+  )
+plot = ggplot(df, aes(nickname, fold, fill=vaccine)) +
+  geom_boxplot() +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  scale_fill_brewer(palette="Spectral") +
+  theme(
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold change (VP)")
+plot
+```
+
+## Plasmas Figure {.tabset}
+
+### CP and VP summary
+```{r cpvp, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plasmaDT = read.dbTable('figure_plasma.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    study = ifelse(study=='vac', 'Vaccine', 'CP'),
+    variant = ifelse(variant == "B.1.429/B.1.427", "B.1.427/429", variant)
+    ) %>%
+  filter(
+    variant != 'L452R' & variant != "B.1.526"
+  )
+
+VARIANT = c(
+  "B.1.1.7",
+  "B.1.351",
+  "P.1",
+  "B.1.427/9",
+  # "B.1.526",
+  "N501Y",
+  "E484K",
+  "K417N",
+  "N439K",
+  # "L452R",
+  "Y453F",
+  "∆69/70",
+  "∆144"
+)
+
+SUSC_VALUE = c("R", "I", "S")
+STUDY_TYPE = c("CP", "Vaccine")
+
+plots = list()
+i = 1
+
+for (st in STUDY_TYPE) {
+    dfPlot = plasmaDT %>%
+      filter(study == st) %>%
+      mutate(
+        variant = factor(variant, VARIANT),
+        susc = factor(susc, SUSC_VALUE)
+      )
+
+    dfAgg = dfPlot %>%
+      group_by(variant, num_study) %>%
+      summarise(total=sum(sample_num)) %>%
+      mutate(
+        total_label = ifelse(
+          num_study > 1,
+          yes=sprintf('%s studies', num_study),
+          no=sprintf('%s study', num_study)
+        )
+
+      )
+
+    p <- ggplot(data=dfPlot, aes(x=variant, y=sample_num)) +
+      geom_bar(
+        aes(fill=susc),
+        size=0.2,
+        color="#000000",
+        stat="identity",
+        position='stack'
+      ) +
+      scale_fill_manual(values = c(
+        'R' = "#146aa8",
+        'I' = "#7fcbee",
+        'S' = "#ffffff"
+      )) +
+      scale_y_continuous(
+        expand=expansion(mult = c(0, .1))
+        ) +
+      geom_text(
+        data=dfAgg,
+        aes(y=total, label=total_label),
+        size = 4.6,
+        vjust = -0.5
+        ) +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      ylab("# Samples")
+
+    if (st == 'CP') {
+      figLabel = "Convalescent plasma"
+    }
+    else {
+      figLabel = "Plasma from vaccinated persons"
+    }
+    # p = p + ggtitle("Convalescent plasma")
+    p = p + annotate(
+          "text",
+          y= Inf,
+          x = Inf,
+          label=figLabel,
+          size=8,
+          vjust=2,
+          hjust=1.1)
+
+    plots[[i]] = p
+    i = i + 1
+}
+
+grid.arrange(grobs = plots)
+```

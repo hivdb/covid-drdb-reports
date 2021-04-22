@@ -10,6 +10,9 @@ from variant.gen_table_variant_mab import gen_table_variant_mab
 from variant.gen_table_variant_vp import gen_table_variant_vp
 from variant.gen_table_variant_cp import gen_table_variant_cp
 from variant.gen_table_variant_aggre import gen_table_variant_aggre
+from variant.gen_figure_variant_mab import gen_figure_variant_mab
+from variant.gen_figure_variant_cp import gen_figure_variant_cp
+from variant.gen_figure_variant_vp import gen_figure_variant_vp
 
 from mab.gen_table_mab import gen_table_mab
 from mab.gen_table_mab_variant import gen_table_mab_variant
@@ -54,6 +57,9 @@ def gen_report(db_path):
     gen_table_variant_vp(conn)
     gen_table_variant_cp(conn)
     gen_table_variant_aggre(conn)
+    gen_figure_variant_mab(conn)
+    gen_figure_variant_vp(conn)
+    gen_figure_variant_cp(conn)
 
     gen_study(conn)
 

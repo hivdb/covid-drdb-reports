@@ -158,5 +158,5 @@ def gen_table_plasma():
                         '{}_num_{}_fold'.format(plasma, susc), 0)
                 })
 
-    save_file = DATA_FILE_PATH / 'table_plasma_figure.csv'
+    save_file = DATA_FILE_PATH / 'figure_plasma.csv'
     dump_csv(save_file, figure_results)

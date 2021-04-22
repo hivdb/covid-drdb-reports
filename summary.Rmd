@@ -1,5 +1,5 @@
 ---
-title: "Susceptibility data"
+title: "Susceptibility summary"
 output:
   html_document:
     keep_md: yes
@@ -332,7 +332,7 @@ styledDT(dt)
 ### CP and VP summary
 ```{r cpvp, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
-plasmaDT = read.dbTable('table_plasma_figure.csv', tables_dir=TABLEDIR) %>%
+plasmaDT = read.dbTable('figure_plasma.csv', tables_dir=TABLEDIR) %>%
   mutate(
     study = ifelse(study=='vac', 'Vaccine', 'CP'),
     variant = ifelse(variant == "B.1.429/B.1.427", "B.1.427/429", variant)
