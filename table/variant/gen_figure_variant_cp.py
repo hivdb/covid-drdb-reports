@@ -1,14 +1,9 @@
 from collections import defaultdict
-from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
 from .preset import INDIV_VARIANT
 from .preset import COMBO_VARIANT
-from resistancy import round_fold
-from resistancy import is_partial_resistant
-from resistancy import is_resistant
-from resistancy import is_susc
 from variant.preset import CONTROL_VARIANTS_SQL
 
 SQL = """
