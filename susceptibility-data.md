@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 04/20/2021 07:17 PM PDT
+Report generated at: 04/21/2021 08:27 PM PDT
 
 
 
@@ -27,8 +27,8 @@ Report generated at: 04/20/2021 07:17 PM PDT
 <tbody>
   <tr>
    <td style="text-align:left;"> S:501Y </td>
-   <td style="text-align:right;"> 116 </td>
-   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 148 </td>
+   <td style="text-align:right;"> 109 </td>
    <td style="text-align:right;"> 52 </td>
    <td style="text-align:right;"> 17 </td>
    <td style="text-align:right;"> 64 </td>
@@ -43,7 +43,7 @@ Report generated at: 04/20/2021 07:17 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
-   <td style="text-align:right;"> 583 </td>
+   <td style="text-align:right;"> 713 </td>
    <td style="text-align:right;"> 537 </td>
    <td style="text-align:right;"> 741 </td>
    <td style="text-align:right;"> 424 </td>
@@ -51,16 +51,16 @@ Report generated at: 04/20/2021 07:17 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.1.7 Spike </td>
-   <td style="text-align:right;"> 417 </td>
-   <td style="text-align:right;"> 519 </td>
+   <td style="text-align:right;"> 477 </td>
+   <td style="text-align:right;"> 583 </td>
    <td style="text-align:right;"> 69 </td>
    <td style="text-align:right;"> 29 </td>
    <td style="text-align:right;"> 125 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> B.1.351 Spike </td>
-   <td style="text-align:right;"> 436 </td>
-   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 432 </td>
+   <td style="text-align:right;"> 409 </td>
    <td style="text-align:right;"> 63 </td>
    <td style="text-align:right;"> 18 </td>
    <td style="text-align:right;"> 55 </td>
@@ -75,8 +75,8 @@ Report generated at: 04/20/2021 07:17 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 515 </td>
-   <td style="text-align:right;"> 537 </td>
+   <td style="text-align:right;"> 641 </td>
+   <td style="text-align:right;"> 536 </td>
    <td style="text-align:right;"> 184 </td>
    <td style="text-align:right;"> 119 </td>
    <td style="text-align:right;"> 423 </td>
