@@ -606,9 +606,9 @@ E484K,E,484,K,RBD,COVOX-40,,RBD,1.6,1,1,0,0
 E484K,E,484,K,RBD,CV05-163,,RBD,>100,1,0,0,1
 E484K,E,484,K,RBD,CV07-270,,RBD,>100,1,0,0,1
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,13,10,0,4,6
-E484K,E,484,K,RBD,Casirivimab/Imdevimab,,,1.9,1,1,0,0
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,,,1.3,2,2,0,0
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,,,1.5,1,1,0,0
+E484K,E,484,K,RBD,Casirivimab/Imdevimab,,,1.9,1,1,0,0
 E484K,E,484,K,RBD,Cilgavimab,Phase 3,RBD,1.5,4,4,0,0
 E484K,E,484,K,RBD,Cilgavimab/Tixagevimab,,,2.3,2,1,1,0
 E484K,E,484,K,RBD,Etesevimab,Phase 3,RBD,3.0,4,2,2,0
@@ -1075,8 +1075,8 @@ K444Q,K,444,Q,RBD,C121,,RBD,1.3,1,1,0,0
 K444Q,K,444,Q,RBD,C135,Phase 1,RBD,35,1,0,0,1
 K444Q,K,444,Q,RBD,C144,Phase 1,RBD,0.8,1,1,0,0
 K444Q,K,444,Q,RBD,Casirivimab,Phase 3,RBD,1.0,2,2,0,0
-K444Q,K,444,Q,RBD,Casirivimab/Imdevimab,,,3.8,1,0,1,0
 K444Q,K,444,Q,RBD,Casirivimab/Imdevimab,,,1.9,1,1,0,0
+K444Q,K,444,Q,RBD,Casirivimab/Imdevimab,,,3.8,1,0,1,0
 K444Q,K,444,Q,RBD,Imdevimab,Phase 3,RBD,>100,2,0,0,2
 K444Q,K,444,Q,RBD,REGN10934,,RBD,90,1,0,0,1
 K444Q,K,444,Q,RBD,REGN10989,,RBD,3.4,1,0,1,0
@@ -2333,8 +2333,8 @@ V367F,V,367,F,RBD,S2E12,,RBD,0.5,1,1,0,0
 V367F,V,367,F,RBD,S2M11,,RBD,1.4,1,1,0,0
 V367F,V,367,F,RBD,X593,,RBD,0.9,1,1,0,0
 V445A,V,445,A,RBD,Casirivimab,Phase 3,RBD,1.8,2,2,0,0
-V445A,V,445,A,RBD,Casirivimab/Imdevimab,,,4.7,1,0,1,0
 V445A,V,445,A,RBD,Casirivimab/Imdevimab,,,4.9,2,0,2,0
+V445A,V,445,A,RBD,Casirivimab/Imdevimab,,,4.7,1,0,1,0
 V445A,V,445,A,RBD,Imdevimab,Phase 3,RBD,>100,2,0,0,2
 V445A,V,445,A,RBD,REGN10934,,RBD,2.4,1,1,0,0
 V445A,V,445,A,RBD,REGN10989,,RBD,3.6,1,0,1,0

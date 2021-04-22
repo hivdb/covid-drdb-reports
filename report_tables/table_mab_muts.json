@@ -1153,15 +1153,15 @@
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
-                "fold": "1",
-                "reference": "Chen21"
+                "fold": "0.8",
+                "reference": "Wang21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
-                "fold": "0.8",
-                "reference": "Wang21"
+                "fold": "1",
+                "reference": "Chen21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -1209,13 +1209,6 @@
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1",
-                "reference": "Yao21"
-            },
-            {
-                "variant": "K417N + E484K + N501Y",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Wang21f"
             },
@@ -1225,6 +1218,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1",
+                "reference": "Yao21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -1258,13 +1258,6 @@
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "&gt;100",
-                "reference": "Yao21"
-            },
-            {
-                "variant": "K417N + E484K + N501Y",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "36",
                 "reference": "Wang21f"
             },
@@ -1274,6 +1267,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Yao21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -1307,15 +1307,15 @@
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
-                "fold": "3.6",
-                "reference": "Chen21"
+                "fold": "4",
+                "reference": "Wang21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
-                "fold": "4",
-                "reference": "Wang21"
+                "fold": "3.6",
+                "reference": "Chen21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -1329,14 +1329,14 @@
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
                 "fold": "0.6",
-                "reference": "Chen21"
+                "reference": "Wang21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
                 "fold": "0.6",
-                "reference": "Wang21"
+                "reference": "Chen21"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -1896,15 +1896,15 @@
                 "variant": "N501Y",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.8",
-                "reference": "Wang21b"
+                "fold": "1.4",
+                "reference": "Wang21"
             },
             {
                 "variant": "N501Y",
                 "rx": "C135",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.4",
-                "reference": "Wang21"
+                "fold": "0.8",
+                "reference": "Wang21b"
             },
             {
                 "variant": "N501Y",

@@ -1,4 +1,6 @@
 ﻿ref_name,rx_name,control_variant,variant,sample
+Zuckerman21,BNT162b2,B.1.1.50 full genome,B.1.1.50 full genome+S:681H,18
+Zuckerman21,BNT162b2,B.1.1.50 full genome,B.1.1.7 full genome,18
 Rondinone21,CP,B.1 clade G full genome,B.1.1.7 full genome,12
 Faulkner21,CP,B.1.1.7 full genome,B.1.351 full genome,12
 Faulkner21,CP,B.1.1.7 full genome,Wildtype,17

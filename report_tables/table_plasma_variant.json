@@ -194,16 +194,6 @@
             },
             {
                 "variant": "B.1.1.7",
-                "rx": "BNT162b2",
-                "samples": 18,
-                "s_fold": 18,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Zuckerman21*",
-                "median": 2.0
-            },
-            {
-                "variant": "B.1.1.7",
                 "rx": "BNT_1ds",
                 "samples": 37,
                 "s_fold": 28,
@@ -514,6 +504,16 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "CP_Mild",
+                "samples": 18,
+                "s_fold": 13,
+                "i_fold": 4,
+                "r_fold": 1,
+                "reference": "Rees-Spear21",
+                "median": "2"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "CP_Patient",
                 "samples": 20,
                 "s_fold": 17,
@@ -524,6 +524,16 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "CP_Severe",
+                "samples": 18,
+                "s_fold": 13,
+                "i_fold": 4,
+                "r_fold": 1,
+                "reference": "Rees-Spear21",
+                "median": "2.4"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "CP_acute",
                 "samples": 16,
                 "s_fold": 15,
@@ -531,26 +541,6 @@
                 "r_fold": 0,
                 "reference": "Edara21*",
                 "median": "0.9"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "CP_mild",
-                "samples": 18,
-                "s_fold": 0,
-                "i_fold": 17,
-                "r_fold": 1,
-                "reference": "Rees-Spear21",
-                "median": 3.0
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "CP_severe",
-                "samples": 18,
-                "s_fold": 0,
-                "i_fold": 17,
-                "r_fold": 1,
-                "reference": "Rees-Spear21",
-                "median": 3.0
             },
             {
                 "variant": "B.1.1.7",
