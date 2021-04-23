@@ -90,6 +90,8 @@ def gen_vp_summary(conn):
             'Samples': sum([r['samples'] for r in rx_list])
         })
 
+    timing_results.sort(key=lambda x: x['Timing'] if x['Timing'] else 0)
+
     save_path = DATA_FILE_PATH / 'summary_vp_timing.csv'
     dump_csv(save_path, timing_results)
 
