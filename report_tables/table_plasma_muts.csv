@@ -10,6 +10,9 @@ E484K,CP,16,11,3,Jangra21,2.7,30
 E484K,CP,10,0,0,Tada21,1.6,10
 E484K,CP,6,12,2,Wang21b,4.2,20
 E484K,CP,23,1,0,Wang21f,1.1,24
+E484K,CP,0,6,0,Zhou21c,3.3,6
+E484K,CP_high_titer,1,6,1,Alenquer21,6.7,8
+E484K,CP_medium_titer,1,0,1,Alenquer21,6.4,2
 E484K,Sputnik V,7,4,1,Ikegame21,2.9,12
 E484K,mRNA-1273,2,4,0,Greaney21c,3,6
 E484K,mRNA-1273,10,1,0,Wang21,1.6,11
@@ -37,15 +40,23 @@ K417N + E484K + N501Y,CP,12,5,2,Chen21,2.6,19
 K417N + E484K + N501Y,CP,22,1,0,Wang21f,1,23
 K417N + E484K + N501Y,CP_1M,36,8,1,Wang21,2,45
 K417N + E484K + N501Y,CP_6M,36,7,2,Wang21,1.9,45
+K417N + E484K + N501Y,CP_high_titer,0,0,2,Alenquer21,29,2
 K417N + E484K + N501Y,CP_high_titer,6,5,9,Wibmer21,6.6,20
 K417N + E484K + N501Y,CP_low_titer,5,6,6,Wibmer21,6.8,17
+K417N + E484K + N501Y,CP_medium_titer,0,0,1,Alenquer21,21,1
 K417N + E484K + N501Y,mRNA-1273,11,0,0,Wang21,1.7,11
 K417N + E484K + N501Y,mRNA-1273,8,0,0,Wu21,2.7,8
 L452R,CP,4,2,0,Greaney21c,2.2,6
 L452R,CP,0,1,1,Liu21,9.9,2
+L452R,CP_high_titer,5,3,0,Alenquer21,2.8,8
+L452R,CP_low_titer,1,0,0,Alenquer21,1.5,1
+L452R,CP_medium_titer,1,2,0,Alenquer21,3.5,3
 L452R,mRNA-1273,5,1,0,Greaney21c,2.3,6
 N439K,BNT162b2,4,0,0,Wang21,0.8,4
 N439K,CP,3,0,0,Shen21,1.1,3
+N439K,CP_high_titer,1,2,1,Alenquer21,6.1,4
+N439K,CP_low_titer,4,0,0,Alenquer21,1.8,4
+N439K,CP_medium_titer,1,2,0,Alenquer21,3.5,3
 N439K,mRNA-1273,11,0,0,Shen21,1.1,11
 N439K,mRNA-1273,11,0,0,Wang21,0.8,11
 N501Y,BNT162b2,10,0,0,Kuzmina21,1.1,10
@@ -62,6 +73,9 @@ N501Y,CP,24,0,0,Wang21f,0.8,24
 N501Y,CP_Mild,16,2,0,Rees-Spear21,1.2,18
 N501Y,CP_Severe,18,0,0,Rees-Spear21,1.2,18
 N501Y,CP_acute,16,0,0,Edara21,0.7,16
+N501Y,CP_high_titer,3,1,0,Alenquer21,2.3,4
+N501Y,CP_low_titer,3,1,0,Alenquer21,2.6,4
+N501Y,CP_medium_titer,2,1,0,Alenquer21,2.9,3
 N501Y,mRNA-1273,14,0,0,Edara21,0.9,14
 N501Y,mRNA-1273,11,0,0,Shen21,0.8,11
 N501Y,mRNA-1273,11,0,0,Wang21,1.5,11
@@ -82,8 +96,14 @@ Y453F,mRNA-1273,11,0,0,Wang21,0.8,11
 ∆69/70,mRNA-1273,12,0,0,Wang21b,0.8,12
 ∆69/70 + N501Y,BNT162b2,20,0,0,Xie21b,0.8,20
 ∆69/70 + N501Y,CP,15,0,0,Shen21,0.8,15
+∆69/70 + N501Y,CP_high_titer,3,1,0,Alenquer21,2.3,4
+∆69/70 + N501Y,CP_low_titer,5,0,0,Alenquer21,1,5
+∆69/70 + N501Y,CP_medium_titer,3,0,0,Alenquer21,1.7,3
 ∆69/70 + N501Y,mRNA-1273,11,0,0,Shen21,0.7,11
 ∆69/70 + N501Y + A570D,BNT_1ds,15,0,0,Collier21,0.5,15
 ∆69/70 + N501Y + A570D,CP,9,1,0,Collier21,0.8,10
 ∆69/70 + N501Y + Y453F,CP,12,3,0,Shen21,1.7,15
+∆69/70 + N501Y + Y453F,CP_high_titer,4,0,0,Alenquer21,0.4,4
+∆69/70 + N501Y + Y453F,CP_low_titer,5,0,0,Alenquer21,0.8,5
+∆69/70 + N501Y + Y453F,CP_medium_titer,3,0,0,Alenquer21,0.6,3
 ∆69/70 + N501Y + Y453F,mRNA-1273,11,0,0,Shen21,1,11

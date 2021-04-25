@@ -3,6 +3,7 @@ B.1.1.7,AZD1222,3,23,23,Emary21*,8.7,49
 B.1.1.7,AZD1222,9,1,0,Supasa21*,1.8,10
 B.1.1.7,AZD_14d,13,2,0,Supasa21*,2.2,15
 B.1.1.7,BBIBP-CorV,16,0,3,Wang21g,0.9,19
+B.1.1.7,BNT162b2,10,0,0,Alenquer21,1.6,10
 B.1.1.7,BNT162b2,8,0,0,Brown21,1,8
 B.1.1.7,BNT162b2,8,1,0,Brown21*,0.8,9
 B.1.1.7,BNT162b2,18,6,0,Chen21*,1.9,24
@@ -18,6 +19,7 @@ B.1.1.7,BNT162b2,10,14,0,Supasa21*,3.3,24
 B.1.1.7,BNT162b2,9,1,0,Wang21b,1.9,10
 B.1.1.7,BNT162b2,10,0,0,Wang21b*,0.9,10
 B.1.1.7,BNT162b2,0,2,1,Widera21*,8,3
+B.1.1.7,BNT162b2,5,0,0,Zhou21c,1.0,5
 B.1.1.7,BNT_1ds,28,7,2,Collier21,1.6,37
 B.1.1.7,BNT_W2,8,7,0,Planas21,2.2,15
 B.1.1.7,BNT_W3,11,4,1,Planas21,2.5,16
@@ -53,6 +55,9 @@ B.1.1.7,CP_Mild,13,4,1,Rees-Spear21,2,18
 B.1.1.7,CP_Patient,17,3,0,Faulkner21*,1.9,20
 B.1.1.7,CP_Severe,13,4,1,Rees-Spear21,2.4,18
 B.1.1.7,CP_acute,15,1,0,Edara21*,0.9,16
+B.1.1.7,CP_high_titer,3,1,0,Alenquer21,1.7,4
+B.1.1.7,CP_low_titer,2,0,0,Alenquer21,1.2,2
+B.1.1.7,CP_medium_titer,2,1,0,Alenquer21,2.3,3
 B.1.1.7,CoronaVac,12,1,9,Wang21g,1.6,22
 B.1.1.7,IVIG,6,0,0,Tang21,1.7,6
 B.1.1.7,IVIG,6,0,0,Tang21*,2.4,6
@@ -64,9 +69,11 @@ B.1.1.7,mRNA-1273,30,10,0,Shen21,2.1,40
 B.1.1.7,mRNA-1273,11,1,0,Wang21b,1.8,12
 B.1.1.7,mRNA-1273,12,0,0,Wang21b*,0.7,12
 B.1.1.7,mRNA-1273,8,0,0,Wu21,1.2,8
+B.1.1.7,mRNA-1273,5,0,0,Zhou21c,1.4,5
 B.1.351,AZD1222,0,3,6,Madhi21,23,9
 B.1.351,AZD1222,1,12,5,Zhou21b*,7.8,18
 B.1.351,BBIBP-CorV,5,1,13,Wang21g,4.2,19
+B.1.351,BNT162b2,1,8,0,Alenquer21,4.1,9
 B.1.351,BNT162b2,1,3,2,Becker21*,5.6,6
 B.1.351,BNT162b2,0,12,12,Chen21*,10,24
 B.1.351,BNT162b2,3,10,2,Hoffmann21,5,15
@@ -80,6 +87,7 @@ B.1.351,BNT162b2,3,6,1,Wang21b,4,10
 B.1.351,BNT162b2,0,6,4,Wang21b*,9.2,10
 B.1.351,BNT162b2,0,3,0,Widera21*,8,3
 B.1.351,BNT162b2,1,13,9,Zhou21b*,7.5,23
+B.1.351,BNT162b2,0,5,0,Zhou21c,3.6,5
 B.1.351,BNT_W2,6,7,2,Planas21,3.6,15
 B.1.351,BNT_W3,4,6,6,Planas21,6.2,16
 B.1.351,BNT_W4,3,6,1,Planas21,3.8,10
@@ -111,8 +119,10 @@ B.1.351,CP_M6,12,6,7,Planas21,3.8,25
 B.1.351,CP_M9,18,12,0,Planas21,2.6,30
 B.1.351,CP_Mild,0,1,0,Faulkner21*,4.8,1
 B.1.351,CP_Patient,1,10,9,Faulkner21*,9.5,20
+B.1.351,CP_high_titer,2,1,1,Alenquer21,3.2,4
 B.1.351,CP_high_titer,1,7,14,Wibmer21,14,22
 B.1.351,CP_low_titer,4,2,7,Wibmer21,11,13
+B.1.351,CP_medium_titer,0,0,1,Alenquer21,15,1
 B.1.351,CoronaVac,5,1,16,Wang21g,4.9,22
 B.1.351,IVIG,0,3,3,Tang21,9.8,6
 B.1.351,IVIG,1,4,1,Tang21*,6.5,6
@@ -122,6 +132,7 @@ B.1.351,mRNA-1273,1,13,12,Shen21b,9.1,26
 B.1.351,mRNA-1273,1,7,4,Wang21b,7.3,12
 B.1.351,mRNA-1273,0,5,7,Wang21b*,11,12
 B.1.351,mRNA-1273,0,8,0,Wu21,6.9,8
+B.1.351,mRNA-1273,0,5,0,Zhou21c,3.9,5
 B.1.427/9,BNT162b2,3,0,0,Deng21,2,3
 B.1.427/9,BNT162b2,22,0,0,Garcia-Beltran21,2.9,22
 B.1.427/9,BNT162b2,8,5,0,McCallum21b,2.8,13
@@ -136,7 +147,15 @@ B.1.427/9,mRNA-1273,7,1,0,Deng21,2,8
 B.1.427/9,mRNA-1273,3,1,0,Garcia-Beltran21,2.6,4
 B.1.427/9,mRNA-1273,6,1,4,McCallum21b,2.6,11
 B.1.427/9,mRNA-1273,19,7,0,Shen21b,2.3,26
+B.1.526,BNT162b2,0,4,0,West21,4.8,4
+B.1.526,BNT162b2,0,5,0,Zhou21c,3.3,5
+B.1.526,CP,6,0,0,Zhou21c,0.9,6
+B.1.526,CP_1.3M,1,7,2,West21,5.4,10
+B.1.526,CP_6M,3,5,1,West21,5.2,9
+B.1.526,mRNA-1273,0,6,0,West21,4.8,6
+B.1.526,mRNA-1273,0,5,0,Zhou21c,3.9,5
 P.1,AZD1222,16,8,1,Dejnirattisai21*,2.7,25
+P.1,BNT162b2,3,6,0,Alenquer21,3.6,9
 P.1,BNT162b2,12,3,0,Chen21*,2.2,15
 P.1,BNT162b2,14,10,0,Dejnirattisai21*,2.8,24
 P.1,BNT162b2,0,0,22,Garcia-Beltran21,15.1,22
@@ -151,6 +170,8 @@ P.1,CP,2,6,1,McCallum21b,4,9
 P.1,CP,4,2,1,Tang21,2.9,7
 P.1,CP,12,6,2,Wang21d,2.5,20
 P.1,CP,15,5,0,Wang21f,2.0,20
+P.1,CP_high_titer,0,3,1,Alenquer21,5.8,4
+P.1,CP_medium_titer,0,0,2,Alenquer21,27,2
 P.1,IVIG,2,4,0,Tang21,4.1,6
 P.1,mRNA-1273,0,0,3,Garcia-Beltran21,19,3
 P.1,mRNA-1273,5,7,0,Wang21d,3.4,12

@@ -211,9 +211,16 @@ excludedRefRxNames = c(
   "Skelly21 BNT",
   "Skelly21 BNT_sd LiveVirus",
   "McCallum21b BNT_antibody",
-  "McCallum21b BNT_infected"
+  "McCallum21b BNT_infected",
+  "Zhou21c CP",
+  "Zhou21c BNT",
+  "Zhou21c Mod"
 )
 shortRefRxNames = c(
+  "Alenquer21 CP_high_titer" = "High titer\nAlenquer21",
+  "Alenquer21 CP_medium_titer" = "Medium titer\nAlenquer21",
+  "Alenquer21 CP_low_titer" = "Low titer\nAlenquer21",
+  "Alenquer21 BNT" = "BNT\nAlenquer21",
   "Becker21 CP LiveVirus" = "Becker21*\n",
   "Becker21 BNT LiveVirus" = "BNT\nBecker21*",
   "Brown21 CP" = "Brown21\n",
@@ -298,6 +305,8 @@ shortRefRxNames = c(
   "Wang21g CP" = "Wang21f\n",
   "Wang21g BBIBP-CorV" = "BBBIBP\nWang21g",
   "Wang21g CoronaVac" = "CoronaVac\nWang21g",
+  "West21 CP_1.3M" = "West21\n",
+  "West21 CP_6M" = "6M\nWest21",
   "Wibmer21 CP_low_titer" = "Titer < 400\nWibmer21",
   "Wibmer21 CP_high_titer" = "Titer > 400\nWibmer21",
   "Wu21 Mod" = "Mod\nWu21",
@@ -370,7 +379,7 @@ for (variant in filterVariants) {
         aes(fill = resistance_level),
         size = 0.2,
         color = "#000000",
-        stat = 'identity', position = 'stack', width = 0.04 * numItems) +
+        stat = 'identity', position = 'stack', width = 0.03 * numItems) +
       scale_x_discrete(
         labels = Vectorize(function(x) ifelse(
           x %in% longRefRxNames,
@@ -397,7 +406,7 @@ for (variant in filterVariants) {
       )) +
       theme(
         plot.title = element_text(hjust = 0.5),
-        axis.text.x = element_text(size=5),
+        axis.text.x = element_text(size=5, angle=45, hjust=1),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         strip.background = element_blank(),
