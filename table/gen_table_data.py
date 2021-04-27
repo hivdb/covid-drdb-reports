@@ -31,6 +31,8 @@ from experiment.gen_null_fold import gen_null_fold
 from experiment.gen_not_wildtype import gen_not_wildtype
 from experiment.gen_exp import gen_exp
 
+from dms.gen_compare_fold import gen_compare_fold
+
 
 def gen_report(db_path):
     db_path = Path(db_path).resolve()
@@ -69,6 +71,8 @@ def gen_report(db_path):
 
     gen_table_plasma()
     gen_table_mab()
+
+    gen_compare_fold(conn)
 
     print('done')
 

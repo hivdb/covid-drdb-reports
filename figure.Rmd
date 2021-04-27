@@ -13,6 +13,7 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 library(gridExtra)
+library(plotly)
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
@@ -311,4 +312,115 @@ for (st in STUDY_TYPE) {
 }
 
 grid.arrange(grobs = plots)
+```
+
+## DMS  {.tabset}
+
+### DMS vs fold
+```{r dms-fold, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+df = read.dbTable('summary_dms.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    susceptible_level=ifelse(
+        fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
+  )
+ggplot(data=df, aes(
+        x=fold, y=score, 
+        color=susceptible_level)) +
+      geom_point(size=2) +
+      # geom_text(size=3, vjust=-1) + 
+      scale_x_continuous(
+        trans='log10',
+        breaks=c(1, 3, 10, 100, 1000, 10000)
+      ) +
+      scale_y_continuous(
+        breaks=c(0.01, 0.06, 0.1, 0.25, 0.5, 1),
+        expand=c(0,0)
+      ) +
+      geom_hline(
+        yintercept = 0.01,
+        linetype="dashed", 
+        color = "blue") +
+      geom_hline(
+        yintercept = 0.1,
+        linetype="dashed", 
+        color = "blue") +
+      geom_hline(
+        yintercept = 0.06,
+        linetype="dashed", 
+        color = "blue") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=15),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      xlab("Fold change") +
+      ylab("DMS Score")
+```
+
+### DMS vs fold 3D
+```{r dms-fold-3d, out.width="100%", message=FALSE, warning=FALSE, echo=FALSE}
+plot_ly(df, x=~fold, y=~score, z=~position)  %>%
+  layout(
+    scene =list(
+      xaxis = list(
+        type = "log",
+        nticks=6
+        )
+    )
+  ) %>%
+  add_markers(color = ~susceptible_level)
+```
+
+### DMS vs fold by mab
+```{r dms-fold-mab, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plots = list()
+i = 1
+
+for (ab in unique(df$mab)) {
+  dfPlot = df %>%
+    filter(mab == ab)
+
+  plot = ggplot(dfPlot, aes(x=fold, y=score, color=susceptible_level)) +
+      geom_point(size=2) +
+      scale_x_continuous(
+        trans='log10',
+        breaks=c(1, 3, 10, 100, 1000, 10000)
+      ) +
+      scale_y_continuous(
+        breaks=c(0, 0.25, 0.5, 1),
+        expand=c(0,0)
+      ) +
+      geom_hline(
+        aes(yintercept = 0.1),
+        linetype="dashed", 
+        color = "blue") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_blank(),
+        strip.background = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      xlab(paste("Fold change:", ab)) +
+      ylab("DMS Score")
+
+  plots[[i]] = plot
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=4)
+
 ```

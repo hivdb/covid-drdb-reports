@@ -1,14 +1,17 @@
 MAB_RENAME = {
     'LY-CoV555/CB6': 'Bamlanivimab/Etesevimab',
+    'LY-CoV555+LY-CoV016': 'Bamlanivimab/Etesevimab',
     'Bamlanivimab+Etesevimab': 'Bamlanivimab/Etesevimab',
 
     'COV2-2196/2130': 'Cilgavimab/Tixagevimab',
     'Tixagevimab + Cilgavimab': 'Cilgavimab/Tixagevimab',
     'AZD7442': 'Cilgavimab/Tixagevimab',
+    'COV2-2130+COV2-2196': 'Cilgavimab/Tixagevimab',
 
     'REGN10933/10987': 'Casirivimab/Imdevimab',
     'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
     'REGN10933 + REGN10987': 'Casirivimab/Imdevimab',
+    'REGN10933+REGN10987': 'Casirivimab/Imdevimab',
     'Casirivimab+Imdevimab': 'Casirivimab/Imdevimab',
     'Casirivimab + Imdevimab': 'Casirivimab/Imdevimab',
     'CAS/IMD': 'Casirivimab/Imdevimab',
