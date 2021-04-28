@@ -286,15 +286,27 @@ dt = read.dbTable('summary_study_cp.csv', tables_dir=TABLEDIR)
 styledDT(dt)
 ```
 
-### Plasma by reference (mutations)
+### CP by reference (mutations)
 ```{r cp_muts}
-dt = read.dbTable('table_plasma_muts.csv', tables_dir=TABLEDIR)
+dt = read.dbTable('table_cp_muts.csv', tables_dir=TABLEDIR)
 styledDT(dt)
 ```
 
-### Plasma by reference (variants)
+### VP by reference (mutations)
+```{r vp_muts}
+dt = read.dbTable('table_vp_muts.csv', tables_dir=TABLEDIR)
+styledDT(dt)
+```
+
+### CP by reference (variants)
 ```{r cp_variants}
-dt = read.dbTable('table_plasma_variant.csv', tables_dir=TABLEDIR)
+dt = read.dbTable('table_cp_variants.csv', tables_dir=TABLEDIR)
+styledDT(dt)
+```
+
+### VP by reference (variants)
+```{r vp_variants}
+dt = read.dbTable('table_vp_variants.csv', tables_dir=TABLEDIR)
 styledDT(dt)
 ```
 

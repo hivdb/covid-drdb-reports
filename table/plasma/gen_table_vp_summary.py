@@ -12,6 +12,7 @@ SHOW_VARIANT = [
     'P.1',
     'B.1.526',
     'B.1.427/9',
+    'B.1.617',
     'N501Y',
     'E484K',
     'K417N',
@@ -107,6 +108,7 @@ def rename_vaccine(vaccine_name):
         'CoronaVac': 'CoronaVac',
         'NVX-CoV': 'NVX-CoV',
         'AZD1222': 'AZD1222',
+        'BBV152': 'BBV152',
     }
 
     for matcher, name in vaccine_mapper.items():

@@ -115,6 +115,14 @@ VARIANTS = {
             ])
         ]
     },
+    'B.1.617': {
+        'filter': [
+            include_mutations([
+                'B.1.617 Spike',
+                'B.1.617 full genome',
+            ])
+        ]
+    },
 }
 
 
