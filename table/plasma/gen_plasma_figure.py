@@ -3,6 +3,7 @@ from preset import load_csv
 from preset import dump_json
 from preset import dump_csv
 
+from .common import get_sample_number_pair
 from resistancy import get_susceptibility
 from collections import defaultdict
 
@@ -41,29 +42,6 @@ def parse_fold(rec):
         return float(fold)
     else:
         return float(fold[1:])
-
-
-def get_sample_number_pair(indiv_list, aggre_list):
-
-    num_s = sum([int(r['S']) for r in indiv_list])
-    num_i = sum([int(r['I']) for r in indiv_list])
-    num_r = sum([int(r['R']) for r in indiv_list])
-
-    aggre_s = [
-        r for r in aggre_list
-        if get_susceptibility(r['Fold']) == 'susceptible']
-    aggre_i = [
-        r for r in aggre_list
-        if get_susceptibility(r['Fold']) == 'partial-resistance']
-    aggre_r = [
-        r for r in aggre_list
-        if get_susceptibility(r['Fold']) == 'resistant']
-
-    num_s_aggre = sum([int(r['Samples']) for r in aggre_s])
-    num_i_aggre = sum([int(r['Samples']) for r in aggre_i])
-    num_r_aggre = sum([int(r['Samples']) for r in aggre_r])
-
-    return (num_s + num_s_aggre), (num_i + num_i_aggre), (num_r + num_r_aggre)
 
 
 def process_record(variant, records):
@@ -123,13 +101,17 @@ def process_record(variant, records):
     return result
 
 
-def gen_table_plasma():
-    cp_variant_records = load_csv(DATA_FILE_PATH / 'table_plasma_variant.csv')
-    cp_mut_records = load_csv(DATA_FILE_PATH / 'table_plasma_muts.csv')
+def gen_plasma_figure():
+    cp_variant_records = load_csv(DATA_FILE_PATH / 'table_cp_variants.csv')
+    cp_mut_records = load_csv(DATA_FILE_PATH / 'table_cp_muts.csv')
+    vp_variant_records = load_csv(DATA_FILE_PATH / 'table_vp_variants.csv')
+    vp_mut_records = load_csv(DATA_FILE_PATH / 'table_vp_muts.csv')
 
     variant_groups = defaultdict(list)
     group_variants(variant_groups, cp_variant_records)
     group_variants(variant_groups, cp_mut_records)
+    group_variants(variant_groups, vp_variant_records)
+    group_variants(variant_groups, vp_mut_records)
 
     result = []
     for variant in SHOW_VARIANT:
@@ -137,12 +119,6 @@ def gen_table_plasma():
         result.append(
             process_record(variant, records)
         )
-
-    save_file = DATA_FILE_PATH / 'table_plasma.json'
-    dump_json(save_file, result)
-
-    save_file = DATA_FILE_PATH / 'table_plasma.csv'
-    dump_csv(save_file, result)
 
     figure_results = []
     for item in result:

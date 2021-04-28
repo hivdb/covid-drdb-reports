@@ -5,28 +5,28 @@ from preset import dump_csv
 from .common import gen_plasma_indiv_table
 from .common import gen_plasma_aggre_table
 from .common import convert_to_json
-from .preset import SUBROWS
+from .preset import VP_FILTER
 from .preset import MUTATIONS
 from .preset import INDIVIDUAL_RESULTS_SQL
 from .preset import AGGREGATED_RESULTS_SQL
 
 
-def gen_table_plasma_muts(
+def gen_table_vp_muts(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'table_plasma_muts.csv',
-        json_save_path=DATA_FILE_PATH / 'table_plasma_muts.json'
+        csv_save_path=DATA_FILE_PATH / 'table_vp_muts.csv',
+        json_save_path=DATA_FILE_PATH / 'table_vp_muts.json'
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,
         MUTATIONS,
-        SUBROWS,
+        VP_FILTER,
         INDIVIDUAL_RESULTS_SQL
     )
 
     aggre_records = gen_plasma_aggre_table(
         conn,
         MUTATIONS,
-        SUBROWS,
+        VP_FILTER,
         AGGREGATED_RESULTS_SQL
     )
 

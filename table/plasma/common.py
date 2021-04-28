@@ -8,6 +8,7 @@ from resistancy import RESISTANCE_FILTER
 from resistancy import is_susc
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
+from resistancy import get_susceptibility
 from statistics import median
 from variant.preset import CONTROL_VARIANTS_SQL
 
@@ -217,3 +218,26 @@ def convert_to_json(json_save_path, records):
 
     variant = sorted(results, key=itemgetter('variant'))
     dump_json(json_save_path, results)
+
+
+def get_sample_number_pair(indiv_list, aggre_list):
+
+    num_s = sum([int(r['S']) for r in indiv_list])
+    num_i = sum([int(r['I']) for r in indiv_list])
+    num_r = sum([int(r['R']) for r in indiv_list])
+
+    aggre_s = [
+        r for r in aggre_list
+        if get_susceptibility(r['Fold']) == 'susceptible']
+    aggre_i = [
+        r for r in aggre_list
+        if get_susceptibility(r['Fold']) == 'partial-resistance']
+    aggre_r = [
+        r for r in aggre_list
+        if get_susceptibility(r['Fold']) == 'resistant']
+
+    num_s_aggre = sum([int(r['Samples']) for r in aggre_s])
+    num_i_aggre = sum([int(r['Samples']) for r in aggre_i])
+    num_r_aggre = sum([int(r['Samples']) for r in aggre_r])
+
+    return (num_s + num_s_aggre), (num_i + num_i_aggre), (num_r + num_r_aggre)

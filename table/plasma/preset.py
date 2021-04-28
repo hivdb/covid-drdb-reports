@@ -47,7 +47,7 @@ WHERE s.control_variant_name IN {control_variants}
 """
 
 
-SUBROWS = {
+CP_FILTER = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
         'cp_filters': [
@@ -59,6 +59,9 @@ SUBROWS = {
             ),
         ]
     },
+}
+
+VP_FILTER = {
     'VP': {
         'rxtype': 'rx_vacc_plasma',
     },
