@@ -424,3 +424,83 @@ for (ab in unique(df$mab)) {
 grid.arrange(grobs = plots, ncol=4)
 
 ```
+
+## DMS Statistic Test  {.tabset}
+
+### All
+```{r dms-fold-st-all}
+df = read.dbTable('summary_dms.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    susceptible_level=ifelse(
+        fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
+  )
+tbl = table(df$fold, df$score)
+chisq.test(tbl)
+
+result = cor.test(df$fold, df$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+### Fold >= 10 and score >= 0.1
+```{r dms-fold-st-10-01}
+df_Fold_gt10 = df %>%
+  filter(
+    fold >= 10 & score >= 0.1
+  )
+tbl = table(df_Fold_gt10$fold, df_Fold_gt10$score)
+chisq.test(tbl)
+
+
+result = cor.test(df_Fold_gt10$fold, df_Fold_gt10$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+### Fold >= 10
+```{r dms-fold-st-gt-10}
+df_Fold_gt10 = df %>%
+  filter(
+    fold >= 10
+  )
+tbl = table(df_Fold_gt10$fold, df_Fold_gt10$score)
+chisq.test(tbl)
+
+
+result = cor.test(df_Fold_gt10$fold, df_Fold_gt10$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+### Fold < 10
+```{r dms-fold-st-lt-10}
+df_Fold_lt10 = df %>%
+  filter(
+    fold < 10
+  )
+tbl = table(df_Fold_lt10$fold, df_Fold_lt10$score)
+chisq.test(tbl)
+
+
+result = cor.test(df_Fold_lt10$fold, df_Fold_lt10$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+
+### Fold >10 and score < 0.1
+```{r dms-fold-st-10-01-outliner}
+df_Score_outlier = df %>%
+  filter(
+    score <= 0.1 & fold >= 10
+  )
+tbl = table(df_Score_outlier$fold, df_Score_outlier$score)
+chisq.test(tbl)
+
+result = cor.test(df_Score_outlier$fold, df_Score_outlier$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+
+### Mab, Score
+```{r dms-fold-st-mab-score}
+tbl = table(df$mab, df$score)
+chisq.test(tbl)
+
+```
