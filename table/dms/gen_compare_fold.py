@@ -6,9 +6,10 @@ from mab.preset import MAB_RENAME
 from preset import dump_csv
 import re
 from collections import defaultdict
+from operator import itemgetter
 
 
-MUT_POS_AA = re.compile('(\d+)(\w)')
+MUT_POS_AA = re.compile(r'(\d+)(\w)')
 
 
 SQL = """
@@ -29,7 +30,15 @@ WHERE
     AND
     rx.ab_name IN (SELECT ab_name FROM rx_dms)
     AND
-    s.fold IS NOT NULL;
+    s.fold IS NOT NULL
+GROUP BY
+    s.ref_name,
+    s.rx_name,
+    s.control_variant_name,
+    s.variant_name,
+    s.ordinal_number,
+    s.assay
+;
 """.format(control_variants=CONTROL_VARIANTS_SQL)
 
 
@@ -60,17 +69,21 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
         if variant_name not in INDIV_VARIANT.keys():
             continue
 
+        ref_name = rec['ref_name']
         fold = rec['fold']
+        fold_cmp = rec['fold_cmp']
         mab = rec['rx_name']
         mab = MAB_RENAME.get(mab, mab)
 
         pos, aa = re.search(MUT_POS_AA, variant_name).groups()
 
         indiv_mut_records[mab].append({
+            'ref_name': ref_name,
             'mab': mab,
             'position': pos,
             'amino_acid': aa,
             'fold': fold,
+            'fold_cmp': fold_cmp,
         })
         positions.add(pos)
 
@@ -101,9 +114,11 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
             continue
 
         for rec in rx_list:
+            ref_name = rec['ref_name']
             position = int(rec['position'])
             amino_acid = rec['amino_acid']
             fold = rec['fold']
+            fold_cmp = rec['fold_cmp']
 
             pos_tree = eacape_tree.get(position)
             if not pos_tree:
@@ -113,11 +128,15 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
             if not score:
                 continue
             results.append({
+                'ref_name': ref_name,
                 'mab': mab,
                 'position': position,
                 'amino_acid': amino_acid,
                 'fold': fold,
+                'fold_cmp': fold_cmp,
                 'score': score
             })
+
+    results.sort(key=itemgetter('ref_name', 'mab'))
 
     dump_csv(save_path, results)
