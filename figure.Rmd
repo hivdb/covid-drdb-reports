@@ -15,6 +15,8 @@ library(stringr)
 library(gridExtra)
 library(plotly)
 library(ggbeeswarm)
+library(viridis)
+
 knitr::opts_chunk$set(echo = FALSE)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
@@ -60,22 +62,33 @@ plot = ggplot(df, aes(variant, fold)) +
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
   ylab("Fold change (CP)")
-plot1 = plot + geom_boxplot()
+
+plot1 = plot + geom_boxplot(fill="#146aa8")
 plot1
+```
+
+### CP indiv muts (violin)
+```{r indiv-cp-violin, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    fill="#146aa8")
+plot2
 ```
 
 
 ### CP indiv muts (Jittery)
-```{r indiv-cp-jitter, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r indiv-cp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
-plot2 = plot + geom_beeswarm()
+plot2 = plot + geom_quasirandom(color="#146aa8")
 plot2
 ```
 
 ### CP indiv muts (Jittery, Boxplot)
-```{r indiv-cp-iqr-jitter, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r indiv-cp-iqr-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
-plot3 = plot + geom_boxplot() + geom_beeswarm()
+plot3 = plot + geom_boxplot() + geom_quasirandom(color="#146aa8")
 plot3
 ```
 
@@ -117,21 +130,31 @@ plot = ggplot(df, aes(nickname, fold)) +
         ) +
   ylab("Fold change (CP)")
 
-plot1 = plot + geom_boxplot()
+plot1 = plot + geom_boxplot(fill="#146aa8")
 plot1
 ```
 
 ### CP combo muts (Jittery)
-```{r combo-cp-jitter, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r combo-cp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
-plot2 = plot + geom_beeswarm()
+plot2 = plot + geom_quasirandom(color="#146aa8")
+plot2
+```
+
+### CP combo muts (violin)
+```{r combo-cp-violin, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    fill="#146aa8")
 plot2
 ```
 
 ### CP combo muts (Jittery, Boxplot)
-```{r combo-cp-iqr-jitter, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r combo-cp-iqr-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
-plot3 = plot + geom_boxplot() + geom_beeswarm()
+plot3 = plot + geom_boxplot() + geom_quasirandom(color="#146aa8")
 plot3
 ```
 
@@ -178,7 +201,10 @@ plot = ggplot(df, aes(variant, fold, fill=vaccine)) +
     trans='log10',
     breaks=c(1, 3, 10, 100, 1000, 10000)
     ) +
-  scale_fill_brewer(palette="Spectral") +
+  # scale_fill_brewer(palette="Spectral") +
+  scale_fill_viridis(discrete=TRUE) + 
+  scale_color_viridis(discrete=TRUE) + 
+  # scale_color_brewer(palette="Spectral") +
   theme(
         axis.title.x = element_blank(),
         axis.title.y = element_text(size=20),
@@ -201,8 +227,20 @@ plot1
 ### VP indiv muts (Jittery)
 ```{r indiv-vp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 plot2 = plot +
-  geom_boxplot(position = position_dodge2(preserve = "single")) +
-  geom_point(pch=21, position=position_jitterdodge(0.25))
+  # geom_boxplot(position = position_dodge2(preserve = "single")) +
+  # geom_point(pch=21, position=position_jitterdodge())
+  geom_quasirandom(aes(color=vaccine), dodge.width=1)
+plot2
+```
+
+### VP indiv muts (Violin)
+
+```{r indiv-vp-violin, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    scale="width"
+    )
 plot2
 ```
 
@@ -230,7 +268,10 @@ plot = ggplot(df, aes(nickname, fold, fill=vaccine)) +
     trans='log10',
     breaks=c(1, 3, 10, 100, 1000, 10000)
     ) +
-  scale_fill_brewer(palette="Spectral") +
+  # scale_fill_brewer(palette="Spectral") +
+  scale_fill_viridis(discrete=TRUE) + 
+  scale_color_viridis(discrete=TRUE) + 
+  # scale_color_brewer(palette="Spectral") + 
   theme(
         axis.title.x = element_blank(),
         axis.title.y = element_text(size=20),
@@ -254,8 +295,20 @@ plot1
 ### VP combo muts (Jittery)
 ```{r combo-vp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 plot2 = plot +
-  geom_boxplot(position = position_dodge2(preserve = "single")) +
-  geom_point(pch=21, position=position_jitterdodge(0.25))
+  # geom_boxplot(position = position_dodge2(preserve = "single")) +
+  # geom_point(pch=21, position=position_jitterdodge(0.25))
+  geom_quasirandom(aes(color=vaccine), dodge.width=1)
+plot2
+```
+
+### VP indiv muts (Violin)
+
+```{r combo-vp-violin, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    scale="width"
+    )
 plot2
 ```
 
@@ -386,10 +439,10 @@ df = read.dbTable('summary_dms.csv', tables_dir=TABLEDIR) %>%
         fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
   )
 ggplot(data=df, aes(
-        x=fold, y=score, 
+        x=fold, y=score,
         color=susceptible_level)) +
       geom_point(size=2) +
-      # geom_text(size=3, vjust=-1) + 
+      # geom_text(size=3, vjust=-1) +
       scale_x_continuous(
         trans='log10',
         breaks=c(1, 3, 10, 100, 1000, 10000)
@@ -400,15 +453,15 @@ ggplot(data=df, aes(
       ) +
       geom_hline(
         yintercept = 0.01,
-        linetype="dashed", 
+        linetype="dashed",
         color = "blue") +
       geom_hline(
         yintercept = 0.1,
-        linetype="dashed", 
+        linetype="dashed",
         color = "blue") +
       geom_hline(
         yintercept = 0.06,
-        linetype="dashed", 
+        linetype="dashed",
         color = "blue") +
       theme(
         legend.position = "none",
@@ -462,7 +515,7 @@ for (ab in unique(df$mab)) {
       ) +
       geom_hline(
         aes(yintercept = 0.1),
-        linetype="dashed", 
+        linetype="dashed",
         color = "blue") +
       theme(
         legend.position = "none",
