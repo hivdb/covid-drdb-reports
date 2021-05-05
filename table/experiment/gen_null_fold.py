@@ -10,6 +10,8 @@ SELECT
 FROM
     susc_results AS s
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     fold IS NULL
 GROUP BY
     s.ref_name,

@@ -20,6 +20,8 @@ ON
     rxtype.ref_name = s.ref_name
     AND rxtype.rx_name = s.rx_name
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     s.control_variant_name IN {control_variants}
     AND s.fold IS NOT NULL
     {filters};
@@ -36,6 +38,8 @@ ON
     s.ref_name = rx.ref_name
     AND s.rx_name = rx.rx_name
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     s.control_variant_name IN {control_variants}
     AND s.fold IS NOT NULL
     {filters};

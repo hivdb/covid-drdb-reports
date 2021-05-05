@@ -14,8 +14,12 @@ SELECT SUM(s.cumulative_count) FROM
     susc_results AS s,
     {rxtype} AS rxtype
     {joins}
-    WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_variant_name IN {control_variants}
+    WHERE
+    rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
+    AND
+    s.inhibition_pcnt != 90
+    AND
+    s.control_variant_name IN {control_variants}
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -32,7 +36,10 @@ SELECT SUM(s.cumulative_count) FROM
     ) as rxtype
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
-    AND s.control_variant_name IN {control_variants}
+    AND
+    s.inhibition_pcnt != 90
+    AND
+    s.control_variant_name IN {control_variants}
     -- AND s.ineffective IS NULL
     {filters};
 """

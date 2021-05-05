@@ -12,6 +12,8 @@ SELECT
 FROM
     susc_results AS s
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     (s.ref_name, s.rx_name, s.variant_name, s.control_variant_name) IN
     (
     SELECT
@@ -38,6 +40,8 @@ SELECT
 FROM
     susc_results AS s
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     (s.ref_name, s.rx_name, s.variant_name, s.control_variant_name) IN
     (SELECT
         ref_name,

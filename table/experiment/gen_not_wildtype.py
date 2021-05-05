@@ -12,8 +12,11 @@ SELECT
 FROM
     susc_results AS s
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     s.fold IS NOT NULL
-    AND control_variant_name NOT IN {control_variants}
+    AND
+    control_variant_name NOT IN {control_variants}
 GROUP BY
     s.ref_name,
     s.rx_name,

@@ -3,6 +3,8 @@ from preset import load_csv
 from preset import dump_json
 from preset import dump_csv
 
+from .preset import VP_IGNORE
+from .preset import VP_RENAME
 from .common import get_sample_number_pair
 from collections import defaultdict
 
@@ -97,37 +99,21 @@ def process_record(variant, records):
     return result_list
 
 
-def rename_vaccine(vaccine_name):
-    vaccine_mapper = {
-        'BNT': 'BNT162b2',
-        'BNT162b2': 'BNT162b2',
-        'AZD': 'AZD1222',
-        'mRNA-1273': 'mRNA-1273',
-        'Sputnik V': 'Sputnik V',
-        'BBIBP-CorV': 'BBIBP-CorV',
-        'CoronaVac': 'CoronaVac',
-        'NVX-CoV': 'NVX-CoV',
-        'AZD1222': 'AZD1222',
-        'BBV152': 'BBV152',
-    }
-
-    for matcher, name in vaccine_mapper.items():
-        if vaccine_name.startswith(matcher):
-            return name
-
-    return None
-
-
 def group_vaccine(rx_list):
 
     vaccine_group = defaultdict(list)
     for rec in rx_list:
         vaccine = rec['Plasma']
-        vaccine_name = rename_vaccine(vaccine)
-        if not vaccine_name:
-            print(vaccine)
+        ref_name = rec['Reference']
+        if (ref_name, vaccine) in VP_IGNORE:
             continue
-        vaccine_group[vaccine_name].append(rec)
+
+        vaccine_name = VP_RENAME.get(vaccine)
+        if not vaccine_name:
+            print('Unknown vaccine', ref_name, vaccine)
+            continue
+
+        vaccine_group[vaccine].append(rec)
 
     return vaccine_group
 
@@ -140,16 +126,23 @@ def gen_table_vp_summary():
     group_variants(variant_groups, cp_variant_records)
     group_variants(variant_groups, cp_mut_records)
 
-    result = []
+    results = []
     for variant in SHOW_VARIANT:
         records = variant_groups.get(variant, [])
 
-        result.append(
+        results.append(
             process_record(variant, records)
         )
 
     save_file = DATA_FILE_PATH / 'table_vp_summary.json'
-    dump_json(save_file, result)
+    dump_json(save_file, results)
+
+    csv_result = []
+    for rec in results:
+        variant = rec['variant']
+        for item in rec['vaccine']:
+            item['variant'] = variant
+            csv_result.append(item)
 
     save_file = DATA_FILE_PATH / 'table_vp_summary.csv'
-    dump_csv(save_file, result)
+    dump_csv(save_file, csv_result)

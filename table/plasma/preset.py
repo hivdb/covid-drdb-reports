@@ -225,8 +225,36 @@ MUTATIONS = {
 
 VP_RENAME = {
     'BNT': 'BNT162b2',
+    'BNT162b2': 'BNT162b2',
+    'BNT_uninfected': 'BNT162b2',
+    'BNT_W6': 'BNT162b2',
+    'Mod': 'mRNA-1273',
     'MOD': 'mRNA-1273',
+    'mRNA-1273': 'mRNA-1273',
+    'Sputnik V': 'Sputnik V',
     'SPV': 'Sputnik V',
     'AZD': 'AZD1222',
+    'AZD1222': 'AZD1222',
     'NVV': 'NVX-CoV',
+    'NVX-CoV': 'NVX-CoV',
+    'BBIBP-CorV': 'BBIBP-CorV',
+    'CoronaVac': 'CoronaVac',
+    'BBV152': 'BBV152',
 }
+
+
+VP_IGNORE = [
+    ('Wu21b', 'Mod_211_mice'),
+    ('Wu21b', 'Mod_351_mice'),
+    ('Wu21b', 'Mod_mice_3rd'),
+    ('Wu21b', 'Mod_mice'),
+    ('Wu21b', 'Mod_mice_2nd'),
+    ('Leier21*', 'BNT_infected'),
+    ('McCallum21b', 'BNT_infected'),
+    ('Collier21', 'BNT_1ds'),
+    ('Supasa21*', 'AZD_14d'),
+    ('Planas21', 'BNT_W2'),
+    ('Planas21', 'BNT_W3'),
+    ('Planas21', 'BNT_W4'),
+    ('Planas21', 'BNT_W5'),
+]

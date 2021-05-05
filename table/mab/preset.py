@@ -42,7 +42,8 @@ SELECT
     b.pdb_id,
     b.target,
     b.class
-FROM antibodies AS a, {antibody_target_sql} AS b
+FROM
+    antibodies AS a LEFT JOIN {antibody_target_sql} AS b
 ON a.ab_name = b.ab_name
 """.format(antibody_target_sql=ANTIBODY_TARGET_SQL)
 

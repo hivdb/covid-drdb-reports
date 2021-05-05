@@ -1,4 +1,5 @@
 ﻿Variant name,Plasma,S,I,R,Reference,Median,Samples
+B.1.1.7,CP,25,0,0,Bates21*,0.8,25
 B.1.1.7,CP,5,0,0,Brown21,0.8,5
 B.1.1.7,CP,8,0,0,Brown21*,0.7,8
 B.1.1.7,CP,18,1,0,Chen21*,1.4,19
@@ -6,6 +7,7 @@ B.1.1.7,CP,10,9,1,Collier21,2.7,20
 B.1.1.7,CP,19,0,0,Edara21*,0.6,19
 B.1.1.7,CP,7,2,0,Hoffmann21,1.2,9
 B.1.1.7,CP,10,0,0,Kuzmina21,1.5,10
+B.1.1.7,CP,10,0,0,Leier21*,1.5,10
 B.1.1.7,CP,5,2,0,Marot21*,1,7
 B.1.1.7,CP,6,3,0,McCallum21b,2,9
 B.1.1.7,CP,13,2,0,Shen21,1.5,15
@@ -32,6 +34,7 @@ B.1.1.7,CP_low_titer,2,0,0,Alenquer21,1.2,2
 B.1.1.7,CP_medium_titer,2,1,0,Alenquer21,2.3,3
 B.1.1.7,IVIG,6,0,0,Tang21,1.7,6
 B.1.1.7,IVIG,6,0,0,Tang21*,2.4,6
+B.1.351,CP,22,0,1,Bates21*,0.3,23
 B.1.351,CP,3,0,4,Becker21*,10,7
 B.1.351,CP,0,9,4,Cele21*,8.4,13
 B.1.351,CP,8,8,3,Chen21*,3.3,19
@@ -74,10 +77,12 @@ B.1.526,CP_6M,3,5,1,West21,5.2,9
 P.1,CP,7,2,1,Chen21*,2.1,10
 P.1,CP,14,18,2,Dejnirattisai21*,3,34
 P.1,CP,2,6,1,Hoffmann21,6.1,9
+P.1,CP,10,0,0,Leier21*,1.2,10
 P.1,CP,2,6,1,McCallum21b,4,9
 P.1,CP,4,2,1,Tang21,2.9,7
 P.1,CP,12,6,2,Wang21d,2.5,20
 P.1,CP,15,5,0,Wang21f,2.0,20
+P.1,CP,2,9,8,deSouza21,6.4,19
 P.1,CP_high_titer,0,3,1,Alenquer21,5.8,4
 P.1,CP_medium_titer,0,0,2,Alenquer21,27,2
 P.1,IVIG,2,4,0,Tang21,4.1,6

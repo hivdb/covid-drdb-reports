@@ -51,7 +51,7 @@ def gen_plasma_indiv_table(
 
                     rec = records[key]
                     rec['Variant name'] = variant_name
-                    rec['Plasma'] = VP_RENAME.get(cp_name.upper(), cp_name)
+                    rec['Plasma'] = VP_RENAME.get(cp_name, cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)
@@ -178,7 +178,7 @@ def gen_plasma_aggre_table(
 
                 rec = {
                     'Variant name': variant_name,
-                    'Plasma': VP_RENAME.get(cp_name.upper(), cp_name),
+                    'Plasma': VP_RENAME.get(cp_name, cp_name),
                     'Samples': num_results,
                     'Reference': reference,
                     'Median': median_fold,

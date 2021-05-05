@@ -21,6 +21,8 @@ FROM
 ON
     s.ref_name = rx.ref_name AND
     s.rx_name = rx.rx_name
+WHERE
+    s.inhibition_pcnt != 90
 ;
 """.format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 

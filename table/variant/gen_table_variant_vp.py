@@ -22,7 +22,10 @@ FROM
 INNER JOIN rx_vacc_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
-WHERE s.control_variant_name in {control_variants}
+WHERE
+    s.inhibition_pcnt != 90
+    AND
+    s.control_variant_name in {control_variants}
     AND s.fold IS NOT NULL;
 """.format(control_variants=CONTROL_VARIANTS_SQL)
 

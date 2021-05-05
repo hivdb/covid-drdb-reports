@@ -14,6 +14,8 @@ SELECT
     SUM(s.cumulative_count) AS samples
 FROM
     susc_results AS s
+WHERE
+    s.inhibition_pcnt != 90
 GROUP BY
     s.ref_name,
     s.rx_name,

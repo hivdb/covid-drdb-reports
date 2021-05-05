@@ -26,6 +26,8 @@ ON
     s.ref_name = rx.ref_name
     AND s.rx_name = rx.rx_name
 WHERE
+    s.inhibition_pcnt != 90
+    AND
     s.control_variant_name IN {control_variants}
     AND
     rx.ab_name IN (SELECT ab_name FROM rx_dms)
