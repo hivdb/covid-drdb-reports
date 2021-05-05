@@ -192,13 +192,18 @@ excludedRefRxNames = c(
   "Edara21 CP_acute LiveVirus",
   "Faulkner21 CP_Mild LiveVirus",
   "Kuzmina21 CP",
+  "Li21c CP_RBD_Immu",
+  "Leier21 CP LiveVirus",
   "Planas21 CP_M3",
   "Planas21 CP_M6",
   "Zhou21c CP",
+
   
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
   "Kuzmina21 BNT",
+  "Leier21 BNT_infected LiveVirus",
+  "Leier21 BNT_uninfected LiveVirus",
   "McCallum21b BNT_antibody",
   "McCallum21b BNT_infected",
   "Planas21 BNT_W2",
@@ -209,6 +214,11 @@ excludedRefRxNames = c(
   "Skelly21 BNT",
   "Skelly21 BNT_sd LiveVirus",
   "Wu21 Mod",
+  "Wu21b Mod_211_mice",
+  "Wu21b Mod_351_mice",
+  "Wu21b Mod_mice",
+  "Wu21b Mod_mice_2nd",
+  "Wu21b Mod_mice_3rd",
   "Zhou21c BNT",
   "Zhou21c Mod"
 )
@@ -216,6 +226,7 @@ shortRefRxNames = c(
   "Alenquer21 CP_high_titer" = "High titer\nAlenquer21",
   "Alenquer21 CP_medium_titer" = "Medium titer\nAlenquer21",
   "Alenquer21 CP_low_titer" = "Low titer\nAlenquer21",
+  "Bates21 CP LiveVirus" = "Bates21*\n",
   "Becker21 CP LiveVirus" = "Becker21*\n",
   "Brown21 CP" = "Brown21\n",
   "Brown21 CP LiveVirus" = "Brown21*\n",
@@ -224,6 +235,7 @@ shortRefRxNames = c(
   "Collier21 CP" = "Collier21\n",
   "Deng21 CP LiveVirus" = "Deng21*\n",
   "Dejnirattisai21 CP LiveVirus" = "Dej21\n",
+  "deSouza21 CP" = "deSouza21\n",
   "Edara21 CP LiveVirus" = "Edara21*\n",
   "Faulkner21 CP_Patient LiveVirus" = "Severe\nFaulkner21*",
   "Greaney21 CP" = "Greaney21\n",
@@ -232,6 +244,10 @@ shortRefRxNames = c(
   "Hu21 CP_1M" = "1M\nHu21",
   "Hu21 CP_8M" = "8M\nHu21",
   "Jangra21 CP" = "Jangra21\n",
+  "Li21c CP" = "Li21c\n",
+  "Li21c CP_2M" = "2M\nLi21c",
+  "Li21c CP_5M" = "5M\nLi21c",
+  "Li21c CP_8M" = "8M\nLi21c",
   "Liu21 CP" = "Liu21\n",
   "McCallum21b CP" = "MC21b\n",
   "Moyo-Gwete21 CP" = "Moyo-G21\n",
@@ -264,6 +280,7 @@ shortRefRxNames = c(
   "Zhou21b CP LiveVirus" = "Zhou21b\n",
   
   "Alenquer21 BNT" = "BNT\nAlenquer21",
+  "Bates21 BNT LiveVirus" = "BNT\nBates21*",
   "Becker21 BNT LiveVirus" = "BNT\nBecker21*",
   "Brown21 BNT" = "BNT\nBrown21",
   "Brown21 BNT LiveVirus" = "BNT\nBrown21*",
@@ -275,6 +292,7 @@ shortRefRxNames = c(
   "Hoffmann21 BNT" = "BNT\nHoffmann21",
   "Jangra21 BNT" = "BNT\nJangra21",
   "Liu21b BNT" = "BNT\nLiu21b",
+  "Mallm21 BNT LiveVirus" = "BNT\nMallm21*",
   "McCallum21b BNT" = "BNT\nMC21b",
   "Muik21 BNT" = "BNT\nMuik21",
   "Marot21 BNT LiveVirus" = "BNT\nMarot21*",
@@ -297,7 +315,7 @@ shortRefRxNames = c(
   "Deng21 Mod LiveVirus" = "Mod\nDeng21*",
   "Edara21 Mod LiveVirus" = "Mod\nEdara21*",
   "Greaney21c Mod" = "Mod\nGreaney21c",
-  "McCallum21b MOD LiveVirus" = "Mod\nMC21b",
+  "McCallum21b Mod LiveVirus" = "Mod\nMC21b",
   "Shen21 Mod" = "Mod\nShen21",
   "Shen21b Mod" = "Mod\nShen21b",
   "Stamatatos21 Mod" = "Mod\nSTA21",
@@ -320,6 +338,7 @@ shortRefRxNames = c(
   
   "Wang21g BBIBP-CorV" = "BBBIBP\nWang21g",
 
+  "deSouza21 CoronaVac" = "CoronaVac\ndeSouza21",
   "Wang21g CoronaVac" = "CoronaVac\nWang21g",
 
   "Yadav21 BBV152 LiveVirus" = "BBV152\nYadav21*"
