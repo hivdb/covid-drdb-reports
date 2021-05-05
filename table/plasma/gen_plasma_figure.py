@@ -1,10 +1,8 @@
 from preset import DATA_FILE_PATH
 from preset import load_csv
-from preset import dump_json
 from preset import dump_csv
 
 from .common import get_sample_number_pair
-from resistancy import get_susceptibility
 from collections import defaultdict
 
 SHOW_VARIANT = [
