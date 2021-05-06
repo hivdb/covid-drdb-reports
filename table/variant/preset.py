@@ -61,11 +61,25 @@ INDIV_VARIANT = {}
 COMBO_VARIANT = {}
 NO_MUT = []
 
-NTD_DELETION = [
-    (69, 70, '69-70∆'),
-    (141, 145, '141-145∆'),
-    (242, 244, '242-244∆'),
-]
+NTD_DELETION_GROUP_RULE = {
+    (69, 70): '69-70∆',
+    (69, 69): '69-70∆',
+    (139, 145): '141-145∆',
+    (140, 140): '141-145∆',
+    (141, 145): '141-145∆',
+    (141, 144): '141-145∆',
+    (144, 144): '141-145∆',
+    (145, 145): '141-145∆',
+    (141, 143): '141-145∆',
+    (147, 147): '147∆',
+    (242, 244): '242-244∆',
+    (244, 244): '242-244∆',
+    (244, 247): '244-247∆',
+    (245, 246): '244-247∆',
+    (254, 257): '254-257∆',
+    (72, 78): '72-78∆',
+    (150, 152): '150-152∆',
+}
 
 
 SPIKE_REF = {}
@@ -195,27 +209,56 @@ def get_main_name(variant):
 
 
 def merge_ntd_deletion(mut_list):
-    new_mut_list = []
-    used_ntd_deletion = set()
-    for mut in mut_list:
-        if mut['aa'] != 'del':
-            new_mut_list.append(mut)
-            continue
+    no_del_mut_list = [
+        m for m in mut_list
+        if (m['aa'] != 'del' and m['domain'] == 'NTD')
+        or (m['domain'] != 'NTD')
+        ]
+    del_mut_list = [
+        m for m in mut_list
+        if (m['aa'] == 'del' and m['domain'] == 'NTD')
+        ]
 
-        ref_aa = mut['ref_aa']
-        position = mut['position']
-        for ntd_start, ntd_stop, ntd_disp in NTD_DELETION:
-            if ntd_disp in used_ntd_deletion:
-                break
-            if position >= ntd_start and position <= ntd_stop:
-                new_mut_list.append({
-                    'position': position,
-                    'aa': 'del',
-                    'ref_aa': ref_aa,
-                    'disp': ntd_disp,
-                    'domain': get_domain(position),
-                })
-                used_ntd_deletion.add(ntd_disp)
+    del_mut_list.sort(key=lambda x: int(x['position']))
+
+    consequitive_del_group = []
+    prev_position = -1
+    current_del_group = []
+    for mut in del_mut_list:
+        position = int(mut['position'])
+        if position != prev_position + 1:
+            if current_del_group:
+                consequitive_del_group.append(current_del_group)
+
+            current_del_group = []
+
+        prev_position = position
+        current_del_group.append(mut)
+
+    if current_del_group:
+        consequitive_del_group.append(current_del_group)
+
+    grouped_del_mut_list = []
+
+    for del_group in consequitive_del_group:
+        start_pos = del_group[0]['position']
+        stop_pos = del_group[-1]['position']
+
+        rule_key = (start_pos, stop_pos)
+
+        ntd_disp = NTD_DELETION_GROUP_RULE[rule_key]
+        ref_aas = ''.join([m['ref_aa'] for m in del_group])
+        grouped_del_mut_list.append({
+            'position': start_pos,
+            'aa': 'del',
+            'ref_aa': ref_aas,
+            'disp': ntd_disp,
+            'domain': get_domain(start_pos),
+        })
+
+    new_mut_list = grouped_del_mut_list + no_del_mut_list
+
+    new_mut_list.sort(key=lambda x: int(x['position']))
 
     return new_mut_list
 
@@ -256,6 +299,7 @@ def get_combi_mutation_main_name(variant_info):
 
 
 def get_domain(position):
+    position = int(position)
     for domain, range in DOMAINS.items():
         if position >= range[0] and position <= range[1]:
             return domain
