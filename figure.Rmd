@@ -619,3 +619,148 @@ tbl = table(df$mab, df$score)
 chisq.test(tbl)
 
 ```
+
+
+### Indiv summary (without distinguish study type)
+```{r indiv-mutations, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+MIN_SAMPLES = 10
+
+df = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    samples=CP + VP + all.mAbs
+  ) %>%
+  filter(
+    samples > MIN_SAMPLES
+  )
+
+plots = list()
+i = 1
+
+for (d in unique(df$Domain)) {
+  dfPlot = df %>% 
+    filter(Domain == d)
+  
+  p <- ggplot(dfPlot, aes(x=reorder(Variant.name, Position), y=samples)) +
+      geom_bar(
+        stat='identity',
+        width=0.01 * length(unique(dfPlot$Variant.name)),
+        fill="#146aa8"
+        ) + 
+      scale_y_continuous(
+        expand=expansion(mult = c(0, .1))
+        ) +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=15, angle=45, hjust=1),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        )
+  plots[[i]] = p
+  i = i + 1
+  
+}
+
+grid.arrange(grobs = plots, ncol=1)
+
+```
+
+### Indiv summary (distinguish by study type)
+```{r indiv-mutations-study-type, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+STUDY_TYPE_ORDER = c(
+  "CP",
+  "VP",
+  "mAb"
+)
+
+df = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    samples=CP + VP + all.mAbs
+  ) %>%
+  filter(
+    samples > MIN_SAMPLES
+  )
+
+dfCP = df %>%
+  select(
+    Variant.name,
+    Position,
+    Domain,
+    samples=CP
+  ) %>%
+  mutate(
+    study_type=factor("CP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfVP = df %>%
+  select(
+    Variant.name,
+    Position,
+    Domain,
+    samples=VP
+  ) %>%
+  mutate(
+    study_type=factor("VP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfMAb = df %>%
+  select(
+    Variant.name,
+    Position,
+    Domain,
+    samples=all.mAbs
+  ) %>%
+  mutate(
+    study_type=factor("mAb", levels=STUDY_TYPE_ORDER)
+  )
+
+df = bind_rows(dfCP, dfVP, dfMAb)
+
+plots = list()
+i = 1
+
+for (d in unique(df$Domain)) {
+  dfPlot = df %>% 
+    filter(Domain == d)
+  
+  p <- ggplot(dfPlot, aes(x=reorder(Variant.name, Position), y=samples)) +
+      geom_bar(
+        aes(fill=study_type),
+        stat='identity',
+        width=0.01 * length(unique(dfPlot$Variant.name)),
+        position = 'stack'
+        ) + 
+      scale_y_continuous(
+        expand=expansion(mult = c(0, .1))
+        ) +
+      scale_fill_viridis(discrete = TRUE) +
+      # labs(fill="Study type") + 
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=15, angle=45, hjust=1),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        )
+  plots[[i]] = p
+  i = i + 1
+  
+}
+
+grid.arrange(grobs = plots, ncol=1)
+
+```
