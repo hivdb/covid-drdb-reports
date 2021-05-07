@@ -10,6 +10,7 @@ Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), 
 
 ```{r setup, include=FALSE}
 library(dplyr)
+library(tidyr)
 library(ggplot2)
 library(stringr)
 library(gridExtra)
@@ -202,8 +203,8 @@ plot = ggplot(df, aes(variant, fold, fill=vaccine)) +
     breaks=c(1, 3, 10, 100, 1000, 10000)
     ) +
   # scale_fill_brewer(palette="Spectral") +
-  scale_fill_viridis(discrete=TRUE) + 
-  scale_color_viridis(discrete=TRUE) + 
+  scale_fill_viridis(discrete=TRUE) +
+  scale_color_viridis(discrete=TRUE) +
   # scale_color_brewer(palette="Spectral") +
   theme(
         axis.title.x = element_blank(),
@@ -269,9 +270,9 @@ plot = ggplot(df, aes(nickname, fold, fill=vaccine)) +
     breaks=c(1, 3, 10, 100, 1000, 10000)
     ) +
   # scale_fill_brewer(palette="Spectral") +
-  scale_fill_viridis(discrete=TRUE) + 
-  scale_color_viridis(discrete=TRUE) + 
-  # scale_color_brewer(palette="Spectral") + 
+  scale_fill_viridis(discrete=TRUE) +
+  scale_color_viridis(discrete=TRUE) +
+  # scale_color_brewer(palette="Spectral") +
   theme(
         axis.title.x = element_blank(),
         axis.title.y = element_text(size=20),
@@ -620,9 +621,10 @@ chisq.test(tbl)
 
 ```
 
+## Variant summary {.tabset}
 
 ### Indiv summary (without distinguish study type)
-```{r indiv-mutations, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+```{r indiv-mutations, fig.height=15, fig.retina=4, fig.width=15, message=FALSE, warning=FALSE, echo=FALSE}
 
 MIN_SAMPLES = 10
 
@@ -638,15 +640,15 @@ plots = list()
 i = 1
 
 for (d in unique(df$Domain)) {
-  dfPlot = df %>% 
+  dfPlot = df %>%
     filter(Domain == d)
-  
+
   p <- ggplot(dfPlot, aes(x=reorder(Variant.name, Position), y=samples)) +
       geom_bar(
         stat='identity',
         width=0.01 * length(unique(dfPlot$Variant.name)),
         fill="#146aa8"
-        ) + 
+        ) +
       scale_y_continuous(
         expand=expansion(mult = c(0, .1))
         ) +
@@ -654,7 +656,7 @@ for (d in unique(df$Domain)) {
         legend.position = "none",
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size=15, angle=45, hjust=1),
+        axis.text.x = element_text(size=12, angle=45, hjust=1),
         axis.text.y = element_text(size=15),
         strip.background = element_blank(),
         strip.text = element_blank(),
@@ -662,10 +664,19 @@ for (d in unique(df$Domain)) {
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
-        )
+        ) +
+      annotate(
+          "text",
+          y=Inf,
+          x=Inf,
+          label=d,
+          size=10,
+          vjust=2,
+          hjust=1.1
+          )
   plots[[i]] = p
   i = i + 1
-  
+
 }
 
 grid.arrange(grobs = plots, ncol=1)
@@ -673,7 +684,7 @@ grid.arrange(grobs = plots, ncol=1)
 ```
 
 ### Indiv summary (distinguish by study type)
-```{r indiv-mutations-study-type, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+```{r indiv-mutations-study-type, fig.height=15, fig.retina=4, fig.width=15, message=FALSE, warning=FALSE, echo=FALSE}
 
 STUDY_TYPE_ORDER = c(
   "CP",
@@ -728,21 +739,248 @@ plots = list()
 i = 1
 
 for (d in unique(df$Domain)) {
-  dfPlot = df %>% 
+  dfPlot = df %>%
     filter(Domain == d)
-  
+
   p <- ggplot(dfPlot, aes(x=reorder(Variant.name, Position), y=samples)) +
       geom_bar(
         aes(fill=study_type),
         stat='identity',
         width=0.01 * length(unique(dfPlot$Variant.name)),
         position = 'stack'
-        ) + 
+        ) +
       scale_y_continuous(
         expand=expansion(mult = c(0, .1))
         ) +
       scale_fill_viridis(discrete = TRUE) +
-      # labs(fill="Study type") + 
+      # labs(fill="Study type") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=12, angle=45, hjust=1),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      annotate(
+          "text",
+          y=Inf,
+          x=Inf,
+          label=d,
+          size=10,
+          vjust=2,
+          hjust=1.1
+          )
+  plots[[i]] = p
+  i = i + 1
+
+}
+
+grid.arrange(grobs = plots, ncol=1)
+
+```
+
+### Domain summary
+
+```{r indiv-domain-study-type, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+DOMAINS = c(
+  'NTD',
+  'RBD',
+  'CTD',
+  'S2'
+)
+
+get_domain_table = function(table, treatment) {
+  table = table %>% 
+    mutate(
+      Domain=factor(Domain, levels=DOMAINS)
+    ) %>%
+    select(
+      Domain,
+      S,
+      I,
+      R
+    ) %>%
+    group_by(
+      Domain
+    ) %>%
+    summarise(
+      S_samples=sum(S),
+      I_samples=sum(I),
+      R_samples=sum(R)
+    ) %>%
+    pivot_longer(
+      cols=ends_with('samples'),
+      names_to="category",
+      values_to="samples"
+    ) %>%
+    mutate(
+      category=factor(category, levels=c('R_samples','I_samples', 'S_samples')),
+      treatment=treatment
+    )
+  table
+}
+
+get_domain_plot <- function(table) {
+  plot <- ggplot(table, aes(x=Domain, y=samples, fill=category)) +
+      geom_bar(
+        stat = "identity",
+        width = 0.4,
+        color = "#000000"
+      ) +
+      facet_grid(cols=vars(treatment)) +
+      scale_y_continuous(
+        expand=expansion(
+          mult = c(0, .1))
+      ) +
+      scale_fill_manual(values = c(
+        'R_samples' = "#146aa8",
+        'I_samples' = "#7fcbee",
+        'S_samples' = "#ffffff"
+      )) +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=15),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_text(size=20),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        )
+      # annotate(
+      #     "text",
+      #     y=Inf,
+      #     x=Inf,
+      #     label=treatment,
+      #     size=10,
+      #     vjust=2,
+      #     hjust=1.1
+      #     )
+  plot
+}
+
+dfCP = read.dbTable('summary_variant_indiv_cp.csv', tables_dir=TABLEDIR) 
+dfCP = get_domain_table(dfCP, 'CP')
+dfVP = read.dbTable('summary_variant_indiv_vp.csv', tables_dir=TABLEDIR)
+dfVP =get_domain_table(dfVP, 'VP')
+dfMAb = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
+dfMAb = get_domain_table(dfMAb, 'MAb')
+
+table = bind_rows(dfCP, dfVP, dfMAb)
+
+plot = get_domain_plot(table)
+plot
+# plots = list()
+# plots[[1]] = get_domain_plot(dfCP, 'CP')
+# plots[[2]] = get_domain_plot(dfVP, 'VP')
+# plots[[3]] = get_domain_plot(dfMAb, 'MAb')
+# 
+# grid.arrange(grobs = plots, ncol=1)
+
+```
+
+
+### Variant summary (distinguish by study type)
+```{r combo-mutations-study-type, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+NICKNAME_LIST = c(
+  'B.1.1.7',
+  'B.1.1.7 + E484K',
+  'B.1.1.7 (variation)',
+  'B.1.351',
+  'B.1.351 (variation)',
+  'P.1',
+  'P.1 (variation)',
+  'B.1.427/9',
+  'B.1.526',
+  'B.1.526 (variation)',
+  'B.1.617',
+  'P.2',
+  'B.1.1.298',
+  'Mink Cluster 5',
+  'A.27.RN'
+)
+
+df = read.dbTable('summary_variant_combo.csv', tables_dir=TABLEDIR) %>%
+  filter(
+    Nickname %in% NICKNAME_LIST
+  ) %>%
+  select(
+    Nickname,
+    CP,
+    VP,
+    all.mAbs
+  ) %>%
+  group_by(
+    Nickname
+  ) %>%
+  summarise(
+    CP=sum(CP),
+    VP=sum(VP),
+    all.mAbs=sum(all.mAbs)
+  ) %>%
+  mutate(
+    samples=CP + VP + all.mAbs,
+    Nickname=factor(Nickname, levels=NICKNAME_LIST)
+  )
+
+dfCP = df %>%
+  select(
+    Nickname,
+    samples=CP
+  ) %>%
+  mutate(
+    study_type=factor("CP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfVP = df %>%
+  select(
+    Nickname,
+    samples=VP
+  ) %>%
+  mutate(
+    study_type=factor("VP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfMAb = df %>%
+  select(
+    Nickname,
+    samples=all.mAbs
+  ) %>%
+  mutate(
+    study_type=factor("mAb", levels=STUDY_TYPE_ORDER)
+  )
+
+df = bind_rows(dfCP, dfVP, dfMAb)
+
+plots = list()
+i = 1
+
+for (s in unique(df$study_type)) {
+  dfPlot = df %>%
+    filter(study_type == s)
+
+  p <- ggplot(dfPlot, aes(x=Nickname, y=samples)) +
+      geom_bar(
+        stat='identity',
+        fill="#146aa8"
+        ) +
+      scale_y_continuous(
+        expand=expansion(
+          mult = c(0, .1)
+          ),
+        limits = c(0, 800)
+        ) +
       theme(
         legend.position = "none",
         axis.title.x = element_blank(),
@@ -755,10 +993,19 @@ for (d in unique(df$Domain)) {
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
-        )
+        ) +
+      annotate(
+          "text",
+          y=Inf,
+          x=Inf,
+          label=s,
+          size=10,
+          vjust=2,
+          hjust=1.1
+          )
   plots[[i]] = p
   i = i + 1
-  
+
 }
 
 grid.arrange(grobs = plots, ncol=1)

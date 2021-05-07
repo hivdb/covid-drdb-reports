@@ -48,6 +48,19 @@ VARIANT_NICKNAMES = {
     'K417N,N501Y': 'B.1.351 (variation)',
     'K417N,E484K': 'B.1.351 (variation)',
     'B.1.427': 'B.1.427/9',
+    'B.1.1.7 S1': 'B.1.1.7 (variation)',
+    'B.1.1.7 + 484K (variation)': 'B.1.1.7 + E484K',
+    'B.1.351 :-18F-215G (variation)': 'B.1.351 (variation)',
+    'B.1.351 :-18F-242del-243del-244del-246I (variation)':
+        'B.1.351 (variation)',
+    'B.1.351 :-18F-242del-243del-244del-246I-417N (variation)':
+        'B.1.351 (variation)',
+    'B.1.351 :-18F-244del-246I (variation)': 'B.1.351 (variation)',
+    'B.1.351 :-242del-243del-244del-246I (variation)': 'B.1.351 (variation)',
+    'B.1.351 :-246I (variation)': 'B.1.351 (variation)',
+    'B.1.351 RBD': 'B.1.351 (variation)',
+    'B.1.526 :-484K+477N (variation)': 'B.1.526 (variation)',
+    'B.1.526 v.2': 'B.1.526 (variation)',
 }
 
 IGNORE_VARIANT_SYNYNOMS = [

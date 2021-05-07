@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 05/04/2021 08:44 PM PDT
+Report generated at: 05/06/2021 05:03 PM PDT
 
 
 
@@ -43,8 +43,8 @@ Report generated at: 05/04/2021 08:44 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutations </td>
-   <td style="text-align:right;"> 878 </td>
-   <td style="text-align:right;"> 537 </td>
+   <td style="text-align:right;"> 880 </td>
+   <td style="text-align:right;"> 539 </td>
    <td style="text-align:right;"> 743 </td>
    <td style="text-align:right;"> 613 </td>
    <td style="text-align:right;"> 1256 </td>
@@ -75,8 +75,8 @@ Report generated at: 05/04/2021 08:44 PM PDT
   </tr>
   <tr>
    <td style="text-align:left;"> Other mutation combinations </td>
-   <td style="text-align:right;"> 1229 </td>
-   <td style="text-align:right;"> 639 </td>
+   <td style="text-align:right;"> 1235 </td>
+   <td style="text-align:right;"> 645 </td>
    <td style="text-align:right;"> 190 </td>
    <td style="text-align:right;"> 216 </td>
    <td style="text-align:right;"> 576 </td>
