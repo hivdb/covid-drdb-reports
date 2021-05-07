@@ -9,17 +9,19 @@ from resistancy import round_fold
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import is_susc
+from plasma.preset import RX_VP
 from variant.preset import CONTROL_VARIANTS_SQL
 
 SQL = """
 SELECT
     r.vaccine_name,
     s.variant_name,
+    r.vaccine_type,
     s.fold,
     s.cumulative_count as count
 FROM
     susc_results as s
-INNER JOIN rx_vacc_plasma as r ON
+INNER JOIN {rx_vaccine} as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
 WHERE
@@ -27,7 +29,10 @@ WHERE
     AND
     s.control_variant_name in {control_variants}
     AND s.fold IS NOT NULL;
-""".format(control_variants=CONTROL_VARIANTS_SQL)
+""".format(
+    control_variants=CONTROL_VARIANTS_SQL,
+    rx_vaccine=RX_VP
+)
 
 
 def gen_table_variant_vp(conn):
@@ -80,11 +85,14 @@ def by_variant(conn, indiv_or_combo, save_path):
 
             num_results = sum([r['count'] for r in rx_list] + [0])
 
+            vaccine_type = rx_list[0]['vaccine_type']
+
             if indiv_or_combo == 'indiv':
                 variant_info = INDIV_VARIANT.get(variant)
                 record_list.append({
                     'variant': variant,
                     'vaccine': vacc_name,
+                    'vaccine_type': vaccine_type,
                     'RefAA': variant_info['ref_aa'],
                     'Position': variant_info['position'],
                     'AA': variant_info['aa'],
@@ -102,6 +110,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                     'variant': variant,
                     'nickname': nickname,
                     'vaccine': vacc_name,
+                    'vaccine_type': vaccine_type,
                     'median_fold': median_fold,
                     'samples': num_results,
                     'S': num_s,

@@ -67,6 +67,19 @@ VP_FILTER = {
     },
 }
 
+RX_VP = """
+(SELECT
+    a.*,
+    b.vaccine_type,
+    b.priority
+FROM
+    rx_vacc_plasma AS a,
+    vaccines AS b
+ON
+    a.vaccine_name == b.vaccine_name
+)
+"""
+
 
 VARIANTS = {
     'B.1.1.7': {
