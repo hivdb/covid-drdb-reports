@@ -48,13 +48,19 @@ SELECT
     d.rx_name,
     d.position,
     d.amino_acid,
-    d.escape_score
+    d.escape_score,
+    dms.ace2_binding,
+    dms.expression,
+    dms.ace2_contact
 FROM
     dms_escape_results as d,
-    rx_dms as rx
+    rx_dms as rx,
+    dms_ace2_binding as dms
 ON
     d.ref_name = rx.ref_name AND
-    d.rx_name = rx.rx_name
+    d.rx_name = rx.rx_name AND
+    d.position = dms.position AND
+    d.amino_acid = dms.amino_acid
 """
 
 
@@ -103,14 +109,24 @@ def gen_missing_fold(
         if not escape_score:
             continue
 
+        if float(escape_score) <= 0.1:
+            continue
+
         if (position, amino_acid) in mutations:
             continue
+
+        ace2_binding = rec['ace2_binding']
+        expression = rec['expression']
+        ace2_contact = rec['ace2_contact']
 
         results.append({
             'mab': mab,
             'position': position,
             'amino_acid': amino_acid,
-            'score': escape_score
+            'score': escape_score,
+            'ace2_binding': ace2_binding,
+            'expression': expression,
+            'ace2_contact': ace2_contact
         })
 
     results.sort(key=itemgetter('mab', 'position', 'amino_acid'))
