@@ -46,12 +46,16 @@ GROUP BY
 
 DMS_SQL = """
 SELECT
-    rx_name,
+    d.rx_name,
     position,
     amino_acid,
     escape_score
 FROM
-    dms_escape_results
+    dms_escape_results as d,
+    rx_dms as rx
+ON
+    d.ref_name = rx.ref_name AND
+    d.rx_name = rx.rx_name
 WHERE
     position in ({positions})
 """

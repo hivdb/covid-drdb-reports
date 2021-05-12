@@ -36,6 +36,7 @@ from experiment.gen_not_wildtype import gen_not_wildtype
 from experiment.gen_exp import gen_exp
 
 from dms.gen_compare_fold import gen_compare_fold
+from dms.gen_missing_fold import gen_missing_fold
 from dms.gen_issue_fold import gen_issue_fold
 
 
@@ -82,6 +83,7 @@ def gen_report(db_path):
     gen_table_mab()
 
     gen_compare_fold(conn)
+    gen_missing_fold(conn)
     gen_issue_fold()
 
     print('done')

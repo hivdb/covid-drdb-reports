@@ -24,6 +24,24 @@ MAB_RENAME = {
 
     'REGN10989/10987': 'REGN10989/Imdevimab',
     'REGN10989+10934': 'REGN10989+10934',
+
+    'LY-CoV555': 'Bamlanivimab',
+    'LY3819253': 'Bamlanivimab',
+    'REGN10933': 'Casirivimab',
+    'CB6': 'Etesevimab',
+    'JS-016': 'Etesevimab',
+    'LY-CoV016': 'Etesevimab',
+    'LY3832479': 'Etesevimab',
+    'REGN10987': 'Imdevimab',
+    'GSK4182136': 'Vir-7831',
+    'S309': 'Vir-7831',
+    'Sotrovimab': 'Vir-7831',
+    'COV2-2130': 'Cilgavimab',
+    'AZD1061': 'Cilgavimab',
+    'COV2-2196': 'Tixagevimab',
+    'AZD8895': 'Tixagevimab',
+    'CT-P59': 'Regdanvimab',
+
 }
 
 ANTIBODY_TARGET_SQL = """

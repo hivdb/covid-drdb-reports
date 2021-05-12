@@ -1144,16 +1144,6 @@
         "assays": [
             {
                 "variant": "B.1.617",
-                "rx": "",
-                "samples": 10,
-                "s_fold": 0,
-                "i_fold": 9,
-                "r_fold": 1,
-                "reference": "Edara21c",
-                "median": "6.4"
-            },
-            {
-                "variant": "B.1.617",
                 "rx": "BBV152",
                 "samples": 28,
                 "s_fold": 26,
@@ -1161,6 +1151,16 @@
                 "r_fold": 0,
                 "reference": "Yadav21",
                 "median": "1.7"
+            },
+            {
+                "variant": "B.1.617",
+                "rx": "BNT162b2",
+                "samples": 10,
+                "s_fold": 0,
+                "i_fold": 9,
+                "r_fold": 1,
+                "reference": "Edara21c",
+                "median": "6.4"
             },
             {
                 "variant": "B.1.617",
