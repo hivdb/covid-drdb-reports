@@ -9,8 +9,9 @@ from variant.preset import CONTROL_VARIANTS_SQL
 
 
 TABLE_SUMMARY_CP_SQL = """
-SELECT SUM(s.cumulative_count) FROM
--- SELECT COUNT(1) FROM
+SELECT
+    SUM(s.cumulative_count)
+FROM
     susc_results AS s,
     {rxtype} AS rxtype
     {joins}
@@ -19,8 +20,7 @@ SELECT SUM(s.cumulative_count) FROM
     AND
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
-    -- AND s.ineffective IS NULL
+    s.control_iso_name IN {control_variants}
     {filters};
 """
 
@@ -39,7 +39,7 @@ SELECT SUM(s.cumulative_count) FROM
     AND
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -82,16 +82,16 @@ TABLE_SUMMARY_ROWS = {
     },
     'Other individual mutations': {
         'join': [
-            "virus_variants AS vs",
+            "isolates AS vs",
             (
-                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
-                "variant_mutations GROUP BY variant_name) AS sm"
+                "(SELECT iso_name, COUNT(*) AS num_muts FROM "
+                "isolate_mutations GROUP BY iso_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.variant_name = s.variant_name",
+            "AND vs.iso_name = s.iso_name",
             "AND vs.site_directed IS TRUE",
-            "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
+            "AND sm.num_muts = 1 AND sm.iso_name = s.iso_name",
             exclude_mutations([
                 'S:484K',
                 'S:484K+614G'
@@ -116,36 +116,36 @@ TABLE_SUMMARY_ROWS = {
     },
     'All individual mutations': {
         'join': [
-            "virus_variants AS vs",
+            "isolates AS vs",
             (
-                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
-                "variant_mutations GROUP BY variant_name) AS sm"
+                "(SELECT iso_name, COUNT(*) AS num_muts FROM "
+                "isolate_mutations GROUP BY iso_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.variant_name = s.variant_name",
+            "AND vs.iso_name = s.iso_name",
             "AND vs.site_directed IS TRUE",
-            "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
+            "AND sm.num_muts = 1 AND sm.iso_name = s.iso_name",
         ]
     },
     'B.1.1.7': {
         'filter': [
-            "AND s.variant_name IN ('B.1.1.7 Spike', 'B.1.1.7 full genome')",
+            "AND s.iso_name IN ('B.1.1.7 Spike', 'B.1.1.7 full genome')",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.variant_name IN ('B.1.351 Spike', 'B.1.351 full genome')",
+            "AND s.iso_name IN ('B.1.351 Spike', 'B.1.351 full genome')",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.variant_name IN ('P.1 Spike', 'P.1 full genome')",
+            "AND s.iso_name IN ('P.1 Spike', 'P.1 full genome')",
         ]
     },
     'B.1.427/9': {
         'filter': [
-            "AND s.variant_name IN ("
+            "AND s.iso_name IN ("
             "    'B.1.427 full genome',"
             "    'B.1.429 full genome',"
             "    'B.1.429 Spike')",
@@ -163,11 +163,11 @@ TABLE_SUMMARY_ROWS = {
     #     'filter': [
     #         (
     #             "AND ("
-    #             "      s.variant_name IN ('B.1.1.7 Spike',
+    #             "      s.iso_name IN ('B.1.1.7 Spike',
     #                                      'B.1.1.7 full genome')"
-    #             "   OR s.variant_name IN ('B.1.351 Spike',
+    #             "   OR s.iso_name IN ('B.1.351 Spike',
     #                                      'B.1.351 full genome')"
-    #             "   OR s.variant_name IN ('P.1 Spike',
+    #             "   OR s.iso_name IN ('P.1 Spike',
     #                                      'P.1 full genome')"
     #             "   )"
     #         ),
@@ -175,15 +175,15 @@ TABLE_SUMMARY_ROWS = {
     # },
     'Other combinations of mutations': {
         'join': [
-            "virus_variants AS vs",
+            "isolates AS vs",
             (
-                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
-                "variant_mutations GROUP BY variant_name) AS sm"
+                "(SELECT iso_name, COUNT(*) AS num_muts FROM "
+                "isolate_mutations GROUP BY iso_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.variant_name = s.variant_name",
-            "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
+            "AND vs.iso_name = s.iso_name",
+            "AND sm.num_muts > 1 AND sm.iso_name = s.iso_name",
             exclude_mutations([
                 'B.1.1.7 Spike',
                 'B.1.1.7 full genome',
@@ -217,15 +217,15 @@ TABLE_SUMMARY_ROWS = {
     },
     "All combinations of mutations": {
         'join': [
-            "virus_variants AS vs",
+            "isolates AS vs",
             (
-                "(SELECT variant_name, COUNT(*) AS num_muts FROM "
-                "variant_mutations GROUP BY variant_name) AS sm"
+                "(SELECT iso_name, COUNT(*) AS num_muts FROM "
+                "isolate_mutations GROUP BY iso_name) AS sm"
             )
         ],
         'filter': [
-            "AND vs.variant_name = s.variant_name",
-            "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
+            "AND vs.iso_name = s.iso_name",
+            "AND sm.num_muts > 1 AND sm.iso_name = s.iso_name",
         ]
     }
 }
@@ -263,66 +263,6 @@ TABLE_SUMMARY_COLUMNS = {
         ],
     }
 }
-
-# TABLE_SUMMARY_ADDITIONAL_ROWS = {
-#     '1 mutation': {
-#         'join': [
-#             "virus_variants AS vs",
-#             (
-#                 "(SELECT variant_name, COUNT(*) AS num_muts FROM "
-#                 "variant_mutations GROUP BY variant_name) AS sm"
-#             )
-#         ],
-#         'filter': [
-#             "AND vs.variant_name = s.variant_name",
-#             "AND vs.site_directed IS TRUE",
-#             "AND sm.num_muts = 1 AND sm.variant_name = s.variant_name",
-#         ]
-#     },
-#     'mutation combination': {
-#         'join': [
-#             "virus_variants AS vs",
-#             (
-#                 "(SELECT variant_name, COUNT(*) AS num_muts FROM "
-#                 "variant_mutations GROUP BY variant_name) AS sm"
-#             )
-#         ],
-#         'filter': [
-#             "AND vs.variant_name = s.variant_name",
-#             "AND vs.site_directed IS TRUE",
-#             "AND sm.num_muts > 1 AND sm.variant_name = s.variant_name",
-#         ]
-#     },
-#     'VOC': {
-#         'filter': [
-#             (
-#                 "AND ("
-#                 "      s.variant_name IN ('B.1.1.7 Spike',
-#                                          'B.1.1.7 full genome')"
-#                 "   OR s.variant_name IN ('B.1.351 Spike'
-#                                          'B.1.351 full genome')"
-#                 "   OR s.variant_name IN ('P.1 Spike'
-#                                          'P.1 full genome')"
-#                 "   )"
-#             ),
-#         ]
-#     },
-# }
-
-# TABLE_SUMMARY_ADDITIONAL_COLUMNS = {
-#     'mAbs without structure': {
-#         'rxtype': 'rx_antibodies',
-#         'ab_filters': [
-#             "AND ab.pdb_id IS NULL",
-#         ],
-#     },
-#     'CP': {
-#         'rxtype': 'rx_conv_plasma',
-#     },
-#     'VP': {
-#         'rxtype': 'rx_vacc_plasma',
-#     },
-# }
 
 
 def gen_table_key_variant(conn):
@@ -373,45 +313,6 @@ def gen_table_key_variant(conn):
                 'Rx name': column_name,
                 '#Published': result or 0
             })
-
-    # for row_name, attr_r in TABLE_SUMMARY_ADDITIONAL_ROWS.items():
-    #     for column_name, attr_c in TABLE_SUMMARY_ADDITIONAL_COLUMNS.items():
-    #         rxtype = attr_c['rxtype']
-
-    #         r_join = attr_r.get('join', [])
-    #         c_join = attr_c.get('join', [])
-    #         join = ',\n    '.join([''] + r_join + c_join)
-
-    #         r_filter = attr_r.get('filter', [])
-    #         c_filter = attr_c.get('filter', [])
-    #         filter = '\n    '.join(r_filter + c_filter)
-
-    #         sql = TABLE_SUMMARY_CP_SQL.format(
-    #             rxtype=rxtype,
-    #             joins=join,
-    #             filters=filter
-    #         )
-    #         if column_name.lower().startswith('mab'):
-    #             ab_filters = attr_c.get('ab_filters', [])
-    #             ab_filters = '\n     '.join(ab_filters)
-
-    #             sql = TABLE_SUMMARY_MAB_SQL.format(
-    #                 rxtype=rxtype,
-    #                 ab_filters=ab_filters,
-    #                 joins=join,
-    #                 filters=filter,
-    #             )
-
-    #         # print(sql)
-
-    #         cursor.execute(sql)
-    #         result = cursor.fetchone()
-    #         result = result[0]
-    #         records.append({
-    #             'Variant name': row_name,
-    #             'Rx name': column_name,
-    #             '#Published': result
-    #         })
 
     save_path = DATA_FILE_PATH / 'table_summary.csv'
     dump_csv(save_path, records)

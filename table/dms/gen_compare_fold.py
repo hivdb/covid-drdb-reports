@@ -18,7 +18,7 @@ SELECT
     s.rx_name,
     s.fold,
     s.fold_cmp,
-    s.variant_name
+    s.iso_name
 FROM
     susc_results as s,
     rx_antibodies as rx
@@ -28,7 +28,7 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND
     rx.ab_name IN (SELECT ab_name FROM rx_dms)
     AND
@@ -36,8 +36,8 @@ WHERE
 GROUP BY
     s.ref_name,
     s.rx_name,
-    s.control_variant_name,
-    s.variant_name,
+    s.control_iso_name,
+    s.iso_name,
     s.ordinal_number,
     s.assay
 ;
@@ -67,8 +67,8 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
     positions = set()
 
     for rec in cursor.fetchall():
-        variant_name = rec['variant_name']
-        if variant_name not in INDIV_VARIANT.keys():
+        iso_name = rec['iso_name']
+        if iso_name not in INDIV_VARIANT.keys():
             continue
 
         ref_name = rec['ref_name']
@@ -77,7 +77,7 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
         mab = rec['rx_name']
         mab = MAB_RENAME.get(mab, mab)
 
-        pos, aa = re.search(MUT_POS_AA, variant_name).groups()
+        pos, aa = re.search(MUT_POS_AA, iso_name).groups()
 
         indiv_mut_records[mab].append({
             'ref_name': ref_name,

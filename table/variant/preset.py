@@ -2,23 +2,23 @@ from collections import defaultdict
 
 VARIANT_MUT_SQL = """
 SELECT
-    variant_name,
+    iso_name,
     position,
     amino_acid
 FROM
-    variant_mutations
+    isolate_mutations
 WHERE gene = 'S';
 """
 
 NO_MUT_SQL = """
 SELECT
-    variant_name
+    iso_name
 FROM
-    virus_variants
-WHERE variant_name
+    isolates
+WHERE iso_name
 NOT IN (
-    SELECT variant_name
-    FROM variant_mutations
+    SELECT iso_name
+    FROM isolate_mutations
 );
 """
 
@@ -85,6 +85,7 @@ NTD_DELETION_GROUP_RULE = {
     (145, 145): '141-145∆',
     (141, 143): '141-145∆',
     (147, 147): '147∆',
+    (241, 243): '242-244∆',
     (242, 244): '242-244∆',
     (244, 244): '242-244∆',
     (244, 247): '244-247∆',
@@ -132,7 +133,7 @@ def get_grouped_variants(conn):
     variant_info = defaultdict(list)
 
     for rec in cursor.fetchall():
-        variant = rec['variant_name']
+        variant = rec['iso_name']
         variant_info[variant].append(rec)
 
     uniq_variant_info = get_uniq_variant(variant_info)
@@ -142,7 +143,7 @@ def get_grouped_variants(conn):
             mutation = variant_info['mut_list'][0]
             INDIV_VARIANT[mutation['disp']] = mutation
 
-            for name in variant_info['variant_names']:
+            for name in variant_info['iso_names']:
                 INDIV_VARIANT[name] = mutation
         else:
             main_name, nickname = get_combi_mutation_main_name(variant_info)
@@ -156,7 +157,7 @@ def get_grouped_variants(conn):
                 'disp': main_name,
                 'nickname': nickname,
                 }
-            for name in variant_info['variant_names']:
+            for name in variant_info['iso_names']:
                 COMBO_VARIANT[name] = {
                     'disp': main_name,
                     'nickname': nickname,
@@ -164,7 +165,7 @@ def get_grouped_variants(conn):
 
     cursor.execute(NO_MUT_SQL)
     for rec in cursor.fetchall():
-        NO_MUT.append(rec['variant_name'])
+        NO_MUT.append(rec['iso_name'])
 
     # from pprint import pprint
     # pprint(list(COMBO_VARIANT.keys()))
@@ -203,8 +204,8 @@ def get_uniq_variant(variant_info):
         uniq_variant = uniq_variant_info[mut_key]
         uniq_variant['mut_count'] = mut_count
 
-        uniq_variant['variant_names'] = uniq_variant.get('variant_names', [])
-        uniq_variant['variant_names'].append(variant)
+        uniq_variant['iso_names'] = uniq_variant.get('iso_names', [])
+        uniq_variant['iso_names'].append(variant)
 
         uniq_variant['mut_list'] = mut_list
 
@@ -276,25 +277,25 @@ def merge_ntd_deletion(mut_list):
     return new_mut_list
 
 
-def merge_spike_and_full_genome(variant_names):
-    variant_names = [i.replace('Spike', '') for i in variant_names]
-    variant_names = [i.replace('full genome', '') for i in variant_names]
-    variant_names = [i.strip() for i in variant_names]
+def merge_spike_and_full_genome(iso_names):
+    iso_names = [i.replace('Spike', '') for i in iso_names]
+    iso_names = [i.replace('full genome', '') for i in iso_names]
+    iso_names = [i.strip() for i in iso_names]
 
-    variant_names = sorted(list(set(variant_names)))
+    iso_names = sorted(list(set(iso_names)))
 
-    return variant_names
+    return iso_names
 
 
 def get_combi_mutation_main_name(variant_info):
     mut_list = variant_info['mut_list']
     nickname = ''
     if len(mut_list) > 20:
-        main_name = variant_info['variant_names'][0]
+        main_name = variant_info['iso_names'][0]
     else:
         main_name = ','.join([m['disp'] for m in mut_list])
-        variant_names = variant_info['variant_names']
-        for name in variant_names:
+        iso_names = variant_info['iso_names']
+        for name in iso_names:
             if nickname:
                 break
             if name.startswith('S:'):
@@ -323,7 +324,7 @@ def group_by_variant(records):
     combo_records = defaultdict(list)
 
     for rec in records:
-        variant = rec['variant_name']
+        variant = rec['iso_name']
         main_name = INDIV_VARIANT.get(variant)
         if main_name:
             disp_name = main_name['disp']
@@ -341,14 +342,14 @@ def group_by_variant(records):
 def filter_by_variant(records):
     results = []
     for rec in records:
-        variant_name = rec['variant_name']
-        if variant_name in INDIV_VARIANT.keys():
+        iso_name = rec['iso_name']
+        if iso_name in INDIV_VARIANT.keys():
             results.append(rec)
-        elif variant_name == 'S:614G':
+        elif iso_name == 'S:614G':
             results.append(rec)
-        elif variant_name in NO_MUT:
+        elif iso_name in NO_MUT:
             results.append(rec)
-        elif variant_name in COMBO_VARIANT.keys():
+        elif iso_name in COMBO_VARIANT.keys():
             results.append(rec)
 
     return results

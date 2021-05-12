@@ -2,8 +2,8 @@ AGGREGATED_SUSC_VIEW_SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
-    s.variant_name,
-    s.control_variant_name,
+    s.iso_name,
+    s.control_iso_name,
     s.cumulative_count,
     s.fold_cmp,
     s.fold,
@@ -14,13 +14,13 @@ FROM
 WHERE
     s.inhibition_pcnt != 90
     AND
-    (s.ref_name, s.rx_name, s.variant_name, s.control_variant_name) IN
+    (s.ref_name, s.rx_name, s.iso_name, s.control_iso_name) IN
     (
     SELECT
         ref_name,
         rx_name,
-        variant_name,
-        control_variant_name
+        iso_name,
+        control_iso_name
     FROM susc_results
     WHERE cumulative_count > 1
     )
@@ -30,8 +30,8 @@ INDIVIDUAL_SAMPLE_SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
-    s.variant_name,
-    s.control_variant_name,
+    s.iso_name,
+    s.control_iso_name,
     s.cumulative_count,
     s.fold_cmp,
     s.fold,
@@ -42,19 +42,19 @@ FROM
 WHERE
     s.inhibition_pcnt != 90
     AND
-    (s.ref_name, s.rx_name, s.variant_name, s.control_variant_name) IN
+    (s.ref_name, s.rx_name, s.iso_name, s.control_iso_name) IN
     (SELECT
         ref_name,
         rx_name,
-        variant_name,
-        control_variant_name
+        iso_name,
+        control_iso_name
     FROM susc_results
     EXCEPT
     SELECT
         ref_name,
         rx_name,
-        variant_name,
-        control_variant_name
+        iso_name,
+        control_iso_name
     FROM susc_results
     WHERE cumulative_count > 1
     )

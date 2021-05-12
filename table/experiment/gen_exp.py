@@ -8,8 +8,8 @@ SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
-    s.control_variant_name,
-    s.variant_name,
+    s.control_iso_name,
+    s.iso_name,
     s.assay,
     SUM(s.cumulative_count) AS samples
 FROM
@@ -19,8 +19,8 @@ WHERE
 GROUP BY
     s.ref_name,
     s.rx_name,
-    s.control_variant_name,
-    s.variant_name
+    s.control_iso_name,
+    s.iso_name
     ;
 """
 
@@ -49,7 +49,7 @@ def gen_exp(conn):
 
     control_name_group = defaultdict(list)
     for rec in records:
-        control = rec['control_variant_name']
+        control = rec['control_iso_name']
         control_name_group[control].append(rec)
 
     control_name_results = []

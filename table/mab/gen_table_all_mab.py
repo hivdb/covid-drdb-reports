@@ -11,7 +11,7 @@ SQL = """
 SELECT
     rx.ab_name,
     s.cumulative_count as count,
-    s.variant_name,
+    s.iso_name,
     rx.availability as avail,
     rx.pdb_id as pdb,
     rx.target as target

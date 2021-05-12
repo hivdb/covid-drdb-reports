@@ -1,5 +1,5 @@
 def include_mutations(mutations):
-    selector = ["s.variant_name = '{}'".format(m) for m in mutations]
+    selector = ["s.iso_name = '{}'".format(m) for m in mutations]
 
     filter = """
         AND ({})
@@ -9,7 +9,7 @@ def include_mutations(mutations):
 
 
 def exclude_mutations(mutations):
-    selector = ["s.variant_name != '{}'".format(m) for m in mutations]
+    selector = ["s.iso_name != '{}'".format(m) for m in mutations]
 
     filter = """
         AND ({})
@@ -22,26 +22,26 @@ def exclude_mutations(mutations):
 #     cursor = conn.cursor()
 
 #     SQL = """
-#     SELECT variant_name, gene, position, amino_acid
-#     FROM variant_mutations
+#     SELECT iso_name, gene, position, amino_acid
+#     FROM isolate_mutations
 #     WHERE gene = "S"
-#     AND variant_name IN (
-#         SELECT variant_name
-#         FROM variant_mutations
+#     AND iso_name IN (
+#         SELECT iso_name
+#         FROM isolate_mutations
 #         WHERE gene = "S"
-#         GROUP BY variant_name
+#         GROUP BY iso_name
 #         HAVING count(1) in (1, 2))
 #     """
 
-#     final_variant_name = set()
+#     final_iso_name = set()
 
-#     for variant_name, gene, position, amino_acid in cursor.execute(SQL):
+#     for iso_name, gene, position, amino_acid in cursor.execute(SQL):
 #         if position not in (501, 614):
-#             if variant_name in final_variant_name:
-#                 final_variant_name.remove(variant_name)
+#             if iso_name in final_iso_name:
+#                 final_iso_name.remove(iso_name)
 #         if position == 501 and amino_acid != 'Y':
-#             if variant_name in final_variant_name:
-#                 final_variant_name.remove(variant_name)
+#             if iso_name in final_iso_name:
+#                 final_iso_name.remove(iso_name)
 #         if position == 614 and amino_acid != 'G':
-#             if variant_name in final_variant_name:
-#                 final_variant_name.remove(variant_name)
+#             if iso_name in final_iso_name:
+#                 final_iso_name.remove(iso_name)

@@ -11,7 +11,7 @@ from variant.preset import CONTROL_VARIANTS_SQL
 
 TABLE_SUMMARY_CP_SQL = """
 SELECT
-    s.variant_name,
+    s.iso_name,
     s.cumulative_count
 FROM
     susc_results AS s,
@@ -22,14 +22,14 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL
     {filters};
 """
 
 TABLE_SUMMARY_MAB_SQL = """
 SELECT
-    s.variant_name,
+    s.iso_name,
     s.cumulative_count
 FROM
     susc_results AS s,
@@ -40,7 +40,7 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL
     {filters};
 """
@@ -115,7 +115,7 @@ def gen_table_variant(conn):
 
         cursor.execute(sql)
         for rec in cursor.fetchall():
-            variant = rec['variant_name']
+            variant = rec['iso_name']
             count_num = rec['cumulative_count']
             main_name = INDIV_VARIANT.get(variant)
             if main_name:

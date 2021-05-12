@@ -12,7 +12,7 @@ SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
-    s.variant_name,
+    s.iso_name,
     rx.timing,
     rx.severity,
     rx.infection,
@@ -28,10 +28,10 @@ WHERE
 GROUP BY
     s.ref_name,
     s.rx_name,
-    s.control_variant_name,
-    s.variant_name
+    s.control_iso_name,
+    s.iso_name
 """
-# -- s.control_variant_name in {control_variants}
+# -- s.control_iso_name in {control_variants}
 # -- AND
 
 

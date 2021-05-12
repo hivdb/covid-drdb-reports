@@ -41,16 +41,16 @@ def gen_plasma_indiv_table(
 
                 cursor.execute(sql)
                 for row in cursor.fetchall():
-                    variant_name = row_name
+                    iso_name = row_name
                     cp_name = row['rx_name']
                     reference = row['ref_name']
                     num_results = row['sample_count']
                     fold = row['fold']
 
-                    key = '{}{}{}'.format(variant_name, cp_name, reference)
+                    key = '{}{}{}'.format(iso_name, cp_name, reference)
 
                     rec = records[key]
-                    rec['Variant name'] = variant_name
+                    rec['Variant name'] = iso_name
                     rec['Plasma'] = VP_RENAME.get(cp_name, cp_name)
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
@@ -103,14 +103,14 @@ def apply_modifier(records, record_modifier):
 
 
 def record_modifier(record):
-    variant_name = record['Variant name']
+    iso_name = record['Variant name']
     reference = record['Reference']
 
-    if variant_name.endswith('full genome'):
+    if iso_name.endswith('full genome'):
         reference = '{}*'.format(reference)
-        variant_name = variant_name.split()[0]
+        iso_name = iso_name.split()[0]
 
-    record['Variant name'] = variant_name
+    record['Variant name'] = iso_name
     record['Reference'] = reference
     return record
 
@@ -144,13 +144,13 @@ def gen_plasma_aggre_table(
 
             groups = defaultdict(list)
             for row in cursor.fetchall():
-                variant_name = row_name
+                iso_name = row_name
                 control = row['control']
                 cp_name = row['rx_name']
                 reference = row['ref_name']
 
                 group_key = '{}{}{}{}'.format(
-                    variant_name,
+                    iso_name,
                     control,
                     cp_name,
                     reference
@@ -177,7 +177,7 @@ def gen_plasma_aggre_table(
                 median_fold = median(all_fold)
 
                 rec = {
-                    'Variant name': variant_name,
+                    'Variant name': iso_name,
                     'Plasma': VP_RENAME.get(cp_name, cp_name),
                     'Samples': num_results,
                     'Reference': reference,

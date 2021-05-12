@@ -11,7 +11,7 @@ from variant.preset import CONTROL_VARIANTS_SQL
 SQL = """
 SELECT
     rx.ref_name,
-    s.variant_name
+    s.iso_name
 FROM
     susc_results as s,
     {rx_type} as rx
@@ -21,14 +21,14 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL
 """
 
 # MAB_SQL = """
 # SELECT
 #     rx.ref_name,
-#     s.variant_name,
+#     s.iso_name,
 #     rx.target
 # FROM
 #     susc_results as s,
@@ -37,7 +37,7 @@ WHERE
 #     s.ref_name = rx.ref_name
 #     AND s.rx_name = rx.rx_name
 # WHERE
-#     s.control_variant_name IN {control_variants}
+#     s.control_iso_name IN {control_variants}
 #     AND s.fold IS NOT NULL
 # """
 

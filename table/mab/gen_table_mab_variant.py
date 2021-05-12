@@ -29,7 +29,7 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL
     {filters}
     AND (
@@ -41,40 +41,48 @@ WHERE
 ROWS = {
     'B.1.1.7': {
         'filter': [
-            "AND s.variant_name = 'B.1.1.7 Spike'",
+            "AND s.iso_name = 'B.1.1.7 Spike'",
         ]
     },
     'B.1.1.7 full genome': {
         'filter': [
-            "AND s.variant_name = 'B.1.1.7 full genome'",
+            "AND s.iso_name = 'B.1.1.7 full genome'",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.variant_name = 'B.1.351 Spike'",
+            "AND s.iso_name = 'B.1.351 Spike'",
         ]
     },
     'B.1.351 full genome': {
         'filter': [
-            "AND s.variant_name = 'B.1.351 full genome'",
+            "AND s.iso_name = 'B.1.351 full genome'",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.variant_name = 'P.1 Spike'",
+            "AND s.iso_name = 'P.1 Spike'",
         ]
     },
     'P.1 full genome': {
         'filter': [
-            "AND s.variant_name = 'P.1 full genome'",
+            "AND s.iso_name = 'P.1 full genome'",
         ]
     },
     'B.1.427/9': {
         'filter': [
-            "AND s.variant_name IN ("
+            "AND s.iso_name IN ("
             "    'B.1.427 full genome',"
             "    'B.1.429 full genome',"
             "    'B.1.429 Spike')",
+        ]
+    },
+    'B.1.617': {
+        'filter': [
+            "AND s.iso_name IN ("
+            "    'B.1.617 full genome',"
+            "    'B.1.617.1_1675223',"
+            "    'B.1.617 Spike')",
         ]
     },
     'B.1.526': {
@@ -120,13 +128,13 @@ def gen_table_mab_variant(
                 fold = '{}'.format(round_fold(fold))
 
                 ab_name = MAB_RENAME.get(ab_name, ab_name)
-                variant_name = row_name
-                if variant_name.endswith('full genome'):
+                iso_name = row_name
+                if iso_name.endswith('full genome'):
                     reference = '{}*'.format(reference)
-                    variant_name = variant_name.split()[0]
+                    iso_name = iso_name.split()[0]
 
                 records.append({
-                    'Variant name': variant_name,
+                    'Variant name': iso_name,
                     'Mab name': ab_name,
                     'Class': ab_class or '',
                     # 'Resistance level': resist_name,

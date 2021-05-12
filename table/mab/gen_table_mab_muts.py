@@ -29,7 +29,7 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL
     {filters}
     AND (

@@ -7,8 +7,8 @@ INDIVIDUAL_RESULTS_SQL = """
 SELECT
     s.ref_name as ref_name,
     rx.cumulative_group as rx_name,
-    s.control_variant_name as control,
-    s.variant_name as variant_name,
+    s.control_iso_name as control,
+    s.iso_name as iso_name,
     s.cumulative_count as sample_count,
     s.fold_cmp as fold_cmp,
     s.fold as fold
@@ -20,7 +20,7 @@ FROM
 ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
-WHERE s.control_variant_name IN {control_variants}
+WHERE s.control_iso_name IN {control_variants}
     {filters}
 """
 
@@ -29,8 +29,8 @@ AGGREGATED_RESULTS_SQL = """
 SELECT
     s.ref_name as ref_name,
     rx.cumulative_group as rx_name,
-    s.control_variant_name as control,
-    s.variant_name as variant_name,
+    s.control_iso_name as control,
+    s.iso_name as iso_name,
     s.cumulative_count as sample_count,
     s.fold_cmp as fold_cmp,
     s.fold as fold
@@ -42,7 +42,7 @@ FROM
 ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
-WHERE s.control_variant_name IN {control_variants}
+WHERE s.control_iso_name IN {control_variants}
     {filters}
 """
 
@@ -84,37 +84,37 @@ ON
 VARIANTS = {
     'B.1.1.7': {
         'filter': [
-            "AND s.variant_name = 'B.1.1.7 Spike'",
+            "AND s.iso_name = 'B.1.1.7 Spike'",
         ]
     },
     'B.1.1.7 full genome': {
         'filter': [
-            "AND s.variant_name = 'B.1.1.7 full genome'",
+            "AND s.iso_name = 'B.1.1.7 full genome'",
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.variant_name = 'B.1.351 Spike'",
+            "AND s.iso_name = 'B.1.351 Spike'",
         ]
     },
     'B.1.351 full genome': {
         'filter': [
-            "AND s.variant_name = 'B.1.351 full genome'",
+            "AND s.iso_name = 'B.1.351 full genome'",
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.variant_name = 'P.1 Spike'",
+            "AND s.iso_name = 'P.1 Spike'",
         ]
     },
     'P.1 full genome': {
         'filter': [
-            "AND s.variant_name = 'P.1 full genome'",
+            "AND s.iso_name = 'P.1 full genome'",
         ]
     },
     'B.1.427/9': {
         'filter': [
-            "AND s.variant_name IN ("
+            "AND s.iso_name IN ("
             "    'B.1.427 full genome',"
             "    'B.1.429 full genome',"
             "    'B.1.429 Spike')",
@@ -133,6 +133,7 @@ VARIANTS = {
             include_mutations([
                 'B.1.617 Spike',
                 'B.1.617 full genome',
+                'B.1.617.1_1675223',
             ])
         ]
     },
@@ -244,6 +245,10 @@ VP_RENAME = {
     'Mod': 'mRNA-1273',
     'MOD': 'mRNA-1273',
     'mRNA-1273': 'mRNA-1273',
+    'mRNA_infected_1st': 'mRNA-1273',
+    'mRNA_uninfected_1st': 'mRNA-1273',
+    'mRNA_infected_2nd': 'mRNA-1273',
+    'mRNA_uninfected_2nd': 'mRNA-1273',
     'Sputnik V': 'Sputnik V',
     'SPV': 'Sputnik V',
     'AZD': 'AZD1222',
@@ -253,6 +258,8 @@ VP_RENAME = {
     'BBIBP-CorV': 'BBIBP-CorV',
     'CoronaVac': 'CoronaVac',
     'BBV152': 'BBV152',
+    'MVC-COV1901': 'MVC-COV1901',
+    'MVC': 'MVC-COV1901',
 }
 
 
@@ -270,4 +277,5 @@ VP_IGNORE = [
     ('Planas21', 'BNT_W3'),
     ('Planas21', 'BNT_W4'),
     ('Planas21', 'BNT_W5'),
+    ('Stankov21', 'BNT_1st_dose')
 ]

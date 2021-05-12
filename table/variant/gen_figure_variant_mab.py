@@ -12,7 +12,7 @@ from variant.preset import CONTROL_VARIANTS_SQL
 SQL = """
 SELECT
     rx.ab_name,
-    s.variant_name,
+    s.iso_name,
     s.fold,
     s.cumulative_count as count,
     rx.availability as avail,
@@ -27,7 +27,7 @@ ON
 WHERE
     s.inhibition_pcnt != 90
     AND
-    s.control_variant_name IN {control_variants}
+    s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL;
 """.format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 
@@ -56,7 +56,7 @@ def by_variant(conn, indiv_or_combo, save_path):
 
     variant_group = defaultdict(list)
     for rec in cursor.fetchall():
-        variant = rec['variant_name']
+        variant = rec['iso_name']
         variant = variant_mapper.get(variant)
         if not variant:
             continue
