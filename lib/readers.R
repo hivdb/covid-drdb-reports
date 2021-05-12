@@ -261,7 +261,7 @@ read.articles <- function() {
 }
 
 read.variantMutations = function() {
-  read.dbTable("variant_mutations.csv")
+  read.dbTable("isolate_mutations.csv")
 }
 
 read.virusVariants <- function() {
@@ -269,19 +269,19 @@ read.virusVariants <- function() {
   dfSpikeMuts = dfMuts %>%
     filter(gene == "S") %>%
     mutate(mutation = paste0(position, amino_acid, split="")) %>%
-    group_by(variant_name) %>%
+    group_by(iso_name) %>%
     mutate(spike_muts=paste0(mutation, collapse="+")) %>%
-    select(variant_name, gene, spike_muts) %>%
+    select(iso_name, gene, spike_muts) %>%
     unique()
-  dfVariants = read.dbTable("virus_variants.csv")
+  dfVariants = read.dbTable("isolates.csv")
   dfVariants = dfVariants %>%
     left_join(
       aggregate(
-        cbind(num_muts = position) ~ variant_name,
+        cbind(num_muts = position) ~ iso_name,
         dfMuts,
         FUN = length
       ),
-    by = c("variant_name"),
+    by = c("iso_name"),
     suffix = c(".variant", ".mut")
     ) %>%
     mutate(
@@ -290,7 +290,7 @@ read.virusVariants <- function() {
   dfVariants = dfVariants %>%
     left_join(
       dfSpikeMuts,
-      by = c("variant_name"),
+      by = c("iso_name"),
       suffix = c(".variant", ".mut")
     ) %>%
     mutate(

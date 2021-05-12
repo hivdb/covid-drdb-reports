@@ -34,14 +34,14 @@ dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
 dfVirusVariants = read.virusVariants() %>%
-  select(variant_name, num_muts, expandable, spike_muts)
+  select(iso_name, num_muts, expandable, spike_muts)
 dfArticles = read.articles()
 dfVariantMutations = read.variantMutations()
 
 dfSuscResultsMAb = dfSuscResultsMAb %>%
   inner_join(
     dfVirusVariants,
-    by = "variant_name",
+    by = "iso_name",
     suffix = c(".susc", ".variant")
   ) %>%
   inner_join(
@@ -53,7 +53,7 @@ dfSuscResultsMAb = dfSuscResultsMAb %>%
 dfSuscResultsPlasma = dfSuscResultsPlasma %>%
   inner_join(
     dfVirusVariants,
-    by = "variant_name",
+    by = "iso_name",
     suffix = c(".susc", ".variant")
   ) %>%
   inner_join(
@@ -88,7 +88,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #   filter(num_muts == 1) %>%
 #   inner_join(
 #     dfVariantMutations,
-#     by = "variant_name",
+#     by = "iso_name",
 #     suffix = c(".susc", ".variantMut")
 #   ) %>%
 #   mutate(
@@ -98,7 +98,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #     Fold = ifelse(is.na(fold), "", fold),
 #     Assay = ifelse(is.na(assay), "", assay),
 #     Include = ifelse(include, "Yes", "No"),
-#     Control = ifelse(control_variant_name == 'Control', "", control_variant_name)
+#     Control = ifelse(control_iso_name == 'Control', "", control_iso_name)
 #   ) %>%
 #   select(
 #     Author = ref_name,
@@ -152,7 +152,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #   filter(num_muts == 1) %>%
 #   inner_join(
 #     dfVariantMutations,
-#     by = "variant_name",
+#     by = "iso_name",
 #     suffix = c(".susc", ".variantMut")
 #   )
 # dfMutPlasma$resistance_level = as.character(dfMutPlasma$resistance_level)
@@ -160,13 +160,13 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #   mutate(
 #     DOI = ifelse(is.na(doi), url, doi),
 #     Plasma = Vectorize(function(refName, rxName, variantName, ordNum) {
-#       total = nrow(filter(dfMutPlasma, rx_name == rxName & ref_name == refName & variant_name == variantName))
+#       total = nrow(filter(dfMutPlasma, rx_name == rxName & ref_name == refName & iso_name == variantName))
 #       ifelse(
 #         total == 1,
 #         yes = rxName,
 #         no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
 #       )
-#     })(ref_name, rx_name, variant_name, ordinal_number),
+#     })(ref_name, rx_name, iso_name, ordinal_number),
 #     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
 #     FoldCmp = ifelse(fold_cmp == "=", "", fold_cmp),
 #     Fold = ifelse(is.na(fold), "", fold),
@@ -178,7 +178,7 @@ dfSuscResultsPlasma = dfSuscResultsPlasma %>%
 #     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
 #     Count = cumulative_count,
 #     Include = ifelse(include, "Yes", "No"),
-#     Control = ifelse(control_variant_name == 'Control', "", control_variant_name)
+#     Control = ifelse(control_iso_name == 'Control', "", control_iso_name)
 #   ) %>%
 #   select(
 #     Author = ref_name,
@@ -247,11 +247,11 @@ dfSuscResultsMAb %>%
         resistance_level)),
     Assay = ifelse(is.na(assay), "", assay),
     Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_variant_name == 'Control', "", control_variant_name),
-    SpikeMutations = ifelse(expandable, spike_muts, variant_name)
+    Control = ifelse(control_iso_name == 'Control', "", control_iso_name),
+    SpikeMutations = ifelse(expandable, spike_muts, iso_name)
   ) %>%
   mutate(
-    variant_name = str_replace(variant_name, 'full genome', 'Spike'),
+    iso_name = str_replace(iso_name, 'full genome', 'Spike'),
     Control = str_replace(Control, 'full genome', 'Spike')
   ) %>%
   select(
@@ -260,7 +260,7 @@ dfSuscResultsMAb %>%
     Source = section,
     Date = date_added.susc,
     mAb,
-    Variant = variant_name,
+    Variant = iso_name,
     SpikeMutations = spike_muts,
     Control,
     FoldCmp,
@@ -312,13 +312,13 @@ dfVariantPlasma %>%
   mutate(
     DOI = ifelse(is.na(doi), url, doi),
     # Plasma = Vectorize(function(refName, rxName, variantName, ordNum) {
-    #   total = nrow(filter(dfVariantPlasma, rx_name == rxName & ref_name == refName & variant_name == variantName))
+    #   total = nrow(filter(dfVariantPlasma, rx_name == rxName & ref_name == refName & iso_name == variantName))
     #   ifelse(
     #     total == 1,
     #     yes = rxName,
     #     no = sprintf(sprintf("%%s:%%0%dd", 1 + floor(log(total, 10))), rxName, ordNum)
     #   )
-    # })(ref_name, rx_name, variant_name, ordinal_number),
+    # })(ref_name, rx_name, iso_name, ordinal_number),
     Plasma = rx_name,
     SampleID = ordinal_number,
     Vaccine = ifelse(is.na(vaccine_name), "", vaccine_name),
@@ -332,11 +332,11 @@ dfVariantPlasma %>%
     Assay = str_to_sentence(ifelse(is.na(assay), "", assay)),
     Count = cumulative_count,
     Include = ifelse(include, "Yes", "No"),
-    Control = ifelse(control_variant_name == 'Control', "", control_variant_name),
-    SpikeMutations = ifelse(expandable, spike_muts, variant_name)
+    Control = ifelse(control_iso_name == 'Control', "", control_iso_name),
+    SpikeMutations = ifelse(expandable, spike_muts, iso_name)
   ) %>%
   mutate(
-    variant_name = str_replace(variant_name, 'full genome', 'Spike'),
+    iso_name = str_replace(iso_name, 'full genome', 'Spike'),
     Control = str_replace(Control, 'full genome', 'Spike'),
     infection = str_replace(infection, 'full genome', 'Spike')
   ) %>%
@@ -349,7 +349,7 @@ dfVariantPlasma %>%
     SampleID,
     Vaccine,
     Infection = infection,
-    Variant = variant_name,
+    Variant = iso_name,
     SpikeMutations,
     Control,
     FoldCmp,

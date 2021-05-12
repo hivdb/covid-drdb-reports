@@ -45,12 +45,12 @@ resistFold = 10
 
 dfSuscResultsMAb = read.suscResultsMAb()
 dfSuscResultsMAb = dfSuscResultsMAb %>%
-  filter(control_variant_name %in% ControlVariantNames) %>%
+  filter(control_iso_name %in% ControlVariantNames) %>%
   mutate(
-    variant_name = ifelse(
-      variant_name %in% names(variantSynonyms),
-      yes = variantSynonyms[variant_name],
-      no = variant_name
+    iso_name = ifelse(
+      iso_name %in% names(variantSynonyms),
+      yes = variantSynonyms[iso_name],
+      no = iso_name
     )
   )
 dfSuscResultsCP = read.suscResultsCP(
@@ -58,7 +58,7 @@ dfSuscResultsCP = read.suscResultsCP(
   resistFold = resistFold
 )
 dfSuscResultsCP = dfSuscResultsCP %>%
-  filter(control_variant_name %in% ControlVariantNames) %>%
+  filter(control_iso_name %in% ControlVariantNames) %>%
   filter(infection %in% CPInfectionNames)
 
 dfSuscResultsIP = read.suscResultsIP(
@@ -66,22 +66,22 @@ dfSuscResultsIP = read.suscResultsIP(
   resistFold = resistFold
 )
 dfSuscResultsIP = dfSuscResultsIP %>%
-  filter(control_variant_name %in% ControlVariantNames)
+  filter(control_iso_name %in% ControlVariantNames)
 
 dfSuscResultsCP$group = "CP"
 dfSuscResultsIP$group = "IP"
 dfSuscResultsPlasma = bind_rows(dfSuscResultsCP, dfSuscResultsIP)
 dfSuscResultsPlasma = dfSuscResultsPlasma %>%
   mutate(
-    variant_name = ifelse(
-      variant_name %in% names(variantSynonyms),
-      yes = variantSynonyms[variant_name],
-      no = variant_name
+    iso_name = ifelse(
+      iso_name %in% names(variantSynonyms),
+      yes = variantSynonyms[iso_name],
+      no = iso_name
     )
   )
 
 dfVirusVariants = read.virusVariants() %>%
-  select(variant_name, num_muts)
+  select(iso_name, num_muts)
 dfAntibodies = read.antibodies()
 
 
@@ -114,7 +114,7 @@ dfSuscResults = dfSuscResultsMAb %>%
     )
   ) %>%
   bind_rows(dfSuscResultsPlasma) %>%
-  merge(dfVirusVariants, by = "variant_name") %>%
+  merge(dfVirusVariants, by = "iso_name") %>%
   mutate(
     rx_group = factor(
       ifelse(
@@ -126,8 +126,8 @@ dfSuscResults = dfSuscResultsMAb %>%
     ),
     variant_group = factor(
       ifelse(
-        variant_name %in% c("S:501Y", "S:484K", "B.1.1.7 Spike", "B.1.351 Spike", "P.1 Spike"),
-        yes = variant_name,
+        iso_name %in% c("S:501Y", "S:484K", "B.1.1.7 Spike", "B.1.351 Spike", "P.1 Spike"),
+        yes = iso_name,
         no = ifelse(
           num_muts > 1,
           yes = "Other mutation combinations",
@@ -189,6 +189,7 @@ variantTitle = c(
 )
 filterVariants = names(variantTitle)
 excludedRefRxNames = c(
+  "Betton21 CP LiveVirus",
   "Edara21 CP_acute LiveVirus",
   "Faulkner21 CP_Mild LiveVirus",
   "Kuzmina21 CP",
@@ -196,11 +197,15 @@ excludedRefRxNames = c(
   "Leier21 CP LiveVirus",
   "Planas21 CP_M3",
   "Planas21 CP_M6",
+  "Stankov21 CP",
   "Zhou21c CP",
 
-  
+
   "Garcia-Beltran21 BNT",
   "Garcia-Beltran21 Mod",
+  "Goel21 mRNA_infected_1st",
+  "Goel21 mRNA_infected_2nd",
+  "Goel21 mRNA_uninfected_1st",
   "Kuzmina21 BNT",
   "Leier21 BNT_infected LiveVirus",
   "Leier21 BNT_uninfected LiveVirus",
@@ -210,6 +215,7 @@ excludedRefRxNames = c(
   "Planas21 BNT_W3",
   "Planas21 BNT_W4",
   "Planas21 BNT_W5",
+  "Stankov21 BNT_1st_dose",
   "Supasa21 AZD_14d LiveVirus",
   "Skelly21 BNT",
   "Skelly21 BNT_sd LiveVirus",
@@ -241,6 +247,7 @@ shortRefRxNames = c(
   "Greaney21 CP" = "Greaney21\n",
   "Greaney21c CP" = "Greaney21c\n",
   "Hoffmann21 CP" = "Hoffmann21\n",
+  "Hoffmann21c CP" = "Hoffmann21c\n",
   "Hu21 CP_1M" = "1M\nHu21",
   "Hu21 CP_8M" = "8M\nHu21",
   "Jangra21 CP" = "Jangra21\n",
@@ -248,6 +255,7 @@ shortRefRxNames = c(
   "Li21c CP_2M" = "2M\nLi21c",
   "Li21c CP_5M" = "5M\nLi21c",
   "Li21c CP_8M" = "8M\nLi21c",
+  "Li21d CP" = "Li21d\n",
   "Liu21 CP" = "Liu21\n",
   "McCallum21b CP" = "MC21b\n",
   "Moyo-Gwete21 CP" = "Moyo-G21\n",
@@ -264,6 +272,7 @@ shortRefRxNames = c(
   "Tang21 CP" = "Tang21\n",
   "Tang21 IVIG" = "IVIG\nTang21",
   "Tang21 IVIG LiveVirus" = "IVIG\nTang21*",
+  "Trinite21 CP" = "Trinite21\n",
   "Wang21 CP_1M" = "1M\nWang21",
   "Wang21 CP_6M" = "6M\nWang21",
   "Wang21b CP" = "Wang21b\n",
@@ -289,18 +298,23 @@ shortRefRxNames = c(
   "Collier21 BNT_1ds" = "BNT_1ds\nCollier21",
   "Deng21 BNT LiveVirus" = "BNT\nDeng21*",
   "Dejnirattisai21 BNT LiveVirus" = "BNT\nDej21",
+  "Ferreira21 BNT" = "BNT\nFerreira21",
   "Hoffmann21 BNT" = "BNT\nHoffmann21",
+  "Hoffmann21c BNT" = "BNT\nHoffmann21c",
   "Jangra21 BNT" = "BNT\nJangra21",
   "Liu21b BNT" = "BNT\nLiu21b",
   "Mallm21 BNT LiveVirus" = "BNT\nMallm21*",
-  "McCallum21b BNT" = "BNT\nMC21b",
-  "Muik21 BNT" = "BNT\nMuik21",
   "Marot21 BNT LiveVirus" = "BNT\nMarot21*",
+  "McCallum21b BNT" = "BNT\nMC21b",
+  "Monin-Aldama21 BNT" = "BNT\nMonin-Aldama21",
+  "Muik21 BNT" = "BNT\nMuik21",
   "Planas21 BNT_W6" = "BNT\nPlanas21",
+  "Stankov21 BNT" = "BNT\nStankov21",
   "Supasa21 BNT LiveVirus" = "BNT\nSupasa21",
   "Skelly21 BNT LiveVirus" = "BNT\nSkelly21",
   "Stamatatos21 BNT" = "BNT\nSTA21",
   "Tada21 BNT" = "BNT\nTada21",
+  "Trinite21 BNT" = "BNT\nTrinite21",
   "Wang21 BNT" = "BNT\nWang21",
   "Wang21b BNT" = "BNT\nWang21b",
   "Wang21b BNT LiveVirus" = "BNT\nWang21b*",
@@ -315,6 +329,7 @@ shortRefRxNames = c(
   "Deng21 Mod LiveVirus" = "Mod\nDeng21*",
   "Edara21 Mod LiveVirus" = "Mod\nEdara21*",
   "Greaney21c Mod" = "Mod\nGreaney21c",
+  "Goel21 mRNA_uninfected_2nd" = "Mod\nGoel21",
   "McCallum21b Mod LiveVirus" = "Mod\nMC21b",
   "Shen21 Mod" = "Mod\nShen21",
   "Shen21b Mod" = "Mod\nShen21b",
@@ -331,18 +346,22 @@ shortRefRxNames = c(
   "Supasa21 AZD LiveVirus" = "AZD\nSupasa21",
   "Zhou21b AZD LiveVirus" = "AZD\nZhou21b",
   
-  "Ikegame21 SPV" =  "SputnikV5\nIkegame21",
+  "Ikegame21 SPV" = "SputnikV5\nIkegame21",
   
   "Shen21 NVV" = "NVX\nShen21",
   "Shen21b NVV" = "NVX\nShen21b",
   
-  "Wang21g BBIBP-CorV" = "BBBIBP\nWang21g",
+  "Huang21b BBIBP" = "BBIBP\nHuang21b",
+  "Wang21g BBIBP-CorV" = "BBIBP\nWang21g",
 
   "deSouza21 CoronaVac" = "CoronaVac\ndeSouza21",
   "Wang21g CoronaVac" = "CoronaVac\nWang21g",
 
-  "Yadav21 BBV152 LiveVirus" = "BBV152\nYadav21*"
+  "Yadav21 BBV152 LiveVirus" = "BBV152\nYadav21*",
   
+  "Lien21 MVC" = "MVC\nLien21",
+  
+  "Huang21b ZF2001" = "ZF2001\nHuang21b"
 )
 yAxisStep = 10
 longRefRxNames = names(shortRefRxNames)
@@ -354,12 +373,12 @@ resistance_levels = c(
 )
 
 dfForPlot = dfSuscResultsPlasma %>%
-  filter(variant_name %in% filterVariants) %>%
+  filter(iso_name %in% filterVariants) %>%
   mutate(
     rx_name = ifelse(is.na(cumulative_group), rx_name, cumulative_group),
     vaccine_name = ifelse(is.na(vaccine_name), "NA", vaccine_name)
   ) %>%
-  group_by(ref_name, rx_name, vaccine_name, variant_name, resistance_level, group, assay) %>%
+  group_by(ref_name, rx_name, vaccine_name, iso_name, resistance_level, group, assay) %>%
   dplyr::summarise(
     cumulative_count = sum(cumulative_count)
   ) %>%
@@ -381,7 +400,7 @@ i = 1
 
 for (variant in filterVariants) {
   df = dfForPlot %>%
-    filter(variant_name == variant)
+    filter(iso_name == variant)
   totalCount = df %>%
     group_by(ref_rx, group) %>%
     dplyr::summarise(
@@ -554,7 +573,7 @@ mAbHasLabels = names(mAbLabels)
 dfForPlot = dfSuscResultsMAb %>%
   filter(
     Vectorize(function(x) length(setdiff(x, filterMAbs)) == 0)(ab_name) &
-    variant_name %in% filterVariants
+    iso_name %in% filterVariants
   )  %>%
   mutate(
     ref_name = ifelse(
@@ -562,7 +581,7 @@ dfForPlot = dfSuscResultsMAb %>%
       "RSC21",
       ref_name
     ),
-    variant_name = factor(variant_name, levels = filterVariants),
+    iso_name = factor(iso_name, levels = filterVariants),
     fold_cmp = ifelse(fold > 100, ">", fold_cmp),
     fold = ifelse(fold > 100, 100, fold),
     in_trial = Vectorize(function(x) length(setdiff(x, inTrialMAbs$ab_name)) == 0)(ab_name),
@@ -582,25 +601,25 @@ dfForPlot = dfSuscResultsMAb %>%
       levels = sort(resistance_levels)
     )
   ) %>%
-  select(ref_name, ab_name, variant_name, in_trial, resistance_level, fold_cmp, fold) %>%
-  group_by(ref_name, ab_name, variant_name, in_trial, fold_cmp) %>%
+  select(ref_name, ab_name, iso_name, in_trial, resistance_level, fold_cmp, fold) %>%
+  group_by(ref_name, ab_name, iso_name, in_trial, fold_cmp) %>%
   dplyr::summarise(
     fold = max(fold),
     resistance_level = tail(sort(resistance_level), n=1)
   )
 
 dfNumAbs = dfForPlot %>%
-  group_by(variant_name, in_trial) %>%
+  group_by(iso_name, in_trial) %>%
   dplyr::summarize(num_abs = length(unique(ab_name)))
 dfNumRefs = dfForPlot %>%
-  group_by(variant_name, in_trial, ab_name) %>%
+  group_by(iso_name, in_trial, ab_name) %>%
   dplyr::summarize(num_refs = length(unique(ref_name))) %>%
-  group_by(variant_name, in_trial) %>%
+  group_by(iso_name, in_trial) %>%
   dplyr::summarize(num_refs = max(num_refs))
 
 dfForPlot = dfForPlot %>%
-  inner_join(dfNumAbs, by = c("variant_name", "in_trial")) %>%
-  inner_join(dfNumRefs, by = c("variant_name", "in_trial"))
+  inner_join(dfNumAbs, by = c("iso_name", "in_trial")) %>%
+  inner_join(dfNumRefs, by = c("iso_name", "in_trial"))
 
 maxNumAbs = max(dfForPlot$num_abs)
 maxNumRefs = max(dfForPlot$num_refs)
@@ -614,11 +633,11 @@ dfHLines = data.frame(
 )
 
 for (variant in filterVariants) {
-  dfPartial = dfForPlot %>% filter(variant_name == variant) %>% arrange(ref_name)
+  dfPartial = dfForPlot %>% filter(iso_name == variant) %>% arrange(ref_name)
   dfVariantLabel = data.frame(
     x = 0,
     y = 190,
-    variant_name = variant,
+    iso_name = variant,
     text = variantTitle[[variant]]
   )
 
@@ -630,7 +649,7 @@ for (variant in filterVariants) {
       dfPartial2 = data.frame(
         ref_name = "",
         ab_name = "\n",
-        variant_name = variant,
+        iso_name = variant,
         in_trial = cond,
         fold_cmp = "=",
         fold = 0,
