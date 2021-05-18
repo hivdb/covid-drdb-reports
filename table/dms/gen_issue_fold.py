@@ -13,9 +13,9 @@ def gen_issue_fold(
         fold = float(rec['fold'])
         score = float(rec['score'])
 
-        if fold < 10:
+        if fold <= 10 and score <= 0.1:
             continue
-        if score > 0.1:
+        if fold > 10 and score > 0.1:
             continue
 
         results.append(rec)

@@ -1,6 +1,9 @@
 ﻿ref_name,mab,position,amino_acid,fold,fold_cmp,score
 Baum20,Casirivimab,484,K,20.3,=,0.008
 Baum20,Imdevimab,450,D,32.9,=,0.002
+Cathcart21,Vir-7831,337,H,7.5,=,1.0
+Cathcart21,Vir-7831,337,S,1.3,=,0.999
+Cathcart21,Vir-7831,337,T,5.4,=,0.992
 Copin21,Casirivimab,484,K,15.0,=,0.008
 FDA21,Bamlanivimab,483,A,48.0,=,0.002
 FDA21,Bamlanivimab/Etesevimab,484,K,17.0,=,0.002
