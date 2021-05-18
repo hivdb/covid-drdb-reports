@@ -62,7 +62,7 @@ plot = ggplot(df, aes(variant, fold)) +
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
-  ylab("Fold change (CP)")
+  ylab("Fold reduced neutralization (CP)")
 
 plot1 = plot + geom_boxplot(fill="#146aa8")
 plot1
@@ -129,7 +129,7 @@ plot = ggplot(df, aes(nickname, fold)) +
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
-  ylab("Fold change (CP)")
+  ylab("Fold reduced neutralization (CP)")
 
 plot1 = plot + geom_boxplot(fill="#146aa8")
 plot1
@@ -227,7 +227,7 @@ plot = ggplot(df, aes(variant, fold)) +
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
-  ylab("Fold change (VP)")
+  ylab("Fold reduced neutralization (VP)")
 
 plot1 = plot + 
   geom_boxplot(
@@ -313,7 +313,7 @@ plot = ggplot(df, aes(nickname, fold, fill=vaccine)) +
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
-  ylab("Fold change (VP)")
+  ylab("Fold reduced neutralization (VP)")
 
 plot1 = plot +
   geom_boxplot(position = position_dodge2(preserve = "single"))
@@ -489,21 +489,21 @@ ggplot(data=df, aes(
         breaks=c(1, 3, 10, 100, 1000, 10000)
       ) +
       scale_y_continuous(
-        breaks=c(0.01, 0.06, 0.1, 0.25, 0.5, 1),
+        breaks=c(0.1, 0.5, 1),
         expand=c(0,0)
       ) +
-      geom_hline(
-        yintercept = 0.01,
-        linetype="dashed",
-        color = "blue") +
+      # geom_hline(
+      #   yintercept = 0.01,
+      #   linetype="dashed",
+      #   color = "blue") +
       geom_hline(
         yintercept = 0.1,
         linetype="dashed",
         color = "blue") +
-      geom_hline(
-        yintercept = 0.06,
-        linetype="dashed",
-        color = "blue") +
+      # geom_hline(
+      #   yintercept = 0.06,
+      #   linetype="dashed",
+      #   color = "blue") +
       theme(
         legend.position = "none",
         axis.title.x = element_text(size=20),
@@ -517,8 +517,8 @@ ggplot(data=df, aes(
         panel.grid.minor = element_blank(),
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
-      xlab("Fold change") +
-      ylab("DMS Score")
+      xlab("Fold reduced neutralization") +
+      ylab("Escape fraction")
 ```
 
 ### DMS vs fold 3D
@@ -592,7 +592,7 @@ for (ab in EUA_MABS) {
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
       xlab(ab) +
-      ylab("DMS Score")
+      ylab("Escape fraction")
 
   plots[[i]] = plot
   i = i + 1
@@ -637,7 +637,7 @@ for (ab in EUA_MABS) {
         panel.border = element_rect(fill = NA, color = 'black')
         ) +
       xlab(ab) +
-      ylab("DMS Score")
+      ylab("Escape fraction")
 
   plots[[i]] = plot
   i = i + 1
