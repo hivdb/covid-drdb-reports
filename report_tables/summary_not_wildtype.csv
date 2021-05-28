@@ -1,81 +1,71 @@
 ﻿ref_name,rx_name,control_variant,variant,sample
-Sapkal21b,BBV152,hCoV-19/India/2020770,B.1.1.7 full genome,38
-Sapkal21b,BBV152,hCoV-19/India/2020770,hCoV-19/India/2020Q111,21
+Gonzalez21,BNT162b2,19A_1707038,B.1.1.7_1707039,30
+Gonzalez21,BNT162b2,19A_1707038,B.1.351_768828,30
 Zuckerman21,BNT162b2,B.1.1.50 full genome,B.1.1.50 full genome+S:681H,18
 Zuckerman21,BNT162b2,B.1.1.50 full genome,B.1.1.7 full genome,18
-Rondinone21,CP,B.1 clade G full genome,B.1.1.7 full genome,12
-Edara21b,CP,B.1 full genome,B.1.351 full genome,4
-Faulkner21,CP,B.1.1.7 full genome,B.1.351 full genome,12
-Faulkner21,CP,B.1.1.7 full genome,Wildtype,17
-Virtanen21,CP_11a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_11a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_11b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_14a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_14a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_14b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_14b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_17a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_18a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_27a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_27a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_27b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_27b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_30a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_30a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_30b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_30b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_31a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_31a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_31b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_31b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_32a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_32a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_32b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_32b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_36a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_36a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_36b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_36b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_37a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_37a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_37b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_41a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_41a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_41b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_41b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_43a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_43b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_46a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_46a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_46b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_4a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_4b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_51a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_51b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_5a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_5a,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_5b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_5b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_5c,B.1 full genome,B.1.1.7 full genome,1
-Edara21b,CP_6M,B.1 full genome,B.1.351 full genome,4
-Virtanen21,CP_8a,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_8b,B.1 full genome,B.1.1.7 full genome,1
-Virtanen21,CP_8b,B.1 full genome,B.1.351 full genome,1
-Virtanen21,CP_9a,B.1 full genome,B.1.1.7 full genome,1
+Gonzalez21,CP,19A_1707038,B.1.1.241_1707040,34
+Rondinone21,CP_1,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_10,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_11,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_12,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_2,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_3,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_4,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_5,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_6,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_7,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_8,B.1 clade G full genome,B.1.1.7 full genome,1
+Rondinone21,CP_9,B.1 clade G full genome,B.1.1.7 full genome,1
 McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,B.1.351 Spike,13
 McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,B.1.429 Spike,13
 McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,P.1 Spike,13
 Brown21,CP_B.1.1.7,B.1.1.7 Spike,S:614G,3
 McCallum21b,CP_B.1.1.7,B.1.1.7 Spike,S:614G,13
-Brown21,CP_B.1.1.7,B.1.1.7 full genome,S:614G,8
-Supasa21,CP_B.1.1.7,B.1.1.7 full genome,Wildtype,10
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.1.298 Spike:+69del+70del,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.1.318 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.351 Spike:-18F-246I,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.429 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.525 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.526 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.526 v.2 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,P.1 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,P.2 Spike,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:417N+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:417T+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:452R+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:453F+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:477N+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:484K+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:501Y+614G,4
+Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:614G,4
+Brown21,CP_B.1.1.7,B.1.1.7 full genome,B.1 full genome,8
+Faulkner21,CP_B.1.1.7,B.1.1.7 full genome,B.1.351 full genome,12
+Faulkner21,CP_B.1.1.7,B.1.1.7 full genome,Wuhan-Hu-1,17
+Supasa21,CP_B.1.1.7,B.1.1.7 full genome,Wuhan-Hu-1,10
 Moyo-Gwete21,CP_B.1.351,B.1.351 Spike,B.1.351 RBD,16
 Moyo-Gwete21,CP_B.1.351,B.1.351 Spike,P.1 Spike,10
 Moyo-Gwete21,CP_B.1.351,B.1.351 Spike,S:614G,19
-Cele21,CP_B.1.351,B.1.351 full genome,S:614G,6
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.1.298 Spike:+69del+70del,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.1.318 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.1.7 Spike:-144del+145del,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.429 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.525 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.526 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.526 v.2 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,P.1 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,P.2 Spike,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:417N+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:417T+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:452R+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:453F+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:477N+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:484K+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:501Y+614G,3
+Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:614G,3
+Cele21,CP_B.1.351,B.1.351 full genome,B.1 full genome,6
+Gonzalez21,CP_Mild,19A_1707038,B.1.1.7_1707039,29
+Gonzalez21,CP_Mild,19A_1707038,B.1.351_768828,29
+Gonzalez21,CP_Severe,19A_1707038,B.1.1.7_1707039,25
+Gonzalez21,CP_Severe,19A_1707038,B.1.351_768828,25
 Weigang21,CP_WT_mice,B.1.1.7 full genome,B.1.351 full genome,7
-Weigang21,CP_WT_mice,Weigang21_d14,Weigang21_d105,7
-Edara21b,CP_acute,B.1 full genome,B.1.351 full genome,11
 Weigang21,CP_d105_mice,B.1.1.7 full genome,B.1.351 full genome,13
-Weigang21,CP_d105_mice,Weigang21_d14,Weigang21_d105,13
-Edara21b,mRNA-1273,B.1 full genome,B.1.351 full genome,19

@@ -3,8 +3,6 @@ E484K,1-57,,1.1,Wang21b
 E484K,2-15,,>100,Wang21b
 E484K,2-7,,3.4,Wang21b
 E484K,910-30,,0.2,Wang21b
-E484K,BRII-196,,1.4,Wang21b
-E484K,BRII-196,,1.4,Wang21f
 E484K,BRII-198,,2.5,Wang21b
 E484K,BRII-198,,2.2,Wang21f
 E484K,Bamlanivimab/Etesevimab,,17,FDA21
@@ -23,7 +21,10 @@ E484K,Cilgavimab,,0.8,Wang21
 E484K,Cilgavimab,,1.4,Wang21b
 E484K,Cilgavimab/Tixagevimab,,1.4,Wang21
 E484K,Cilgavimab/Tixagevimab,,3.2,Chen21
+E484K,LY3853113,,0.6,Westendorf21
+E484K,REGN-COV2,,0.5,Tada21c
 E484K,REGN10989/Imdevimab,,15,Baum20
+E484K,S2X259,,1.1,Chen21
 E484K,Tixagevimab,,2,Dong21
 E484K,Tixagevimab,,4.6,Chen21
 E484K,Tixagevimab,,8.1,Wang21b
@@ -42,18 +43,23 @@ E484K,Imdevimab,RBD Core Cluster I,1.2,Copin21
 E484K,Imdevimab,RBD Core Cluster I,1,FDA21
 E484K,Imdevimab,RBD Core Cluster I,1,Rothenberger21
 E484K,Imdevimab,RBD Core Cluster I,0.5,Tada21b
+E484K,Imdevimab,RBD Core Cluster I,0.8,Tada21c
 E484K,Imdevimab,RBD Core Cluster I,0.7,Wang21
 E484K,Imdevimab,RBD Core Cluster I,1.1,Wang21b
+E484K,Imdevimab,RBD Core Cluster I,0.2,Wang21e
 E484K,Imdevimab,RBD Core Cluster I,1.3,Wang21f
 E484K,Imdevimab,RBD Core Cluster I,0.9,Zhou21c
-E484K,Imdevimab,RBD Core Cluster I,0.2,Wang21e
 E484K,Imdevimab,RBD Core Cluster I,10,Yuan21
+E484K,Vir-7831,RBD Core Cluster I,0.3,Cathcart21
 E484K,Vir-7831,RBD Core Cluster I,1.2,Chen21
 E484K,Vir-7831,RBD Core Cluster I,0.4,Wang21b
 E484K,Vir-7831,RBD Core Cluster I,0.7,Wang21f
-E484K,Vir-7831,RBD Core Cluster I,0.3,Cathcart21
+E484K,Vir-7831,RBD Core Cluster I,0.6,Yi21
 E484K,COVA1-16,RBD Core Cluster II,1,Wang21b
 E484K,H014,RBD Core Cluster II,1.5,Li21c
+E484K,BRII-196,RBM Class I,1.2,Li21c
+E484K,BRII-196,RBM Class I,1.4,Wang21b
+E484K,BRII-196,RBM Class I,1.4,Wang21f
 E484K,COVA2-39,RBM Class I,>100,Yuan21
 E484K,Casirivimab,RBM Class I,4.4,Rothenberger21
 E484K,Casirivimab,RBM Class I,7.3,Tada21b
@@ -62,15 +68,17 @@ E484K,Casirivimab,RBM Class I,7.1,Wang21f
 E484K,Casirivimab,RBM Class I,20,Baum20
 E484K,Casirivimab,RBM Class I,15,Copin21
 E484K,Casirivimab,RBM Class I,25,FDA21
+E484K,Casirivimab,RBM Class I,22,Tada21c
 E484K,Casirivimab,RBM Class I,11,Wang21b
+E484K,Casirivimab,RBM Class I,26,Wang21e
 E484K,Casirivimab,RBM Class I,30,Yuan21
 E484K,Casirivimab,RBM Class I,11,Zhou21c
-E484K,Casirivimab,RBM Class I,26,Wang21e
-E484K,Etesevimab,RBM Class I,2.4,Wang21f
 E484K,Etesevimab,RBM Class I,2.4,Wang21e
+E484K,Etesevimab,RBM Class I,2.4,Wang21f
+E484K,Etesevimab,RBM Class I,1.2,Yi21
+E484K,Etesevimab,RBM Class I,2.9,Zhang21c
 E484K,Etesevimab,RBM Class I,4.4,Gottlieb21
 E484K,Etesevimab,RBM Class I,3.5,Wang21b
-E484K,P2C-1F11,RBM Class I,1.2,Li21c
 E484K,S2E12,RBM Class I,4.4,Chen21
 E484K,S2E12,RBM Class I,3.6,Tortorici20
 E484K,Bamlanivimab,RBM Class II,>100,FDA21
@@ -82,6 +90,7 @@ E484K,C121,RBM Class II,>100,Weisblum20
 E484K,C121,RBM Class II,>100,Yuan21
 E484K,P2B-2F6,RBM Class II,19,Li21c
 E484K,2-4,RBM Class III,>100,Wang21b
+E484K,C144,RBM Class III,>100,Muecksch21
 E484K,C144,RBM Class III,>100,Wang21
 E484K,C144,RBM Class III,>100,Weisblum20
 E484K,C144,RBM Class III,>100,Yuan21
@@ -89,11 +98,12 @@ E484K,S2M11,RBM Class III,>100,Tortorici20
 E484K + N501Y,COVOX-40,,4.1,Chen21
 E484K + N501Y,Cilgavimab,,1.9,Chen21
 E484K + N501Y,Cilgavimab/Tixagevimab,,2,Chen21
+E484K + N501Y,S2X259,,2.2,Chen21
 E484K + N501Y,Tixagevimab,,12,Chen21
 E484K + N501Y,Vir-7831/S2E12,,11,Chen21
 E484K + N501Y,Vir-7831,RBD Core Cluster I,5.4,Chen21
 E484K + N501Y,H014,RBD Core Cluster II,1.2,Li21c
-E484K + N501Y,P2C-1F11,RBM Class I,1,Li21c
+E484K + N501Y,BRII-196,RBM Class I,1,Li21c
 E484K + N501Y,S2E12,RBM Class I,6,Chen21
 E484K + N501Y,P2B-2F6,RBM Class II,23,Li21c
 F490S,Bamlanivimab/Etesevimab,,1,FDA21
@@ -104,21 +114,22 @@ F490S,C135,RBD Core Cluster I,1.2,Weisblum20
 F490S,Imdevimab,RBD Core Cluster I,1.2,Baum20
 F490S,Imdevimab,RBD Core Cluster I,1.5,Rothenberger21
 F490S,Vir-7831,RBD Core Cluster I,0.9,Cathcart21
+F490S,Vir-7831,RBD Core Cluster I,0.6,Yi21
 F490S,Casirivimab,RBM Class I,1.2,Baum20
 F490S,Casirivimab,RBM Class I,0.8,Rothenberger21
 F490S,Etesevimab,RBM Class I,0.8,Gottlieb21
+F490S,Etesevimab,RBM Class I,1.3,Yi21
 F490S,S2E12,RBM Class I,1,Tortorici20
 F490S,Bamlanivimab,RBM Class II,>100,FDA21
 F490S,Bamlanivimab,RBM Class II,>100,Gottlieb21
 F490S,C121,RBM Class II,>100,Weisblum20
+F490S,C144,RBM Class III,3.4,Muecksch21
 F490S,C144,RBM Class III,4.5,Weisblum20
 F490S,S2M11,RBM Class III,>100,Tortorici20
 K417N,1-57,,0.1,Wang21b
 K417N,2-15,,0.3,Wang21b
 K417N,2-7,,0.5,Wang21b
 K417N,910-30,,>100,Wang21b
-K417N,BRII-196,,1.8,Wang21b
-K417N,BRII-196,,1.6,Wang21f
 K417N,BRII-198,,0.2,Wang21b
 K417N,BRII-198,,0.4,Wang21f
 K417N,Bamlanivimab/Etesevimab,,1,FDA21
@@ -132,7 +143,9 @@ K417N,Cilgavimab,,0.7,Wang21
 K417N,Cilgavimab,,0.6,Wang21b
 K417N,Cilgavimab/Tixagevimab,,0.5,Chen21
 K417N,Cilgavimab/Tixagevimab,,0.3,Wang21
+K417N,LY3853113,,0.6,Westendorf21
 K417N,P5A-1B9,,0.6,Wang21f
+K417N,S2X259,,0.9,Chen21
 K417N,Tixagevimab,,0.2,Chen21
 K417N,Tixagevimab,,0.3,Wang21
 K417N,Tixagevimab,,0.4,Wang21b
@@ -149,26 +162,31 @@ K417N,Imdevimab,RBD Core Cluster I,1,FDA21
 K417N,Imdevimab,RBD Core Cluster I,1.3,Tada21b
 K417N,Imdevimab,RBD Core Cluster I,0.3,Wang21
 K417N,Imdevimab,RBD Core Cluster I,1.2,Wang21b
-K417N,Imdevimab,RBD Core Cluster I,0.7,Wang21f
 K417N,Imdevimab,RBD Core Cluster I,0.1,Wang21e
+K417N,Imdevimab,RBD Core Cluster I,0.7,Wang21f
 K417N,Vir-7831,RBD Core Cluster I,0.7,Chen21
 K417N,Vir-7831,RBD Core Cluster I,0.6,Wang21b
 K417N,Vir-7831,RBD Core Cluster I,0.4,Wang21f
+K417N,Vir-7831,RBD Core Cluster I,1.6,Yi21
 K417N,COVA1-16,RBD Core Cluster II,0.3,Wang21b
 K417N,H014,RBD Core Cluster II,1.5,Li21c
+K417N,BRII-196,RBM Class I,2.3,Li21c
+K417N,BRII-196,RBM Class I,1.8,Wang21b
+K417N,BRII-196,RBM Class I,1.6,Wang21f
 K417N,CC12.1,RBM Class I,>100,Yuan21
 K417N,COVA2-04,RBM Class I,>100,Yuan21
 K417N,Casirivimab,RBM Class I,7,FDA21
 K417N,Casirivimab,RBM Class I,5.7,Wang21
-K417N,Casirivimab,RBM Class I,4.3,Wang21f
 K417N,Casirivimab,RBM Class I,8.9,Wang21e
+K417N,Casirivimab,RBM Class I,4.3,Wang21f
 K417N,Casirivimab,RBM Class I,49,Tada21b
 K417N,Casirivimab,RBM Class I,13,Wang21b
 K417N,Casirivimab,RBM Class I,30,Yuan21
 K417N,Etesevimab,RBM Class I,>100,Starr21
 K417N,Etesevimab,RBM Class I,>100,Wang21b
 K417N,Etesevimab,RBM Class I,>100,Wang21e
-K417N,P2C-1F11,RBM Class I,2.3,Li21c
+K417N,Etesevimab,RBM Class I,>100,Yi21
+K417N,Etesevimab,RBM Class I,70,Zhang21c
 K417N,S2E12,RBM Class I,0.2,Chen21
 K417N,BD-368-2,RBM Class II,0.9,Wang21f
 K417N,Bamlanivimab,RBM Class II,0.1,Wang21b
@@ -176,8 +194,8 @@ K417N,Bamlanivimab,RBM Class II,0.2,Wang21e
 K417N,C121,RBM Class II,0.8,Wang21b
 K417N,P2B-2F6,RBM Class II,1.5,Li21c
 K417N,2-4,RBM Class III,0.4,Wang21b
+K417N,C144,RBM Class III,0.8,Muecksch21
 K417N,C144,RBM Class III,0.5,Wang21
-K417N + E484K + N501Y,BRII-196,,0.5,Wang21f
 K417N + E484K + N501Y,BRII-198,,3,Wang21f
 K417N + E484K + N501Y,Bamlanivimab/Etesevimab,,45,FDA21
 K417N + E484K + N501Y,C135/C144,,1,Wang21
@@ -188,6 +206,10 @@ K417N + E484K + N501Y,Cilgavimab,,0.6,Chen21
 K417N + E484K + N501Y,Cilgavimab,,0.6,Wang21
 K417N + E484K + N501Y,Cilgavimab/Tixagevimab,,1,Chen21
 K417N + E484K + N501Y,Cilgavimab/Tixagevimab,,0.8,Wang21
+K417N + E484K + N501Y,LY3853113,,0.9,Westendorf21
+K417N + E484K + N501Y,S2H97,,0.5,Collier21
+K417N + E484K + N501Y,S2X259,,0.8,Chen21
+K417N + E484K + N501Y,S2X259,,0.6,Collier21
 K417N + E484K + N501Y,Tixagevimab,,3.6,Chen21
 K417N + E484K + N501Y,Tixagevimab,,4,Wang21
 K417N + E484K + N501Y,Vir-7831/S2E12,,0.9,Chen21
@@ -197,47 +219,56 @@ K417N + E484K + N501Y,S2M28,NTD,54,Collier21
 K417N + E484K + N501Y,S2X333,NTD,>100,Collier21
 K417N + E484K + N501Y,C135,RBD Core Cluster I,0.2,Wang21
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.2,Wang21
+K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.4,Wang21e
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.7,Wang21f
 K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,1,Yao21
-K417N + E484K + N501Y,Imdevimab,RBD Core Cluster I,0.4,Wang21e
 K417N + E484K + N501Y,Vir-7831,RBD Core Cluster I,1,Chen21
 K417N + E484K + N501Y,Vir-7831,RBD Core Cluster I,0.8,Wang21f
+K417N + E484K + N501Y,Vir-7831,RBD Core Cluster I,0.9,Yi21
 K417N + E484K + N501Y,H014,RBD Core Cluster II,0.8,Li21c
+K417N + E484K + N501Y,BRII-196,RBM Class I,0.4,Li21c
+K417N + E484K + N501Y,BRII-196,RBM Class I,0.5,Wang21f
 K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Wang21
+K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Wang21e
 K417N + E484K + N501Y,Casirivimab,RBM Class I,36,Wang21f
 K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Yao21
-K417N + E484K + N501Y,Casirivimab,RBM Class I,>100,Wang21e
 K417N + E484K + N501Y,Etesevimab,RBM Class I,>100,Wang21e
-K417N + E484K + N501Y,P2C-1F11,RBM Class I,0.4,Li21c
+K417N + E484K + N501Y,Etesevimab,RBM Class I,>100,Yi21
 K417N + E484K + N501Y,S2E12,RBM Class I,0.5,Chen21
 K417N + E484K + N501Y,S2E12,RBM Class I,1.3,Collier21
 K417N + E484K + N501Y,S2H14,RBM Class I,>100,Collier21
 K417N + E484K + N501Y,Bamlanivimab,RBM Class II,>100,Wang21e
 K417N + E484K + N501Y,P2B-2F6,RBM Class II,53,Li21c
+K417N + E484K + N501Y,C144,RBM Class III,>100,Muecksch21
 K417N + E484K + N501Y,C144,RBM Class III,>100,Wang21
 K417N + E484K + N501Y,S2M11,RBM Class III,0.4,Collier21
-L452R,BRII-196,,1.4,Li20h
 L452R,Bamlanivimab/Etesevimab,,7.4,FDA21
 L452R,Casirivimab/Imdevimab,,1.2,Copin21
 L452R,Casirivimab/Imdevimab,,1,FDA21
 L452R,H4,,3.1,Li20h
 L452R,JMB2002,,42,Gu21
+L452R,LY3853113,,0.7,Westendorf21
+L452R,REGN-COV2,,4,Tada21c
 L452R,Imdevimab,RBD Core Cluster I,1.1,Copin21
 L452R,Imdevimab,RBD Core Cluster I,1,FDA21
+L452R,Imdevimab,RBD Core Cluster I,2.9,Tada21c
 L452R,Imdevimab,RBD Core Cluster I,5,Wang21e
+L452R,Vir-7831,RBD Core Cluster I,0.6,Yi21
 L452R,H014,RBD Core Cluster II,1.3,Li20h
 L452R,B38,RBM Class I,1.5,Li20h
 L452R,BD-629,RBM Class I,3.3,Du20
+L452R,BRII-196,RBM Class I,1.4,Li20h
 L452R,Casirivimab,RBM Class I,1.3,Copin21
 L452R,Casirivimab,RBM Class I,1,FDA21
 L452R,Casirivimab,RBM Class I,1,Wang21e
+L452R,Casirivimab,RBM Class I,9.9,Tada21c
 L452R,Etesevimab,RBM Class I,1,Li20h
 L452R,Etesevimab,RBM Class I,0.6,Wang21e
+L452R,Etesevimab,RBM Class I,0.8,Yi21
+L452R,Etesevimab,RBM Class I,1,Zhang21c
 L452R,Bamlanivimab,RBM Class II,>100,FDA21
 L452R,Bamlanivimab,RBM Class II,>100,Wang21e
 L452R,P2B-2F6,RBM Class II,33,Li20h
-N439K,BRII-196,,1,Li20h
-N439K,BRII-196,,1,Wang21f
 N439K,BRII-198,,1,Wang21f
 N439K,Casirivimab/Imdevimab,,1,FDA21
 N439K,Casirivimab/Imdevimab,,1.7,Starr21
@@ -245,28 +276,32 @@ N439K,DH1041,,0.8,Shen21
 N439K,DH1043,,2.1,Shen21
 N439K,H4,,1.7,Shen21
 N439K,H4,,3,Li20h
+N439K,LY3853113,,1.1,Westendorf21
+N439K,LY3853113,,0.5,Westendorf21
 N439K,P5A-1B9,,1.3,Wang21f
 N439K,4A8,NTD,1,Wang21f
 N439K,C135,RBD Core Cluster I,>100,Weisblum20
 N439K,Imdevimab,RBD Core Cluster I,4.9,Rothenberger21
 N439K,Imdevimab,RBD Core Cluster I,>100,FDA21
 N439K,Imdevimab,RBD Core Cluster I,36,Starr21
-N439K,Imdevimab,RBD Core Cluster I,27,Wang21f
 N439K,Imdevimab,RBD Core Cluster I,28,Wang21e
+N439K,Imdevimab,RBD Core Cluster I,27,Wang21f
+N439K,Vir-7831,RBD Core Cluster I,0.9,Cathcart21
 N439K,Vir-7831,RBD Core Cluster I,0.9,Shen21
 N439K,Vir-7831,RBD Core Cluster I,1,Wang21f
-N439K,Vir-7831,RBD Core Cluster I,0.9,Cathcart21
 N439K,DH1047,RBD Core Cluster II,0.1,Shen21
 N439K,H014,RBD Core Cluster II,1.1,Li20h
 N439K,B38,RBM Class I,1.9,Li20h
 N439K,B38,RBM Class I,0.6,Shen21
+N439K,BRII-196,RBM Class I,1,Li20h
+N439K,BRII-196,RBM Class I,1,Wang21f
 N439K,Casirivimab,RBM Class I,0.7,Rothenberger21
 N439K,Casirivimab,RBM Class I,0.8,Starr21
-N439K,Casirivimab,RBM Class I,1.2,Wang21f
 N439K,Casirivimab,RBM Class I,0.8,Wang21e
+N439K,Casirivimab,RBM Class I,1.2,Wang21f
 N439K,Etesevimab,RBM Class I,0.6,Li20h
-N439K,Etesevimab,RBM Class I,0.4,Wang21f
 N439K,Etesevimab,RBM Class I,0.3,Wang21e
+N439K,Etesevimab,RBM Class I,0.4,Wang21f
 N439K,S2E12,RBM Class I,0.9,Tortorici20
 N439K,S2E12,RBM Class I,1,Tortorici20
 N439K,BD-368-2,RBM Class II,2.3,Wang21f
@@ -274,6 +309,7 @@ N439K,Bamlanivimab,RBM Class II,1.3,Wang21e
 N439K,C121,RBM Class II,2.3,Weisblum20
 N439K,P2B-2F6,RBM Class II,1,Li20h
 N439K,P2B-2F6,RBM Class II,2.2,Shen21
+N439K,C144,RBM Class III,0.8,Muecksch21
 N439K,C144,RBM Class III,0.9,Weisblum20
 N439K,S2M11,RBM Class III,1.1,Tortorici20
 N439K,S2M11,RBM Class III,1.3,Tortorici20
@@ -281,8 +317,6 @@ N501Y,1-57,,0.3,Wang21b
 N501Y,2-15,,0.7,Wang21b
 N501Y,2-7,,1,Wang21b
 N501Y,910-30,,13,Wang21b
-N501Y,BRII-196,,0.7,Wang21b
-N501Y,BRII-196,,1,Wang21f
 N501Y,BRII-198,,1,Wang21b
 N501Y,BRII-198,,2.6,Wang21f
 N501Y,Bamlanivimab/Etesevimab,,1,FDA21
@@ -300,7 +334,10 @@ N501Y,Cilgavimab/Tixagevimab,,0.7,Wang21
 N501Y,DH1041,,1.1,Shen21
 N501Y,DH1043,,1.8,Shen21
 N501Y,H4,,1.7,Shen21
+N501Y,LY3853113,,0.4,Westendorf21
+N501Y,LY3853113,,0.5,Westendorf21
 N501Y,P5A-1B9,,1.2,Wang21f
+N501Y,S2X259,,1,Chen21
 N501Y,Tixagevimab,,1.1,Chen21
 N501Y,Tixagevimab,,1,Wang21
 N501Y,Tixagevimab,,1.7,Wang21b
@@ -319,18 +356,22 @@ N501Y,Imdevimab,RBD Core Cluster I,1,Rothenberger21
 N501Y,Imdevimab,RBD Core Cluster I,0.9,Tada21b
 N501Y,Imdevimab,RBD Core Cluster I,0.8,Wang21
 N501Y,Imdevimab,RBD Core Cluster I,0.8,Wang21b
+N501Y,Imdevimab,RBD Core Cluster I,0.6,Wang21e
 N501Y,Imdevimab,RBD Core Cluster I,0.6,Wang21f
 N501Y,Imdevimab,RBD Core Cluster I,1,Yao21
-N501Y,Imdevimab,RBD Core Cluster I,0.6,Wang21e
 N501Y,Vir-7831,RBD Core Cluster I,1.6,Chen21
 N501Y,Vir-7831,RBD Core Cluster I,0.8,Wang21b
 N501Y,Vir-7831,RBD Core Cluster I,0.8,Wang21f
+N501Y,Vir-7831,RBD Core Cluster I,1.8,Yi21
 N501Y,Vir-7831,RBD Core Cluster I,3.1,Shen21
 N501Y,COVA1-16,RBD Core Cluster II,0.7,Rees-Spear21
 N501Y,COVA1-16,RBD Core Cluster II,1.4,Wang21b
 N501Y,DH1047,RBD Core Cluster II,0.5,Shen21
 N501Y,H014,RBD Core Cluster II,1.5,Li21c
 N501Y,B38,RBM Class I,2.2,Shen21
+N501Y,BRII-196,RBM Class I,1,Li21c
+N501Y,BRII-196,RBM Class I,0.7,Wang21b
+N501Y,BRII-196,RBM Class I,1,Wang21f
 N501Y,COVA2-04,RBM Class I,0.4,Rees-Spear21
 N501Y,Casirivimab,RBM Class I,0.9,Copin21
 N501Y,Casirivimab,RBM Class I,1,FDA21
@@ -338,15 +379,16 @@ N501Y,Casirivimab,RBM Class I,1.1,Rothenberger21
 N501Y,Casirivimab,RBM Class I,1.6,Tada21b
 N501Y,Casirivimab,RBM Class I,1,Wang21
 N501Y,Casirivimab,RBM Class I,1.4,Wang21b
+N501Y,Casirivimab,RBM Class I,1,Wang21e
 N501Y,Casirivimab,RBM Class I,0.7,Wang21f
 N501Y,Casirivimab,RBM Class I,1,Yao21
-N501Y,Casirivimab,RBM Class I,1,Wang21e
 N501Y,Etesevimab,RBM Class I,2.6,Wang21b
-N501Y,Etesevimab,RBM Class I,2.9,Wang21f
 N501Y,Etesevimab,RBM Class I,1.6,Wang21e
+N501Y,Etesevimab,RBM Class I,2.9,Wang21f
+N501Y,Etesevimab,RBM Class I,2.4,Yi21
 N501Y,Etesevimab,RBM Class I,5,FDA21
 N501Y,Etesevimab,RBM Class I,5,Yao21
-N501Y,P2C-1F11,RBM Class I,1,Li21c
+N501Y,Etesevimab,RBM Class I,12,Zhang21c
 N501Y,S2E12,RBM Class I,1.1,Chen21
 N501Y,BD-368-2,RBM Class II,1.2,Wang21f
 N501Y,Bamlanivimab,RBM Class II,1,FDA21
@@ -354,12 +396,12 @@ N501Y,Bamlanivimab,RBM Class II,1,Wang21b
 N501Y,Bamlanivimab,RBM Class II,1.1,Wang21e
 N501Y,C121,RBM Class II,0.7,Wang21b
 N501Y,C121,RBM Class II,0.8,Weisblum20
-N501Y,P2B-2F6,RBM Class II,0.6,Shen21
 N501Y,P2B-2F6,RBM Class II,0.4,Li21c
+N501Y,P2B-2F6,RBM Class II,0.6,Shen21
 N501Y,2-4,RBM Class III,2.8,Wang21b
+N501Y,C144,RBM Class III,1.1,Muecksch21
 N501Y,C144,RBM Class III,1.5,Wang21
 N501Y,C144,RBM Class III,1.4,Weisblum20
-S494P,BRII-196,,0.7,Wang21f
 S494P,BRII-198,,1.6,Wang21f
 S494P,Bamlanivimab/Etesevimab,,1,FDA21
 S494P,Casirivimab/Imdevimab,,1.1,Copin21
@@ -369,8 +411,9 @@ S494P,4A8,NTD,0.9,Wang21f
 S494P,C135,RBD Core Cluster I,0.8,Weisblum20
 S494P,Imdevimab,RBD Core Cluster I,1,Copin21
 S494P,Imdevimab,RBD Core Cluster I,0.8,Wang21f
-S494P,Vir-7831,RBD Core Cluster I,1.5,Wang21f
 S494P,Vir-7831,RBD Core Cluster I,2.5,Cathcart21
+S494P,Vir-7831,RBD Core Cluster I,1.5,Wang21f
+S494P,BRII-196,RBM Class I,0.7,Wang21f
 S494P,Casirivimab,RBM Class I,2.1,Wang21f
 S494P,Casirivimab,RBM Class I,4.5,Copin21
 S494P,Casirivimab,RBM Class I,5,FDA21
@@ -381,40 +424,42 @@ S494P,BD-368-2,RBM Class II,1.5,Wang21f
 S494P,Bamlanivimab,RBM Class II,71,FDA21
 S494P,Bamlanivimab,RBM Class II,>100,Gottlieb21
 S494P,C121,RBM Class II,27,Weisblum20
+S494P,C144,RBM Class III,>100,Muecksch21
 S494P,C144,RBM Class III,45,Weisblum20
 S494P,S2M11,RBM Class III,>100,Tortorici20
-Y453F,BRII-196,,1,Wang21f
 Y453F,BRII-198,,1.5,Wang21f
 Y453F,Casirivimab/Imdevimab,,3.5,Baum20
+Y453F,LY3853113,,0.6,Westendorf21
 Y453F,P5A-1B9,,1.3,Wang21f
 Y453F,REGN10989/10934,,4.3,Baum20
 Y453F,REGN10989/Imdevimab,,2,Baum20
 Y453F,4A8,NTD,0.7,Wang21f
 Y453F,Imdevimab,RBD Core Cluster I,2.8,Baum20
+Y453F,Imdevimab,RBD Core Cluster I,1.6,Hoffmann21b
 Y453F,Imdevimab,RBD Core Cluster I,2,Rothenberger21
 Y453F,Imdevimab,RBD Core Cluster I,1.5,Tada21b
-Y453F,Imdevimab,RBD Core Cluster I,0.9,Wang21f
-Y453F,Imdevimab,RBD Core Cluster I,1.6,Hoffmann21b
 Y453F,Imdevimab,RBD Core Cluster I,0.4,Wang21e
+Y453F,Imdevimab,RBD Core Cluster I,0.9,Wang21f
 Y453F,Vir-7831,RBD Core Cluster I,1.1,Wang21f
+Y453F,BRII-196,RBM Class I,1,Wang21f
 Y453F,Casirivimab,RBM Class I,>100,FDA21
+Y453F,Casirivimab,RBM Class I,44,Hoffmann21b
 Y453F,Casirivimab,RBM Class I,26,Rothenberger21
 Y453F,Casirivimab,RBM Class I,>100,Tada21b
-Y453F,Casirivimab,RBM Class I,47,Wang21f
-Y453F,Casirivimab,RBM Class I,44,Hoffmann21b
 Y453F,Casirivimab,RBM Class I,>100,Wang21e
-Y453F,Etesevimab,RBM Class I,0.6,Wang21f
+Y453F,Casirivimab,RBM Class I,47,Wang21f
 Y453F,Etesevimab,RBM Class I,1.4,Wang21e
+Y453F,Etesevimab,RBM Class I,0.6,Wang21f
+Y453F,Etesevimab,RBM Class I,2,Zhang21c
 Y453F,S2E12,RBM Class I,1.6,Tortorici20
 Y453F,BD-368-2,RBM Class II,1.9,Wang21f
 Y453F,Bamlanivimab,RBM Class II,1.8,Wang21e
+Y453F,C144,RBM Class III,1.1,Muecksch21
 Y453F,S2M11,RBM Class III,0.9,Tortorici20
 ∆144,1-57,,0.9,Wang21b
 ∆144,2-15,,0.8,Wang21b
 ∆144,2-7,,0.8,Wang21b
 ∆144,910-30,,0.4,Wang21b
-∆144,BRII-196,,0.8,Wang21b
-∆144,BRII-196,,0.8,Wang21f
 ∆144,BRII-198,,0.7,Wang21b
 ∆144,BRII-198,,0.8,Wang21f
 ∆144,Cilgavimab,,1,Wang21b
@@ -435,6 +480,8 @@ Y453F,S2M11,RBM Class III,0.9,Tortorici20
 ∆144,Vir-7831,RBD Core Cluster I,0.7,Wang21b
 ∆144,Vir-7831,RBD Core Cluster I,1.2,Wang21f
 ∆144,COVA1-16,RBD Core Cluster II,1.3,Wang21b
+∆144,BRII-196,RBM Class I,0.8,Wang21b
+∆144,BRII-196,RBM Class I,0.8,Wang21f
 ∆144,Casirivimab,RBM Class I,1.5,Tada21b
 ∆144,Casirivimab,RBM Class I,0.8,Wang21b
 ∆144,Casirivimab,RBM Class I,0.8,Wang21f
@@ -448,8 +495,6 @@ Y453F,S2M11,RBM Class III,0.9,Tortorici20
 ∆69/70,2-15,,0.8,Wang21b
 ∆69/70,2-7,,1.2,Wang21b
 ∆69/70,910-30,,0.4,Wang21b
-∆69/70,BRII-196,,0.9,Wang21b
-∆69/70,BRII-196,,1,Wang21f
 ∆69/70,BRII-198,,0.9,Wang21b
 ∆69/70,BRII-198,,2.7,Wang21f
 ∆69/70,Cilgavimab,,1.3,Wang21b
@@ -464,23 +509,25 @@ Y453F,S2M11,RBM Class III,0.9,Tortorici20
 ∆69/70,C135,RBD Core Cluster I,0.6,Wang21b
 ∆69/70,Imdevimab,RBD Core Cluster I,0.5,Tada21b
 ∆69/70,Imdevimab,RBD Core Cluster I,0.8,Wang21b
-∆69/70,Imdevimab,RBD Core Cluster I,1.3,Wang21f
 ∆69/70,Imdevimab,RBD Core Cluster I,0.1,Wang21e
+∆69/70,Imdevimab,RBD Core Cluster I,1.3,Wang21f
 ∆69/70,Vir-7831,RBD Core Cluster I,1.6,Wang21b
 ∆69/70,Vir-7831,RBD Core Cluster I,1.1,Wang21f
 ∆69/70,COVA1-16,RBD Core Cluster II,1.1,Kemp21
 ∆69/70,COVA1-16,RBD Core Cluster II,0.8,Rees-Spear21
 ∆69/70,COVA1-16,RBD Core Cluster II,0.9,Wang21b
+∆69/70,BRII-196,RBM Class I,0.9,Wang21b
+∆69/70,BRII-196,RBM Class I,1,Wang21f
 ∆69/70,COVA2-04,RBM Class I,0.8,Kemp21
 ∆69/70,COVA2-04,RBM Class I,1,Rees-Spear21
 ∆69/70,COVA2-39,RBM Class I,2.2,Kemp21
 ∆69/70,Casirivimab,RBM Class I,1.9,Tada21b
 ∆69/70,Casirivimab,RBM Class I,0.8,Wang21b
-∆69/70,Casirivimab,RBM Class I,1.2,Wang21f
 ∆69/70,Casirivimab,RBM Class I,0.6,Wang21e
+∆69/70,Casirivimab,RBM Class I,1.2,Wang21f
 ∆69/70,Etesevimab,RBM Class I,0.7,Wang21b
-∆69/70,Etesevimab,RBM Class I,0.7,Wang21f
 ∆69/70,Etesevimab,RBM Class I,0.6,Wang21e
+∆69/70,Etesevimab,RBM Class I,0.7,Wang21f
 ∆69/70,BD-368-2,RBM Class II,0.5,Wang21f
 ∆69/70,Bamlanivimab,RBM Class II,0.9,Wang21b
 ∆69/70,Bamlanivimab,RBM Class II,0.5,Wang21e
@@ -494,18 +541,19 @@ Y453F,S2M11,RBM Class III,0.9,Tortorici20
 ∆69/70 + N501Y,DH1041,,0.5,Shen21
 ∆69/70 + N501Y,DH1043,,0.9,Shen21
 ∆69/70 + N501Y,H4,,1.5,Shen21
+∆69/70 + N501Y,S2X259,,1.1,Chen21
 ∆69/70 + N501Y,Tixagevimab,,0.9,Chen21
 ∆69/70 + N501Y,Vir-7831/S2E12,,1.1,Chen21
-∆69/70 + N501Y,Imdevimab,RBD Core Cluster I,1,Yao21
 ∆69/70 + N501Y,Imdevimab,RBD Core Cluster I,0.3,Wang21e
+∆69/70 + N501Y,Imdevimab,RBD Core Cluster I,1,Yao21
 ∆69/70 + N501Y,Vir-7831,RBD Core Cluster I,2.8,Chen21
 ∆69/70 + N501Y,Vir-7831,RBD Core Cluster I,2.2,Shen21
 ∆69/70 + N501Y,DH1047,RBD Core Cluster II,0.4,Shen21
 ∆69/70 + N501Y,B38,RBM Class I,1.2,Shen21
-∆69/70 + N501Y,Casirivimab,RBM Class I,1,Yao21
 ∆69/70 + N501Y,Casirivimab,RBM Class I,0.9,Wang21e
-∆69/70 + N501Y,Etesevimab,RBM Class I,10,Yao21
+∆69/70 + N501Y,Casirivimab,RBM Class I,1,Yao21
 ∆69/70 + N501Y,Etesevimab,RBM Class I,3.2,Wang21e
+∆69/70 + N501Y,Etesevimab,RBM Class I,10,Yao21
 ∆69/70 + N501Y,S2E12,RBM Class I,0.8,Chen21
 ∆69/70 + N501Y,Bamlanivimab,RBM Class II,1,FDA21
 ∆69/70 + N501Y,Bamlanivimab,RBM Class II,1.8,Wang21e

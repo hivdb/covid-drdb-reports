@@ -1,14 +1,17 @@
 ﻿Control,Samples
-Wildtype,6421
-S:614G,5234
+Wuhan-Hu-1,6645
+S:614G,5373
+WA1,289
+B.1 full genome,900
 hCoV-19/India/2020770,38
+19A_1707038,202
 B.1.1.50 full genome,36
-WA1,47
-Control,116
+WA1 Spike,40
+Wuhan-Hu-1 Spike,763
 B.1 clade G full genome,12
-B.1 full genome,92
-B.1.1.7 full genome,67
 B.1.1.7 Spike,55
+B.1.1.7 Spike:-144del+145del,68
+B.1.1.7 full genome,59
 B.1.351 Spike,45
-B.1.351 full genome,6
+B.1.351 Spike:-18F-246I,51
 Weigang21_d14,20
