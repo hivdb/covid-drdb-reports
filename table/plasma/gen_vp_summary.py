@@ -6,8 +6,8 @@ from statistics import median
 from operator import itemgetter
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import filter_by_variant
-from lookup_view import INDIVIDUAL_SAMPLE_SQL
-from lookup_view import AGGREGATED_SUSC_VIEW_SQL
+from susceptibility import INDIVIDUAL_SAMPLE_SQL
+from susceptibility import AGGREGATED_SUSC_VIEW_SQL
 from resistancy import is_susc
 from resistancy import is_partial_resistant
 from resistancy import is_resistant

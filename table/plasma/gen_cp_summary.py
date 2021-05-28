@@ -4,8 +4,8 @@ from collections import defaultdict
 from operator import itemgetter
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import filter_by_variant
-from lookup_view import INDIVIDUAL_SAMPLE_SQL
-from lookup_view import AGGREGATED_SUSC_VIEW_SQL
+from susceptibility import INDIVIDUAL_SAMPLE_SQL
+from susceptibility import AGGREGATED_SUSC_VIEW_SQL
 
 
 SQL = """
@@ -15,7 +15,7 @@ SELECT
     s.iso_name,
     rx.timing,
     rx.severity,
-    rx.infection,
+    rx.infected_iso_name as infection,
     SUM(s.cumulative_count) as samples
 FROM
     ({susc_results}) as s,

@@ -1,7 +1,9 @@
 from variant_filter import include_mutations
 
-from lookup_view import INDIVIDUAL_SAMPLE_SQL
-from lookup_view import AGGREGATED_SUSC_VIEW_SQL
+from susceptibility import INDIVIDUAL_SAMPLE_SQL
+from susceptibility import AGGREGATED_SUSC_VIEW_SQL
+from variant.preset import CONTROL_VARIANTS_SQL
+from .preset_cp import CP_VIEW
 
 INDIVIDUAL_RESULTS_SQL = """
 SELECT
@@ -20,7 +22,8 @@ FROM
 ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
-WHERE s.control_iso_name IN {control_variants}
+WHERE
+    s.control_iso_name IN {control_variants}
     {filters}
 """
 
@@ -53,9 +56,9 @@ CP_FILTER = {
         'cp_filters': [
             (
                 "AND ("
-                "      rx.infection IN ('Wildtype', 'S:614G')"
-                "   OR rx.infection IS NULL"
-                "    )"
+                "      rx.infected_iso_name IN {}"
+                "   OR rx.infected_iso_name IS NULL"
+                "    )".format(CONTROL_VARIANTS_SQL)
             ),
         ]
     },
@@ -260,6 +263,9 @@ VP_RENAME = {
     'BBV152': 'BBV152',
     'MVC-COV1901': 'MVC-COV1901',
     'MVC': 'MVC-COV1901',
+    'Mod_2nd': 'Mod',
+    'BBIBP': 'BBIBP-CorV',
+    'ZF2001': 'ZF2001',
 }
 
 
@@ -277,5 +283,9 @@ VP_IGNORE = [
     ('Planas21', 'BNT_W3'),
     ('Planas21', 'BNT_W4'),
     ('Planas21', 'BNT_W5'),
-    ('Stankov21', 'BNT_1st_dose')
+    ('Stankov21', 'BNT_1st_dose'),
+    ('Pegu21', 'Mod_2nd_7M'),
+    ('Pegu21*', 'Mod_2nd_7M'),
+    ('Pegu21*', 'Mod_2nd_4M'),
+    ('Pegu21*', 'Mod_1st'),
 ]

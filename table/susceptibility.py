@@ -21,8 +21,10 @@ WHERE
         rx_name,
         iso_name,
         control_iso_name
-    FROM susc_results
-    WHERE cumulative_count > 1
+    FROM
+        susc_results
+    WHERE
+        cumulative_count > 1
     )
 """
 
@@ -48,14 +50,17 @@ WHERE
         rx_name,
         iso_name,
         control_iso_name
-    FROM susc_results
+    FROM
+        susc_results
     EXCEPT
     SELECT
         ref_name,
         rx_name,
         iso_name,
         control_iso_name
-    FROM susc_results
-    WHERE cumulative_count > 1
+    FROM
+        susc_results
+    WHERE
+        cumulative_count > 1
     )
 """

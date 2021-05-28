@@ -1,5 +1,113 @@
 from collections import defaultdict
 
+DOMAINS = {
+    'NTD': (1, 305),
+    'RBD': (306, 534),
+    'CTD': (535, 686),
+    'S2': (687, 1273),
+}
+
+SPIKE_REF = {}
+SPIKE_REF_SQL = """
+SELECT
+    *
+FROM
+    ref_amino_acid
+WHERE
+    gene = 'S'
+;
+"""
+
+
+def get_spike_ref(conn):
+    global SPIKE_REF
+
+    cursor = conn.cursor()
+    cursor.execute(SPIKE_REF_SQL)
+
+    for rec in cursor.fetchall():
+        position = rec['position']
+        aa = rec['amino_acid']
+        SPIKE_REF[position] = aa
+
+
+CONTROL_VARIANTS_SQL = None
+
+D614G_ONLY_MUTATION = """
+SELECT
+    b.iso_name,
+    b.var_name
+FROM
+    (
+    SELECT
+        iso_name,
+        GROUP_CONCAT(mutation, ',') as mutations
+    FROM (
+        SELECT
+            iso_name,
+            position || amino_acid as mutation
+        FROM
+            isolate_mutations
+        WHERE
+            gene = 'S'
+        )
+    GROUP BY
+        iso_name
+    )
+    AS a,
+    isolates
+    AS b
+ON
+    a.iso_name = b.iso_name
+WHERE
+    mutations = '614G'
+;
+"""
+
+NO_S_MUTATION = """
+SELECT
+    iso_name,
+    var_name
+FROM
+    isolates
+WHERE
+    iso_name != 'Unknown'
+    AND
+    iso_name NOT IN
+    (
+        SELECT
+            distinct iso_name
+        FROM
+            isolate_mutations
+        WHERE
+            gene = 'S'
+    )
+"""
+
+def gen_control_variants(conn):
+    global CONTROL_VARIANTS_SQL
+
+    cursor = conn.cursor()
+    cursor.execute(D614G_ONLY_MUTATION)
+    isolates = [r for r in cursor.fetchall()]
+
+    cursor.execute(NO_S_MUTATION)
+    isolates += [r for r in cursor.fetchall()]
+
+    # print('Control isolates', [
+    #     (r['iso_name'], r['var_name']) for r in isolates])
+
+    iso_names = [r['iso_name'] for r in isolates]
+
+    CONTROL_VARIANTS_SQL = '({})'.format(
+        ', '.join(["'{}'".format(i) for i in iso_names])
+    )
+
+
+INDIV_VARIANT = {}
+COMBO_VARIANT = {}
+NO_MUT = []
+
 VARIANT_MUT_SQL = """
 SELECT
     iso_name,
@@ -22,14 +130,6 @@ NOT IN (
 );
 """
 
-CONTROL_VARIANTS_SQL = """
-('Control', 'Wildtype', 'S:614G', 'WA1')
-"""
-
-IGNORE_MUTATION = [
-    (614, 'G')
-]
-
 IGNORE_VARIANTS = [
     'SARS-CoV Spike',
     'L455Y,F456L',
@@ -50,6 +150,7 @@ VARIANT_NICKNAMES = {
     'B.1.427': 'B.1.427/9',
     'B.1.1.7 S1': 'B.1.1.7 (variation)',
     'B.1.1.7 + 484K (variation)': 'B.1.1.7 + E484K',
+    'B.1.1.7 :-144del+145del (variation)': 'B.1.1.7',
     'B.1.351 :-18F-215G (variation)': 'B.1.351 (variation)',
     'B.1.351 :-18F-242del-243del-244del-246I (variation)':
         'B.1.351 (variation)',
@@ -63,17 +164,6 @@ VARIANT_NICKNAMES = {
     'B.1.526 v.2': 'B.1.526 (variation)',
 }
 
-IGNORE_VARIANT_SYNYNOMS = [
-    'Kemp21-d101',
-    'WA-RML/d85',
-    'WA-RML/d105',
-    'B.1.427',
-]
-
-INDIV_VARIANT = {}
-COMBO_VARIANT = {}
-NO_MUT = []
-
 NTD_DELETION_GROUP_RULE = {
     (69, 70): '69-70∆',
     (69, 69): '69-70∆',
@@ -83,6 +173,7 @@ NTD_DELETION_GROUP_RULE = {
     (141, 144): '141-145∆',
     (144, 144): '141-145∆',
     (145, 145): '141-145∆',
+    (145, 146): '145-146∆',
     (141, 143): '141-145∆',
     (147, 147): '147∆',
     (241, 243): '242-244∆',
@@ -95,30 +186,16 @@ NTD_DELETION_GROUP_RULE = {
     (150, 152): '150-152∆',
 }
 
+IGNORE_MUTATION = [
+    (614, 'G')
+]
 
-SPIKE_REF = {}
-SPIKE_REF_SQL = """
-SELECT * FROM 'ref_amino_acid' WHERE gene = 'S';
-"""
-
-DOMAINS = {
-    'NTD': (1, 305),
-    'RBD': (306, 534),
-    'CTD': (535, 686),
-    'S2': (687, 1273),
-}
-
-
-def get_spike_ref(conn):
-    global SPIKE_REF
-
-    cursor = conn.cursor()
-    cursor.execute(SPIKE_REF_SQL)
-
-    for rec in cursor.fetchall():
-        position = rec['position']
-        aa = rec['amino_acid']
-        SPIKE_REF[position] = aa
+IGNORE_VARIANT_SYNYNOMS = [
+    'Kemp21-d101',
+    'WA-RML/d85',
+    'WA-RML/d105',
+    'B.1.427',
+]
 
 
 def get_grouped_variants(conn):
@@ -218,8 +295,36 @@ def get_uniq_variant(variant_info):
     return uniq_variant_info
 
 
-def get_main_name(variant):
-    pass
+def get_combi_mutation_main_name(variant_info):
+    mut_list = variant_info['mut_list']
+    nickname = ''
+    if len(mut_list) > 20:
+        main_name = variant_info['iso_names'][0]
+    else:
+        main_name = ','.join([m['disp'] for m in mut_list])
+        iso_names = variant_info['iso_names']
+        for name in iso_names:
+            if nickname:
+                break
+            if name.startswith('S:'):
+                continue
+
+            nickname = name.replace('Spike', '').strip()
+            nickname = nickname.replace('full genome', '').strip()
+            if 'S:' in nickname:
+                nickname = nickname.replace('S:', ' ')
+                nickname += ' (variation)'
+            if ':-' in nickname:
+                nickname += ' (variation)'
+
+    return main_name, nickname
+
+
+def get_domain(position):
+    position = int(position)
+    for domain, range in DOMAINS.items():
+        if position >= range[0] and position <= range[1]:
+            return domain
 
 
 def merge_ntd_deletion(mut_list):
@@ -285,38 +390,6 @@ def merge_spike_and_full_genome(iso_names):
     iso_names = sorted(list(set(iso_names)))
 
     return iso_names
-
-
-def get_combi_mutation_main_name(variant_info):
-    mut_list = variant_info['mut_list']
-    nickname = ''
-    if len(mut_list) > 20:
-        main_name = variant_info['iso_names'][0]
-    else:
-        main_name = ','.join([m['disp'] for m in mut_list])
-        iso_names = variant_info['iso_names']
-        for name in iso_names:
-            if nickname:
-                break
-            if name.startswith('S:'):
-                continue
-
-            nickname = name.replace('Spike', '').strip()
-            nickname = nickname.replace('full genome', '').strip()
-            if 'S:' in nickname:
-                nickname = nickname.replace('S:', ' ')
-                nickname += ' (variation)'
-            if ':-' in nickname:
-                nickname += ' (variation)'
-
-    return main_name, nickname
-
-
-def get_domain(position):
-    position = int(position)
-    for domain, range in DOMAINS.items():
-        if position >= range[0] and position <= range[1]:
-            return domain
 
 
 def group_by_variant(records):

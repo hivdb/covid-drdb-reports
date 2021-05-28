@@ -52,8 +52,8 @@ TABLE_SUMMARY_COLUMNS = {
         # 'cp_filters': [
         #     (
         #         "AND ("
-        #         "      rxtype.infection IN ('Wildtype', 'S:614G')"
-        #         "   OR rxtype.infection IS NULL"
+        #         "      rxtype.infected_iso_name IN ('Wildtype', 'S:614G')"
+        #         "   OR rxtype.infected_iso_name IS NULL"
         #         "    )"
         #     ),
         # ]
