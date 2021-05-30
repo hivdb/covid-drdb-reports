@@ -227,7 +227,7 @@ read.suscResultsPlasam <- function(
       ref_name,
       rx_name,
       cumulative_group,
-      vaccine_name = vaccine_name.x,
+      vaccine_name = vaccine_name.y,
     ) %>%
     mutate(
       infection = ""
