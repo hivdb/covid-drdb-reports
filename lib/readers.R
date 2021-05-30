@@ -131,7 +131,7 @@ read.suscResults <- function(
   dfSusc
 }
 
-read.suscResultsCP <- function(
+read.suscResultsPlasam <- function(
   partialResistFold = 3,
   resistFold = 10,
   withExcluded = FALSE
@@ -141,42 +141,104 @@ read.suscResultsCP <- function(
     resistFold = resistFold,
     withExcluded = withExcluded
   )
-  dfCP = read.dbTables(
-      "rx_conv_plasma",
+
+  dfPlasma = read.dbTables(
+      "rx_plasma",
       colClasses = c(titer = "character")
-      ) %>%
-    mutate(
-      infection = ifelse(is.na(infection), "", infection)
-    )
+  )
   if (withExcluded) {
-    dfCP = bind_rows(dfCP, read.dbTables(
-      "rx_conv_plasma",
-       colClasses = c(titer = "character"),
+    dfPlasma = bind_rows(dfPlasma, read.dbTables(
+      "rx_plasma",
+      colClasses = c(titer = "character"),
       tables_dir = EXCLUDES_DIR
     ))
   }
-  merge(dfSusc, dfCP, by = c("ref_name", "rx_name"))
+
+  dfSubjectHistory = read.subjectHistory(withExcluded) %>%
+    rename(
+      infection=iso_name
+    )
+
+  dfPlasma = merge(
+      dfPlasma,
+      dfSubjectHistory,
+      by = c("ref_name", 'subject_name')
+    )
+
+  dfCPIsolation = dfPlasma %>%
+    filter(
+      event == 'isolation',
+      event_date == collection_date
+    )
+
+  dfCPInfection = dfPlasma %>%
+    filter(
+      event == 'infection'
+    )
+
+  dfCP = dfCPIsolation %>%
+    left_join(
+      dfCPInfection,
+      by = c("ref_name", 'subject_name')
+    ) %>%
+    filter(
+      (event.x == 'isolation' & event.y == 'infection')
+      | (event.x == 'isolation' & is.na(event.y) )
+    ) %>%
+    select(
+      ref_name,
+      rx_name = rx_name.x,
+      cumulative_group = cumulative_group.x,
+      infection = infection.x
+    ) %>%
+    mutate(
+      vaccine_name = ""
+    ) %>%
+    distinct()
+
+  dfPlasma = merge(
+      dfPlasma,
+      dfSubjectHistory,
+      by = c("ref_name", 'subject_name')
+    )
+
+  dfVP_1st = dfPlasma %>%
+    filter(
+      event.x == '1st dose isolation',
+      event.y == '1st dose',
+      event_date.x == collection_date
+    )
+
+  dfVP_2nd = dfPlasma %>%
+    filter(
+      event.x == '2nd dose isolation',
+      event.y == '2nd dose',
+      event_date.x == collection_date
+    )
+  dfVP_3rd = dfPlasma %>%
+    filter(
+      event.x == '3rd dose isolation',
+      event.y == '3rd dose',
+      event_date.x == collection_date
+    )
+
+  dfVP = bind_rows(dfVP_1st, dfVP_2nd, dfVP_3rd) %>%
+    select(
+      ref_name,
+      rx_name,
+      cumulative_group,
+      vaccine_name = vaccine_name.x,
+    ) %>%
+    mutate(
+      infection = ""
+    ) %>%
+    distinct()
+
+  dfPlasma = bind_rows(dfCP, dfVP)
+
+  merge(dfSusc, dfPlasma, by = c("ref_name", "rx_name"))
 }
 
-read.suscResultsIP <- function(
-  partialResistFold = 3,
-  resistFold = 10,
-  withExcluded = FALSE
-) {
-  dfSusc = read.suscResults(
-    partialResistFold = partialResistFold,
-    resistFold = resistFold,
-    withExcluded = withExcluded
-  )
-  dfIP = read.dbTables("rx_vacc_plasma")
-  if (withExcluded) {
-    dfIP = bind_rows(dfIP, read.dbTables(
-      "rx_vacc_plasma",
-      tables_dir = EXCLUDES_DIR
-    ))
-  }
-  merge(dfSusc, dfIP, by = c("ref_name", "rx_name"))
-}
 
 read.suscResultsMAb <- function(
   partialResistFold = 3,
@@ -212,6 +274,23 @@ read.suscResultsMAb <- function(
       by = c("ref_name", "rx_name"),
       suffix = c(".susc", ".rxmab")
     )
+}
+
+read.subjectHistory <- function(withExcluded) {
+  dfSubjectHistory = read.dbTables(
+      "subject_history",
+      colClasses = c(titer = "character")
+      )
+
+  if (withExcluded) {
+    dfSubjectHistory = bind_rows(dfSubjectHistory, read.dbTables(
+      "subject_history",
+      colClasses = c(titer = "character"),
+      tables_dir = EXCLUDES_DIR
+    ))
+  }
+
+  dfSubjectHistory
 }
 
 read.antibodies <- function() {
