@@ -263,7 +263,7 @@ VP_RENAME = {
     'BBV152': 'BBV152',
     'MVC-COV1901': 'MVC-COV1901',
     'MVC': 'MVC-COV1901',
-    'Mod_2nd': 'Mod',
+    'Mod_2nd': 'mRNA-1273',
     'BBIBP': 'BBIBP-CorV',
     'ZF2001': 'ZF2001',
 }

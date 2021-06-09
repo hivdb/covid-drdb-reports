@@ -1,10 +1,10 @@
 ﻿mab,results,avail,target,pdb
-Etesevimab,203,Phase 3,RBD,7C01
-Casirivimab,188,Phase 3,RBD,6XDG
-Imdevimab,186,Phase 3,RBD,6XDG
+Etesevimab,206,Phase 3,RBD,7C01
+Imdevimab,199,Phase 3,RBD,6XDG
+Casirivimab,196,Phase 3,RBD,6XDG
+Vir-7831,150,Phase 3,RBD,6WPS
 BRII-196,146,Phase 3,RBD,7CDI
-Vir-7831,126,Phase 3,RBD,6WPS
-Bamlanivimab,76,Phase 3,RBD,7KMG
+Bamlanivimab,79,Phase 3,RBD,7KMG
 BRII-198,47,Phase 3,RBD,
 Cilgavimab,39,Phase 3,RBD,7L7E
 Tixagevimab,39,Phase 3,RBD,7L7D
@@ -222,7 +222,7 @@ S2X107,1,,NTD,
 S2X124,1,,NTD,
 S2X158,1,,NTD,
 S2X303,1,,NTD,
-Casirivimab/Imdevimab,63,,,
+Casirivimab/Imdevimab,64,,,
 C032,52,,,
 C051,52,,,
 C052,52,,,
@@ -245,6 +245,13 @@ Vir-7831/S2E12,9,,,
 DH1042,6,,,
 C135/C144,5,,,
 BRII-196/BRII-198,4,,,
+NTD-18,3,,,
+NTD-20,3,,,
+NTD-71,3,,,
+RBD-109,3,,,
+RBD-48,3,,,
+RBD-85,3,,,
+RBD-98,3,,,
 Bamlanivimab + Etesevimab,2,,,
 REGN-COV,2,,,
 CQ012,2,,,
