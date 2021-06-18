@@ -8,8 +8,8 @@ from resistancy import round_fold
 
 from .preset import MAB_RENAME
 from mab.preset import RX_MAB
-from variant_filter import include_mutations
 from variant.preset import CONTROL_VARIANTS_SQL
+from variant.preset import get_iso_names_by_var_name
 
 
 MAB_MUTS_SQL = """
@@ -30,67 +30,72 @@ WHERE
     s.inhibition_pcnt != 90
     AND
     s.control_iso_name IN {control_variants}
-    AND s.fold IS NOT NULL
-    {filters}
+    AND
+    s.fold IS NOT NULL
     AND (
         rx.availability IS NOT NULL
         OR rx.pdb_id IS NOT NULL
     )
+    {filters}
 """
+
+
+def get_iso_name_filter(var_name, selector='all'):
+
+    iso_names = get_iso_names_by_var_name(var_name, selector)
+
+    return "AND s.iso_name in ({})".format(iso_names)
+
 
 ROWS = {
     'B.1.1.7': {
         'filter': [
-            "AND s.iso_name = 'B.1.1.7 Spike'",
+            get_iso_name_filter('Alpha', 'spike')
         ]
     },
     'B.1.1.7 full genome': {
         'filter': [
-            "AND s.iso_name = 'B.1.1.7 full genome'",
+            get_iso_name_filter('Alpha', 'genome')
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.iso_name = 'B.1.351 Spike'",
+            get_iso_name_filter('Beta', 'spike')
         ]
     },
     'B.1.351 full genome': {
         'filter': [
-            "AND s.iso_name = 'B.1.351 full genome'",
+            get_iso_name_filter('Beta', 'genome')
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.iso_name = 'P.1 Spike'",
+            get_iso_name_filter('Gamma', 'spike')
         ]
     },
     'P.1 full genome': {
         'filter': [
-            "AND s.iso_name = 'P.1 full genome'",
+            get_iso_name_filter('Gamma', 'genome')
         ]
     },
     'B.1.427/9': {
         'filter': [
-            "AND s.iso_name IN ("
-            "    'B.1.427 full genome',"
-            "    'B.1.429 full genome',"
-            "    'B.1.429 Spike')",
-        ]
-    },
-    'B.1.617': {
-        'filter': [
-            "AND s.iso_name IN ("
-            "    'B.1.617 full genome',"
-            "    'B.1.617.1_1675223',"
-            "    'B.1.617 Spike')",
+            get_iso_name_filter('Epsilon')
         ]
     },
     'B.1.526': {
         'filter': [
-            include_mutations([
-                'B.1.526 Spike',
-                'B.1.526 full genome',
-            ])
+            get_iso_name_filter('Iota')
+        ]
+    },
+    'B.1.617.2': {
+        'filter': [
+            get_iso_name_filter('Delta')
+        ]
+    },
+    'B.1.617.1': {
+        'filter': [
+            get_iso_name_filter('Kappa')
         ]
     },
 }
@@ -104,6 +109,9 @@ def gen_table_mab_variant(
     cursor = conn.cursor()
 
     records = []
+
+    uniq_record_list = set()
+
     for row_name, attr_r in ROWS.items():
         for resist_name, resist_filter in RESISTANCE_FILTER.items():
             r_filter = attr_r.get('filter', [])
@@ -113,6 +121,7 @@ def gen_table_mab_variant(
                 rx_type=RX_MAB,
                 control_variants=CONTROL_VARIANTS_SQL,
             )
+
             # print(sql)
 
             cursor.execute(sql)
@@ -132,6 +141,17 @@ def gen_table_mab_variant(
                 if iso_name.endswith('full genome'):
                     reference = '{}*'.format(reference)
                     iso_name = iso_name.split()[0]
+
+                uniq_record = (
+                    iso_name,
+                    ab_name,
+                    reference,
+                    fold,
+                )
+                if uniq_record in uniq_record_list:
+                    continue
+                else:
+                    uniq_record_list.add(uniq_record)
 
                 records.append({
                     'Variant name': iso_name,

@@ -15,7 +15,8 @@ from variant.preset import CONTROL_VARIANTS_SQL
 
 def gen_plasma_indiv_table(
         conn, row_filters, subrow_filters,
-        sql_template, record_modifier=None):
+        sql_template,
+        plasma_type=None, record_modifier=None):
 
     cursor = conn.cursor()
 
@@ -72,6 +73,10 @@ def gen_plasma_indiv_table(
 
                     rec['Reference'] = reference
 
+                    # if plasma_type == 'CP':
+                    #     rec['timing'] = row['timing']
+                    #     rec['severity'] = row['severity']
+
     for rec in records.values():
         folds = rec.get('folds', [])
         if folds:
@@ -117,7 +122,8 @@ def record_modifier(record):
 
 def gen_plasma_aggre_table(
         conn, row_filters, subrow_filters,
-        sql_template, record_modifier=None):
+        sql_template,
+        plasma_type=None, record_modifier=None):
 
     cursor = conn.cursor()
 

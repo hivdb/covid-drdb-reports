@@ -86,14 +86,20 @@ RX_COMBO_MAB_SQL = """
 SELECT
     ref_name,
     rx_name,
-    rx_name as ab_name,
-    '' as availability,
+    group_concat(a.ab_name, '/') as ab_name,
+    availability as availability,
     '' as pdb_id,
     '' as target,
     '' as class
-FROM rx_antibodies
-GROUP BY ref_name, rx_name
-HAVING count(ab_name) > 1
+FROM
+    rx_antibodies as a,
+    antibodies as b
+on
+    a.ab_name = b.ab_name
+GROUP BY
+    ref_name, rx_name
+HAVING
+    count(a.ab_name) > 1
 """
 
 RX_MAB = """{single_mab} UNION {combo_mab}""".format(

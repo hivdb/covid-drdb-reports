@@ -11,17 +11,22 @@ SHOW_VARIANT = [
     'P.1',
     'B.1.526',
     'B.1.427/9',
+    'B.1.617.1',
+    'B.1.617.2',
     'N501Y',
     'E484K',
     'K417N',
-    'L452R',
-    'N439K',
-    'Y453F',
+    # 'L452R',
+    # 'N439K',
+    # 'Y453F',
     # 'F490S',
     # 'S494P',
-    '∆69/70',
-    '∆144',
+    # '∆69/70',
+    # '∆144',
 ]
+
+
+REGULAR_PLASMA_NAMES = ['CP', 'BNT', 'MOD', 'AZD', 'OTHER']
 
 
 def group_variants(variant_groups, records):
@@ -47,19 +52,26 @@ def process_record(variant, records):
     for r in records:
         plasma = r['Plasma']
         if plasma.startswith('CP'):
-            cp_groups['cp'].append(r)
+            cp_groups['CP'].append(r)
         elif plasma.lower() in ('mild', 'severe'):
-            cp_groups['cp'].append(r)
+            cp_groups['CP'].append(r)
         elif plasma == 'IVIG':
-            cp_groups['cp'].append(r)
+            cp_groups['CP'].append(r)
+        elif plasma.upper().startswith('BNT'):
+            cp_groups['BNT'].append(r)
+        elif plasma.upper().startswith('MOD'):
+            cp_groups['MOD'].append(r)
+        elif plasma.upper() == 'mRNA-1273'.upper():
+            cp_groups['MOD'].append(r)
+        elif plasma.upper().startswith('AZD'):
+            cp_groups['AZD'].append(r)
         else:
-            cp_groups['vac'].append(r)
+            # print(plasma)
+            cp_groups['OTHER'].append(r)
 
-    if 'vac' not in cp_groups:
-        cp_groups['vac'] = []
-
-    if 'cp' not in cp_groups:
-        cp_groups['cp'] = []
+    for name in REGULAR_PLASMA_NAMES:
+        if name not in cp_groups:
+            cp_groups['vac'] = []
 
     result = {'variant': variant}
     for plasma, rec_list in cp_groups.items():
@@ -121,7 +133,7 @@ def gen_plasma_figure():
     figure_results = []
     for item in result:
         variant = item['variant']
-        for plasma in ['vac', 'cp']:
+        for plasma in REGULAR_PLASMA_NAMES:
             for susc in ['s', 'i', 'r']:
                 figure_results.append({
                     'variant': variant,

@@ -1,13 +1,12 @@
 ﻿Control,Samples
-Wuhan-Hu-1,6570
-S:614G,5373
-WA1,289
-B.1 full genome,1222
+Wuhan-Hu-1,6605
+S:614G,5400
+WA1,429
+B.1 full genome,1296
 hCoV-19/India/2020770,38
 19A_1707038,202
 B.1.1.50 full genome,36
-WA1 Spike,40
-Wuhan-Hu-1 Spike,889
+Wuhan-Hu-1 Spike,854
 B.1 clade G full genome,12
 B.1.1.7 Spike,55
 B.1.1.7 Spike:-144del+145del,68

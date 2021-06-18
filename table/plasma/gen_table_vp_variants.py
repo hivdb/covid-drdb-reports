@@ -22,7 +22,7 @@ def gen_table_vp_variants(
         VARIANTS,
         VP_FILTER,
         INDIVIDUAL_RESULTS_SQL,
-        record_modifier
+        record_modifier=record_modifier
     )
 
     aggre_records = gen_plasma_aggre_table(
@@ -30,7 +30,7 @@ def gen_table_vp_variants(
         VARIANTS,
         VP_FILTER,
         AGGREGATED_RESULTS_SQL,
-        record_modifier
+        record_modifier=record_modifier
     )
 
     records = indiv_records + aggre_records

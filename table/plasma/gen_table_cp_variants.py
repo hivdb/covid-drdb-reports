@@ -7,8 +7,8 @@ from .common import gen_plasma_aggre_table
 from .common import convert_to_json
 from .preset import CP_FILTER
 from .preset import VARIANTS
-from .preset import INDIVIDUAL_RESULTS_SQL
-from .preset import AGGREGATED_RESULTS_SQL
+from .preset import INDIVIDUAL_CP_SQL
+from .preset import AGGREGATED_CP_SQL
 from .common import record_modifier
 
 
@@ -21,16 +21,18 @@ def gen_table_cp_variants(
         conn,
         VARIANTS,
         CP_FILTER,
-        INDIVIDUAL_RESULTS_SQL,
-        record_modifier
+        INDIVIDUAL_CP_SQL,
+        'CP',
+        record_modifier=record_modifier
     )
 
     aggre_records = gen_plasma_aggre_table(
         conn,
         VARIANTS,
         CP_FILTER,
-        AGGREGATED_RESULTS_SQL,
-        record_modifier
+        AGGREGATED_CP_SQL,
+        'CP',
+        record_modifier=record_modifier
     )
 
     records = indiv_records + aggre_records

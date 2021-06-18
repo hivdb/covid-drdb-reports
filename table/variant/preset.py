@@ -84,6 +84,7 @@ WHERE
     )
 """
 
+
 def gen_control_variants(conn):
     global CONTROL_VARIANTS_SQL
 
@@ -102,6 +103,52 @@ def gen_control_variants(conn):
     CONTROL_VARIANTS_SQL = '({})'.format(
         ', '.join(["'{}'".format(i) for i in iso_names])
     )
+
+
+ISO_NAME_SQL = """
+SELECT
+    iso_name,
+    var_name
+FROM
+    isolates
+"""
+
+ISO_NAME2VAR_NAME = {}
+VAR_NAME2ISO_NAMES = defaultdict(list)
+
+
+def gen_iso_name2var_name(conn):
+    global ISO_NAME2VAR_NAME
+    global VAR_NAME2ISO_NAMES
+
+    cursor = conn.cursor()
+    cursor.execute(ISO_NAME_SQL)
+
+    for rec in cursor.fetchall():
+        iso_name = rec['iso_name']
+        var_name = rec['var_name']
+
+        if not var_name:
+            continue
+        ISO_NAME2VAR_NAME[iso_name] = var_name
+
+        VAR_NAME2ISO_NAMES[var_name].append(iso_name)
+
+
+def get_iso_names_by_var_name(var_name, selector='all'):
+    iso_names = VAR_NAME2ISO_NAMES.get(var_name, [])
+
+    if not iso_names:
+        return ''
+
+    if selector == 'all':
+        pass
+    elif selector == 'spike':
+        iso_names = [s for s in iso_names if not s.endswith('full genome')]
+    elif selector == 'genome':
+        iso_names = [s for s in iso_names if s.endswith('full genome')]
+
+    return ','.join(["'{}'".format(s) for s in iso_names])
 
 
 INDIV_VARIANT = {}

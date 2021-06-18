@@ -19,6 +19,9 @@ def gen_report(db_path):
     from variant.preset import get_grouped_variants
     get_grouped_variants(conn)
 
+    from variant.preset import gen_iso_name2var_name
+    gen_iso_name2var_name(conn)
+
     # from plasma.preset import CP_VIEW
     # print(CP_VIEW)
     from plasma.gen_table_cp_summary import gen_table_cp_summary

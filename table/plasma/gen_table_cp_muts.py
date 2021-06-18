@@ -7,8 +7,8 @@ from .common import gen_plasma_aggre_table
 from .common import convert_to_json
 from .preset import CP_FILTER
 from .preset import MUTATIONS
-from .preset import INDIVIDUAL_RESULTS_SQL
-from .preset import AGGREGATED_RESULTS_SQL
+from .preset import INDIVIDUAL_CP_SQL
+from .preset import AGGREGATED_CP_SQL
 
 
 def gen_table_cp_muts(
@@ -20,14 +20,16 @@ def gen_table_cp_muts(
         conn,
         MUTATIONS,
         CP_FILTER,
-        INDIVIDUAL_RESULTS_SQL
+        INDIVIDUAL_CP_SQL,
+        'CP',
     )
 
     aggre_records = gen_plasma_aggre_table(
         conn,
         MUTATIONS,
         CP_FILTER,
-        AGGREGATED_RESULTS_SQL
+        AGGREGATED_CP_SQL,
+        'CP',
     )
 
     records = indiv_records + aggre_records

@@ -6,6 +6,21 @@ from collections import defaultdict
 from variant_filter import include_mutations
 from variant_filter import exclude_mutations
 from variant.preset import CONTROL_VARIANTS_SQL
+from variant.preset import get_iso_names_by_var_name
+
+
+def get_iso_name_filter(var_name, selector='all'):
+
+    iso_names = get_iso_names_by_var_name(var_name, selector)
+
+    return "AND s.iso_name IN ({})".format(iso_names)
+
+
+def get_iso_name_ignore(var_name, selector='all'):
+
+    iso_names = get_iso_names_by_var_name(var_name, selector)
+
+    return "AND s.iso_name NOT IN ({})".format(iso_names)
 
 
 TABLE_SUMMARY_CP_SQL = """
@@ -130,49 +145,29 @@ TABLE_SUMMARY_ROWS = {
     },
     'B.1.1.7': {
         'filter': [
-            "AND s.iso_name IN ('B.1.1.7 Spike', 'B.1.1.7 full genome')",
+            get_iso_name_filter('Alpha')
         ]
     },
     'B.1.351': {
         'filter': [
-            "AND s.iso_name IN ('B.1.351 Spike', 'B.1.351 full genome')",
+            get_iso_name_filter('Beta')
         ]
     },
     'P.1': {
         'filter': [
-            "AND s.iso_name IN ('P.1 Spike', 'P.1 full genome')",
+            get_iso_name_filter('Gamma')
         ]
     },
     'B.1.427/9': {
         'filter': [
-            "AND s.iso_name IN ("
-            "    'B.1.427 full genome',"
-            "    'B.1.429 full genome',"
-            "    'B.1.429 Spike')",
+            get_iso_name_filter('Epsilon')
         ]
     },
     'B.1.526': {
         'filter': [
-            include_mutations([
-                'B.1.526 Spike',
-                'B.1.526 full genome',
-            ])
+            get_iso_name_filter('Iota')
         ]
     },
-    # 'B.1.1.7 + B.1.351': {
-    #     'filter': [
-    #         (
-    #             "AND ("
-    #             "      s.iso_name IN ('B.1.1.7 Spike',
-    #                                      'B.1.1.7 full genome')"
-    #             "   OR s.iso_name IN ('B.1.351 Spike',
-    #                                      'B.1.351 full genome')"
-    #             "   OR s.iso_name IN ('P.1 Spike',
-    #                                      'P.1 full genome')"
-    #             "   )"
-    #         ),
-    #     ]
-    # },
     'Other combinations of mutations': {
         'join': [
             "isolates AS vs",
@@ -184,23 +179,11 @@ TABLE_SUMMARY_ROWS = {
         'filter': [
             "AND vs.iso_name = s.iso_name",
             "AND sm.num_muts > 1 AND sm.iso_name = s.iso_name",
-            exclude_mutations([
-                'B.1.1.7 Spike',
-                'B.1.1.7 full genome',
-            ]),
-            exclude_mutations([
-                'B.1.351 Spike',
-                'B.1.351 full genome',
-            ]),
-            exclude_mutations([
-                'P.1 Spike',
-                'P.1 full genome',
-            ]),
-            exclude_mutations([
-                'B.1.427 full genome',
-                'B.1.429 full genome',
-                'B.1.429 Spike'
-            ]),
+            get_iso_name_ignore('Alpha'),
+            get_iso_name_ignore('Beta'),
+            get_iso_name_ignore('Gamma'),
+            get_iso_name_ignore('Epsilon'),
+            get_iso_name_ignore('Iota'),
             exclude_mutations([
                 'S:484K',
                 'S:484K+614G'
@@ -209,10 +192,6 @@ TABLE_SUMMARY_ROWS = {
                 'S:501Y',
                 'S:501Y+614G'
             ]),
-            exclude_mutations([
-                'B.1.526 Spike',
-                'B.1.526 full genome',
-            ])
         ]
     },
     "All combinations of mutations": {
