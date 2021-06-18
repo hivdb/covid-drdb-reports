@@ -45,12 +45,28 @@ MAB_RENAME = {
 }
 
 ANTIBODY_TARGET_SQL = """
-(SELECT DISTINCT * FROM antibody_targets
-WHERE ab_name NOT IN (
-    SELECT ab_name FROM 'antibody_targets' WHERE pdb_id IS NOT null)
+(
+    SELECT
+        DISTINCT *
+    FROM
+        antibody_targets
+    WHERE
+        ab_name NOT IN (
+            SELECT
+                ab_name
+            FROM
+                antibody_targets
+            WHERE
+                pdb_id IS NOT null
+            )
 UNION
-SELECT DISTINCT * FROM antibody_targets
-WHERE pdb_id IS NOT null)
+    SELECT
+        DISTINCT *
+    FROM
+        antibody_targets
+    WHERE
+        pdb_id IS NOT null
+)
 """
 
 ANTIBODY_INFO_SQL = """
@@ -61,8 +77,11 @@ SELECT
     b.target,
     b.class
 FROM
-    antibodies AS a LEFT JOIN {antibody_target_sql} AS b
-ON a.ab_name = b.ab_name
+    antibodies AS a
+    LEFT JOIN
+    {antibody_target_sql} AS b
+ON
+    a.ab_name = b.ab_name
 """.format(antibody_target_sql=ANTIBODY_TARGET_SQL)
 
 RX_SINGLE_MAB_SQL = """

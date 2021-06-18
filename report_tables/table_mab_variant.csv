@@ -101,6 +101,9 @@ B.1.1.7,COVA1-16,RBD Core Cluster II,0.8,Wang21b
 B.1.1.7,COVA1-16,RBD Core Cluster II,0.3,Wang21b*
 B.1.1.7,DH1047,RBD Core Cluster II,1.2,Shen21
 B.1.1.7,DH1047,RBD Core Cluster II,0.4,Shen21
+B.1.1.7,P22A-1D1,RBM,14,Wang21f
+B.1.1.7,P5A-1D2,RBM,3.3,Wang21f
+B.1.1.7,P5A-3C8,RBM,2.2,Wang21f
 B.1.1.7,XAV-19,RBM,1,Vanhove21*
 B.1.1.7,B38,RBM Class I,1.2,Shen21
 B.1.1.7,B38,RBM Class I,14,Shen21
@@ -209,6 +212,8 @@ B.1.351,5-24,NTD,>100,Wang21b*
 B.1.351,S2L28,NTD,>100,McCallum21
 B.1.351,S2M28,NTD,>100,McCallum21
 B.1.351,S2X333,NTD,>100,McCallum21
+B.1.351,CV2-75,RBD Core,2.4,Stamatatos21
+B.1.351,CV2-75,RBD Core,1.5,Stamatatos21
 B.1.351,2-43,RBD Core Cluster I,>100,Wang21b
 B.1.351,2-43,RBD Core Cluster I,>100,Wang21b*
 B.1.351,C135,RBD Core Cluster I,0.8,Wang21b

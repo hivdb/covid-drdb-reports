@@ -718,6 +718,27 @@
             },
             {
                 "variant": "B.1.1.7",
+                "rx": "P22A-1D1",
+                "mab_class": "RBM",
+                "fold": "14",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "P5A-1D2",
+                "mab_class": "RBM",
+                "fold": "3.3",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "P5A-3C8",
+                "mab_class": "RBM",
+                "fold": "2.2",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "B.1.1.7",
                 "rx": "XAV-19",
                 "mab_class": "RBM",
                 "fold": "1",
@@ -1476,6 +1497,20 @@
                 "mab_class": "NTD",
                 "fold": "&gt;100",
                 "reference": "McCallum21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "CV2-75",
+                "mab_class": "RBD Core",
+                "fold": "2.4",
+                "reference": "Stamatatos21"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "CV2-75",
+                "mab_class": "RBD Core",
+                "fold": "1.5",
+                "reference": "Stamatatos21"
             },
             {
                 "variant": "B.1.351",
