@@ -365,6 +365,11 @@ VP_RENAME = {
     'Mod_2nd': 'mRNA-1273',
     'BBIBP': 'BBIBP-CorV',
     'ZF2001': 'ZF2001',
+    'AZD_W10': 'AZD1222',
+    'BNT_W8': 'BNT162b2',
+    'Ad26': 'Ad26.COV2.S',
+    'Ad26.COV2.S': 'Ad26.COV2.S',
+    'MOD_uninfected': 'mRNA-1273',
 }
 
 
@@ -384,7 +389,13 @@ VP_IGNORE = [
     ('Planas21', 'BNT_W5'),
     ('Stankov21', 'BNT_1st_dose'),
     ('Pegu21', 'Mod_2nd_7M'),
+    ('Pegu21', 'Mod_1st'),
+    ('Pegu21', 'Mod_2nd_4M'),
     ('Pegu21*', 'Mod_2nd_7M'),
     ('Pegu21*', 'Mod_2nd_4M'),
     ('Pegu21*', 'Mod_1st'),
+    ('Planas21b', 'BNT_W16'),
+    ('Planas21b*', 'BNT_W16'),
+    ('Stamatatos21', 'BNT_dose1'),
+    ('Stamatatos21', 'MOD_dose1')
 ]

@@ -15,6 +15,16 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "AZD1222",
+                "samples": 12,
+                "s_fold": 12,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21b*",
+                "median": 1.1
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "AZD1222",
                 "samples": 10,
                 "s_fold": 9,
                 "i_fold": 1,
@@ -31,16 +41,6 @@
                 "r_fold": 0,
                 "reference": "Supasa21*",
                 "median": "2.2"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "AZD_W10",
-                "samples": 12,
-                "s_fold": 12,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Planas21b*",
-                "median": 1.1
             },
             {
                 "variant": "B.1.1.7",
@@ -235,6 +235,16 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "BNT162b2",
+                "samples": 16,
+                "s_fold": 16,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21b*",
+                "median": 0.5
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "BNT162b2",
                 "samples": 24,
                 "s_fold": 17,
                 "i_fold": 7,
@@ -411,16 +421,6 @@
                 "r_fold": 0,
                 "reference": "Planas21",
                 "median": "0.9"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "BNT_W8",
-                "samples": 16,
-                "s_fold": 16,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Planas21b*",
-                "median": 0.5
             },
             {
                 "variant": "B.1.1.7",
@@ -620,16 +620,6 @@
             {
                 "variant": "B.1.351",
                 "rx": "AZD1222",
-                "samples": 18,
-                "s_fold": 1,
-                "i_fold": 12,
-                "r_fold": 5,
-                "reference": "Zhou21b*",
-                "median": "7.8"
-            },
-            {
-                "variant": "B.1.351",
-                "rx": "AZD_W10",
                 "samples": 12,
                 "s_fold": 0,
                 "i_fold": 0,
@@ -639,7 +629,17 @@
             },
             {
                 "variant": "B.1.351",
-                "rx": "Ad26",
+                "rx": "AZD1222",
+                "samples": 18,
+                "s_fold": 1,
+                "i_fold": 12,
+                "r_fold": 5,
+                "reference": "Zhou21b*",
+                "median": "7.8"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "Ad26.COV2.S",
                 "samples": 27,
                 "s_fold": 2,
                 "i_fold": 3,
@@ -820,6 +820,16 @@
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
+                "samples": 16,
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 16,
+                "reference": "Planas21b*",
+                "median": 14.1
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2",
                 "samples": 23,
                 "s_fold": 4,
                 "i_fold": 15,
@@ -989,16 +999,6 @@
             },
             {
                 "variant": "B.1.351",
-                "rx": "BNT_W8",
-                "samples": 16,
-                "s_fold": 0,
-                "i_fold": 0,
-                "r_fold": 16,
-                "reference": "Planas21b*",
-                "median": 14.1
-            },
-            {
-                "variant": "B.1.351",
                 "rx": "BNT_dose1",
                 "samples": 18,
                 "s_fold": 7,
@@ -1046,16 +1046,6 @@
                 "r_fold": 1,
                 "reference": "Stamatatos21",
                 "median": "3.8"
-            },
-            {
-                "variant": "B.1.351",
-                "rx": "MOD_uninfected",
-                "samples": 2,
-                "s_fold": 0,
-                "i_fold": 1,
-                "r_fold": 1,
-                "reference": "Stamatatos21",
-                "median": "12"
             },
             {
                 "variant": "B.1.351",
@@ -1256,6 +1246,16 @@
                 "r_fold": 12,
                 "reference": "Shen21b",
                 "median": "9.1"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "mRNA-1273",
+                "samples": 2,
+                "s_fold": 0,
+                "i_fold": 1,
+                "r_fold": 1,
+                "reference": "Stamatatos21",
+                "median": "12"
             },
             {
                 "variant": "B.1.351",
@@ -1544,7 +1544,7 @@
         "assays": [
             {
                 "variant": "B.1.617.1",
-                "rx": "AZD_W10",
+                "rx": "AZD1222",
                 "samples": 12,
                 "s_fold": 0,
                 "i_fold": 0,
@@ -1574,6 +1574,16 @@
             },
             {
                 "variant": "B.1.617.1",
+                "rx": "BNT162b2",
+                "samples": 16,
+                "s_fold": 16,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Planas21b",
+                "median": 1.7
+            },
+            {
+                "variant": "B.1.617.1",
                 "rx": "BNT_W16",
                 "samples": 13,
                 "s_fold": 0,
@@ -1581,16 +1591,6 @@
                 "r_fold": 0,
                 "reference": "Planas21b",
                 "median": 3.2
-            },
-            {
-                "variant": "B.1.617.1",
-                "rx": "BNT_W8",
-                "samples": 16,
-                "s_fold": 16,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Planas21b",
-                "median": 1.7
             }
         ]
     },
