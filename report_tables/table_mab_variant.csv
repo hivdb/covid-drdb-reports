@@ -321,18 +321,34 @@ B.1.526,Casirivimab,RBM Class I,12,Zhou21c
 B.1.526,Etesevimab,RBM Class I,1.4,Zhang21c
 B.1.526,Etesevimab,RBM Class I,2.9,Zhang21c
 B.1.526,Bamlanivimab,RBM Class II,>100,FDA21
+B.1.617.1,ADG20,,2.5,Liu21f
 B.1.617.1,Bamlanivimab/Etesevimab,,5,Hoffmann21c
 B.1.617.1,Casirivimab/Imdevimab,,1,FDA21
 B.1.617.1,Casirivimab/Imdevimab,,1,Hoffmann21c
+B.1.617.1,Cilgavimab,,5.1,Liu21f
+B.1.617.1,Cilgavimab/Tixagevimab,,2,Liu21f
+B.1.617.1,Tixagevimab,,0.7,Liu21f
 B.1.617.1,Imdevimab,RBD Core Cluster I,1,Hoffmann21c
+B.1.617.1,Imdevimab,RBD Core Cluster I,1.5,Liu21f
 B.1.617.1,Vir-7831,RBD Core Cluster I,0.7,FDA21
 B.1.617.1,Casirivimab,RBM Class I,4.1,Hoffmann21c
+B.1.617.1,Casirivimab,RBM Class I,5,Liu21f
 B.1.617.1,Etesevimab,RBM Class I,0.8,Hoffmann21c
+B.1.617.1,Etesevimab,RBM Class I,0.4,Liu21f
 B.1.617.1,Bamlanivimab,RBM Class II,>100,Hoffmann21c
+B.1.617.1,Bamlanivimab,RBM Class II,>100,Liu21f
+B.1.617.2,ADG20,,1.4,Liu21f
 B.1.617.2,Casirivimab/Imdevimab,,1,FDA21
+B.1.617.2,Cilgavimab,,2.9,Liu21f
+B.1.617.2,Cilgavimab/Tixagevimab,,0.6,Liu21f
+B.1.617.2,Tixagevimab,,0.5,Liu21f
+B.1.617.2,Imdevimab,RBD Core Cluster I,0.5,Liu21f
 B.1.617.2,Imdevimab,RBD Core Cluster I,1,Planas21b
+B.1.617.2,Casirivimab,RBM Class I,0.6,Liu21f
 B.1.617.2,Casirivimab,RBM Class I,1,Planas21b
+B.1.617.2,Etesevimab,RBM Class I,0.4,Liu21f
 B.1.617.2,Etesevimab,RBM Class I,1,Planas21b
+B.1.617.2,Bamlanivimab,RBM Class II,>100,Liu21f
 B.1.617.2,Bamlanivimab,RBM Class II,>100,Planas21b
 P.1,1-57,,1.2,Wang21d
 P.1,2-7,,0.8,Wang21d

@@ -1,25 +1,25 @@
 [
     {
         "variant": "B.1.1.7",
-        "cp_studies": 32,
-        "cp_samples": 898,
-        "cp_s_fold": "85%",
-        "cp_i_fold": "13%",
+        "cp_studies": 31,
+        "cp_samples": 864,
+        "cp_s_fold": "86%",
+        "cp_i_fold": "12%",
         "cp_r_fold": "2%",
-        "cp_num_s_fold": 760,
-        "cp_num_i_fold": 121,
+        "cp_num_s_fold": 740,
+        "cp_num_i_fold": 107,
         "cp_num_r_fold": 17
     },
     {
         "variant": "B.1.351",
-        "cp_studies": 35,
-        "cp_samples": 965,
-        "cp_s_fold": "32%",
-        "cp_i_fold": "46%",
-        "cp_r_fold": "22%",
-        "cp_num_s_fold": 312,
-        "cp_num_i_fold": 448,
-        "cp_num_r_fold": 205
+        "cp_studies": 34,
+        "cp_samples": 936,
+        "cp_s_fold": "33%",
+        "cp_i_fold": "47%",
+        "cp_r_fold": "20%",
+        "cp_num_s_fold": 310,
+        "cp_num_i_fold": 437,
+        "cp_num_r_fold": 189
     },
     {
         "variant": "P.1",
@@ -34,14 +34,14 @@
     },
     {
         "variant": "B.1.617.2",
-        "cp_studies": 2,
-        "cp_samples": 36,
-        "cp_s_fold": "47%",
-        "cp_i_fold": "39%",
-        "cp_r_fold": "14%",
-        "cp_num_s_fold": 17,
-        "cp_num_i_fold": 14,
-        "cp_num_r_fold": 5
+        "cp_studies": 3,
+        "cp_samples": 66,
+        "cp_s_fold": "41%",
+        "cp_i_fold": "48%",
+        "cp_r_fold": "11%",
+        "cp_num_s_fold": 27,
+        "cp_num_i_fold": 32,
+        "cp_num_r_fold": 7
     },
     {
         "variant": "B.1.526",
@@ -67,14 +67,14 @@
     },
     {
         "variant": "B.1.617.1",
-        "cp_studies": 2,
-        "cp_samples": 71,
-        "cp_s_fold": "21%",
-        "cp_i_fold": "38%",
-        "cp_r_fold": "41%",
-        "cp_num_s_fold": 15,
-        "cp_num_i_fold": 27,
-        "cp_num_r_fold": 29
+        "cp_studies": 3,
+        "cp_samples": 105,
+        "cp_s_fold": "36%",
+        "cp_i_fold": "35%",
+        "cp_r_fold": "29%",
+        "cp_num_s_fold": 38,
+        "cp_num_i_fold": 37,
+        "cp_num_r_fold": 30
     },
     {
         "variant": "N501Y",

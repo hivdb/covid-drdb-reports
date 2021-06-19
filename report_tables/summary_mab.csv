@@ -1,24 +1,24 @@
 ﻿mab,results,avail,target,pdb
-Etesevimab,206,Phase 3,RBD,7C01
-Imdevimab,199,Phase 3,RBD,6XDG
-Casirivimab,196,Phase 3,RBD,6XDG
+Etesevimab,209,Phase 3,RBD,7C01
+Imdevimab,202,Phase 3,RBD,6XDG
+Casirivimab,199,Phase 3,RBD,6XDG
 Vir-7831,150,Phase 3,RBD,6WPS
 BRII-196,146,Phase 3,RBD,7CDI
-Bamlanivimab,79,Phase 3,RBD,7KMG
+Bamlanivimab,82,Phase 3,RBD,7KMG
 BRII-198,47,Phase 3,RBD,
-Cilgavimab,39,Phase 3,RBD,7L7E
-Tixagevimab,39,Phase 3,RBD,7L7D
+Cilgavimab,42,Phase 3,RBD,7L7E
+Tixagevimab,42,Phase 3,RBD,7L7D
 Regdanvimab,4,Phase 3,RBD,7CM4
 Casirivimab/Imdevimab,78,Phase 3,,
 Bamlanivimab/Etesevimab,29,Phase 3,,
-Cilgavimab/Tixagevimab,21,Phase 3,,
+Cilgavimab/Tixagevimab,24,Phase 3,,
 Imdevimab/REGN10989,12,Phase 3,,
 BRII-196/BRII-198,4,Phase 3,,
 XAV-19,2,Phase 2,RBD,
 C144,104,Phase 1,RBD,7K90
 C135,71,Phase 1,RBD,7K8Z
 JMB2002,12,Phase 1,RBD,
-ADG20,3,Phase 1,RBD,
+ADG20,6,Phase 1,RBD,
 C135/C144,5,Phase 1,,
 H00S022,116,,RBD,
 P2B-2F6,105,,RBD,7BWJ
@@ -131,6 +131,8 @@ DH1043,6,,RBD,7LJR
 DH1047,6,,RBD,7LD1
 DH1041,6,,RBD,7LAA
 Vir-7832,6,,RBD,
+ADG10,6,,RBD,
+ADG30,6,,RBD,
 COV2-2165,6,,RBD,
 COV2-2832,6,,RBD,
 COVOX-384,5,,RBD,7BEP
@@ -164,8 +166,6 @@ S2X619,3,,RBD,
 150HC + 222LC,3,,RBD,
 158HC + 222LC,3,,RBD,
 222HC + 222LC,3,,RBD,
-ADG10,3,,RBD,
-ADG30,3,,RBD,
 Fab 150,3,,RBD,
 Fab 158,3,,RBD,
 Fab 175,3,,RBD,
