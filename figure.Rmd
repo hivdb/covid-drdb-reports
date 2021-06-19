@@ -485,10 +485,7 @@ grid.arrange(grobs = plots)
 plasmaDT = read.dbTable('figure_plasma.csv', tables_dir=TABLEDIR) %>%
   mutate(
     variant = ifelse(variant == "B.1.429/B.1.427", "B.1.427/429", variant)
-    ) %>%
-  filter(
-    variant != 'L452R' & variant != "B.1.526"
-  )
+    )
 
 VARIANT = c(
   "B.1.1.7",
@@ -500,17 +497,16 @@ VARIANT = c(
   # "B.1.526",
   "N501Y",
   "E484K",
-  "K417N"
+  # "K417N"
   # "N439K",
-  # "L452R",
+  "L452R"
   # "Y453F",
   # "∆69/70",
   # "∆144"
 )
 
 SUSC_VALUE = c("R", "I", "S")
-STUDY_TYPE = c("CP", "BNT", 'MOD', 'AZD', 'OTHER')
-STUDY_TYPE = c("CP", "BNT", 'MOD', 'AZD')
+STUDY_TYPE = c("CP", "BNT", 'MOD', 'OTHER')
 
 
 plots = list()
@@ -519,6 +515,7 @@ i = 1
 for (st in STUDY_TYPE) {
     dfPlot = plasmaDT %>%
       filter(study == st) %>%
+      filter(variant %in% VARIANT) %>%
       mutate(
         variant = factor(variant, VARIANT),
         susc = factor(susc, SUSC_VALUE)
@@ -562,7 +559,8 @@ for (st in STUDY_TYPE) {
         'S' = "#ffffff"
       )) +
       scale_y_continuous(
-        expand=expansion(mult = c(0, .1))
+        expand=expansion(mult = c(0, .1)),
+        limits=c(0, 1000)
         ) +
       geom_text(
         data=dfAgg,

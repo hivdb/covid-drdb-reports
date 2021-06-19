@@ -15,8 +15,8 @@ SHOW_VARIANT = [
     'B.1.617.2',
     'N501Y',
     'E484K',
-    'K417N',
-    # 'L452R',
+    'L452R',
+    # 'K417N',
     # 'N439K',
     # 'Y453F',
     # 'F490S',
@@ -63,8 +63,8 @@ def process_record(variant, records):
             cp_groups['MOD'].append(r)
         elif plasma.upper() == 'mRNA-1273'.upper():
             cp_groups['MOD'].append(r)
-        elif plasma.upper().startswith('AZD'):
-            cp_groups['AZD'].append(r)
+        # elif plasma.upper().startswith('AZD'):
+        #     cp_groups['AZD'].append(r)
         else:
             # print(plasma)
             cp_groups['OTHER'].append(r)
