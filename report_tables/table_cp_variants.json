@@ -165,6 +165,16 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "CP",
+                "samples": 34,
+                "s_fold": 20,
+                "i_fold": 14,
+                "r_fold": 0,
+                "reference": "Supasa21*",
+                "median": "2.5"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "CP",
                 "samples": 18,
                 "s_fold": 18,
                 "i_fold": 0,
@@ -746,6 +756,16 @@
                 "r_fold": 0,
                 "reference": "Zhang21c",
                 "median": 6.6
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "CP",
+                "samples": 29,
+                "s_fold": 2,
+                "i_fold": 11,
+                "r_fold": 16,
+                "reference": "Zhou21b*",
+                "median": "14"
             },
             {
                 "variant": "B.1.351",
