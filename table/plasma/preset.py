@@ -229,12 +229,12 @@ VARIANTS = {
             get_iso_name_filter('Iota')
         ]
     },
-    'B.1.617.1': {
+    'B.1.617.2': {
         'filter': [
             get_iso_name_filter('Delta')
         ]
     },
-    'B.1.617.2': {
+    'B.1.617.1': {
         'filter': [
             get_iso_name_filter('Kappa')
         ]
