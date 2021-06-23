@@ -26,7 +26,7 @@ SHOW_VARIANT = [
 ]
 
 
-REGULAR_PLASMA_NAMES = ['CP', 'BNT', 'MOD', 'AZD', 'OTHER']
+REGULAR_PLASMA_NAMES = ['CP', 'BNT162b2', 'mRNA-1273', 'AZD1222']
 
 
 def group_variants(variant_groups, records):
@@ -48,7 +48,10 @@ def parse_fold(rec):
 
 
 def process_record(variant, records):
+    global REGULAR_PLASMA_NAMES
+
     cp_groups = defaultdict(list)
+
     for r in records:
         plasma = r['Plasma']
         if plasma.startswith('CP'):
@@ -58,16 +61,17 @@ def process_record(variant, records):
         elif plasma == 'IVIG':
             cp_groups['CP'].append(r)
         elif plasma.upper().startswith('BNT'):
-            cp_groups['BNT'].append(r)
+            cp_groups['BNT162b2'].append(r)
         elif plasma.upper().startswith('MOD'):
-            cp_groups['MOD'].append(r)
+            cp_groups['mRNA-1273'].append(r)
         elif plasma.upper() == 'mRNA-1273'.upper():
-            cp_groups['MOD'].append(r)
-        # elif plasma.upper().startswith('AZD'):
-        #     cp_groups['AZD'].append(r)
+            cp_groups['mRNA-1273'].append(r)
+        elif plasma.upper().startswith('AZD'):
+            cp_groups['AZD1222'].append(r)
         else:
-            # print(plasma)
-            cp_groups['OTHER'].append(r)
+            if plasma not in REGULAR_PLASMA_NAMES:
+                REGULAR_PLASMA_NAMES.append(plasma)
+            cp_groups[plasma].append(r)
 
     for name in REGULAR_PLASMA_NAMES:
         if name not in cp_groups:

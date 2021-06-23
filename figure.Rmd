@@ -355,158 +355,47 @@ plot3
 
 ## Plasma Figure {.tabset}
 
-### CP figure
-```{r cp-figure-paper, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
-
-plasmaDT = read.dbTable('figure_plasma.csv', tables_dir=TABLEDIR) %>%
-  mutate(
-    variant = ifelse(variant == "B.1.429/B.1.427", "B.1.427/429", variant)
-    ) %>%
-  filter(
-    variant != 'L452R' & variant != "B.1.526"
-  )
-
-VARIANT = c(
-  "B.1.1.7",
-  "B.1.351",
-  "P.1",
-  "B.1.427/9",
-  "B.1.617.2",
-  # "B.1.526",
-  "N501Y",
-  "E484K",
-  "K417N",
-  "N439K",
-  # "L452R",
-  "Y453F",
-  "∆69/70",
-  "∆144"
-)
-
-SUSC_VALUE = c("R", "I", "S")
-STUDY_TYPE = c("CP")
-
-plots = list()
-i = 1
-
-for (st in STUDY_TYPE) {
-    dfPlot = plasmaDT %>%
-      filter(study == st) %>%
-      mutate(
-        variant = factor(variant, VARIANT),
-        susc = factor(susc, SUSC_VALUE)
-      )
-
-    dfAgg = dfPlot %>%
-      group_by(variant, num_study) %>%
-      summarise(total=sum(sample_num)) %>%
-      mutate(
-        total_label = ifelse(
-          num_study > 1,
-          yes=sprintf('%s studies', num_study),
-          no=sprintf('%s study', num_study)
-        )
-
-      )
-
-    p <- ggplot(data=dfPlot, aes(x=variant, y=sample_num)) +
-      geom_bar(
-        aes(fill=susc),
-        size=0.2,
-        color="#000000",
-        stat="identity",
-        position='stack'
-      ) +
-      scale_fill_manual(values = c(
-        'R' = "#146aa8",
-        'I' = "#7fcbee",
-        'S' = "#ffffff"
-      )) +
-      scale_y_continuous(
-        expand=expansion(mult = c(0, .1))
-        ) +
-      geom_text(
-        data=dfAgg,
-        aes(y=total, label=total_label),
-        size = 3,
-        vjust = -0.5
-        ) +
-      theme(
-        legend.position = "none",
-        axis.title.x = element_blank(),
-        axis.title.y = element_text(size=20),
-        axis.text.x = element_text(size=10),
-        axis.text.y = element_text(size=15),
-        plot.title = element_text(hjust = 0.5, size=12),
-        strip.background = element_blank(),
-        strip.text = element_blank(),
-        panel.background = element_blank(),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.border = element_rect(fill = NA, color = 'black')
-        ) +
-      ylab("# Samples")
-
-    if (st == 'CP') {
-      figLabel = "Convalescent plasma"
-    }
-    else if (st == 'BNT') {
-      figLabel = "BNT162b2"
-    }
-    else if (st == 'MOD') {
-      figLabel = 'mRNA-1273'
-    }
-    else if (st == 'AZD') {
-      figLabel = 'AZD1222'
-    } else {
-      figLabel = 'Other vaccines'
-    }
-    
-    # p = p + ggtitle("Convalescent plasma")
-    p = p + annotate(
-          "text",
-          y= Inf,
-          x = Inf,
-          label=figLabel,
-          size=5,
-          vjust=2,
-          hjust=1.1)
-
-    plots[[i]] = p
-    i = i + 1
-}
-
-grid.arrange(grobs = plots)
-```
-
 ### VP figure
-```{r vp-figure-paper, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+```{r vp-figure-paper, fig.height=34, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
 
 plasmaDT = read.dbTable('figure_plasma.csv', tables_dir=TABLEDIR) %>%
   mutate(
-    variant = ifelse(variant == "B.1.429/B.1.427", "B.1.427/429", variant)
+    variant = ifelse(variant == "B.1.429/B.1.427", "B.1.427/9", variant)
     )
 
 VARIANT = c(
   "B.1.1.7",
   "B.1.351",
   "P.1",
-  "B.1.427/9",
   "B.1.617.2",
   "B.1.617.1",
+  "B.1.427/9",
   # "B.1.526",
   "N501Y",
   "E484K",
+  "L452R"
   # "K417N"
   # "N439K",
-  "L452R"
   # "Y453F",
   # "∆69/70",
   # "∆144"
 )
 
 SUSC_VALUE = c("R", "I", "S")
-STUDY_TYPE = c("CP", "BNT", 'MOD', 'OTHER')
+STUDY_TYPE = c(
+  "CP", 
+  "BNT162b2", 
+  'mRNA-1273', 
+  'AZD1222',
+  'BBIBP-CorV',
+  'BBV152',
+  'CoronaVac',
+  'NVX-CoV2373',
+  'Sputnik V',
+  'Ad26.COV2.S',
+  'MVC-COV1901',
+  'ZF2001'
+  )
 
 
 plots = list()
@@ -587,17 +476,20 @@ for (st in STUDY_TYPE) {
     if (st == 'CP') {
       figLabel = "Convalescent plasma"
     }
-    else if (st == 'BNT') {
-      figLabel = "BNT162b2"
+    else {
+      figLabel = st
     }
-    else if (st == 'MOD') {
-      figLabel = 'mRNA-1273'
-    }
-    else if (st == 'AZD') {
-      figLabel = 'AZD1222'
-    } else {
-      figLabel = 'Other vaccines'
-    }
+    # else if (st == 'BNT') {
+    #   figLabel = "BNT162b2"
+    # }
+    # else if (st == 'MOD') {
+    #   figLabel = 'mRNA-1273'
+    # }
+    # else if (st == 'AZD') {
+    #   figLabel = 'AZD1222'
+    # } else {
+    #   figLabel = 'Other vaccines'
+    # }
     
     # p = p + ggtitle("Convalescent plasma")
     p = p + annotate(
@@ -613,7 +505,7 @@ for (st in STUDY_TYPE) {
     i = i + 1
 }
 
-grid.arrange(grobs = plots)
+grid.arrange(grobs = plots, ncol=2)
 ```
 
 ## DMS  {.tabset}
