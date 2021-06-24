@@ -144,12 +144,18 @@ read.suscResultsPlasam <- function(
 
   dfPlasma = read.dbTables(
       "rx_plasma",
-      colClasses = c(titer = "character")
+      colClasses = c(
+        titer = "character",
+        subject_name = "character"
+      )
   )
   if (withExcluded) {
     dfPlasma = bind_rows(dfPlasma, read.dbTables(
       "rx_plasma",
-      colClasses = c(titer = "character"),
+      colClasses = c(
+        titer = "character",
+        subject_name = "character"
+      ),
       tables_dir = EXCLUDES_DIR
     ))
   }
@@ -279,13 +285,19 @@ read.suscResultsMAb <- function(
 read.subjectHistory <- function(withExcluded) {
   dfSubjectHistory = read.dbTables(
       "subject_history",
-      colClasses = c(titer = "character")
+      colClasses = c(
+        titer = "character",
+        subject_name = "character"
+        )
       )
 
   if (withExcluded) {
     dfSubjectHistory = bind_rows(dfSubjectHistory, read.dbTables(
       "subject_history",
-      colClasses = c(titer = "character"),
+      colClasses = c(
+        titer = "character",
+        subject_name = "character"
+      ),
       tables_dir = EXCLUDES_DIR
     ))
   }
