@@ -1,7 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from variant.preset import INDIV_VARIANT
-from variant.preset import COMBO_VARIANT
+from variant.preset import ONE_MUT_VARIANT
+from variant.preset import COMBO_MUT_VARIANT
 from variant.preset import group_by_variant
 from plasma.preset import AGGREGATED_RESULTS_SQL
 from variant.preset import CONTROL_VARIANTS_SQL
@@ -39,9 +39,9 @@ def gen_table_variant_aggre(conn):
 
 def get_variant_group(group_name):
     if group_name == 'indiv':
-        return INDIV_VARIANT
+        return ONE_MUT_VARIANT
     else:
-        return COMBO_VARIANT
+        return COMBO_MUT_VARIANT
 
 
 def get_fold_results(mut_group, variant_group_name):

@@ -21,13 +21,20 @@ SELECT
     rx.timing,
     rx.dosage,
     rx.vaccine_name,
+    iso.var_name,
+    sub.subject_species as species,
     SUM(s.cumulative_count) as samples
 FROM
     ({susc_results}) as s,
-    rx_vacc_plasma as rx
+    rx_vacc_plasma as rx,
+    subjects as sub,
+    isolates as iso
 ON
-    s.ref_name = rx.ref_name
-    AND s.rx_name = rx.rx_name
+    s.ref_name = rx.ref_name AND
+    s.rx_name = rx.rx_name AND
+    rx.ref_name = sub.ref_name AND
+    rx.subject_name = sub.subject_name AND
+    s.iso_name = iso.iso_name
 WHERE
     s.fold IS NOT NULL
 GROUP BY
@@ -127,3 +134,19 @@ def gen_vp_summary(conn):
         })
     save_path = DATA_FILE_PATH / 'summary_vp_vaccine.csv'
     dump_csv(save_path, vaccine_results)
+
+    vaccine_species_group = defaultdict(list)
+    for rec in records:
+        vaccine = rec['vaccine_name']
+        species = rec['species']
+        vaccine_species_group[(vaccine, species)].append(rec)
+
+    vaccine_species_results = []
+    for (vaccine, species), rx_list in vaccine_species_group.items():
+        vaccine_species_results.append({
+            'Vaccine': vaccine,
+            'Samples': sum([r['samples'] for r in rx_list]),
+            'Species': species,
+        })
+    save_path = DATA_FILE_PATH / 'summary_vp_vaccine_species.csv'
+    dump_csv(save_path, vaccine_species_results)

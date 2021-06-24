@@ -16,13 +16,16 @@ SELECT
     rx.timing,
     rx.severity,
     rx.infected_iso_name as infection,
+    iso.var_name,
     SUM(s.cumulative_count) as samples
 FROM
     ({susc_results}) as s,
-    rx_conv_plasma as rx
+    rx_conv_plasma as rx,
+    isolates as iso
 ON
-    s.ref_name = rx.ref_name
-    AND s.rx_name = rx.rx_name
+    s.ref_name = rx.ref_name AND
+    s.rx_name = rx.rx_name AND
+    s.iso_name = iso.iso_name
 WHERE
     s.fold IS NOT NULL
 GROUP BY

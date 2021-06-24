@@ -3,8 +3,8 @@ from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from .preset import INDIV_VARIANT
-from .preset import COMBO_VARIANT
+from .preset import ONE_MUT_VARIANT
+from .preset import COMBO_MUT_VARIANT
 from resistancy import round_fold
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
@@ -50,9 +50,9 @@ def gen_table_variant_vp(conn):
 
 def by_variant(conn, indiv_or_combo, save_path):
     if indiv_or_combo == 'indiv':
-        variant_mapper = INDIV_VARIANT
+        variant_mapper = ONE_MUT_VARIANT
     else:
-        variant_mapper = COMBO_VARIANT
+        variant_mapper = COMBO_MUT_VARIANT
     cursor = conn.cursor()
 
     cursor.execute(SQL)
@@ -88,7 +88,7 @@ def by_variant(conn, indiv_or_combo, save_path):
             vaccine_type = rx_list[0]['vaccine_type']
 
             if indiv_or_combo == 'indiv':
-                variant_info = INDIV_VARIANT.get(variant)
+                variant_info = ONE_MUT_VARIANT.get(variant)
                 record_list.append({
                     'variant': variant,
                     'vaccine': vacc_name,
@@ -104,7 +104,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                     'R': num_r,
                 })
             else:
-                variant_info = COMBO_VARIANT.get(variant)
+                variant_info = COMBO_MUT_VARIANT.get(variant)
                 nickname = variant_info['nickname']
                 record_list.append({
                     'variant': variant,

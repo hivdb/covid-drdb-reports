@@ -3,8 +3,8 @@ from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from .preset import INDIV_VARIANT
-from .preset import COMBO_VARIANT
+from .preset import ONE_MUT_VARIANT
+from .preset import COMBO_MUT_VARIANT
 
 from mab.preset import MAB_RENAME
 from mab.preset import RX_MAB
@@ -55,9 +55,9 @@ def gen_table_variant_mab(conn):
 
 def by_variant(conn, indiv_or_combo, save_path):
     if indiv_or_combo == 'indiv':
-        variant_mapper = INDIV_VARIANT
+        variant_mapper = ONE_MUT_VARIANT
     else:
-        variant_mapper = COMBO_VARIANT
+        variant_mapper = COMBO_MUT_VARIANT
 
     cursor = conn.cursor()
     cursor.execute(SQL)
@@ -95,7 +95,7 @@ def by_variant(conn, indiv_or_combo, save_path):
             num_results = sum([r['count'] for r in rx_list] + [0])
 
             if indiv_or_combo == 'indiv':
-                variant_info = INDIV_VARIANT.get(variant)
+                variant_info = ONE_MUT_VARIANT.get(variant)
                 record_list.append({
                     'variant': variant,
                     'RefAA': variant_info['ref_aa'],
@@ -112,7 +112,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                     'R': num_r,
                 })
             else:
-                variant_info = COMBO_VARIANT.get(variant)
+                variant_info = COMBO_MUT_VARIANT.get(variant)
                 nickname = variant_info['nickname']
                 record_list.append({
                     'variant': variant,

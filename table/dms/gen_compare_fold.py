@@ -1,4 +1,4 @@
-from variant.preset import INDIV_VARIANT
+from variant.preset import ONE_MUT_VARIANT
 from variant.preset import CONTROL_VARIANTS_SQL
 from .preset import DMS_POSITIONS
 from preset import DATA_FILE_PATH
@@ -72,7 +72,7 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
 
     for rec in cursor.fetchall():
         iso_name = rec['iso_name']
-        if iso_name not in INDIV_VARIANT.keys():
+        if iso_name not in ONE_MUT_VARIANT.keys():
             continue
 
         ref_name = rec['ref_name']

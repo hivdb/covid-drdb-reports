@@ -14,13 +14,16 @@ SELECT
     s.iso_name,
     rx.availability as avail,
     rx.pdb_id as pdb,
-    rx.target as target
+    rx.target as target,
+    iso.var_name
 FROM
     susc_results as s,
-    ({rx_type}) as rx
+    ({rx_type}) as rx,
+    isolates as iso
 ON
     s.ref_name = rx.ref_name AND
-    s.rx_name = rx.rx_name
+    s.rx_name = rx.rx_name AND
+    s.iso_name = iso.iso_name
 WHERE
     s.inhibition_pcnt != 90
 ;

@@ -1,4 +1,4 @@
-from variant.preset import INDIV_VARIANT
+from variant.preset import ONE_MUT_VARIANT
 from variant.preset import CONTROL_VARIANTS_SQL
 from preset import DATA_FILE_PATH
 from mab.preset import MAB_RENAME
@@ -77,7 +77,7 @@ def gen_missing_fold(
 
     for rec in cursor.fetchall():
         iso_name = rec['iso_name']
-        if iso_name not in INDIV_VARIANT.keys():
+        if iso_name not in ONE_MUT_VARIANT.keys():
             continue
 
         mab = rec['rx_name']

@@ -151,8 +151,8 @@ def get_iso_names_by_var_name(var_name, selector='all'):
     return ','.join(["'{}'".format(s) for s in iso_names])
 
 
-INDIV_VARIANT = {}
-COMBO_VARIANT = {}
+ONE_MUT_VARIANT = {}
+COMBO_MUT_VARIANT = {}
 NO_MUT = []
 
 VARIANT_MUT_SQL = """
@@ -248,8 +248,8 @@ IGNORE_VARIANT_SYNYNOMS = [
 
 def get_grouped_variants(conn):
 
-    global INDIV_VARIANT
-    global COMBO_VARIANT
+    global ONE_MUT_VARIANT
+    global COMBO_MUT_VARIANT
     global NO_MUT
 
     cursor = conn.cursor()
@@ -266,10 +266,10 @@ def get_grouped_variants(conn):
     for mut_key, variant_info in uniq_variant_info.items():
         if variant_info['mut_count'] == 1:
             mutation = variant_info['mut_list'][0]
-            INDIV_VARIANT[mutation['disp']] = mutation
+            ONE_MUT_VARIANT[mutation['disp']] = mutation
 
             for name in variant_info['iso_names']:
-                INDIV_VARIANT[name] = mutation
+                ONE_MUT_VARIANT[name] = mutation
         else:
             main_name, nickname = get_combi_mutation_main_name(variant_info)
             if main_name in IGNORE_VARIANTS:
@@ -278,12 +278,12 @@ def get_grouped_variants(conn):
             nickname = VARIANT_NICKNAMES.get(
                 main_name,
                 VARIANT_NICKNAMES.get(nickname, nickname))
-            COMBO_VARIANT[main_name] = {
+            COMBO_MUT_VARIANT[main_name] = {
                 'disp': main_name,
                 'nickname': nickname,
                 }
             for name in variant_info['iso_names']:
-                COMBO_VARIANT[name] = {
+                COMBO_MUT_VARIANT[name] = {
                     'disp': main_name,
                     'nickname': nickname,
                     }
@@ -293,7 +293,7 @@ def get_grouped_variants(conn):
         NO_MUT.append(rec['iso_name'])
 
     # from pprint import pprint
-    # pprint(list(COMBO_VARIANT.keys()))
+    # pprint(list(COMBO_MUT_VARIANT.keys()))
 
 
 def get_uniq_variant(variant_info):
@@ -446,12 +446,12 @@ def group_by_variant(records):
 
     for rec in records:
         variant = rec['iso_name']
-        main_name = INDIV_VARIANT.get(variant)
+        main_name = ONE_MUT_VARIANT.get(variant)
         if main_name:
             disp_name = main_name['disp']
             indiv_records[disp_name].append(rec)
         else:
-            main_name = COMBO_VARIANT.get(variant)
+            main_name = COMBO_MUT_VARIANT.get(variant)
             if not main_name:
                 continue
             disp_name = main_name['disp']
@@ -464,13 +464,13 @@ def filter_by_variant(records):
     results = []
     for rec in records:
         iso_name = rec['iso_name']
-        if iso_name in INDIV_VARIANT.keys():
+        if iso_name in ONE_MUT_VARIANT.keys():
             results.append(rec)
         elif iso_name == 'S:614G':
             results.append(rec)
         elif iso_name in NO_MUT:
             results.append(rec)
-        elif iso_name in COMBO_VARIANT.keys():
+        elif iso_name in COMBO_MUT_VARIANT.keys():
             results.append(rec)
 
     return results

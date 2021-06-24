@@ -2,8 +2,8 @@ from collections import defaultdict
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from .preset import INDIV_VARIANT
-from .preset import COMBO_VARIANT
+from .preset import ONE_MUT_VARIANT
+from .preset import COMBO_MUT_VARIANT
 from variant.preset import CONTROL_VARIANTS_SQL
 
 SQL = """
@@ -40,9 +40,9 @@ def gen_figure_variant_cp(conn):
 
 def by_variant(conn, indiv_or_combo, save_path):
     if indiv_or_combo == 'indiv':
-        variant_mapper = INDIV_VARIANT
+        variant_mapper = ONE_MUT_VARIANT
     else:
-        variant_mapper = COMBO_VARIANT
+        variant_mapper = COMBO_MUT_VARIANT
 
     cursor = conn.cursor()
 
@@ -61,7 +61,7 @@ def by_variant(conn, indiv_or_combo, save_path):
     for variant, rx_list in variant_group.items():
 
         if indiv_or_combo == 'indiv':
-            variant_info = INDIV_VARIANT.get(variant)
+            variant_info = ONE_MUT_VARIANT.get(variant)
             for r in rx_list:
                 record_list.append({
                     'variant': variant,
@@ -72,7 +72,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                     'fold': r['fold'],
                 })
         else:
-            variant_info = COMBO_VARIANT.get(variant)
+            variant_info = COMBO_MUT_VARIANT.get(variant)
             nickname = variant_info['nickname']
             for r in rx_list:
                 record_list.append({

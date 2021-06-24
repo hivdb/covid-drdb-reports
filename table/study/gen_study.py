@@ -2,8 +2,8 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from collections import defaultdict
 
-from variant.preset import INDIV_VARIANT
-from variant.preset import COMBO_VARIANT
+from variant.preset import ONE_MUT_VARIANT
+from variant.preset import COMBO_MUT_VARIANT
 from variant.preset import group_by_variant
 from mab.preset import RX_MAB
 from variant.preset import CONTROL_VARIANTS_SQL
@@ -77,7 +77,7 @@ def get_indiv_studies(records):
 
     domain_groups = defaultdict(list)
     for variant, rec in records.items():
-        variant_info = INDIV_VARIANT.get(variant)
+        variant_info = ONE_MUT_VARIANT.get(variant)
         domain = variant_info['domain']
         domain_groups[domain].extend(rec)
 

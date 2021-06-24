@@ -10,10 +10,14 @@ SELECT
     s.rx_name,
     s.control_iso_name,
     s.iso_name,
+    iso.var_name,
     s.assay,
     SUM(s.cumulative_count) AS samples
 FROM
-    susc_results AS s
+    susc_results AS s,
+    isolates as iso
+ON
+    s.iso_name = iso.iso_name
 WHERE
     s.inhibition_pcnt != 90
 GROUP BY

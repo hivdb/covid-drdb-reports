@@ -3,8 +3,8 @@ from preset import dump_csv
 from collections import defaultdict
 from operator import itemgetter
 
-from .preset import INDIV_VARIANT
-from .preset import COMBO_VARIANT
+from .preset import ONE_MUT_VARIANT
+from .preset import COMBO_MUT_VARIANT
 from mab.preset import RX_MAB
 from variant.preset import CONTROL_VARIANTS_SQL
 
@@ -117,7 +117,7 @@ def gen_table_variant(conn):
         for rec in cursor.fetchall():
             variant = rec['iso_name']
             count_num = rec['cumulative_count']
-            main_name = INDIV_VARIANT.get(variant)
+            main_name = ONE_MUT_VARIANT.get(variant)
             if main_name:
                 disp_name = main_name['disp']
                 indiv_results[disp_name].append({
@@ -126,7 +126,7 @@ def gen_table_variant(conn):
                     '#Published': count_num or 0
                 })
             else:
-                main_name = COMBO_VARIANT.get(variant)
+                main_name = COMBO_MUT_VARIANT.get(variant)
                 if not main_name:
                     continue
                 disp_name = main_name['disp']
@@ -143,7 +143,7 @@ def gen_table_variant(conn):
     save_indiv = []
     for main_name, record_list in indiv_results.items():
 
-        variant_info = INDIV_VARIANT[main_name]
+        variant_info = ONE_MUT_VARIANT[main_name]
         rx_group = defaultdict(int)
         for item in record_list:
             rx = item['Rx name']
