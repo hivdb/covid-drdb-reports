@@ -3,7 +3,6 @@ from preset import DATA_FILE_PATH
 from preset import round_number
 from collections import defaultdict
 from statistics import median
-from operator import itemgetter
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import filter_by_variant
 from susceptibility import INDIVIDUAL_SAMPLE_SQL

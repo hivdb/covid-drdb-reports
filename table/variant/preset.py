@@ -153,28 +153,21 @@ def get_iso_names_by_var_name(var_name, selector='all'):
 
 ONE_MUT_VARIANT = {}
 COMBO_MUT_VARIANT = {}
-NO_MUT = []
+NO_S_MUT_VARIANT = []
 
 VARIANT_MUT_SQL = """
 SELECT
-    iso_name,
-    position,
-    amino_acid
+    iso_muts.iso_name,
+    iso.var_name,
+    iso_muts.position,
+    iso_muts.amino_acid
 FROM
-    isolate_mutations
-WHERE gene = 'S';
-"""
-
-NO_MUT_SQL = """
-SELECT
-    iso_name
-FROM
-    isolates
-WHERE iso_name
-NOT IN (
-    SELECT iso_name
-    FROM isolate_mutations
-);
+    isolate_mutations AS iso_muts,
+    isolates AS iso
+ON
+    iso_muts.iso_name = iso.iso_name
+WHERE
+    gene = 'S';
 """
 
 IGNORE_VARIANTS = [
@@ -250,28 +243,33 @@ def get_grouped_variants(conn):
 
     global ONE_MUT_VARIANT
     global COMBO_MUT_VARIANT
-    global NO_MUT
+    global NO_S_MUT_VARIANT
 
     cursor = conn.cursor()
     cursor.execute(VARIANT_MUT_SQL)
 
-    variant_info = defaultdict(list)
+    isolate_group = defaultdict(list)
 
     for rec in cursor.fetchall():
-        variant = rec['iso_name']
-        variant_info[variant].append(rec)
+        iso_name = rec['iso_name']
+        isolate_group[iso_name].append(rec)
 
-    uniq_variant_info = get_uniq_variant(variant_info)
+    uniq_isolate_list = get_uniq_isolate_list(isolate_group)
 
-    for mut_key, variant_info in uniq_variant_info.items():
-        if variant_info['mut_count'] == 1:
-            mutation = variant_info['mut_list'][0]
+    for mut_key, isolate_info in uniq_isolate_list.items():
+        if isolate_info['mut_count'] == 1:
+            mutation = isolate_info['mut_list'][0]
             ONE_MUT_VARIANT[mutation['disp']] = mutation
 
-            for name in variant_info['iso_names']:
+            for name in isolate_info['iso_names']:
                 ONE_MUT_VARIANT[name] = mutation
         else:
-            main_name, nickname = get_combi_mutation_main_name(variant_info)
+            if len(isolate_info['var_names']) > 1:
+                print(mut_key)
+                print('iso_name', isolate_info['iso_names'])
+                print('var_name', isolate_info['var_names'])
+
+            main_name, nickname = get_combined_mutation_main_name(isolate_info)
             if main_name in IGNORE_VARIANTS:
                 continue
 
@@ -282,27 +280,33 @@ def get_grouped_variants(conn):
                 'disp': main_name,
                 'nickname': nickname,
                 }
-            for name in variant_info['iso_names']:
+            for name in isolate_info['iso_names']:
                 COMBO_MUT_VARIANT[name] = {
                     'disp': main_name,
                     'nickname': nickname,
                     }
 
-    cursor.execute(NO_MUT_SQL)
+    cursor.execute(NO_S_MUTATION)
     for rec in cursor.fetchall():
-        NO_MUT.append(rec['iso_name'])
+        NO_S_MUT_VARIANT.append(rec['iso_name'])
 
     # from pprint import pprint
     # pprint(list(COMBO_MUT_VARIANT.keys()))
 
 
-def get_uniq_variant(variant_info):
+def get_uniq_isolate_list(isolate_info):
 
-    uniq_variant_info = defaultdict(dict)
+    uniq_isolate_list = defaultdict(dict)
 
-    for variant, info_list in variant_info.items():
+    for iso_name, records in isolate_info.items():
         mut_list = []
-        for rec in info_list:
+
+        uniq_var_name_list = set()
+
+        for rec in records:
+            var_name = rec['var_name'] or ''
+            uniq_var_name_list.add(var_name)
+
             position = rec['position']
             aa = rec['amino_acid']
             ref_aa = SPIKE_REF[position]
@@ -321,29 +325,33 @@ def get_uniq_variant(variant_info):
 
         mut_count = len(mut_list)
         if mut_count == 0:
+            print('No mutations', iso_name)
             continue
 
-        mut_key = ','.join(
+        uniq_mutation_list = ','.join(
             [mut['disp'] for mut in mut_list])
 
-        uniq_variant = uniq_variant_info[mut_key]
-        uniq_variant['mut_count'] = mut_count
+        uniq_isolate = uniq_isolate_list[uniq_mutation_list]
+        uniq_isolate['mut_count'] = mut_count
 
-        uniq_variant['iso_names'] = uniq_variant.get('iso_names', [])
-        uniq_variant['iso_names'].append(variant)
+        uniq_isolate['iso_names'] = uniq_isolate.get('iso_names', [])
+        uniq_isolate['iso_names'].append(iso_name)
 
-        uniq_variant['mut_list'] = mut_list
+        uniq_isolate['var_names'] = uniq_isolate.get('var_names', set())
+        uniq_isolate['var_names'] |= uniq_var_name_list
 
-    for mut_key, uniq_variant in uniq_variant_info.items():
-        mut_list = uniq_variant['mut_list']
+        uniq_isolate['mut_list'] = mut_list
+
+    for uniq_mutation_list, uniq_isolate in uniq_isolate_list.items():
+        mut_list = uniq_isolate['mut_list']
         mut_list = merge_ntd_deletion(mut_list)
-        uniq_variant['mut_list'] = mut_list
-        uniq_variant['mut_count'] = len(mut_list)
+        uniq_isolate['mut_list'] = mut_list
+        uniq_isolate['mut_count'] = len(mut_list)
 
-    return uniq_variant_info
+    return uniq_isolate_list
 
 
-def get_combi_mutation_main_name(variant_info):
+def get_combined_mutation_main_name(variant_info):
     mut_list = variant_info['mut_list']
     nickname = ''
     if len(mut_list) > 20:
@@ -468,7 +476,7 @@ def filter_by_variant(records):
             results.append(rec)
         elif iso_name == 'S:614G':
             results.append(rec)
-        elif iso_name in NO_MUT:
+        elif iso_name in NO_S_MUT_VARIANT:
             results.append(rec)
         elif iso_name in COMBO_MUT_VARIANT.keys():
             results.append(rec)

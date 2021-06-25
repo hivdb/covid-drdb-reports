@@ -3,13 +3,13 @@ SELECT
     a.ref_name,
     a.rx_name,
     event_date as infection_date,
-    d.var_name,
+    iso.var_name,
     c.severity
 FROM
     rx_conv_plasma AS a,
     patient_treatments AS b,
     patient_history AS c,
-    isolates AS d
+    isolates AS iso
 ON
     a.ref_name = b.ref_name
     AND
@@ -19,7 +19,7 @@ ON
     AND
     b.patient_name = c.patient_name
     AND
-    c.iso_name = d.iso_name
+    c.iso_name = iso.iso_name
 WHERE
     c.event = 'infection'
 """
@@ -29,13 +29,13 @@ SELECT
     a.ref_name,
     a.rx_name,
     a.collection_date as isolation_date,
-    d.var_name,
+    iso.var_name,
     c.severity
 FROM
     rx_conv_plasma AS a,
     patient_treatments AS b,
     patient_history AS c,
-    isolates AS d
+    isolates AS iso
 ON
     a.ref_name = b.ref_name
     AND
@@ -45,7 +45,7 @@ ON
     AND
     b.patient_name = c.patient_name
     AND
-    c.iso_name = d.iso_name
+    c.iso_name = iso.iso_name
 WHERE
     c.event = 'isolation'
     AND
