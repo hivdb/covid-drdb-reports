@@ -1,15 +1,15 @@
 ﻿Variant name,CP,VP,mAbs phase3,mAbs structure
 N501Y,221,125,58,35
 E484K,179,94,71,30
-K417N,131,77,45,27
+K417N,136,77,45,27
 K417T,29,0,6,3
 L452R,42,25,21,7
-Other individual mutations,737,644,785,665
-All individual mutations,1154,939,959,756
-B.1.1.7,875,1662,103,61
-B.1.351,965,1697,94,44
-P.1,265,317,33,8
+Other individual mutations,762,644,785,665
+All individual mutations,1184,939,959,756
+B.1.1.7,887,1682,107,61
+B.1.351,977,1697,95,44
+P.1,275,322,36,8
 B.1.427/9,60,246,11,7
 B.1.526,30,85,8,1
-Other combinations of mutations,1261,2098,255,207
-All combinations of mutations,3570,6122,520,336
+Other combinations of mutations,1278,2248,257,207
+All combinations of mutations,3621,6297,530,336

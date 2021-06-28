@@ -1,7 +1,8 @@
 ﻿Assay,Samples
 vsv pseudovirus,6160
-authentic virus,4624
+authentic virus,4700
 chimeric virus,926
-lentivirus pseudovirus,5588
+lentivirus pseudovirus,5383
+HIV pseudovirus,395
 MLV pseudovirus,82
 pseudovirus,21
