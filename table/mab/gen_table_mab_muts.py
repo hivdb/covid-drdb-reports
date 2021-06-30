@@ -146,6 +146,13 @@ ROWS = {
                 'S:439K+614G'])
         ]
     },
+    'T478K': {
+        'filter': [
+            include_mutations([
+                'S:478K',
+                'S:478K+614G'])
+        ]
+    },
 }
 
 
