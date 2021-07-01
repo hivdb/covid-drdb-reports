@@ -49,6 +49,7 @@ SHOW_MABS = {
     'BRII-196/BRII-198': 'b_196_198',
     'JMB2002': 'JMB2002',
     'ADG20': 'ADG20',
+    'Vir-7832': 'Vir7832',
 }
 
 DATA_PROBLEM = [

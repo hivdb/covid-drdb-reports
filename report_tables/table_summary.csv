@@ -21,23 +21,23 @@ L452R,mAbs phase3,21
 L452R,mAbs structure,7
 Other individual mutations,CP,762
 Other individual mutations,VP,644
-Other individual mutations,mAbs phase3,785
+Other individual mutations,mAbs phase3,788
 Other individual mutations,mAbs structure,665
 All individual mutations,CP,1184
 All individual mutations,VP,939
-All individual mutations,mAbs phase3,959
+All individual mutations,mAbs phase3,962
 All individual mutations,mAbs structure,756
 B.1.1.7,CP,887
 B.1.1.7,VP,1682
-B.1.1.7,mAbs phase3,107
+B.1.1.7,mAbs phase3,108
 B.1.1.7,mAbs structure,61
 B.1.351,CP,977
 B.1.351,VP,1697
-B.1.351,mAbs phase3,95
+B.1.351,mAbs phase3,96
 B.1.351,mAbs structure,44
 P.1,CP,275
 P.1,VP,322
-P.1,mAbs phase3,36
+P.1,mAbs phase3,37
 P.1,mAbs structure,8
 B.1.427/9,CP,60
 B.1.427/9,VP,246
@@ -53,5 +53,5 @@ Other combinations of mutations,mAbs phase3,257
 Other combinations of mutations,mAbs structure,207
 All combinations of mutations,CP,3621
 All combinations of mutations,VP,6297
-All combinations of mutations,mAbs phase3,530
+All combinations of mutations,mAbs phase3,533
 All combinations of mutations,mAbs structure,336

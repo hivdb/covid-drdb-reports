@@ -59,6 +59,7 @@ B.1.1.7,Tixagevimab,,1.5,Wang21b
 B.1.1.7,Tixagevimab,,1.7,Chen21*
 B.1.1.7,Tixagevimab,,2.2,Supasa21*
 B.1.1.7,Tixagevimab,,0.3,Wang21b*
+B.1.1.7,Vir-7832,,2.5,Cathcart21
 B.1.1.7,2-17,NTD,>100,Wang21b
 B.1.1.7,2-17,NTD,43,Wang21b*
 B.1.1.7,4-8,NTD,>100,Wang21b
@@ -205,6 +206,7 @@ B.1.351,Tixagevimab,,3.5,Wang21b
 B.1.351,Tixagevimab,,1.7,Chen21*
 B.1.351,Tixagevimab,,6.3,Wang21b*
 B.1.351,Tixagevimab,,8.9,Zhou21b*
+B.1.351,Vir-7832,,0.7,Cathcart21
 B.1.351,2-17,NTD,>100,Wang21b
 B.1.351,2-17,NTD,>100,Wang21b*
 B.1.351,4-8,NTD,>100,Wang21b
@@ -367,6 +369,7 @@ P.1,LY3853113,,0.4,Westendorf21
 P.1,LY3853113,,0.9,Westendorf21
 P.1,Tixagevimab,,3.5,Wang21d
 P.1,Tixagevimab,,8.8,Dejnirattisai21*
+P.1,Vir-7832,,0.4,Cathcart21
 P.1,4-8,NTD,0.2,Wang21d
 P.1,4A8,NTD,7.9,Wang21f
 P.1,5-24,NTD,1,Wang21d
