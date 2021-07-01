@@ -7,8 +7,8 @@ from .common import gen_plasma_aggre_table
 from .common import convert_to_json
 from .preset import VP_FILTER
 from .preset import MUTATIONS
-from .preset import INDIVIDUAL_RESULTS_SQL
-from .preset import AGGREGATED_RESULTS_SQL
+from .preset import INDIVIDUAL_VP_SQL
+from .preset import AGGREGATED_VP_SQL
 
 
 def gen_table_vp_muts(
@@ -20,14 +20,16 @@ def gen_table_vp_muts(
         conn,
         MUTATIONS,
         VP_FILTER,
-        INDIVIDUAL_RESULTS_SQL
+        INDIVIDUAL_VP_SQL,
+        plasma_type='VP',
     )
 
     aggre_records = gen_plasma_aggre_table(
         conn,
         MUTATIONS,
         VP_FILTER,
-        AGGREGATED_RESULTS_SQL
+        AGGREGATED_VP_SQL,
+        plasma_type='VP',
     )
 
     records = indiv_records + aggre_records

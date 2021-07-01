@@ -3,7 +3,6 @@ from operator import itemgetter
 from collections import defaultdict
 from resistancy import round_fold
 from preset import dump_json
-from .preset import VP_RENAME
 from resistancy import RESISTANCE_FILTER
 from resistancy import is_susc
 from resistancy import is_partial_resistant
@@ -21,15 +20,15 @@ def gen_plasma_indiv_table(
     cursor = conn.cursor()
 
     records = defaultdict(dict)
-    for row_name, attr_r in row_filters.items():
-        for subrow_name, attr_subr in subrow_filters.items():
+    for iso_name, attr_r in row_filters.items():
+        for plasma_name, attr_subr in subrow_filters.items():
             for resist_name, resist_filter in RESISTANCE_FILTER.items():
                 rxtype = attr_subr['rxtype']
 
                 r_filter = attr_r.get('filter', [])
                 filter = '\n    '.join(r_filter + resist_filter)
 
-                if subrow_name.lower().startswith('cp'):
+                if plasma_name.lower().startswith('cp'):
                     filter += '\n   '
                     filter += '\n   '.join(attr_subr.get('cp_filters', []))
 
@@ -42,7 +41,6 @@ def gen_plasma_indiv_table(
 
                 cursor.execute(sql)
                 for row in cursor.fetchall():
-                    iso_name = row_name
                     cp_name = row['rx_name']
                     reference = row['ref_name']
                     num_results = row['sample_count']
@@ -50,9 +48,14 @@ def gen_plasma_indiv_table(
 
                     key = '{}{}{}'.format(iso_name, cp_name, reference)
 
+                    if plasma_type == 'VP':
+                        dosage = row['dosage']
+                        key = '{}{}{}{}'.format(
+                            iso_name, cp_name, reference, dosage)
+
                     rec = records[key]
                     rec['Variant name'] = iso_name
-                    rec['Plasma'] = VP_RENAME.get(cp_name, cp_name)
+                    rec['Plasma'] = cp_name
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
                     rec['R'] = rec.get('R', 0)
@@ -72,10 +75,10 @@ def gen_plasma_indiv_table(
                         rec['R'] += num_results
 
                     rec['Reference'] = reference
+                    rec['Aggregate'] = False
 
-                    # if plasma_type == 'CP':
-                    #     rec['timing'] = row['timing']
-                    #     rec['severity'] = row['severity']
+                    if plasma_type == 'VP':
+                        rec['dosage'] = row['dosage']
 
     for rec in records.values():
         folds = rec.get('folds', [])
@@ -161,6 +164,15 @@ def gen_plasma_aggre_table(
                     cp_name,
                     reference
                 )
+                if plasma_type == 'VP':
+                    dosage = row['dosage']
+                    group_key = '{}{}{}{}{}'.format(
+                        iso_name,
+                        control,
+                        cp_name,
+                        reference,
+                        dosage
+                    )
                 groups[group_key].append(row)
 
             for _, r_list in groups.items():
@@ -184,14 +196,18 @@ def gen_plasma_aggre_table(
 
                 rec = {
                     'Variant name': iso_name,
-                    'Plasma': VP_RENAME.get(cp_name, cp_name),
+                    'Plasma': cp_name,
                     'Samples': num_results,
                     'Reference': reference,
                     'Median': median_fold,
                     'S': num_s_fold,
                     'I': num_i_fold,
                     'R': num_r_fold,
+                    'Aggregate': True,
                 }
+
+                if plasma_type == 'VP':
+                    rec['dosage'] = r_list[0]['dosage']
 
                 records.append(rec)
 

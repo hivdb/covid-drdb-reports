@@ -1,6 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import load_csv
 from preset import dump_csv
+from .preset import IGNORE_VACCINE_NAME
 
 from .common import get_sample_number_pair
 from collections import defaultdict
@@ -60,14 +61,8 @@ def process_record(variant, records):
             cp_groups['CP'].append(r)
         elif plasma == 'IVIG':
             cp_groups['CP'].append(r)
-        elif plasma.upper().startswith('BNT'):
-            cp_groups['BNT162b2'].append(r)
-        elif plasma.upper().startswith('MOD'):
-            cp_groups['mRNA-1273'].append(r)
-        elif plasma.upper() == 'mRNA-1273'.upper():
-            cp_groups['mRNA-1273'].append(r)
-        elif plasma.upper().startswith('AZD'):
-            cp_groups['AZD1222'].append(r)
+        elif plasma in IGNORE_VACCINE_NAME:
+            continue
         else:
             if plasma not in REGULAR_PLASMA_NAMES:
                 REGULAR_PLASMA_NAMES.append(plasma)
@@ -124,7 +119,14 @@ def gen_plasma_figure():
     variant_groups = defaultdict(list)
     group_variants(variant_groups, cp_variant_records)
     group_variants(variant_groups, cp_mut_records)
+
+    vp_variant_records = [
+        v for v in vp_variant_records
+        if (int(float(v['dosage'])) != 1 or v['Plasma'] == 'Ad26.COV2.S')]
     group_variants(variant_groups, vp_variant_records)
+    vp_mut_records = [
+        v for v in vp_mut_records
+        if (int(float(v['dosage'])) != 1 or v['Plasma'] == 'Ad26.COV2.S')]
     group_variants(variant_groups, vp_mut_records)
 
     result = []

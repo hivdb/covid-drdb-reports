@@ -7,8 +7,8 @@ from .common import gen_plasma_aggre_table
 from .common import convert_to_json
 from .preset import VP_FILTER
 from .preset import VARIANTS
-from .preset import INDIVIDUAL_RESULTS_SQL
-from .preset import AGGREGATED_RESULTS_SQL
+from .preset import INDIVIDUAL_VP_SQL
+from .preset import AGGREGATED_VP_SQL
 from .common import record_modifier
 
 
@@ -21,7 +21,8 @@ def gen_table_vp_variants(
         conn,
         VARIANTS,
         VP_FILTER,
-        INDIVIDUAL_RESULTS_SQL,
+        INDIVIDUAL_VP_SQL,
+        plasma_type='VP',
         record_modifier=record_modifier
     )
 
@@ -29,7 +30,8 @@ def gen_table_vp_variants(
         conn,
         VARIANTS,
         VP_FILTER,
-        AGGREGATED_RESULTS_SQL,
+        AGGREGATED_VP_SQL,
+        plasma_type='VP',
         record_modifier=record_modifier
     )
 

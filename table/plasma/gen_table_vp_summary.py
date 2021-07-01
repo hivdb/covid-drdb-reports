@@ -3,8 +3,7 @@ from preset import load_csv
 from preset import dump_json
 from preset import dump_csv
 
-from .preset import VP_IGNORE
-from .preset import VP_RENAME
+from .preset import IGNORE_VACCINE_NAME
 from .common import get_sample_number_pair
 from collections import defaultdict
 
@@ -105,27 +104,26 @@ def group_vaccine(rx_list):
     vaccine_group = defaultdict(list)
     for rec in rx_list:
         vaccine = rec['Plasma']
-        ref_name = rec['Reference']
-        if (ref_name, vaccine) in VP_IGNORE:
+        if vaccine in IGNORE_VACCINE_NAME:
             continue
-
-        vaccine_name = VP_RENAME.get(vaccine)
-        if not vaccine_name:
-            print('Unknown vaccine', ref_name, vaccine)
-            continue
-
         vaccine_group[vaccine].append(rec)
 
     return vaccine_group
 
 
 def gen_table_vp_summary():
-    cp_variant_records = load_csv(DATA_FILE_PATH / 'table_vp_variants.csv')
-    cp_mut_records = load_csv(DATA_FILE_PATH / 'table_vp_muts.csv')
+    vp_variant_records = load_csv(DATA_FILE_PATH / 'table_vp_variants.csv')
+    vp_mut_records = load_csv(DATA_FILE_PATH / 'table_vp_muts.csv')
 
     variant_groups = defaultdict(list)
-    group_variants(variant_groups, cp_variant_records)
-    group_variants(variant_groups, cp_mut_records)
+    vp_variant_records = [
+        v for v in vp_variant_records
+        if (int(float(v['dosage'])) != 1 or v['Plasma'] == 'Ad26.COV2.S')]
+    group_variants(variant_groups, vp_variant_records)
+    vp_mut_records = [
+        v for v in vp_mut_records
+        if (int(float(v['dosage'])) != 1 or v['Plasma'] == 'Ad26.COV2.S')]
+    group_variants(variant_groups, vp_mut_records)
 
     results = []
     for variant in SHOW_VARIANT:
