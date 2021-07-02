@@ -139,6 +139,7 @@ B.1.1.7,Etesevimab,RBM Class I,1.5,Supasa21*
 B.1.1.7,Etesevimab,RBM Class I,0.7,Wang21b*
 B.1.1.7,Etesevimab,RBM Class I,32,Planas21b*
 B.1.1.7,Regdanvimab,RBM Class I,1.4,Lee21*
+B.1.1.7,Regdanvimab,RBM Class I,1.4,Ryu21*
 B.1.1.7,S2E12,RBM Class I,0.8,Chen21
 B.1.1.7,S2E12,RBM Class I,1.1,Collier21
 B.1.1.7,S2E12,RBM Class I,0.7,Chen21*
@@ -278,7 +279,9 @@ B.1.351,Etesevimab,RBM Class I,>100,Planas21b*
 B.1.351,Etesevimab,RBM Class I,>100,Wang21b*
 B.1.351,Etesevimab,RBM Class I,>100,Zhou21b*
 B.1.351,Regdanvimab,RBM Class I,33,Lee21
+B.1.351,Regdanvimab,RBM Class I,33,Ryu21
 B.1.351,Regdanvimab,RBM Class I,20,Lee21*
+B.1.351,Regdanvimab,RBM Class I,20,Ryu21*
 B.1.351,S2E12,RBM Class I,0.4,Chen21*
 B.1.351,Bamlanivimab,RBM Class II,>100,FDA21
 B.1.351,Bamlanivimab,RBM Class II,>100,Hoffmann21c
