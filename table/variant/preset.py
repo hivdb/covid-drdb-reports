@@ -144,9 +144,9 @@ def get_iso_names_by_var_name(var_name, selector='all'):
     if selector == 'all':
         pass
     elif selector == 'spike':
-        iso_names = [s for s in iso_names if not s.endswith('full genome')]
+        iso_names = [s for s in iso_names if 'full genome' not in s]
     elif selector == 'genome':
-        iso_names = [s for s in iso_names if s.endswith('full genome')]
+        iso_names = [s for s in iso_names if 'full genome' in s]
 
     return ','.join(["'{}'".format(s) for s in iso_names])
 
@@ -368,7 +368,7 @@ def get_combined_mutation_main_name(variant_info):
                 continue
 
             nickname = name.replace('Spike', '').strip()
-            nickname = nickname.replace('full genome', '').strip()
+            nickname = nickname[:nickname.find('full genome')].strip()
             if 'S:' in nickname:
                 nickname = nickname.replace('S:', ' ')
                 nickname += ' (variation)'
@@ -442,7 +442,7 @@ def merge_ntd_deletion(mut_list):
 
 def merge_spike_and_full_genome(iso_names):
     iso_names = [i.replace('Spike', '') for i in iso_names]
-    iso_names = [i.replace('full genome', '') for i in iso_names]
+    iso_names = [i[:i.find('full genome')] for i in iso_names]
     iso_names = [i.strip() for i in iso_names]
 
     iso_names = sorted(list(set(iso_names)))

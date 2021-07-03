@@ -118,11 +118,21 @@ def gen_table_vp_summary():
     variant_groups = defaultdict(list)
     vp_variant_records = [
         v for v in vp_variant_records
-        if (int(float(v['dosage'])) != 1 or v['Plasma'] == 'Ad26.COV2.S')]
+        if (
+            (int(float(v['dosage'])) != 1 and v['Plasma'] != 'Ad26.COV2.S')
+            or
+            (int(float(v['dosage'])) == 1 and v['Plasma'] == 'Ad26.COV2.S')
+        )
+    ]
     group_variants(variant_groups, vp_variant_records)
     vp_mut_records = [
         v for v in vp_mut_records
-        if (int(float(v['dosage'])) != 1 or v['Plasma'] == 'Ad26.COV2.S')]
+        if (
+            (int(float(v['dosage'])) != 1 and v['Plasma'] != 'Ad26.COV2.S')
+            or
+            (int(float(v['dosage'])) == 1 and v['Plasma'] == 'Ad26.COV2.S')
+        )
+    ]
     group_variants(variant_groups, vp_mut_records)
 
     results = []

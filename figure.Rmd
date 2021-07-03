@@ -387,12 +387,12 @@ STUDY_TYPE = c(
   "BNT162b2", 
   'mRNA-1273', 
   'AZD1222',
-  'BBIBP-CorV',
+  'Ad26.COV2.S',
+  'NVX-CoV2373',
   'BBV152',
   'CoronaVac',
-  'NVX-CoV2373',
+  'BBIBP-CorV'
   # 'Sputnik V',
-  'Ad26.COV2.S'
   # 'MVC-COV1901',
   # 'ZF2001'
   )

@@ -3,6 +3,12 @@ B.1.1.7,AZD1222,3,23,23,Emary21*,False,2.0,8.7,49
 B.1.1.7,AZD1222,0,10,0,Mlcochova21*,True,2.0,3.2,10
 B.1.1.7,AZD1222,12,0,0,Planas21b*,True,2.0,1.1,12
 B.1.1.7,AZD1222,22,3,0,Supasa21*,False,2.0,1.9,25
+B.1.1.7,AZD1222,0,50,0,Wall21b*,True,1.0,7.2,50
+B.1.1.7,AZD1222,0,63,0,Wall21b*,True,2.0,4.2,63
+B.1.1.7,Ad26.COV2.S,25,0,0,Alter21,True,1.0,1.7,25
+B.1.1.7,Ad26.COV2.S,25,0,0,Alter21,True,2.0,2.8,25
+B.1.1.7,Ad26.COV2.S,25,0,0,Alter21*,True,2.0,0.8,25
+B.1.1.7,Ad26.COV2.S,8,0,0,Jongeneelen21,False,1.0,1,8
 B.1.1.7,BBIBP-CorV,16,0,3,Wang21g,False,2.0,0.9,19
 B.1.1.7,BBV152,37,1,0,Sapkal21b*,False,2.0,1.2,38
 B.1.1.7,BBV152,28,0,0,Yadav21*,False,2.0,1.3,28
@@ -40,6 +46,8 @@ B.1.1.7,BNT162b2,10,0,0,Wang21b*,False,2.0,0.9,10
 B.1.1.7,BNT162b2,0,2,1,Widera21*,False,2.0,8,3
 B.1.1.7,BNT162b2,20,0,0,Xie21b,False,2.0,0.8,20
 B.1.1.7,BNT162b2,5,0,0,Zhou21c,True,2.0,1.0,5
+B.1.1.7,BNT162b2,18,0,0,Zuckerman21*,True,2.0,2.0,18
+B.1.1.7,CoronaVac,52,21,2,Acevedo21,False,2.0,2,75
 B.1.1.7,CoronaVac,12,1,9,Wang21g,False,2.0,1.6,22
 B.1.1.7,MVC-COV1901,44,1,0,Lien21,False,2.0,1.7,45
 B.1.1.7,NVX-CoV2373,20,7,1,Shen21,False,2.0,2.2,28
@@ -57,11 +65,17 @@ B.1.1.7,mRNA-1273,8,0,0,Wu21,True,2.0,1.5,8
 B.1.1.7,mRNA-1273,5,0,0,Zhou21c,True,2.0,1.4,5
 B.1.351,AZD1222,1,10,11,Madhi21,False,2.0,8.6,22
 B.1.351,AZD1222,0,0,12,Planas21b*,True,2.0,12.7,12
+B.1.351,AZD1222,0,0,50,Wall21b*,True,1.0,28.2,50
+B.1.351,AZD1222,0,0,63,Wall21b*,True,2.0,10.0,63
 B.1.351,AZD1222,1,12,5,Zhou21b*,False,2.0,7.8,18
+B.1.351,Ad26.COV2.S,0,25,0,Alter21,True,1.0,3.3,25
+B.1.351,Ad26.COV2.S,0,25,0,Alter21,True,2.0,5.1,25
+B.1.351,Ad26.COV2.S,0,0,25,Alter21*,True,2.0,11.0,25
+B.1.351,Ad26.COV2.S,4,1,3,Jongeneelen21,False,1.0,3,8
 B.1.351,Ad26.COV2.S,2,3,22,Moore21,False,1.0,10,27
 B.1.351,BBIBP-CorV,12,0,0,Huang21b*,False,2.0,1.5,12
 B.1.351,BBIBP-CorV,5,1,13,Wang21g,False,2.0,4.2,19
-B.1.351,BBV152,9,7,1,Yadav21b,False,2.0,2.5,17
+B.1.351,BBV152,9,7,1,Yadav21b*,False,2.0,2.5,17
 B.1.351,BNT162b2,1,8,0,Alenquer21,False,2.0,4.1,9
 B.1.351,BNT162b2,5,16,22,Bates21*,False,2.0,11,43
 B.1.351,BNT162b2,1,3,2,Becker21*,False,2.0,5.6,6
@@ -87,8 +101,8 @@ B.1.351,BNT162b2,3,2,0,Stankov21,False,2.0,2.2,5
 B.1.351,BNT162b2,0,14,0,Stankov21,True,1.0,3.1,14
 B.1.351,BNT162b2,2,3,0,Tada21,False,2.0,3.7,5
 B.1.351,BNT162b2,0,6,0,Tada21c,True,2.0,3.6,6
-B.1.351,BNT162b2,122,83,115,Wall21,False,1.0,6.2,320
-B.1.351,BNT162b2,52,131,31,Wall21,False,2.0,4.5,214
+B.1.351,BNT162b2,122,83,115,Wall21*,False,1.0,6.2,320
+B.1.351,BNT162b2,52,131,31,Wall21*,False,2.0,4.5,214
 B.1.351,BNT162b2,3,6,1,Wang21b,False,2.0,4,10
 B.1.351,BNT162b2,0,6,4,Wang21b*,False,2.0,9.2,10
 B.1.351,BNT162b2,0,3,0,Widera21*,False,2.0,8,3
@@ -101,8 +115,8 @@ B.1.351,Sputnik V,3,6,3,Ikegame21,False,2.0,6.2,12
 B.1.351,ZF2001,12,0,0,Huang21b*,False,3.0,1.3,12
 B.1.351,mRNA-1273,5,14,0,Edara21b*,False,2.0,4.3,19
 B.1.351,mRNA-1273,0,0,105,Garcia-Beltran21,True,2.0,20.8,105
-B.1.351,mRNA-1273,16,32,12,Pegu21,False,2.0,4.6,60
-B.1.351,mRNA-1273,0,1,3,Pegu21,False,1.0,18,4
+B.1.351,mRNA-1273,16,32,12,Pegu21*,False,2.0,4.6,60
+B.1.351,mRNA-1273,0,1,3,Pegu21*,False,1.0,18,4
 B.1.351,mRNA-1273,1,13,12,Shen21b,False,2.0,9.1,26
 B.1.351,mRNA-1273,1,6,1,Stamatatos21,False,1.0,3.8,8
 B.1.351,mRNA-1273,0,6,2,Stamatatos21,False,2.0,5.4,8
@@ -116,6 +130,8 @@ B.1.351,mRNA-1273,0,5,0,Zhou21c,True,2.0,3.9,5
 B.1.351,mRNA-1273 + mRNA-1273.351,4,1,0,Wu21b,False,3.0,1.1,5
 B.1.351,mRNA-1273.211,8,0,0,Wu21b,False,1.0,0.9,8
 B.1.351,mRNA-1273.351,8,0,0,Wu21b,False,1.0,0.3,8
+B.1.427/9,Ad26.COV2.S,25,0,0,Alter21,True,1.0,2.1,25
+B.1.427/9,Ad26.COV2.S,25,0,0,Alter21,True,2.0,2.6,25
 B.1.427/9,BNT162b2,3,0,0,Deng21,False,2.0,2,3
 B.1.427/9,BNT162b2,30,0,0,Garcia-Beltran21,True,2.0,2.0,30
 B.1.427/9,BNT162b2,20,0,0,Liu21d,False,2.0,1.2,20
@@ -137,6 +153,7 @@ B.1.526,mRNA-1273,0,6,0,West21,False,2.0,4.8,6
 B.1.526,mRNA-1273,0,5,0,Zhou21c,True,2.0,3.9,5
 B.1.617.1,AZD1222,16,8,1,Liu21f,False,2.0,2.3,25
 B.1.617.1,AZD1222,0,33,0,Mlcochova21,True,2.0,5.7,33
+B.1.617.1,Ad26.COV2.S,7,1,0,Jongeneelen21,False,1.0,1.3,8
 B.1.617.1,BBV152,26,2,0,Yadav21,False,2.0,1.7,28
 B.1.617.1,BNT162b2,0,9,1,Edara21c,False,2.0,6.4,10
 B.1.617.1,BNT162b2,11,4,0,Hoffmann21c,False,2.0,2.1,15
@@ -150,6 +167,9 @@ B.1.617.2,AZD1222,8,14,3,Liu21f,False,2.0,4.5,25
 B.1.617.2,AZD1222,0,10,0,Mlcochova21,True,2.0,8.7,10
 B.1.617.2,AZD1222,0,33,0,Mlcochova21,True,2.0,4.0,33
 B.1.617.2,AZD1222,0,0,12,Planas21b,True,2.0,12.7,12
+B.1.617.2,AZD1222,0,0,50,Wall21b,True,1.0,28.2,50
+B.1.617.2,AZD1222,0,0,63,Wall21b,True,2.0,10.0,63
+B.1.617.2,Ad26.COV2.S,7,1,0,Jongeneelen21,False,1.0,1.6,8
 B.1.617.2,BBV152,13,3,1,Yadav21b,False,2.0,1.4,17
 B.1.617.2,BNT162b2,39,1,0,Liu21e,False,2.0,1.7,40
 B.1.617.2,BNT162b2,15,10,0,Liu21f,False,2.0,2.5,25
@@ -157,6 +177,9 @@ B.1.617.2,BNT162b2,0,10,0,Mlcochova21,True,2.0,7.4,10
 B.1.617.2,BNT162b2,32,0,0,Mlcochova21,True,2.0,2.2,32
 B.1.617.2,BNT162b2,16,13,0,Planas21b,True,2.0,1.7,29
 P.1,AZD1222,16,8,1,Dejnirattisai21*,False,2.0,2.7,25
+P.1,Ad26.COV2.S,25,0,0,Alter21,True,1.0,2.8,25
+P.1,Ad26.COV2.S,0,25,0,Alter21,True,2.0,3.3,25
+P.1,Ad26.COV2.S,4,1,3,Jongeneelen21,False,1.0,3.2,8
 P.1,BNT162b2,3,6,0,Alenquer21,False,2.0,3.6,9
 P.1,BNT162b2,12,3,0,Chen21*,False,2.0,2.2,15
 P.1,BNT162b2,14,10,0,Dejnirattisai21*,False,2.0,2.8,24
@@ -168,6 +191,7 @@ P.1,BNT162b2,3,2,0,Stankov21,False,2.0,1.3,5
 P.1,BNT162b2,0,14,0,Stankov21,True,1.0,3.1,14
 P.1,BNT162b2,1,4,0,Tada21,False,2.0,3.7,5
 P.1,BNT162b2,8,1,1,Wang21d,False,2.0,1.9,10
+P.1,CoronaVac,47,24,4,Acevedo21,False,2.0,2.2,75
 P.1,CoronaVac,0,0,6,deSouza21*,False,2.0,5,6
 P.1,mRNA-1273,0,35,0,Garcia-Beltran21,True,2.0,4.5,35
 P.1,mRNA-1273,20,21,2,Pegu21,False,2.0,3,43

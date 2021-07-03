@@ -138,7 +138,7 @@ def gen_table_mab_variant(
 
                 ab_name = MAB_RENAME.get(ab_name, ab_name)
                 iso_name = row_name
-                if iso_name.endswith('full genome'):
+                if 'full genome' in iso_name:
                     reference = '{}*'.format(reference)
                     iso_name = iso_name.split()[0]
 

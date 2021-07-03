@@ -114,7 +114,7 @@ def record_modifier(record):
     iso_name = record['Variant name']
     reference = record['Reference']
 
-    if iso_name.endswith('full genome'):
+    if 'full genome' in iso_name:
         reference = '{}*'.format(reference)
         iso_name = iso_name.split()[0]
 
