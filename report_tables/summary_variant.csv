@@ -4,12 +4,12 @@ E484K,179,94,71,30
 K417N,136,77,45,27
 K417T,29,0,6,3
 L452R,42,25,21,7
-Other individual mutations,762,769,788,665
-All individual mutations,1184,1064,962,756
-B.1.1.7,887,1971,109,61
-B.1.351,977,1893,98,44
-P.1,275,455,37,8
-B.1.427/9,60,296,11,7
+Other individual mutations,762,758,788,665
+All individual mutations,1184,1053,962,756
+B.1.1.7,887,1960,109,61
+B.1.351,977,1882,98,44
+P.1,275,444,37,8
+B.1.427/9,60,285,11,7
 B.1.526,30,85,8,1
 Other combinations of mutations,1278,2591,257,207
-All combinations of mutations,3621,7308,536,336
+All combinations of mutations,3621,7264,536,336
