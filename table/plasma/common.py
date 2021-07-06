@@ -10,6 +10,7 @@ from resistancy import is_resistant
 from resistancy import get_susceptibility
 from statistics import median
 from variant.preset import CONTROL_VARIANTS_SQL
+from .preset import IGNORE_STUDY
 
 
 def gen_plasma_indiv_table(
@@ -43,6 +44,10 @@ def gen_plasma_indiv_table(
                 for row in cursor.fetchall():
                     cp_name = row['rx_name']
                     reference = row['ref_name']
+
+                    if reference in IGNORE_STUDY:
+                        continue
+
                     num_results = row['sample_count']
                     fold = row['fold']
 
@@ -157,6 +162,9 @@ def gen_plasma_aggre_table(
                 control = row['control']
                 cp_name = row['rx_name']
                 reference = row['ref_name']
+
+                if reference in IGNORE_STUDY:
+                        continue
 
                 group_key = '{}{}{}{}'.format(
                     iso_name,

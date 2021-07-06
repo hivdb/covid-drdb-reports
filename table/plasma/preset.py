@@ -344,3 +344,7 @@ IGNORE_VACCINE_NAME = [
     'mRNA-1273.351',
     'mRNA-1273 + mRNA-1273.351',
 ]
+
+IGNORE_STUDY = [
+    'Wall21b'
+]
