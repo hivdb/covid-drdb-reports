@@ -18,7 +18,10 @@ library(plotly)
 library(ggbeeswarm)
 library(viridis)
 
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = c("png", "svg")
+)
 source("./lib/readers.R", chdir = TRUE)
 source("./lib/datatables.R", chdir = TRUE)
 
@@ -390,8 +393,8 @@ STUDY_TYPE = c(
   'Ad26.COV2.S',
   'NVX-CoV2373',
   'BBV152',
-  'CoronaVac',
-  'BBIBP-CorV'
+  'CoronaVac'
+  # 'BBIBP-CorV'
   # 'Sputnik V',
   # 'MVC-COV1901',
   # 'ZF2001'
@@ -442,11 +445,20 @@ for (st in STUDY_TYPE) {
         stat="identity",
         position='stack'
       ) +
-      scale_fill_manual(values = c(
+      scale_fill_manual(
+        values = c(
         'R' = "#146aa8",
         'I' = "#7fcbee",
         'S' = "#ffffff"
-      )) +
+        ),
+        name="Susceptibility",
+        breaks=c("R", "I", "S"),
+        labels=c(
+          ">10-fold reduced susceptibility",
+          "3 to 10-fold reduced susceptibility",
+          "<3-fold reduced susceptibility"
+        )
+      ) +
       scale_y_continuous(
         expand=expansion(mult = c(0, .1)),
         # breaks=c(1, 400, 800, 1200),
@@ -460,6 +472,7 @@ for (st in STUDY_TYPE) {
         ) +
       theme(
         legend.position = "none",
+        # legend.title = element_blank(),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         axis.text.x = element_blank(),
@@ -486,13 +499,13 @@ for (st in STUDY_TYPE) {
         plot.margin = margin(t=0,l=0,r=10, b=10)
       )
     }
-    
+
     if (i == 4) {
       p = p + theme(
         plot.margin = margin(t=0,l=4,r=10, b=10)
       )
     }
-    
+
     if (i > 6) {
       p = p + theme(
         axis.title.x = element_blank(),
@@ -522,7 +535,7 @@ for (st in STUDY_TYPE) {
 }
 
 grid.arrange(grobs = plots, ncol=3, heights=c(1,1,1.3))
-
+# grid.arrange(grobs = plots)
 ```
 
 
