@@ -33,6 +33,7 @@ def gen_report(db_path):
     from plasma.gen_vp_summary import gen_vp_summary
     from plasma.gen_cp_summary import gen_cp_summary
     from plasma.gen_plasma_figure import gen_plasma_figure
+    from plasma.gen_vp_efficacy import gen_vp_efficacy
 
     gen_table_cp_muts(conn)
     gen_table_cp_variants(conn)
@@ -42,6 +43,7 @@ def gen_report(db_path):
     gen_table_vp_summary()
     gen_cp_summary(conn)
     gen_vp_summary(conn)
+    gen_vp_efficacy(conn)
     gen_plasma_figure()
 
     from mab.gen_table_mab import gen_table_mab

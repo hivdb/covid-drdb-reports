@@ -111,9 +111,9 @@ SELECT
     '' as target,
     '' as class
 FROM
-    rx_antibodies as a,
+    (SELECT * FROM rx_antibodies ORDER BY ref_name, ab_name) as a,
     antibodies as b
-on
+ON
     a.ab_name = b.ab_name
 GROUP BY
     ref_name, rx_name

@@ -9,7 +9,7 @@ from resistancy import round_fold
 
 from .preset import MAB_RENAME
 from mab.preset import RX_MAB
-from variant_filter import include_mutations
+from variant_filter import include_similar_mutations
 from variant.preset import CONTROL_VARIANTS_SQL
 
 MAB_MUTS_SQL = """
@@ -41,116 +41,115 @@ WHERE
 ROWS = {
     'N501Y': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:501Y',
-                'S:501Y+614G'])
+            ])
         ]
     },
     '∆69/70': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:69del+70del',
-                'S:69del+70del+614G'])
+            ])
         ]
     },
     '∆69/70 + N501Y': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:69del+70del+501Y',
-                'S:69del+70del+501Y+614G'])
+            ])
         ]
     },
     '∆69/70 + N501Y + A570D': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:69del+70del+501Y+570D',
-                'S:69del+70del+501Y+570D+614G'])
+            ])
         ]
     },
     '∆69/70 + N501Y + Y453F': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:69del+70del+501Y+453F',
-                'S:69del+70del+501Y+453F+614G'])
+            ])
         ]
     },
     '∆144': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:144del',
-                'S:144del+614G'])
+            ])
         ]
     },
     'E484K': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:484K',
-                'S:484K+614G'])
+            ])
         ]
     },
     'Y453F': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:453F',
-                'S:453F+614G'])
+            ])
         ]
     },
     'L452R': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:452R',
-                'S:452R+614G'])
+            ])
         ]
     },
     'E484K + N501Y': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:484K+501Y',
-                'S:484K+501Y+614G'])
+            ])
         ]
     },
     'K417N': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:417N',
-                'S:417N+614G'])
+            ])
         ]
     },
     'F490S': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:490S',
-                'S:490S+614G'])
+            ])
         ]
     },
     'S494P': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:494P',
-                'S:494P+614G'])
+            ])
         ]
     },
     'K417N + E484K + N501Y': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:417N+484K+501Y',
-                'S:417N+484K+501Y+614G',
                 'B.1.351 RBD'
                 ])
         ]
     },
     'N439K': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:439K',
-                'S:439K+614G'])
+            ])
         ]
     },
     'T478K': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:478K',
-                'S:478K+614G'])
+            ])
         ]
     },
 }

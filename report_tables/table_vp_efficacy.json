@@ -1,0 +1,132 @@
+[
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "Alpha",
+        "Efficacy": "70% (Trial)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "Alpha",
+        "Efficacy": "66% (TNCC)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "Alpha",
+        "Efficacy": "81% (TNCC)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "B.1",
+        "Efficacy": "70% (Trial)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "B.1",
+        "Efficacy": "70% (Trial)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "Beta",
+        "Efficacy": "10% (Trial)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "Delta",
+        "Efficacy": "60% (TNCC)"
+    },
+    {
+        "Vaccine": "AZD1222",
+        "Variant": "Delta",
+        "Efficacy": "61% (TNCC)"
+    },
+    {
+        "Vaccine": "Ad26.COV2.S",
+        "Variant": "B.1",
+        "Efficacy": "72% (Trial)"
+    },
+    {
+        "Vaccine": "Ad26.COV2.S",
+        "Variant": "B.1",
+        "Efficacy": "72% (Trial)"
+    },
+    {
+        "Vaccine": "Ad26.COV2.S",
+        "Variant": "Beta",
+        "Efficacy": "64% (Trial)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Alpha",
+        "Efficacy": "90% (TNCC)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Alpha",
+        "Efficacy": "92% (TNCC)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Alpha",
+        "Efficacy": "93% (TNCC)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Alpha",
+        "Efficacy": "97% (Cohort)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "B.1",
+        "Efficacy": "95% (Trial)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "B.1",
+        "Efficacy": "95% (TNCC)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Beta",
+        "Efficacy": "75% (TNCC)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Delta",
+        "Efficacy": "83% (TNCC)"
+    },
+    {
+        "Vaccine": "BNT162b2",
+        "Variant": "Delta",
+        "Efficacy": "88% (TNCC)"
+    },
+    {
+        "Vaccine": "CoronaVac",
+        "Variant": "B.1",
+        "Efficacy": "51% (Trial)"
+    },
+    {
+        "Vaccine": "CoronaVac",
+        "Variant": "Gamma",
+        "Efficacy": "42% (TNCC)"
+    },
+    {
+        "Vaccine": "NVX-CoV2373",
+        "Variant": "Alpha",
+        "Efficacy": "86% (Trial)"
+    },
+    {
+        "Vaccine": "NVX-CoV2373",
+        "Variant": "B.1",
+        "Efficacy": "96% (Trial)"
+    },
+    {
+        "Vaccine": "NVX-CoV2373",
+        "Variant": "B.1",
+        "Efficacy": "96% (Trial)"
+    },
+    {
+        "Vaccine": "NVX-CoV2373",
+        "Variant": "Beta",
+        "Efficacy": "51% (Trial)"
+    }
+]

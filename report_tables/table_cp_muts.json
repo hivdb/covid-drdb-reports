@@ -439,6 +439,16 @@
             },
             {
                 "variant": "K417N + E484K + N501Y",
+                "rx": "CP_1M",
+                "samples": 45,
+                "s_fold": 36,
+                "i_fold": 8,
+                "r_fold": 1,
+                "reference": "Wang21",
+                "median": "2"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
                 "rx": "CP_2M",
                 "samples": 10,
                 "s_fold": 3,
@@ -456,6 +466,16 @@
                 "r_fold": 0,
                 "reference": "Li21c",
                 "median": "1"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "CP_6M",
+                "samples": 44,
+                "s_fold": 35,
+                "i_fold": 7,
+                "r_fold": 2,
+                "reference": "Wang21",
+                "median": "1.9"
             },
             {
                 "variant": "K417N + E484K + N501Y",

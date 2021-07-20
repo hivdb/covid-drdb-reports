@@ -9,8 +9,8 @@
     {
         "variant": "E484K",
         "cp": 187,
-        "vp": 149,
-        "phase3": 67,
+        "vp": 188,
+        "phase3": 78,
         "structure": 41
     },
     {
@@ -30,22 +30,22 @@
     {
         "variant": "L452R",
         "cp": 66,
-        "vp": 34,
+        "vp": 58,
         "phase3": 27,
         "structure": 10
     },
     {
         "variant": "Other individual mutations",
         "cp": 1535,
-        "vp": 885,
+        "vp": 875,
         "phase3": 863,
         "structure": 663
     },
     {
         "variant": "All individual mutations",
         "cp": 1904,
-        "vp": 1073,
-        "phase3": 1014,
+        "vp": 1058,
+        "phase3": 1023,
         "structure": 762
     },
     {
@@ -85,16 +85,16 @@
     },
     {
         "variant": "Other combinations of mutations",
-        "cp": 1882,
-        "vp": 3248,
-        "phase3": 418,
+        "cp": 1972,
+        "vp": 3389,
+        "phase3": 426,
         "structure": 244
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 4859,
-        "vp": 9314,
-        "phase3": 782,
+        "cp": 4949,
+        "vp": 9489,
+        "phase3": 792,
         "structure": 414
     }
 ]

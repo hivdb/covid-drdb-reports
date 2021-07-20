@@ -3,8 +3,8 @@ from preset import dump_csv
 from preset import dump_json
 from collections import defaultdict
 
-from variant_filter import include_mutations
-from variant_filter import exclude_mutations
+from variant_filter import include_similar_mutations
+from variant_filter import exclude_similar_mutations
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import get_iso_names_by_var_name
 
@@ -62,37 +62,37 @@ SELECT SUM(s.cumulative_count) FROM
 TABLE_SUMMARY_ROWS = {
     'N501Y': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:501Y',
-                'S:501Y+614G'])
+            ])
         ]
     },
     'E484K': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:484K',
-                'S:484K+614G'])
+            ])
         ]
     },
     'K417N': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:417N',
-                'S:417N+614G'])
+            ])
         ]
     },
     'K417T': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:417T',
-                'S:417T+614G'])
+            ])
         ]
     },
     'L452R': {
         'filter': [
-            include_mutations([
+            include_similar_mutations([
                 'S:452R',
-                'S:452R+614G'])
+            ])
         ]
     },
     'Other individual mutations': {
@@ -107,25 +107,20 @@ TABLE_SUMMARY_ROWS = {
             "AND vs.iso_name = s.iso_name",
             "AND vs.site_directed IS TRUE",
             "AND sm.num_muts = 1 AND sm.iso_name = s.iso_name",
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:484K',
-                'S:484K+614G'
             ]),
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:501Y',
-                'S:501Y+614G'
             ]),
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:417N',
-                'S:417N+614G'
             ]),
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:417T',
-                'S:417T+614G'
             ]),
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:452R',
-                'S:452R+614G'
             ]),
         ]
     },
@@ -184,13 +179,11 @@ TABLE_SUMMARY_ROWS = {
             get_iso_name_ignore('Gamma'),
             get_iso_name_ignore('Epsilon'),
             get_iso_name_ignore('Iota'),
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:484K',
-                'S:484K+614G'
             ]),
-            exclude_mutations([
+            exclude_similar_mutations([
                 'S:501Y',
-                'S:501Y+614G'
             ]),
         ]
     },

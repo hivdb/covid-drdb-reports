@@ -104,6 +104,7 @@ def gen_control_variants(conn):
         'VIC Spike',
         'WA1',
         'WA1 Spike',
+        'S:683G',
     ])
 
     CONTROL_VARIANTS_SQL = '({})'.format(

@@ -55,22 +55,22 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "Ad26.COV2.S",
-                "samples": 20,
-                "s_fold": 13,
-                "i_fold": 6,
-                "r_fold": 1,
-                "reference": "Alter21",
-                "median": "2.2"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "Ad26.COV2.S",
                 "samples": 19,
                 "s_fold": 17,
                 "i_fold": 0,
                 "r_fold": 2,
                 "reference": "Alter21",
                 "median": "1.4"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "Ad26.COV2.S",
+                "samples": 20,
+                "s_fold": 13,
+                "i_fold": 6,
+                "r_fold": 1,
+                "reference": "Alter21",
+                "median": "2.2"
             },
             {
                 "variant": "B.1.1.7",
@@ -125,22 +125,22 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "BNT162b2",
-                "samples": 1,
-                "s_fold": 1,
-                "i_fold": 0,
-                "r_fold": 0,
-                "reference": "Alenquer21",
-                "median": "1.3"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "BNT162b2",
                 "samples": 10,
                 "s_fold": 10,
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Alenquer21",
                 "median": "1.6"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "BNT162b2",
+                "samples": 1,
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Alenquer21",
+                "median": "1.3"
             },
             {
                 "variant": "B.1.1.7",
@@ -395,22 +395,22 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "BNT162b2",
-                "samples": 9,
-                "s_fold": 6,
-                "i_fold": 0,
-                "r_fold": 3,
-                "reference": "Stankov21",
-                "median": "1.5"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "BNT162b2",
                 "samples": 10,
                 "s_fold": 10,
                 "i_fold": 0,
                 "r_fold": 0,
                 "reference": "Stankov21",
                 "median": "1"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "BNT162b2",
+                "samples": 9,
+                "s_fold": 6,
+                "i_fold": 0,
+                "r_fold": 3,
+                "reference": "Stankov21",
+                "median": "1.5"
             },
             {
                 "variant": "B.1.1.7",
@@ -665,22 +665,22 @@
             {
                 "variant": "B.1.1.7",
                 "rx": "mRNA-1273",
-                "samples": 16,
-                "s_fold": 7,
-                "i_fold": 3,
-                "r_fold": 6,
-                "reference": "Pegu21*",
-                "median": "2.9"
-            },
-            {
-                "variant": "B.1.1.7",
-                "rx": "mRNA-1273",
                 "samples": 72,
                 "s_fold": 64,
                 "i_fold": 5,
                 "r_fold": 3,
                 "reference": "Pegu21*",
                 "median": "1.1"
+            },
+            {
+                "variant": "B.1.1.7",
+                "rx": "mRNA-1273",
+                "samples": 16,
+                "s_fold": 7,
+                "i_fold": 3,
+                "r_fold": 6,
+                "reference": "Pegu21*",
+                "median": "2.9"
             },
             {
                 "variant": "B.1.1.7",
@@ -940,22 +940,22 @@
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
-                "samples": 34,
-                "s_fold": 18,
-                "i_fold": 16,
-                "r_fold": 0,
-                "reference": "Goel21",
-                "median": "2.8"
-            },
-            {
-                "variant": "B.1.351",
-                "rx": "BNT162b2",
                 "samples": 53,
                 "s_fold": 23,
                 "i_fold": 12,
                 "r_fold": 18,
                 "reference": "Goel21",
                 "median": "2"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2",
+                "samples": 34,
+                "s_fold": 18,
+                "i_fold": 16,
+                "r_fold": 0,
+                "reference": "Goel21",
+                "median": "2.8"
             },
             {
                 "variant": "B.1.351",
@@ -1190,16 +1190,6 @@
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
-                "samples": 32,
-                "s_fold": 16,
-                "i_fold": 7,
-                "r_fold": 9,
-                "reference": "Turner21",
-                "median": "2.6"
-            },
-            {
-                "variant": "B.1.351",
-                "rx": "BNT162b2",
                 "samples": 40,
                 "s_fold": 10,
                 "i_fold": 25,
@@ -1210,12 +1200,12 @@
             {
                 "variant": "B.1.351",
                 "rx": "BNT162b2",
-                "samples": 251,
-                "s_fold": 53,
-                "i_fold": 38,
-                "r_fold": 160,
-                "reference": "Wall21*",
-                "median": "9.5"
+                "samples": 32,
+                "s_fold": 16,
+                "i_fold": 7,
+                "r_fold": 9,
+                "reference": "Turner21",
+                "median": "2.6"
             },
             {
                 "variant": "B.1.351",
@@ -1226,6 +1216,16 @@
                 "r_fold": 32,
                 "reference": "Wall21*",
                 "median": "4.5"
+            },
+            {
+                "variant": "B.1.351",
+                "rx": "BNT162b2",
+                "samples": 251,
+                "s_fold": 53,
+                "i_fold": 38,
+                "r_fold": 160,
+                "reference": "Wall21*",
+                "median": "9.5"
             },
             {
                 "variant": "B.1.351",
@@ -1565,22 +1565,22 @@
             {
                 "variant": "B.1.427/9",
                 "rx": "Ad26.COV2.S",
-                "samples": 20,
-                "s_fold": 12,
-                "i_fold": 5,
-                "r_fold": 3,
-                "reference": "Alter21",
-                "median": "2.8"
-            },
-            {
-                "variant": "B.1.427/9",
-                "rx": "Ad26.COV2.S",
                 "samples": 19,
                 "s_fold": 12,
                 "i_fold": 2,
                 "r_fold": 5,
                 "reference": "Alter21",
                 "median": "2.4"
+            },
+            {
+                "variant": "B.1.427/9",
+                "rx": "Ad26.COV2.S",
+                "samples": 20,
+                "s_fold": 12,
+                "i_fold": 5,
+                "r_fold": 3,
+                "reference": "Alter21",
+                "median": "2.8"
             },
             {
                 "variant": "B.1.427/9",
@@ -2155,22 +2155,22 @@
             {
                 "variant": "P.1",
                 "rx": "Ad26.COV2.S",
-                "samples": 20,
-                "s_fold": 7,
-                "i_fold": 10,
-                "r_fold": 3,
-                "reference": "Alter21",
-                "median": "4"
-            },
-            {
-                "variant": "P.1",
-                "rx": "Ad26.COV2.S",
                 "samples": 19,
                 "s_fold": 9,
                 "i_fold": 4,
                 "r_fold": 6,
                 "reference": "Alter21",
                 "median": "2.9"
+            },
+            {
+                "variant": "P.1",
+                "rx": "Ad26.COV2.S",
+                "samples": 20,
+                "s_fold": 7,
+                "i_fold": 10,
+                "r_fold": 3,
+                "reference": "Alter21",
+                "median": "4"
             },
             {
                 "variant": "P.1",
@@ -2295,22 +2295,22 @@
             {
                 "variant": "P.1",
                 "rx": "BNT162b2",
-                "samples": 9,
-                "s_fold": 4,
-                "i_fold": 0,
-                "r_fold": 5,
-                "reference": "Stankov21",
-                "median": "1.5"
-            },
-            {
-                "variant": "P.1",
-                "rx": "BNT162b2",
                 "samples": 10,
                 "s_fold": 8,
                 "i_fold": 2,
                 "r_fold": 0,
                 "reference": "Stankov21",
                 "median": "1"
+            },
+            {
+                "variant": "P.1",
+                "rx": "BNT162b2",
+                "samples": 9,
+                "s_fold": 4,
+                "i_fold": 0,
+                "r_fold": 5,
+                "reference": "Stankov21",
+                "median": "1.5"
             },
             {
                 "variant": "P.1",

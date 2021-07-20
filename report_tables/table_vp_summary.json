@@ -539,14 +539,14 @@
         "vaccine": [
             {
                 "name": "BNT162b2",
-                "vp_studies": 5,
-                "vp_samples": 47,
-                "vp_s_fold": "47%",
-                "vp_i_fold": "45%",
-                "vp_r_fold": "8%",
-                "vp_num_s_fold": 22,
-                "vp_num_i_fold": 21,
-                "vp_num_r_fold": 4
+                "vp_studies": 6,
+                "vp_samples": 75,
+                "vp_s_fold": "56%",
+                "vp_i_fold": "41%",
+                "vp_r_fold": "3%",
+                "vp_num_s_fold": 42,
+                "vp_num_i_fold": 31,
+                "vp_num_r_fold": 2
             },
             {
                 "name": "Sputnik V",
@@ -561,13 +561,13 @@
             },
             {
                 "name": "mRNA-1273",
-                "vp_studies": 4,
-                "vp_samples": 90,
-                "vp_s_fold": "80%",
-                "vp_i_fold": "20%",
+                "vp_studies": 5,
+                "vp_samples": 101,
+                "vp_s_fold": "81%",
+                "vp_i_fold": "19%",
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 72,
-                "vp_num_i_fold": 18,
+                "vp_num_s_fold": 82,
+                "vp_num_i_fold": 19,
                 "vp_num_r_fold": 0
             }
         ]
@@ -605,13 +605,13 @@
             {
                 "name": "BNT162b2",
                 "vp_studies": 2,
-                "vp_samples": 22,
-                "vp_s_fold": "55%",
-                "vp_i_fold": "41%",
-                "vp_r_fold": "4%",
-                "vp_num_s_fold": 12,
-                "vp_num_i_fold": 9,
-                "vp_num_r_fold": 1
+                "vp_samples": 46,
+                "vp_s_fold": "78%",
+                "vp_i_fold": "17%",
+                "vp_r_fold": "5%",
+                "vp_num_s_fold": 36,
+                "vp_num_i_fold": 8,
+                "vp_num_r_fold": 2
             },
             {
                 "name": "mRNA-1273",

@@ -5,12 +5,12 @@
             {
                 "variant": "E484K",
                 "rx": "BNT162b2",
-                "samples": 10,
-                "s_fold": 6,
-                "i_fold": 1,
-                "r_fold": 3,
+                "samples": 34,
+                "s_fold": 23,
+                "i_fold": 10,
+                "r_fold": 1,
                 "reference": "Ferreira21",
-                "median": "2.6"
+                "median": "2.3"
             },
             {
                 "variant": "E484K",
@@ -41,6 +41,16 @@
                 "r_fold": 0,
                 "reference": "Tada21c",
                 "median": "2.6"
+            },
+            {
+                "variant": "E484K",
+                "rx": "BNT162b2",
+                "samples": 4,
+                "s_fold": 3,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Wang21",
+                "median": "1.9"
             },
             {
                 "variant": "E484K",
@@ -91,6 +101,16 @@
                 "r_fold": 0,
                 "reference": "Tada21c",
                 "median": "2.6"
+            },
+            {
+                "variant": "E484K",
+                "rx": "mRNA-1273",
+                "samples": 11,
+                "s_fold": 10,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Wang21",
+                "median": "1.6"
             },
             {
                 "variant": "E484K",
@@ -259,6 +279,16 @@
             },
             {
                 "variant": "K417N + E484K + N501Y",
+                "rx": "BNT162b2",
+                "samples": 4,
+                "s_fold": 4,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Wang21",
+                "median": "2.0"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
                 "rx": "ChAd-SARS-CoV-2",
                 "samples": 24,
                 "s_fold": 5,
@@ -266,6 +296,16 @@
                 "r_fold": 10,
                 "reference": "Chen21",
                 "median": "8.1"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "mRNA-1273",
+                "samples": 11,
+                "s_fold": 11,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Wang21",
+                "median": "1.6"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -285,12 +325,12 @@
             {
                 "variant": "L452R",
                 "rx": "BNT162b2",
-                "samples": 10,
-                "s_fold": 5,
-                "i_fold": 4,
-                "r_fold": 1,
+                "samples": 34,
+                "s_fold": 29,
+                "i_fold": 3,
+                "r_fold": 2,
                 "reference": "Ferreira21",
-                "median": "2.3"
+                "median": "1.7"
             },
             {
                 "variant": "L452R",
