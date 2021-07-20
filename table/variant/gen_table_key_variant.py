@@ -33,7 +33,7 @@ FROM
     WHERE
     rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
     AND
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name IN {control_variants}
     {filters};
@@ -52,7 +52,7 @@ SELECT SUM(s.cumulative_count) FROM
     {joins}
     WHERE rxtype.ref_name = s.ref_name AND rxtype.rx_name = s.rx_name
     AND
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name IN {control_variants}
     -- AND s.ineffective IS NULL

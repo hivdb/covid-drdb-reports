@@ -12,7 +12,7 @@ SELECT
 FROM
     susc_results AS s
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     s.fold IS NOT NULL
     AND

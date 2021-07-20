@@ -73,6 +73,7 @@ ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
 WHERE
+    rx.vaccine_name IS NOT NULL AND
     s.control_iso_name IN {control_variants}
     {filters}
 """
@@ -142,7 +143,10 @@ FROM
 ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
-WHERE s.control_iso_name IN {control_variants}
+WHERE
+    rx.vaccine_name IS NOT NULL
+    AND
+    s.control_iso_name IN {control_variants}
     {filters}
 """
 

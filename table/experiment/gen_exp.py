@@ -11,7 +11,7 @@ SELECT
     s.control_iso_name,
     s.iso_name,
     iso.var_name,
-    s.assay,
+    s.assay_name,
     SUM(s.cumulative_count) AS samples
 FROM
     susc_results AS s,
@@ -19,7 +19,7 @@ FROM
 ON
     s.iso_name = iso.iso_name
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
 GROUP BY
     s.ref_name,
     s.rx_name,
@@ -38,7 +38,7 @@ def gen_exp(conn):
 
     assay_group = defaultdict(list)
     for rec in records:
-        assay = rec['assay']
+        assay = rec['assay_name']
         assay_group[assay].append(rec)
 
     assay_results = []

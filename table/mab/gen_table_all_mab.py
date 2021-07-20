@@ -25,7 +25,7 @@ ON
     s.rx_name = rx.rx_name AND
     s.iso_name = iso.iso_name
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
 ;
 """.format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 

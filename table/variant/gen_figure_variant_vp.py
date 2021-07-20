@@ -20,10 +20,13 @@ INNER JOIN {rx_vaccine} as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name in {control_variants}
-    AND s.fold IS NOT NULL;
+    AND
+    r.vaccine_name IS NOT NULL
+    AND
+    s.fold IS NOT NULL;
 """.format(
     control_variants=CONTROL_VARIANTS_SQL,
     rx_vaccine=RX_VP,

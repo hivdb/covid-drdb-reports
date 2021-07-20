@@ -12,7 +12,7 @@ SELECT
 FROM
     susc_results AS s
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     (s.ref_name, s.rx_name, s.iso_name, s.control_iso_name) IN
     (
@@ -42,7 +42,7 @@ SELECT
 FROM
     susc_results AS s
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     (s.ref_name, s.rx_name, s.iso_name, s.control_iso_name) IN
     (SELECT

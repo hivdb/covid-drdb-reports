@@ -26,7 +26,7 @@ ON
     s.ref_name = rx.ref_name
     AND s.rx_name = rx.rx_name
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name IN {control_variants}
     AND
@@ -39,7 +39,7 @@ GROUP BY
     s.control_iso_name,
     s.iso_name,
     s.ordinal_number,
-    s.assay
+    s.assay_name
 ;
 """.format(control_variants=CONTROL_VARIANTS_SQL)
 

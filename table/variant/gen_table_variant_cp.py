@@ -22,7 +22,7 @@ INNER JOIN rx_conv_plasma as r ON
     s.ref_name = r.ref_name
     AND s.rx_name = r.rx_name
 WHERE
-    s.inhibition_pcnt != 90
+    s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name in {control_variants}
     AND s.fold IS NOT NULL;

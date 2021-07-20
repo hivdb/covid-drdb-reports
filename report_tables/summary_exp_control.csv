@@ -1,22 +1,37 @@
 ﻿Control,Samples
-Wuhan-Hu-1,8925
-S:614G,6069
+S:614G,8744
+WA1,1750
 SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,71
-WA1,635
-VIC,146
-VIC Spike,149
-B.1 full genome,1447
+VIC,814
+Wuhan-Hu-1,8396
+B.1 full genome,1173
+B.1.1.7 full genome,218
 B.1 Spike,48
-hCoV-19/India/2020770,59
+hCoV-19/France/UN-FRA-WGS157/2020,4
+B full genome,24
+hCoV-19/India/2020770,133
+hCoV-19/Germany/BY-ChVir-929/2020,34
 19A_1707038,202
 B.1.1.50 full genome_745046,36
+hCoV-19/England/02/2020,182
+FFM1,83
 hCoV-19/Israel/CVL-45526-ngs/2020,83
-Wuhan-Hu-1 Spike,854
-B.1.1.7 Spike,55
+FFM7,82
+IC19 full genome,26
+Wuhan-Hu-1 Spike,126
+S:683G,169
+hCoV-19/France/GES-1973/2020,321
+hCoV-19/Italy/LOM-INMI-10734/2020,12
+hCoV-19/Finland/1/2020,76
+hCoV-19/South Africa/KRISP-K002868/2020,20
+hCoV-19/South Africa/KRISP-K005325/2020,20
 B.1.1.7 Spike:-144del+145del,68
-B.1.1.7 full genome,85
-B.1.351 Spike,45
+hCoV-19/England/204690005/2020,166
 B.1.351 Spike:-18F-246I,51
+B.1.351 Spike,23
+SP02.2020,54
+B.1.126 full genome,22
 Weigang21_d14,20
-hCoV-19/Germany/BY-ChVir-929/2020,2
+hCoV-19/Germany/NW-RKI-I-0026/2020,20
 A,300
+B.1_EHC-083E_454690 full genome,192
