@@ -48,52 +48,52 @@ def get_iso_name_filter(var_name, selector='all'):
 
 
 ROWS = {
-    'B.1.1.7': {
+    'Alpha': {
         'filter': [
             get_iso_name_filter('Alpha', 'spike')
         ]
     },
-    'B.1.1.7 full genome': {
+    'Alpha full genome': {
         'filter': [
             get_iso_name_filter('Alpha', 'genome')
         ]
     },
-    'B.1.351': {
+    'Beta': {
         'filter': [
             get_iso_name_filter('Beta', 'spike')
         ]
     },
-    'B.1.351 full genome': {
+    'Beta full genome': {
         'filter': [
             get_iso_name_filter('Beta', 'genome')
         ]
     },
-    'P.1': {
+    'Gamma': {
         'filter': [
             get_iso_name_filter('Gamma', 'spike')
         ]
     },
-    'P.1 full genome': {
+    'Gamma full genome': {
         'filter': [
             get_iso_name_filter('Gamma', 'genome')
         ]
     },
-    'B.1.427/9': {
+    'Epsilon': {
         'filter': [
             get_iso_name_filter('Epsilon')
         ]
     },
-    'B.1.526': {
+    'Iota': {
         'filter': [
             get_iso_name_filter('Iota')
         ]
     },
-    'B.1.617.2': {
+    'Delta': {
         'filter': [
             get_iso_name_filter('Delta')
         ]
     },
-    'B.1.617.1': {
+    'Kappa': {
         'filter': [
             get_iso_name_filter('Kappa')
         ]

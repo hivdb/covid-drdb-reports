@@ -138,27 +138,27 @@ TABLE_SUMMARY_ROWS = {
             "AND sm.num_muts = 1 AND sm.iso_name = s.iso_name",
         ]
     },
-    'B.1.1.7': {
+    'Alpha': {
         'filter': [
             get_iso_name_filter('Alpha')
         ]
     },
-    'B.1.351': {
+    'Beta': {
         'filter': [
             get_iso_name_filter('Beta')
         ]
     },
-    'P.1': {
+    'Gamma': {
         'filter': [
             get_iso_name_filter('Gamma')
         ]
     },
-    'B.1.427/9': {
+    'Epsilon': {
         'filter': [
             get_iso_name_filter('Epsilon')
         ]
     },
-    'B.1.526': {
+    'Iota': {
         'filter': [
             get_iso_name_filter('Iota')
         ]

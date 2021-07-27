@@ -187,28 +187,28 @@ IGNORE_VARIANTS = [
 ]
 
 VARIANT_NICKNAMES = {
-    '69-70∆,N501Y': 'B.1.1.7 (variation)',
-    '69-70∆,N501Y,P681H': 'B.1.1.7 (variation)',
-    '69-70∆,N501Y,A570D': 'B.1.1.7 (variation)',
-    'K417T,E484K,N501Y': 'P.1 (variation)',
-    'K417T,E484K': 'P.1 (variation)',
-    'K417N,N501Y': 'B.1.351 (variation)',
-    'K417N,E484K': 'B.1.351 (variation)',
-    'B.1.427': 'B.1.427/9',
-    'B.1.1.7 S1': 'B.1.1.7 (variation)',
-    'B.1.1.7 + 484K (variation)': 'B.1.1.7 + E484K',
-    'B.1.1.7 :-144del+145del (variation)': 'B.1.1.7',
-    'B.1.351 :-18F-215G (variation)': 'B.1.351 (variation)',
+    '69-70∆,N501Y': 'Alpha (variation)',
+    '69-70∆,N501Y,P681H': 'Alpha (variation)',
+    '69-70∆,N501Y,A570D': 'Alpha (variation)',
+    'K417T,E484K,N501Y': 'Gamma (variation)',
+    'K417T,E484K': 'Gamma (variation)',
+    'K417N,N501Y': 'Beta (variation)',
+    'K417N,E484K': 'Beta (variation)',
+    'B.1.427': 'Epsilon',
+    'B.1.1.7 S1': 'Alpha (variation)',
+    'B.1.1.7 + 484K (variation)': 'Alpha + E484K',
+    'B.1.1.7 :-144del+145del (variation)': 'Alpha',
+    'B.1.351 :-18F-215G (variation)': 'Beta (variation)',
     'B.1.351 :-18F-242del-243del-244del-246I (variation)':
-        'B.1.351 (variation)',
+        'Beta (variation)',
     'B.1.351 :-18F-242del-243del-244del-246I-417N (variation)':
-        'B.1.351 (variation)',
-    'B.1.351 :-18F-244del-246I (variation)': 'B.1.351 (variation)',
-    'B.1.351 :-242del-243del-244del-246I (variation)': 'B.1.351 (variation)',
-    'B.1.351 :-246I (variation)': 'B.1.351 (variation)',
-    'B.1.351 RBD': 'B.1.351 (variation)',
-    'B.1.526 :-484K+477N (variation)': 'B.1.526 (variation)',
-    'B.1.526 v.2': 'B.1.526 (variation)',
+        'Beta (variation)',
+    'B.1.351 :-18F-244del-246I (variation)': 'Beta (variation)',
+    'B.1.351 :-242del-243del-244del-246I (variation)': 'Beta (variation)',
+    'B.1.351 :-246I (variation)': 'Beta (variation)',
+    'B.1.351 RBD': 'Beta (variation)',
+    'B.1.526 :-484K+477N (variation)': 'Iota (variation)',
+    'B.1.526 v.2': 'Iota (variation)',
 }
 
 NTD_DELETION_GROUP_RULE = {

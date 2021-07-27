@@ -7,13 +7,13 @@ from collections import defaultdict
 from .common import get_sample_number_pair
 
 SHOW_VARIANT = [
-    'B.1.1.7',
-    'B.1.351',
-    'P.1',
-    'B.1.617.2',
-    'B.1.526',
-    'B.1.427/9',
-    'B.1.617.1',
+    'Alpha',
+    'Beta',
+    'Gamma',
+    'Delta',
+    'Iota',
+    'Epsilon',
+    'Kappa',
     'N501Y',
     'E484K',
     'K417N',
