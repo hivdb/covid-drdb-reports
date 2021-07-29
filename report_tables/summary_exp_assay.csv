@@ -1,8 +1,8 @@
 ﻿Assay,Samples
-vsv pseudovirus,7229
-authentic virus,6598
-chimeric virus,890
-HIV pseudovirus,5903
-MLV pseudovirus,280
-lentivirus pseudovirus,2972
-pseudovirus,21
+Pseudovirus (VSV),7425
+Virus isolate,8867
+SARS-CoV-2 recombinant,890
+Pseudovirus (HIV),6984
+Pseudovirus (MLV),286
+Pseudovirus (lentivirus),3225
+Pseudovirus,21

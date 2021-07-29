@@ -128,8 +128,11 @@
 242-244∆,LAL,242,del,NTD,Vir-7831,Phase 3,RBD,0.8
 242-244∆,LAL,242,del,NTD,Vir-7831,Phase 3,RBD,0.8
 246-252∆,RSYLTPG,246,del,NTD,Casirivimab,Phase 3,RBD,1.1
+246-252∆,RSYLTPG,246,del,NTD,Casirivimab,Phase 3,RBD,0.8
 246-252∆,RSYLTPG,246,del,NTD,Casirivimab/Imdevimab,Phase 3,,1.0
+246-252∆,RSYLTPG,246,del,NTD,Casirivimab/Imdevimab,Phase 3,,0.8
 246-252∆,RSYLTPG,246,del,NTD,Imdevimab,Phase 3,RBD,1.0
+246-252∆,RSYLTPG,246,del,NTD,Imdevimab,Phase 3,RBD,0.9
 69-70∆,HV,69,del,NTD,1-20,,RBD,0.7
 69-70∆,HV,69,del,NTD,1-57,,RBD,0.9
 69-70∆,HV,69,del,NTD,2-15,,RBD,0.8
@@ -988,6 +991,7 @@ E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,4.4
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,7.3
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,22.4
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,53.3
+E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,0.0
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,9.0
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,10.5
 E484K,E,484,K,RBD,Casirivimab,Phase 3,RBD,26.3
@@ -999,6 +1003,7 @@ E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,0.7
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,1.0
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,0.5
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,1.5
+E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,0.3
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,1.5
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,4.0
 E484K,E,484,K,RBD,Casirivimab/Imdevimab,Phase 3,,2.0
@@ -1025,6 +1030,7 @@ E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,1.0
 E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,0.5
 E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,0.8
 E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,1.4
+E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,0.8
 E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,0.7
 E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,1.1
 E484K,E,484,K,RBD,Imdevimab,Phase 3,RBD,0.2
@@ -1330,13 +1336,16 @@ F490S,F,490,S,RBD,C549,,,0.4
 F490S,F,490,S,RBD,Casirivimab,Phase 3,RBD,1.2
 F490S,F,490,S,RBD,Casirivimab,Phase 3,RBD,0.8
 F490S,F,490,S,RBD,Casirivimab,Phase 3,RBD,0.6
+F490S,F,490,S,RBD,Casirivimab,Phase 3,RBD,1.5
 F490S,F,490,S,RBD,Casirivimab/Imdevimab,Phase 3,,1.0
 F490S,F,490,S,RBD,Casirivimab/Imdevimab,Phase 3,,0.0
+F490S,F,490,S,RBD,Casirivimab/Imdevimab,Phase 3,,20.0
 F490S,F,490,S,RBD,Etesevimab,Phase 3,RBD,0.8
 F490S,F,490,S,RBD,Etesevimab,Phase 3,RBD,1.3
 F490S,F,490,S,RBD,Imdevimab,Phase 3,RBD,1.2
 F490S,F,490,S,RBD,Imdevimab,Phase 3,RBD,1.5
 F490S,F,490,S,RBD,Imdevimab,Phase 3,RBD,1.2
+F490S,F,490,S,RBD,Imdevimab,Phase 3,RBD,0.8
 F490S,F,490,S,RBD,Imdevimab/REGN10989,Phase 3,,5.5
 F490S,F,490,S,RBD,LY3853113,,RBD,2.1
 F490S,F,490,S,RBD,REGN10934,,RBD,148.5
@@ -1863,11 +1872,13 @@ K417N,K,417,N,RBD,CV07-270,,RBD,0.8
 K417N,K,417,N,RBD,CV38-142,,RBD,0.2
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,7.0
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,48.7
+K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,0.0
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,5.7
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,13.1
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,7.0
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,4.4
 K417N,K,417,N,RBD,Casirivimab,Phase 3,RBD,43.0
+K417N,K,417,N,RBD,Casirivimab/Imdevimab,Phase 3,,0.1
 K417N,K,417,N,RBD,Casirivimab/Imdevimab,Phase 3,,0.8
 K417N,K,417,N,RBD,Casirivimab/Imdevimab,Phase 3,,1.5
 K417N,K,417,N,RBD,Cilgavimab,Phase 3,RBD,0.6
@@ -1886,6 +1897,7 @@ K417N,K,417,N,RBD,H00S022,,RBD,0.6
 K417N,K,417,N,RBD,H014,,RBD,1.5
 K417N,K,417,N,RBD,Imdevimab,Phase 3,RBD,1.0
 K417N,K,417,N,RBD,Imdevimab,Phase 3,RBD,1.3
+K417N,K,417,N,RBD,Imdevimab,Phase 3,RBD,3.0
 K417N,K,417,N,RBD,Imdevimab,Phase 3,RBD,0.3
 K417N,K,417,N,RBD,Imdevimab,Phase 3,RBD,1.2
 K417N,K,417,N,RBD,Imdevimab,Phase 3,RBD,0.1
@@ -1949,6 +1961,7 @@ K417V,K,417,V,RBD,COVA1-16,,RBD,1.3
 K417V,K,417,V,RBD,COVA1-18,,RBD,0.4
 K417V,K,417,V,RBD,COVA1-21,,RBD,1.0
 K417V,K,417,V,RBD,COVA2-02,,RBD,6.3
+K417V,K,417,V,RBD,COVA2-04,,RBD,100.0
 K417V,K,417,V,RBD,COVA2-07,,RBD,59.6
 K417V,K,417,V,RBD,COVA2-17,,RBD,0.4
 K417V,K,417,V,RBD,COVA2-29,,RBD,0.2
@@ -2181,8 +2194,11 @@ L452K,L,452,K,RBD,COVA2-07,,RBD,0.9
 L452K,L,452,K,RBD,COVA2-17,,RBD,0.7
 L452K,L,452,K,RBD,COVA2-29,,RBD,153.8
 L452Q,L,452,Q,RBD,Casirivimab,Phase 3,RBD,5.8
+L452Q,L,452,Q,RBD,Casirivimab,Phase 3,RBD,0.2
 L452Q,L,452,Q,RBD,Casirivimab/Imdevimab,Phase 3,,2.3
+L452Q,L,452,Q,RBD,Casirivimab/Imdevimab,Phase 3,,0.4
 L452Q,L,452,Q,RBD,Imdevimab,Phase 3,RBD,4.4
+L452Q,L,452,Q,RBD,Imdevimab,Phase 3,RBD,0.2
 L452R,L,452,R,RBD,10D12,,RBD,1.2
 L452R,L,452,R,RBD,10F9,,RBD,1.4
 L452R,L,452,R,RBD,157,,RBD,0.8
@@ -2228,12 +2244,14 @@ L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,1.1
 L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,1.0
 L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,9.9
 L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,23.6
+L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,0.1
 L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,0.8
 L452R,L,452,R,RBD,Casirivimab,Phase 3,RBD,1.0
 L452R,L,452,R,RBD,Casirivimab/Imdevimab,Phase 3,,0.9
 L452R,L,452,R,RBD,Casirivimab/Imdevimab,Phase 3,,1.0
 L452R,L,452,R,RBD,Casirivimab/Imdevimab,Phase 3,,4.0
 L452R,L,452,R,RBD,Casirivimab/Imdevimab,Phase 3,,11.8
+L452R,L,452,R,RBD,Casirivimab/Imdevimab,Phase 3,,0.1
 L452R,L,452,R,RBD,Etesevimab,Phase 3,RBD,1.0
 L452R,L,452,R,RBD,Etesevimab,Phase 3,RBD,0.7
 L452R,L,452,R,RBD,Etesevimab,Phase 3,RBD,2.1
@@ -2247,11 +2265,13 @@ L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,1.1
 L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,1.0
 L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,2.9
 L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,5.3
+L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,0.1
 L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,3.0
 L452R,L,452,R,RBD,Imdevimab,Phase 3,RBD,0.7
 L452R,L,452,R,RBD,LY3853113,,RBD,0.7
 L452R,L,452,R,RBD,LY3853113,,RBD,0.7
 L452R,L,452,R,RBD,P2B-2F6,,RBD,32.7
+L452R,L,452,R,RBD,Regdanvimab,Phase 3,RBD,60.4
 L452R,L,452,R,RBD,Vir-7831,Phase 3,RBD,0.6
 L452R,L,452,R,RBD,X593,,RBD,62.6
 L452R,L,452,R,RBD,X593,,RBD,70.2
@@ -3202,6 +3222,7 @@ P681H,P,681,H,CTD,P5A-1B9,,RBD,1.4
 P681H,P,681,H,CTD,P5A-1D2,,RBD,1.1
 P681H,P,681,H,CTD,P5A-3C8,,RBD,1.0
 P681H,P,681,H,CTD,REGN10985,,RBD,1.3
+P681H,P,681,H,CTD,Regdanvimab,Phase 3,RBD,1.7
 P681H,P,681,H,CTD,S2E12,,RBD,1.4
 P681H,P,681,H,CTD,S2E12/Sotrovimab,,,0.9
 P681H,P,681,H,CTD,S2H58,,RBD,1.0
@@ -3959,6 +3980,10 @@ T478K,T,478,K,RBD,C164,,,3.1
 T478K,T,478,K,RBD,C512,,,0.4
 T478K,T,478,K,RBD,C548,,,0.8
 T478K,T,478,K,RBD,C549,,,1.2
+T478K,T,478,K,RBD,Casirivimab,Phase 3,RBD,0.3
+T478K,T,478,K,RBD,Casirivimab/Imdevimab,Phase 3,,0.4
+T478K,T,478,K,RBD,Imdevimab,Phase 3,RBD,0.7
+T478K,T,478,K,RBD,Regdanvimab,Phase 3,RBD,1.0
 T500I,T,500,I,RBD,C032,,,0.1
 T500I,T,500,I,RBD,C051,,,0.5
 T500I,T,500,I,RBD,C052,,,0.5
@@ -4019,8 +4044,11 @@ T716I,T,716,I,S2,Tixagevimab,Phase 3,RBD,0.4
 T716I,T,716,I,S2,Vir-7831,Phase 3,RBD,1.6
 T716I,T,716,I,S2,Vir-7831,Phase 3,RBD,0.7
 T859N,T,859,N,S2,Casirivimab,Phase 3,RBD,1.3
+T859N,T,859,N,S2,Casirivimab,Phase 3,RBD,0.8
 T859N,T,859,N,S2,Casirivimab/Imdevimab,Phase 3,,1.3
+T859N,T,859,N,S2,Casirivimab/Imdevimab,Phase 3,,0.7
 T859N,T,859,N,S2,Imdevimab,Phase 3,RBD,1.2
+T859N,T,859,N,S2,Imdevimab,Phase 3,RBD,0.8
 V1128F,V,1128,F,S2,Vir-7831,Phase 3,RBD,0.5
 V1128F,V,1128,F,S2,Vir-7832,Phase 2,RBD,0.6
 V341I,V,341,I,RBD,157,,RBD,1.5

@@ -1,4 +1,147 @@
 ﻿ref_name,rx_name,control_variant,variant,sample
+Imai21,11182,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,11182,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,11462,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,11462,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,11471,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,11471,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,1497,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,1497,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Supasa21,150,B.1.1.7 full genome,VIC,1
+Supasa21,150H+222L,B.1.1.7 full genome,VIC,1
+Supasa21,158,B.1.1.7 full genome,VIC,1
+Supasa21,158H+222L,B.1.1.7 full genome,VIC,1
+Imai21,1610,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,1610,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Supasa21,175,B.1.1.7 full genome,VIC,1
+Supasa21,175H+222L,B.1.1.7 full genome,VIC,1
+Imai21,1785,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,1785,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Supasa21,222,B.1.1.7 full genome,VIC,1
+Supasa21,222H+222L,B.1.1.7 full genome,VIC,1
+Supasa21,269H+222L,B.1.1.7 full genome,VIC,1
+Imai21,2946,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,2946,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,2955,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,2955,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,4500,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,4500,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,4605,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,4605,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,4608,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,4608,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,4704,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,4704,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,4719,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,4719,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7455,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7455,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7482,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7482,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7533,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7533,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7602,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7602,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7614,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7614,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7626,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7626,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7629,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7629,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7635,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7635,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7641,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7641,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7644,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7644,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7656,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7656,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7683,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7683,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7686,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7686,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7701,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7701,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7794,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7794,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7806,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7806,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7836,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7836,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,7854,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,7854,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,8787,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,8787,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,8832,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,8832,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,9163,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,9163,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,9394,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,9394,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Imai21,9418,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,9418,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
+Supasa21,ADG10,B.1.1.7 full genome,VIC,1
+Supasa21,ADG20,B.1.1.7 full genome,VIC,1
+Supasa21,ADG30,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1061,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_1,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_10,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_11,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_12,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_13,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_14,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_15,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_16,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_17,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_18,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_19,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_2,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_20,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_21,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_22,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_23,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_24,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_25,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_3,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_4,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_5,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_6,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_7,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_8,B.1.1.7 full genome,VIC,1
+Supasa21,AZD1222_9,B.1.1.7 full genome,VIC,1
+Supasa21,AZD7442,B.1.1.7 full genome,VIC,1
+Supasa21,AZD8895,B.1.1.7 full genome,VIC,1
+Sapkal21c,AZD_1st_1,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_10,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_11,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_12,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_13,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_14,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_15,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_16,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_17,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_18,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_19,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_2,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_20,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_21,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_22,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_23,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_24,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_25,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_26,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_27,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_28,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_29,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_3,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_30,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_31,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_4,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_5,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_6,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_7,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_8,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_1st_9,B.1.617.2 full genome,B.1 full genome,1
 Planas21b,AZD_1st_W10_1,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_10,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_11,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
@@ -11,7 +154,72 @@ Planas21b,AZD_1st_W10_6,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_7,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_8,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_9,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
+Sapkal21c,AZD_2nd_1,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_10,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_11,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_12,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_13,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_14,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_15,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_16,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_17,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_18,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_19,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_2,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_20,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_21,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_22,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_23,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_24,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_25,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_26,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_27,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_28,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_29,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_3,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_30,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_31,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_4,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_5,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_6,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_7,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_8,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_2nd_9,B.1.617.2 full genome,B.1 full genome,1
 Planas21b,AZD_2nd_W16,B.1.1.7 full genome,B.1.617.2_2029113 full genome,20
+Sapkal21c,AZD_infect_1st_1,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_10,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_11,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_12,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_13,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_14,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_15,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_2,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_3,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_4,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_5,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_6,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_7,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_8,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_1st_9,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_1,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_10,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_11,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_12,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_13,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_14,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_15,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_16,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_17,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_18,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_19,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_2,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_3,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_4,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_5,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_6,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_7,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_8,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,AZD_infect_2nd_9,B.1.617.2 full genome,B.1 full genome,1
 Yadav21,BBV152_01,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_02,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_03,B.1.1.7 full genome,B.1.617.1 full genome,1
@@ -42,6 +250,31 @@ Yadav21,BBV152_27,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_28,B.1.1.7 full genome,B.1.617.1 full genome,1
 Gonzalez21,BNT162b2,19A_1707038,B.1.1.7 full genome_1707039,30
 Gonzalez21,BNT162b2,19A_1707038,B.1.351 full genome_768828,30
+Supasa21,BNT162b2_1,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_10,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_11,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_12,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_13,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_14,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_15,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_16,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_17,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_18,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_19,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_2,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_20,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_21,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_22,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_23,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_24,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_25,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_3,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_4,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_5,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_6,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_7,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_8,B.1.1.7 full genome,VIC,1
+Supasa21,BNT162b2_9,B.1.1.7 full genome,VIC,1
 Planas21b,BNT_1st_W3,B.1.1.7 full genome,B.1.617.2_2029113 full genome,16
 Planas21b,BNT_2nd_W16_1,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,BNT_2nd_W16_10,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
@@ -72,6 +305,78 @@ Planas21b,BNT_2nd_W8_6,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,BNT_2nd_W8_7,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,BNT_2nd_W8_8,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,BNT_2nd_W8_9,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
+Brown21,BNT_6,B.1.1.7 Spike,S:614G,1
+Brown21,BNT_7,B.1.1.7 Spike,S:614G,1
+Brown21,BNT_8,B.1.1.7 Spike,S:614G,1
+Trinite21,BNT_infected_01,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_01,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_02,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_02,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_03,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_03,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_04,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_04,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_05,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_05,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_06,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_06,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_07,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_07,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_08,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_08,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_09,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_09,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Brown21,BNT_infected_10,B.1.1.7 Spike,S:614G,1
+Trinite21,BNT_infected_10,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_10,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_11,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_11,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_12,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_12,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_13,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_13,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_14,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_14,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_15,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_15,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_infected_16,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_infected_16,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Brown21,BNT_infected_6,B.1.1.7 Spike,S:614G,1
+Brown21,BNT_infected_7,B.1.1.7 Spike,S:614G,1
+Brown21,BNT_infected_8,B.1.1.7 Spike,S:614G,1
+Brown21,BNT_infected_9,B.1.1.7 Spike,S:614G,1
+Trinite21,BNT_uninfected_01,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_01,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_02,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_02,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_03,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_03,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_04,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_04,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_05,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_05,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_06,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_06,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_07,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_07,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_08,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_08,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_09,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_09,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_10,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_10,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_11,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_11,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_12,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_12,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_13,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_13,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_14,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_14,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_15,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_15,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
+Trinite21,BNT_uninfected_16,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,BNT_uninfected_16,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Planas21b,Bamlanivimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Gonzalez21,CP,19A_1707038,B.1.1.241_1707040,34
 Virtanen21,CP_04a,hCoV-19/Finland/1/2020,B.1 full genome,1
@@ -101,6 +406,9 @@ Virtanen21,CP_09a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_09b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_09b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_09b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_1,B.1.1.7 full genome,VIC,1
+Supasa21,CP_10,B.1.1.7 full genome,VIC,1
+Supasa21,CP_11,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_11a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_11a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_11a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
@@ -110,48 +418,93 @@ Virtanen21,CP_11b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_11c,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_11c,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_11c,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_12,B.1.1.7 full genome,VIC,1
+Supasa21,CP_13,B.1.1.7 full genome,VIC,1
+Supasa21,CP_14,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_14a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_14a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_14a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_14b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_14b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_14b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_15,B.1.1.7 full genome,VIC,1
+Supasa21,CP_16,B.1.1.7 full genome,VIC,1
+Supasa21,CP_17,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_17a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_17a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_17a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_17b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_17b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_17b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_18,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_18a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_18a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_18a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_18b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_18b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_18b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_19,B.1.1.7 full genome,VIC,1
+Supasa21,CP_2,B.1.1.7 full genome,VIC,1
+Supasa21,CP_20,B.1.1.7 full genome,VIC,1
+Supasa21,CP_21,B.1.1.7 full genome,VIC,1
+Supasa21,CP_22,B.1.1.7 full genome,VIC,1
+Supasa21,CP_23,B.1.1.7 full genome,VIC,1
+Supasa21,CP_24,B.1.1.7 full genome,VIC,1
+Supasa21,CP_25,B.1.1.7 full genome,VIC,1
+Supasa21,CP_26,B.1.1.7 full genome,VIC,1
+Supasa21,CP_27,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_27a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_27a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_27a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_27b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_27b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_27b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_28,B.1.1.7 full genome,VIC,1
+Supasa21,CP_29,B.1.1.7 full genome,VIC,1
+Sapkal21c,CP_2nd_wave_1,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_10,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_11,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_12,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_13,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_14,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_15,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_16,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_17,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_18,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_19,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_2,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_20,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_3,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_4,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_5,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_6,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_7,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_8,B.1.617.2 full genome,B.1 full genome,1
+Sapkal21c,CP_2nd_wave_9,B.1.617.2 full genome,B.1 full genome,1
+Supasa21,CP_3,B.1.1.7 full genome,VIC,1
+Supasa21,CP_30,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_30a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_30a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_30a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_30b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_30b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_30b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_31,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_31a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_31a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_31a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_31b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_31b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_31b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_32,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_32a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_32a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_32a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_32b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_32b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_32b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_33,B.1.1.7 full genome,VIC,1
+Supasa21,CP_34,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_36a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_36a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_36a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
@@ -164,6 +517,7 @@ Virtanen21,CP_37a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_37b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_37b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_37b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_4,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_41a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_41a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_41a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
@@ -182,40 +536,31 @@ Virtanen21,CP_46a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_46b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_46b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_46b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_5,B.1.1.7 full genome,VIC,1
 Virtanen21,CP_51a,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_51a,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_51a,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
 Virtanen21,CP_51b,hCoV-19/Finland/1/2020,B.1 full genome,1
 Virtanen21,CP_51b,hCoV-19/Finland/1/2020,hCoV-19/Finland/85HEL/2020,1
 Virtanen21,CP_51b,hCoV-19/Finland/1/2020,hCoV-19/Finland/HEL-12-102/2021,1
+Supasa21,CP_6,B.1.1.7 full genome,VIC,1
+Supasa21,CP_7,B.1.1.7 full genome,VIC,1
+Supasa21,CP_8,B.1.1.7 full genome,VIC,1
+Supasa21,CP_9,B.1.1.7 full genome,VIC,1
 Cele21,CP_B.1.1.117+S:484K,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117+S:484K,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_01,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_01,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_02,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_02,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_03,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_03,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_04,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_04,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_05,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_05,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_06,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_06,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_07,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_07,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_08,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_08,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_09,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_09,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_10,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_10,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_11,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_11,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_12,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_12,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Cele21,CP_B.1.1.117_13,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
-Cele21,CP_B.1.1.117_13,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
 Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.1.298 Spike:+69del+70del,4
 Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.1.318 Spike,4
 Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,B.1.351 Spike:-18F-246I,4
@@ -233,30 +578,64 @@ Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:477N+614G,4
 Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:484K+614G,4
 Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:501Y+614G,4
 Zhang21c,CP_B.1.1.7,B.1.1.7 Spike:-144del+145del,S:614G,4
+Trinite21,CP_B.1.1.7_01,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_01,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_01,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_01,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_02,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_02,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_02,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_02,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_03,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_03,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_03,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_03,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_04,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_04,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_04,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_04,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_05,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_05,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_05,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_05,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_06,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_06,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_06,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_06,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_07,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_07,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_07,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_07,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_08,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_08,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_08,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_08,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Trinite21,CP_B.1.1.7_09,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_09,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_09,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_09,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Supasa21,CP_B.1.1.7_1,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_1,B.1.1.7 full genome_693400,IC19 full genome,1
+Brown21,CP_B.1.1.7_10,B.1.1.7 Spike,S:614G,1
+Supasa21,CP_B.1.1.7_10,B.1.1.7 full genome,VIC,1
+Trinite21,CP_B.1.1.7_10,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_10,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_10,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_10,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Brown21,CP_B.1.1.7_11,B.1.1.7 Spike,S:614G,1
+Supasa21,CP_B.1.1.7_11,B.1.1.7 full genome,VIC,1
+Trinite21,CP_B.1.1.7_11,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_11,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_11,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_11,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Supasa21,CP_B.1.1.7_12,B.1.1.7 full genome,VIC,1
+Trinite21,CP_B.1.1.7_12,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_12,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_12,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_12,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Supasa21,CP_B.1.1.7_13,B.1.1.7 full genome,VIC,1
+Trinite21,CP_B.1.1.7_13,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,S:614G,1
+Trinite21,CP_B.1.1.7_13,S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,Wuhan-Hu-1,1
 Faulkner21,CP_B.1.1.7_13,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_13,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
 Faulkner21,CP_B.1.1.7_14,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
@@ -271,6 +650,8 @@ Faulkner21,CP_B.1.1.7_18,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_18,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
 Faulkner21,CP_B.1.1.7_19,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_19,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Supasa21,CP_B.1.1.7_2,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_2,B.1.1.7 full genome_693400,IC19 full genome,1
 Faulkner21,CP_B.1.1.7_20,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_20,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
 Faulkner21,CP_B.1.1.7_21,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
@@ -291,6 +672,20 @@ Faulkner21,CP_B.1.1.7_28,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_28,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
 Faulkner21,CP_B.1.1.7_29,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_B.1.1.7_29,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Supasa21,CP_B.1.1.7_3,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_3,B.1.1.7 full genome_693400,IC19 full genome,1
+Supasa21,CP_B.1.1.7_4,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_4,B.1.1.7 full genome_693400,IC19 full genome,1
+Supasa21,CP_B.1.1.7_5,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_5,B.1.1.7 full genome_693400,IC19 full genome,1
+Supasa21,CP_B.1.1.7_6,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_6,B.1.1.7 full genome_693400,IC19 full genome,1
+Supasa21,CP_B.1.1.7_7,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_7,B.1.1.7 full genome_693400,IC19 full genome,1
+Supasa21,CP_B.1.1.7_8,B.1.1.7 full genome,VIC,1
+Brown21,CP_B.1.1.7_8,B.1.1.7 full genome_693400,IC19 full genome,1
+Brown21,CP_B.1.1.7_9,B.1.1.7 Spike,S:614G,1
+Supasa21,CP_B.1.1.7_9,B.1.1.7 full genome,VIC,1
 Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.1.298 Spike:+69del+70del,3
 Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.1.318 Spike,3
 Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,B.1.1.7 Spike:-144del+145del,3
@@ -308,18 +703,27 @@ Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:477N+614G,3
 Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:484K+614G,3
 Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:501Y+614G,3
 Zhang21c,CP_B.1.351,B.1.351 Spike:-18F-246I,S:614G,3
-Cele21,CP_B.1.351_01,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
 Cele21,CP_B.1.351_01,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
-Cele21,CP_B.1.351_02,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
 Cele21,CP_B.1.351_02,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
-Cele21,CP_B.1.351_03,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
 Cele21,CP_B.1.351_03,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
-Cele21,CP_B.1.351_04,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
 Cele21,CP_B.1.351_04,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
-Cele21,CP_B.1.351_05,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
 Cele21,CP_B.1.351_05,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
-Cele21,CP_B.1.351_06,hCoV-19/South Africa/KRISP-K002868/2020,hCoV-19/South Africa/KRISP-K005325/2020,1
 Cele21,CP_B.1.351_06,hCoV-19/South Africa/KRISP-K005325/2020,hCoV-19/South Africa/KRISP-K002868/2020,1
+Moyo-Gwete21,CP_B.1.351_1,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_10,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_11,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_12,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_13,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_14,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_15,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_16,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_17,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_18,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_19,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_2,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_20,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_21,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_22,B.1.351 Spike,S:614G,1
 Moyo-Gwete21,CP_B.1.351_23,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_24,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_25,B.1.351 Spike,P.1 Spike,1
@@ -327,9 +731,16 @@ Moyo-Gwete21,CP_B.1.351_26,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_27,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_28,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_29,B.1.351 Spike,P.1 Spike,1
+Moyo-Gwete21,CP_B.1.351_3,B.1.351 Spike,S:614G,1
 Moyo-Gwete21,CP_B.1.351_30,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_31,B.1.351 Spike,P.1 Spike,1
 Moyo-Gwete21,CP_B.1.351_32,B.1.351 Spike,P.1 Spike,1
+Moyo-Gwete21,CP_B.1.351_4,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_5,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_6,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_7,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_8,B.1.351 Spike,S:614G,1
+Moyo-Gwete21,CP_B.1.351_9,B.1.351 Spike,S:614G,1
 Faulkner21,CP_D614G_01,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_D614G_01,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
 Faulkner21,CP_D614G_01_M3,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
@@ -552,34 +963,41 @@ Planas21b,CP_Strasbourg_infect_G1_6,B.1.1.7 full genome,B.1.617.2_2029113 full g
 Planas21b,CP_Strasbourg_infect_G1_7,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,CP_Strasbourg_infect_G1_8,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,CP_Strasbourg_infect_G1_9,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
-Weigang21,CP_WT_mice_1,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_WT_mice_2,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_WT_mice_3,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_WT_mice_4,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_WT_mice_5,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_WT_mice_6,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_WT_mice_7,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_01,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_02,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_03,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_04,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_05,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_06,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_07,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_08,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_09,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_10,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_11,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_12,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
-Weigang21,CP_d105_mice_13,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_1,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_2,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_3,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_4,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_5,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_6,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_WT_mice_6d_7,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_01,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_02,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_03,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_04,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_05,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_06,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_07,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_08,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_09,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_10,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_11,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_12,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Weigang21,CP_d105_mice_6e_13,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
 Planas21b,Casirivimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,Etesevimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,Imdevimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
+Supasa21,LY-CoV16,B.1.1.7 full genome,VIC,1
+Supasa21,LY-CoV555,B.1.1.7 full genome,VIC,1
+Imai21,NCCo-503,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,1
+Imai21,NCCo-503,hCoV-19/Japan/TY7-501/2021,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,1
 Planas21b,NTD-18,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,RBD-109,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,RBD-48,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,RBD-85,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,RBD-98,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
+Supasa21,REGN10933,B.1.1.7 full genome,VIC,1
+Supasa21,REGN10987,B.1.1.7 full genome,VIC,1
+Supasa21,S309,B.1.1.7 full genome,VIC,1
 Becker21,Vac10_1,B.1.126 full genome,B.1.351 full genome,1
 Becker21,Vac10_2,B.1.126 full genome,B.1.351 full genome,1
 Becker21,Vac16_1,B.1.126 full genome,B.1.351 full genome,1
