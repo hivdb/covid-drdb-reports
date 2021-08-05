@@ -1,12 +1,12 @@
 ﻿Control,Samples
-S:614G,9495
-WA1,2051
+S:614G,9671
+WA1,2107
 SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,70
 hCoV-19/Japan/TY7-501/2021,37
 B.1.1.7 full genome,335
 VIC,801
-Wuhan-Hu-1,9240
-B.1 full genome,1301
+Wuhan-Hu-1,9290
+B.1 full genome,1338
 B.1 Spike,48
 hCoV-19/France/UN-FRA-WGS157/2020,4
 B full genome,24
@@ -16,9 +16,9 @@ hCoV-19/Germany/BY-ChVir-929/2020,34
 B.1.1.50 full genome_745046,36
 SARS-CoV-2/human/ITA/Siena-1/2020,180
 hCoV-19/England/02/2020,124
-FFM1,83
+FFM1,73
 hCoV-19/Israel/CVL-45526-ngs/2020,83
-FFM7,82
+FFM7,72
 IC19 full genome,18
 B.1.1.7 Spike,11
 S:69del+70del+141del+501Y+570D+614G+681H+716I+982A,90

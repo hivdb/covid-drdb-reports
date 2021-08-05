@@ -509,7 +509,7 @@
                 "s_fold": 28,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Ganiels21",
+                "reference": "Caniels21",
                 "median": 1.2
             },
             {
@@ -539,7 +539,7 @@
                 "s_fold": 41,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Ganiels21",
+                "reference": "Caniels21",
                 "median": 1.8
             },
             {
@@ -596,6 +596,16 @@
                 "r_fold": 1,
                 "reference": "Turner21",
                 "median": "1.4"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CP",
+                "samples": 8,
+                "s_fold": 2,
+                "i_fold": 2,
+                "r_fold": 4,
+                "reference": "Arora21",
+                "median": "8.6"
             },
             {
                 "variant": "Beta",
@@ -1114,7 +1124,7 @@
                 "s_fold": 0,
                 "i_fold": 28,
                 "r_fold": 0,
-                "reference": "Ganiels21",
+                "reference": "Caniels21",
                 "median": 6.0
             },
             {
@@ -1164,7 +1174,7 @@
                 "s_fold": 0,
                 "i_fold": 41,
                 "r_fold": 0,
-                "reference": "Ganiels21",
+                "reference": "Caniels21",
                 "median": 5.0
             },
             {
@@ -1192,6 +1202,16 @@
     {
         "variant": "Delta",
         "assays": [
+            {
+                "variant": "Delta",
+                "rx": "CP",
+                "samples": 8,
+                "s_fold": 7,
+                "i_fold": 1,
+                "r_fold": 0,
+                "reference": "Arora21",
+                "median": "1.8"
+            },
             {
                 "variant": "Delta",
                 "rx": "CP",
@@ -1459,7 +1479,7 @@
                 "s_fold": 28,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Ganiels21",
+                "reference": "Caniels21",
                 "median": 2.4
             },
             {
@@ -1489,7 +1509,7 @@
                 "s_fold": 0,
                 "i_fold": 41,
                 "r_fold": 0,
-                "reference": "Ganiels21",
+                "reference": "Caniels21",
                 "median": 3.0
             }
         ]

@@ -41,18 +41,18 @@ Alpha,MVC-COV1901,1,R,0
 Alpha,NVX-CoV2373,1,S,20
 Alpha,NVX-CoV2373,1,I,7
 Alpha,NVX-CoV2373,1,R,1
-Alpha,Sputnik V,1,S,9
-Alpha,Sputnik V,1,I,0
-Alpha,Sputnik V,1,R,0
+Alpha,Sputnik V,1,S,3
+Alpha,Sputnik V,1,I,1
+Alpha,Sputnik V,1,R,3
 Alpha,ZF2001,0,S,0
 Alpha,ZF2001,0,I,0
 Alpha,ZF2001,0,R,0
-Beta,CP,39,S,396
-Beta,CP,39,I,492
-Beta,CP,39,R,378
-Beta,BNT162b2,35,S,308
-Beta,BNT162b2,35,I,611
-Beta,BNT162b2,35,R,342
+Beta,CP,40,S,398
+Beta,CP,40,I,494
+Beta,CP,40,R,382
+Beta,BNT162b2,37,S,364
+Beta,BNT162b2,37,I,618
+Beta,BNT162b2,37,R,350
 Beta,mRNA-1273,16,S,62
 Beta,mRNA-1273,16,I,214
 Beta,mRNA-1273,16,R,214
@@ -89,9 +89,9 @@ Beta,MVC-COV1901,1,R,18
 Beta,NVX-CoV2373,1,S,0
 Beta,NVX-CoV2373,1,I,7
 Beta,NVX-CoV2373,1,R,16
-Beta,Sputnik V,1,S,1
-Beta,Sputnik V,1,I,2
-Beta,Sputnik V,1,R,6
+Beta,Sputnik V,1,S,6
+Beta,Sputnik V,1,I,1
+Beta,Sputnik V,1,R,0
 Beta,ZF2001,1,S,24
 Beta,ZF2001,1,I,0
 Beta,ZF2001,1,R,0
@@ -143,12 +143,12 @@ Gamma,Sputnik V,0,R,0
 Gamma,ZF2001,0,S,0
 Gamma,ZF2001,0,I,0
 Gamma,ZF2001,0,R,0
-Delta,CP,5,S,48
-Delta,CP,5,I,34
-Delta,CP,5,R,16
-Delta,BNT162b2,7,S,144
-Delta,BNT162b2,7,I,59
-Delta,BNT162b2,7,R,2
+Delta,CP,6,S,55
+Delta,CP,6,I,35
+Delta,CP,6,R,16
+Delta,BNT162b2,8,S,152
+Delta,BNT162b2,8,I,63
+Delta,BNT162b2,8,R,5
 Delta,mRNA-1273,4,S,37
 Delta,mRNA-1273,4,I,30
 Delta,mRNA-1273,4,R,2
@@ -427,7 +427,7 @@ E484K,NVX-CoV2373,0,I,0
 E484K,NVX-CoV2373,0,R,0
 E484K,Sputnik V,1,S,2
 E484K,Sputnik V,1,I,1
-E484K,Sputnik V,1,R,6
+E484K,Sputnik V,1,R,5
 E484K,ZF2001,0,S,0
 E484K,ZF2001,0,I,0
 E484K,ZF2001,0,R,0

@@ -29,11 +29,11 @@ All individual mutations,mAbs phase3,1047
 All individual mutations,mAbs structure,763
 Alpha,CP,1268
 Alpha,VP,3202
-Alpha,mAbs phase3,122
+Alpha,mAbs phase3,110
 Alpha,mAbs structure,65
-Beta,CP,1407
-Beta,VP,3247
-Beta,mAbs phase3,119
+Beta,CP,1415
+Beta,VP,3318
+Beta,mAbs phase3,111
 Beta,mAbs structure,48
 Gamma,CP,427
 Gamma,VP,924
@@ -47,11 +47,11 @@ Iota,CP,31
 Iota,VP,222
 Iota,mAbs phase3,13
 Iota,mAbs structure,1
-Other combinations of mutations,CP,2086
-Other combinations of mutations,VP,4184
-Other combinations of mutations,mAbs phase3,445
+Other combinations of mutations,CP,2094
+Other combinations of mutations,VP,4416
+Other combinations of mutations,mAbs phase3,441
 Other combinations of mutations,mAbs structure,244
-All combinations of mutations,CP,5438
-All combinations of mutations,VP,12385
-All combinations of mutations,mAbs phase3,817
+All combinations of mutations,CP,5454
+All combinations of mutations,VP,12688
+All combinations of mutations,mAbs phase3,793
 All combinations of mutations,mAbs structure,417

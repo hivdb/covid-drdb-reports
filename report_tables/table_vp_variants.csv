@@ -19,10 +19,10 @@ Alpha,BNT162b2,60,0,0,Anichini21,True,2.0,1.0,60
 Alpha,BNT162b2,29,21,0,Bates21*,False,2.0,2.4,50
 Alpha,BNT162b2,8,0,0,Brown21,False,1.0,1,8
 Alpha,BNT162b2,8,1,0,Brown21*,False,1.0,1.5,9
+Alpha,BNT162b2,50,0,0,Caniels21,True,2.0,1.7,50
 Alpha,BNT162b2,18,6,0,Chen21*,False,2.0,1.9,24
 Alpha,BNT162b2,73,15,4,Collier21,False,1.0,1,92
 Alpha,BNT162b2,34,8,0,Collier21,False,2.0,1.8,42
-Alpha,BNT162b2,50,0,0,Ganiels21,True,2.0,1.7,50
 Alpha,BNT162b2,30,0,0,Garcia-Beltran21,True,2.0,2.1,30
 Alpha,BNT162b2,25,0,0,Geers21,True,1.0,0.4,25
 Alpha,BNT162b2,25,0,0,Geers21,True,2.0,0.5,25
@@ -41,23 +41,23 @@ Alpha,BNT162b2,15,2,0,McCallum21b,False,2.0,1.1,17
 Alpha,BNT162b2,0,10,0,Mlcochova21*,True,2.0,5.3,10
 Alpha,BNT162b2,8,7,1,Monin21,False,2.0,3.2,16
 Alpha,BNT162b2,40,0,0,Muik21,False,2.0,1.3,40
-Alpha,BNT162b2,19,11,1,Planas21,False,1.0,2.3,31
 Alpha,BNT162b2,34,2,0,Planas21,False,2.0,0.6,36
+Alpha,BNT162b2,19,11,1,Planas21,False,1.0,2.3,31
 Alpha,BNT162b2,27,0,0,Planas21b*,False,2.0,0.9,27
 Alpha,BNT162b2,0,16,0,Planas21b*,True,1.0,3.7,16
-Alpha,BNT162b2,16,8,1,Skelly21,False,2.0,2.4,25
 Alpha,BNT162b2,1,0,7,Skelly21,False,1.0,2.8,8
-Alpha,BNT162b2,10,0,0,Stankov21,False,2.0,1,10
+Alpha,BNT162b2,16,8,1,Skelly21,False,2.0,2.4,25
 Alpha,BNT162b2,14,0,0,Stankov21,False,1.0,1,14
+Alpha,BNT162b2,10,0,0,Stankov21,False,2.0,1,10
 Alpha,BNT162b2,10,14,0,Supasa21*,False,2.0,3.3,24
 Alpha,BNT162b2,5,0,0,Tada21,False,2.0,0.9,5
 Alpha,BNT162b2,12,0,0,Tada21c,False,2.0,1.2,12
 Alpha,BNT162b2,24,0,0,Tada21e,False,2.0,1.1,24
 Alpha,BNT162b2,51,13,0,Trinite21,False,2.0,1.6,64
-Alpha,BNT162b2,37,3,0,Turner21*,False,2.0,1.4,40
 Alpha,BNT162b2,26,4,2,Turner21*,False,1.0,1.3,32
-Alpha,BNT162b2,123,24,101,Wall21*,False,1.0,2.9,248
+Alpha,BNT162b2,37,3,0,Turner21*,False,2.0,1.4,40
 Alpha,BNT162b2,136,74,3,Wall21*,False,2.0,2.5,213
+Alpha,BNT162b2,123,24,101,Wall21*,False,1.0,2.9,248
 Alpha,BNT162b2,9,1,0,Wang21b,False,2.0,1.9,10
 Alpha,BNT162b2,10,0,0,Wang21b*,False,2.0,0.9,10
 Alpha,BNT162b2,5,1,0,Widera21*,False,2.0,1,6
@@ -70,7 +70,7 @@ Alpha,CoronaVac,52,20,3,Acevedo21,False,2.0,2,75
 Alpha,CoronaVac,12,1,9,Wang21g,False,2.0,1.6,22
 Alpha,MVC-COV1901,41,4,0,Lien21,False,2.0,1.7,45
 Alpha,NVX-CoV2373,20,7,1,Shen21,False,2.0,2.2,28
-Alpha,Sputnik V,9,0,0,Ikegame21,False,2.0,0.7,9
+Alpha,Sputnik V,3,1,3,Ikegame21,False,2.0,1.4,7
 Alpha,mRNA-1273,8,0,0,Choi21,False,2.0,1.2,8
 Alpha,mRNA-1273,14,0,0,Edara21*,False,2.0,0.9,14
 Alpha,mRNA-1273,35,0,0,Garcia-Beltran21,True,2.0,2.3,35
@@ -93,8 +93,8 @@ Beta,AZD1222,2,10,38,Madhi21,False,2.0,5.5,50
 Beta,AZD1222,1,0,9,Planas21b*,False,1.0,7.5,10
 Beta,AZD1222,0,20,0,Planas21b*,True,2.0,7.7,20
 Beta,AZD1222,1,12,12,Zhou21b*,False,2.0,7.4,25
-Beta,Ad26.COV2.S,5,11,4,Alter21,False,2.0,4.1,20
 Beta,Ad26.COV2.S,6,5,8,Alter21,False,1.0,3.3,19
+Beta,Ad26.COV2.S,5,11,4,Alter21,False,2.0,4.1,20
 Beta,Ad26.COV2.S,0,0,25,Alter21*,True,2.0,11.0,25
 Beta,Ad26.COV2.S,3,4,11,Barouch21,False,2.0,5.1,18
 Beta,Ad26.COV2.S,4,1,3,Jongeneelen21,False,1.0,3,8
@@ -106,14 +106,16 @@ Beta,BBV152,9,4,4,Yadav21b*,False,2.0,2.5,17
 Beta,BNT162b2,0,7,3,Alenquer21,False,2.0,4,10
 Beta,BNT162b2,0,0,1,Alenquer21,False,1.0,1.3,1
 Beta,BNT162b2,60,0,0,Anichini21,True,2.0,1.1,60
+Beta,BNT162b2,0,7,8,Arora21,False,2.0,5.4,15
+Beta,BNT162b2,56,0,0,Arunachalam21*,True,2.0,0.1,56
 Beta,BNT162b2,5,16,29,Bates21*,False,2.0,12,50
+Beta,BNT162b2,0,50,0,Caniels21,True,2.0,4.1,50
 Beta,BNT162b2,0,10,14,Chen21,False,2.0,10,24
-Beta,BNT162b2,0,50,0,Ganiels21,True,2.0,4.1,50
 Beta,BNT162b2,0,0,90,Garcia-Beltran21,True,2.0,41.2,90
 Beta,BNT162b2,25,0,0,Geers21,True,1.0,2.7,25
 Beta,BNT162b2,12,13,0,Geers21,True,2.0,3.3,25
-Beta,BNT162b2,23,12,18,Goel21,False,1.0,2,53
 Beta,BNT162b2,18,16,0,Goel21,False,2.0,2.8,34
+Beta,BNT162b2,23,12,18,Goel21,False,1.0,2,53
 Beta,BNT162b2,3,10,2,Hoffmann21,False,2.0,4.9,15
 Beta,BNT162b2,1,8,6,Hoffmann21c,False,2.0,7.6,15
 Beta,BNT162b2,34,97,49,Jalkanen21,False,2.0,4,180
@@ -127,16 +129,16 @@ Beta,BNT162b2,1,5,0,Mallm21*,False,2.0,4.8,6
 Beta,BNT162b2,0,29,0,Marot21*,True,1.0,5.0,29
 Beta,BNT162b2,0,29,0,Marot21*,True,2.0,4.2,29
 Beta,BNT162b2,5,10,2,McCallum21b,False,2.0,3.7,17
-Beta,BNT162b2,8,15,13,Planas21,False,2.0,5.8,36
 Beta,BNT162b2,10,13,8,Planas21,False,1.0,3.8,31
+Beta,BNT162b2,8,15,13,Planas21,False,2.0,5.8,36
 Beta,BNT162b2,1,9,17,Planas21b*,False,2.0,12,27
 Beta,BNT162b2,0,16,0,Planas21b*,True,1.0,6.9,16
 Beta,BNT162b2,4,15,6,Skelly21,False,2.0,4.8,25
 Beta,BNT162b2,0,0,8,Skelly21,False,1.0,2.9,8
 Beta,BNT162b2,7,6,9,Stamatatos21,False,1.0,3.6,22
 Beta,BNT162b2,5,25,16,Stamatatos21,False,2.0,7.3,46
-Beta,BNT162b2,7,3,0,Stankov21,False,2.0,2,10
 Beta,BNT162b2,11,3,0,Stankov21,False,1.0,1.5,14
+Beta,BNT162b2,7,3,0,Stankov21,False,2.0,2,10
 Beta,BNT162b2,2,3,0,Tada21,False,2.0,3.7,5
 Beta,BNT162b2,3,9,0,Tada21c,False,2.0,3.3,12
 Beta,BNT162b2,9,6,0,Tada21d,False,2.0,2.9,15
@@ -156,7 +158,7 @@ Beta,CoronaVac,5,1,16,Wang21g,False,2.0,4.9,22
 Beta,MVC-COV1901,4,23,18,Lien21,False,2.0,6.5,45
 Beta,MVC-COV1901,26,10,0,Lien21,True,2.0,1.4,36
 Beta,NVX-CoV2373,0,7,16,Shen21b,False,2.0,13,23
-Beta,Sputnik V,1,2,6,Ikegame21,False,2.0,2.9,9
+Beta,Sputnik V,6,1,0,Ikegame21,False,2.0,1,7
 Beta,ZF2001,24,0,0,Huang21b*,False,3.0,1.3,24
 Beta,mRNA-1273,0,22,2,Choi21,False,2.0,6.9,24
 Beta,mRNA-1273,5,14,0,Edara21b*,False,2.0,4.3,19
@@ -188,12 +190,13 @@ Delta,AZD1222,0,10,0,Mlcochova21,True,2.0,8.7,10
 Delta,AZD1222,0,33,0,Mlcochova21,True,2.0,4.0,33
 Delta,AZD1222,1,0,9,Planas21b,False,1.0,7,10
 Delta,AZD1222,0,20,0,Planas21b,True,2.0,4.0,20
-Delta,AZD1222,30,10,7,Sapkal21c,False,2.0,2.2,47
 Delta,AZD1222,20,6,13,Sapkal21c,False,1.0,2.6,39
+Delta,AZD1222,30,10,7,Sapkal21c,False,2.0,2.2,47
 Delta,Ad26.COV2.S,6,7,5,Barouch21,False,2.0,3.1,18
 Delta,Ad26.COV2.S,7,1,0,Jongeneelen21,False,1.0,1.6,8
 Delta,Ad26.COV2.S,2,5,2,Tada21e,False,1.0,5.8,9
 Delta,BBV152,12,1,4,Yadav21b,False,2.0,1.4,17
+Delta,BNT162b2,8,4,3,Arora21,False,2.0,2.8,15
 Delta,BNT162b2,4,6,0,Edara21c,False,2.0,3.4,10
 Delta,BNT162b2,39,1,0,Liu21e,False,2.0,1.4,40
 Delta,BNT162b2,14,10,0,Liu21f,False,2.0,2.6,24
@@ -234,9 +237,9 @@ Gamma,Ad26.COV2.S,4,1,3,Jongeneelen21,False,1.0,3.2,8
 Gamma,BNT162b2,3,6,1,Alenquer21,False,2.0,3.6,10
 Gamma,BNT162b2,0,0,1,Alenquer21,False,1.0,1.3,1
 Gamma,BNT162b2,0,60,0,Anichini21,True,2.0,4.0,60
+Gamma,BNT162b2,50,0,0,Caniels21,True,2.0,1.8,50
 Gamma,BNT162b2,11,4,0,Chen21,False,2.0,2.2,15
 Gamma,BNT162b2,14,10,0,Dejnirattisai21*,False,2.0,2.8,24
-Gamma,BNT162b2,50,0,0,Ganiels21,True,2.0,1.8,50
 Gamma,BNT162b2,0,30,0,Garcia-Beltran21,True,2.0,6.7,30
 Gamma,BNT162b2,5,9,1,Hoffmann21,False,2.0,4,15
 Gamma,BNT162b2,28,1,0,Imai21,False,2.0,1,29
@@ -245,8 +248,8 @@ Gamma,BNT162b2,10,20,0,Leier21*,True,2.0,3.3,30
 Gamma,BNT162b2,20,0,0,Liu21b,False,2.0,1.3,20
 Gamma,BNT162b2,10,5,0,Lustig21*,False,2.0,2,15
 Gamma,BNT162b2,15,2,0,McCallum21b,False,2.0,1.8,17
-Gamma,BNT162b2,8,2,0,Stankov21,False,2.0,1,10
 Gamma,BNT162b2,13,1,0,Stankov21,False,1.0,1,14
+Gamma,BNT162b2,8,2,0,Stankov21,False,2.0,1,10
 Gamma,BNT162b2,1,4,0,Tada21,False,2.0,3.7,5
 Gamma,BNT162b2,13,4,3,Wang21d,False,2.0,2.1,20
 Gamma,BNT162b2,37,0,0,Zani21*,True,2.0,1.3,37
@@ -280,8 +283,8 @@ Kappa,BNT162b2,11,4,0,Hoffmann21c,False,2.0,2.1,15
 Kappa,BNT162b2,12,7,1,Liu21e,False,2.0,2.8,20
 Kappa,BNT162b2,15,8,2,Liu21f,False,2.0,2.7,25
 Kappa,BNT162b2,0,32,0,Mlcochova21,True,2.0,3.8,32
-Kappa,BNT162b2,36,135,38,Wall21,False,2.0,5.2,209
 Kappa,BNT162b2,38,35,152,Wall21,False,1.0,9.4,225
+Kappa,BNT162b2,36,135,38,Wall21,False,2.0,5.2,209
 Kappa,CoronaVac,4,0,15,Hu21c,False,2.0,2.5,19
 Kappa,ZF2001,3,0,5,Hu21c,False,2.0,2.7,8
 Kappa,ZF2001,0,2,0,Hu21c,False,3.0,4.2,2

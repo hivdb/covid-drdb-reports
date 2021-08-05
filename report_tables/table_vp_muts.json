@@ -75,12 +75,12 @@
             {
                 "variant": "E484K",
                 "rx": "Sputnik V",
-                "samples": 9,
+                "samples": 8,
                 "s_fold": 2,
                 "i_fold": 1,
-                "r_fold": 6,
+                "r_fold": 5,
                 "reference": "Ikegame21",
-                "median": "2.9"
+                "median": "6.5"
             },
             {
                 "variant": "E484K",

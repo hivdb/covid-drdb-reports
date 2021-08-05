@@ -146,13 +146,6 @@
                 "variant": "E484K",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "0.3",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "E484K",
-                "rx": "Casirivimab/Imdevimab",
-                "mab_class": "",
                 "fold": "1.5",
                 "reference": "Wang21"
             },
@@ -162,6 +155,13 @@
                 "mab_class": "",
                 "fold": "2",
                 "reference": "Zhou21c"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "3.5",
+                "reference": "Tada21e"
             },
             {
                 "variant": "E484K",
@@ -391,7 +391,7 @@
                 "variant": "E484K",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.8",
+                "fold": "1.3",
                 "reference": "Tada21e"
             },
             {
@@ -566,13 +566,6 @@
                 "variant": "E484K",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "0",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "E484K",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "4.4",
                 "reference": "Rothenberger21"
             },
@@ -624,6 +617,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "53",
                 "reference": "Tada21c"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "53",
+                "reference": "Tada21e"
             },
             {
                 "variant": "E484K",
@@ -961,7 +961,7 @@
                 "variant": "F490S",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "20",
+                "fold": "0.1",
                 "reference": "Tada21e"
             },
             {
@@ -1024,7 +1024,7 @@
                 "variant": "F490S",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.8",
+                "fold": "1.2",
                 "reference": "Tada21e"
             },
             {
@@ -1066,7 +1066,7 @@
                 "variant": "F490S",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "1.5",
+                "fold": "0.7",
                 "reference": "Tada21e"
             },
             {
@@ -1260,13 +1260,6 @@
                 "variant": "K417N",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "0.1",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "K417N",
-                "rx": "Casirivimab/Imdevimab",
-                "mab_class": "",
                 "fold": "0.8",
                 "reference": "Wang21"
             },
@@ -1276,6 +1269,13 @@
                 "mab_class": "",
                 "fold": "1.5",
                 "reference": "Yuan21"
+            },
+            {
+                "variant": "K417N",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "7.3",
+                "reference": "Tada21e"
             },
             {
                 "variant": "K417N",
@@ -1443,6 +1443,13 @@
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.3",
+                "reference": "Tada21e"
+            },
+            {
+                "variant": "K417N",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.3",
                 "reference": "Wang21"
             },
             {
@@ -1472,13 +1479,6 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "reference": "Yuan21"
-            },
-            {
-                "variant": "K417N",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "3",
-                "reference": "Tada21e"
             },
             {
                 "variant": "K417N",
@@ -1596,13 +1596,6 @@
                 "variant": "K417N",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "0",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "K417N",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "7",
                 "reference": "FDA21"
             },
@@ -1633,6 +1626,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "49",
                 "reference": "Tada21"
+            },
+            {
+                "variant": "K417N",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Tada21e"
             },
             {
                 "variant": "K417N",
@@ -2180,13 +2180,6 @@
                 "variant": "L452R",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "0.1",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "L452R",
-                "rx": "Casirivimab/Imdevimab",
-                "mab_class": "",
                 "fold": "4",
                 "reference": "Tada21c"
             },
@@ -2196,6 +2189,13 @@
                 "mab_class": "",
                 "fold": "12",
                 "reference": "Tada21c"
+            },
+            {
+                "variant": "L452R",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "17",
+                "reference": "Tada21e"
             },
             {
                 "variant": "L452R",
@@ -2243,13 +2243,6 @@
                 "variant": "L452R",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.1",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "L452R",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Wang21e"
             },
@@ -2259,6 +2252,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "5.3",
                 "reference": "Tada21c"
+            },
+            {
+                "variant": "L452R",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "7",
+                "reference": "Tada21e"
             },
             {
                 "variant": "L452R",
@@ -2320,13 +2320,6 @@
                 "variant": "L452R",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.1",
-                "reference": "Tada21e"
-            },
-            {
-                "variant": "L452R",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "0.8",
                 "reference": "Wang21e"
             },
@@ -2350,6 +2343,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "24",
                 "reference": "Tada21c"
+            },
+            {
+                "variant": "L452R",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "11",
+                "reference": "Tada21e"
             },
             {
                 "variant": "L452R",
@@ -3677,21 +3677,21 @@
                 "variant": "T478K",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "0.4",
+                "fold": "2.8",
                 "reference": "Tada21e"
             },
             {
                 "variant": "T478K",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.7",
+                "fold": "1.4",
                 "reference": "Tada21e"
             },
             {
                 "variant": "T478K",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.3",
+                "fold": "3.3",
                 "reference": "Tada21e"
             },
             {
