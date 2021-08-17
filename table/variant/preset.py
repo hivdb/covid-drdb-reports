@@ -148,12 +148,17 @@ def get_iso_names_by_var_name(var_name, selector='all'):
     if not iso_names:
         return ''
 
+    spike_only_iso_names = [
+        name for name, info in ISONAME_MUTATIONS.items()
+        if not len(info['non_s_mut_list'])
+        ]
+
     if selector == 'all':
         pass
     elif selector == 'spike':
-        iso_names = [s for s in iso_names if 'full genome' not in s]
+        iso_names = [s for s in iso_names if s in spike_only_iso_names]
     elif selector == 'genome':
-        iso_names = [s for s in iso_names if 'full genome' in s]
+        iso_names = [s for s in iso_names if s not in spike_only_iso_names]
 
     return ','.join(["'{}'".format(s) for s in iso_names])
 
@@ -497,3 +502,44 @@ def filter_by_variant(records):
             results.append(rec)
 
     return results
+
+
+ISONAME_MUTATIONS = {}
+
+ISO_MUT_QUERY = """
+SELECT iso_name, gene, position, amino_acid
+FROM isolate_mutations;
+"""
+
+
+def load_isoname_mutations(conn):
+    global ISONAME_MUTATIONS
+
+    cursor = conn.cursor()
+    cursor.execute(ISO_MUT_QUERY)
+
+    iso_name_mut = defaultdict(list)
+
+    for rec in cursor.fetchall():
+        iso_name = rec['iso_name']
+        iso_name_mut[iso_name].append({
+            'gene': rec['gene'],
+            'pos_aa': rec['position'],
+            'mut_aa': rec['amino_acid'],
+        })
+
+    for iso_name, mut_list in iso_name_mut.items():
+        s_mut_list = [m for m in mut_list if m['gene'] == 'S']
+        non_s_mut_list = [m for m in mut_list if m['gene'] != 'S']
+        s_mut_str = '+'.join(
+            [
+                '{}{}'.format(
+                    m['pos_aa'],
+                    m['mut_aa']
+                )
+                for m in s_mut_list
+            ]
+        )
+        ISONAME_MUTATIONS[iso_name] = {}
+        ISONAME_MUTATIONS[iso_name]['s_mut_str'] = s_mut_str
+        ISONAME_MUTATIONS[iso_name]['non_s_mut_list'] = non_s_mut_list

@@ -2,15 +2,15 @@
     {
         "variant": "N501Y",
         "cp": 227,
-        "vp": 85,
+        "vp": 105,
         "phase3": 61,
         "structure": 36
     },
     {
         "variant": "E484K",
-        "cp": 195,
-        "vp": 209,
-        "phase3": 81,
+        "cp": 225,
+        "vp": 214,
+        "phase3": 84,
         "structure": 41
     },
     {
@@ -85,9 +85,9 @@
     },
     {
         "variant": "Other combinations of mutations",
-        "cp": 2094,
-        "vp": 4416,
-        "phase3": 441,
+        "cp": 2064,
+        "vp": 4391,
+        "phase3": 438,
         "structure": 244
     },
     {

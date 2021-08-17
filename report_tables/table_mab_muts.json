@@ -181,6 +181,13 @@
                 "variant": "E484K",
                 "rx": "Cilgavimab",
                 "mab_class": "",
+                "fold": "1.6",
+                "reference": "Dong21"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Cilgavimab",
+                "mab_class": "",
                 "fold": "0.8",
                 "reference": "Wang21"
             },
@@ -204,6 +211,13 @@
                 "mab_class": "",
                 "fold": "3.2",
                 "reference": "Chen21"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Cilgavimab/Tixagevimab",
+                "mab_class": "",
+                "fold": "3.1",
+                "reference": "Dong21"
             },
             {
                 "variant": "E484K",
@@ -260,6 +274,13 @@
                 "mab_class": "",
                 "fold": "4.7",
                 "reference": "Chen21"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Tixagevimab",
+                "mab_class": "",
+                "fold": "4.4",
+                "reference": "Dong21"
             },
             {
                 "variant": "E484K",

@@ -523,12 +523,12 @@
         "vaccine": [
             {
                 "name": "BNT162b2",
-                "vp_studies": 4,
-                "vp_samples": 29,
+                "vp_studies": 5,
+                "vp_samples": 49,
                 "vp_s_fold": "100%",
                 "vp_i_fold": 0,
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 29,
+                "vp_num_s_fold": 49,
                 "vp_num_i_fold": 0,
                 "vp_num_r_fold": 0
             },
@@ -550,13 +550,13 @@
         "vaccine": [
             {
                 "name": "BNT162b2",
-                "vp_studies": 7,
-                "vp_samples": 90,
-                "vp_s_fold": "51%",
-                "vp_i_fold": "44%",
+                "vp_studies": 8,
+                "vp_samples": 95,
+                "vp_s_fold": "49%",
+                "vp_i_fold": "46%",
                 "vp_r_fold": "5%",
-                "vp_num_s_fold": 46,
-                "vp_num_i_fold": 40,
+                "vp_num_s_fold": 47,
+                "vp_num_i_fold": 44,
                 "vp_num_r_fold": 4
             },
             {

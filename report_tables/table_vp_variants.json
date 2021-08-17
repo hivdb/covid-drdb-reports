@@ -129,7 +129,7 @@
                 "s_fold": 37,
                 "i_fold": 1,
                 "r_fold": 0,
-                "reference": "Sapkal21b",
+                "reference": "Sapkal21b*",
                 "median": "1.2"
             },
             {
@@ -169,7 +169,7 @@
                 "s_fold": 60,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Anichini21",
+                "reference": "Anichini21*",
                 "median": 1.0
             },
             {
@@ -259,7 +259,7 @@
                 "s_fold": 25,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Geers21",
+                "reference": "Geers21*",
                 "median": 0.4
             },
             {
@@ -269,7 +269,7 @@
                 "s_fold": 25,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Geers21",
+                "reference": "Geers21*",
                 "median": 0.5
             },
             {
@@ -289,7 +289,7 @@
                 "s_fold": 176,
                 "i_fold": 3,
                 "r_fold": 1,
-                "reference": "Jalkanen21",
+                "reference": "Jalkanen21*",
                 "median": "1"
             },
             {
@@ -299,7 +299,7 @@
                 "s_fold": 55,
                 "i_fold": 0,
                 "r_fold": 14,
-                "reference": "Jalkanen21",
+                "reference": "Jalkanen21*",
                 "median": "1"
             },
             {
@@ -319,7 +319,7 @@
                 "s_fold": 30,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Leier21",
+                "reference": "Leier21*",
                 "median": 2.6
             },
             {
@@ -349,7 +349,7 @@
                 "s_fold": 14,
                 "i_fold": 1,
                 "r_fold": 0,
-                "reference": "Lustig21",
+                "reference": "Lustig21*",
                 "median": "2"
             },
             {
@@ -469,7 +469,7 @@
                 "s_fold": 1,
                 "i_fold": 0,
                 "r_fold": 7,
-                "reference": "Skelly21",
+                "reference": "Skelly21*",
                 "median": "2.8"
             },
             {
@@ -479,7 +479,7 @@
                 "s_fold": 16,
                 "i_fold": 8,
                 "r_fold": 1,
-                "reference": "Skelly21",
+                "reference": "Skelly21*",
                 "median": "2.4"
             },
             {
@@ -629,7 +629,7 @@
                 "s_fold": 20,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Xie21",
+                "reference": "Xie21*",
                 "median": "0.8"
             },
             {
@@ -769,7 +769,7 @@
                 "s_fold": 36,
                 "i_fold": 24,
                 "r_fold": 4,
-                "reference": "Lucas21",
+                "reference": "Lucas21*",
                 "median": "2.7"
             },
             {
@@ -1074,7 +1074,7 @@
                 "s_fold": 60,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Anichini21",
+                "reference": "Anichini21*",
                 "median": 1.1
             },
             {
@@ -1144,7 +1144,7 @@
                 "s_fold": 25,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Geers21",
+                "reference": "Geers21*",
                 "median": 2.7
             },
             {
@@ -1154,7 +1154,7 @@
                 "s_fold": 12,
                 "i_fold": 13,
                 "r_fold": 0,
-                "reference": "Geers21",
+                "reference": "Geers21*",
                 "median": 3.3
             },
             {
@@ -1204,7 +1204,7 @@
                 "s_fold": 34,
                 "i_fold": 97,
                 "r_fold": 49,
-                "reference": "Jalkanen21",
+                "reference": "Jalkanen21*",
                 "median": "4"
             },
             {
@@ -1214,7 +1214,7 @@
                 "s_fold": 9,
                 "i_fold": 8,
                 "r_fold": 52,
-                "reference": "Jalkanen21",
+                "reference": "Jalkanen21*",
                 "median": "4"
             },
             {
@@ -1234,7 +1234,7 @@
                 "s_fold": 0,
                 "i_fold": 10,
                 "r_fold": 20,
-                "reference": "Leier21",
+                "reference": "Leier21*",
                 "median": 11.1
             },
             {
@@ -1264,7 +1264,7 @@
                 "s_fold": 0,
                 "i_fold": 11,
                 "r_fold": 4,
-                "reference": "Lustig21",
+                "reference": "Lustig21*",
                 "median": "7.8"
             },
             {
@@ -1354,7 +1354,7 @@
                 "s_fold": 4,
                 "i_fold": 15,
                 "r_fold": 6,
-                "reference": "Skelly21",
+                "reference": "Skelly21*",
                 "median": "4.8"
             },
             {
@@ -1364,7 +1364,7 @@
                 "s_fold": 0,
                 "i_fold": 0,
                 "r_fold": 8,
-                "reference": "Skelly21",
+                "reference": "Skelly21*",
                 "median": "2.9"
             },
             {
@@ -1454,7 +1454,7 @@
                 "s_fold": 10,
                 "i_fold": 25,
                 "r_fold": 5,
-                "reference": "Turner21",
+                "reference": "Turner21*",
                 "median": "3.8"
             },
             {
@@ -1464,7 +1464,7 @@
                 "s_fold": 16,
                 "i_fold": 7,
                 "r_fold": 9,
-                "reference": "Turner21",
+                "reference": "Turner21*",
                 "median": "2.6"
             },
             {
@@ -1664,7 +1664,7 @@
                 "s_fold": 11,
                 "i_fold": 45,
                 "r_fold": 8,
-                "reference": "Lucas21",
+                "reference": "Lucas21*",
                 "median": "5.5"
             },
             {
@@ -2399,7 +2399,7 @@
                 "s_fold": 0,
                 "i_fold": 60,
                 "r_fold": 0,
-                "reference": "Anichini21",
+                "reference": "Anichini21*",
                 "median": 4.0
             },
             {
@@ -2459,7 +2459,7 @@
                 "s_fold": 28,
                 "i_fold": 1,
                 "r_fold": 0,
-                "reference": "Imai21",
+                "reference": "Imai21*",
                 "median": "1"
             },
             {
@@ -2469,7 +2469,7 @@
                 "s_fold": 7,
                 "i_fold": 0,
                 "r_fold": 0,
-                "reference": "Imai21",
+                "reference": "Imai21*",
                 "median": "0.5"
             },
             {
@@ -2545,12 +2545,22 @@
             {
                 "variant": "Gamma",
                 "rx": "BNT162b2",
-                "samples": 20,
-                "s_fold": 13,
-                "i_fold": 4,
-                "r_fold": 3,
+                "samples": 10,
+                "s_fold": 7,
+                "i_fold": 2,
+                "r_fold": 1,
                 "reference": "Wang21d",
-                "median": "2.1"
+                "median": "1.9"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "BNT162b2",
+                "samples": 10,
+                "s_fold": 6,
+                "i_fold": 2,
+                "r_fold": 2,
+                "reference": "Wang21d*",
+                "median": "2.5"
             },
             {
                 "variant": "Gamma",
@@ -2619,7 +2629,7 @@
                 "s_fold": 7,
                 "i_fold": 23,
                 "r_fold": 2,
-                "reference": "Lucas21",
+                "reference": "Lucas21*",
                 "median": "4.2"
             },
             {
@@ -2635,12 +2645,22 @@
             {
                 "variant": "Gamma",
                 "rx": "mRNA-1273",
-                "samples": 24,
-                "s_fold": 12,
-                "i_fold": 10,
-                "r_fold": 2,
+                "samples": 12,
+                "s_fold": 5,
+                "i_fold": 7,
+                "r_fold": 0,
                 "reference": "Wang21d",
-                "median": "3.1"
+                "median": "3.5"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "mRNA-1273",
+                "samples": 12,
+                "s_fold": 7,
+                "i_fold": 3,
+                "r_fold": 2,
+                "reference": "Wang21d*",
+                "median": "2.8"
             },
             {
                 "variant": "Gamma",

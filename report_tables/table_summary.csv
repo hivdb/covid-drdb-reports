@@ -1,11 +1,11 @@
 ﻿Variant name,Rx name,#Published
 N501Y,CP,227
-N501Y,VP,85
+N501Y,VP,105
 N501Y,mAbs phase3,61
 N501Y,mAbs structure,36
-E484K,CP,195
-E484K,VP,209
-E484K,mAbs phase3,81
+E484K,CP,225
+E484K,VP,214
+E484K,mAbs phase3,84
 E484K,mAbs structure,41
 K417N,CP,144
 K417N,VP,122
@@ -47,9 +47,9 @@ Iota,CP,31
 Iota,VP,222
 Iota,mAbs phase3,13
 Iota,mAbs structure,1
-Other combinations of mutations,CP,2094
-Other combinations of mutations,VP,4416
-Other combinations of mutations,mAbs phase3,441
+Other combinations of mutations,CP,2064
+Other combinations of mutations,VP,4391
+Other combinations of mutations,mAbs phase3,438
 Other combinations of mutations,mAbs structure,244
 All combinations of mutations,CP,5454
 All combinations of mutations,VP,12688

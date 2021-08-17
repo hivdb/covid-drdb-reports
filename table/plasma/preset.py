@@ -328,7 +328,6 @@ MUTATIONS = {
         'filter': [
             include_similar_mutations([
                 'S:417N+484K+501Y',
-                'B.1.351 RBD'
                 ])
         ]
     },

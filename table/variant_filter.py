@@ -1,3 +1,5 @@
+from variant.preset import ISONAME_MUTATIONS
+
 SPECIAL_MUTATIONS = [
     '614G',
     '683G',
@@ -5,46 +7,64 @@ SPECIAL_MUTATIONS = [
 
 
 def include_similar_mutations(mutations):
-    mut_list = []
+
+    check_mut_list = set()
     for mut in mutations:
-        mut_list.append(mut)
-        if not mut.startswith('S:'):
-            continue
-        for special in SPECIAL_MUTATIONS:
-            if not mut.endswith(special):
-                mut_list.append(mut + '+' + special)
+        gene, mutation_list = mut.split(':')
+        check_mut_list.add(mutation_list)
+        for m in SPECIAL_MUTATIONS:
+            check_mut_list.add(mutation_list + '+' + m)
 
-    return include_mutations(mut_list)
+    iso_name_list = []
+    for iso_name, iso_name_muts in ISONAME_MUTATIONS.items():
+        # if iso_name_muts['non_s_mut_list']:
+        #     continue
+        if iso_name_muts['s_mut_str'] in check_mut_list:
+            iso_name_list.append(iso_name)
+
+    return include_mutations(iso_name_list)
 
 
-def include_mutations(mutations):
-    selector = ["s.iso_name = '{}'".format(m) for m in mutations]
+def include_mutations(iso_name_list):
+    iso_name_list = [
+        "'{}'".format(iso_name)
+        for iso_name in iso_name_list
+    ]
 
     filter = """
-        AND ({})
-    """.format(' OR '.join(selector))
+        AND s.iso_name IN ({})
+    """.format(','.join(iso_name_list))
 
     return filter
 
 
 def exclude_similar_mutations(mutations):
-    mut_list = []
+
+    check_mut_list = set()
     for mut in mutations:
-        mut_list.append(mut)
-        if not mut.startswith('S:'):
-            continue
-        for special in SPECIAL_MUTATIONS:
-            if not mut.endswith(special):
-                mut_list.append(mut + '+' + special)
+        gene, mutation_list = mut.split(':')
+        check_mut_list.add(mutation_list)
+        for m in SPECIAL_MUTATIONS:
+            check_mut_list.add(mutation_list + '+' + m)
 
-    return exclude_mutations(mut_list)
+    iso_name_list = []
+    for iso_name, iso_name_muts in ISONAME_MUTATIONS.items():
+        # if iso_name_muts['non_s_mut_list']:
+        #     continue
+        if iso_name_muts['s_mut_str'] in check_mut_list:
+            iso_name_list.append(iso_name)
+
+    return exclude_mutations(iso_name_list)
 
 
-def exclude_mutations(mutations):
-    selector = ["s.iso_name != '{}'".format(m) for m in mutations]
+def exclude_mutations(iso_name_list):
+    iso_name_list = [
+        "'{}'".format(iso_name)
+        for iso_name in iso_name_list
+    ]
 
     filter = """
-        AND ({})
-    """.format(' AND '.join(selector))
+        AND s.iso_name NOT IN ({})
+    """.format(','.join(iso_name_list))
 
     return filter
