@@ -268,6 +268,8 @@ Supasa21,BNT162b2_22,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_23,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_24,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_25,B.1.1.7 full genome,VIC,1
+Groß21,BNT162b2_2x,B.1.1.7 Spike,B.1.351 Spike,12
+Groß21,BNT162b2_2x,B.1.1.7 Spike,B.1.617 Spike,12
 Supasa21,BNT162b2_3,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_4,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_5,B.1.1.7 full genome,VIC,1
@@ -849,6 +851,873 @@ Faulkner21,CP_D614G_Mild_19,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_D614G_Mild_19,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
 Faulkner21,CP_D614G_Mild_20,hCoV-19/England/204690005/2020,501Y.V2.HV001,1
 Faulkner21,CP_D614G_Mild_20,hCoV-19/England/204690005/2020,hCoV-19/England/02/2020,1
+Dupont21,CP_Fig2C_10_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_10_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_10_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_10_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_10_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_10_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_10_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_10_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_10_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_10_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_10_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_10_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_10_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_11_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_11_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_11_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_11_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_11_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_11_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_11_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_11_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_11_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_11_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_11_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_11_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_12_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_12_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_12_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_12_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_12_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_12_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_12_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_12_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_12_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_12_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_12_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_12_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_13_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_13_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_13_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_13_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_13_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_13_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_13_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_13_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_13_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_13_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_13_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_13_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_14_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_14_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_14_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_14_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_14_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_14_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_14_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_14_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_14_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_14_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_14_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_14_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_1_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_1_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_1_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_1_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_1_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_1_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_1_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_1_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_1_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_1_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_1_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_1_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_2_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_2_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_2_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_2_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_2_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_2_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_2_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_2_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_2_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_2_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_2_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_2_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_3_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_3_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_3_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_3_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_3_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_3_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_3_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_3_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_3_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_3_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_3_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_3_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_4_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_4_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_4_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_4_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_4_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_4_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_4_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_4_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_4_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_4_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_4_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_4_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_5_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_5_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_5_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_5_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_5_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_5_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_5_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_5_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_5_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_5_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_5_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_5_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_6_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_6_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_6_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_6_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_6_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_6_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_6_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_6_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_6_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_6_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_6_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_6_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_7_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_7_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_7_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_7_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_7_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_7_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_7_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_7_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_7_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_7_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_7_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_7_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_8_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_8_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_8_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_8_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_8_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_8_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_8_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_8_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_8_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_8_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_8_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_8_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_9_VP2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_9_VP2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_9_VP3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_9_VP3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_9_VP4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_9_VP4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_9_VP5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_VP5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_9_VP5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_VP5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_acute,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig2C_9_acute,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_acute,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig2C_9_acute,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig2C_9_acute,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig2C_9_acute,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_1,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_1,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_1,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_10,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_10,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_10,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_11,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_11,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_11,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_12,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_12,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_12,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_13,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_13,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_13,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_14,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_14,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_14,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_15,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_15,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_15,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_16,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_16,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_16,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_17,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_17,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_17,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_18,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_18,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_18,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_19,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_19,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_19,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_20,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_20,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_20,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_21,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_21,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_21,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_22,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_22,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_22,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_23,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_23,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_23,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_24,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_24,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_24,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_25,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_25,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_25,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_26,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_26,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_26,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_27,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_27,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_27,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_28,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_28,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_28,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_29,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_29,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_29,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_30,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_30,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_30,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_31,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_31,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_31,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_32,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_32,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_32,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_33,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_33,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_33,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_34,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_34,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_34,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_35,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_35,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_35,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_36,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_36,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_36,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_37,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_37,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_37,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_38,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_38,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_38,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_39,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_39,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_39,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_40,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_40,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_40,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_41,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_41,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_41,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_42,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_42,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_42,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_43,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_43,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_43,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_44,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_44,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_44,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_45,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_45,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_45,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_46,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_46,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_46,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_47,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_47,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_47,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_48,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_48,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_48,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_49,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_49,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_49,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_50,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_50,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_50,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_51,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_51,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_51,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_52,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_52,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_52,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_53,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_53,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_53,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_54,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_54,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_54,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_55,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_55,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_55,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_56,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_56,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_56,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_57,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_57,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_57,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_58,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_58,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_58,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_59,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_59,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_59,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_6,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_6,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_6,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_60,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_60,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_60,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_61,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_61,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_61,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_62,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_62,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_62,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_63,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_63,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_63,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_64,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_64,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_64,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_65,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_65,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_65,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_66,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_66,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_66,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_67,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_67,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_67,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_68,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_68,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_68,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_69,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_69,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_69,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_7,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_7,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_7,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_70,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_70,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_70,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_71,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_71,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_71,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_72,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_72,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_72,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_73,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_73,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_73,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_74,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_74,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_74,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_8,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_8,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_8,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3D_9,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3D_9,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3D_9,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_1,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_1,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_1,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_1,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_1,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_1,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_10,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_10,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_10,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_10,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_10,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_10,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_11,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_11,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_11,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_11,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_11,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_11,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_12,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_12,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_12,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_12,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_12,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_12,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_13,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_13,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_13,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_13,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_13,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_13,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_14,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_14,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_14,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_14,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_14,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_14,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_15,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_15,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_15,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_15,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_15,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_15,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_16,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_16,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_16,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_16,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_16,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_16,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_17,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_17,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_17,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_17,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_17,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_17,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_18,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_18,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_18,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_18,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_18,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_18,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_19,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_19,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_19,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_19,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_19,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_19,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_2,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_2,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_2,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_20,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_20,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_20,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_20,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_20,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_20,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_21,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_21,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_21,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_21,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_21,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_21,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_22,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_22,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_22,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_22,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_22,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_22,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_23,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_23,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_23,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_23,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_23,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_23,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_24,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_24,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_24,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_24,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_24,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_24,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_25,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_25,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_25,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_25,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_25,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_25,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_26,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_26,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_26,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_26,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_26,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_26,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_27,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_27,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_27,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_27,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_27,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_27,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_28,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_28,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_28,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_28,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_28,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_28,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_29,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_29,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_29,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_29,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_29,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_29,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_3,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_3,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_3,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_30,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_30,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_30,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_30,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_30,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_30,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_31,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_31,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_31,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_31,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_31,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_31,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_32,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_32,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_32,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_32,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_32,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_32,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_33,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_33,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_33,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_33,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_33,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_33,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_34,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_34,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_34,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_34,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_34,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_34,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_35,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_35,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_35,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_35,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_35,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_35,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_4,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_4,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_4,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_5,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_5,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_5,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_5,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_6,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_6,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_6,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_6,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_6,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_6,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_7,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_7,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_7,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_7,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_7,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_7,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_8,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_8,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_8,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_8,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_8,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_8,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_9,B.1.1.7 Spike,B.1.351 Spike,1
+Dupont21,CP_Fig3E_9,B.1.1.7 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_9,B.1.1.7 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3E_9,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3E_9,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3E_9,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3G_1,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3G_1,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3G_1,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3G_2,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3G_2,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3G_2,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3G_3,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3G_3,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3G_3,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3G_4,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3G_4,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3G_4,B.1.351 Spike,Wuhan-Hu-1,1
+Dupont21,CP_Fig3G_5,B.1.351 Spike,B.1.1.7 Spike,1
+Dupont21,CP_Fig3G_5,B.1.351 Spike,P.1 Spike,1
+Dupont21,CP_Fig3G_5,B.1.351 Spike,Wuhan-Hu-1,1
 Becker21,CP_HS1,B.1.126 full genome,B.1.351 full genome,1
 Gonzalez21,CP_Mild,19A_1707038,B.1.1.7 full genome_1707039,29
 Gonzalez21,CP_Mild,19A_1707038,B.1.351 full genome_768828,29
@@ -983,7 +1852,10 @@ Weigang21,CP_d105_mice_6e_10,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/
 Weigang21,CP_d105_mice_6e_11,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
 Weigang21,CP_d105_mice_6e_12,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
 Weigang21,CP_d105_mice_6e_13,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Riou21,CP_wave2,S:18F+80A+215G+242del+243del+244del+246I+417N+484K+501Y+614G+701V,S:614G,19
 Planas21b,Casirivimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
+Groß21,ChAdOx1_BNT162b2,B.1.1.7 Spike,B.1.351 Spike,26
+Groß21,ChAdOx1_BNT162b2,B.1.1.7 Spike,B.1.617 Spike,26
 Planas21b,Etesevimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,Imdevimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Supasa21,LY-CoV16,B.1.1.7 full genome,VIC,1

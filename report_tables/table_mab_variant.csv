@@ -5,6 +5,8 @@ Alpha,2-15,,0.5,Wang21b
 Alpha,2-15,,3,Wang21b*
 Alpha,2-7,,0.7,Wang21b
 Alpha,2-7,,0.7,Wang21b*
+Alpha,5-7,,12,Wang21b
+Alpha,5-7,,7.5,Wang21b*
 Alpha,910-30,,14,Wang21b
 Alpha,910-30,,10,Wang21b*
 Alpha,ADG20,,1.5,Supasa21*
@@ -114,6 +116,7 @@ Alpha,DH1047,RBD Core Cluster II,0.4,Shen21
 Alpha,P22A-1D1,RBM,14,Wang21f
 Alpha,P5A-1D2,RBM,3.3,Wang21f
 Alpha,P5A-3C8,RBM,2.2,Wang21f
+Alpha,S2D106,RBM,0.7,Collier21
 Alpha,XAV-19,RBM,1,Vanhove21*
 Alpha,B38,RBM Class I,1.2,Shen21
 Alpha,B38,RBM Class I,14,Shen21
@@ -174,6 +177,8 @@ Beta,2-15,,>100,Wang21b
 Beta,2-15,,>100,Wang21b*
 Beta,2-7,,0.8,Wang21b
 Beta,2-7,,0.9,Wang21b*
+Beta,5-7,,18,Wang21b
+Beta,5-7,,85,Wang21b*
 Beta,910-30,,>100,Wang21b
 Beta,910-30,,>100,Wang21b*
 Beta,ADG20,,2.5,Zhou21b*
@@ -197,7 +202,7 @@ Beta,Casirivimab/Imdevimab,,1.3,Wang21b
 Beta,Casirivimab/Imdevimab,,9.1,Tada21
 Beta,Casirivimab/Imdevimab,,7.6,Tada21c
 Beta,Casirivimab/Imdevimab,,7.5,Tada21d
-Beta,Casirivimab/Imdevimab,,8.3,Tada21e
+Beta,Casirivimab/Imdevimab,,7.5,Tada21e
 Beta,Casirivimab/Imdevimab,,8.1,Wang21b*
 Beta,Cilgavimab,,0.3,Chen21
 Beta,Cilgavimab,,1,Wang21b
@@ -321,14 +326,14 @@ Beta,2-4,RBM Class III,>100,Wang21b
 Beta,2-4,RBM Class III,>100,Wang21b*
 Delta,ADG20,,1.5,Liu21f
 Delta,Casirivimab/Imdevimab,,1,FDA21
-Delta,Casirivimab/Imdevimab,,2.5,Tada21e
+Delta,Casirivimab/Imdevimab,,2.2,Tada21e
 Delta,Cilgavimab,,2.9,Liu21f
 Delta,Cilgavimab/Tixagevimab,,0.6,Liu21f
 Delta,Tixagevimab,,0.6,Liu21f
 Delta,Imdevimab,RBD Core Cluster I,0.5,Arora21
 Delta,Imdevimab,RBD Core Cluster I,0.5,Liu21f
 Delta,Imdevimab,RBD Core Cluster I,1,Planas21b
-Delta,Imdevimab,RBD Core Cluster I,3.2,Tada21e
+Delta,Imdevimab,RBD Core Cluster I,3.1,Tada21e
 Delta,Imdevimab,RBD Core Cluster I,4.4,Wang21e
 Delta,Vir-7831,RBD Core Cluster I,1,Cathcart21
 Delta,Vir-7831,RBD Core Cluster I,2.8,Liu21f
@@ -336,7 +341,7 @@ Delta,Casirivimab,RBM Class I,0.7,Arora21
 Delta,Casirivimab,RBM Class I,0.8,Liu21f
 Delta,Casirivimab,RBM Class I,1,Planas21b
 Delta,Casirivimab,RBM Class I,0.4,Wang21e
-Delta,Casirivimab,RBM Class I,13,Tada21e
+Delta,Casirivimab,RBM Class I,12,Tada21e
 Delta,Etesevimab,RBM Class I,0.6,Arora21
 Delta,Etesevimab,RBM Class I,0.4,Liu21f
 Delta,Etesevimab,RBM Class I,0.8,Planas21b
@@ -361,6 +366,7 @@ Epsilon,Imdevimab,RBD Core Cluster I,1.1,Wang21e
 Epsilon,Vir-7831,RBD Core Cluster I,0.7,Cathcart21
 Epsilon,Vir-7831,RBD Core Cluster I,0.7,FDA21
 Epsilon,Vir-7831,RBD Core Cluster I,0.9,McCallum21b
+Epsilon,S2D106,RBM,0.6,McCallum21b
 Epsilon,Casirivimab,RBM Class I,1.3,McCallum21b
 Epsilon,Casirivimab,RBM Class I,1.2,Wang21e
 Epsilon,Etesevimab,RBM Class I,0.9,Wang21e
@@ -382,6 +388,8 @@ Gamma,2-15,,>100,Wang21d
 Gamma,2-15,,>100,Wang21d*
 Gamma,2-7,,0.7,Wang21d
 Gamma,2-7,,0.4,Wang21d*
+Gamma,5-7,,>100,Wang21d
+Gamma,5-7,,>100,Wang21d*
 Gamma,ADG20,,2.3,Dejnirattisai21*
 Gamma,BRII-198,,0.7,Wang21f
 Gamma,Bamlanivimab/Etesevimab,,>100,FDA21

@@ -66,6 +66,7 @@ L452R,CP,5,0,0,Zhang21c,True,0.7,5
 L452R,CP_high_titer,5,3,0,Alenquer21,False,2.8,8
 L452R,CP_low_titer,1,0,4,Alenquer21,False,2.4,5
 L452R,CP_medium_titer,1,2,0,Alenquer21,False,3.5,3
+N439K,BNT,0,5,0,Sahin21,True,3.7,5
 N439K,CP,10,0,0,Li20h,False,1.7,10
 N439K,CP,14,1,0,Shen21,False,1.5,15
 N439K,CP_high_titer,1,2,1,Alenquer21,False,6.1,4

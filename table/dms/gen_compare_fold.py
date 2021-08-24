@@ -38,7 +38,6 @@ GROUP BY
     s.rx_name,
     s.control_iso_name,
     s.iso_name,
-    s.ordinal_number,
     s.assay_name
 ;
 """.format(control_variants=CONTROL_VARIANTS_SQL)

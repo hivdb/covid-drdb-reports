@@ -1,21 +1,18 @@
 ﻿Vaccine,Samples,Species
-BNT162b2,7754,Human
-AZD1222,898,Human
+BNT162b2,7778,Human
+AZD1222,959,Human
 Ad26.COV2.S,489,Human
 ,168,Human
-BBIBP-CorV,99,Human
+BBIBP-CorV,1979,Human
 BBV152,219,Human
-ChAd-SARS-CoV-2,40,Hamster
-ChAd-SARS-CoV-2,50,Mouse
-ChAd-SARS-CoV-2,30,Macaque
-CoronaVac,557,Human
-mRNA-1273,2819,Human
-MVC-COV1901,135,Human
+BBV154,120,Human
+CoronaVac,1115,Human
+mRNA-1273,2928,Human
+MVC-COV1901,171,Human
 NVX-CoV2373,74,Human
-Sputnik V,36,Human
+Sputnik V,208,Human
 ZF2001,44,Human
-mRNA-1273.211,24,Mouse
-mRNA-1273.351,24,Mouse
-mRNA-1273,29,Mouse
-mRNA-1273 + mRNA-1273.351,5,Mouse
-MVC-COV1901,36,Mouse
+mRNA-1273.211,24,Human
+mRNA-1273.351,104,Human
+mRNA-1273 + mRNA-1273.351,5,Human
+AZD1222 + BNT162b2,52,Human

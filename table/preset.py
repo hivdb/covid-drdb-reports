@@ -3,6 +3,8 @@ from pathlib import Path
 import decimal
 from decimal import Decimal
 import json
+from decimal import localcontext
+
 
 WS = Path(__file__).absolute().parent.parent
 DATA_FILE_PATH = WS / 'report_tables'
@@ -41,10 +43,11 @@ decimal.getcontext().rounding = decimal.ROUND_HALF_UP
 def round_number(float_number):
     if float_number > 1:
         return Decimal(str(float_number)).quantize(Decimal('1'))
-    elif float_number > 0.1:
+    elif float_number >= 0.1:
         return Decimal(str(float_number)).quantize(Decimal('1.0'))
-    elif float_number < 0.01:
-        return 0
     elif float_number == 0:
         return 0
-    return Decimal(str(float_number)).quantize(Decimal('1.00'))
+    else:
+        with localcontext() as ctx:
+            ctx.prec = 2
+            return Decimal(str(float_number)) + Decimal(0)

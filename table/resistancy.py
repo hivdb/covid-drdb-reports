@@ -1,5 +1,6 @@
 import decimal
 from decimal import Decimal
+from decimal import localcontext
 
 
 def get_susceptibility(fold_str):
@@ -84,11 +85,18 @@ decimal.getcontext().rounding = decimal.ROUND_HALF_UP
 def round_fold(number):
     if number < 10:
         number = float(number)
-        if number.is_integer():
+        if number.is_integer() and number != 0:
             return Decimal(str(number)).quantize(Decimal('1'))
-        else:
+        elif number >= 0.1:
             return Decimal(str(number)).quantize(Decimal('1.0'))
+        else:
+            return 0.1
+            # with localcontext() as ctx:
+            #     ctx.prec = 2
+            #     return Decimal(str(number)) + Decimal(0)
     elif number >= 10 and number < 100:
         return Decimal(str(number)).quantize(Decimal('1'))
+    # elif number == 100:
+    #     return 100
     else:
         return '>100'
