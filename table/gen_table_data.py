@@ -9,6 +9,9 @@ def gen_report(db_path):
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
 
+    from mab.preset import load_mab_rename
+    load_mab_rename(conn)
+
     from variant.preset import gen_control_variants
 
     gen_control_variants(conn)

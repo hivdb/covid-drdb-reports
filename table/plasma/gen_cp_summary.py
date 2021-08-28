@@ -15,8 +15,8 @@ SELECT
     s.iso_name,
     rx.timing,
     rx.severity,
-    rx.infected_iso_name as infection,
-    iso.var_name,
+    rx.infected_iso_name,
+    iso.var_name AS infection,
     SUM(s.cumulative_count) as samples
 FROM
     ({susc_results}) as s,

@@ -1,235 +1,199 @@
 ﻿variant,study,num_study,susc,sample_num
-Alpha,CP,43,S,1246
-Alpha,CP,43,I,199
-Alpha,CP,43,R,74
-Alpha,BNT162b2,39,S,1239
-Alpha,BNT162b2,39,I,181
-Alpha,BNT162b2,39,R,6
-Alpha,mRNA-1273,14,S,500
-Alpha,mRNA-1273,14,I,49
-Alpha,mRNA-1273,14,R,12
-Alpha,AZD1222,4,S,45
-Alpha,AZD1222,4,I,36
-Alpha,AZD1222,4,R,23
-Alpha,BNT_infected,1,S,6
-Alpha,BNT_infected,1,I,1
-Alpha,BNT_infected,1,R,0
-Alpha,BNT_recovered,1,S,13
-Alpha,BNT_recovered,1,I,0
-Alpha,BNT_recovered,1,R,0
-Alpha,BNT_uninfected,1,S,0
-Alpha,BNT_uninfected,1,I,0
-Alpha,BNT_uninfected,1,R,2
-Alpha,CoronaVac,5,S,185
-Alpha,CoronaVac,5,I,21
-Alpha,CoronaVac,5,R,72
-Alpha,VAC_recovered,1,S,4
-Alpha,VAC_recovered,1,I,0
-Alpha,VAC_recovered,1,R,2
-Alpha,Ad26.COV2.S,3,S,34
-Alpha,Ad26.COV2.S,3,I,1
-Alpha,Ad26.COV2.S,3,R,2
+Alpha,CP,48,S,1331
+Alpha,CP,48,I,231
+Alpha,CP,48,R,78
+Alpha,BNT162b2,40,S,1314
+Alpha,BNT162b2,40,I,181
+Alpha,BNT162b2,40,R,6
+Alpha,mRNA-1273,15,S,584
+Alpha,mRNA-1273,15,I,40
+Alpha,mRNA-1273,15,R,9
+Alpha,AZD1222,6,S,58
+Alpha,AZD1222,6,I,44
+Alpha,AZD1222,6,R,45
+Alpha,AZD1222 + BNT162b2,2,S,11
+Alpha,AZD1222 + BNT162b2,2,I,38
+Alpha,AZD1222 + BNT162b2,2,R,16
+Alpha,Ad26.COV2.S,5,S,59
+Alpha,Ad26.COV2.S,5,I,2
+Alpha,Ad26.COV2.S,5,R,6
 Alpha,BBIBP-CorV,2,S,486
 Alpha,BBIBP-CorV,2,I,0
 Alpha,BBIBP-CorV,2,R,3
 Alpha,BBV152,2,S,65
 Alpha,BBV152,2,I,1
 Alpha,BBV152,2,R,0
+Alpha,CoronaVac,5,S,185
+Alpha,CoronaVac,5,I,21
+Alpha,CoronaVac,5,R,72
 Alpha,MVC-COV1901,1,S,41
 Alpha,MVC-COV1901,1,I,4
 Alpha,MVC-COV1901,1,R,0
 Alpha,NVX-CoV2373,1,S,20
 Alpha,NVX-CoV2373,1,I,7
 Alpha,NVX-CoV2373,1,R,1
-Alpha,Sputnik V,2,S,37
-Alpha,Sputnik V,2,I,2
-Alpha,Sputnik V,2,R,3
-Alpha,BNT,0,S,0
-Alpha,BNT,0,I,0
-Alpha,BNT,0,R,0
+Alpha,Sputnik V,3,S,103
+Alpha,Sputnik V,3,I,10
+Alpha,Sputnik V,3,R,3
+Alpha,AZD1222 + AZD2816,0,S,0
+Alpha,AZD1222 + AZD2816,0,I,0
+Alpha,AZD1222 + AZD2816,0,R,0
 Alpha,ZF2001,0,S,0
 Alpha,ZF2001,0,I,0
 Alpha,ZF2001,0,R,0
-Beta,CP,48,S,574
-Beta,CP,48,I,724
-Beta,CP,48,R,474
-Beta,BNT162b2,38,S,408
-Beta,BNT162b2,38,I,705
-Beta,BNT162b2,38,R,350
-Beta,mRNA-1273,18,S,96
-Beta,mRNA-1273,18,I,365
-Beta,mRNA-1273,18,R,214
-Beta,AZD1222,3,S,3
-Beta,AZD1222,3,I,42
-Beta,AZD1222,3,R,50
-Beta,BNT_infected,1,S,4
-Beta,BNT_infected,1,I,3
-Beta,BNT_infected,1,R,0
-Beta,BNT_recovered,1,S,0
-Beta,BNT_recovered,1,I,13
-Beta,BNT_recovered,1,R,0
-Beta,BNT_uninfected,1,S,1
-Beta,BNT_uninfected,1,I,0
-Beta,BNT_uninfected,1,R,1
-Beta,CoronaVac,4,S,17
-Beta,CoronaVac,4,I,110
-Beta,CoronaVac,4,R,76
-Beta,VAC_recovered,1,S,1
-Beta,VAC_recovered,1,I,0
-Beta,VAC_recovered,1,R,5
-Beta,Ad26.COV2.S,4,S,15
-Beta,Ad26.COV2.S,4,I,11
-Beta,Ad26.COV2.S,4,R,35
+Alpha,mRNA,0,S,0
+Alpha,mRNA,0,I,0
+Alpha,mRNA,0,R,0
+Beta,CP,52,S,590
+Beta,CP,52,I,782
+Beta,CP,52,R,480
+Beta,BNT162b2,40,S,428
+Beta,BNT162b2,40,I,789
+Beta,BNT162b2,40,R,350
+Beta,mRNA-1273,19,S,151
+Beta,mRNA-1273,19,I,447
+Beta,mRNA-1273,19,R,191
+Beta,AZD1222,6,S,3
+Beta,AZD1222,6,I,59
+Beta,AZD1222,6,R,81
+Beta,AZD1222 + BNT162b2,2,S,11
+Beta,AZD1222 + BNT162b2,2,I,0
+Beta,AZD1222 + BNT162b2,2,R,54
+Beta,Ad26.COV2.S,6,S,20
+Beta,Ad26.COV2.S,6,I,30
+Beta,Ad26.COV2.S,6,R,53
 Beta,BBIBP-CorV,3,S,27
 Beta,BBIBP-CorV,3,I,473
 Beta,BBIBP-CorV,3,R,13
 Beta,BBV152,1,S,9
 Beta,BBV152,1,I,4
 Beta,BBV152,1,R,4
+Beta,CoronaVac,4,S,17
+Beta,CoronaVac,4,I,110
+Beta,CoronaVac,4,R,76
 Beta,MVC-COV1901,1,S,30
 Beta,MVC-COV1901,1,I,33
 Beta,MVC-COV1901,1,R,18
 Beta,NVX-CoV2373,1,S,0
 Beta,NVX-CoV2373,1,I,7
 Beta,NVX-CoV2373,1,R,16
-Beta,Sputnik V,2,S,7
-Beta,Sputnik V,2,I,35
-Beta,Sputnik V,2,R,0
-Beta,BNT,2,S,20
-Beta,BNT,2,I,84
-Beta,BNT,2,R,0
+Beta,Sputnik V,3,S,7
+Beta,Sputnik V,3,I,54
+Beta,Sputnik V,3,R,19
+Beta,AZD1222 + AZD2816,1,S,7
+Beta,AZD1222 + AZD2816,1,I,0
+Beta,AZD1222 + AZD2816,1,R,6
 Beta,ZF2001,1,S,24
 Beta,ZF2001,1,I,0
 Beta,ZF2001,1,R,0
-Gamma,CP,20,S,375
-Gamma,CP,20,I,139
-Gamma,CP,20,R,82
-Gamma,BNT162b2,17,S,356
-Gamma,BNT162b2,17,I,157
-Gamma,BNT162b2,17,R,5
-Gamma,mRNA-1273,8,S,212
-Gamma,mRNA-1273,8,I,118
-Gamma,mRNA-1273,8,R,10
-Gamma,AZD1222,1,S,16
-Gamma,AZD1222,1,I,8
-Gamma,AZD1222,1,R,1
-Gamma,BNT_infected,0,S,0
-Gamma,BNT_infected,0,I,0
-Gamma,BNT_infected,0,R,0
-Gamma,BNT_recovered,0,S,0
-Gamma,BNT_recovered,0,I,0
-Gamma,BNT_recovered,0,R,0
-Gamma,BNT_uninfected,0,S,0
-Gamma,BNT_uninfected,0,I,0
-Gamma,BNT_uninfected,0,R,0
-Gamma,CoronaVac,4,S,81
-Gamma,CoronaVac,4,I,123
-Gamma,CoronaVac,4,R,54
-Gamma,VAC_recovered,0,S,0
-Gamma,VAC_recovered,0,I,0
-Gamma,VAC_recovered,0,R,0
-Gamma,Ad26.COV2.S,2,S,13
-Gamma,Ad26.COV2.S,2,I,5
-Gamma,Ad26.COV2.S,2,R,9
+Beta,mRNA,1,S,0
+Beta,mRNA,1,I,30
+Beta,mRNA,1,R,0
+Gamma,CP,23,S,385
+Gamma,CP,23,I,191
+Gamma,CP,23,R,113
+Gamma,BNT162b2,18,S,431
+Gamma,BNT162b2,18,I,157
+Gamma,BNT162b2,18,R,5
+Gamma,mRNA-1273,9,S,242
+Gamma,mRNA-1273,9,I,104
+Gamma,mRNA-1273,9,R,18
+Gamma,AZD1222,3,S,16
+Gamma,AZD1222,3,I,20
+Gamma,AZD1222,3,R,32
+Gamma,AZD1222 + BNT162b2,2,S,11
+Gamma,AZD1222 + BNT162b2,2,I,1
+Gamma,AZD1222 + BNT162b2,2,R,53
+Gamma,Ad26.COV2.S,3,S,24
+Gamma,Ad26.COV2.S,3,I,7
+Gamma,Ad26.COV2.S,3,R,14
 Gamma,BBIBP-CorV,1,S,470
 Gamma,BBIBP-CorV,1,I,0
 Gamma,BBIBP-CorV,1,R,0
 Gamma,BBV152,0,S,0
 Gamma,BBV152,0,I,0
 Gamma,BBV152,0,R,0
+Gamma,CoronaVac,4,S,81
+Gamma,CoronaVac,4,I,123
+Gamma,CoronaVac,4,R,54
 Gamma,MVC-COV1901,0,S,0
 Gamma,MVC-COV1901,0,I,0
 Gamma,MVC-COV1901,0,R,0
 Gamma,NVX-CoV2373,0,S,0
 Gamma,NVX-CoV2373,0,I,0
 Gamma,NVX-CoV2373,0,R,0
-Gamma,Sputnik V,1,S,0
-Gamma,Sputnik V,1,I,16
-Gamma,Sputnik V,1,R,0
-Gamma,BNT,0,S,0
-Gamma,BNT,0,I,0
-Gamma,BNT,0,R,0
+Gamma,Sputnik V,2,S,9
+Gamma,Sputnik V,2,I,49
+Gamma,Sputnik V,2,R,29
+Gamma,AZD1222 + AZD2816,0,S,0
+Gamma,AZD1222 + AZD2816,0,I,0
+Gamma,AZD1222 + AZD2816,0,R,0
 Gamma,ZF2001,0,S,0
 Gamma,ZF2001,0,I,0
 Gamma,ZF2001,0,R,0
-Delta,CP,8,S,127
-Delta,CP,8,I,93
-Delta,CP,8,R,58
+Gamma,mRNA,0,S,0
+Gamma,mRNA,0,I,0
+Gamma,mRNA,0,R,0
+Delta,CP,9,S,127
+Delta,CP,9,I,103
+Delta,CP,9,R,58
 Delta,BNT162b2,9,S,188
 Delta,BNT162b2,9,I,198
 Delta,BNT162b2,9,R,43
-Delta,mRNA-1273,4,S,37
-Delta,mRNA-1273,4,I,30
-Delta,mRNA-1273,4,R,2
-Delta,AZD1222,4,S,38
-Delta,AZD1222,4,I,86
-Delta,AZD1222,4,R,11
-Delta,BNT_infected,0,S,0
-Delta,BNT_infected,0,I,0
-Delta,BNT_infected,0,R,0
-Delta,BNT_recovered,0,S,0
-Delta,BNT_recovered,0,I,0
-Delta,BNT_recovered,0,R,0
-Delta,BNT_uninfected,0,S,0
-Delta,BNT_uninfected,0,I,0
-Delta,BNT_uninfected,0,R,0
-Delta,CoronaVac,2,S,28
-Delta,CoronaVac,2,I,0
-Delta,CoronaVac,2,R,60
-Delta,VAC_recovered,0,S,0
-Delta,VAC_recovered,0,I,0
-Delta,VAC_recovered,0,R,0
-Delta,Ad26.COV2.S,2,S,9
-Delta,Ad26.COV2.S,2,I,6
-Delta,Ad26.COV2.S,2,R,2
+Delta,mRNA-1273,6,S,94
+Delta,mRNA-1273,6,I,35
+Delta,mRNA-1273,6,R,10
+Delta,AZD1222,6,S,38
+Delta,AZD1222,6,I,98
+Delta,AZD1222,6,R,16
+Delta,AZD1222 + BNT162b2,1,S,11
+Delta,AZD1222 + BNT162b2,1,I,0
+Delta,AZD1222 + BNT162b2,1,R,0
+Delta,Ad26.COV2.S,3,S,17
+Delta,Ad26.COV2.S,3,I,12
+Delta,Ad26.COV2.S,3,R,6
 Delta,BBIBP-CorV,0,S,0
 Delta,BBIBP-CorV,0,I,0
 Delta,BBIBP-CorV,0,R,0
 Delta,BBV152,1,S,12
 Delta,BBV152,1,I,1
 Delta,BBV152,1,R,4
+Delta,CoronaVac,2,S,28
+Delta,CoronaVac,2,I,0
+Delta,CoronaVac,2,R,60
 Delta,MVC-COV1901,0,S,0
 Delta,MVC-COV1901,0,I,0
 Delta,MVC-COV1901,0,R,0
 Delta,NVX-CoV2373,0,S,0
 Delta,NVX-CoV2373,0,I,0
 Delta,NVX-CoV2373,0,R,0
-Delta,Sputnik V,1,S,16
-Delta,Sputnik V,1,I,0
-Delta,Sputnik V,1,R,0
-Delta,BNT,0,S,0
-Delta,BNT,0,I,0
-Delta,BNT,0,R,0
+Delta,Sputnik V,2,S,16
+Delta,Sputnik V,2,I,38
+Delta,Sputnik V,2,R,0
+Delta,AZD1222 + AZD2816,1,S,0
+Delta,AZD1222 + AZD2816,1,I,13
+Delta,AZD1222 + AZD2816,1,R,0
 Delta,ZF2001,0,S,0
 Delta,ZF2001,0,I,0
 Delta,ZF2001,0,R,0
-Iota,CP,3,S,10
-Iota,CP,3,I,17
-Iota,CP,3,R,4
+Delta,mRNA,1,S,0
+Delta,mRNA,1,I,30
+Delta,mRNA,1,R,0
+Iota,CP,4,S,20
+Iota,CP,4,I,17
+Iota,CP,4,R,4
 Iota,BNT162b2,3,S,21
 Iota,BNT162b2,3,I,8
 Iota,BNT162b2,3,R,0
-Iota,mRNA-1273,5,S,146
-Iota,mRNA-1273,5,I,41
-Iota,mRNA-1273,5,R,6
+Iota,mRNA-1273,5,S,158
+Iota,mRNA-1273,5,I,32
+Iota,mRNA-1273,5,R,3
 Iota,AZD1222,0,S,0
 Iota,AZD1222,0,I,0
 Iota,AZD1222,0,R,0
-Iota,BNT_infected,0,S,0
-Iota,BNT_infected,0,I,0
-Iota,BNT_infected,0,R,0
-Iota,BNT_recovered,0,S,0
-Iota,BNT_recovered,0,I,0
-Iota,BNT_recovered,0,R,0
-Iota,BNT_uninfected,0,S,0
-Iota,BNT_uninfected,0,I,0
-Iota,BNT_uninfected,0,R,0
-Iota,CoronaVac,1,S,0
-Iota,CoronaVac,1,I,93
-Iota,CoronaVac,1,R,0
-Iota,VAC_recovered,0,S,0
-Iota,VAC_recovered,0,I,0
-Iota,VAC_recovered,0,R,0
+Iota,AZD1222 + BNT162b2,0,S,0
+Iota,AZD1222 + BNT162b2,0,I,0
+Iota,AZD1222 + BNT162b2,0,R,0
 Iota,Ad26.COV2.S,0,S,0
 Iota,Ad26.COV2.S,0,I,0
 Iota,Ad26.COV2.S,0,R,0
@@ -239,6 +203,9 @@ Iota,BBIBP-CorV,1,R,0
 Iota,BBV152,0,S,0
 Iota,BBV152,0,I,0
 Iota,BBV152,0,R,0
+Iota,CoronaVac,1,S,0
+Iota,CoronaVac,1,I,93
+Iota,CoronaVac,1,R,0
 Iota,MVC-COV1901,0,S,0
 Iota,MVC-COV1901,0,I,0
 Iota,MVC-COV1901,0,R,0
@@ -248,48 +215,42 @@ Iota,NVX-CoV2373,0,R,0
 Iota,Sputnik V,0,S,0
 Iota,Sputnik V,0,I,0
 Iota,Sputnik V,0,R,0
-Iota,BNT,0,S,0
-Iota,BNT,0,I,0
-Iota,BNT,0,R,0
+Iota,AZD1222 + AZD2816,0,S,0
+Iota,AZD1222 + AZD2816,0,I,0
+Iota,AZD1222 + AZD2816,0,R,0
 Iota,ZF2001,0,S,0
 Iota,ZF2001,0,I,0
 Iota,ZF2001,0,R,0
+Iota,mRNA,0,S,0
+Iota,mRNA,0,I,0
+Iota,mRNA,0,R,0
 Epsilon,CP,5,S,26
 Epsilon,CP,5,I,18
 Epsilon,CP,5,R,14
 Epsilon,BNT162b2,4,S,79
 Epsilon,BNT162b2,4,I,17
 Epsilon,BNT162b2,4,R,3
-Epsilon,mRNA-1273,8,S,167
-Epsilon,mRNA-1273,8,I,61
-Epsilon,mRNA-1273,8,R,6
+Epsilon,mRNA-1273,8,S,180
+Epsilon,mRNA-1273,8,I,49
+Epsilon,mRNA-1273,8,R,5
 Epsilon,AZD1222,0,S,0
 Epsilon,AZD1222,0,I,0
 Epsilon,AZD1222,0,R,0
-Epsilon,BNT_infected,0,S,0
-Epsilon,BNT_infected,0,I,0
-Epsilon,BNT_infected,0,R,0
-Epsilon,BNT_recovered,0,S,0
-Epsilon,BNT_recovered,0,I,0
-Epsilon,BNT_recovered,0,R,0
-Epsilon,BNT_uninfected,0,S,0
-Epsilon,BNT_uninfected,0,I,0
-Epsilon,BNT_uninfected,0,R,0
-Epsilon,CoronaVac,2,S,105
-Epsilon,CoronaVac,2,I,16
-Epsilon,CoronaVac,2,R,0
-Epsilon,VAC_recovered,0,S,0
-Epsilon,VAC_recovered,0,I,0
-Epsilon,VAC_recovered,0,R,0
-Epsilon,Ad26.COV2.S,1,S,12
-Epsilon,Ad26.COV2.S,1,I,2
-Epsilon,Ad26.COV2.S,1,R,5
+Epsilon,AZD1222 + BNT162b2,0,S,0
+Epsilon,AZD1222 + BNT162b2,0,I,0
+Epsilon,AZD1222 + BNT162b2,0,R,0
+Epsilon,Ad26.COV2.S,2,S,19
+Epsilon,Ad26.COV2.S,2,I,9
+Epsilon,Ad26.COV2.S,2,R,9
 Epsilon,BBIBP-CorV,0,S,0
 Epsilon,BBIBP-CorV,0,I,0
 Epsilon,BBIBP-CorV,0,R,0
 Epsilon,BBV152,0,S,0
 Epsilon,BBV152,0,I,0
 Epsilon,BBV152,0,R,0
+Epsilon,CoronaVac,2,S,105
+Epsilon,CoronaVac,2,I,16
+Epsilon,CoronaVac,2,R,0
 Epsilon,MVC-COV1901,0,S,0
 Epsilon,MVC-COV1901,0,I,0
 Epsilon,MVC-COV1901,0,R,0
@@ -299,48 +260,42 @@ Epsilon,NVX-CoV2373,1,R,0
 Epsilon,Sputnik V,0,S,0
 Epsilon,Sputnik V,0,I,0
 Epsilon,Sputnik V,0,R,0
-Epsilon,BNT,0,S,0
-Epsilon,BNT,0,I,0
-Epsilon,BNT,0,R,0
+Epsilon,AZD1222 + AZD2816,0,S,0
+Epsilon,AZD1222 + AZD2816,0,I,0
+Epsilon,AZD1222 + AZD2816,0,R,0
 Epsilon,ZF2001,0,S,0
 Epsilon,ZF2001,0,I,0
 Epsilon,ZF2001,0,R,0
-Kappa,CP,4,S,38
-Kappa,CP,4,I,32
-Kappa,CP,4,R,17
+Epsilon,mRNA,0,S,0
+Epsilon,mRNA,0,I,0
+Epsilon,mRNA,0,R,0
+Kappa,CP,5,S,58
+Kappa,CP,5,I,32
+Kappa,CP,5,R,17
 Kappa,BNT162b2,5,S,38
 Kappa,BNT162b2,5,I,60
 Kappa,BNT162b2,5,R,4
 Kappa,mRNA-1273,3,S,13
 Kappa,mRNA-1273,3,I,46
 Kappa,mRNA-1273,3,R,4
-Kappa,AZD1222,3,S,77
-Kappa,AZD1222,3,I,41
-Kappa,AZD1222,3,R,1
-Kappa,BNT_infected,0,S,0
-Kappa,BNT_infected,0,I,0
-Kappa,BNT_infected,0,R,0
-Kappa,BNT_recovered,0,S,0
-Kappa,BNT_recovered,0,I,0
-Kappa,BNT_recovered,0,R,0
-Kappa,BNT_uninfected,0,S,0
-Kappa,BNT_uninfected,0,I,0
-Kappa,BNT_uninfected,0,R,0
-Kappa,CoronaVac,2,S,32
-Kappa,CoronaVac,2,I,0
-Kappa,CoronaVac,2,R,15
-Kappa,VAC_recovered,0,S,0
-Kappa,VAC_recovered,0,I,0
-Kappa,VAC_recovered,0,R,0
-Kappa,Ad26.COV2.S,1,S,7
-Kappa,Ad26.COV2.S,1,I,1
-Kappa,Ad26.COV2.S,1,R,0
+Kappa,AZD1222,4,S,77
+Kappa,AZD1222,4,I,41
+Kappa,AZD1222,4,R,6
+Kappa,AZD1222 + BNT162b2,0,S,0
+Kappa,AZD1222 + BNT162b2,0,I,0
+Kappa,AZD1222 + BNT162b2,0,R,0
+Kappa,Ad26.COV2.S,2,S,17
+Kappa,Ad26.COV2.S,2,I,5
+Kappa,Ad26.COV2.S,2,R,4
 Kappa,BBIBP-CorV,0,S,0
 Kappa,BBIBP-CorV,0,I,0
 Kappa,BBIBP-CorV,0,R,0
 Kappa,BBV152,1,S,26
 Kappa,BBV152,1,I,2
 Kappa,BBV152,1,R,0
+Kappa,CoronaVac,2,S,32
+Kappa,CoronaVac,2,I,0
+Kappa,CoronaVac,2,R,15
 Kappa,MVC-COV1901,0,S,0
 Kappa,MVC-COV1901,0,I,0
 Kappa,MVC-COV1901,0,R,0
@@ -350,12 +305,15 @@ Kappa,NVX-CoV2373,0,R,0
 Kappa,Sputnik V,0,S,0
 Kappa,Sputnik V,0,I,0
 Kappa,Sputnik V,0,R,0
-Kappa,BNT,0,S,0
-Kappa,BNT,0,I,0
-Kappa,BNT,0,R,0
+Kappa,AZD1222 + AZD2816,1,S,0
+Kappa,AZD1222 + AZD2816,1,I,13
+Kappa,AZD1222 + AZD2816,1,R,0
 Kappa,ZF2001,1,S,3
 Kappa,ZF2001,1,I,2
 Kappa,ZF2001,1,R,5
+Kappa,mRNA,0,S,0
+Kappa,mRNA,0,I,0
+Kappa,mRNA,0,R,0
 N501Y,CP,10,S,197
 N501Y,CP,10,I,15
 N501Y,CP,10,R,5
@@ -368,21 +326,9 @@ N501Y,mRNA-1273,5,R,0
 N501Y,AZD1222,0,S,0
 N501Y,AZD1222,0,I,0
 N501Y,AZD1222,0,R,0
-N501Y,BNT_infected,0,S,0
-N501Y,BNT_infected,0,I,0
-N501Y,BNT_infected,0,R,0
-N501Y,BNT_recovered,0,S,0
-N501Y,BNT_recovered,0,I,0
-N501Y,BNT_recovered,0,R,0
-N501Y,BNT_uninfected,0,S,0
-N501Y,BNT_uninfected,0,I,0
-N501Y,BNT_uninfected,0,R,0
-N501Y,CoronaVac,0,S,0
-N501Y,CoronaVac,0,I,0
-N501Y,CoronaVac,0,R,0
-N501Y,VAC_recovered,0,S,0
-N501Y,VAC_recovered,0,I,0
-N501Y,VAC_recovered,0,R,0
+N501Y,AZD1222 + BNT162b2,0,S,0
+N501Y,AZD1222 + BNT162b2,0,I,0
+N501Y,AZD1222 + BNT162b2,0,R,0
 N501Y,Ad26.COV2.S,0,S,0
 N501Y,Ad26.COV2.S,0,I,0
 N501Y,Ad26.COV2.S,0,R,0
@@ -392,6 +338,9 @@ N501Y,BBIBP-CorV,0,R,0
 N501Y,BBV152,0,S,0
 N501Y,BBV152,0,I,0
 N501Y,BBV152,0,R,0
+N501Y,CoronaVac,0,S,0
+N501Y,CoronaVac,0,I,0
+N501Y,CoronaVac,0,R,0
 N501Y,MVC-COV1901,0,S,0
 N501Y,MVC-COV1901,0,I,0
 N501Y,MVC-COV1901,0,R,0
@@ -401,12 +350,15 @@ N501Y,NVX-CoV2373,0,R,0
 N501Y,Sputnik V,0,S,0
 N501Y,Sputnik V,0,I,0
 N501Y,Sputnik V,0,R,0
-N501Y,BNT,0,S,0
-N501Y,BNT,0,I,0
-N501Y,BNT,0,R,0
+N501Y,AZD1222 + AZD2816,0,S,0
+N501Y,AZD1222 + AZD2816,0,I,0
+N501Y,AZD1222 + AZD2816,0,R,0
 N501Y,ZF2001,0,S,0
 N501Y,ZF2001,0,I,0
 N501Y,ZF2001,0,R,0
+N501Y,mRNA,0,S,0
+N501Y,mRNA,0,I,0
+N501Y,mRNA,0,R,0
 E484K,CP,15,S,118
 E484K,CP,15,I,60
 E484K,CP,15,R,40
@@ -419,21 +371,9 @@ E484K,mRNA-1273,6,R,0
 E484K,AZD1222,0,S,0
 E484K,AZD1222,0,I,0
 E484K,AZD1222,0,R,0
-E484K,BNT_infected,0,S,0
-E484K,BNT_infected,0,I,0
-E484K,BNT_infected,0,R,0
-E484K,BNT_recovered,0,S,0
-E484K,BNT_recovered,0,I,0
-E484K,BNT_recovered,0,R,0
-E484K,BNT_uninfected,0,S,0
-E484K,BNT_uninfected,0,I,0
-E484K,BNT_uninfected,0,R,0
-E484K,CoronaVac,0,S,0
-E484K,CoronaVac,0,I,0
-E484K,CoronaVac,0,R,0
-E484K,VAC_recovered,0,S,0
-E484K,VAC_recovered,0,I,0
-E484K,VAC_recovered,0,R,0
+E484K,AZD1222 + BNT162b2,0,S,0
+E484K,AZD1222 + BNT162b2,0,I,0
+E484K,AZD1222 + BNT162b2,0,R,0
 E484K,Ad26.COV2.S,0,S,0
 E484K,Ad26.COV2.S,0,I,0
 E484K,Ad26.COV2.S,0,R,0
@@ -443,6 +383,9 @@ E484K,BBIBP-CorV,0,R,0
 E484K,BBV152,0,S,0
 E484K,BBV152,0,I,0
 E484K,BBV152,0,R,0
+E484K,CoronaVac,0,S,0
+E484K,CoronaVac,0,I,0
+E484K,CoronaVac,0,R,0
 E484K,MVC-COV1901,0,S,0
 E484K,MVC-COV1901,0,I,0
 E484K,MVC-COV1901,0,R,0
@@ -452,12 +395,15 @@ E484K,NVX-CoV2373,0,R,0
 E484K,Sputnik V,1,S,2
 E484K,Sputnik V,1,I,1
 E484K,Sputnik V,1,R,5
-E484K,BNT,0,S,0
-E484K,BNT,0,I,0
-E484K,BNT,0,R,0
+E484K,AZD1222 + AZD2816,0,S,0
+E484K,AZD1222 + AZD2816,0,I,0
+E484K,AZD1222 + AZD2816,0,R,0
 E484K,ZF2001,0,S,0
 E484K,ZF2001,0,I,0
 E484K,ZF2001,0,R,0
+E484K,mRNA,0,S,0
+E484K,mRNA,0,I,0
+E484K,mRNA,0,R,0
 L452R,CP,8,S,45
 L452R,CP,8,I,20
 L452R,CP,8,R,8
@@ -470,21 +416,9 @@ L452R,mRNA-1273,3,R,0
 L452R,AZD1222,0,S,0
 L452R,AZD1222,0,I,0
 L452R,AZD1222,0,R,0
-L452R,BNT_infected,0,S,0
-L452R,BNT_infected,0,I,0
-L452R,BNT_infected,0,R,0
-L452R,BNT_recovered,0,S,0
-L452R,BNT_recovered,0,I,0
-L452R,BNT_recovered,0,R,0
-L452R,BNT_uninfected,0,S,0
-L452R,BNT_uninfected,0,I,0
-L452R,BNT_uninfected,0,R,0
-L452R,CoronaVac,0,S,0
-L452R,CoronaVac,0,I,0
-L452R,CoronaVac,0,R,0
-L452R,VAC_recovered,0,S,0
-L452R,VAC_recovered,0,I,0
-L452R,VAC_recovered,0,R,0
+L452R,AZD1222 + BNT162b2,0,S,0
+L452R,AZD1222 + BNT162b2,0,I,0
+L452R,AZD1222 + BNT162b2,0,R,0
 L452R,Ad26.COV2.S,0,S,0
 L452R,Ad26.COV2.S,0,I,0
 L452R,Ad26.COV2.S,0,R,0
@@ -494,6 +428,9 @@ L452R,BBIBP-CorV,0,R,0
 L452R,BBV152,0,S,0
 L452R,BBV152,0,I,0
 L452R,BBV152,0,R,0
+L452R,CoronaVac,0,S,0
+L452R,CoronaVac,0,I,0
+L452R,CoronaVac,0,R,0
 L452R,MVC-COV1901,0,S,0
 L452R,MVC-COV1901,0,I,0
 L452R,MVC-COV1901,0,R,0
@@ -503,9 +440,12 @@ L452R,NVX-CoV2373,0,R,0
 L452R,Sputnik V,0,S,0
 L452R,Sputnik V,0,I,0
 L452R,Sputnik V,0,R,0
-L452R,BNT,0,S,0
-L452R,BNT,0,I,0
-L452R,BNT,0,R,0
+L452R,AZD1222 + AZD2816,0,S,0
+L452R,AZD1222 + AZD2816,0,I,0
+L452R,AZD1222 + AZD2816,0,R,0
 L452R,ZF2001,0,S,0
 L452R,ZF2001,0,I,0
 L452R,ZF2001,0,R,0
+L452R,mRNA,0,S,0
+L452R,mRNA,0,I,0
+L452R,mRNA,0,R,0

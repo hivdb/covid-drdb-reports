@@ -19,39 +19,39 @@ L452R,CP,74
 L452R,VP,79
 L452R,mAbs phase3,31
 L452R,mAbs structure,10
-Other individual mutations,CP,1714
-Other individual mutations,VP,1137
+Other individual mutations,CP,1601
+Other individual mutations,VP,1443
 Other individual mutations,mAbs phase3,877
 Other individual mutations,mAbs structure,928
-All individual mutations,CP,2107
-All individual mutations,VP,1383
+All individual mutations,CP,1994
+All individual mutations,VP,1689
 All individual mutations,mAbs phase3,1048
 All individual mutations,mAbs structure,1043
-Alpha,CP,2014
-Alpha,VP,3800
-Alpha,mAbs phase3,110
+Alpha,CP,1743
+Alpha,VP,4634
+Alpha,mAbs phase3,109
 Alpha,mAbs structure,68
-Beta,CP,2399
-Beta,VP,3996
-Beta,mAbs phase3,111
+Beta,CP,1983
+Beta,VP,4946
+Beta,mAbs phase3,110
 Beta,mAbs structure,50
-Gamma,CP,916
-Gamma,VP,1583
+Gamma,CP,705
+Gamma,VP,2254
 Gamma,mAbs phase3,63
 Gamma,mAbs structure,27
-Epsilon,CP,87
-Epsilon,VP,550
+Epsilon,CP,59
+Epsilon,VP,578
 Epsilon,mAbs phase3,19
 Epsilon,mAbs structure,11
-Iota,CP,31
+Iota,CP,41
 Iota,VP,785
 Iota,mAbs phase3,13
 Iota,mAbs structure,1
-Other combinations of mutations,CP,2589
-Other combinations of mutations,VP,4538
+Other combinations of mutations,CP,2535
+Other combinations of mutations,VP,5279
 Other combinations of mutations,mAbs phase3,438
 Other combinations of mutations,mAbs structure,266
-All combinations of mutations,CP,8226
-All combinations of mutations,VP,15426
-All combinations of mutations,mAbs phase3,792
+All combinations of mutations,CP,7256
+All combinations of mutations,VP,18650
+All combinations of mutations,mAbs phase3,790
 All combinations of mutations,mAbs structure,452

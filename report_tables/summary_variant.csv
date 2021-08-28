@@ -4,12 +4,12 @@ E484K,225,214,84,50
 K417N,144,122,53,43
 K417T,29,0,8,7
 L452R,74,79,31,10
-Other individual mutations,1714,1137,877,928
-All individual mutations,2107,1383,1048,1043
-Alpha,2014,3800,110,68
-Beta,2399,3996,111,50
-Gamma,916,1583,63,27
-Epsilon,87,550,19,11
-Iota,31,785,13,1
-Other combinations of mutations,2589,4538,438,266
-All combinations of mutations,8226,15426,792,452
+Other individual mutations,1601,1443,877,928
+All individual mutations,1994,1689,1048,1043
+Alpha,1743,4634,109,68
+Beta,1983,4946,110,50
+Gamma,705,2254,63,27
+Epsilon,59,578,19,11
+Iota,41,785,13,1
+Other combinations of mutations,2535,5279,438,266
+All combinations of mutations,7256,18650,790,452

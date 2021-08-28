@@ -111,6 +111,7 @@ Supasa21,AZD1222_8,B.1.1.7 full genome,VIC,1
 Supasa21,AZD1222_9,B.1.1.7 full genome,VIC,1
 Supasa21,AZD7442,B.1.1.7 full genome,VIC,1
 Supasa21,AZD8895,B.1.1.7 full genome,VIC,1
+Hammerschmidt21,AZD_1dose,B.1.617.2 Spike,B.1.617.2 Spike,31
 Sapkal21c,AZD_1st_1,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_1st_10,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_1st_11,B.1.617.2 full genome,B.1 full genome,1
@@ -154,6 +155,7 @@ Planas21b,AZD_1st_W10_6,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_7,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_8,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,AZD_1st_W10_9,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
+Hammerschmidt21,AZD_2dose,B.1.617.2 Spike,B.1.617.2 Spike,31
 Sapkal21c,AZD_2nd_1,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_2nd_10,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_2nd_11,B.1.617.2 full genome,B.1 full genome,1
@@ -186,6 +188,8 @@ Sapkal21c,AZD_2nd_7,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_2nd_8,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_2nd_9,B.1.617.2 full genome,B.1 full genome,1
 Planas21b,AZD_2nd_W16,B.1.1.7 full genome,B.1.617.2_2029113 full genome,20
+Hammerschmidt21,AZD_BNT_1dose,B.1.617.2 Spike,B.1.617.2 Spike,54
+Hammerschmidt21,AZD_BNT_2dose,B.1.617.2 Spike,B.1.617.2 Spike,54
 Sapkal21c,AZD_infect_1st_1,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_infect_1st_10,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_infect_1st_11,B.1.617.2 full genome,B.1 full genome,1
@@ -220,6 +224,9 @@ Sapkal21c,AZD_infect_2nd_6,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_infect_2nd_7,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_infect_2nd_8,B.1.617.2 full genome,B.1 full genome,1
 Sapkal21c,AZD_infect_2nd_9,B.1.617.2 full genome,B.1 full genome,1
+Yadav21d,BBV152,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/DL-ICMR-30100647IST_P3/2021,42
+Yadav21d,BBV152,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/MH-ICMR-202356035_isolate/2021,42
+Yadav21d,BBV152,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/TN-ICMR-MCL_3687_4681_Iso/2021,42
 Yadav21,BBV152_01,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_02,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_03,B.1.1.7 full genome,B.1.617.1 full genome,1
@@ -248,6 +255,12 @@ Yadav21,BBV152_25,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_26,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_27,B.1.1.7 full genome,B.1.617.1 full genome,1
 Yadav21,BBV152_28,B.1.1.7 full genome,B.1.617.1 full genome,1
+Yadav21d,BBV152_breakthrough,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/DL-ICMR-30100647IST_P3/2021,30
+Yadav21d,BBV152_breakthrough,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/MH-ICMR-202356035_isolate/2021,30
+Yadav21d,BBV152_breakthrough,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/TN-ICMR-MCL_3687_4681_Iso/2021,30
+Yadav21d,BBV152_recovered,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/DL-ICMR-30100647IST_P3/2021,14
+Yadav21d,BBV152_recovered,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/MH-ICMR-202356035_isolate/2021,14
+Yadav21d,BBV152_recovered,hCoV-19/India/un-NIV_P1_20203524/2020,hCoV-19/India/TN-ICMR-MCL_3687_4681_Iso/2021,14
 Gonzalez21,BNT162b2,19A_1707038,B.1.1.7 full genome_1707039,30
 Gonzalez21,BNT162b2,19A_1707038,B.1.351 full genome_768828,30
 Supasa21,BNT162b2_1,B.1.1.7 full genome,VIC,1
@@ -277,7 +290,9 @@ Supasa21,BNT162b2_6,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_7,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_8,B.1.1.7 full genome,VIC,1
 Supasa21,BNT162b2_9,B.1.1.7 full genome,VIC,1
+Hammerschmidt21,BNT_1dose,B.1.617.2 Spike,B.1.617.2 Spike,30
 Planas21b,BNT_1st_W3,B.1.1.7 full genome,B.1.617.2_2029113 full genome,16
+Hammerschmidt21,BNT_2dose,B.1.617.2 Spike,B.1.617.2 Spike,30
 Planas21b,BNT_2nd_W16_1,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,BNT_2nd_W16_10,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Planas21b,BNT_2nd_W16_11,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
@@ -1852,6 +1867,10 @@ Weigang21,CP_d105_mice_6e_10,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/
 Weigang21,CP_d105_mice_6e_11,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
 Weigang21,CP_d105_mice_6e_12,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
 Weigang21,CP_d105_mice_6e_13,hCoV-19/Germany/NW-RKI-I-0026/2020,hCoV-19/Germany/NW-RKI-I-0029/2020,1
+Tea21,CP_second_wave,hCoV-19/Australia/NSW712/2020,hCoV-19/Australia/NSW-R0099/2021,17
+Tea21,CP_second_wave,hCoV-19/Australia/NSW712/2020,hCoV-19/Australia/NSW2713/2020,17
+Tea21,CP_second_wave,hCoV-19/Australia/NSW712/2020,hCoV-19/Australia/NSW3878/2021,17
+Tea21,CP_second_wave,hCoV-19/Australia/NSW712/2020,hCoV-19/Australia/NSW4318/2021,17
 Riou21,CP_wave2,S:18F+80A+215G+242del+243del+244del+246I+417N+484K+501Y+614G+701V,S:614G,19
 Planas21b,Casirivimab,B.1.1.7 full genome,B.1.617.2_2029113 full genome,1
 Groß21,ChAdOx1_BNT162b2,B.1.1.7 Spike,B.1.351 Spike,26

@@ -4,76 +4,6 @@
         "assays": [
             {
                 "variant": "Alpha",
-                "rx": "1-57",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "1-57",
-                "mab_class": "",
-                "fold": "1.5",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "2-15",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "2-15",
-                "mab_class": "",
-                "fold": "3",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "2-7",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "2-7",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "5-7",
-                "mab_class": "",
-                "fold": "12",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "5-7",
-                "mab_class": "",
-                "fold": "7.5",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "910-30",
-                "mab_class": "",
-                "fold": "14",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "910-30",
-                "mab_class": "",
-                "fold": "10",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
                 "rx": "ADG20",
                 "mab_class": "",
                 "fold": "1.5",
@@ -134,34 +64,6 @@
                 "mab_class": "",
                 "fold": "1.3",
                 "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "COVOX-384",
-                "mab_class": "",
-                "fold": "1.1",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "COVOX-384",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Chen21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "COVOX-40",
-                "mab_class": "",
-                "fold": "1.1",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "COVOX-40",
-                "mab_class": "",
-                "fold": "0.9",
-                "reference": "Chen21*"
             },
             {
                 "variant": "Alpha",
@@ -228,41 +130,6 @@
             },
             {
                 "variant": "Alpha",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "1.1",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Chen21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.9",
-                "reference": "Supasa21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.3",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
                 "fold": "1.4",
@@ -298,69 +165,6 @@
             },
             {
                 "variant": "Alpha",
-                "rx": "DH1041",
-                "mab_class": "",
-                "fold": "1.6",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "DH1041",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "DH1043",
-                "mab_class": "",
-                "fold": "1.2",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "DH1043",
-                "mab_class": "",
-                "fold": "0.9",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "H4",
-                "mab_class": "",
-                "fold": "1.5",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "H4",
-                "mab_class": "",
-                "fold": "4.7",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.9",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "P5A-1B9",
-                "mab_class": "",
-                "fold": "1.1",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Alpha",
                 "rx": "S2E12/Sotrovimab",
                 "mab_class": "",
                 "fold": "1.2",
@@ -372,69 +176,6 @@
                 "mab_class": "",
                 "fold": "0.7",
                 "reference": "Chen21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "S2H97",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Collier21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "S2X259",
-                "mab_class": "",
-                "fold": "1.1",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "S2X259",
-                "mab_class": "",
-                "fold": "0.6",
-                "reference": "Collier21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "S2X259",
-                "mab_class": "",
-                "fold": "1",
-                "reference": "Chen21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "0.9",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "1.5",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "1.7",
-                "reference": "Chen21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "2.2",
-                "reference": "Supasa21*"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "0.3",
-                "reference": "Wang21b*"
             },
             {
                 "variant": "Alpha",
@@ -511,6 +252,20 @@
                 "rx": "5-24",
                 "mab_class": "NTD",
                 "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "5-7",
+                "mab_class": "NTD",
+                "fold": "12",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "5-7",
+                "mab_class": "NTD",
+                "fold": "7.5",
                 "reference": "Wang21b*"
             },
             {
@@ -669,91 +424,98 @@
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "S2H97",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.5",
+                "reference": "Collier21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.8",
                 "reference": "Chen21"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "reference": "FDA21"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "reference": "Shen21"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "3.1",
                 "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "&gt;100",
                 "reference": "Shen21"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2",
                 "reference": "Supasa21*"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "3",
                 "reference": "Cathcart21*"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "4",
                 "reference": "Chen21*"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "3",
                 "reference": "FDA21*"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "4",
                 "reference": "Wang21b*"
             },
             {
                 "variant": "Alpha",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "13",
                 "reference": "Chen21*"
@@ -802,38 +564,66 @@
             },
             {
                 "variant": "Alpha",
-                "rx": "P22A-1D1",
-                "mab_class": "RBM",
-                "fold": "14",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "P5A-1D2",
-                "mab_class": "RBM",
-                "fold": "3.3",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "P5A-3C8",
-                "mab_class": "RBM",
-                "fold": "2.2",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "S2D106",
-                "mab_class": "RBM",
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
                 "fold": "0.7",
+                "reference": "Westendorf21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.9",
+                "reference": "Westendorf21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "S2X259",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "1.1",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "S2X259",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.6",
                 "reference": "Collier21"
             },
             {
                 "variant": "Alpha",
-                "rx": "XAV-19",
-                "mab_class": "RBM",
+                "rx": "S2X259",
+                "mab_class": "RBD Core Cluster II",
                 "fold": "1",
-                "reference": "Vanhove21*"
+                "reference": "Chen21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "0.5",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "3",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Alpha",
@@ -876,6 +666,20 @@
                 "mab_class": "RBM Class I",
                 "fold": "0.5",
                 "reference": "Rees-Spear21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "COVOX-384",
+                "mab_class": "RBM Class I",
+                "fold": "1.1",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "COVOX-384",
+                "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "reference": "Chen21*"
             },
             {
                 "variant": "Alpha",
@@ -984,6 +788,34 @@
             },
             {
                 "variant": "Alpha",
+                "rx": "DH1041",
+                "mab_class": "RBM Class I",
+                "fold": "1.6",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "DH1041",
+                "mab_class": "RBM Class I",
+                "fold": "0.5",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "DH1043",
+                "mab_class": "RBM Class I",
+                "fold": "1.2",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "DH1043",
+                "mab_class": "RBM Class I",
+                "fold": "0.9",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "1.5",
@@ -1047,6 +879,41 @@
             },
             {
                 "variant": "Alpha",
+                "rx": "H4",
+                "mab_class": "RBM Class I",
+                "fold": "1.5",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "H4",
+                "mab_class": "RBM Class I",
+                "fold": "4.7",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "P22A-1D1",
+                "mab_class": "RBM Class I",
+                "fold": "14",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "P5A-1D2",
+                "mab_class": "RBM Class I",
+                "fold": "3.3",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "P5A-3C8",
+                "mab_class": "RBM Class I",
+                "fold": "2.2",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Alpha",
                 "rx": "Regdanvimab",
                 "mab_class": "RBM Class I",
                 "fold": "1.4",
@@ -1079,6 +946,69 @@
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Collier21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.9",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1.5",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1.7",
+                "reference": "Chen21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "2.2",
+                "reference": "Supasa21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.3",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "0.5",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "1.5",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "910-30",
+                "mab_class": "RBM Class II",
+                "fold": "14",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "910-30",
+                "mab_class": "RBM Class II",
+                "fold": "10",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Alpha",
@@ -1173,6 +1103,55 @@
             },
             {
                 "variant": "Alpha",
+                "rx": "COVOX-40",
+                "mab_class": "RBM Class II",
+                "fold": "1.1",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "COVOX-40",
+                "mab_class": "RBM Class II",
+                "fold": "0.9",
+                "reference": "Chen21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.7",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "1.1",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.5",
+                "reference": "Chen21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.9",
+                "reference": "Supasa21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.3",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Alpha",
                 "rx": "P2B-2F6",
                 "mab_class": "RBM Class II",
                 "fold": "1.1",
@@ -1184,6 +1163,20 @@
                 "mab_class": "RBM Class II",
                 "fold": "0.5",
                 "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "P5A-1B9",
+                "mab_class": "RBM Class II",
+                "fold": "1.1",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "S2D106",
+                "mab_class": "RBM Class II",
+                "fold": "0.7",
+                "reference": "Collier21"
             },
             {
                 "variant": "Alpha",
@@ -1211,76 +1204,6 @@
     {
         "variant": "Beta",
         "assays": [
-            {
-                "variant": "Beta",
-                "rx": "1-57",
-                "mab_class": "",
-                "fold": "0.3",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "1-57",
-                "mab_class": "",
-                "fold": "5.2",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "2-15",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "2-15",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "2-7",
-                "mab_class": "",
-                "fold": "0.8",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "2-7",
-                "mab_class": "",
-                "fold": "0.9",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "5-7",
-                "mab_class": "",
-                "fold": "18",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "5-7",
-                "mab_class": "",
-                "fold": "85",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "910-30",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "910-30",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21b*"
-            },
             {
                 "variant": "Beta",
                 "rx": "ADG20",
@@ -1350,20 +1273,6 @@
                 "mab_class": "",
                 "fold": "&gt;100",
                 "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "COVOX-384",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "COVOX-40",
-                "mab_class": "",
-                "fold": "11",
-                "reference": "Chen21"
             },
             {
                 "variant": "Beta",
@@ -1444,34 +1353,6 @@
             },
             {
                 "variant": "Beta",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.3",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "1",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.3",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "1.1",
-                "reference": "Zhou21b*"
-            },
-            {
-                "variant": "Beta",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
                 "fold": "0.8",
@@ -1500,59 +1381,10 @@
             },
             {
                 "variant": "Beta",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "P5A-1B9",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Beta",
                 "rx": "S2E12/Sotrovimab",
                 "mab_class": "",
                 "fold": "0.6",
                 "reference": "Chen21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "S2X259",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "1.7",
-                "reference": "Chen21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "3.5",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "6.3",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "9.2",
-                "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
@@ -1626,17 +1458,17 @@
             },
             {
                 "variant": "Beta",
-                "rx": "CV2-75",
-                "mab_class": "RBD Core",
-                "fold": "2.3",
-                "reference": "Stamatatos21"
+                "rx": "5-7",
+                "mab_class": "NTD",
+                "fold": "18",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
-                "rx": "CV2-75",
-                "mab_class": "RBD Core",
-                "fold": "1.6",
-                "reference": "Stamatatos21"
+                "rx": "5-7",
+                "mab_class": "NTD",
+                "fold": "85",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -1665,6 +1497,20 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CV2-75",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "2.3",
+                "reference": "Stamatatos21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CV2-75",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1.6",
+                "reference": "Stamatatos21"
             },
             {
                 "variant": "Beta",
@@ -1787,63 +1633,63 @@
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "reference": "Chen21"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "reference": "FDA21"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.8",
                 "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.2",
                 "reference": "Cathcart21*"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.2",
                 "reference": "FDA21*"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.2",
                 "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.1",
                 "reference": "Zhou21b*"
@@ -1892,31 +1738,45 @@
             },
             {
                 "variant": "Beta",
-                "rx": "P22A-1D1",
-                "mab_class": "RBM",
-                "fold": "74",
-                "reference": "Wang21f"
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.7",
+                "reference": "Westendorf21"
             },
             {
                 "variant": "Beta",
-                "rx": "P5A-1D2",
-                "mab_class": "RBM",
-                "fold": "43",
-                "reference": "Wang21f"
+                "rx": "S2X259",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.5",
+                "reference": "Chen21"
             },
             {
                 "variant": "Beta",
-                "rx": "P5A-3C8",
-                "mab_class": "RBM",
-                "fold": "47",
-                "reference": "Wang21f"
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
-                "rx": "XAV-19",
-                "mab_class": "RBM",
-                "fold": "1.6",
-                "reference": "Vanhove21*"
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.8",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.9",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -1952,6 +1812,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "0.5",
                 "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "COVOX-384",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Chen21"
             },
             {
                 "variant": "Beta",
@@ -2137,6 +2004,27 @@
             },
             {
                 "variant": "Beta",
+                "rx": "P22A-1D1",
+                "mab_class": "RBM Class I",
+                "fold": "74",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Beta",
+                "rx": "P5A-1D2",
+                "mab_class": "RBM Class I",
+                "fold": "43",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Beta",
+                "rx": "P5A-3C8",
+                "mab_class": "RBM Class I",
+                "fold": "47",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Beta",
                 "rx": "Regdanvimab",
                 "mab_class": "RBM Class I",
                 "fold": "33",
@@ -2155,6 +2043,62 @@
                 "mab_class": "RBM Class I",
                 "fold": "0.4",
                 "reference": "Chen21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1.7",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "3.5",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "6.3",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "9.2",
+                "reference": "Zhou21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "0.3",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "5.2",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "910-30",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "910-30",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -2249,6 +2193,41 @@
             },
             {
                 "variant": "Beta",
+                "rx": "COVOX-40",
+                "mab_class": "RBM Class II",
+                "fold": "11",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.3",
+                "reference": "Chen21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "1",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.3",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "1.1",
+                "reference": "Zhou21b*"
+            },
+            {
+                "variant": "Beta",
                 "rx": "P2B-2F6",
                 "mab_class": "RBM Class II",
                 "fold": "53",
@@ -2267,6 +2246,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "23",
                 "reference": "Li21c"
+            },
+            {
+                "variant": "Beta",
+                "rx": "P5A-1B9",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
@@ -2310,21 +2296,7 @@
             },
             {
                 "variant": "Delta",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "2.9",
-                "reference": "Liu21f"
-            },
-            {
-                "variant": "Delta",
                 "rx": "Cilgavimab/Tixagevimab",
-                "mab_class": "",
-                "fold": "0.6",
-                "reference": "Liu21f"
-            },
-            {
-                "variant": "Delta",
-                "rx": "Tixagevimab",
                 "mab_class": "",
                 "fold": "0.6",
                 "reference": "Liu21f"
@@ -2366,14 +2338,14 @@
             },
             {
                 "variant": "Delta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Delta",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.8",
                 "reference": "Liu21f"
@@ -2457,6 +2429,13 @@
             },
             {
                 "variant": "Delta",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.6",
+                "reference": "Liu21f"
+            },
+            {
+                "variant": "Delta",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
@@ -2482,6 +2461,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "Delta",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "2.9",
+                "reference": "Liu21f"
             }
         ]
     },
@@ -2501,34 +2487,6 @@
                 "mab_class": "",
                 "fold": "1",
                 "reference": "FDA21"
-            },
-            {
-                "variant": "Epsilon",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.4",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Epsilon",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Epsilon",
-                "rx": "S2H97",
-                "mab_class": "",
-                "fold": "0.4",
-                "reference": "McCallum21b"
-            },
-            {
-                "variant": "Epsilon",
-                "rx": "S2X259",
-                "mab_class": "",
-                "fold": "1.3",
-                "reference": "McCallum21b"
             },
             {
                 "variant": "Epsilon",
@@ -2567,30 +2525,51 @@
             },
             {
                 "variant": "Epsilon",
-                "rx": "Vir-7831",
+                "rx": "S2H97",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.4",
+                "reference": "McCallum21b"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Epsilon",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "FDA21"
             },
             {
                 "variant": "Epsilon",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.9",
                 "reference": "McCallum21b"
             },
             {
                 "variant": "Epsilon",
-                "rx": "S2D106",
-                "mab_class": "RBM",
-                "fold": "0.6",
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.4",
+                "reference": "Westendorf21"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.5",
+                "reference": "Westendorf21"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "S2X259",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "1.3",
                 "reference": "McCallum21b"
             },
             {
@@ -2693,6 +2672,13 @@
             },
             {
                 "variant": "Epsilon",
+                "rx": "S2D106",
+                "mab_class": "RBM Class II",
+                "fold": "0.6",
+                "reference": "McCallum21b"
+            },
+            {
+                "variant": "Epsilon",
                 "rx": "S2M11",
                 "mab_class": "RBM Class III",
                 "fold": "2",
@@ -2703,62 +2689,6 @@
     {
         "variant": "Gamma",
         "assays": [
-            {
-                "variant": "Gamma",
-                "rx": "1-57",
-                "mab_class": "",
-                "fold": "1.2",
-                "reference": "Wang21d"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "1-57",
-                "mab_class": "",
-                "fold": "2.2",
-                "reference": "Wang21d*"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "2-15",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21d"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "2-15",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21d*"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "2-7",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Wang21d"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "2-7",
-                "mab_class": "",
-                "fold": "0.4",
-                "reference": "Wang21d*"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "5-7",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21d"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "5-7",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21d*"
-            },
             {
                 "variant": "Gamma",
                 "rx": "ADG20",
@@ -2810,72 +2740,9 @@
             },
             {
                 "variant": "Gamma",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.4",
-                "reference": "Wang21d"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Dejnirattisai21*"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "0.5",
-                "reference": "Wang21d*"
-            },
-            {
-                "variant": "Gamma",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
                 "fold": "0.7",
-                "reference": "Dejnirattisai21*"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.4",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.6",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "P5A-1B9",
-                "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "3.7",
-                "reference": "Wang21d"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "1",
-                "reference": "Wang21d*"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "9.2",
                 "reference": "Dejnirattisai21*"
             },
             {
@@ -2950,6 +2817,20 @@
             },
             {
                 "variant": "Gamma",
+                "rx": "5-7",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "5-7",
+                "mab_class": "NTD",
+                "fold": "&gt;100",
+                "reference": "Wang21d*"
+            },
+            {
+                "variant": "Gamma",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.2",
@@ -3013,63 +2894,63 @@
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
                 "reference": "FDA21"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.3",
                 "reference": "Wang21d"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Wang21f"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "4",
                 "reference": "Chen21"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.6",
                 "reference": "Cathcart21*"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.9",
                 "reference": "Dejnirattisai21*"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.6",
                 "reference": "FDA21*"
             },
             {
                 "variant": "Gamma",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "reference": "Wang21d*"
@@ -3083,24 +2964,45 @@
             },
             {
                 "variant": "Gamma",
-                "rx": "P22A-1D1",
-                "mab_class": "RBM",
-                "fold": "74",
-                "reference": "Wang21f"
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.4",
+                "reference": "Westendorf21"
             },
             {
                 "variant": "Gamma",
-                "rx": "P5A-1D2",
-                "mab_class": "RBM",
-                "fold": "43",
-                "reference": "Wang21f"
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.6",
+                "reference": "Westendorf21"
             },
             {
                 "variant": "Gamma",
-                "rx": "P5A-3C8",
-                "mab_class": "RBM",
-                "fold": "47",
-                "reference": "Wang21f"
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Wang21d*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "reference": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.4",
+                "reference": "Wang21d*"
             },
             {
                 "variant": "Gamma",
@@ -3216,6 +3118,27 @@
             },
             {
                 "variant": "Gamma",
+                "rx": "P22A-1D1",
+                "mab_class": "RBM Class I",
+                "fold": "74",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "P5A-1D2",
+                "mab_class": "RBM Class I",
+                "fold": "43",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "P5A-3C8",
+                "mab_class": "RBM Class I",
+                "fold": "47",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Gamma",
                 "rx": "Regdanvimab",
                 "mab_class": "RBM Class I",
                 "fold": "61",
@@ -3227,6 +3150,41 @@
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Ryu21b*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "3.7",
+                "reference": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "Wang21d*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "9.2",
+                "reference": "Dejnirattisai21*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "1.2",
+                "reference": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "2.2",
+                "reference": "Wang21d*"
             },
             {
                 "variant": "Gamma",
@@ -3290,6 +3248,34 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21d*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.4",
+                "reference": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.5",
+                "reference": "Dejnirattisai21*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.5",
+                "reference": "Wang21d*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "P5A-1B9",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21f"
             }
         ]
     },
@@ -3319,13 +3305,6 @@
             },
             {
                 "variant": "Iota",
-                "rx": "LY3853113",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Westendorf21"
-            },
-            {
-                "variant": "Iota",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
@@ -3340,17 +3319,24 @@
             },
             {
                 "variant": "Iota",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Iota",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "reference": "FDA21"
+            },
+            {
+                "variant": "Iota",
+                "rx": "LY3853113",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.7",
+                "reference": "Westendorf21"
             },
             {
                 "variant": "Iota",
@@ -3429,23 +3415,9 @@
             },
             {
                 "variant": "Kappa",
-                "rx": "Cilgavimab",
-                "mab_class": "",
-                "fold": "4.7",
-                "reference": "Liu21f"
-            },
-            {
-                "variant": "Kappa",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
                 "fold": "2",
-                "reference": "Liu21f"
-            },
-            {
-                "variant": "Kappa",
-                "rx": "Tixagevimab",
-                "mab_class": "",
-                "fold": "0.7",
                 "reference": "Liu21f"
             },
             {
@@ -3471,14 +3443,14 @@
             },
             {
                 "variant": "Kappa",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Cathcart21"
             },
             {
                 "variant": "Kappa",
-                "rx": "Vir-7831",
+                "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "FDA21"
@@ -3541,6 +3513,13 @@
             },
             {
                 "variant": "Kappa",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "reference": "Liu21f"
+            },
+            {
+                "variant": "Kappa",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
@@ -3559,6 +3538,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "Kappa",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "4.7",
+                "reference": "Liu21f"
             }
         ]
     }
