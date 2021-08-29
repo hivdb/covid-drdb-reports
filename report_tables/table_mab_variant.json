@@ -27,15 +27,15 @@
                 "variant": "Alpha",
                 "rx": "BRII-198",
                 "mab_class": "",
-                "fold": "0.2",
-                "reference": "Wang21b"
+                "fold": "0.8",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
                 "rx": "BRII-198",
                 "mab_class": "",
-                "fold": "0.8",
-                "reference": "Wang21f"
+                "fold": "0.2",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -77,13 +77,6 @@
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Casirivimab/Imdevimab",
-                "mab_class": "",
-                "fold": "1",
                 "reference": "Hoffmann21"
             },
             {
@@ -106,6 +99,13 @@
                 "mab_class": "",
                 "fold": "1",
                 "reference": "Tada21c"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21"
             },
             {
                 "variant": "Alpha",
@@ -146,15 +146,15 @@
                 "variant": "Alpha",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
-                "fold": "0.5",
-                "reference": "Chen21*"
+                "fold": "0.8",
+                "reference": "Supasa21*"
             },
             {
                 "variant": "Alpha",
                 "rx": "Cilgavimab/Tixagevimab",
                 "mab_class": "",
-                "fold": "0.8",
-                "reference": "Supasa21*"
+                "fold": "0.5",
+                "reference": "Chen21*"
             },
             {
                 "variant": "Alpha",
@@ -322,21 +322,7 @@
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "1",
                 "reference": "Hoffmann21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.6",
-                "reference": "Rothenberger21"
             },
             {
                 "variant": "Alpha",
@@ -363,15 +349,8 @@
                 "variant": "Alpha",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.3",
-                "reference": "Tada21c"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "reference": "Wang21b"
+                "fold": "0.4",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
@@ -391,8 +370,15 @@
                 "variant": "Alpha",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.4",
-                "reference": "Wang21f"
+                "fold": "0.6",
+                "reference": "Rothenberger21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1.3",
+                "reference": "Tada21c"
             },
             {
                 "variant": "Alpha",
@@ -400,6 +386,20 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.5",
                 "reference": "Yao21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.5",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -434,6 +434,20 @@
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
+                "reference": "Shen21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.5",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "2.3",
                 "reference": "Cathcart21"
             },
             {
@@ -449,20 +463,6 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "reference": "FDA21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Sotrovimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "2.3",
-                "reference": "Shen21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Sotrovimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
@@ -524,15 +524,15 @@
                 "variant": "Alpha",
                 "rx": "COVA1-16",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.7",
-                "reference": "Caniels21"
+                "fold": "1.3",
+                "reference": "Rees-Spear21"
             },
             {
                 "variant": "Alpha",
                 "rx": "COVA1-16",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "1.3",
-                "reference": "Rees-Spear21"
+                "fold": "0.7",
+                "reference": "Caniels21"
             },
             {
                 "variant": "Alpha",
@@ -643,15 +643,15 @@
                 "variant": "Alpha",
                 "rx": "BRII-196",
                 "mab_class": "RBM Class I",
-                "fold": "0.5",
-                "reference": "Wang21b"
+                "fold": "0.7",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
                 "rx": "BRII-196",
                 "mab_class": "RBM Class I",
-                "fold": "0.7",
-                "reference": "Wang21f"
+                "fold": "0.5",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -692,22 +692,8 @@
                 "variant": "Alpha",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "1",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "2",
                 "reference": "Hoffmann21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
-                "fold": "0.6",
-                "reference": "Rothenberger21"
             },
             {
                 "variant": "Alpha",
@@ -734,8 +720,8 @@
                 "variant": "Alpha",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.4",
-                "reference": "Wang21b"
+                "fold": "0.6",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
@@ -749,7 +735,21 @@
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "0.6",
-                "reference": "Wang21f"
+                "reference": "Rothenberger21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.4",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -825,8 +825,8 @@
                 "variant": "Alpha",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "3.6",
-                "reference": "Wang21b"
+                "fold": "4.9",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Alpha",
@@ -839,8 +839,8 @@
                 "variant": "Alpha",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "4.9",
-                "reference": "Wang21f"
+                "fold": "3.6",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -965,15 +965,15 @@
                 "variant": "Alpha",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
-                "fold": "1.7",
-                "reference": "Chen21*"
+                "fold": "2.2",
+                "reference": "Supasa21*"
             },
             {
                 "variant": "Alpha",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
-                "fold": "2.2",
-                "reference": "Supasa21*"
+                "fold": "1.7",
+                "reference": "Chen21*"
             },
             {
                 "variant": "Alpha",
@@ -1021,22 +1021,8 @@
                 "variant": "Alpha",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
-                "fold": "1",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Bamlanivimab",
-                "mab_class": "RBM Class II",
                 "fold": "0.5",
                 "reference": "Hoffmann21"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "Bamlanivimab",
-                "mab_class": "RBM Class II",
-                "fold": "0.6",
-                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -1057,7 +1043,14 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "1",
-                "reference": "Makdasi21*"
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.6",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Alpha",
@@ -1070,15 +1063,22 @@
                 "variant": "Alpha",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
-                "fold": "1.5",
-                "reference": "Supasa21*"
+                "fold": "1.3",
+                "reference": "Vanhove21*"
             },
             {
                 "variant": "Alpha",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
-                "fold": "1.3",
-                "reference": "Vanhove21*"
+                "fold": "1",
+                "reference": "Makdasi21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "1.5",
+                "reference": "Supasa21*"
             },
             {
                 "variant": "Alpha",
@@ -1133,15 +1133,15 @@
                 "variant": "Alpha",
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
-                "fold": "0.5",
-                "reference": "Chen21*"
+                "fold": "0.9",
+                "reference": "Supasa21*"
             },
             {
                 "variant": "Alpha",
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
-                "fold": "0.9",
-                "reference": "Supasa21*"
+                "fold": "0.5",
+                "reference": "Chen21*"
             },
             {
                 "variant": "Alpha",
@@ -1229,15 +1229,15 @@
                 "variant": "Beta",
                 "rx": "BRII-198",
                 "mab_class": "",
-                "fold": "3.4",
-                "reference": "Wang21b"
+                "fold": "6",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
                 "rx": "BRII-198",
                 "mab_class": "",
-                "fold": "6",
-                "reference": "Wang21f"
+                "fold": "3.4",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
@@ -1250,15 +1250,15 @@
                 "variant": "Beta",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
-                "fold": "45",
-                "reference": "FDA21"
+                "fold": "&gt;100",
+                "reference": "Hoffmann21c"
             },
             {
                 "variant": "Beta",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
-                "fold": "&gt;100",
-                "reference": "Hoffmann21c"
+                "fold": "45",
+                "reference": "FDA21"
             },
             {
                 "variant": "Beta",
@@ -1286,13 +1286,6 @@
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Casirivimab/Imdevimab",
-                "mab_class": "",
-                "fold": "1",
                 "reference": "Hoffmann21"
             },
             {
@@ -1313,6 +1306,13 @@
                 "variant": "Beta",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
                 "fold": "1.3",
                 "reference": "Wang21b"
             },
@@ -1327,13 +1327,6 @@
                 "variant": "Beta",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "7.6",
-                "reference": "Tada21c"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Casirivimab/Imdevimab",
-                "mab_class": "",
                 "fold": "7.5",
                 "reference": "Tada21d"
             },
@@ -1343,6 +1336,13 @@
                 "mab_class": "",
                 "fold": "7.5",
                 "reference": "Tada21e"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "7.6",
+                "reference": "Tada21c"
             },
             {
                 "variant": "Beta",
@@ -1502,14 +1502,14 @@
                 "variant": "Beta",
                 "rx": "CV2-75",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "2.3",
+                "fold": "1.6",
                 "reference": "Stamatatos21"
             },
             {
                 "variant": "Beta",
                 "rx": "CV2-75",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.6",
+                "fold": "2.3",
                 "reference": "Stamatatos21"
             },
             {
@@ -1537,20 +1537,6 @@
                 "variant": "Beta",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.2",
-                "reference": "Rothenberger21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "reference": "Rothenberger21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "reference": "Tada21"
             },
@@ -1559,13 +1545,6 @@
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.5",
-                "reference": "Tada21c"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "2.6",
                 "reference": "Tada21c"
             },
             {
@@ -1586,15 +1565,8 @@
                 "variant": "Beta",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.6",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.2",
-                "reference": "Wang21e"
+                "fold": "0.5",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
@@ -1607,8 +1579,36 @@
                 "variant": "Beta",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.2",
+                "reference": "Wang21e"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.2",
+                "reference": "Rothenberger21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
-                "reference": "Wang21f"
+                "reference": "Rothenberger21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "2.6",
+                "reference": "Tada21c"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.6",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
@@ -1630,6 +1630,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "3.5",
                 "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.5",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
@@ -1663,8 +1670,8 @@
                 "variant": "Beta",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "reference": "Wang21f"
+                "fold": "2.1",
+                "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
@@ -1686,13 +1693,6 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.2",
                 "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Sotrovimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "2.1",
-                "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
@@ -1719,7 +1719,7 @@
                 "variant": "Beta",
                 "rx": "H014",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "1",
+                "fold": "1.9",
                 "reference": "Li21c"
             },
             {
@@ -1733,7 +1733,7 @@
                 "variant": "Beta",
                 "rx": "H014",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "1.9",
+                "fold": "1",
                 "reference": "Li21c"
             },
             {
@@ -1782,8 +1782,8 @@
                 "variant": "Beta",
                 "rx": "BRII-196",
                 "mab_class": "RBM Class I",
-                "fold": "1",
-                "reference": "Li21c"
+                "fold": "0.5",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
@@ -1796,15 +1796,15 @@
                 "variant": "Beta",
                 "rx": "BRII-196",
                 "mab_class": "RBM Class I",
-                "fold": "0.6",
-                "reference": "Wang21b"
+                "fold": "1",
+                "reference": "Li21c"
             },
             {
                 "variant": "Beta",
                 "rx": "BRII-196",
                 "mab_class": "RBM Class I",
-                "fold": "0.5",
-                "reference": "Wang21f"
+                "fold": "0.6",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
@@ -1824,14 +1824,14 @@
                 "variant": "Beta",
                 "rx": "CV30",
                 "mab_class": "RBM Class I",
-                "fold": "25",
+                "fold": "16",
                 "reference": "Stamatatos21"
             },
             {
                 "variant": "Beta",
                 "rx": "CV30",
                 "mab_class": "RBM Class I",
-                "fold": "16",
+                "fold": "25",
                 "reference": "Stamatatos21"
             },
             {
@@ -1887,13 +1887,6 @@
                 "variant": "Beta",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "39",
-                "reference": "Tada21c"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Tada21d"
             },
@@ -1908,8 +1901,8 @@
                 "variant": "Beta",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "59",
-                "reference": "Wang21b"
+                "fold": "13",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
@@ -1922,8 +1915,15 @@
                 "variant": "Beta",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "13",
-                "reference": "Wang21f"
+                "fold": "39",
+                "reference": "Tada21c"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "59",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
@@ -1937,14 +1937,14 @@
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
-                "reference": "Wang21b*"
+                "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
-                "reference": "Zhou21b*"
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -1957,8 +1957,8 @@
                 "variant": "Beta",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "&gt;100",
-                "reference": "Wang21b"
+                "fold": "49",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Beta",
@@ -1971,8 +1971,8 @@
                 "variant": "Beta",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "49",
-                "reference": "Wang21f"
+                "fold": "&gt;100",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
@@ -1993,14 +1993,14 @@
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
-                "reference": "Wang21b*"
+                "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
-                "reference": "Zhou21b*"
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -2062,15 +2062,15 @@
                 "variant": "Beta",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
-                "fold": "6.3",
-                "reference": "Wang21b*"
+                "fold": "9.2",
+                "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
-                "fold": "9.2",
-                "reference": "Zhou21b*"
+                "fold": "6.3",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -2112,13 +2112,6 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Bamlanivimab",
-                "mab_class": "RBM Class II",
-                "fold": "&gt;100",
                 "reference": "Hoffmann21"
             },
             {
@@ -2133,13 +2126,6 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Bamlanivimab",
-                "mab_class": "RBM Class II",
-                "fold": "&gt;100",
                 "reference": "Wang21e"
             },
             {
@@ -2147,7 +2133,14 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Makdasi21*"
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b"
             },
             {
                 "variant": "Beta",
@@ -2168,7 +2161,7 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Wang21b*"
+                "reference": "Makdasi21*"
             },
             {
                 "variant": "Beta",
@@ -2176,6 +2169,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Zhou21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Beta",
@@ -2216,21 +2216,21 @@
                 "variant": "Beta",
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
-                "fold": "0.3",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
-                "rx": "Cilgavimab",
-                "mab_class": "RBM Class II",
                 "fold": "1.1",
                 "reference": "Zhou21b*"
             },
             {
                 "variant": "Beta",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.3",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
                 "rx": "P2B-2F6",
                 "mab_class": "RBM Class II",
-                "fold": "53",
+                "fold": "23",
                 "reference": "Li21c"
             },
             {
@@ -2244,7 +2244,7 @@
                 "variant": "Beta",
                 "rx": "P2B-2F6",
                 "mab_class": "RBM Class II",
-                "fold": "23",
+                "fold": "53",
                 "reference": "Li21c"
             },
             {
@@ -2284,15 +2284,15 @@
                 "variant": "Delta",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "1",
-                "reference": "FDA21"
+                "fold": "2.2",
+                "reference": "Tada21e"
             },
             {
                 "variant": "Delta",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "2.2",
-                "reference": "Tada21e"
+                "fold": "1",
+                "reference": "FDA21"
             },
             {
                 "variant": "Delta",
@@ -2305,8 +2305,8 @@
                 "variant": "Delta",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "reference": "Arora21"
+                "fold": "1",
+                "reference": "Planas21b"
             },
             {
                 "variant": "Delta",
@@ -2319,8 +2319,8 @@
                 "variant": "Delta",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1",
-                "reference": "Planas21b"
+                "fold": "0.5",
+                "reference": "Arora21"
             },
             {
                 "variant": "Delta",
@@ -2340,15 +2340,36 @@
                 "variant": "Delta",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1",
-                "reference": "Cathcart21"
+                "fold": "2.8",
+                "reference": "Liu21f"
             },
             {
                 "variant": "Delta",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "2.8",
+                "fold": "1",
+                "reference": "Cathcart21"
+            },
+            {
+                "variant": "Delta",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "Planas21b"
+            },
+            {
+                "variant": "Delta",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.8",
                 "reference": "Liu21f"
+            },
+            {
+                "variant": "Delta",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.4",
+                "reference": "Wang21e"
             },
             {
                 "variant": "Delta",
@@ -2361,27 +2382,6 @@
                 "variant": "Delta",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.8",
-                "reference": "Liu21f"
-            },
-            {
-                "variant": "Delta",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
-                "fold": "1",
-                "reference": "Planas21b"
-            },
-            {
-                "variant": "Delta",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
-                "fold": "0.4",
-                "reference": "Wang21e"
-            },
-            {
-                "variant": "Delta",
-                "rx": "Casirivimab",
-                "mab_class": "RBM Class I",
                 "fold": "12",
                 "reference": "Tada21e"
             },
@@ -2389,8 +2389,8 @@
                 "variant": "Delta",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.6",
-                "reference": "Arora21"
+                "fold": "0.8",
+                "reference": "Planas21b"
             },
             {
                 "variant": "Delta",
@@ -2403,15 +2403,15 @@
                 "variant": "Delta",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.8",
-                "reference": "Planas21b"
+                "fold": "0.5",
+                "reference": "Wang21e"
             },
             {
                 "variant": "Delta",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "0.5",
-                "reference": "Wang21e"
+                "fold": "0.6",
+                "reference": "Arora21"
             },
             {
                 "variant": "Delta",
@@ -2439,7 +2439,7 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Arora21"
+                "reference": "Planas21b"
             },
             {
                 "variant": "Delta",
@@ -2453,14 +2453,14 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Planas21b"
+                "reference": "Wang21e"
             },
             {
                 "variant": "Delta",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Wang21e"
+                "reference": "Arora21"
             },
             {
                 "variant": "Delta",
@@ -2534,6 +2534,13 @@
                 "variant": "Epsilon",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.9",
+                "reference": "McCallum21b"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Cathcart21"
             },
@@ -2543,13 +2550,6 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "FDA21"
-            },
-            {
-                "variant": "Epsilon",
-                "rx": "Sotrovimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.9",
-                "reference": "McCallum21b"
             },
             {
                 "variant": "Epsilon",
@@ -2625,14 +2625,14 @@
                 "variant": "Epsilon",
                 "rx": "Regdanvimab",
                 "mab_class": "RBM Class I",
-                "fold": "74",
+                "fold": "54",
                 "reference": "Ryu21c"
             },
             {
                 "variant": "Epsilon",
                 "rx": "Regdanvimab",
                 "mab_class": "RBM Class I",
-                "fold": "54",
+                "fold": "74",
                 "reference": "Ryu21c"
             },
             {
@@ -2654,13 +2654,6 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Epsilon",
-                "rx": "Bamlanivimab",
-                "mab_class": "RBM Class II",
-                "fold": "&gt;100",
                 "reference": "McCallum21b"
             },
             {
@@ -2669,6 +2662,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "FDA21"
             },
             {
                 "variant": "Epsilon",
@@ -2722,14 +2722,14 @@
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
-                "reference": "FDA21"
+                "reference": "Hoffmann21"
             },
             {
                 "variant": "Gamma",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
-                "reference": "Hoffmann21"
+                "reference": "FDA21"
             },
             {
                 "variant": "Gamma",
@@ -2847,13 +2847,6 @@
                 "variant": "Gamma",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.2",
-                "reference": "Rothenberger21"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
                 "fold": "1.9",
                 "reference": "Tada21"
             },
@@ -2868,6 +2861,13 @@
                 "variant": "Gamma",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.3",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.1",
                 "reference": "Wang21e"
             },
@@ -2875,8 +2875,8 @@
                 "variant": "Gamma",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.3",
-                "reference": "Wang21f"
+                "fold": "0.2",
+                "reference": "Rothenberger21"
             },
             {
                 "variant": "Gamma",
@@ -2896,20 +2896,6 @@
                 "variant": "Gamma",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.4",
-                "reference": "Cathcart21"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Sotrovimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "0.4",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Sotrovimab",
-                "mab_class": "RBD Core Cluster I",
                 "fold": "1.3",
                 "reference": "Wang21d"
             },
@@ -2924,15 +2910,22 @@
                 "variant": "Gamma",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "4",
-                "reference": "Chen21"
+                "fold": "0.4",
+                "reference": "Cathcart21"
             },
             {
                 "variant": "Gamma",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.6",
-                "reference": "Cathcart21*"
+                "fold": "0.4",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "4",
+                "reference": "Chen21"
             },
             {
                 "variant": "Gamma",
@@ -2945,15 +2938,22 @@
                 "variant": "Gamma",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.6",
-                "reference": "FDA21*"
+                "fold": "0.5",
+                "reference": "Wang21d*"
             },
             {
                 "variant": "Gamma",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "reference": "Wang21d*"
+                "fold": "1.6",
+                "reference": "Cathcart21*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1.6",
+                "reference": "FDA21*"
             },
             {
                 "variant": "Gamma",
@@ -3016,14 +3016,14 @@
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "8.3",
-                "reference": "Rothenberger21"
+                "reference": "Wang21f"
             },
             {
                 "variant": "Gamma",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "8.3",
-                "reference": "Wang21f"
+                "reference": "Rothenberger21"
             },
             {
                 "variant": "Gamma",
@@ -3085,15 +3085,15 @@
                 "variant": "Gamma",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "&gt;100",
-                "reference": "Wang21e"
+                "fold": "49",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Gamma",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
-                "fold": "49",
-                "reference": "Wang21f"
+                "fold": "&gt;100",
+                "reference": "Wang21e"
             },
             {
                 "variant": "Gamma",
@@ -3198,13 +3198,6 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "FDA21"
-            },
-            {
-                "variant": "Gamma",
-                "rx": "Bamlanivimab",
-                "mab_class": "RBM Class II",
-                "fold": "&gt;100",
                 "reference": "Hoffmann21"
             },
             {
@@ -3220,6 +3213,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "FDA21"
             },
             {
                 "variant": "Gamma",
@@ -3293,14 +3293,21 @@
                 "variant": "Iota",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "1",
-                "reference": "FDA21"
+                "fold": "1.3",
+                "reference": "Zhou21c"
             },
             {
                 "variant": "Iota",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
-                "fold": "1.3",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1.1",
                 "reference": "Zhou21c"
             },
             {
@@ -3309,13 +3316,6 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
                 "reference": "Wang21e"
-            },
-            {
-                "variant": "Iota",
-                "rx": "Imdevimab",
-                "mab_class": "RBD Core Cluster I",
-                "fold": "1.1",
-                "reference": "Zhou21c"
             },
             {
                 "variant": "Iota",
@@ -3371,14 +3371,14 @@
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "FDA21"
+                "reference": "Wang21e"
             },
             {
                 "variant": "Iota",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
-                "reference": "Wang21e"
+                "reference": "FDA21"
             }
         ]
     },
@@ -3404,14 +3404,14 @@
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
-                "reference": "FDA21"
+                "reference": "Hoffmann21c"
             },
             {
                 "variant": "Kappa",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
-                "reference": "Hoffmann21c"
+                "reference": "FDA21"
             },
             {
                 "variant": "Kappa",

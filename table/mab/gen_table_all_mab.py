@@ -17,6 +17,8 @@ SELECT
     rx.target AS target,
     rx.class AS class,
     rx.epitope AS epitope,
+    rx.institute AS institute,
+    rx.origin AS origin,
     iso.var_name
 FROM
     susc_results AS s,
@@ -55,6 +57,8 @@ def gen_table_all_mab(conn):
         synonyms = rlist[0]['synonyms']
         epitope = rlist[0]['epitope']
         ab_class = rlist[0]['class']
+        institute = rlist[0]['institute']
+        origin = rlist[0]['origin']
 
         record_list.append({
             'mab': (
@@ -66,14 +70,15 @@ def gen_table_all_mab(conn):
             'target': target or '',
             'class': ab_class or '',
             'pdb': pdb or '',
-            'epitope': epitope or '',
+            'institute': institute or '',
+            'origin': origin or '',
+            # 'epitope': epitope or '',
         })
 
     record_list.sort(key=itemgetter(
         'avail',
-        'target',
         'results',
-        'pdb',
+        'mab',
         ), reverse=True)
 
     save_path = DATA_FILE_PATH / 'summary_mab.csv'

@@ -1,8 +1,8 @@
-from variant.preset import ONE_MUT_VARIANT
 from variant.preset import CONTROL_VARIANTS_SQL
-from .preset import DMS_POSITIONS
+from variant.preset import SINGLE_S_MUTATION_ISOLATES
 from preset import DATA_FILE_PATH
-from mab.preset import MAB_RENAME
+from mab.preset import RX_MAB
+from mab.preset import RX_MAB_DMS
 from preset import dump_csv
 import re
 from collections import defaultdict
@@ -12,25 +12,32 @@ from operator import itemgetter
 MUT_POS_AA = re.compile(r'(\d+)(\w)')
 
 
-SQL = """
+FOLD_SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
+    rx.ab_name,
     s.fold,
     s.fold_cmp,
-    s.iso_name
+    s.iso_name,
+    iso.position,
+    iso.amino_acid
 FROM
     susc_results as s,
-    rx_antibodies as rx
-ON
-    s.ref_name = rx.ref_name
-    AND s.rx_name = rx.rx_name
+    ({rx_antibodies}) as rx,
+    ({isolate_mutations}) as iso
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
+    s.ref_name = rx.ref_name
+    AND
+    s.rx_name = rx.rx_name
+    AND
+    s.iso_name = iso.iso_name
+    AND
+    s.potency_type LIKE "IC%"
     AND
     s.control_iso_name IN {control_variants}
     AND
-    rx.ab_name IN (SELECT ab_name FROM rx_dms)
+    rx.ab_name IN (SELECT ab_name FROM ({rx_mab_dms}))
     AND
     s.fold IS NOT NULL
 GROUP BY
@@ -40,21 +47,26 @@ GROUP BY
     s.iso_name,
     s.assay_name
 ;
-""".format(control_variants=CONTROL_VARIANTS_SQL)
+""".format(
+    control_variants=CONTROL_VARIANTS_SQL,
+    rx_antibodies=RX_MAB,
+    rx_mab_dms=RX_MAB_DMS,
+    isolate_mutations=SINGLE_S_MUTATION_ISOLATES
+    )
 
 
 DMS_SQL = """
 SELECT
-    d.rx_name,
-    position,
-    amino_acid,
-    escape_score
+    rx.ab_name,
+    dms.position,
+    dms.amino_acid,
+    dms.escape_score
 FROM
-    dms_escape_results as d,
-    rx_dms as rx
+    dms_escape_results as dms,
+    ({rx_mab_dms}) as rx
 ON
-    d.ref_name = rx.ref_name AND
-    d.rx_name = rx.rx_name
+    dms.ref_name = rx.ref_name AND
+    dms.rx_name = rx.rx_name
 WHERE
     position in ({positions})
 """
@@ -64,23 +76,18 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
 
     cursor = conn.cursor()
 
-    cursor.execute(SQL)
+    cursor.execute(FOLD_SQL)
 
     indiv_mut_records = defaultdict(list)
     positions = set()
 
     for rec in cursor.fetchall():
-        iso_name = rec['iso_name']
-        if iso_name not in ONE_MUT_VARIANT.keys():
-            continue
-
         ref_name = rec['ref_name']
         fold = rec['fold']
         fold_cmp = rec['fold_cmp']
-        mab = rec['rx_name']
-        mab = MAB_RENAME.get(mab, mab)
-
-        pos, aa = re.search(MUT_POS_AA, iso_name).groups()
+        mab = rec['ab_name']
+        pos = int(rec['position'])
+        aa = rec['amino_acid']
 
         indiv_mut_records[mab].append({
             'ref_name': ref_name,
@@ -92,25 +99,32 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
         })
         positions.add(pos)
 
-    dms_sql = DMS_SQL.format(positions=','.join(list(positions)))
+    dms_sql = DMS_SQL.format(
+        positions=','.join(list(
+            [str(p) for p in positions])),
+        rx_mab_dms=RX_MAB_DMS
+    )
 
     cursor.execute(dms_sql)
 
     # ignored_rx = set()
     indiv_mut_escape = defaultdict(dict)
     for rec in cursor.fetchall():
-        rx_name = rec['rx_name']
-        rx_name = MAB_RENAME.get(rx_name, rx_name)
-        if rx_name not in indiv_mut_records.keys():
+        mab = rec['ab_name']
+        if mab not in indiv_mut_records.keys():
             continue
+
         position = int(rec['position'])
         amino_acid = rec['amino_acid']
         escape_score = rec['escape_score']
 
-        indiv_mut_escape[rx_name][position] = indiv_mut_escape[
-            rx_name].get(position, {})
+        if mab not in indiv_mut_escape:
+            indiv_mut_escape[mab] = defaultdict(dict)
 
-        indiv_mut_escape[rx_name][position][amino_acid] = escape_score
+        if position not in indiv_mut_escape[mab]:
+            indiv_mut_escape[mab][position] = {}
+
+        indiv_mut_escape[mab][position][amino_acid] = escape_score
 
     results = []
     for mab, rx_list in indiv_mut_records.items():

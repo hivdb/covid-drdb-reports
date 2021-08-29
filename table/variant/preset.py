@@ -64,6 +64,63 @@ WHERE
 ;
 """
 
+S_ONLY_ISOLATES = """
+SELECT
+    *
+FROM
+    isolate_mutations
+WHERE
+    iso_name NOT IN
+    (
+        SELECT
+            DISTINCT iso_name
+        FROM
+            isolate_mutations
+        WHERE
+            gene != 'S'
+    )
+"""
+
+SINGLE_S_MUTATION_ISOLATES = """
+SELECT
+    iso_name,
+    position,
+    amino_acid
+FROM
+    ({s_only_isolates})
+WHERE
+    iso_name IN (
+        SELECT
+            iso_name
+        FROM
+            (
+                SELECT
+                    iso_name,
+                    count(1) mut_count
+                FROM
+                    ({s_only_isolates})
+                WHERE
+                    gene = 'S'
+                    AND
+                    (position, amino_acid) != (614, 'G')
+                    AND
+                    (position, amino_acid) != (683, 'G')
+                GROUP BY
+                    iso_name
+            )
+        WHERE
+            mut_count = 1
+    )
+    AND
+    gene = 'S'
+    AND
+    (position, amino_acid) != (614, 'G')
+    AND
+    (position, amino_acid) != (683, 'G')
+""".format(
+    s_only_isolates=S_ONLY_ISOLATES)
+
+
 NO_S_MUTATION = """
 SELECT
     iso_name,

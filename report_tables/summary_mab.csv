@@ -1,283 +1,283 @@
-﻿mab,synonyms,results,avail,target,class,pdb,epitope
-Casirivimab,REGN10933,321,Phase 3,RBD,RBM Class I,6XDG,403+417+421+453+455+456+475+476+484+485+486+487+488+489+493
-Imdevimab,REGN10987,320,Phase 3,RBD,RBD Core Cluster I,6XDG,346+439+440+441+444+445+446+447+448+449+450+498+500
-Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,270,Phase 3,RBD,RBM Class I,7C01,346+403+405+406+408+409+415+416+417+420+421+444+445+446+447+449+450+452+455+456+457+458+459+460+473+474+475+476+477+484+486+487+489+493+494+495+500+501+502+504+505
-Sotrovimab,GSK4182136;S309;Vir-7831,199,Phase 3,RBD,RBD Core Cluster I,6WPS,333+334+335+337+339+340+343+344+345+346+354+356+357+359+360+361+441+509
-BRII-196,P2C-1F11,146,Phase 3,RBD,RBM Class I,7CDI,403+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+502+505
-Bamlanivimab,LY-CoV555;LY3819253,128,Phase 3,RBD,RBM Class II,7KMG,351+449+450+452+455+456+470+472+481+482+483+484+485+486+487+488+489+490+492+493+494
-BRII-198,P2B-1G5,47,Phase 3,RBD,,,
-Cilgavimab,COV2-2130;AZD1061,44,Phase 3,RBD,RBM Class II,7L7E,
-Tixagevimab,COV2-2196;AZD8895,44,Phase 3,RBD,RBM Class I,7L7D,
-Regdanvimab,CT-P59,19,Phase 3,RBD,RBM Class I,7CM4,351+403+417+446+449+450+452+453+455+456+470+483+484+485+486+489+490+492+493+494+495+496+498+505
-Casirivimab/Imdevimab,,118,Phase 3,,,,
-Bamlanivimab/Etesevimab,,29,Phase 3,,,,
-Cilgavimab/Tixagevimab,,26,Phase 3,,,,
-Imdevimab/REGN10989,,12,Phase 3,,,,
-BRII-196/BRII-198,,4,Phase 3,,,,
-Vir-7832,,12,Phase 2,RBD,,,
-C144,,138,Phase 1,RBD,RBM Class III,7K90,342+343+367+370+371+372+373+374+436+449+455+456+483+484+485+486+487+489+490+491+492+493+494+495+498+509
-C135,,105,Phase 1,RBD,RBD Core Cluster I,7K8Z,345+346+437+438+439+440+441+450+499
-ADG20,,7,Phase 1,RBD,,,
-C135/C144,,5,Phase 1,,,,
-D14,,2,,S1,S1,,
-I21,,2,,S1,S1,,
-F10,,2,,S,,,
-F20,,2,,S,,,
-H20,,2,,S,,,
-I15,,2,,S,S,,
-H00S022,,116,,RBD,,,
-P2B-2F6,,111,,RBD,RBM Class II,7BWJ,346+444+446+447+448+449+450+452+483+484+485+490+492+493+494
-C121,,102,,RBD,RBM Class II,7K8X,444+447+449+452+484+485+486+489+490+492+493+494+496
-H014,,99,,RBD,RBD Core Cluster II,7CAH,369+372+373+374+375+376+377+378+379+380+381+382+384+385+405+407+408+411+412+413+414+503+504
-'157,,99,,RBD,,,
-'247,,99,,RBD,,,
-'261-262,,99,,RBD,,,
-X593,,99,,RBD,,,
-H4,,94,,RBD,RBM Class I,7L58,494+496
-B38,,94,,RBD,RBM Class I,7BZ5,403+405+406+409+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+484+486+487+488+489+490+491+492+493+494+495+496+498+500+501+502+503+505
-AB35,,82,,RBD,,,
-CA1,,82,,RBD,,,
-A23-58.1,,76,,RBD,,,
-B1-182.1,,76,,RBD,,,
-A19-46.1,,74,,RBD,,,
-A19-61.1,,74,,RBD,,,
-LY3853113,LY-CoV1404,73,,RBD,RBD Core Cluster II,7MMO,346+439+440+441+443+444+445+446+447+448+449+450+498+499+500+501+502+506+509
-C099,,62,,RBD,RBM Class I,7R8L,403+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+490+492+493+495+498+500+501+502+503+504+505
-C548,,58,,RBD,RBM Class I,7R8O,445+446+447+449+450+452+453+455+456+482+483+484+485+486+489+490+492+493+494+495+496+498
-C098,,58,,RBD,RBM Class I,7N3I,403+409+415+416+417+420+421+449+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+490+493+494+495+496+497+498+500+501+502+503+504+505
-C051,,53,,RBD,RBM Class I,7R8N,417+444+449+450+452+455+456+483+484+485+486+487+488+489+490+491+492+493+494+495+498
-C032,,53,,RBD,RBD Core Cluster I,7R8M,339+340+343+344+345+346+437+440+441+442+443+444+445+448+451+499+500+509
-'1B07,,39,,RBD,,,
-S2E12,,38,,RBD,RBM Class I,7K4N,475+476+478+484+485+486
-COVA1-16,,36,,RBD,RBD Core Cluster II,7JMW,369+370+371+377+378+379+380+381+382+383+384+385+408+412+413+414+415+416+427+428+429
-'10D12,,34,,RBD,,,
-'10F9,,34,,RBD,,,
-'1F9,,34,,RBD,,,
-'2H10,,34,,RBD,,,
-'4E5,,34,,RBD,,,
-'7B8,,34,,RBD,,,
-'9G11,,34,,RBD,,,
-REGN10989,,32,,RBD,,,
-BD-368-2,,31,,RBD,RBM Class II,7CHC,444+446+447+449+450+452+470+480+481+482+483+484+485+490
-SARS2-38,,29,,RBD,RBD Core Cluster I,7MKL,439+440+441+442+443+444+445+449+450+499+500
-S2M11,,29,,RBD,RBM Class III,7K43,342+343+367+368+371+372+373+374+436+440+441+446+449+452+455+456+484+485+486+489+490+492+493+494+496
-'2B04,,29,,RBD,,,
-'2H04,,29,,RBD,,,
-SARS2-01,,29,,RBD,,,
-SARS2-02,,29,,RBD,,,
-SARS2-07,,29,,RBD,,,
-SARS2-16,,29,,RBD,,,
-SARS2-19,,29,,RBD,,,
-SARS2-32,,29,,RBD,,,
-REGN10934,,28,,RBD,,,
-P5A-1B9,,27,,RBD,RBM Class II,7CZX,444+446+448+449+450+452+456+483+484+485+486+487+489+490+492+493+494
-P22A-1D1,,27,,RBD,RBM Class I,7CHS,405+406+409+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+490+492+493+495+496+498+500+501+502+503+504+505
-P5A-3C8,,27,,RBD,RBM Class I,7CHP,405+406+408+409+415+416+417+420+421+449+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+494+495+496+498+500+501+502+505
-P5A-1D2,,27,,RBD,RBM Class I,7CHO,405+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+502+505
-COVA1-18,,26,,RBD,,,
-'2-7,MAb-2-7;MAb2-7,22,,RBD,RBM Class I,7LSS,345+439+440+441+443+444+445+446+447+449+450+498+499+500+501+506
-'1-57,MAb-1-57;MAb1-57,22,,RBD,RBM Class II,7LS9,346+351+444+445+446+447+448+449+450+452+470+484+490+492+493+494+498
-'2-15,MAb-2-15;MAb2-15,22,,RBD,RBM Class I,7L5B,446+449+452+478+483+484+485+486+487+489+490+492+493+494+496+498
-'2-36,MAb-2-36;MAb2-36,22,,RBD,,,
-'2-43,,20,,RBD,RBD Core Cluster I,7L56,449+455+456+483+484+485+486+489+490+492+493+494
-'910-30,,20,,RBD,RBM Class II,7KS9,403+405+415+416+417+420+421+453+455+456+457+458+460+473+474+475+476+477+486+487+489+493+494+495+496+498+500+501+502+503+504+505
-'2-4,,20,,RBD,RBM Class III,6XEY,449+453+455+456+484+485+486+489+490+492+493+494+496
-'1-20,MAb-1-20;MAb1-20,20,,RBD,,,
-'2-30,,20,,RBD,,,
-'2-38,,20,,RBD,,,
-'4-20,MAb-4-20;MAb4-20,20,,RBD,,,
-REGN10985,,20,,RBD,,,
-COVA2-15,,17,,RBD,,,
-'11D12,,17,,RBD,,,
-'2F7,,17,,RBD,,,
-LKLH,,17,,RBD,,,
-'24-12K,,17,,RBD,,,
-'24-1L,,17,,RBD,,,
-'25-C9,,17,,RBD,,,
-'25-G7,,17,,RBD,,,
-'26-34L,,17,,RBD,,,
-'26-40K,,17,,RBD,,,
-'28-15L,,17,,RBD,,,
-'28-26K,,17,,RBD,,,
-'28-8L,,17,,RBD,,,
-'76A,,17,,RBD,,,
-A247,,17,,RBD,,,
-A261-262,,17,,RBD,,,
-COVA2-17,,14,,RBD,,,
-COVA2-07,,13,,RBD,,,
-S2X259,,12,,RBD,RBD Core Cluster II,7M7W,370+371+372+374+375+376+377+378+379+380+381+382+383+384+385+404+405+408+502+503+504+506+508
-DH1043,,12,,RBD,RBM Class I,7LJR,351+446+449+450+452+456+470+472+478+479+480+481+482+483+484+485+486+487+488+489+490+491+492+493+494
-DH1047,,12,,RBD,RBD Core Cluster II,7LD1,369+370+374+375+376+377+378+379+383+384+405+407+408+409+415+435+499+501+502+503+504
-DH1041,,12,,RBD,RBM Class I,7LAA,446+447+449+450+452+470+471+472+480+481+482+483+484+485+486+490+492+493+494
-S2H58,,12,,RBD,,,
-COV2-2050,,11,,RBD,,,
-COVA1-12,,11,,RBD,,,
-COVA1-21,,11,,RBD,,,
-C601,,11,,RBD,,,
-C602,,11,,RBD,,,
-C603,,11,,RBD,,,
-C613,,11,,RBD,,,
-C614,,11,,RBD,,,
-C627,,11,,RBD,,,
-C628,,11,,RBD,,,
-C643,,11,,RBD,,,
-C653,,11,,RBD,,,
-C660,,11,,RBD,,,
-C663,,11,,RBD,,,
-C666,,11,,RBD,,,
-C669,,11,,RBD,,,
-C670,,11,,RBD,,,
-C671,,11,,RBD,,,
-C675,,11,,RBD,,,
-C682,,11,,RBD,,,
-COV2-2072,,10,,RBD,,,
-COV2-3025,,10,,RBD,,,
-SARS2-10,,10,,RBD,,,
-SARS2-3,,10,,RBD,,,
-SARS2-31,,10,,RBD,,,
-SARS2-44,,10,,RBD,,,
-COVOX-40,,9,,RBD,RBM Class II,7ND6,403+405+406+408+409+415+416+417+420+421+449+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+494+495+496+498+500+501+502+503+505
-COVA2-04,,9,,RBD,RBM Class I,7JMO,403+405+406+415+416+417+420+421+449+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+494+495+496+498+500+501+502+505
-COVOX-384,,9,,RBD,RBM Class I,7BEP,452+455+456+472+481+482+483+484+485+486+489+490+492
-COV2-2381,,9,,RBD,,,
-COVA2-02,,8,,RBD,,,
-COVA2-29,,8,,RBD,,,
-ADG10,,7,,RBD,,,
-ADG30,,7,,RBD,,,
-COV2-2165,,6,,RBD,,,
-COV2-2832,,6,,RBD,,,
-COVA2-39,,5,,RBD,RBM Class I,7JMP,417+446+449+455+456+475+478+483+484+485+486+487+489+490+492+493+494+495+496
-COV2-2082,,5,,RBD,,,
-BD-629,,4,,RBD,RBM Class I,7CH5,403+405+415+416+417+420+421+453+455+456+457+458+460+473+474+475+476+477+478+486+487+489+493+501+505
-Fab 150,,4,,RBD,,,
-'150HC + 222LC,,4,,RBD,,,
-Fab 158,,4,,RBD,,,
-'158HC + 222LC,,4,,RBD,,,
-Fab 175,,4,,RBD,,,
-'175HC + 222LC,,4,,RBD,,,
-Fab 222,,4,,RBD,,,
-'222HC + 222LC,,4,,RBD,,,
-'269HC + 222LC,,4,,RBD,,,
-COV2-2479,,4,,RBD,,,
-S2D106,,3,,RBD,RBM Class II,7R7N,351+449+452+455+456+470+482+483+484+485+486+487+489+490+492+493+494
-S2H97,,3,,RBD,RBD Core Cluster I,7M7W,353+355+357+393+396+426+427+428+429+462+463+464+514+516+517+518+519+520+521
-S2H14,,3,,RBD,RBM Class I,7JX3,403+445+446+449+453+455+456+487+489+493+494+495+496+498+499+500+501+502+505
-S2D19,,3,,RBD,,,
-S2D32,,3,,RBD,,,
-S2D8,,3,,RBD,,,
-S2D97,,3,,RBD,,,
-S2H19,,3,,RBD,,,
-S2H7,,3,,RBD,,,
-S2H70,,3,,RBD,,,
-S2H71,,3,,RBD,,,
-S2H94,,3,,RBD,,,
-S2N12,,3,,RBD,,,
-S2N22,,3,,RBD,,,
-S2N28,,3,,RBD,,,
-S2X128,,3,,RBD,,,
-S2X192,,3,,RBD,,,
-S2X30,,3,,RBD,,,
-S2X305,,3,,RBD,,,
-S2X58,,3,,RBD,,,
-S2X608,,3,,RBD,,,
-S2X609,,3,,RBD,,,
-S2X615,,3,,RBD,,,
-S2X619,,3,,RBD,,,
-CV2-75,,2,,RBD,RBD Core Cluster I,7M3I,374+375+376+377+378+379+380+381+382+383+384+385+386+405+408+437+503+504+508
-CV05-163,,2,,RBD,RBM Class I,7LOP,351+444+446+447+449+452+455+456+470+483+484+485+486+488+489+490+491+492+493+494+495+496+498
-CV38-142,,2,,RBD,RBD Core Cluster II,7LM8,368+369+370+371+374+377+378+379+380+381+382+383+384+385+405+408+412+413+414+415+416+426+427+428+429+430+460
-CV07-250,,2,,RBD,RBM Class I,6XKQ,403+446+449+453+455+456+475+476+477+478+484+485+486+487+489+493+494+495+496+498+501+505
-CV07-270,,2,,RBD,RBM Class II,6XKP,346+347+348+349+351+444+445+446+447+448+449+450+451+452+470+484+490+492+493+494+498
-CV30,,2,,RBD,RBM Class I,6XE1,403+405+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+500+501+502+505
-CC12.3,,2,,RBD,RBM Class I,6XC4,403+405+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+486+487+489+493+495+500+501+502+505
-CC12.1,,2,,RBD,RBM Class I,6XC2,403+405+408+415+416+417+420+421+453+455+456+457+458+459+460+473+474+475+476+477+484+486+487+489+493+494+495+496+498+500+501+502+503+505
-B07,,2,,RBD,,,
-C14,,2,,RBD,,,
-F05,,2,,RBD,,,
-G12,,2,,RBD,,,
-I14,,2,,RBD,,,
-J08,,2,,RBD,,,
-S2D65,,2,,RBD,,,
-S2E11,,2,,RBD,RBD Core,,
-S2E13,,2,,RBD,,,
-S2E16,,2,,RBD,,,
-S2E23,,2,,RBD,,,
-S2H90,,2,,RBD,,,
-S2K15,,2,,RBD,,,
-S2K21,,2,,RBD,,,
-S2K30,,2,,RBD,,,
-S2K63v2,,2,,RBD,,,
-S2L17,,2,,RBD,,,
-S2L49,,2,,RBD,,,
-S2X16,,2,,RBD,,,
-S2X227,,2,,RBD,,,
-S2X246,,2,,RBD,,,
-S2X324,,2,,RBD,,,
-S2X35,,2,,RBD,RBD Core Cluster II,,
-S2X450,,2,,RBD,,,
-S2X475,,2,,RBD,,,
-S2X607,,2,,RBD,,,
-S2X613,,2,,RBD,,,
-S2X620,,2,,RBD,,,
-mAb102,,2,,RBD,,,
-mAb48,,2,,RBD,,,
-CV3-1,,2,,RBD,,,
-CC6.29,,2,,RBD,,,
-S2L37,,1,,RBD,,,
-'4A8,,45,,NTD,NTD,7C2L,143+144+145+146+147+150+152+245+246+247+248+249+257
-'5-7,,27,,NTD,NTD,7N01,102+104+119+121+124+126+128+170+172+173+174+175+176+177+178+179+180+182+188+190+192+205+207+224+225+226+227+99
-'2-17,MAb-2-17;MAb2-17,27,,NTD,NTD,7LQW,14+143+15+17+18+76+77
-'4-8,MAb-4-8;MAb4-8,27,,NTD,NTD,7LQV,14+142+143+144+146+147+148+15+150+156+158+16+17+18+19+244+245+246+247+248+249+250+251+252+256
-'5-24,MAb-5-24;MAb5-24,27,,NTD,NTD,7L2F,14+144+145+146+147+15+152+154+155+156+158+161+246+248+249+250+251+253+254
-'4-19,,27,,NTD,NTD,,
-COV2-2489,,10,,NTD,NTD,,
-COV2-2676,,10,,NTD,NTD,,
-'4-18,MAb-4-18;MAb4-18,7,,NTD,NTD,7L2E,14+142+143+144+146+147+148+15+150+156+158+16+17+18+19+244+245+246+247+248+249+250+251+252+256
-S2M28,,3,,NTD,NTD,7LY0,140+142+144+145+146+147+148+155+156+158+16+17+18+20+246+247+248+249+250+251+252+253+254+255
-S2X333,,3,,NTD,NTD,7LXW,140+142+144+145+146+147+148+155+156+158+16+17+18+20+246+247+248+249+250+251+252+253+254+255
-S2L26,,3,,NTD,NTD,,
-S2L50,,3,,NTD,NTD,,
-S2X107,,3,,NTD,NTD,,
-S2X124,,3,,NTD,NTD,,
-S2X158,,3,,NTD,NTD,,
-S2X28,,3,,NTD,NTD,,
-S2X303,,3,,NTD,,,
-J13,,2,,NTD,NTD,,
-CV1,,2,,NTD,NTD,,
-C549,,60,,,,,
-C055,,57,,,,,
-C164,,54,,,,,
-C512,,54,,,,,
-C052,,53,,,,,
-C132,,53,,,,,
-C080,,52,,,,,
-C143,,52,,,,,
-REGN10954,,16,,,,,
-REGN10964,,16,,,,,
-REGN10984,,16,,,,,
-REGN10986,,16,,,,,
-REGN10934/REGN10989,,12,,,,,
-S2E12/Sotrovimab,,12,,,,,
-DH1042,,12,,,,,
-CQ012,,6,,,,,
-CQ016,,6,,,,,
-CQ024,,6,,,,,
-CQ026,,6,,,,,
-CQ028,,6,,,,,
-CQ038,,6,,,,,
-CQ045,,6,,,,,
-CQ046,,6,,,,,
-BD-368-2/BD-629,,4,,,,,
-NTD-18,,4,,,,,
-RBD-109,,4,,,,,
-RBD-48,,4,,,,,
-RBD-85,,4,,,,,
-RBD-98,,4,,,,,
-S2E12/S2M11,,3,,,,,
-S2M11/Sotrovimab,,3,,,,,
-BL6,,2,,,,,
-BLN12,,2,,,,,
-BLN14,,2,,,,,
-MD29,,2,,,,,
-MD62,,2,,,,,
-MD65,,2,,,,,
+﻿mab,synonyms,results,avail,target,class,pdb,institute,origin
+Casirivimab,REGN10933,321,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
+Imdevimab,REGN10987,320,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
+Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,270,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
+Sotrovimab,GSK4182136;S309;Vir-7831,199,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
+BRII-196,P2C-1F11,146,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
+Bamlanivimab,LY-CoV555;LY3819253,128,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
+Casirivimab/Imdevimab,,118,Phase 3,,,,Regeneron,Transgenic mice
+BRII-198,P2B-1G5,47,Phase 3,RBD,,,Brii Biosciences,
+Tixagevimab,COV2-2196;AZD8895,44,Phase 3,RBD,RBM Class I,7L7D,AstraZeneca,CP
+Cilgavimab,COV2-2130;AZD1061,44,Phase 3,RBD,RBM Class II,7L7E,AstraZeneca,CP
+Bamlanivimab/Etesevimab,,29,Phase 3,,,,Eli Lilly,CP
+Cilgavimab/Tixagevimab,,26,Phase 3,,,,AstraZeneca,CP
+Regdanvimab,CT-P59,19,Phase 3,RBD,RBM Class I,7CM4,Celltrion,Phage display library
+BRII-196/BRII-198,,4,Phase 3,,,,Brii Biosciences,
+Vir-7832,,12,Phase 2,RBD,,,Vir Biotechnol,SARS-CoV CP
+C144,,138,Phase 1,RBD,RBM Class III,7K90,Rockefeller University,CP
+C135,,105,Phase 1,RBD,RBD Core Cluster I,7K8Z,Rockefeller University,CP
+ADG20,,7,Phase 1,RBD,,,Adagio Therapeutics,CP
+C135/C144,,5,Phase 1,,,,Rockefeller University,CP
+H00S022,,116,,RBD,,,,
+P2B-2F6,,111,,RBD,RBM Class II,7BWJ,Westlake Institute for Advanced Study,CP
+C121,,102,,RBD,RBM Class II,7K8X,Rockefeller University,CP
+X593,,99,,RBD,,,Peking Union Medical College,CP
+H014,,99,,RBD,RBD Core Cluster II,7CAH,Chinese Academy of Sciences,CP
+'261-262,,99,,RBD,,,Peking Union Medical College,CP
+'247,,99,,RBD,,,Peking Union Medical College,CP
+'157,,99,,RBD,,,Peking Union Medical College,CP
+H4,,94,,RBD,RBM Class I,7L58,Capital Medical University,CP
+B38,,94,,RBD,RBM Class I,7BZ5,Shenzhen Third People’s Hospital,CP
+CA1,,82,,RBD,,,Eli Lilly,CP
+AB35,,82,,RBD,,,,
+B1-182.1,,76,,RBD,,,NIH,CP
+A23-58.1,,76,,RBD,,,NIH,CP
+A19-61.1,,74,,RBD,,,NIH,CP
+A19-46.1,,74,,RBD,,,NIH,CP
+LY3853113,LY-CoV1404,73,,RBD,RBD Core Cluster II,7MMO,Eli Lilly,CP
+C099,,62,,RBD,RBM Class I,7R8L,Rockefeller University,CP
+C549,,60,,,,,Rockefeller University,CP
+C548,,58,,RBD,RBM Class I,7R8O,Rockefeller University,CP
+C098,,58,,RBD,RBM Class I,7N3I,Rockefeller University,CP
+C055,,57,,,,,Rockefeller University,CP
+C512,,54,,,,,Rockefeller University,CP
+C164,,54,,,,,Rockefeller University,CP
+C132,,53,,,,,Rockefeller University,CP
+C052,,53,,,,,Rockefeller University,CP
+C051,,53,,RBD,RBM Class I,7R8N,Rockefeller University,CP
+C032,,53,,RBD,RBD Core Cluster I,7R8M,Rockefeller University,CP
+C143,,52,,,,,Rockefeller University,CP
+C080,,52,,,,,Rockefeller University,CP
+'4A8,,45,,NTD,NTD,7C2L,Beijing Institute of Biotechnology,CP
+'1B07,,39,,RBD,,,Washington University School of Medicine,Immunized mice
+S2E12,,38,,RBD,RBM Class I,7K4N,University of Washington,CP
+COVA1-16,,36,,RBD,RBD Core Cluster II,7JMW,University of Amsterdam,CP
+'9G11,,34,,RBD,,,,
+'7B8,,34,,RBD,,,,
+'4E5,,34,,RBD,,,,
+'2H10,,34,,RBD,,,,
+'1F9,,34,,RBD,,,,
+'10F9,,34,,RBD,,,,
+'10D12,,34,,RBD,,,,
+REGN10989,,32,,RBD,,,Regeneron,Transgenic mice
+BD-368-2,,31,,RBD,RBM Class II,7CHC,Peking University,CP
+SARS2-38,,29,,RBD,RBD Core Cluster I,7MKL,Washington University,Immunized mice
+SARS2-32,,29,,RBD,,,Washington University,Immunized mice
+SARS2-19,,29,,RBD,,,Washington University,Immunized mice
+SARS2-16,,29,,RBD,,,Washington University,Immunized mice
+SARS2-07,,29,,RBD,,,Washington University,Immunized mice
+SARS2-02,,29,,RBD,,,Washington University,Immunized mice
+SARS2-01,,29,,RBD,,,Washington University,Immunized mice
+S2M11,,29,,RBD,RBM Class III,7K43,University of Washington,CP
+'2H04,,29,,RBD,,,Washington University School of Medicine,Immunized mice
+'2B04,,29,,RBD,,,Washington University School of Medicine,Immunized mice
+REGN10934,,28,,RBD,,,Regeneron,Transgenic mice
+P5A-3C8,,27,,RBD,RBM Class I,7CHP,Westlake Institute for Advanced Study,CP
+P5A-1D2,,27,,RBD,RBM Class I,7CHO,Westlake Institute for Advanced Study,CP
+P5A-1B9,,27,,RBD,RBM Class II,7CZX,Westlake Institute for Advanced Study,CP
+P22A-1D1,,27,,RBD,RBM Class I,7CHS,,
+'5-7,,27,,NTD,NTD,7N01,Columbia University,CP
+'5-24,MAb-5-24;MAb5-24,27,,NTD,NTD,7L2F,Columbia University,CP
+'4-8,MAb-4-8;MAb4-8,27,,NTD,NTD,7LQV,Columbia University,CP
+'4-19,,27,,NTD,NTD,,,
+'2-17,MAb-2-17;MAb2-17,27,,NTD,NTD,7LQW,Columbia University,CP
+COVA1-18,,26,,RBD,,,University of Amsterdam,CP
+'2-7,MAb-2-7;MAb2-7,22,,RBD,RBM Class I,7LSS,Columbia University,CP
+'2-36,MAb-2-36;MAb2-36,22,,RBD,,,,
+'2-15,MAb-2-15;MAb2-15,22,,RBD,RBM Class I,7L5B,Columbia University,CP
+'1-57,MAb-1-57;MAb1-57,22,,RBD,RBM Class II,7LS9,Columbia University,CP
+REGN10985,,20,,RBD,,,Regeneron,Transgenic mice
+'910-30,,20,,RBD,RBM Class II,7KS9,,
+'4-20,MAb-4-20;MAb4-20,20,,RBD,,,,
+'2-43,,20,,RBD,RBD Core Cluster I,7L56,Columbia University,CP
+'2-4,,20,,RBD,RBM Class III,6XEY,Columbia University,CP
+'2-38,,20,,RBD,,,,
+'2-30,,20,,RBD,,,,
+'1-20,MAb-1-20;MAb1-20,20,,RBD,,,Columbia University,CP
+LKLH,,17,,RBD,,,,
+COVA2-15,,17,,RBD,,,University of Amsterdam,CP
+A261-262,,17,,RBD,,,Peking Union Medical College,CP
+A247,,17,,RBD,,,,
+'76A,,17,,RBD,,,,
+'2F7,,17,,RBD,,,,
+'28-8L,,17,,RBD,,,,
+'28-26K,,17,,RBD,,,,
+'28-15L,,17,,RBD,,,,
+'26-40K,,17,,RBD,,,Chinese Academy of Sciences,CP
+'26-34L,,17,,RBD,,,Chinese Academy of Sciences,CP
+'25-G7,,17,,RBD,,,Chinese Academy of Sciences,CP
+'25-C9,,17,,RBD,,,Chinese Academy of Sciences,CP
+'24-1L,,17,,RBD,,,Chinese Academy of Sciences,CP
+'24-12K,,17,,RBD,,,Chinese Academy of Sciences,CP
+'11D12,,17,,RBD,,,,
+REGN10986,,16,,,,,Regeneron,Transgenic mice
+REGN10984,,16,,,,,Regeneron,Transgenic mice
+REGN10964,,16,,,,,Regeneron,Transgenic mice
+REGN10954,,16,,,,,Regeneron,Transgenic mice
+COVA2-17,,14,,RBD,,,University of Amsterdam,CP
+COVA2-07,,13,,RBD,,,University of Amsterdam,CP
+S2X259,,12,,RBD,RBD Core Cluster II,7M7W,University of Washington,CP
+S2H58,,12,,RBD,,,University of Washington,CP
+S2E12/Sotrovimab,,12,,,,,,
+REGN10934/REGN10989,,12,,,,,Regeneron,Transgenic mice
+Imdevimab/REGN10989,,12,,,,,Regeneron,Transgenic mice
+DH1047,,12,,RBD,RBD Core Cluster II,7LD1,Duke University,CP
+DH1043,,12,,RBD,RBM Class I,7LJR,Duke University,CP
+DH1042,,12,,,,,Duke University,CP
+DH1041,,12,,RBD,RBM Class I,7LAA,Duke University,CP
+COVA1-21,,11,,RBD,,,University of Amsterdam,CP
+COVA1-12,,11,,RBD,,,University of Amsterdam,CP
+COV2-2050,,11,,RBD,,,Vanderbilt University Medical Center,CP
+C682,,11,,RBD,,,Rockefeller University,CP
+C675,,11,,RBD,,,Rockefeller University,CP
+C671,,11,,RBD,,,Rockefeller University,CP
+C670,,11,,RBD,,,Rockefeller University,CP
+C669,,11,,RBD,,,Rockefeller University,CP
+C666,,11,,RBD,,,Rockefeller University,CP
+C663,,11,,RBD,,,Rockefeller University,CP
+C660,,11,,RBD,,,Rockefeller University,CP
+C653,,11,,RBD,,,Rockefeller University,CP
+C643,,11,,RBD,,,Rockefeller University,CP
+C628,,11,,RBD,,,Rockefeller University,CP
+C627,,11,,RBD,,,Rockefeller University,CP
+C614,,11,,RBD,,,Rockefeller University,CP
+C613,,11,,RBD,,,Rockefeller University,CP
+C603,,11,,RBD,,,Rockefeller University,CP
+C602,,11,,RBD,,,Rockefeller University,CP
+C601,,11,,RBD,,,Rockefeller University,CP
+SARS2-44,,10,,RBD,,,Washington University,Immunized mice
+SARS2-31,,10,,RBD,,,Washington University,Immunized mice
+SARS2-3,,10,,RBD,,,Washington University,Immunized mice
+SARS2-10,,10,,RBD,,,Washington University,Immunized mice
+COV2-3025,,10,,RBD,,,Vanderbilt University Medical Center,CP
+COV2-2676,,10,,NTD,NTD,,Vanderbilt University Medical Center,CP
+COV2-2489,,10,,NTD,NTD,,Vanderbilt University Medical Center,CP
+COV2-2072,,10,,RBD,,,Vanderbilt University Medical Center,CP
+COVOX-40,,9,,RBD,RBM Class II,7ND6,University of Oxford,CP
+COVOX-384,,9,,RBD,RBM Class I,7BEP,University of Oxford,CP
+COVA2-04,,9,,RBD,RBM Class I,7JMO,University of Amsterdam,CP
+COV2-2381,,9,,RBD,,,Vanderbilt University Medical Center,CP
+COVA2-29,,8,,RBD,,,University of Amsterdam,CP
+COVA2-02,,8,,RBD,,,University of Amsterdam,CP
+ADG30,,7,,RBD,,,Adagio Therapeutics,CP
+ADG10,,7,,RBD,,,Adagio Therapeutics,CP
+'4-18,MAb-4-18;MAb4-18,7,,NTD,NTD,7L2E,,
+CQ046,,6,,,,,Chongqing Medical University,CP
+CQ045,,6,,,,,Chongqing Medical University,CP
+CQ038,,6,,,,,Chongqing Medical University,CP
+CQ028,,6,,,,,Chongqing Medical University,CP
+CQ026,,6,,,,,Chongqing Medical University,CP
+CQ024,,6,,,,,Chongqing Medical University,CP
+CQ016,,6,,,,,Chongqing Medical University,CP
+CQ012,,6,,,,,Chongqing Medical University,CP
+COV2-2832,,6,,RBD,,,Vanderbilt University Medical Center,CP
+COV2-2165,,6,,RBD,,,Vanderbilt University Medical Center,CP
+COVA2-39,,5,,RBD,RBM Class I,7JMP,University of Amsterdam,CP
+COV2-2082,,5,,RBD,,,Vanderbilt University Medical Center,CP
+RBD-98,,4,,,,,Institut Pasteur,CP
+RBD-85,,4,,,,,Institut Pasteur,CP
+RBD-48,,4,,,,,Institut Pasteur,CP
+RBD-109,,4,,,,,Institut Pasteur,CP
+NTD-18,,4,,,,,,
+Fab 222,,4,,RBD,,,University of Oxford,CP
+Fab 175,,4,,RBD,,,University of Oxford,CP
+Fab 158,,4,,RBD,,,University of Oxford,CP
+Fab 150,,4,,RBD,,,University of Oxford,CP
+COV2-2479,,4,,RBD,,,Vanderbilt University Medical Center,CP
+BD-629,,4,,RBD,RBM Class I,7CH5,Peking University,CP
+BD-368-2/BD-629,,4,,,,,Peking University,CP
+'269HC + 222LC,,4,,RBD,,,University of Oxford,CP
+'222HC + 222LC,,4,,RBD,,,University of Oxford,CP
+'175HC + 222LC,,4,,RBD,,,University of Oxford,CP
+'158HC + 222LC,,4,,RBD,,,University of Oxford,CP
+'150HC + 222LC,,4,,RBD,,,University of Oxford,CP
+S2X619,,3,,RBD,,,University of Washington,CP
+S2X615,,3,,RBD,,,University of Washington,CP
+S2X609,,3,,RBD,,,University of Washington,CP
+S2X608,,3,,RBD,,,University of Washington,CP
+S2X58,,3,,RBD,,,University of Washington,CP
+S2X333,,3,,NTD,NTD,7LXW,University of Washington,CP
+S2X305,,3,,RBD,,,University of Washington,CP
+S2X303,,3,,NTD,,,University of Washington,CP
+S2X30,,3,,RBD,,,University of Washington,CP
+S2X28,,3,,NTD,NTD,,University of Washington,CP
+S2X192,,3,,RBD,,,University of Washington,CP
+S2X158,,3,,NTD,NTD,,University of Washington,CP
+S2X128,,3,,RBD,,,University of Washington,CP
+S2X124,,3,,NTD,NTD,,University of Washington,CP
+S2X107,,3,,NTD,NTD,,University of Washington,CP
+S2N28,,3,,RBD,,,University of Washington,CP
+S2N22,,3,,RBD,,,University of Washington,CP
+S2N12,,3,,RBD,,,University of Washington,CP
+S2M28,,3,,NTD,NTD,7LY0,University of Washington,CP
+S2M11/Sotrovimab,,3,,,,,,
+S2L50,,3,,NTD,NTD,,University of Washington,CP
+S2L26,,3,,NTD,NTD,,University of Washington,CP
+S2H97,,3,,RBD,RBD Core Cluster I,7M7W,University of Washington,CP
+S2H94,,3,,RBD,,,University of Washington,CP
+S2H71,,3,,RBD,,,University of Washington,CP
+S2H70,,3,,RBD,,,University of Washington,CP
+S2H7,,3,,RBD,,,University of Washington,CP
+S2H19,,3,,RBD,,,University of Washington,CP
+S2H14,,3,,RBD,RBM Class I,7JX3,University of Washington,CP
+S2E12/S2M11,,3,,,,,University of Washington,CP
+S2D97,,3,,RBD,,,University of Washington,CP
+S2D8,,3,,RBD,,,University of Washington,CP
+S2D32,,3,,RBD,,,University of Washington,CP
+S2D19,,3,,RBD,,,University of Washington,CP
+S2D106,,3,,RBD,RBM Class II,7R7N,University of Washington,CP
+mAb48,,2,,RBD,,,,
+mAb102,,2,,RBD,,,,
+S2X620,,2,,RBD,,,University of Washington,CP
+S2X613,,2,,RBD,,,University of Washington,CP
+S2X607,,2,,RBD,,,University of Washington,CP
+S2X475,,2,,RBD,,,University of Washington,CP
+S2X450,,2,,RBD,,,University of Washington,CP
+S2X35,,2,,RBD,RBD Core Cluster II,,University of Washington,CP
+S2X324,,2,,RBD,,,University of Washington,CP
+S2X246,,2,,RBD,,,University of Washington,CP
+S2X227,,2,,RBD,,,University of Washington,CP
+S2X16,,2,,RBD,,,University of Washington,CP
+S2L49,,2,,RBD,,,University of Washington,CP
+S2L17,,2,,RBD,,,University of Washington,CP
+S2K63v2,,2,,RBD,,,University of Washington,CP
+S2K30,,2,,RBD,,,University of Washington,CP
+S2K21,,2,,RBD,,,University of Washington,CP
+S2K15,,2,,RBD,,,University of Washington,CP
+S2H90,,2,,RBD,,,University of Washington,CP
+S2E23,,2,,RBD,,,University of Washington,CP
+S2E16,,2,,RBD,,,University of Washington,CP
+S2E13,,2,,RBD,,,University of Washington,CP
+S2E11,,2,,RBD,RBD Core,,University of Washington,CP
+S2D65,,2,,RBD,,,University of Washington,CP
+MD65,,2,,,,,Israel Institute for Biological Research,CP
+MD62,,2,,,,,Israel Institute for Biological Research,CP
+MD29,,2,,,,,Israel Institute for Biological Research,CP
+J13,,2,,NTD,NTD,,Fondazione Toscana Life Sciences,CP
+J08,,2,,RBD,,,Fondazione Toscana Life Sciences,CP
+I21,,2,,S1,S1,,Fondazione Toscana Life Sciences,CP
+I15,,2,,S,S,,Fondazione Toscana Life Sciences,CP
+I14,,2,,RBD,,,Fondazione Toscana Life Sciences,CP
+H20,,2,,S,,,Fondazione Toscana Life Sciences,CP
+G12,,2,,RBD,,,Fondazione Toscana Life Sciences,CP
+F20,,2,,S,,,Fondazione Toscana Life Sciences,CP
+F10,,2,,S,,,Fondazione Toscana Life Sciences,CP
+F05,,2,,RBD,,,Fondazione Toscana Life Sciences,CP
+D14,,2,,S1,S1,,Fondazione Toscana Life Sciences,CP
+CV38-142,,2,,RBD,RBD Core Cluster II,7LM8,Berlin Institute of Health,CP
+CV30,,2,,RBD,RBM Class I,6XE1,Fred Hutchinson Cancer Research Center,CP
+CV3-1,,2,,RBD,,,Fred Hutchinson Cancer Research Center,CP
+CV2-75,,2,,RBD,RBD Core Cluster I,7M3I,Fred Hutchinson Cancer Research Center,CP
+CV1,,2,,NTD,NTD,,Fred Hutchinson Cancer Research Center,CP
+CV07-270,,2,,RBD,RBM Class II,6XKP,Berlin Institute of Health,CP
+CV07-250,,2,,RBD,RBM Class I,6XKQ,Berlin Institute of Health,CP
+CV05-163,,2,,RBD,RBM Class I,7LOP,Berlin Institute of Health,CP
+CC6.29,,2,,RBD,,,Scripps Research Institute,CP
+CC12.3,,2,,RBD,RBM Class I,6XC4,Scripps Research Institute,CP
+CC12.1,,2,,RBD,RBM Class I,6XC2,Scripps Research Institute,CP
+C14,,2,,RBD,,,Fondazione Toscana Life Sciences,CP
+BLN14,,2,,,,,Israel Institute for Biological Research,CP
+BLN12,,2,,,,,Israel Institute for Biological Research,CP
+BL6,,2,,,,,,
+B07,,2,,RBD,,,Fondazione Toscana Life Sciences,CP
+S2L37,,1,,RBD,,,University of Washington,CP
