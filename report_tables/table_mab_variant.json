@@ -25,27 +25,6 @@
             },
             {
                 "variant": "Alpha",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "0.8",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "0.2",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Alpha",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "0.2",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Alpha",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
                 "fold": "1",
@@ -519,6 +498,27 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "13",
                 "reference": "Chen21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.8",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.2",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.2",
+                "reference": "Wang21b*"
             },
             {
                 "variant": "Alpha",
@@ -1227,27 +1227,6 @@
             },
             {
                 "variant": "Beta",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "6",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Beta",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "3.4",
-                "reference": "Wang21b"
-            },
-            {
-                "variant": "Beta",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "15",
-                "reference": "Wang21b*"
-            },
-            {
-                "variant": "Beta",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
                 "fold": "&gt;100",
@@ -1692,6 +1671,27 @@
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
                 "fold": "2.2",
+                "reference": "Wang21b*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "6",
+                "reference": "Wang21f"
+            },
+            {
+                "variant": "Beta",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "3.4",
+                "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "15",
                 "reference": "Wang21b*"
             },
             {
@@ -2698,13 +2698,6 @@
             },
             {
                 "variant": "Gamma",
-                "rx": "BRII-198",
-                "mab_class": "",
-                "fold": "0.7",
-                "reference": "Wang21f"
-            },
-            {
-                "variant": "Gamma",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
                 "fold": "&gt;100",
@@ -2954,6 +2947,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "1.6",
                 "reference": "FDA21*"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "BRII-198",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.7",
+                "reference": "Wang21f"
             },
             {
                 "variant": "Gamma",

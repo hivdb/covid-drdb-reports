@@ -2,9 +2,6 @@
 Alpha,ADG20,,1.5,Supasa21*
 Alpha,BRII-196/BRII-198,,0.5,Wang21b
 Alpha,BRII-196/BRII-198,,0.2,Wang21b*
-Alpha,BRII-198,,0.8,Wang21f
-Alpha,BRII-198,,0.2,Wang21b
-Alpha,BRII-198,,0.2,Wang21b*
 Alpha,Bamlanivimab/Etesevimab,,1,FDA21
 Alpha,Bamlanivimab/Etesevimab,,1.7,Wang21b
 Alpha,Bamlanivimab/Etesevimab,,1.3,Wang21b*
@@ -73,6 +70,9 @@ Alpha,Sotrovimab,RBD Core Cluster I,4,Chen21*
 Alpha,Sotrovimab,RBD Core Cluster I,3,FDA21*
 Alpha,Sotrovimab,RBD Core Cluster I,4,Wang21b*
 Alpha,Sotrovimab,RBD Core Cluster I,13,Chen21*
+Alpha,BRII-198,RBD Core Cluster II,0.8,Wang21f
+Alpha,BRII-198,RBD Core Cluster II,0.2,Wang21b
+Alpha,BRII-198,RBD Core Cluster II,0.2,Wang21b*
 Alpha,COVA1-16,RBD Core Cluster II,1.3,Rees-Spear21
 Alpha,COVA1-16,RBD Core Cluster II,0.7,Caniels21
 Alpha,COVA1-16,RBD Core Cluster II,0.8,Wang21b
@@ -173,9 +173,6 @@ Alpha,S2M11,RBM Class III,0.4,Collier21
 Beta,ADG20,,2.5,Zhou21b*
 Beta,BRII-196/BRII-198,,0.8,Wang21b
 Beta,BRII-196/BRII-198,,1.1,Wang21b*
-Beta,BRII-198,,6,Wang21f
-Beta,BRII-198,,3.4,Wang21b
-Beta,BRII-198,,15,Wang21b*
 Beta,Bamlanivimab/Etesevimab,,>100,Hoffmann21c
 Beta,Bamlanivimab/Etesevimab,,45,FDA21
 Beta,Bamlanivimab/Etesevimab,,>100,Wang21b
@@ -240,6 +237,9 @@ Beta,Sotrovimab,RBD Core Cluster I,2.1,Zhou21b*
 Beta,Sotrovimab,RBD Core Cluster I,1.2,Cathcart21*
 Beta,Sotrovimab,RBD Core Cluster I,1.2,FDA21*
 Beta,Sotrovimab,RBD Core Cluster I,2.2,Wang21b*
+Beta,BRII-198,RBD Core Cluster II,6,Wang21f
+Beta,BRII-198,RBD Core Cluster II,3.4,Wang21b
+Beta,BRII-198,RBD Core Cluster II,15,Wang21b*
 Beta,COVA1-16,RBD Core Cluster II,0.2,Caniels21
 Beta,COVA1-16,RBD Core Cluster II,0.8,Wang21b
 Beta,COVA1-16,RBD Core Cluster II,1,Wang21b*
@@ -381,7 +381,6 @@ Epsilon,Bamlanivimab,RBM Class II,>100,FDA21
 Epsilon,S2D106,RBM Class II,0.6,McCallum21b
 Epsilon,S2M11,RBM Class III,2,McCallum21b
 Gamma,ADG20,,2.3,Dejnirattisai21*
-Gamma,BRII-198,,0.7,Wang21f
 Gamma,Bamlanivimab/Etesevimab,,>100,FDA21
 Gamma,Casirivimab/Imdevimab,,0.7,Copin21
 Gamma,Casirivimab/Imdevimab,,1,Hoffmann21
@@ -418,6 +417,7 @@ Gamma,Sotrovimab,RBD Core Cluster I,1.9,Dejnirattisai21*
 Gamma,Sotrovimab,RBD Core Cluster I,0.5,Wang21d*
 Gamma,Sotrovimab,RBD Core Cluster I,1.6,Cathcart21*
 Gamma,Sotrovimab,RBD Core Cluster I,1.6,FDA21*
+Gamma,BRII-198,RBD Core Cluster II,0.7,Wang21f
 Gamma,COVA1-16,RBD Core Cluster II,0.2,Caniels21
 Gamma,LY3853113,RBD Core Cluster II,0.4,Westendorf21
 Gamma,LY3853113,RBD Core Cluster II,0.6,Westendorf21

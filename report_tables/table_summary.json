@@ -24,7 +24,7 @@
         "variant": "K417T",
         "cp": 29,
         "vp": 0,
-        "phase3": 8,
+        "phase3": 7,
         "structure": 7
     },
     {
@@ -87,14 +87,14 @@
         "variant": "Other combinations of mutations",
         "cp": 2535,
         "vp": 5279,
-        "phase3": 438,
+        "phase3": 437,
         "structure": 266
     },
     {
         "variant": "All combinations of mutations",
         "cp": 7256,
         "vp": 18650,
-        "phase3": 790,
+        "phase3": 789,
         "structure": 452
     }
 ]

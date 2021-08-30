@@ -13,7 +13,7 @@ K417N,mAbs phase3,53
 K417N,mAbs structure,43
 K417T,CP,29
 K417T,VP,0
-K417T,mAbs phase3,8
+K417T,mAbs phase3,7
 K417T,mAbs structure,7
 L452R,CP,74
 L452R,VP,79
@@ -49,9 +49,9 @@ Iota,mAbs phase3,13
 Iota,mAbs structure,1
 Other combinations of mutations,CP,2535
 Other combinations of mutations,VP,5279
-Other combinations of mutations,mAbs phase3,438
+Other combinations of mutations,mAbs phase3,437
 Other combinations of mutations,mAbs structure,266
 All combinations of mutations,CP,7256
 All combinations of mutations,VP,18650
-All combinations of mutations,mAbs phase3,790
+All combinations of mutations,mAbs phase3,789
 All combinations of mutations,mAbs structure,452

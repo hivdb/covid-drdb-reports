@@ -1,12 +1,12 @@
 ﻿mab,synonyms,results,avail,target,class,pdb,institute,origin
 Casirivimab,REGN10933,321,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
 Imdevimab,REGN10987,320,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
-Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,270,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
+Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,269,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
 Sotrovimab,GSK4182136;S309;Vir-7831,199,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
 BRII-196,P2C-1F11,146,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
 Bamlanivimab,LY-CoV555;LY3819253,128,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
 Casirivimab/Imdevimab,,118,Phase 3,,,,Regeneron,Transgenic mice
-BRII-198,P2B-1G5,47,Phase 3,RBD,,,Brii Biosciences,
+BRII-198,P2B-1G5,47,Phase 3,RBD,RBD Core Cluster II,,Brii Biosciences,
 Tixagevimab,COV2-2196;AZD8895,44,Phase 3,RBD,RBM Class I,7L7D,AstraZeneca,CP
 Cilgavimab,COV2-2130;AZD1061,44,Phase 3,RBD,RBM Class II,7L7E,AstraZeneca,CP
 Bamlanivimab/Etesevimab,,29,Phase 3,,,,Eli Lilly,CP
