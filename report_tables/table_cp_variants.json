@@ -1830,6 +1830,26 @@
             {
                 "variant": "Iota",
                 "rx": "CP",
+                "samples": 20,
+                "s_fold": 0,
+                "i_fold": 20,
+                "r_fold": 0,
+                "reference": "Annavajhala21b",
+                "median": 4.1
+            },
+            {
+                "variant": "Iota",
+                "rx": "CP",
+                "samples": 20,
+                "s_fold": 20,
+                "i_fold": 0,
+                "r_fold": 0,
+                "reference": "Annavajhala21b",
+                "median": 2.6
+            },
+            {
+                "variant": "Iota",
+                "rx": "CP",
                 "samples": 10,
                 "s_fold": 10,
                 "i_fold": 0,

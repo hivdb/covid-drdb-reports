@@ -1,14 +1,14 @@
 ﻿mab,synonyms,results,avail,target,class,pdb,institute,origin
-Casirivimab,REGN10933,321,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
-Imdevimab,REGN10987,320,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
-Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,269,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
-Sotrovimab,GSK4182136;S309;Vir-7831,199,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
+Casirivimab,REGN10933,324,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
+Imdevimab,REGN10987,323,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
+Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,272,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
+Sotrovimab,GSK4182136;S309;Vir-7831,202,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
 BRII-196,P2C-1F11,146,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
-Bamlanivimab,LY-CoV555;LY3819253,128,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
+Bamlanivimab,LY-CoV555;LY3819253,131,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
 Casirivimab/Imdevimab,,118,Phase 3,,,,Regeneron,Transgenic mice
+Tixagevimab,COV2-2196;AZD8895,47,Phase 3,RBD,RBM Class I,7L7D,AstraZeneca,CP
+Cilgavimab,COV2-2130;AZD1061,47,Phase 3,RBD,RBM Class II,7L7E,AstraZeneca,CP
 BRII-198,P2B-1G5,47,Phase 3,RBD,RBD Core Cluster II,,Brii Biosciences,
-Tixagevimab,COV2-2196;AZD8895,44,Phase 3,RBD,RBM Class I,7L7D,AstraZeneca,CP
-Cilgavimab,COV2-2130;AZD1061,44,Phase 3,RBD,RBM Class II,7L7E,AstraZeneca,CP
 Bamlanivimab/Etesevimab,,29,Phase 3,,,,Eli Lilly,CP
 Cilgavimab/Tixagevimab,,26,Phase 3,,,,AstraZeneca,CP
 Regdanvimab,CT-P59,19,Phase 3,RBD,RBM Class I,7CM4,Celltrion,Phage display library
@@ -20,7 +20,7 @@ ADG20,,7,Phase 1,RBD,,,Adagio Therapeutics,CP
 C135/C144,,5,Phase 1,,,,Rockefeller University,CP
 H00S022,,116,,RBD,,,,
 P2B-2F6,,111,,RBD,RBM Class II,7BWJ,Westlake Institute for Advanced Study,CP
-C121,,102,,RBD,RBM Class II,7K8X,Rockefeller University,CP
+C121,,105,,RBD,RBM Class II,7K8X,Rockefeller University,CP
 X593,,99,,RBD,,,Peking Union Medical College,CP
 H014,,99,,RBD,RBD Core Cluster II,7CAH,Chinese Academy of Sciences,CP
 '261-262,,99,,RBD,,,Peking Union Medical College,CP
@@ -51,6 +51,7 @@ C080,,52,,,,,Rockefeller University,CP
 '4A8,,45,,NTD,NTD,7C2L,Beijing Institute of Biotechnology,CP
 '1B07,,39,,RBD,,,Washington University School of Medicine,Immunized mice
 S2E12,,38,,RBD,RBM Class I,7K4N,University of Washington,CP
+h11B11,,37,,,,,Huazhong University of Science and Technology,
 COVA1-16,,36,,RBD,RBD Core Cluster II,7JMW,University of Amsterdam,CP
 '9G11,,34,,RBD,,,,
 '7B8,,34,,RBD,,,,
@@ -82,10 +83,10 @@ P22A-1D1,,27,,RBD,RBM Class I,7CHS,,
 '4-19,,27,,NTD,NTD,,,
 '2-17,MAb-2-17;MAb2-17,27,,NTD,NTD,7LQW,Columbia University,CP
 COVA1-18,,26,,RBD,,,University of Amsterdam,CP
-'2-7,MAb-2-7;MAb2-7,22,,RBD,RBM Class I,7LSS,Columbia University,CP
-'2-36,MAb-2-36;MAb2-36,22,,RBD,,,,
-'2-15,MAb-2-15;MAb2-15,22,,RBD,RBM Class I,7L5B,Columbia University,CP
-'1-57,MAb-1-57;MAb1-57,22,,RBD,RBM Class II,7LS9,Columbia University,CP
+'2-7,MAb-2-7;MAb2-7,25,,RBD,RBM Class I,7LSS,Columbia University,CP
+'2-36,MAb-2-36;MAb2-36,25,,RBD,,,,
+'2-15,MAb-2-15;MAb2-15,25,,RBD,RBM Class I,7L5B,Columbia University,CP
+'1-57,MAb-1-57;MAb1-57,25,,RBD,RBM Class II,7LS9,Columbia University,CP
 REGN10985,,20,,RBD,,,Regeneron,Transgenic mice
 '910-30,,20,,RBD,RBM Class II,7KS9,,
 '4-20,MAb-4-20;MAb4-20,20,,RBD,,,,

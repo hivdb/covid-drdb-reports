@@ -9,11 +9,11 @@ Alpha,AZD1222,20,0,0,Planas21b*,True,2.0,0.8,20
 Alpha,AZD1222,22,3,0,Supasa21*,False,2.0,2,25
 Alpha,AZD1222 + BNT162b2,0,38,16,Barros-Martins21,False,2.0,9,54
 Alpha,AZD1222 + BNT162b2,11,0,0,Behrens21,True,2.0,1.1,11
-Alpha,Ad26.COV2.S,13,6,1,Alter21,False,2.0,2.2,20
 Alpha,Ad26.COV2.S,17,0,2,Alter21,False,1.0,1.4,19
+Alpha,Ad26.COV2.S,13,6,1,Alter21,False,2.0,2.2,20
 Alpha,Ad26.COV2.S,25,0,0,Alter21*,True,2.0,0.8,25
-Alpha,Ad26.COV2.S,12,2,4,Barouch21,False,2.0,1.8,18
 Alpha,Ad26.COV2.S,13,1,4,Barouch21,False,1.0,1.8,18
+Alpha,Ad26.COV2.S,12,2,4,Barouch21,False,2.0,1.8,18
 Alpha,Ad26.COV2.S,8,0,0,Jongeneelen21,False,1.0,1,8
 Alpha,Ad26.COV2.S,9,1,0,Tada21e,False,1.0,0.9,10
 Alpha,Ad26.COV2.S,12,0,0,Yu21b,True,1.0,0.4,12
@@ -24,8 +24,8 @@ Alpha,BBV152,28,0,0,Yadav21*,False,2.0,1.2,28
 Alpha,BBV154,23,1,0,Chen21*,False,1.0,1.2,24
 Alpha,BNT162b2,131,0,0,Abe21,True,2.0,1.7,131
 Alpha,BNT162b2,75,0,0,Acevedo21,True,2.0,1.6,75
-Alpha,BNT162b2,10,0,0,Alenquer21,False,2.0,1.6,10
 Alpha,BNT162b2,1,0,0,Alenquer21,False,1.0,1.3,1
+Alpha,BNT162b2,10,0,0,Alenquer21,False,2.0,1.6,10
 Alpha,BNT162b2,60,0,0,Anichini21*,True,2.0,1.0,60
 Alpha,BNT162b2,29,21,0,Bates21*,False,2.0,2.4,50
 Alpha,BNT162b2,8,0,0,Brown21,False,1.0,1,8
@@ -68,8 +68,8 @@ Alpha,BNT162b2,24,0,0,Tada21e,False,2.0,1.1,24
 Alpha,BNT162b2,51,13,0,Trinite21,False,2.0,1.6,64
 Alpha,BNT162b2,37,3,0,Turner21*,False,2.0,1.4,40
 Alpha,BNT162b2,26,4,2,Turner21*,False,1.0,1.3,32
-Alpha,BNT162b2,136,74,3,Wall21*,False,2.0,2.5,213
 Alpha,BNT162b2,123,24,101,Wall21*,False,1.0,2.9,248
+Alpha,BNT162b2,136,74,3,Wall21*,False,2.0,2.5,213
 Alpha,BNT162b2,9,1,0,Wang21b,False,2.0,1.9,10
 Alpha,BNT162b2,10,0,0,Wang21b*,False,2.0,0.9,10
 Alpha,BNT162b2,5,1,0,Widera21*,False,2.0,1,6
@@ -125,8 +125,8 @@ Beta,AZD2816,5,0,0,Spencer21,True,1.0,1.3,5
 Beta,Ad26.COV2.S,6,5,8,Alter21,False,1.0,3.3,19
 Beta,Ad26.COV2.S,5,11,4,Alter21,False,2.0,4.1,20
 Beta,Ad26.COV2.S,0,0,25,Alter21*,True,2.0,11.0,25
-Beta,Ad26.COV2.S,3,4,11,Barouch21,False,2.0,5.1,18
 Beta,Ad26.COV2.S,5,7,6,Barouch21,False,1.0,5.5,18
+Beta,Ad26.COV2.S,3,4,11,Barouch21,False,2.0,5.1,18
 Beta,Ad26.COV2.S,4,1,3,Jongeneelen21,False,1.0,3,8
 Beta,Ad26.COV2.S,2,3,21,Moore21,False,1.0,2.6,26
 Beta,Ad26.COV2.S,3,2,3,Tada21e,False,1.0,4.6,8
@@ -149,8 +149,8 @@ Beta,BNT162b2,0,10,14,Chen21,False,2.0,10,24
 Beta,BNT162b2,0,0,90,Garcia-Beltran21,True,2.0,41.2,90
 Beta,BNT162b2,25,0,0,Geers21*,True,1.0,2.7,25
 Beta,BNT162b2,12,13,0,Geers21*,True,2.0,3.3,25
-Beta,BNT162b2,23,12,18,Goel21,False,1.0,2,53
 Beta,BNT162b2,18,16,0,Goel21,False,2.0,2.8,34
+Beta,BNT162b2,23,12,18,Goel21,False,1.0,2,53
 Beta,BNT162b2,3,10,2,Hoffmann21,False,2.0,4.9,15
 Beta,BNT162b2,1,8,6,Hoffmann21c,False,2.0,7.6,15
 Beta,BNT162b2,34,97,49,Jalkanen21*,False,2.0,4,180
@@ -165,8 +165,8 @@ Beta,BNT162b2,0,29,0,Marot21*,True,1.0,5.0,29
 Beta,BNT162b2,0,29,0,Marot21*,True,2.0,4.2,29
 Beta,BNT162b2,5,10,2,McCallum21b,False,2.0,3.7,17
 Beta,BNT162b2,20,60,0,Pannus21*,True,2.0,5.5,80
-Beta,BNT162b2,10,13,8,Planas21,False,1.0,3.8,31
 Beta,BNT162b2,8,15,13,Planas21,False,2.0,5.8,36
+Beta,BNT162b2,10,13,8,Planas21,False,1.0,3.8,31
 Beta,BNT162b2,1,9,17,Planas21b*,False,2.0,12,27
 Beta,BNT162b2,0,37,0,Planas21b*,True,1.0,3.4,37
 Beta,BNT162b2,20,68,0,Reynolds21*,True,1.0,4.7,88
@@ -263,8 +263,8 @@ Delta,BNT162b2,32,0,0,Mlcochova21,True,2.0,2.2,32
 Delta,BNT162b2,15,11,1,Planas21b,False,2.0,2.6,27
 Delta,BNT162b2,0,16,0,Planas21b,True,1.0,6.9,16
 Delta,BNT162b2,12,12,0,Tada21e,False,2.0,3.0,24
-Delta,BNT162b2,36,135,38,Wall21,False,2.0,5.2,209
 Delta,BNT162b2,38,35,152,Wall21,False,1.0,9.4,225
+Delta,BNT162b2,36,135,38,Wall21,False,2.0,5.2,209
 Delta,CoronaVac,0,0,60,Vacharathit21,True,2.0,64.0,60
 Delta,CoronaVac,28,0,0,Zhao21,True,3.0,1.6,28
 Delta,Sputnik V,16,0,0,Gushchin21,True,2.0,2.4,16
@@ -276,8 +276,8 @@ Delta,mRNA-1273,9,6,0,Edara21c,False,2.0,2.9,15
 Delta,mRNA-1273,17,14,1,Lucas21,False,2.0,2.7,32
 Delta,mRNA-1273,48,0,0,Pegu21,True,2.0,0.75,48
 Delta,mRNA-1273,4,9,1,Tada21e,False,2.0,3.4,14
-Epsilon,Ad26.COV2.S,12,5,3,Alter21,False,2.0,2.8,20
 Epsilon,Ad26.COV2.S,12,2,5,Alter21,False,1.0,2.4,19
+Epsilon,Ad26.COV2.S,12,5,3,Alter21,False,2.0,2.8,20
 Epsilon,Ad26.COV2.S,6,5,7,Barouch21,False,2.0,3.2,18
 Epsilon,Ad26.COV2.S,7,7,4,Barouch21,False,1.0,3.3,18
 Epsilon,BNT162b2,2,0,2,Deng21,False,2.0,2,4
@@ -304,8 +304,8 @@ Gamma,AZD1222,0,12,0,Behrens21,True,2.0,3.8,12
 Gamma,AZD1222,16,8,1,Dejnirattisai21*,False,2.0,2.7,25
 Gamma,AZD1222 + BNT162b2,0,1,53,Barros-Martins21,False,2.0,27,54
 Gamma,AZD1222 + BNT162b2,11,0,0,Behrens21,True,2.0,1.1,11
-Gamma,Ad26.COV2.S,7,10,3,Alter21,False,2.0,4,20
 Gamma,Ad26.COV2.S,9,4,6,Alter21,False,1.0,2.9,19
+Gamma,Ad26.COV2.S,7,10,3,Alter21,False,2.0,4,20
 Gamma,Ad26.COV2.S,11,2,5,Barouch21,False,1.0,1.9,18
 Gamma,Ad26.COV2.S,4,5,9,Barouch21,False,2.0,3.8,18
 Gamma,Ad26.COV2.S,4,1,3,Jongeneelen21,False,1.0,3.2,8
@@ -335,8 +335,8 @@ Gamma,BNT162b2,37,0,0,Zani21*,True,2.0,1.3,37
 Gamma,CoronaVac,47,24,4,Acevedo21,False,2.0,2.2,75
 Gamma,CoronaVac,0,93,0,Chen21c,True,2.0,3.9,93
 Gamma,CoronaVac,28,0,0,Zhao21,True,3.0,2.8,28
-Gamma,CoronaVac,6,6,50,deSouza21*,False,2.0,4.5,62
 Gamma,CoronaVac,1,0,15,deSouza21*,False,1.0,1.5,16
+Gamma,CoronaVac,6,6,50,deSouza21*,False,2.0,4.5,62
 Gamma,Sputnik V,0,16,0,Gushchin21*,True,2.0,5.9,16
 Gamma,Sputnik V,0,19,19,Ledesma21,True,2.0,9.0,38
 Gamma,Sputnik V,9,14,10,Ledesma21*,False,2.0,4,33
@@ -357,10 +357,14 @@ Gamma,mRNA-1273.351,8,0,0,Wu21b,True,2.0,0.8,8
 Gamma,mRNA-1273.351,0,20,0,Wu21c,True,2.0,4.5,20
 Gamma,mRNA-1273.351,20,0,0,Wu21c,True,3.0,2.3,20
 Iota,BBIBP-CorV,0,470,0,Zhang21d,True,2.0,4.1,470
+Iota,BNT162b2,0,10,0,Annavajhala21b,True,2.0,3.6,10
+Iota,BNT162b2,10,0,0,Annavajhala21b,True,2.0,1.8,10
 Iota,BNT162b2,20,0,0,Liu21d,False,2.0,1,20
 Iota,BNT162b2,0,4,0,West21,False,2.0,4.8,4
 Iota,BNT162b2,1,4,0,Zhou21c,False,2.0,3.7,5
 Iota,CoronaVac,0,93,0,Chen21c,True,2.0,4.0,93
+Iota,mRNA-1273,0,12,0,Annavajhala21b,True,2.0,3.3,12
+Iota,mRNA-1273,12,0,0,Annavajhala21b,True,2.0,2.0,12
 Iota,mRNA-1273,5,3,0,Choi21,False,2.0,2.6,8
 Iota,mRNA-1273,104,21,3,Lucas21,False,2.0,1.5,128
 Iota,mRNA-1273,48,0,0,Pegu21,True,2.0,0.7,48

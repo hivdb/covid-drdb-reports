@@ -179,6 +179,8 @@ Gamma,CP_hosp,28,0,0,Caniels21,True,2.4,28
 Gamma,CP_low_titer,0,0,5,Alenquer21,False,2.5,5
 Gamma,CP_medium_titer,0,0,3,Alenquer21,False,21,3
 Gamma,CP_non-hosp,0,41,0,Caniels21,True,3.0,41
+Iota,CP,0,20,0,Annavajhala21b,True,4.1,20
+Iota,CP,20,0,0,Annavajhala21b,True,2.6,20
 Iota,CP,10,0,0,Wilson21,True,1.1,10
 Iota,CP,5,0,0,Zhang21c,True,1.0,5
 Iota,CP,1,5,0,Zhou21c,False,4.1,6

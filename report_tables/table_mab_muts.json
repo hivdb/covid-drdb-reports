@@ -202,6 +202,13 @@
                 "variant": "E484K",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "1",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "reference": "Copin21"
             },
@@ -300,6 +307,13 @@
                 "variant": "E484K",
                 "rx": "Sotrovimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.1",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "reference": "Wang21f"
             },
@@ -377,14 +391,14 @@
                 "variant": "E484K",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.6",
+                "fold": "0.7",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "E484K",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.7",
+                "fold": "0.6",
                 "reference": "Westendorf21"
             },
             {
@@ -399,7 +413,21 @@
                 "rx": "2-15",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
                 "reference": "Wang21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "2.2",
+                "reference": "Annavajhala21b"
             },
             {
                 "variant": "E484K",
@@ -566,6 +594,13 @@
                 "variant": "E484K",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "13",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "22",
                 "reference": "Tada21c"
             },
@@ -657,6 +692,13 @@
                 "variant": "E484K",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
+                "fold": "3.3",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
                 "fold": "4.4",
                 "reference": "Gottlieb21"
             },
@@ -713,6 +755,13 @@
                 "variant": "E484K",
                 "rx": "Tixagevimab",
                 "mab_class": "RBM Class I",
+                "fold": "3.8",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
                 "fold": "4.4",
                 "reference": "Dong21"
             },
@@ -741,6 +790,13 @@
                 "variant": "E484K",
                 "rx": "1-57",
                 "mab_class": "RBM Class II",
+                "fold": "1.4",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
                 "fold": "1.1",
                 "reference": "Wang21b"
             },
@@ -757,6 +813,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21f"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Annavajhala21b"
             },
             {
                 "variant": "E484K",
@@ -785,6 +848,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21b"
+            },
+            {
+                "variant": "E484K",
+                "rx": "C121",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Annavajhala21b"
             },
             {
                 "variant": "E484K",
@@ -827,6 +897,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Yuan21"
+            },
+            {
+                "variant": "E484K",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "1",
+                "reference": "Annavajhala21b"
             },
             {
                 "variant": "E484K",
@@ -1526,14 +1603,14 @@
                 "variant": "K417N",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.6",
+                "fold": "0.7",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "K417N",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.7",
+                "fold": "0.6",
                 "reference": "Westendorf21"
             },
             {
@@ -2745,14 +2822,14 @@
                 "variant": "N439K",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "1.1",
+                "fold": "0.5",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "N439K",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.5",
+                "fold": "1.1",
                 "reference": "Westendorf21"
             },
             {
@@ -2913,14 +2990,14 @@
                 "variant": "N439K",
                 "rx": "S2E12",
                 "mab_class": "RBM Class I",
-                "fold": "1",
+                "fold": "0.9",
                 "reference": "Tortorici20"
             },
             {
                 "variant": "N439K",
                 "rx": "S2E12",
                 "mab_class": "RBM Class I",
-                "fold": "0.9",
+                "fold": "1",
                 "reference": "Tortorici20"
             },
             {
@@ -2983,14 +3060,14 @@
                 "variant": "N439K",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "0.3",
+                "fold": "0.9",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "N439K",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "0.9",
+                "fold": "0.3",
                 "reference": "Weisblum20"
             },
             {
@@ -3282,14 +3359,14 @@
                 "variant": "N501Y",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.5",
+                "fold": "0.4",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "N501Y",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.4",
+                "fold": "0.5",
                 "reference": "Westendorf21"
             },
             {
@@ -3709,14 +3786,14 @@
                 "variant": "N501Y",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "0.4",
+                "fold": "1.5",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "N501Y",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "1.5",
+                "fold": "0.4",
                 "reference": "Weisblum20"
             }
         ]
@@ -3966,14 +4043,14 @@
                 "variant": "S494P",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "17",
+                "fold": "61",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "S494P",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "61",
+                "fold": "17",
                 "reference": "Weisblum20"
             },
             {
@@ -4151,14 +4228,14 @@
                 "variant": "Y453F",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.6",
+                "fold": "0.7",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Y453F",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.7",
+                "fold": "0.6",
                 "reference": "Westendorf21"
             },
             {

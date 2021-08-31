@@ -566,14 +566,14 @@
                 "variant": "Alpha",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.7",
+                "fold": "0.9",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Alpha",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.9",
+                "fold": "0.7",
                 "reference": "Westendorf21"
             },
             {
@@ -2555,14 +2555,14 @@
                 "variant": "Epsilon",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.4",
+                "fold": "0.5",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Epsilon",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.5",
+                "fold": "0.4",
                 "reference": "Westendorf21"
             },
             {
@@ -2966,14 +2966,14 @@
                 "variant": "Gamma",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.4",
+                "fold": "0.6",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Gamma",
                 "rx": "LY3853113",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "0.6",
+                "fold": "0.4",
                 "reference": "Westendorf21"
             },
             {
@@ -3307,6 +3307,13 @@
                 "variant": "Iota",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "1.2",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "1.1",
                 "reference": "Zhou21c"
             },
@@ -3314,8 +3321,29 @@
                 "variant": "Iota",
                 "rx": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "2.5",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.4",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.9",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1",
+                "reference": "Annavajhala21b"
             },
             {
                 "variant": "Iota",
@@ -3340,6 +3368,34 @@
             },
             {
                 "variant": "Iota",
+                "rx": "2-15",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "0.5",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "2-7",
+                "mab_class": "RBM Class I",
+                "fold": "4.2",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "9.4",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
                 "fold": "9.3",
@@ -3351,6 +3407,27 @@
                 "mab_class": "RBM Class I",
                 "fold": "12",
                 "reference": "Zhou21c"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "34",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1.4",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1.5",
+                "reference": "Annavajhala21b"
             },
             {
                 "variant": "Iota",
@@ -3368,6 +3445,41 @@
             },
             {
                 "variant": "Iota",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "3.2",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Tixagevimab",
+                "mab_class": "RBM Class I",
+                "fold": "13",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "9.1",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "1-57",
+                "mab_class": "RBM Class II",
+                "fold": "8.3",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
                 "rx": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
@@ -3379,6 +3491,27 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "FDA21"
+            },
+            {
+                "variant": "Iota",
+                "rx": "C121",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "0.8",
+                "reference": "Annavajhala21b"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "1",
+                "reference": "Annavajhala21b"
             }
         ]
     },

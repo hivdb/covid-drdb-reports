@@ -508,13 +508,13 @@
             },
             {
                 "name": "BNT162b2",
-                "vp_studies": 3,
-                "vp_samples": 29,
-                "vp_s_fold": "72%",
-                "vp_i_fold": "28%",
+                "vp_studies": 4,
+                "vp_samples": 49,
+                "vp_s_fold": "63%",
+                "vp_i_fold": "37%",
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 21,
-                "vp_num_i_fold": 8,
+                "vp_num_s_fold": 31,
+                "vp_num_i_fold": 18,
                 "vp_num_r_fold": 0
             },
             {
@@ -530,13 +530,13 @@
             },
             {
                 "name": "mRNA-1273",
-                "vp_studies": 5,
-                "vp_samples": 193,
-                "vp_s_fold": "82%",
-                "vp_i_fold": "17%",
-                "vp_r_fold": "1%",
-                "vp_num_s_fold": 158,
-                "vp_num_i_fold": 32,
+                "vp_studies": 6,
+                "vp_samples": 217,
+                "vp_s_fold": "78%",
+                "vp_i_fold": "20%",
+                "vp_r_fold": "2%",
+                "vp_num_s_fold": 170,
+                "vp_num_i_fold": 44,
                 "vp_num_r_fold": 3
             }
         ]

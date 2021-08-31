@@ -10,8 +10,8 @@
         "variant": "E484K",
         "cp": 225,
         "vp": 214,
-        "phase3": 84,
-        "structure": 50
+        "phase3": 91,
+        "structure": 54
     },
     {
         "variant": "K417N",
@@ -78,10 +78,10 @@
     },
     {
         "variant": "Iota",
-        "cp": 41,
-        "vp": 785,
-        "phase3": 13,
-        "structure": 1
+        "cp": 81,
+        "vp": 829,
+        "phase3": 27,
+        "structure": 9
     },
     {
         "variant": "Other combinations of mutations",
@@ -92,9 +92,9 @@
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 7256,
-        "vp": 18650,
-        "phase3": 789,
-        "structure": 452
+        "cp": 7296,
+        "vp": 18694,
+        "phase3": 810,
+        "structure": 464
     }
 ]

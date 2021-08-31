@@ -1,4 +1,12 @@
 ﻿ref_name,mab,position,amino_acid,fold,fold_cmp,score
+Annavajhala21b,Bamlanivimab,484,K,15282.5,>,0.97
+Annavajhala21b,C121,484,K,6879.3,=,1.0
+Annavajhala21b,Casirivimab,484,K,13.2,=,0.008
+Annavajhala21b,Cilgavimab,484,K,1.0,=,0.001
+Annavajhala21b,Etesevimab,484,K,3.3,=,0.001
+Annavajhala21b,Imdevimab,484,K,1.0,=,0.002
+Annavajhala21b,Sotrovimab,484,K,0.1,=,0.034
+Annavajhala21b,Tixagevimab,484,K,3.8,=,0.03
 Baum20,Casirivimab,417,E,148.8,=,0.56
 Baum20,Casirivimab,444,Q,1.4,=,0.003
 Baum20,Casirivimab,445,A,1.6,=,0.007
