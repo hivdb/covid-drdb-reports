@@ -81,7 +81,7 @@ def query_dms_by_mutation(pos, aa):
 
 
 def query_invitro_by_mutation(pos, aa):
-    print('====In vitro====')
+    print('====In Vitro Selection====')
     INVITRO_SQL = """
     SELECT
         b.ab_name,
