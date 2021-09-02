@@ -1,2 +1,4 @@
 .DS_Store
 __pycache__
+master_query/covid-drdb-latest.db
+master_query/variants-mutations.csv
