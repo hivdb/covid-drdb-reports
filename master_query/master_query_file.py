@@ -39,7 +39,7 @@ def run_query(sql_stat):
 
 
 def query_dms_by_mutation(pos, aa):
-    print('====DMS====')
+    print('\n==== DMS ====')
     DMS_BINDING_SQL = """
     SELECT
         ace2_binding,
@@ -84,7 +84,7 @@ def query_dms_by_mutation(pos, aa):
 
 
 def query_invitro_by_mutation(pos, aa):
-    print('====In Vitro Selection====')
+    print('\n==== In Vitro Selection ====')
     INVITRO_SQL = """
     SELECT
         b.ab_name,
@@ -156,8 +156,8 @@ def _format_print_rx_info(records):
 
 
 def query_invivo_by_mutation(pos, aa):
-    print('====mAb invitro====')
-    MAB_SQL = """
+    print('\n==== mAb invitro (Clinical trials) ====')
+    MAB_EUA_SQL = """
     SELECT
         rx.ab_name main_name,
         s.fold_cmp,
@@ -197,9 +197,52 @@ def query_invivo_by_mutation(pos, aa):
         aa=aa
     )
 
-    _format_print_rx_info(run_query(MAB_SQL))
+    _format_print_rx_info(run_query(MAB_EUA_SQL))
 
-    print('====CP invitro====')
+    print('\n==== mAb invitro (other) ====')
+    MAB_NON_EUA_SQL = """
+    SELECT
+        rx.ab_name main_name,
+        s.fold_cmp,
+        s.fold,
+        s.iso_name,
+        sum(s.cumulative_count) num_results
+    FROM
+        susc_results s,
+        ({rx_mab}) rx
+    WHERE
+        s.ref_name = rx.ref_name
+        AND
+        s.rx_name = rx.rx_name
+        AND
+        s.control_iso_name IN ({control_iso_sql})
+        AND
+        rx.availability IS NULL
+        AND
+        s.iso_name IN (
+            SELECT
+                iso_name
+            FROM
+                ({single_mutation_isolates})
+            WHERE
+                position = {pos}
+                AND
+                amino_acid = '{aa}'
+        )
+    GROUP BY
+        s.ref_name,
+        s.rx_name
+    """.format(
+        rx_mab=RX_MAB_DRDB,
+        single_mutation_isolates=SINGLE_SPIKE_MUTATION,
+        control_iso_sql=WT_VARIANTS,
+        pos=pos,
+        aa=aa
+    )
+
+    _format_print_rx_info(run_query(MAB_NON_EUA_SQL))
+
+    print('\n==== CP invitro ====')
     CP_SQL = """
     SELECT
         'CP' main_name,
@@ -241,7 +284,7 @@ def query_invivo_by_mutation(pos, aa):
 
     _format_print_rx_info(run_query(CP_SQL))
 
-    print('====VP invitro====')
+    print('\n==== VP invitro ====')
     VP_SQL = """
     SELECT
         'VP' main_name,
@@ -284,7 +327,7 @@ def query_invivo_by_mutation(pos, aa):
 
 
 def query_outbreak_variant(pos, aa):
-    print('====Outbreak variants====')
+    print('\n==== Outbreak variants ====')
     outbreak_info = load_csv(OUTBREAK_PATH)
     for row in outbreak_info:
         if int(row['pos']) == pos and row['mut'].upper() == aa.upper():
