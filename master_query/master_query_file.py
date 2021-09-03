@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 from preset import load_csv, dump_csv
+from preset import load_json
 from mab import RX_MAB_DMS
 from mab import RX_MAB_DRDB
 from mab import RX_SINGLE_MAB_DMS_SQL
@@ -20,6 +21,16 @@ AA_NAMES = 'ACDEFGHIKLMNPQRSTVWY'
 
 DB_PATH = Path(__file__).parent.absolute() / 'covid-drdb-latest.db'
 OUTBREAK_PATH = Path(__file__).parent.absolute() / 'variants-mutations.csv'
+OUTBREAK_COUNT_PATH = Path(__file__).parent.absolute() / 'variants-count.json'
+
+
+def load_variant_count():
+    result = {}
+    for i in load_json(OUTBREAK_COUNT_PATH)['results']:
+        name = i['name'].upper()
+        total = i['total_count']
+        result[name] = total
+    return result
 
 
 def run_query(sql_stat):
@@ -328,13 +339,21 @@ def query_invivo_by_mutation(pos, aa):
 
 def query_outbreak_variant(pos, aa):
     print('\n==== Outbreak variants ====')
+    print('  |  '.join(['Pangolin', 'total', 'URL']))
+
+    variant_count_map = load_variant_count()
+
     outbreak_info = load_csv(OUTBREAK_PATH)
     for row in outbreak_info:
         if int(row['pos']) == pos and row['mut'].upper() == aa.upper():
-            print(
-                row['name'],
-                'https://outbreak.info/situation-reports?pango={}'.format(
-                    row['name']))
+            total = variant_count_map.get(row['name'], 'Unknown')
+            print('  |  '.join(
+                [
+                    row['name'],
+                    str(total),
+                    'https://outbreak.info/situation-reports?pango={}'.format(
+                        row['name'])
+                ]))
             continue
 
 
@@ -346,7 +365,6 @@ def _query(pos, aa):
     query_invivo_by_mutation(pos, aa)
     query_outbreak_variant(pos, aa)
     print('-'*20 + '\n\n')
-
 
 
 def query_muation(pos, aa):

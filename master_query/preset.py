@@ -32,6 +32,11 @@ def load_csv(file_path):
     return records
 
 
+def load_json(json_path):
+    with json_path.open() as fd:
+        return json.load(fd)
+
+
 def dump_json(json_path, obj):
     with json_path.open('w') as fd:
         json.dump(obj, fd, indent=4, ensure_ascii=False)
