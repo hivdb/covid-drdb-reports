@@ -288,7 +288,10 @@ def query_outbreak_variant(pos, aa):
     outbreak_info = load_csv(OUTBREAK_PATH)
     for row in outbreak_info:
         if int(row['pos']) == pos and row['mut'].upper() == aa.upper():
-            print(row['name'])
+            print(
+                row['name'],
+                'https://outbreak.info/situation-reports?pango={}'.format(
+                    row['name']))
             continue
 
 
