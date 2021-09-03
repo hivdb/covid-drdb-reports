@@ -6,6 +6,7 @@ syncdb:
 	@wget https://raw.githubusercontent.com/hivdb/chiro-cms/master/resources/outbreak-aapcnt/variants-mutations.csv -O master_query/variants-mutations.csv
 
 query:
-	@python master_query/master_query_file.py
+	@python master_query/master_query_file.py > master_query/query_results.txt
+	@echo "Please open \033[0;31mmaster_query/query_results.txt\033[0m to review the result."
 
 .PHONE: tables syncdb query

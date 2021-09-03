@@ -13,7 +13,10 @@ from preset import round_number
 
 
 POSITION = 449
-AA = 'H'
+AA = ''
+
+
+AA_NAMES = 'ACDEFGHIKLMNPQRSTVWY'
 
 DB_PATH = Path(__file__).parent.absolute() / 'covid-drdb-latest.db'
 OUTBREAK_PATH = Path(__file__).parent.absolute() / 'variants-mutations.csv'
@@ -289,13 +292,24 @@ def query_outbreak_variant(pos, aa):
             continue
 
 
-def query_muation(pos, aa):
-    print('Position:', pos)
+def _query(pos, aa):
+    print('-'*20)
     print("AA:", aa)
     query_dms_by_mutation(pos, aa)
     query_invitro_by_mutation(pos, aa)
     query_invivo_by_mutation(pos, aa)
     query_outbreak_variant(pos, aa)
+    print('-'*20 + '\n\n')
+
+
+
+def query_muation(pos, aa):
+    print('Position:', pos)
+    if aa and len(aa) == 1:
+        _query(pos, aa)
+    else:
+        for aa in AA_NAMES:
+            _query(pos, aa)
 
 
 if __name__ == '__main__':

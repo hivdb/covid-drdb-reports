@@ -7,7 +7,9 @@
 2. update the position and mutation
     - open file `master_query_file.py`
     - update `POSITION` and `AA`
-3. run `make query` to view the result
+    - **if you want to view all mutations in a position please set AA to null string**s
+3. run `make query`
+4. open `query_results.txt` to see the result
 
 
 ## Criterias used in the query
