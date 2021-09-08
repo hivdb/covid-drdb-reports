@@ -37,14 +37,13 @@ def dump_json(json_path, obj):
         json.dump(obj, fd, indent=4, ensure_ascii=False)
 
 
-decimal.getcontext().rounding = decimal.ROUND_HALF_UP
-
-
 def round_number(float_number):
-    if float_number > 1:
+    if float_number > 10:
         return Decimal(str(float_number)).quantize(Decimal('1'))
-    elif float_number >= 0.1:
+    elif float_number > 1:
         return Decimal(str(float_number)).quantize(Decimal('1.0'))
+    elif float_number >= 0.1:
+        return Decimal(str(float_number)).quantize(Decimal('1.00'))
     elif float_number == 0:
         return 0
     else:
