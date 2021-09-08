@@ -82,7 +82,7 @@ def gen_cp_summary(conn):
     for timing, rx_list in timing_group.items():
         timing_results.append({
             'Timing': timing,
-            'Samples': sum([r['samples'] for r in rx_list])
+            'Results': sum([r['samples'] for r in rx_list])
         })
 
     timing_results.sort(key=lambda x: x['Timing'] if x['Timing'] else 0)
@@ -99,7 +99,7 @@ def gen_cp_summary(conn):
     for severity, rx_list in severity_group.items():
         severiy_results.append({
             'Severity': severity,
-            'Samples': sum([r['samples'] for r in rx_list])
+            'Results': sum([r['samples'] for r in rx_list])
         })
     save_path = DATA_FILE_PATH / 'summary_cp_severity.csv'
     dump_csv(save_path, severiy_results)
@@ -113,7 +113,7 @@ def gen_cp_summary(conn):
     for infection, rx_list in infection_group.items():
         infection_results.append({
             'Infection': infection,
-            'Samples': sum([r['samples'] for r in rx_list])
+            'Results': sum([r['samples'] for r in rx_list])
         })
     save_path = DATA_FILE_PATH / 'summary_cp_infection.csv'
     dump_csv(save_path, infection_results)
