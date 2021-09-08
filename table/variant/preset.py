@@ -33,7 +33,7 @@ def get_spike_ref(conn):
 
 CONTROL_VARIANTS_SQL = None
 
-D614G_ONLY_MUTATION = """
+D614G_ONLY_ISOLATE = """
 SELECT
     b.iso_name,
     b.var_name
@@ -64,7 +64,7 @@ WHERE
 ;
 """
 
-S_ONLY_ISOLATES = """
+SPIKE_ONLY_ISOLATES = """
 SELECT
     *
 FROM
@@ -87,7 +87,7 @@ SELECT
     position,
     amino_acid
 FROM
-    ({s_only_isolates})
+    ({spike_only_isolates})
 WHERE
     iso_name IN (
         SELECT
@@ -98,7 +98,7 @@ WHERE
                     iso_name,
                     count(1) mut_count
                 FROM
-                    ({s_only_isolates})
+                    ({spike_only_isolates})
                 WHERE
                     gene = 'S'
                     AND
@@ -118,7 +118,7 @@ WHERE
     AND
     (position, amino_acid) != (683, 'G')
 """.format(
-    s_only_isolates=S_ONLY_ISOLATES)
+    spike_only_isolates=SPIKE_ONLY_ISOLATES)
 
 
 NO_S_MUTATION = """
@@ -141,28 +141,40 @@ WHERE
     )
 """
 
+WT_MUTATIONS = """
+SELECT
+    *
+FROM
+    isolates
+WHERE
+    var_name in ('A', 'B', 'B.1')
+    OR iso_name in ('S:614G', 'S:683G')
+;
+"""
+
 
 def gen_control_variants(conn):
     global CONTROL_VARIANTS_SQL
 
     cursor = conn.cursor()
-    cursor.execute(D614G_ONLY_MUTATION)
-    isolates = [r for r in cursor.fetchall()]
+    # cursor.execute(D614G_ONLY_ISOLATE)
+    # isolates = [r for r in cursor.fetchall()]
 
-    cursor.execute(NO_S_MUTATION)
-    isolates += [r for r in cursor.fetchall()]
+    # cursor.execute(NO_S_MUTATION)
+    cursor.execute(WT_MUTATIONS)
+    isolates = [r for r in cursor.fetchall()]
 
     # print('Control isolates', [
     #     (r['iso_name'], r['var_name']) for r in isolates])
 
     iso_names = [r['iso_name'] for r in isolates]
-    iso_names.extend([
-        'VIC',
-        'VIC Spike',
-        'WA1',
-        'WA1 Spike',
-        'S:683G',
-    ])
+    # iso_names.extend([
+    #     'VIC',
+    #     'VIC Spike',
+    #     'WA1',
+    #     'WA1 Spike',
+    #     'S:683G',
+    # ])
 
     CONTROL_VARIANTS_SQL = '({})'.format(
         ', '.join(["'{}'".format(i) for i in iso_names])
@@ -248,6 +260,13 @@ IGNORE_VARIANTS = [
     'WIV1 Spike',
 ]
 
+IGNORE_VARIANT_SYNYNOMS = [
+    'Kemp21-d101',
+    'WA-RML/d85',
+    'WA-RML/d105',
+    'B.1.427',
+]
+
 VARIANT_NICKNAMES = {
     '69-70∆,N501Y': 'Alpha (variation)',
     '69-70∆,N501Y,P681H': 'Alpha (variation)',
@@ -309,13 +328,6 @@ NTD_DELETION_GROUP_RULE = {
 
 IGNORE_MUTATION = [
     (614, 'G')
-]
-
-IGNORE_VARIANT_SYNYNOMS = [
-    'Kemp21-d101',
-    'WA-RML/d85',
-    'WA-RML/d105',
-    'B.1.427',
 ]
 
 
@@ -405,7 +417,7 @@ def get_uniq_isolate_list(isolate_info):
 
         mut_count = len(mut_list)
         if mut_count == 0:
-            print('No mutations', iso_name)
+            # print('No mutations', iso_name)
             continue
 
         uniq_mutation_list = ','.join(
