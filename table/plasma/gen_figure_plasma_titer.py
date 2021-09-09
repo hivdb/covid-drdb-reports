@@ -121,4 +121,44 @@ def gen_figure_plasma_titer(
             rec[key] = row[key]
         records.append(rec)
 
-    dump_csv(save_path, records)
+    results = []
+
+    iso_group = defaultdict(list)
+    for rec in records:
+        iso_name = rec['iso_name']
+        iso_group[iso_name].append(rec)
+
+    for iso, rec_list in iso_group.items():
+
+        rx_group = defaultdict(list)
+        for rec in rec_list:
+            rx_name = rec['rx_name']
+            rx_group[rx_name].append(rec)
+
+        for rx_name, rx_rec_list in rx_group.items():
+            low = [r for r in rx_rec_list if int(r['titer']) <= 40]
+            middle = [r for r in rx_rec_list if int(r['titer']) > 40 and int(r['titer']) <= 100]
+            high = [r for r in rx_rec_list if int(r['titer']) > 100]
+
+            results.append({
+                'iso_name': iso,
+                'rx_name': rx_name,
+                'level': 'l',
+                'count': sum([r['num_result'] for r in low])
+            })
+
+            results.append({
+                'iso_name': iso,
+                'rx_name': rx_name,
+                'level': 'm',
+                'count': sum([r['num_result'] for r in middle])
+            })
+
+            results.append({
+                'iso_name': iso,
+                'rx_name': rx_name,
+                'level': 'h',
+                'count': sum([r['num_result'] for r in high])
+            })
+
+    dump_csv(save_path, results)
