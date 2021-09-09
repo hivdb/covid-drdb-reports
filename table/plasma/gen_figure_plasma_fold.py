@@ -110,7 +110,7 @@ def process_record(variant, records):
     return result
 
 
-def gen_plasma_figure():
+def gen_figure_plasma_fold():
     cp_variant_records = load_csv(DATA_FILE_PATH / 'table_cp_variants.csv')
     cp_mut_records = load_csv(DATA_FILE_PATH / 'table_cp_muts.csv')
     vp_variant_records = load_csv(DATA_FILE_PATH / 'table_vp_variants.csv')
@@ -160,5 +160,5 @@ def gen_plasma_figure():
                         '{}_num_{}_fold'.format(plasma, susc), 0)
                 })
 
-    save_file = DATA_FILE_PATH / 'figure_plasma.csv'
+    save_file = DATA_FILE_PATH / 'figure_plasma_fold.csv'
     dump_csv(save_file, figure_results)

@@ -7,28 +7,21 @@ DOMAINS = {
     'S2': (687, 1273),
 }
 
-SPIKE_REF = {}
-SPIKE_REF_SQL = """
+ISOLATE_MUTATIONS_WITH_REF = """
 SELECT
-    *
+    a.iso_name,
+    a.gene,
+    b.amino_acid as ref,
+    a.position,
+    a.amino_acid
 FROM
-    ref_amino_acid
+    isolate_mutations a,
+    ref_amino_acid b
 WHERE
-    gene = 'S'
-;
+    a.gene = b.gene
+    AND
+    a.position = b.position
 """
-
-
-def get_spike_ref(conn):
-    global SPIKE_REF
-
-    cursor = conn.cursor()
-    cursor.execute(SPIKE_REF_SQL)
-
-    for rec in cursor.fetchall():
-        position = rec['position']
-        aa = rec['amino_acid']
-        SPIKE_REF[position] = aa
 
 
 CONTROL_VARIANTS_SQL = None
@@ -68,57 +61,58 @@ SPIKE_ONLY_ISOLATES = """
 SELECT
     *
 FROM
-    isolate_mutations
-WHERE
-    iso_name NOT IN
-    (
-        SELECT
-            DISTINCT iso_name
-        FROM
-            isolate_mutations
-        WHERE
-            gene != 'S'
+    ({isolate_mutations}) a
+WHERE NOT EXISTS (
+    SELECT
+        1
+    FROM
+        ({isolate_mutations}) b
+    WHERE
+        gene != 'S'
+        AND
+        b.iso_name = a.iso_name
     )
-"""
+""".format(
+    isolate_mutations=ISOLATE_MUTATIONS_WITH_REF)
 
-SINGLE_S_MUTATION_ISOLATES = """
+SPIKE_ONLY_MUT_ISOLATES = """
 SELECT
-    iso_name,
-    position,
-    amino_acid
+    *
 FROM
     ({spike_only_isolates})
 WHERE
-    iso_name IN (
-        SELECT
-            iso_name
-        FROM
-            (
-                SELECT
-                    iso_name,
-                    count(1) mut_count
-                FROM
-                    ({spike_only_isolates})
-                WHERE
-                    gene = 'S'
-                    AND
-                    (position, amino_acid) != (614, 'G')
-                    AND
-                    (position, amino_acid) != (683, 'G')
-                GROUP BY
-                    iso_name
-            )
-        WHERE
-            mut_count = 1
-    )
-    AND
-    gene = 'S'
-    AND
     (position, amino_acid) != (614, 'G')
     AND
     (position, amino_acid) != (683, 'G')
 """.format(
-    spike_only_isolates=SPIKE_ONLY_ISOLATES)
+    spike_only_isolates=SPIKE_ONLY_ISOLATES
+)
+
+
+SINGLE_S_MUTATION_ISOLATES = """
+SELECT
+    ref || position || amino_acid single_mut_name,
+    iso_name,
+    ref,
+    position,
+    amino_acid
+FROM
+    ({spike_only_mut_isolates}) a
+WHERE
+    EXISTS (
+        SELECT
+            *
+        FROM
+            ({spike_only_mut_isolates}) b
+        WHERE
+            a.iso_name = b.iso_name
+        GROUP BY
+            b.iso_name
+        HAVING
+            COUNT(1) = 1
+    )
+""".format(
+    spike_only_mut_isolates=SPIKE_ONLY_MUT_ISOLATES)
 
 
 NO_S_MUTATION = """
@@ -384,6 +378,30 @@ def get_grouped_variants(conn):
 
     # from pprint import pprint
     # pprint(list(COMBO_MUT_VARIANT.keys()))
+
+
+SPIKE_REF = {}
+SPIKE_REF_SQL = """
+SELECT
+    *
+FROM
+    ref_amino_acid
+WHERE
+    gene = 'S'
+;
+"""
+
+
+def get_spike_ref(conn):
+    global SPIKE_REF
+
+    cursor = conn.cursor()
+    cursor.execute(SPIKE_REF_SQL)
+
+    for rec in cursor.fetchall():
+        position = rec['position']
+        aa = rec['amino_acid']
+        SPIKE_REF[position] = aa
 
 
 def get_uniq_isolate_list(isolate_info):
