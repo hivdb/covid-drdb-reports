@@ -2,6 +2,7 @@ import csv
 from pathlib import Path
 import decimal
 from decimal import Decimal
+from collections import defaultdict
 import json
 from decimal import localcontext
 
@@ -50,3 +51,12 @@ def round_number(float_number):
         with localcontext() as ctx:
             ctx.prec = 2
             return Decimal(str(float_number)) + Decimal(0)
+
+
+def group_records_by(records, key_name):
+    group_result = defaultdict(list)
+    for rec in records:
+        key = rec[key_name]
+        group_result[key].append(rec)
+
+    return group_result

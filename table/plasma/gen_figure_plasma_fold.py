@@ -1,164 +1,319 @@
 from preset import DATA_FILE_PATH
-from preset import load_csv
 from preset import dump_csv
-from .preset import IGNORE_VACCINE_NAME
-
-from .common import get_sample_number_pair
+from preset import group_records_by
+from resistancy import get_susceptibility
 from collections import defaultdict
+from itertools import product
+from .preset import INFECTED_VACCINEE
 
-SHOW_VARIANT = [
-    'Alpha',
-    'Beta',
-    'Gamma',
-    'Delta',
-    'Iota',
-    'Epsilon',
-    'Kappa',
-    'N501Y',
-    'E484K',
-    'L452R',
-    # 'K417N',
-    # 'N439K',
-    # 'Y453F',
-    # 'F490S',
-    # 'S494P',
-    # '∆69/70',
-    # '∆144',
+
+CP_FOLD_VARIANT_SQL = """
+SELECT
+    c.var_name iso_name,
+    "CP" rx_name,
+    a.ref_name,
+    a.fold_cmp || a.fold fold,
+    b.timing month,
+    'infected' infection,
+    a.cumulative_count num_result
+FROM
+    susc_results a,
+    rx_conv_plasma b,
+    isolates c
+WHERE
+    a.ref_name = b.ref_name
+    AND
+    a.rx_name = b.rx_name
+    AND
+    a.iso_name = c.iso_name
+    AND
+    c.var_name IS NOT NULL
+    AND
+    a.potency_type = 'NT50'
+    AND
+    NOT EXISTS (
+        SELECT
+            1
+        FROM ({infected_vaccinee}) d
+        WHERE
+            b.ref_name = d.ref_name
+            AND
+            b.subject_name = d.subject_name
+    )
+"""
+
+VP_FOLD_VARIANT_SQL = """
+SELECT
+    c.var_name iso_name,
+    b.vaccine_name rx_name,
+    a.ref_name,
+    a.fold_cmp || a.fold fold,
+    b.timing month,
+    'naive' infection,
+    a.cumulative_count num_result
+FROM
+    susc_results a,
+    rx_vacc_plasma b,
+    isolates c,
+    vaccines d
+WHERE
+    a.ref_name = b.ref_name
+    AND
+    a.rx_name = b.rx_name
+    AND
+    a.iso_name = c.iso_name
+    AND
+    c.var_name IS NOT NULL
+    AND
+    b.vaccine_name = d.vaccine_name
+    AND
+    b.dosage = d.st_shot
+    AND
+    a.potency_type = 'NT50'
+    AND
+    NOT EXISTS (
+        SELECT
+            1
+        FROM ({infected_vaccinee}) f
+        WHERE
+            b.ref_name = f.ref_name
+            AND
+            b.subject_name = f.subject_name
+    )
+"""
+
+VP_FOLD_INFECTED_VARIANT_SQL = """
+SELECT
+    c.var_name iso_name,
+    b.vaccine_name rx_name,
+    a.ref_name,
+    a.fold_cmp || a.fold fold,
+    b.timing month,
+    'infected' infection,
+    a.cumulative_count num_result
+FROM
+    susc_results a,
+    rx_vacc_plasma b,
+    isolates c,
+    vaccines d
+WHERE
+    a.ref_name = b.ref_name
+    AND
+    a.rx_name = b.rx_name
+    AND
+    a.iso_name = c.iso_name
+    AND
+    c.var_name IS NOT NULL
+    AND
+    b.vaccine_name = d.vaccine_name
+    AND
+    b.dosage = d.st_shot
+    AND
+    a.potency_type = 'NT50'
+    AND
+    EXISTS (
+        SELECT
+            1
+        FROM ({infected_vaccinee}) f
+        WHERE
+            b.ref_name = f.ref_name
+            AND
+            b.subject_name = f.subject_name
+    )
+"""
+
+
+ISO_NAME_LIST = [
+    "Alpha",
+    "Beta",
+    "Gamma",
+    "Delta",
+]
+
+RX_NAME_LIST = [
+    "CP",
+    "BNT162b2",
+    'mRNA-1273',
+    'AZD1222',
+    'Ad26.COV2.S',
+    'NVX-CoV2373',
+    'BBV152',
+    'CoronaVac',
+    'BBIBP-CorV',
+    'Sputnik V',
+    'MVC-COV1901',
+    'ZF2001',
+]
+
+FOLD_LEVEL = [
+    'S',
+    'I',
+    'R',
+]
+
+MONTH = [
+    '1',
+    '>=2',
+]
+
+INFECTION = [
+    'infected',
+    'naive'
 ]
 
 
-REGULAR_PLASMA_NAMES = ['CP', 'BNT162b2', 'mRNA-1273', 'AZD1222']
+def gen_figure_plasma_fold(
+        conn,
+        save_path=DATA_FILE_PATH / 'figure_plasma_fold.csv'):
+    sql_tmpl = " UNION ALL ".join([
+        CP_FOLD_VARIANT_SQL,
+        VP_FOLD_VARIANT_SQL,
+        VP_FOLD_INFECTED_VARIANT_SQL,
+    ])
 
+    sql = sql_tmpl.format(infected_vaccinee=INFECTED_VACCINEE)
 
-def group_variants(variant_groups, records):
-    for r in records:
-        variant = r['Variant name']
-        if variant not in SHOW_VARIANT:
+    cursor = conn.cursor()
+    cursor.execute(sql)
+
+    rows = []
+    for row in cursor.fetchall():
+        rec = {}
+        for key in row.keys():
+            rec[key] = row[key]
+        rows.append(rec)
+
+    records, used_header_combo = _add_records(rows)
+
+    for store_key in product(
+            ISO_NAME_LIST,
+            RX_NAME_LIST,
+            FOLD_LEVEL,
+            MONTH,
+            INFECTION):
+        if store_key in used_header_combo:
             continue
-        variant_groups[variant].append(r)
+        used_header_combo.append(store_key)
+        iso_name, rx_name, level, month, infection = store_key
+        records.append({
+                'variant': iso_name,
+                'rx_name': rx_name,
+                'susc': level,
+                'month': month,
+                'infection': infection,
+                'num_study': 0,
+                'num_result': 0
+            })
 
-    return variant_groups
-
-
-def parse_fold(rec):
-    fold = rec['Fold']
-    if fold[0].isdigit():
-        return float(fold)
-    else:
-        return float(fold[1:])
-
-
-def process_record(variant, records):
-    global REGULAR_PLASMA_NAMES
-
-    cp_groups = defaultdict(list)
-
-    for r in records:
-        plasma = r['Plasma']
-        if plasma.startswith('CP'):
-            cp_groups['CP'].append(r)
-        elif plasma.lower() in ('mild', 'severe'):
-            cp_groups['CP'].append(r)
-        elif plasma == 'IVIG':
-            cp_groups['CP'].append(r)
-        elif plasma in IGNORE_VACCINE_NAME:
-            continue
-        else:
-            if plasma not in REGULAR_PLASMA_NAMES:
-                REGULAR_PLASMA_NAMES.append(plasma)
-            cp_groups[plasma].append(r)
-
-    for name in REGULAR_PLASMA_NAMES:
-        if name not in cp_groups:
-            cp_groups['vac'] = []
-
-    result = {'variant': variant}
-    for plasma, rec_list in cp_groups.items():
-        num_studies = len(
-            set([r['Reference'].replace('*', '')
-                 for r in rec_list]))
-
-        aggre_list = [r for r in rec_list if 'Fold' in r.keys()]
-        indiv_list = [r for r in rec_list if 'Fold' not in r.keys()]
-
-        num_s, num_i, num_r = get_sample_number_pair(indiv_list, aggre_list)
-
-        num_samples = num_i + num_r + num_s
-
-        if num_samples:
-            pcnt_s = round(num_s / num_samples * 100)
-            pcnt_i = round(num_i / num_samples * 100)
-            pcnt_r = 100 - pcnt_s - pcnt_i
-        else:
-            pcnt_i = 0
-            pcnt_r = 0
-            pcnt_s = 0
-
-        result['{}_studies'.format(plasma)] = num_studies
-        result['{}_samples'.format(plasma)] = num_samples
-        result['{}_s_fold'.format(plasma)] = '{}%'.format(
-            pcnt_s) if pcnt_s else 0
-        result['{}_i_fold'.format(plasma)] = '{}%'.format(
-            pcnt_i) if pcnt_i else 0
-        result['{}_r_fold'.format(plasma)] = '{}%'.format(
-            pcnt_r) if pcnt_r else 0
-
-        result['{}_num_s_fold'.format(plasma)] = num_s
-        result['{}_num_i_fold'.format(plasma)] = num_i
-        result['{}_num_r_fold'.format(plasma)] = num_r
-
-    return result
+    dump_csv(save_path, records)
 
 
-def gen_figure_plasma_fold():
-    cp_variant_records = load_csv(DATA_FILE_PATH / 'table_cp_variants.csv')
-    cp_mut_records = load_csv(DATA_FILE_PATH / 'table_cp_muts.csv')
-    vp_variant_records = load_csv(DATA_FILE_PATH / 'table_vp_variants.csv')
-    vp_mut_records = load_csv(DATA_FILE_PATH / 'table_vp_muts.csv')
+def _add_records(records):
+    data_points = []
+    used_header_combo = []
 
-    variant_groups = defaultdict(list)
-    group_variants(variant_groups, cp_variant_records)
-    group_variants(variant_groups, cp_mut_records)
+    grouped_records = group_records_by(records, 'iso_name')
+    new_grouped_records = {}
 
-    vp_variant_records = [
-        v for v in vp_variant_records
-        if (
-            (int(float(v['dosage'])) != 1 and v['Plasma'] != 'Ad26.COV2.S')
-            or
-            (int(float(v['dosage'])) == 1 and v['Plasma'] == 'Ad26.COV2.S')
-        )
-    ]
-    group_variants(variant_groups, vp_variant_records)
-    vp_mut_records = [
-        v for v in vp_mut_records
-        if (
-            (int(float(v['dosage'])) != 1 and v['Plasma'] != 'Ad26.COV2.S')
-            or
-            (int(float(v['dosage'])) == 1 and v['Plasma'] == 'Ad26.COV2.S')
-        )
-    ]
-    group_variants(variant_groups, vp_mut_records)
+    for key in ['rx_name', 'infection']:
+        for group_key, rec_list in grouped_records.items():
+            if type(group_key) == str:
+                group_key = [group_key]
 
-    result = []
-    for variant in SHOW_VARIANT:
-        records = variant_groups.get(variant, [])
-        result.append(
-            process_record(variant, records)
-        )
+            sub_group = group_records_by(rec_list, key)
 
-    figure_results = []
-    for item in result:
-        variant = item['variant']
-        for plasma in REGULAR_PLASMA_NAMES:
-            for susc in ['s', 'i', 'r']:
-                figure_results.append({
-                    'variant': variant,
-                    'study': plasma,
-                    'num_study': item.get('{}_studies'.format(plasma), 0),
-                    'susc': susc.upper(),
-                    'sample_num': item.get(
-                        '{}_num_{}_fold'.format(plasma, susc), 0)
-                })
+            for sub_key, sub_rec_list in sub_group.items():
+                new_group_key = tuple(list(group_key) + [sub_key])
+                new_grouped_records[new_group_key] = sub_rec_list
 
-    save_file = DATA_FILE_PATH / 'figure_plasma_fold.csv'
-    dump_csv(save_file, figure_results)
+        grouped_records = new_grouped_records
+        new_grouped_records = {}
+
+    for group_key, rec_list in grouped_records.items():
+        month_group = defaultdict(list)
+        for rec in rec_list:
+            month = rec['month']
+            if month < 2:
+                month = '1'
+            else:
+                month = '>=2'
+            month_group[month].append(rec)
+
+        for sub_key, sub_rec_list in month_group.items():
+            new_group_key = tuple(list(group_key) + [sub_key])
+            new_grouped_records[new_group_key] = sub_rec_list
+
+    grouped_records = new_grouped_records
+    new_grouped_records = {}
+
+    for group_key, rec_list in grouped_records.items():
+        iso_name, rx_name, infection, month = group_key
+
+        susc = [
+            r for r in rec_list
+            if get_susceptibility(r['fold']) == 'susceptible']
+        partial = [
+            r for r in rec_list
+            if get_susceptibility(r['fold']) == 'partial-resistance']
+        resist = [
+            r for r in rec_list
+            if get_susceptibility(r['fold']) == 'resistant']
+
+        data_points.append({
+            'variant': iso_name,
+            'rx_name': rx_name,
+            'susc': 'S',
+            'month': month,
+            'infection': infection,
+            'num_study': len(
+                set(r['ref_name'] for r in rec_list)),
+            'num_result': sum([r['num_result'] for r in susc])
+        })
+
+        used_header_combo.append((
+            iso_name,
+            rx_name,
+            'S',
+            month,
+            infection
+        ))
+
+        data_points.append({
+            'variant': iso_name,
+            'rx_name': rx_name,
+            'susc': 'I',
+            'month': month,
+            'infection': infection,
+            'num_study': len(
+                set(r['ref_name'] for r in rec_list)),
+            'num_result': sum([r['num_result'] for r in partial])
+        })
+
+        used_header_combo.append((
+            iso_name,
+            rx_name,
+            'I',
+            month,
+            infection
+        ))
+
+        data_points.append({
+            'variant': iso_name,
+            'rx_name': rx_name,
+            'susc': 'R',
+            'month': month,
+            'infection': infection,
+            'num_study': len(
+                set(r['ref_name'] for r in rec_list)),
+            'num_result': sum([r['num_result'] for r in resist])
+        })
+
+        used_header_combo.append((
+            iso_name,
+            rx_name,
+            'R',
+            month,
+            infection
+        ))
+
+    return data_points, used_header_combo

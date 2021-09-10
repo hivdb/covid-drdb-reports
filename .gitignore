@@ -4,3 +4,4 @@ master_query/covid-drdb-latest.db
 master_query/variants-mutations.csv
 master_query/query_results.txt
 master_query/variants-count.json
+*.png

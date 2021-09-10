@@ -1,451 +1,1054 @@
-﻿variant,study,num_study,susc,sample_num
-Alpha,CP,48,S,1396
-Alpha,CP,48,I,201
-Alpha,CP,48,R,76
-Alpha,BNT162b2,37,S,1221
-Alpha,BNT162b2,37,I,181
-Alpha,BNT162b2,37,R,6
-Alpha,mRNA-1273,15,S,558
-Alpha,mRNA-1273,15,I,18
-Alpha,mRNA-1273,15,R,6
-Alpha,AZD1222,6,S,58
-Alpha,AZD1222,6,I,44
-Alpha,AZD1222,6,R,45
-Alpha,AZD1222 + BNT162b2,2,S,11
-Alpha,AZD1222 + BNT162b2,2,I,38
-Alpha,AZD1222 + BNT162b2,2,R,16
-Alpha,Ad26.COV2.S,5,S,59
-Alpha,Ad26.COV2.S,5,I,2
-Alpha,Ad26.COV2.S,5,R,6
-Alpha,BBIBP-CorV,2,S,486
-Alpha,BBIBP-CorV,2,I,0
-Alpha,BBIBP-CorV,2,R,3
-Alpha,BBV152,2,S,65
-Alpha,BBV152,2,I,1
-Alpha,BBV152,2,R,0
-Alpha,CoronaVac,6,S,185
-Alpha,CoronaVac,6,I,65
-Alpha,CoronaVac,6,R,72
-Alpha,MVC-COV1901,1,S,41
-Alpha,MVC-COV1901,1,I,4
-Alpha,MVC-COV1901,1,R,0
-Alpha,NVX-CoV2373,1,S,20
-Alpha,NVX-CoV2373,1,I,7
-Alpha,NVX-CoV2373,1,R,1
-Alpha,Sputnik V,3,S,76
-Alpha,Sputnik V,3,I,10
-Alpha,Sputnik V,3,R,3
-Alpha,AZD1222 + AZD2816,0,S,0
-Alpha,AZD1222 + AZD2816,0,I,0
-Alpha,AZD1222 + AZD2816,0,R,0
-Alpha,ZF2001,0,S,0
-Alpha,ZF2001,0,I,0
-Alpha,ZF2001,0,R,0
-Alpha,mRNA,0,S,0
-Alpha,mRNA,0,I,0
-Alpha,mRNA,0,R,0
-Beta,CP,53,S,650
-Beta,CP,53,I,765
-Beta,CP,53,R,488
-Beta,BNT162b2,40,S,359
-Beta,BNT162b2,40,I,806
-Beta,BNT162b2,40,R,354
-Beta,mRNA-1273,19,S,151
-Beta,mRNA-1273,19,I,447
-Beta,mRNA-1273,19,R,191
-Beta,AZD1222,6,S,2
-Beta,AZD1222,6,I,45
-Beta,AZD1222,6,R,71
-Beta,AZD1222 + BNT162b2,2,S,11
-Beta,AZD1222 + BNT162b2,2,I,0
-Beta,AZD1222 + BNT162b2,2,R,54
-Beta,Ad26.COV2.S,6,S,20
-Beta,Ad26.COV2.S,6,I,30
-Beta,Ad26.COV2.S,6,R,53
-Beta,BBIBP-CorV,3,S,27
-Beta,BBIBP-CorV,3,I,473
-Beta,BBIBP-CorV,3,R,13
-Beta,BBV152,1,S,9
-Beta,BBV152,1,I,4
-Beta,BBV152,1,R,4
-Beta,CoronaVac,4,S,17
-Beta,CoronaVac,4,I,110
-Beta,CoronaVac,4,R,76
-Beta,MVC-COV1901,1,S,30
-Beta,MVC-COV1901,1,I,33
-Beta,MVC-COV1901,1,R,18
-Beta,NVX-CoV2373,1,S,0
-Beta,NVX-CoV2373,1,I,7
-Beta,NVX-CoV2373,1,R,16
-Beta,Sputnik V,3,S,7
-Beta,Sputnik V,3,I,27
-Beta,Sputnik V,3,R,19
-Beta,AZD1222 + AZD2816,1,S,7
-Beta,AZD1222 + AZD2816,1,I,0
-Beta,AZD1222 + AZD2816,1,R,6
-Beta,ZF2001,1,S,24
-Beta,ZF2001,1,I,0
-Beta,ZF2001,1,R,0
-Beta,mRNA,1,S,0
-Beta,mRNA,1,I,30
-Beta,mRNA,1,R,0
-Gamma,CP,22,S,385
-Gamma,CP,22,I,191
-Gamma,CP,22,R,82
-Gamma,BNT162b2,17,S,431
-Gamma,BNT162b2,17,I,97
-Gamma,BNT162b2,17,R,5
-Gamma,mRNA-1273,9,S,242
-Gamma,mRNA-1273,9,I,104
-Gamma,mRNA-1273,9,R,18
-Gamma,AZD1222,3,S,16
-Gamma,AZD1222,3,I,20
-Gamma,AZD1222,3,R,32
-Gamma,AZD1222 + BNT162b2,2,S,11
-Gamma,AZD1222 + BNT162b2,2,I,1
-Gamma,AZD1222 + BNT162b2,2,R,53
-Gamma,Ad26.COV2.S,3,S,24
-Gamma,Ad26.COV2.S,3,I,7
-Gamma,Ad26.COV2.S,3,R,14
-Gamma,BBIBP-CorV,1,S,470
-Gamma,BBIBP-CorV,1,I,0
-Gamma,BBIBP-CorV,1,R,0
-Gamma,BBV152,0,S,0
-Gamma,BBV152,0,I,0
-Gamma,BBV152,0,R,0
-Gamma,CoronaVac,5,S,81
-Gamma,CoronaVac,5,I,167
-Gamma,CoronaVac,5,R,54
-Gamma,MVC-COV1901,0,S,0
-Gamma,MVC-COV1901,0,I,0
-Gamma,MVC-COV1901,0,R,0
-Gamma,NVX-CoV2373,0,S,0
-Gamma,NVX-CoV2373,0,I,0
-Gamma,NVX-CoV2373,0,R,0
-Gamma,Sputnik V,1,S,9
-Gamma,Sputnik V,1,I,33
-Gamma,Sputnik V,1,R,29
-Gamma,AZD1222 + AZD2816,0,S,0
-Gamma,AZD1222 + AZD2816,0,I,0
-Gamma,AZD1222 + AZD2816,0,R,0
-Gamma,ZF2001,0,S,0
-Gamma,ZF2001,0,I,0
-Gamma,ZF2001,0,R,0
-Gamma,mRNA,0,S,0
-Gamma,mRNA,0,I,0
-Gamma,mRNA,0,R,0
-Delta,CP,11,S,147
-Delta,CP,11,I,126
-Delta,CP,11,R,75
-Delta,BNT162b2,11,S,211
-Delta,BNT162b2,11,I,206
-Delta,BNT162b2,11,R,43
-Delta,mRNA-1273,8,S,119
-Delta,mRNA-1273,8,I,45
-Delta,mRNA-1273,8,R,10
-Delta,AZD1222,6,S,42
-Delta,AZD1222,6,I,92
-Delta,AZD1222,6,R,18
-Delta,AZD1222 + BNT162b2,1,S,11
-Delta,AZD1222 + BNT162b2,1,I,0
-Delta,AZD1222 + BNT162b2,1,R,0
-Delta,Ad26.COV2.S,4,S,17
-Delta,Ad26.COV2.S,4,I,22
-Delta,Ad26.COV2.S,4,R,6
-Delta,BBIBP-CorV,0,S,0
-Delta,BBIBP-CorV,0,I,0
-Delta,BBIBP-CorV,0,R,0
-Delta,BBV152,1,S,12
-Delta,BBV152,1,I,1
-Delta,BBV152,1,R,4
-Delta,CoronaVac,2,S,28
-Delta,CoronaVac,2,I,0
-Delta,CoronaVac,2,R,60
-Delta,MVC-COV1901,0,S,0
-Delta,MVC-COV1901,0,I,0
-Delta,MVC-COV1901,0,R,0
-Delta,NVX-CoV2373,0,S,0
-Delta,NVX-CoV2373,0,I,0
-Delta,NVX-CoV2373,0,R,0
-Delta,Sputnik V,1,S,0
-Delta,Sputnik V,1,I,38
-Delta,Sputnik V,1,R,0
-Delta,AZD1222 + AZD2816,1,S,0
-Delta,AZD1222 + AZD2816,1,I,13
-Delta,AZD1222 + AZD2816,1,R,0
-Delta,ZF2001,0,S,0
-Delta,ZF2001,0,I,0
-Delta,ZF2001,0,R,0
-Delta,mRNA,0,S,0
-Delta,mRNA,0,I,0
-Delta,mRNA,0,R,0
-Iota,CP,5,S,40
-Iota,CP,5,I,37
-Iota,CP,5,R,4
-Iota,BNT162b2,4,S,31
-Iota,BNT162b2,4,I,18
-Iota,BNT162b2,4,R,0
-Iota,mRNA-1273,6,S,108
-Iota,mRNA-1273,6,I,43
-Iota,mRNA-1273,6,R,2
-Iota,AZD1222,0,S,0
-Iota,AZD1222,0,I,0
-Iota,AZD1222,0,R,0
-Iota,AZD1222 + BNT162b2,0,S,0
-Iota,AZD1222 + BNT162b2,0,I,0
-Iota,AZD1222 + BNT162b2,0,R,0
-Iota,Ad26.COV2.S,0,S,0
-Iota,Ad26.COV2.S,0,I,0
-Iota,Ad26.COV2.S,0,R,0
-Iota,BBIBP-CorV,1,S,0
-Iota,BBIBP-CorV,1,I,470
-Iota,BBIBP-CorV,1,R,0
-Iota,BBV152,0,S,0
-Iota,BBV152,0,I,0
-Iota,BBV152,0,R,0
-Iota,CoronaVac,1,S,0
-Iota,CoronaVac,1,I,93
-Iota,CoronaVac,1,R,0
-Iota,MVC-COV1901,0,S,0
-Iota,MVC-COV1901,0,I,0
-Iota,MVC-COV1901,0,R,0
-Iota,NVX-CoV2373,0,S,0
-Iota,NVX-CoV2373,0,I,0
-Iota,NVX-CoV2373,0,R,0
-Iota,Sputnik V,0,S,0
-Iota,Sputnik V,0,I,0
-Iota,Sputnik V,0,R,0
-Iota,AZD1222 + AZD2816,0,S,0
-Iota,AZD1222 + AZD2816,0,I,0
-Iota,AZD1222 + AZD2816,0,R,0
-Iota,ZF2001,0,S,0
-Iota,ZF2001,0,I,0
-Iota,ZF2001,0,R,0
-Iota,mRNA,0,S,0
-Iota,mRNA,0,I,0
-Iota,mRNA,0,R,0
-Epsilon,CP,6,S,66
-Epsilon,CP,6,I,18
-Epsilon,CP,6,R,14
-Epsilon,BNT162b2,5,S,103
-Epsilon,BNT162b2,5,I,25
-Epsilon,BNT162b2,5,R,3
-Epsilon,mRNA-1273,9,S,220
-Epsilon,mRNA-1273,9,I,49
-Epsilon,mRNA-1273,9,R,5
-Epsilon,AZD1222,0,S,0
-Epsilon,AZD1222,0,I,0
-Epsilon,AZD1222,0,R,0
-Epsilon,AZD1222 + BNT162b2,0,S,0
-Epsilon,AZD1222 + BNT162b2,0,I,0
-Epsilon,AZD1222 + BNT162b2,0,R,0
-Epsilon,Ad26.COV2.S,2,S,19
-Epsilon,Ad26.COV2.S,2,I,9
-Epsilon,Ad26.COV2.S,2,R,9
-Epsilon,BBIBP-CorV,0,S,0
-Epsilon,BBIBP-CorV,0,I,0
-Epsilon,BBIBP-CorV,0,R,0
-Epsilon,BBV152,0,S,0
-Epsilon,BBV152,0,I,0
-Epsilon,BBV152,0,R,0
-Epsilon,CoronaVac,2,S,105
-Epsilon,CoronaVac,2,I,16
-Epsilon,CoronaVac,2,R,0
-Epsilon,MVC-COV1901,0,S,0
-Epsilon,MVC-COV1901,0,I,0
-Epsilon,MVC-COV1901,0,R,0
-Epsilon,NVX-CoV2373,1,S,14
-Epsilon,NVX-CoV2373,1,I,9
-Epsilon,NVX-CoV2373,1,R,0
-Epsilon,Sputnik V,0,S,0
-Epsilon,Sputnik V,0,I,0
-Epsilon,Sputnik V,0,R,0
-Epsilon,AZD1222 + AZD2816,0,S,0
-Epsilon,AZD1222 + AZD2816,0,I,0
-Epsilon,AZD1222 + AZD2816,0,R,0
-Epsilon,ZF2001,0,S,0
-Epsilon,ZF2001,0,I,0
-Epsilon,ZF2001,0,R,0
-Epsilon,mRNA,0,S,0
-Epsilon,mRNA,0,I,0
-Epsilon,mRNA,0,R,0
-Kappa,CP,6,S,58
-Kappa,CP,6,I,52
-Kappa,CP,6,R,17
-Kappa,BNT162b2,7,S,46
-Kappa,BNT162b2,7,I,83
-Kappa,BNT162b2,7,R,4
-Kappa,mRNA-1273,5,S,23
-Kappa,mRNA-1273,5,I,71
-Kappa,mRNA-1273,5,R,4
-Kappa,AZD1222,4,S,77
-Kappa,AZD1222,4,I,41
-Kappa,AZD1222,4,R,6
-Kappa,AZD1222 + BNT162b2,0,S,0
-Kappa,AZD1222 + BNT162b2,0,I,0
-Kappa,AZD1222 + BNT162b2,0,R,0
-Kappa,Ad26.COV2.S,3,S,17
-Kappa,Ad26.COV2.S,3,I,15
-Kappa,Ad26.COV2.S,3,R,4
-Kappa,BBIBP-CorV,0,S,0
-Kappa,BBIBP-CorV,0,I,0
-Kappa,BBIBP-CorV,0,R,0
-Kappa,BBV152,1,S,26
-Kappa,BBV152,1,I,2
-Kappa,BBV152,1,R,0
-Kappa,CoronaVac,2,S,32
-Kappa,CoronaVac,2,I,0
-Kappa,CoronaVac,2,R,15
-Kappa,MVC-COV1901,0,S,0
-Kappa,MVC-COV1901,0,I,0
-Kappa,MVC-COV1901,0,R,0
-Kappa,NVX-CoV2373,0,S,0
-Kappa,NVX-CoV2373,0,I,0
-Kappa,NVX-CoV2373,0,R,0
-Kappa,Sputnik V,0,S,0
-Kappa,Sputnik V,0,I,0
-Kappa,Sputnik V,0,R,0
-Kappa,AZD1222 + AZD2816,1,S,0
-Kappa,AZD1222 + AZD2816,1,I,13
-Kappa,AZD1222 + AZD2816,1,R,0
-Kappa,ZF2001,1,S,3
-Kappa,ZF2001,1,I,2
-Kappa,ZF2001,1,R,5
-Kappa,mRNA,0,S,0
-Kappa,mRNA,0,I,0
-Kappa,mRNA,0,R,0
-N501Y,CP,10,S,199
-N501Y,CP,10,I,13
-N501Y,CP,10,R,5
-N501Y,BNT162b2,5,S,49
-N501Y,BNT162b2,5,I,0
-N501Y,BNT162b2,5,R,0
-N501Y,mRNA-1273,5,S,56
-N501Y,mRNA-1273,5,I,0
-N501Y,mRNA-1273,5,R,0
-N501Y,AZD1222,0,S,0
-N501Y,AZD1222,0,I,0
-N501Y,AZD1222,0,R,0
-N501Y,AZD1222 + BNT162b2,0,S,0
-N501Y,AZD1222 + BNT162b2,0,I,0
-N501Y,AZD1222 + BNT162b2,0,R,0
-N501Y,Ad26.COV2.S,0,S,0
-N501Y,Ad26.COV2.S,0,I,0
-N501Y,Ad26.COV2.S,0,R,0
-N501Y,BBIBP-CorV,0,S,0
-N501Y,BBIBP-CorV,0,I,0
-N501Y,BBIBP-CorV,0,R,0
-N501Y,BBV152,0,S,0
-N501Y,BBV152,0,I,0
-N501Y,BBV152,0,R,0
-N501Y,CoronaVac,0,S,0
-N501Y,CoronaVac,0,I,0
-N501Y,CoronaVac,0,R,0
-N501Y,MVC-COV1901,0,S,0
-N501Y,MVC-COV1901,0,I,0
-N501Y,MVC-COV1901,0,R,0
-N501Y,NVX-CoV2373,0,S,0
-N501Y,NVX-CoV2373,0,I,0
-N501Y,NVX-CoV2373,0,R,0
-N501Y,Sputnik V,0,S,0
-N501Y,Sputnik V,0,I,0
-N501Y,Sputnik V,0,R,0
-N501Y,AZD1222 + AZD2816,0,S,0
-N501Y,AZD1222 + AZD2816,0,I,0
-N501Y,AZD1222 + AZD2816,0,R,0
-N501Y,ZF2001,0,S,0
-N501Y,ZF2001,0,I,0
-N501Y,ZF2001,0,R,0
-N501Y,mRNA,0,S,0
-N501Y,mRNA,0,I,0
-N501Y,mRNA,0,R,0
-E484K,CP,15,S,123
-E484K,CP,15,I,55
-E484K,CP,15,R,40
-E484K,BNT162b2,8,S,47
-E484K,BNT162b2,8,I,44
-E484K,BNT162b2,8,R,4
-E484K,mRNA-1273,6,S,84
-E484K,mRNA-1273,6,I,23
-E484K,mRNA-1273,6,R,0
-E484K,AZD1222,0,S,0
-E484K,AZD1222,0,I,0
-E484K,AZD1222,0,R,0
-E484K,AZD1222 + BNT162b2,0,S,0
-E484K,AZD1222 + BNT162b2,0,I,0
-E484K,AZD1222 + BNT162b2,0,R,0
-E484K,Ad26.COV2.S,0,S,0
-E484K,Ad26.COV2.S,0,I,0
-E484K,Ad26.COV2.S,0,R,0
-E484K,BBIBP-CorV,0,S,0
-E484K,BBIBP-CorV,0,I,0
-E484K,BBIBP-CorV,0,R,0
-E484K,BBV152,0,S,0
-E484K,BBV152,0,I,0
-E484K,BBV152,0,R,0
-E484K,CoronaVac,0,S,0
-E484K,CoronaVac,0,I,0
-E484K,CoronaVac,0,R,0
-E484K,MVC-COV1901,0,S,0
-E484K,MVC-COV1901,0,I,0
-E484K,MVC-COV1901,0,R,0
-E484K,NVX-CoV2373,0,S,0
-E484K,NVX-CoV2373,0,I,0
-E484K,NVX-CoV2373,0,R,0
-E484K,Sputnik V,1,S,2
-E484K,Sputnik V,1,I,1
-E484K,Sputnik V,1,R,5
-E484K,AZD1222 + AZD2816,0,S,0
-E484K,AZD1222 + AZD2816,0,I,0
-E484K,AZD1222 + AZD2816,0,R,0
-E484K,ZF2001,0,S,0
-E484K,ZF2001,0,I,0
-E484K,ZF2001,0,R,0
-E484K,mRNA,0,S,0
-E484K,mRNA,0,I,0
-E484K,mRNA,0,R,0
-L452R,CP,8,S,45
-L452R,CP,8,I,20
-L452R,CP,8,R,8
-L452R,BNT162b2,3,S,44
-L452R,BNT162b2,3,I,15
-L452R,BNT162b2,3,R,2
-L452R,mRNA-1273,3,S,9
-L452R,mRNA-1273,3,I,9
-L452R,mRNA-1273,3,R,0
-L452R,AZD1222,0,S,0
-L452R,AZD1222,0,I,0
-L452R,AZD1222,0,R,0
-L452R,AZD1222 + BNT162b2,0,S,0
-L452R,AZD1222 + BNT162b2,0,I,0
-L452R,AZD1222 + BNT162b2,0,R,0
-L452R,Ad26.COV2.S,0,S,0
-L452R,Ad26.COV2.S,0,I,0
-L452R,Ad26.COV2.S,0,R,0
-L452R,BBIBP-CorV,0,S,0
-L452R,BBIBP-CorV,0,I,0
-L452R,BBIBP-CorV,0,R,0
-L452R,BBV152,0,S,0
-L452R,BBV152,0,I,0
-L452R,BBV152,0,R,0
-L452R,CoronaVac,0,S,0
-L452R,CoronaVac,0,I,0
-L452R,CoronaVac,0,R,0
-L452R,MVC-COV1901,0,S,0
-L452R,MVC-COV1901,0,I,0
-L452R,MVC-COV1901,0,R,0
-L452R,NVX-CoV2373,0,S,0
-L452R,NVX-CoV2373,0,I,0
-L452R,NVX-CoV2373,0,R,0
-L452R,Sputnik V,0,S,0
-L452R,Sputnik V,0,I,0
-L452R,Sputnik V,0,R,0
-L452R,AZD1222 + AZD2816,0,S,0
-L452R,AZD1222 + AZD2816,0,I,0
-L452R,AZD1222 + AZD2816,0,R,0
-L452R,ZF2001,0,S,0
-L452R,ZF2001,0,I,0
-L452R,ZF2001,0,R,0
-L452R,mRNA,0,S,0
-L452R,mRNA,0,I,0
-L452R,mRNA,0,R,0
+﻿variant,rx_name,susc,month,infection,num_study,num_result
+Alpha,CP,S,1,infected,35,833
+Alpha,CP,I,1,infected,35,157
+Alpha,CP,R,1,infected,35,22
+Alpha,CP,S,>=2,infected,23,793
+Alpha,CP,I,>=2,infected,23,116
+Alpha,CP,R,>=2,infected,23,7
+Alpha,mRNA-1273,S,1,naive,14,522
+Alpha,mRNA-1273,I,1,naive,14,16
+Alpha,mRNA-1273,R,1,naive,14,0
+Alpha,mRNA-1273,S,>=2,naive,2,26
+Alpha,mRNA-1273,I,>=2,naive,2,5
+Alpha,mRNA-1273,R,>=2,naive,2,0
+Alpha,mRNA-1273,S,1,infected,1,14
+Alpha,mRNA-1273,I,1,infected,1,0
+Alpha,mRNA-1273,R,1,infected,1,1
+Alpha,BNT162b2,S,1,naive,39,1119
+Alpha,BNT162b2,I,1,naive,39,165
+Alpha,BNT162b2,R,1,naive,39,4
+Alpha,BNT162b2,S,>=2,naive,4,140
+Alpha,BNT162b2,I,>=2,naive,4,14
+Alpha,BNT162b2,R,>=2,naive,4,0
+Alpha,BNT162b2,S,1,infected,6,77
+Alpha,BNT162b2,I,1,infected,6,2
+Alpha,BNT162b2,R,1,infected,6,0
+Alpha,CoronaVac,S,>=2,naive,2,52
+Alpha,CoronaVac,I,>=2,naive,2,65
+Alpha,CoronaVac,R,>=2,naive,2,2
+Alpha,CoronaVac,S,1,naive,3,108
+Alpha,CoronaVac,I,1,naive,3,9
+Alpha,CoronaVac,R,1,naive,3,61
+Alpha,Ad26.COV2.S,S,>=2,naive,4,42
+Alpha,Ad26.COV2.S,I,>=2,naive,4,3
+Alpha,Ad26.COV2.S,R,>=2,naive,4,0
+Alpha,Ad26.COV2.S,S,1,naive,2,18
+Alpha,Ad26.COV2.S,I,1,naive,2,1
+Alpha,Ad26.COV2.S,R,1,naive,2,3
+Alpha,AZD1222,S,1,naive,6,40
+Alpha,AZD1222,I,1,naive,6,109
+Alpha,AZD1222,R,1,naive,6,43
+Alpha,AZD1222,S,>=2,naive,1,20
+Alpha,AZD1222,I,>=2,naive,1,0
+Alpha,AZD1222,R,>=2,naive,1,0
+Alpha,AZD1222 + BNT162b2,S,1,naive,2,11
+Alpha,AZD1222 + BNT162b2,I,1,naive,2,38
+Alpha,AZD1222 + BNT162b2,R,1,naive,2,16
+Alpha,Sputnik V,S,>=2,naive,2,65
+Alpha,Sputnik V,I,>=2,naive,2,5
+Alpha,Sputnik V,R,>=2,naive,2,0
+Alpha,Sputnik V,S,1,naive,3,44
+Alpha,Sputnik V,I,1,naive,3,7
+Alpha,Sputnik V,R,1,naive,3,0
+Alpha,MVC-COV1901,S,1,naive,1,41
+Alpha,MVC-COV1901,I,1,naive,1,4
+Alpha,MVC-COV1901,R,1,naive,1,0
+Alpha,BBV152,S,1,naive,1,37
+Alpha,BBV152,I,1,naive,1,1
+Alpha,BBV152,R,1,naive,1,0
+Alpha,BBV152,S,>=2,naive,1,28
+Alpha,BBV152,I,>=2,naive,1,0
+Alpha,BBV152,R,>=2,naive,1,0
+Alpha,NVX-CoV2373,S,1,naive,1,20
+Alpha,NVX-CoV2373,I,1,naive,1,7
+Alpha,NVX-CoV2373,R,1,naive,1,1
+Alpha,BBIBP-CorV,S,1,naive,2,492
+Alpha,BBIBP-CorV,I,1,naive,2,3
+Alpha,BBIBP-CorV,R,1,naive,2,0
+Beta,CP,S,1,infected,39,469
+Beta,CP,I,1,infected,39,587
+Beta,CP,R,1,infected,39,225
+Beta,CP,S,>=2,infected,19,462
+Beta,CP,I,>=2,infected,19,385
+Beta,CP,R,>=2,infected,19,80
+Beta,BNT162b2,S,1,naive,43,307
+Beta,BNT162b2,I,1,naive,43,801
+Beta,BNT162b2,R,1,naive,43,318
+Beta,BNT162b2,S,>=2,naive,3,18
+Beta,BNT162b2,I,>=2,naive,3,38
+Beta,BNT162b2,R,>=2,naive,3,23
+Beta,BNT162b2,S,1,infected,9,17
+Beta,BNT162b2,I,1,infected,9,94
+Beta,BNT162b2,R,1,infected,9,8
+Beta,mRNA-1273,S,1,naive,16,148
+Beta,mRNA-1273,I,1,naive,16,363
+Beta,mRNA-1273,R,1,naive,16,138
+Beta,mRNA-1273,S,>=2,naive,4,17
+Beta,mRNA-1273,I,>=2,naive,4,55
+Beta,mRNA-1273,R,>=2,naive,4,32
+Beta,mRNA-1273,S,1,infected,2,7
+Beta,mRNA-1273,I,1,infected,2,24
+Beta,mRNA-1273,R,1,infected,2,5
+Beta,Ad26.COV2.S,S,>=2,naive,4,18
+Beta,Ad26.COV2.S,I,>=2,naive,4,17
+Beta,Ad26.COV2.S,R,>=2,naive,4,8
+Beta,Ad26.COV2.S,S,1,naive,4,32
+Beta,Ad26.COV2.S,I,1,naive,4,25
+Beta,Ad26.COV2.S,R,1,naive,4,23
+Beta,Ad26.COV2.S,S,1,infected,1,22
+Beta,Ad26.COV2.S,I,1,infected,1,13
+Beta,Ad26.COV2.S,R,1,infected,1,4
+Beta,AZD1222 + BNT162b2,S,1,naive,3,37
+Beta,AZD1222 + BNT162b2,I,1,naive,3,1
+Beta,AZD1222 + BNT162b2,R,1,naive,3,53
+Beta,AZD1222,S,1,naive,5,9
+Beta,AZD1222,I,1,naive,5,44
+Beta,AZD1222,R,1,naive,5,105
+Beta,AZD1222,S,>=2,naive,2,1
+Beta,AZD1222,I,>=2,naive,2,19
+Beta,AZD1222,R,>=2,naive,2,5
+Beta,Sputnik V,S,>=2,naive,2,0
+Beta,Sputnik V,I,>=2,naive,2,53
+Beta,Sputnik V,R,>=2,naive,2,0
+Beta,Sputnik V,S,1,naive,3,12
+Beta,Sputnik V,I,1,naive,3,1
+Beta,Sputnik V,R,1,naive,3,19
+Beta,ZF2001,S,1,naive,1,24
+Beta,ZF2001,I,1,naive,1,0
+Beta,ZF2001,R,1,naive,1,0
+Beta,BBIBP-CorV,S,1,naive,3,33
+Beta,BBIBP-CorV,I,1,naive,3,483
+Beta,BBIBP-CorV,R,1,naive,3,3
+Beta,MVC-COV1901,S,1,naive,1,30
+Beta,MVC-COV1901,I,1,naive,1,38
+Beta,MVC-COV1901,R,1,naive,1,13
+Beta,NVX-CoV2373,S,1,naive,1,0
+Beta,NVX-CoV2373,I,1,naive,1,8
+Beta,NVX-CoV2373,R,1,naive,1,15
+Beta,AZD1222 + AZD2816,S,>=2,naive,1,0
+Beta,AZD1222 + AZD2816,I,>=2,naive,1,0
+Beta,AZD1222 + AZD2816,R,>=2,naive,1,6
+Beta,CoronaVac,S,1,naive,3,8
+Beta,CoronaVac,I,1,naive,3,108
+Beta,CoronaVac,R,1,naive,3,62
+Beta,mRNA-1273.351,S,1,naive,1,8
+Beta,mRNA-1273.351,I,1,naive,1,0
+Beta,mRNA-1273.351,R,1,naive,1,0
+Beta,mRNA-1273.351,S,>=2,naive,1,0
+Beta,mRNA-1273.351,I,>=2,naive,1,20
+Beta,mRNA-1273.351,R,>=2,naive,1,0
+Beta,mRNA-1273.211,S,1,naive,1,8
+Beta,mRNA-1273.211,I,1,naive,1,0
+Beta,mRNA-1273.211,R,1,naive,1,0
+Beta,BBV152,S,1,naive,1,9
+Beta,BBV152,I,1,naive,1,7
+Beta,BBV152,R,1,naive,1,1
+Beta,mRNA,S,1,naive,1,0
+Beta,mRNA,I,1,naive,1,30
+Beta,mRNA,R,1,naive,1,0
+Gamma,CP,S,1,infected,17,172
+Gamma,CP,I,1,infected,17,161
+Gamma,CP,R,1,infected,17,49
+Gamma,CP,S,>=2,infected,11,534
+Gamma,CP,I,>=2,infected,11,62
+Gamma,CP,R,>=2,infected,11,52
+Gamma,mRNA-1273,S,1,naive,7,213
+Gamma,mRNA-1273,I,1,naive,7,69
+Gamma,mRNA-1273,R,1,naive,7,3
+Gamma,mRNA-1273,S,>=2,naive,2,4
+Gamma,mRNA-1273,I,>=2,naive,2,29
+Gamma,mRNA-1273,R,>=2,naive,2,11
+Gamma,mRNA-1273,S,1,infected,1,5
+Gamma,mRNA-1273,I,1,infected,1,9
+Gamma,mRNA-1273,R,1,infected,1,1
+Gamma,BNT162b2,S,1,naive,17,406
+Gamma,BNT162b2,I,1,naive,17,97
+Gamma,BNT162b2,R,1,naive,17,2
+Gamma,BNT162b2,S,>=2,naive,1,75
+Gamma,BNT162b2,I,>=2,naive,1,0
+Gamma,BNT162b2,R,>=2,naive,1,0
+Gamma,BNT162b2,S,1,infected,2,14
+Gamma,BNT162b2,I,1,infected,2,1
+Gamma,BNT162b2,R,1,infected,2,0
+Gamma,CoronaVac,S,>=2,naive,3,75
+Gamma,CoronaVac,I,>=2,naive,3,72
+Gamma,CoronaVac,R,>=2,naive,3,4
+Gamma,CoronaVac,S,1,naive,2,39
+Gamma,CoronaVac,I,1,naive,2,108
+Gamma,CoronaVac,R,1,naive,2,20
+Gamma,Ad26.COV2.S,S,>=2,naive,3,22
+Gamma,Ad26.COV2.S,I,>=2,naive,3,11
+Gamma,Ad26.COV2.S,R,>=2,naive,3,2
+Gamma,Ad26.COV2.S,S,1,naive,1,4
+Gamma,Ad26.COV2.S,I,1,naive,1,2
+Gamma,Ad26.COV2.S,R,1,naive,1,4
+Gamma,AZD1222,S,1,naive,3,18
+Gamma,AZD1222,I,1,naive,3,20
+Gamma,AZD1222,R,1,naive,3,32
+Gamma,AZD1222 + BNT162b2,S,1,naive,2,11
+Gamma,AZD1222 + BNT162b2,I,1,naive,2,2
+Gamma,AZD1222 + BNT162b2,R,1,naive,2,52
+Gamma,Sputnik V,S,>=2,naive,2,8
+Gamma,Sputnik V,I,>=2,naive,2,42
+Gamma,Sputnik V,R,>=2,naive,2,2
+Gamma,Sputnik V,S,1,naive,1,1
+Gamma,Sputnik V,I,1,naive,1,10
+Gamma,Sputnik V,R,1,naive,1,24
+Gamma,mRNA-1273.211,S,1,naive,1,8
+Gamma,mRNA-1273.211,I,1,naive,1,0
+Gamma,mRNA-1273.211,R,1,naive,1,0
+Gamma,mRNA-1273.351,S,1,naive,1,8
+Gamma,mRNA-1273.351,I,1,naive,1,0
+Gamma,mRNA-1273.351,R,1,naive,1,0
+Gamma,mRNA-1273.351,S,>=2,naive,1,0
+Gamma,mRNA-1273.351,I,>=2,naive,1,20
+Gamma,mRNA-1273.351,R,>=2,naive,1,0
+Gamma,BBIBP-CorV,S,1,naive,1,470
+Gamma,BBIBP-CorV,I,1,naive,1,0
+Gamma,BBIBP-CorV,R,1,naive,1,0
+B,CP,S,1,infected,6,142
+B,CP,I,1,infected,6,11
+B,CP,R,1,infected,6,1
+B,CP,S,>=2,infected,4,312
+B,CP,I,>=2,infected,4,21
+B,CP,R,>=2,infected,4,6
+B,BNT162b2,S,1,naive,3,84
+B,BNT162b2,I,1,naive,3,2
+B,BNT162b2,R,1,naive,3,0
+B,BNT162b2,S,1,infected,1,28
+B,BNT162b2,I,1,infected,1,4
+B,BNT162b2,R,1,infected,1,0
+B,AZD1222,S,1,naive,1,25
+B,AZD1222,I,1,naive,1,0
+B,AZD1222,R,1,naive,1,0
+B.1,CP,S,1,infected,15,222
+B.1,CP,I,1,infected,15,33
+B.1,CP,R,1,infected,15,14
+B.1,CP,S,>=2,infected,7,124
+B.1,CP,I,>=2,infected,7,8
+B.1,CP,R,>=2,infected,7,0
+B.1,CoronaVac,S,>=2,naive,1,67
+B.1,CoronaVac,I,>=2,naive,1,8
+B.1,CoronaVac,R,>=2,naive,1,0
+B.1,CoronaVac,S,1,naive,2,113
+B.1,CoronaVac,I,1,naive,2,5
+B.1,CoronaVac,R,1,naive,2,0
+B.1,BNT162b2,S,>=2,naive,1,75
+B.1,BNT162b2,I,>=2,naive,1,0
+B.1,BNT162b2,R,>=2,naive,1,0
+B.1,BNT162b2,S,1,naive,10,219
+B.1,BNT162b2,I,1,naive,10,3
+B.1,BNT162b2,R,1,naive,10,0
+B.1,BNT162b2,S,1,infected,2,33
+B.1,BNT162b2,I,1,infected,2,0
+B.1,BNT162b2,R,1,infected,2,0
+B.1,Ad26.COV2.S,S,>=2,naive,2,26
+B.1,Ad26.COV2.S,I,>=2,naive,2,1
+B.1,Ad26.COV2.S,R,>=2,naive,2,0
+B.1,Ad26.COV2.S,S,1,naive,2,22
+B.1,Ad26.COV2.S,I,1,naive,2,0
+B.1,Ad26.COV2.S,R,1,naive,2,0
+B.1,mRNA-1273,S,1,naive,6,163
+B.1,mRNA-1273,I,1,naive,6,2
+B.1,mRNA-1273,R,1,naive,6,0
+B.1,BBIBP-CorV,S,1,naive,2,36
+B.1,BBIBP-CorV,I,1,naive,2,1
+B.1,BBIBP-CorV,R,1,naive,2,0
+B.1,ZF2001,S,1,naive,1,12
+B.1,ZF2001,I,1,naive,1,0
+B.1,ZF2001,R,1,naive,1,0
+B.1,MVC-COV1901,S,1,naive,1,44
+B.1,MVC-COV1901,I,1,naive,1,1
+B.1,MVC-COV1901,R,1,naive,1,0
+B.1,AZD1222,S,1,naive,2,31
+B.1,AZD1222,I,1,naive,2,63
+B.1,AZD1222,R,1,naive,2,0
+B.1,AZD1222,S,1,infected,1,19
+B.1,AZD1222,I,1,infected,1,0
+B.1,AZD1222,R,1,infected,1,0
+Delta,CP,S,1,infected,7,74
+Delta,CP,I,1,infected,7,108
+Delta,CP,R,1,infected,7,35
+Delta,CP,S,>=2,infected,7,123
+Delta,CP,I,>=2,infected,7,55
+Delta,CP,R,>=2,infected,7,13
+Delta,BNT162b2,S,1,naive,11,192
+Delta,BNT162b2,I,1,naive,11,167
+Delta,BNT162b2,R,1,naive,11,28
+Delta,BNT162b2,S,>=2,naive,4,59
+Delta,BNT162b2,I,>=2,naive,4,81
+Delta,BNT162b2,R,>=2,naive,4,19
+Delta,Ad26.COV2.S,S,>=2,naive,3,15
+Delta,Ad26.COV2.S,I,>=2,naive,3,8
+Delta,Ad26.COV2.S,R,>=2,naive,3,2
+Delta,Ad26.COV2.S,S,1,naive,3,16
+Delta,Ad26.COV2.S,I,1,naive,3,16
+Delta,Ad26.COV2.S,R,1,naive,3,7
+Delta,Ad26.COV2.S,S,1,infected,1,8
+Delta,Ad26.COV2.S,I,1,infected,1,24
+Delta,Ad26.COV2.S,R,1,infected,1,7
+Delta,AZD1222,S,1,naive,5,33
+Delta,AZD1222,I,1,naive,5,72
+Delta,AZD1222,R,1,naive,5,69
+Delta,AZD1222,S,>=2,naive,2,4
+Delta,AZD1222,I,>=2,naive,2,15
+Delta,AZD1222,R,>=2,naive,2,6
+Delta,AZD1222,S,1,infected,1,12
+Delta,AZD1222,I,1,infected,1,7
+Delta,AZD1222,R,1,infected,1,0
+Delta,AZD1222 + BNT162b2,S,1,naive,1,11
+Delta,AZD1222 + BNT162b2,I,1,naive,1,0
+Delta,AZD1222 + BNT162b2,R,1,naive,1,0
+Delta,mRNA-1273,S,1,naive,7,89
+Delta,mRNA-1273,I,1,naive,7,27
+Delta,mRNA-1273,R,1,naive,7,1
+Delta,mRNA-1273,S,>=2,naive,3,23
+Delta,mRNA-1273,I,>=2,naive,3,17
+Delta,mRNA-1273,R,>=2,naive,3,4
+Delta,mRNA-1273,S,1,infected,1,11
+Delta,mRNA-1273,I,1,infected,1,4
+Delta,mRNA-1273,R,1,infected,1,0
+Delta,Sputnik V,S,>=2,naive,2,16
+Delta,Sputnik V,I,>=2,naive,2,19
+Delta,Sputnik V,R,>=2,naive,2,0
+Delta,Sputnik V,S,1,naive,1,0
+Delta,Sputnik V,I,1,naive,1,19
+Delta,Sputnik V,R,1,naive,1,0
+Delta,AZD1222 + AZD2816,S,>=2,naive,1,0
+Delta,AZD1222 + AZD2816,I,>=2,naive,1,6
+Delta,AZD1222 + AZD2816,R,>=2,naive,1,0
+Delta,CoronaVac,S,1,naive,1,0
+Delta,CoronaVac,I,1,naive,1,0
+Delta,CoronaVac,R,1,naive,1,60
+Delta,BBV152,S,1,naive,1,13
+Delta,BBV152,I,1,naive,1,3
+Delta,BBV152,R,1,naive,1,1
+Delta,BBV152,S,>=2,naive,1,84
+Delta,BBV152,I,>=2,naive,1,0
+Delta,BBV152,R,>=2,naive,1,0
+Delta,BBV152,S,>=2,infected,1,74
+Delta,BBV152,I,>=2,infected,1,14
+Delta,BBV152,R,>=2,infected,1,0
+B.1.1.298,CP,S,1,infected,2,77
+B.1.1.298,CP,I,1,infected,2,2
+B.1.1.298,CP,R,1,infected,2,0
+B.1.1.298,CP,S,>=2,infected,1,5
+B.1.1.298,CP,I,>=2,infected,1,7
+B.1.1.298,CP,R,>=2,infected,1,0
+B.1.1.298,BNT162b2,S,1,naive,2,42
+B.1.1.298,BNT162b2,I,1,naive,2,0
+B.1.1.298,BNT162b2,R,1,naive,2,0
+B.1.1.298,mRNA-1273,S,1,naive,1,35
+B.1.1.298,mRNA-1273,I,1,naive,1,0
+B.1.1.298,mRNA-1273,R,1,naive,1,0
+B.1.1.117,CP,S,1,infected,1,1
+B.1.1.117,CP,I,1,infected,1,5
+B.1.1.117,CP,R,1,infected,1,0
+Epsilon,CP,S,>=2,infected,3,16
+Epsilon,CP,I,>=2,infected,3,16
+Epsilon,CP,R,>=2,infected,3,5
+Epsilon,CP,S,1,infected,4,52
+Epsilon,CP,I,1,infected,4,15
+Epsilon,CP,R,1,infected,4,2
+Epsilon,Ad26.COV2.S,S,>=2,naive,2,18
+Epsilon,Ad26.COV2.S,I,>=2,naive,2,8
+Epsilon,Ad26.COV2.S,R,>=2,naive,2,1
+Epsilon,Ad26.COV2.S,S,1,naive,1,4
+Epsilon,Ad26.COV2.S,I,1,naive,1,3
+Epsilon,Ad26.COV2.S,R,1,naive,1,3
+Epsilon,mRNA-1273,S,1,naive,9,205
+Epsilon,mRNA-1273,I,1,naive,9,38
+Epsilon,mRNA-1273,R,1,naive,9,2
+Epsilon,mRNA-1273,S,1,infected,1,17
+Epsilon,mRNA-1273,I,1,infected,1,13
+Epsilon,mRNA-1273,R,1,infected,1,0
+Epsilon,BNT162b2,S,1,naive,5,103
+Epsilon,BNT162b2,I,1,naive,5,24
+Epsilon,BNT162b2,R,1,naive,5,0
+Epsilon,BNT162b2,S,1,infected,1,2
+Epsilon,BNT162b2,I,1,infected,1,3
+Epsilon,BNT162b2,R,1,infected,1,0
+Epsilon,NVX-CoV2373,S,1,naive,1,14
+Epsilon,NVX-CoV2373,I,1,naive,1,9
+Epsilon,NVX-CoV2373,R,1,naive,1,0
+Epsilon,mRNA-1273.211,S,1,naive,1,0
+Epsilon,mRNA-1273.211,I,1,naive,1,8
+Epsilon,mRNA-1273.211,R,1,naive,1,0
+Epsilon,mRNA-1273.351,S,1,naive,1,8
+Epsilon,mRNA-1273.351,I,1,naive,1,0
+Epsilon,mRNA-1273.351,R,1,naive,1,0
+Epsilon,CoronaVac,S,1,naive,1,93
+Epsilon,CoronaVac,I,1,naive,1,0
+Epsilon,CoronaVac,R,1,naive,1,0
+A,CP,S,>=2,infected,1,20
+A,CP,I,>=2,infected,1,0
+A,CP,R,>=2,infected,1,0
+A,CP,S,1,infected,1,20
+A,CP,I,1,infected,1,0
+A,CP,R,1,infected,1,0
+A,mRNA-1273,S,1,naive,2,110
+A,mRNA-1273,I,1,naive,2,0
+A,mRNA-1273,R,1,naive,2,0
+Kappa,CP,S,1,infected,5,63
+Kappa,CP,I,1,infected,5,44
+Kappa,CP,R,1,infected,5,7
+Kappa,CP,S,>=2,infected,3,31
+Kappa,CP,I,>=2,infected,3,27
+Kappa,CP,R,>=2,infected,3,6
+Kappa,Ad26.COV2.S,S,>=2,naive,2,14
+Kappa,Ad26.COV2.S,I,>=2,naive,2,2
+Kappa,Ad26.COV2.S,R,>=2,naive,2,0
+Kappa,Ad26.COV2.S,S,1,naive,2,4
+Kappa,Ad26.COV2.S,I,1,naive,2,13
+Kappa,Ad26.COV2.S,R,1,naive,2,3
+Kappa,mRNA-1273,S,1,naive,5,18
+Kappa,mRNA-1273,I,1,naive,5,50
+Kappa,mRNA-1273,R,1,naive,5,2
+Kappa,mRNA-1273,S,>=2,naive,1,0
+Kappa,mRNA-1273,I,>=2,naive,1,11
+Kappa,mRNA-1273,R,>=2,naive,1,2
+Kappa,mRNA-1273,S,1,infected,1,5
+Kappa,mRNA-1273,I,1,infected,1,10
+Kappa,mRNA-1273,R,1,infected,1,0
+Kappa,BNT162b2,S,1,naive,8,58
+Kappa,BNT162b2,I,1,naive,8,85
+Kappa,BNT162b2,R,1,naive,8,2
+Kappa,AZD1222 + BNT162b2,S,1,naive,1,26
+Kappa,AZD1222 + BNT162b2,I,1,naive,1,0
+Kappa,AZD1222 + BNT162b2,R,1,naive,1,0
+Kappa,ZF2001,S,1,naive,1,0
+Kappa,ZF2001,I,1,naive,1,2
+Kappa,ZF2001,R,1,naive,1,0
+Kappa,CoronaVac,S,1,naive,1,14
+Kappa,CoronaVac,I,1,naive,1,6
+Kappa,CoronaVac,R,1,naive,1,0
+Kappa,AZD1222,S,1,naive,3,59
+Kappa,AZD1222,I,1,naive,3,41
+Kappa,AZD1222,R,1,naive,3,1
+Kappa,AZD1222,S,>=2,naive,1,0
+Kappa,AZD1222,I,>=2,naive,1,0
+Kappa,AZD1222,R,>=2,naive,1,5
+Kappa,AZD1222,S,1,infected,1,18
+Kappa,AZD1222,I,1,infected,1,0
+Kappa,AZD1222,R,1,infected,1,0
+Kappa,AZD1222 + AZD2816,S,>=2,naive,1,0
+Kappa,AZD1222 + AZD2816,I,>=2,naive,1,6
+Kappa,AZD1222 + AZD2816,R,>=2,naive,1,0
+Kappa,BBV152,S,>=2,naive,1,52
+Kappa,BBV152,I,>=2,naive,1,4
+Kappa,BBV152,R,>=2,naive,1,0
+B.1.1.241,CP,S,1,infected,1,34
+B.1.1.241,CP,I,1,infected,1,0
+B.1.1.241,CP,R,1,infected,1,0
+Alpha/E484K,CP,S,1,infected,3,41
+Alpha/E484K,CP,I,1,infected,3,40
+Alpha/E484K,CP,R,1,infected,3,17
+Alpha/E484K,CP,S,>=2,infected,1,20
+Alpha/E484K,CP,I,>=2,infected,1,37
+Alpha/E484K,CP,R,>=2,infected,1,1
+Alpha/E484K,mRNA-1273,S,1,naive,3,10
+Alpha/E484K,mRNA-1273,I,1,naive,3,21
+Alpha/E484K,mRNA-1273,R,1,naive,3,2
+Alpha/E484K,mRNA-1273,S,1,infected,1,4
+Alpha/E484K,mRNA-1273,I,1,infected,1,10
+Alpha/E484K,mRNA-1273,R,1,infected,1,1
+Alpha/E484K,CoronaVac,S,1,naive,1,20
+Alpha/E484K,CoronaVac,I,1,naive,1,0
+Alpha/E484K,CoronaVac,R,1,naive,1,0
+Alpha/E484K,ZF2001,S,1,naive,1,2
+Alpha/E484K,ZF2001,I,1,naive,1,0
+Alpha/E484K,ZF2001,R,1,naive,1,0
+Alpha/E484K,BNT162b2,S,1,naive,2,22
+Alpha/E484K,BNT162b2,I,1,naive,2,13
+Alpha/E484K,BNT162b2,R,1,naive,2,6
+B.1.463,CP,S,1,infected,1,20
+B.1.463,CP,I,1,infected,1,27
+B.1.463,CP,R,1,infected,1,3
+B.1.463,BNT162b2,S,1,naive,1,85
+B.1.463,BNT162b2,I,1,naive,1,1
+B.1.463,BNT162b2,R,1,naive,1,0
+Beta w/o K417N,CP,S,1,infected,1,19
+Beta w/o K417N,CP,I,1,infected,1,29
+Beta w/o K417N,CP,R,1,infected,1,0
+Eta,CP,S,>=2,infected,2,21
+Eta,CP,I,>=2,infected,2,7
+Eta,CP,R,>=2,infected,2,0
+Eta,mRNA-1273,S,1,naive,3,9
+Eta,mRNA-1273,I,1,naive,3,28
+Eta,mRNA-1273,R,1,naive,3,7
+Eta,mRNA-1273,S,1,infected,1,6
+Eta,mRNA-1273,I,1,infected,1,9
+Eta,mRNA-1273,R,1,infected,1,0
+Eta,BNT162b2,S,1,naive,3,57
+Eta,BNT162b2,I,1,naive,3,13
+Eta,BNT162b2,R,1,naive,3,17
+Zeta,CP,S,1,infected,3,27
+Zeta,CP,I,1,infected,3,12
+Zeta,CP,R,1,infected,3,19
+Zeta,CP,S,>=2,infected,2,5
+Zeta,CP,I,>=2,infected,2,34
+Zeta,CP,R,>=2,infected,2,4
+Zeta,Ad26.COV2.S,S,>=2,naive,1,7
+Zeta,Ad26.COV2.S,I,>=2,naive,1,1
+Zeta,Ad26.COV2.S,R,>=2,naive,1,0
+Zeta,BBV152,S,>=2,naive,1,32
+Zeta,BBV152,I,>=2,naive,1,10
+Zeta,BBV152,R,>=2,naive,1,0
+Zeta,mRNA-1273,S,1,naive,2,39
+Zeta,mRNA-1273,I,1,naive,2,9
+Zeta,mRNA-1273,R,1,naive,2,3
+Zeta,BNT162b2,S,1,naive,2,3
+Zeta,BNT162b2,I,1,naive,2,35
+Zeta,BNT162b2,R,1,naive,2,2
+Zeta,BNT162b2,S,1,infected,1,0
+Zeta,BNT162b2,I,1,infected,1,0
+Zeta,BNT162b2,R,1,infected,1,2
+B.1.160,CP,S,1,infected,1,18
+B.1.160,CP,I,1,infected,1,0
+B.1.160,CP,R,1,infected,1,0
+B.1.160,BNT162b2,S,1,naive,1,5
+B.1.160,BNT162b2,I,1,naive,1,0
+B.1.160,BNT162b2,R,1,naive,1,0
+COH.20G/677H,CP,S,1,infected,1,10
+COH.20G/677H,CP,I,1,infected,1,0
+COH.20G/677H,CP,R,1,infected,1,0
+COH.20G/677H,BNT162b2,S,1,naive,1,5
+COH.20G/677H,BNT162b2,I,1,naive,1,0
+COH.20G/677H,BNT162b2,R,1,naive,1,0
+Lambda,CP,S,1,infected,1,5
+Lambda,CP,I,1,infected,1,2
+Lambda,CP,R,1,infected,1,1
+Lambda,CP,S,>=2,infected,1,5
+Lambda,CP,I,>=2,infected,1,2
+Lambda,CP,R,>=2,infected,1,1
+Lambda,CoronaVac,S,>=2,naive,1,41
+Lambda,CoronaVac,I,>=2,naive,1,31
+Lambda,CoronaVac,R,>=2,naive,1,3
+Lambda,BNT162b2,S,>=2,naive,2,76
+Lambda,BNT162b2,I,>=2,naive,2,7
+Lambda,BNT162b2,R,>=2,naive,2,1
+Lambda,BNT162b2,S,1,naive,3,33
+Lambda,BNT162b2,I,1,naive,3,15
+Lambda,BNT162b2,R,1,naive,3,0
+Lambda,Sputnik V,S,1,naive,1,8
+Lambda,Sputnik V,I,1,naive,1,8
+Lambda,Sputnik V,R,1,naive,1,1
+Lambda,Sputnik V,S,>=2,naive,1,10
+Lambda,Sputnik V,I,>=2,naive,1,8
+Lambda,Sputnik V,R,>=2,naive,1,0
+Lambda,mRNA-1273,S,1,naive,2,8
+Lambda,mRNA-1273,I,1,naive,2,5
+Lambda,mRNA-1273,R,1,naive,2,0
+Lambda,mRNA-1273,S,>=2,naive,1,1
+Lambda,mRNA-1273,I,>=2,naive,1,6
+Lambda,mRNA-1273,R,>=2,naive,1,0
+Lambda,Ad26.COV2.S,S,>=2,naive,1,3
+Lambda,Ad26.COV2.S,I,>=2,naive,1,4
+Lambda,Ad26.COV2.S,R,>=2,naive,1,1
+Lambda,mRNA,S,1,naive,1,0
+Lambda,mRNA,I,1,naive,1,30
+Lambda,mRNA,R,1,naive,1,0
+Delta plus,CP,S,>=2,infected,1,4
+Delta plus,CP,I,>=2,infected,1,4
+Delta plus,CP,R,>=2,infected,1,0
+Delta plus,Ad26.COV2.S,S,1,naive,1,0
+Delta plus,Ad26.COV2.S,I,1,naive,1,10
+Delta plus,Ad26.COV2.S,R,1,naive,1,0
+Delta plus,Ad26.COV2.S,S,>=2,naive,1,4
+Delta plus,Ad26.COV2.S,I,>=2,naive,1,3
+Delta plus,Ad26.COV2.S,R,>=2,naive,1,1
+Delta plus,mRNA-1273,S,1,naive,2,3
+Delta plus,mRNA-1273,I,1,naive,2,19
+Delta plus,mRNA-1273,R,1,naive,2,0
+Delta plus,mRNA-1273,S,>=2,naive,1,2
+Delta plus,mRNA-1273,I,>=2,naive,1,5
+Delta plus,mRNA-1273,R,>=2,naive,1,0
+Delta plus,BNT162b2,S,1,naive,2,7
+Delta plus,BNT162b2,I,1,naive,2,23
+Delta plus,BNT162b2,R,1,naive,2,0
+Delta plus,BNT162b2,S,>=2,naive,1,5
+Delta plus,BNT162b2,I,>=2,naive,1,4
+Delta plus,BNT162b2,R,>=2,naive,1,0
+B.1.319,CP,S,1,infected,1,17
+B.1.319,CP,I,1,infected,1,0
+B.1.319,CP,R,1,infected,1,0
+D.2,CP,S,>=2,infected,1,31
+D.2,CP,I,>=2,infected,1,0
+D.2,CP,R,>=2,infected,1,0
+Iota w/o E484K,CP,S,1,infected,2,13
+Iota w/o E484K,CP,I,1,infected,2,1
+Iota w/o E484K,CP,R,1,infected,2,0
+Iota w/o E484K,CP,S,>=2,infected,2,14
+Iota w/o E484K,CP,I,>=2,infected,2,6
+Iota w/o E484K,CP,R,>=2,infected,2,4
+Iota w/o E484K,mRNA-1273,S,1,naive,3,36
+Iota w/o E484K,mRNA-1273,I,1,naive,3,1
+Iota w/o E484K,mRNA-1273,R,1,naive,3,1
+Iota w/o E484K,mRNA-1273,S,>=2,naive,1,1
+Iota w/o E484K,mRNA-1273,I,>=2,naive,1,4
+Iota w/o E484K,mRNA-1273,R,>=2,naive,1,0
+Iota w/o E484K,mRNA-1273,S,1,infected,1,30
+Iota w/o E484K,mRNA-1273,I,1,infected,1,0
+Iota w/o E484K,mRNA-1273,R,1,infected,1,0
+Iota w/o E484K,BNT162b2,S,>=2,naive,1,2
+Iota w/o E484K,BNT162b2,I,>=2,naive,1,1
+Iota w/o E484K,BNT162b2,R,>=2,naive,1,0
+Iota w/o E484K,BNT162b2,S,1,naive,2,6
+Iota w/o E484K,BNT162b2,I,1,naive,2,0
+Iota w/o E484K,BNT162b2,R,1,naive,2,0
+Iota,CP,S,>=2,infected,3,21
+Iota,CP,I,>=2,infected,3,10
+Iota,CP,R,>=2,infected,3,3
+Iota,CP,S,1,infected,3,22
+Iota,CP,I,1,infected,3,31
+Iota,CP,R,1,infected,3,1
+Iota,mRNA-1273,S,1,naive,6,81
+Iota,mRNA-1273,I,1,naive,6,19
+Iota,mRNA-1273,R,1,naive,6,1
+Iota,mRNA-1273,S,>=2,naive,1,0
+Iota,mRNA-1273,I,>=2,naive,1,5
+Iota,mRNA-1273,R,>=2,naive,1,0
+Iota,mRNA-1273,S,1,infected,1,10
+Iota,mRNA-1273,I,1,infected,1,5
+Iota,mRNA-1273,R,1,infected,1,0
+Iota,BNT162b2,S,1,naive,4,31
+Iota,BNT162b2,I,1,naive,4,15
+Iota,BNT162b2,R,1,naive,4,0
+Iota,BNT162b2,S,>=2,naive,1,0
+Iota,BNT162b2,I,>=2,naive,1,3
+Iota,BNT162b2,R,>=2,naive,1,0
+Iota,BBIBP-CorV,S,1,naive,1,0
+Iota,BBIBP-CorV,I,1,naive,1,470
+Iota,BBIBP-CorV,R,1,naive,1,0
+Iota,CoronaVac,S,1,naive,1,0
+Iota,CoronaVac,I,1,naive,1,93
+Iota,CoronaVac,R,1,naive,1,0
+A.23.1,CP,S,>=2,infected,1,10
+A.23.1,CP,I,>=2,infected,1,0
+A.23.1,CP,R,>=2,infected,1,0
+A.23.1,mRNA-1273,S,1,naive,1,16
+A.23.1,mRNA-1273,I,1,naive,1,0
+A.23.1,mRNA-1273,R,1,naive,1,0
+B.1.1.318,CP,S,>=2,infected,1,8
+B.1.1.318,CP,I,>=2,infected,1,0
+B.1.1.318,CP,R,>=2,infected,1,4
+A.VOI.V2,mRNA-1273,S,1,naive,1,0
+A.VOI.V2,mRNA-1273,I,1,naive,1,6
+A.VOI.V2,mRNA-1273,R,1,naive,1,2
+B.1.1.141,Sputnik V,S,>=2,naive,1,27
+B.1.1.141,Sputnik V,I,>=2,naive,1,0
+B.1.1.141,Sputnik V,R,>=2,naive,1,0
+B.1.1.317,Sputnik V,S,>=2,naive,1,27
+B.1.1.317,Sputnik V,I,>=2,naive,1,0
+B.1.1.317,Sputnik V,R,>=2,naive,1,0
+B.1.617.3,Sputnik V,S,>=2,naive,1,16
+B.1.617.3,Sputnik V,I,>=2,naive,1,0
+B.1.617.3,Sputnik V,R,>=2,naive,1,0
+B.1.617.3,BBV152,S,>=2,naive,1,42
+B.1.617.3,BBV152,I,>=2,naive,1,0
+B.1.617.3,BBV152,R,>=2,naive,1,0
+B.1.617.3,BBV152,S,>=2,infected,1,30
+B.1.617.3,BBV152,I,>=2,infected,1,14
+B.1.617.3,BBV152,R,>=2,infected,1,0
+B.1.618,BNT162b2,S,1,naive,1,19
+B.1.618,BNT162b2,I,1,naive,1,1
+B.1.618,BNT162b2,R,1,naive,1,0
+B.1.517,mRNA-1273,S,1,naive,1,15
+B.1.517,mRNA-1273,I,1,naive,1,1
+B.1.517,mRNA-1273,R,1,naive,1,1
+B.1.517,mRNA-1273,S,1,infected,1,15
+B.1.517,mRNA-1273,I,1,infected,1,0
+B.1.517,mRNA-1273,R,1,infected,1,0
+B.1/E484K,mRNA-1273,S,1,naive,1,3
+B.1/E484K,mRNA-1273,I,1,naive,1,12
+B.1/E484K,mRNA-1273,R,1,naive,1,2
+B.1/E484K,mRNA-1273,S,1,infected,1,3
+B.1/E484K,mRNA-1273,I,1,infected,1,11
+B.1/E484K,mRNA-1273,R,1,infected,1,1
+R.1,mRNA-1273,S,1,naive,1,11
+R.1,mRNA-1273,I,1,naive,1,5
+R.1,mRNA-1273,R,1,naive,1,1
+R.1,mRNA-1273,S,1,infected,1,9
+R.1,mRNA-1273,I,1,infected,1,5
+R.1,mRNA-1273,R,1,infected,1,1
+A.27.RN,BNT162b2,S,1,naive,1,5
+A.27.RN,BNT162b2,I,1,naive,1,1
+A.27.RN,BNT162b2,R,1,naive,1,0
+Mu,BNT162b2,S,1,naive,1,30
+Mu,BNT162b2,I,1,naive,1,7
+Mu,BNT162b2,R,1,naive,1,0
+B.4,BBV152,S,1,naive,1,20
+B.4,BBV152,I,1,naive,1,1
+B.4,BBV152,R,1,naive,1,0
+SARS-CoV,BNT162b2,S,1,naive,2,0
+SARS-CoV,BNT162b2,I,1,naive,2,0
+SARS-CoV,BNT162b2,R,1,naive,2,42
+SARS-CoV,BNT162b2,S,1,infected,1,0
+SARS-CoV,BNT162b2,I,1,infected,1,0
+SARS-CoV,BNT162b2,R,1,infected,1,11
+SARS-CoV,mRNA-1273,S,1,naive,2,0
+SARS-CoV,mRNA-1273,I,1,naive,2,0
+SARS-CoV,mRNA-1273,R,1,naive,2,36
+SARS-CoV,mRNA-1273,S,1,infected,1,0
+SARS-CoV,mRNA-1273,I,1,infected,1,0
+SARS-CoV,mRNA-1273,R,1,infected,1,3
+B.1.1,BNT162b2,S,1,naive,1,103
+B.1.1,BNT162b2,I,1,naive,1,50
+B.1.1,BNT162b2,R,1,naive,1,2
+B.1.1,BNT162b2,S,>=2,naive,1,43
+B.1.1,BNT162b2,I,>=2,naive,1,12
+B.1.1,BNT162b2,R,>=2,naive,1,0
+B.1.1.50,BNT162b2,S,1,naive,1,18
+B.1.1.50,BNT162b2,I,1,naive,1,0
+B.1.1.50,BNT162b2,R,1,naive,1,0
+WIV1,BNT162b2,S,1,naive,1,0
+WIV1,BNT162b2,I,1,naive,1,0
+WIV1,BNT162b2,R,1,naive,1,30
+WIV1,mRNA-1273,S,1,naive,1,0
+WIV1,mRNA-1273,I,1,naive,1,0
+WIV1,mRNA-1273,R,1,naive,1,35
+Alpha,CP,S,1,naive,0,0
+Alpha,CP,S,>=2,naive,0,0
+Alpha,CP,I,1,naive,0,0
+Alpha,CP,I,>=2,naive,0,0
+Alpha,CP,R,1,naive,0,0
+Alpha,CP,R,>=2,naive,0,0
+Alpha,BNT162b2,S,>=2,infected,0,0
+Alpha,BNT162b2,I,>=2,infected,0,0
+Alpha,BNT162b2,R,>=2,infected,0,0
+Alpha,mRNA-1273,S,>=2,infected,0,0
+Alpha,mRNA-1273,I,>=2,infected,0,0
+Alpha,mRNA-1273,R,>=2,infected,0,0
+Alpha,AZD1222,S,1,infected,0,0
+Alpha,AZD1222,S,>=2,infected,0,0
+Alpha,AZD1222,I,1,infected,0,0
+Alpha,AZD1222,I,>=2,infected,0,0
+Alpha,AZD1222,R,1,infected,0,0
+Alpha,AZD1222,R,>=2,infected,0,0
+Alpha,Ad26.COV2.S,S,1,infected,0,0
+Alpha,Ad26.COV2.S,S,>=2,infected,0,0
+Alpha,Ad26.COV2.S,I,1,infected,0,0
+Alpha,Ad26.COV2.S,I,>=2,infected,0,0
+Alpha,Ad26.COV2.S,R,1,infected,0,0
+Alpha,Ad26.COV2.S,R,>=2,infected,0,0
+Alpha,NVX-CoV2373,S,1,infected,0,0
+Alpha,NVX-CoV2373,S,>=2,infected,0,0
+Alpha,NVX-CoV2373,S,>=2,naive,0,0
+Alpha,NVX-CoV2373,I,1,infected,0,0
+Alpha,NVX-CoV2373,I,>=2,infected,0,0
+Alpha,NVX-CoV2373,I,>=2,naive,0,0
+Alpha,NVX-CoV2373,R,1,infected,0,0
+Alpha,NVX-CoV2373,R,>=2,infected,0,0
+Alpha,NVX-CoV2373,R,>=2,naive,0,0
+Alpha,BBV152,S,1,infected,0,0
+Alpha,BBV152,S,>=2,infected,0,0
+Alpha,BBV152,I,1,infected,0,0
+Alpha,BBV152,I,>=2,infected,0,0
+Alpha,BBV152,R,1,infected,0,0
+Alpha,BBV152,R,>=2,infected,0,0
+Alpha,CoronaVac,S,1,infected,0,0
+Alpha,CoronaVac,S,>=2,infected,0,0
+Alpha,CoronaVac,I,1,infected,0,0
+Alpha,CoronaVac,I,>=2,infected,0,0
+Alpha,CoronaVac,R,1,infected,0,0
+Alpha,CoronaVac,R,>=2,infected,0,0
+Alpha,BBIBP-CorV,S,1,infected,0,0
+Alpha,BBIBP-CorV,S,>=2,infected,0,0
+Alpha,BBIBP-CorV,S,>=2,naive,0,0
+Alpha,BBIBP-CorV,I,1,infected,0,0
+Alpha,BBIBP-CorV,I,>=2,infected,0,0
+Alpha,BBIBP-CorV,I,>=2,naive,0,0
+Alpha,BBIBP-CorV,R,1,infected,0,0
+Alpha,BBIBP-CorV,R,>=2,infected,0,0
+Alpha,BBIBP-CorV,R,>=2,naive,0,0
+Alpha,Sputnik V,S,1,infected,0,0
+Alpha,Sputnik V,S,>=2,infected,0,0
+Alpha,Sputnik V,I,1,infected,0,0
+Alpha,Sputnik V,I,>=2,infected,0,0
+Alpha,Sputnik V,R,1,infected,0,0
+Alpha,Sputnik V,R,>=2,infected,0,0
+Alpha,MVC-COV1901,S,1,infected,0,0
+Alpha,MVC-COV1901,S,>=2,infected,0,0
+Alpha,MVC-COV1901,S,>=2,naive,0,0
+Alpha,MVC-COV1901,I,1,infected,0,0
+Alpha,MVC-COV1901,I,>=2,infected,0,0
+Alpha,MVC-COV1901,I,>=2,naive,0,0
+Alpha,MVC-COV1901,R,1,infected,0,0
+Alpha,MVC-COV1901,R,>=2,infected,0,0
+Alpha,MVC-COV1901,R,>=2,naive,0,0
+Alpha,ZF2001,S,1,infected,0,0
+Alpha,ZF2001,S,1,naive,0,0
+Alpha,ZF2001,S,>=2,infected,0,0
+Alpha,ZF2001,S,>=2,naive,0,0
+Alpha,ZF2001,I,1,infected,0,0
+Alpha,ZF2001,I,1,naive,0,0
+Alpha,ZF2001,I,>=2,infected,0,0
+Alpha,ZF2001,I,>=2,naive,0,0
+Alpha,ZF2001,R,1,infected,0,0
+Alpha,ZF2001,R,1,naive,0,0
+Alpha,ZF2001,R,>=2,infected,0,0
+Alpha,ZF2001,R,>=2,naive,0,0
+Beta,CP,S,1,naive,0,0
+Beta,CP,S,>=2,naive,0,0
+Beta,CP,I,1,naive,0,0
+Beta,CP,I,>=2,naive,0,0
+Beta,CP,R,1,naive,0,0
+Beta,CP,R,>=2,naive,0,0
+Beta,BNT162b2,S,>=2,infected,0,0
+Beta,BNT162b2,I,>=2,infected,0,0
+Beta,BNT162b2,R,>=2,infected,0,0
+Beta,mRNA-1273,S,>=2,infected,0,0
+Beta,mRNA-1273,I,>=2,infected,0,0
+Beta,mRNA-1273,R,>=2,infected,0,0
+Beta,AZD1222,S,1,infected,0,0
+Beta,AZD1222,S,>=2,infected,0,0
+Beta,AZD1222,I,1,infected,0,0
+Beta,AZD1222,I,>=2,infected,0,0
+Beta,AZD1222,R,1,infected,0,0
+Beta,AZD1222,R,>=2,infected,0,0
+Beta,Ad26.COV2.S,S,>=2,infected,0,0
+Beta,Ad26.COV2.S,I,>=2,infected,0,0
+Beta,Ad26.COV2.S,R,>=2,infected,0,0
+Beta,NVX-CoV2373,S,1,infected,0,0
+Beta,NVX-CoV2373,S,>=2,infected,0,0
+Beta,NVX-CoV2373,S,>=2,naive,0,0
+Beta,NVX-CoV2373,I,1,infected,0,0
+Beta,NVX-CoV2373,I,>=2,infected,0,0
+Beta,NVX-CoV2373,I,>=2,naive,0,0
+Beta,NVX-CoV2373,R,1,infected,0,0
+Beta,NVX-CoV2373,R,>=2,infected,0,0
+Beta,NVX-CoV2373,R,>=2,naive,0,0
+Beta,BBV152,S,1,infected,0,0
+Beta,BBV152,S,>=2,infected,0,0
+Beta,BBV152,S,>=2,naive,0,0
+Beta,BBV152,I,1,infected,0,0
+Beta,BBV152,I,>=2,infected,0,0
+Beta,BBV152,I,>=2,naive,0,0
+Beta,BBV152,R,1,infected,0,0
+Beta,BBV152,R,>=2,infected,0,0
+Beta,BBV152,R,>=2,naive,0,0
+Beta,CoronaVac,S,1,infected,0,0
+Beta,CoronaVac,S,>=2,infected,0,0
+Beta,CoronaVac,S,>=2,naive,0,0
+Beta,CoronaVac,I,1,infected,0,0
+Beta,CoronaVac,I,>=2,infected,0,0
+Beta,CoronaVac,I,>=2,naive,0,0
+Beta,CoronaVac,R,1,infected,0,0
+Beta,CoronaVac,R,>=2,infected,0,0
+Beta,CoronaVac,R,>=2,naive,0,0
+Beta,BBIBP-CorV,S,1,infected,0,0
+Beta,BBIBP-CorV,S,>=2,infected,0,0
+Beta,BBIBP-CorV,S,>=2,naive,0,0
+Beta,BBIBP-CorV,I,1,infected,0,0
+Beta,BBIBP-CorV,I,>=2,infected,0,0
+Beta,BBIBP-CorV,I,>=2,naive,0,0
+Beta,BBIBP-CorV,R,1,infected,0,0
+Beta,BBIBP-CorV,R,>=2,infected,0,0
+Beta,BBIBP-CorV,R,>=2,naive,0,0
+Beta,Sputnik V,S,1,infected,0,0
+Beta,Sputnik V,S,>=2,infected,0,0
+Beta,Sputnik V,I,1,infected,0,0
+Beta,Sputnik V,I,>=2,infected,0,0
+Beta,Sputnik V,R,1,infected,0,0
+Beta,Sputnik V,R,>=2,infected,0,0
+Beta,MVC-COV1901,S,1,infected,0,0
+Beta,MVC-COV1901,S,>=2,infected,0,0
+Beta,MVC-COV1901,S,>=2,naive,0,0
+Beta,MVC-COV1901,I,1,infected,0,0
+Beta,MVC-COV1901,I,>=2,infected,0,0
+Beta,MVC-COV1901,I,>=2,naive,0,0
+Beta,MVC-COV1901,R,1,infected,0,0
+Beta,MVC-COV1901,R,>=2,infected,0,0
+Beta,MVC-COV1901,R,>=2,naive,0,0
+Beta,ZF2001,S,1,infected,0,0
+Beta,ZF2001,S,>=2,infected,0,0
+Beta,ZF2001,S,>=2,naive,0,0
+Beta,ZF2001,I,1,infected,0,0
+Beta,ZF2001,I,>=2,infected,0,0
+Beta,ZF2001,I,>=2,naive,0,0
+Beta,ZF2001,R,1,infected,0,0
+Beta,ZF2001,R,>=2,infected,0,0
+Beta,ZF2001,R,>=2,naive,0,0
+Gamma,CP,S,1,naive,0,0
+Gamma,CP,S,>=2,naive,0,0
+Gamma,CP,I,1,naive,0,0
+Gamma,CP,I,>=2,naive,0,0
+Gamma,CP,R,1,naive,0,0
+Gamma,CP,R,>=2,naive,0,0
+Gamma,BNT162b2,S,>=2,infected,0,0
+Gamma,BNT162b2,I,>=2,infected,0,0
+Gamma,BNT162b2,R,>=2,infected,0,0
+Gamma,mRNA-1273,S,>=2,infected,0,0
+Gamma,mRNA-1273,I,>=2,infected,0,0
+Gamma,mRNA-1273,R,>=2,infected,0,0
+Gamma,AZD1222,S,1,infected,0,0
+Gamma,AZD1222,S,>=2,infected,0,0
+Gamma,AZD1222,S,>=2,naive,0,0
+Gamma,AZD1222,I,1,infected,0,0
+Gamma,AZD1222,I,>=2,infected,0,0
+Gamma,AZD1222,I,>=2,naive,0,0
+Gamma,AZD1222,R,1,infected,0,0
+Gamma,AZD1222,R,>=2,infected,0,0
+Gamma,AZD1222,R,>=2,naive,0,0
+Gamma,Ad26.COV2.S,S,1,infected,0,0
+Gamma,Ad26.COV2.S,S,>=2,infected,0,0
+Gamma,Ad26.COV2.S,I,1,infected,0,0
+Gamma,Ad26.COV2.S,I,>=2,infected,0,0
+Gamma,Ad26.COV2.S,R,1,infected,0,0
+Gamma,Ad26.COV2.S,R,>=2,infected,0,0
+Gamma,NVX-CoV2373,S,1,infected,0,0
+Gamma,NVX-CoV2373,S,1,naive,0,0
+Gamma,NVX-CoV2373,S,>=2,infected,0,0
+Gamma,NVX-CoV2373,S,>=2,naive,0,0
+Gamma,NVX-CoV2373,I,1,infected,0,0
+Gamma,NVX-CoV2373,I,1,naive,0,0
+Gamma,NVX-CoV2373,I,>=2,infected,0,0
+Gamma,NVX-CoV2373,I,>=2,naive,0,0
+Gamma,NVX-CoV2373,R,1,infected,0,0
+Gamma,NVX-CoV2373,R,1,naive,0,0
+Gamma,NVX-CoV2373,R,>=2,infected,0,0
+Gamma,NVX-CoV2373,R,>=2,naive,0,0
+Gamma,BBV152,S,1,infected,0,0
+Gamma,BBV152,S,1,naive,0,0
+Gamma,BBV152,S,>=2,infected,0,0
+Gamma,BBV152,S,>=2,naive,0,0
+Gamma,BBV152,I,1,infected,0,0
+Gamma,BBV152,I,1,naive,0,0
+Gamma,BBV152,I,>=2,infected,0,0
+Gamma,BBV152,I,>=2,naive,0,0
+Gamma,BBV152,R,1,infected,0,0
+Gamma,BBV152,R,1,naive,0,0
+Gamma,BBV152,R,>=2,infected,0,0
+Gamma,BBV152,R,>=2,naive,0,0
+Gamma,CoronaVac,S,1,infected,0,0
+Gamma,CoronaVac,S,>=2,infected,0,0
+Gamma,CoronaVac,I,1,infected,0,0
+Gamma,CoronaVac,I,>=2,infected,0,0
+Gamma,CoronaVac,R,1,infected,0,0
+Gamma,CoronaVac,R,>=2,infected,0,0
+Gamma,BBIBP-CorV,S,1,infected,0,0
+Gamma,BBIBP-CorV,S,>=2,infected,0,0
+Gamma,BBIBP-CorV,S,>=2,naive,0,0
+Gamma,BBIBP-CorV,I,1,infected,0,0
+Gamma,BBIBP-CorV,I,>=2,infected,0,0
+Gamma,BBIBP-CorV,I,>=2,naive,0,0
+Gamma,BBIBP-CorV,R,1,infected,0,0
+Gamma,BBIBP-CorV,R,>=2,infected,0,0
+Gamma,BBIBP-CorV,R,>=2,naive,0,0
+Gamma,Sputnik V,S,1,infected,0,0
+Gamma,Sputnik V,S,>=2,infected,0,0
+Gamma,Sputnik V,I,1,infected,0,0
+Gamma,Sputnik V,I,>=2,infected,0,0
+Gamma,Sputnik V,R,1,infected,0,0
+Gamma,Sputnik V,R,>=2,infected,0,0
+Gamma,MVC-COV1901,S,1,infected,0,0
+Gamma,MVC-COV1901,S,1,naive,0,0
+Gamma,MVC-COV1901,S,>=2,infected,0,0
+Gamma,MVC-COV1901,S,>=2,naive,0,0
+Gamma,MVC-COV1901,I,1,infected,0,0
+Gamma,MVC-COV1901,I,1,naive,0,0
+Gamma,MVC-COV1901,I,>=2,infected,0,0
+Gamma,MVC-COV1901,I,>=2,naive,0,0
+Gamma,MVC-COV1901,R,1,infected,0,0
+Gamma,MVC-COV1901,R,1,naive,0,0
+Gamma,MVC-COV1901,R,>=2,infected,0,0
+Gamma,MVC-COV1901,R,>=2,naive,0,0
+Gamma,ZF2001,S,1,infected,0,0
+Gamma,ZF2001,S,1,naive,0,0
+Gamma,ZF2001,S,>=2,infected,0,0
+Gamma,ZF2001,S,>=2,naive,0,0
+Gamma,ZF2001,I,1,infected,0,0
+Gamma,ZF2001,I,1,naive,0,0
+Gamma,ZF2001,I,>=2,infected,0,0
+Gamma,ZF2001,I,>=2,naive,0,0
+Gamma,ZF2001,R,1,infected,0,0
+Gamma,ZF2001,R,1,naive,0,0
+Gamma,ZF2001,R,>=2,infected,0,0
+Gamma,ZF2001,R,>=2,naive,0,0
+Delta,CP,S,1,naive,0,0
+Delta,CP,S,>=2,naive,0,0
+Delta,CP,I,1,naive,0,0
+Delta,CP,I,>=2,naive,0,0
+Delta,CP,R,1,naive,0,0
+Delta,CP,R,>=2,naive,0,0
+Delta,BNT162b2,S,1,infected,0,0
+Delta,BNT162b2,S,>=2,infected,0,0
+Delta,BNT162b2,I,1,infected,0,0
+Delta,BNT162b2,I,>=2,infected,0,0
+Delta,BNT162b2,R,1,infected,0,0
+Delta,BNT162b2,R,>=2,infected,0,0
+Delta,mRNA-1273,S,>=2,infected,0,0
+Delta,mRNA-1273,I,>=2,infected,0,0
+Delta,mRNA-1273,R,>=2,infected,0,0
+Delta,AZD1222,S,>=2,infected,0,0
+Delta,AZD1222,I,>=2,infected,0,0
+Delta,AZD1222,R,>=2,infected,0,0
+Delta,Ad26.COV2.S,S,>=2,infected,0,0
+Delta,Ad26.COV2.S,I,>=2,infected,0,0
+Delta,Ad26.COV2.S,R,>=2,infected,0,0
+Delta,NVX-CoV2373,S,1,infected,0,0
+Delta,NVX-CoV2373,S,1,naive,0,0
+Delta,NVX-CoV2373,S,>=2,infected,0,0
+Delta,NVX-CoV2373,S,>=2,naive,0,0
+Delta,NVX-CoV2373,I,1,infected,0,0
+Delta,NVX-CoV2373,I,1,naive,0,0
+Delta,NVX-CoV2373,I,>=2,infected,0,0
+Delta,NVX-CoV2373,I,>=2,naive,0,0
+Delta,NVX-CoV2373,R,1,infected,0,0
+Delta,NVX-CoV2373,R,1,naive,0,0
+Delta,NVX-CoV2373,R,>=2,infected,0,0
+Delta,NVX-CoV2373,R,>=2,naive,0,0
+Delta,BBV152,S,1,infected,0,0
+Delta,BBV152,I,1,infected,0,0
+Delta,BBV152,R,1,infected,0,0
+Delta,CoronaVac,S,1,infected,0,0
+Delta,CoronaVac,S,>=2,infected,0,0
+Delta,CoronaVac,S,>=2,naive,0,0
+Delta,CoronaVac,I,1,infected,0,0
+Delta,CoronaVac,I,>=2,infected,0,0
+Delta,CoronaVac,I,>=2,naive,0,0
+Delta,CoronaVac,R,1,infected,0,0
+Delta,CoronaVac,R,>=2,infected,0,0
+Delta,CoronaVac,R,>=2,naive,0,0
+Delta,BBIBP-CorV,S,1,infected,0,0
+Delta,BBIBP-CorV,S,1,naive,0,0
+Delta,BBIBP-CorV,S,>=2,infected,0,0
+Delta,BBIBP-CorV,S,>=2,naive,0,0
+Delta,BBIBP-CorV,I,1,infected,0,0
+Delta,BBIBP-CorV,I,1,naive,0,0
+Delta,BBIBP-CorV,I,>=2,infected,0,0
+Delta,BBIBP-CorV,I,>=2,naive,0,0
+Delta,BBIBP-CorV,R,1,infected,0,0
+Delta,BBIBP-CorV,R,1,naive,0,0
+Delta,BBIBP-CorV,R,>=2,infected,0,0
+Delta,BBIBP-CorV,R,>=2,naive,0,0
+Delta,Sputnik V,S,1,infected,0,0
+Delta,Sputnik V,S,>=2,infected,0,0
+Delta,Sputnik V,I,1,infected,0,0
+Delta,Sputnik V,I,>=2,infected,0,0
+Delta,Sputnik V,R,1,infected,0,0
+Delta,Sputnik V,R,>=2,infected,0,0
+Delta,MVC-COV1901,S,1,infected,0,0
+Delta,MVC-COV1901,S,1,naive,0,0
+Delta,MVC-COV1901,S,>=2,infected,0,0
+Delta,MVC-COV1901,S,>=2,naive,0,0
+Delta,MVC-COV1901,I,1,infected,0,0
+Delta,MVC-COV1901,I,1,naive,0,0
+Delta,MVC-COV1901,I,>=2,infected,0,0
+Delta,MVC-COV1901,I,>=2,naive,0,0
+Delta,MVC-COV1901,R,1,infected,0,0
+Delta,MVC-COV1901,R,1,naive,0,0
+Delta,MVC-COV1901,R,>=2,infected,0,0
+Delta,MVC-COV1901,R,>=2,naive,0,0
+Delta,ZF2001,S,1,infected,0,0
+Delta,ZF2001,S,1,naive,0,0
+Delta,ZF2001,S,>=2,infected,0,0
+Delta,ZF2001,S,>=2,naive,0,0
+Delta,ZF2001,I,1,infected,0,0
+Delta,ZF2001,I,1,naive,0,0
+Delta,ZF2001,I,>=2,infected,0,0
+Delta,ZF2001,I,>=2,naive,0,0
+Delta,ZF2001,R,1,infected,0,0
+Delta,ZF2001,R,1,naive,0,0
+Delta,ZF2001,R,>=2,infected,0,0
+Delta,ZF2001,R,>=2,naive,0,0

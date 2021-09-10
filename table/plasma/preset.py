@@ -350,3 +350,20 @@ IGNORE_VACCINE_NAME = [
 IGNORE_STUDY = [
     'Wall21b'
 ]
+
+
+INFECTED_VACCINEE = """
+SELECT DISTINCT ref_name,
+                subject_name
+FROM   subject_history a
+WHERE  EXISTS (SELECT 1
+               FROM   subject_history b
+               WHERE  a.subject_name = b.subject_name
+                      AND a.ref_name = b.ref_name
+                      AND b.event = 'infection')
+       AND EXISTS (SELECT 1
+                   FROM   subject_history b
+                   WHERE  a.subject_name = b.subject_name
+                          AND a.ref_name = b.ref_name
+                          AND b.event LIKE '%dose%')
+"""

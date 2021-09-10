@@ -23,6 +23,8 @@ def get_susceptibility(fold_str):
         return 'partial-resistance'
     elif fold == 10 and fold_cmp in ['=', '>']:
         return 'resistant'
+    elif fold > 10:
+        return 'resistant'
     else:
         raise Exception(fold_str)
 

@@ -51,7 +51,7 @@ def gen_report(db_path):
     gen_cp_summary(conn)
     gen_vp_summary(conn)
     gen_vp_efficacy(conn)
-    gen_figure_plasma_fold()
+    gen_figure_plasma_fold(conn)
     gen_figure_plasma_titer(conn)
 
     from mab.gen_table_mab import gen_table_mab
