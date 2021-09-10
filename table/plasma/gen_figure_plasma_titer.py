@@ -271,8 +271,6 @@ def gen_figure_plasma_titer(
             continue
         used_key.append(key)
 
-    print(used_key)
-
     for key in product(ISO_NAME_LIST, RX_NAME_LIST, MONTH, INFECTION):
         if key in used_key:
             continue
