@@ -1,4 +1,4 @@
-﻿iso_name,rx_name,titer,month,infection,num_result
+﻿variant,rx_name,titer,month,infection,num_result
 B.1,CP,97.0,1.0,infected,1
 B.1,CP,74.0,1.0,infected,1
 B.1,CP,81.0,1.0,infected,1

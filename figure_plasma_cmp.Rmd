@@ -170,8 +170,8 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     ) +
     scale_fill_manual(
       values = c(
-        'low' = "#F5AB17",
-        'middle' = "#FFCD66",
+        'low' = "#146aa8",
+        'middle' = "#7fcbee",
         'high' = "#ffffff"
       ),
       name="NT titer",
@@ -611,11 +611,20 @@ titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
 
 plots = list()
 i = 1
-line_width = 4
+line_width = length(RX_NAME_LIST) - 3
 j = i + line_width
-rx_name_length = length(RX_NAME_LIST)
+rx_name_length = length(RX_NAME_LIST) - 3
 
 for (rx in RX_NAME_LIST) {
+  if (rx == "CP") {
+    next
+  }
+  if (rx == 'MVC-COV1901') {
+    next
+  }
+  if (rx == 'ZF2001') {
+    next
+  }
     dfPlot = fold_df %>%
       filter(rx_name == rx) %>%
       filter(variant %in% VARIANT) %>%
@@ -645,11 +654,12 @@ for (rx in RX_NAME_LIST) {
     }
 
     plots[[i]] = p
-    if ((i + 1) %% 8 <= 4) {
-      i = i + 1
-    } else {
-      i = i + 1 + line_width
-    }
+    i = i + 1
+    # if ((i + 1) %% 2 * line_width <= ) {
+    #   i = i + 1
+    # } else {
+    #   i = i + 1 + line_width
+    # }
     
     dfPlot = titer_df %>%
       filter(rx_name == rx) %>%
@@ -679,12 +689,12 @@ for (rx in RX_NAME_LIST) {
         ylab("# Results")
     }
     
-    if (j > (2 * rx_name_length - line_width)) {
+    # if (j > (2 * rx_name_length - line_width)) {
       p = p + theme(
         axis.title.x = element_blank(),
         axis.text.x = element_text(size=14, angle=45, hjust=1),
       )
-    }
+    # }
     
     plots[[j]] = p
     j = i + line_width
