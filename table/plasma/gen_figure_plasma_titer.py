@@ -256,6 +256,7 @@ def gen_figure_plasma_titer(
         cumu = i['num_result']
         i['num_result'] = 1
         del i['ref_name']
+        i['variant'] = i['iso_name']
         month = i['month']
         if month < 2:
             month = '1'
@@ -266,19 +267,21 @@ def gen_figure_plasma_titer(
         for _ in range(int(cumu)):
             indiv_records.append(i)
 
-        key = i['iso_name'], i['rx_name'], i['month'], i['infection']
+        key = i['variant'], i['rx_name'], i['month'], i['infection']
         if key in used_key:
             continue
         used_key.append(key)
 
     for key in product(ISO_NAME_LIST, RX_NAME_LIST, MONTH, INFECTION):
+        print(key, key in used_key)
         if key in used_key:
             continue
         used_key.append(key)
         iso_name, rx_name, month, infection = key
 
         indiv_records.append({
-            'iso_name': iso_name,
+            'variant': iso_name,
+            'iso_name': '',
             'rx_name': rx_name,
             'titer': '',
             'month': month,

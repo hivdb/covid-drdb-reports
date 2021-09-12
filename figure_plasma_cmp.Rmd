@@ -281,13 +281,24 @@ draw_titer_violin <- function(dfPlot, figLabel) {
 
 
 draw_titer_boxplot <- function(dfPlot, figLabel) {
+  dfAgg = dfPlot %>%
+    group_by(variant) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+  
   p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=variant)) +
     geom_boxplot() + 
-    stat_compare_means(
-      method = "t.test",
-      ref.group = "Alpha",
-      aes(label=..p.adj..)
-    ) +
+    # stat_compare_means(
+    #   method = "t.test",
+    #   ref.group = "Alpha",
+    #   aes(label=..p.adj..)
+    # ) +
     # stat_compare_means(
       # comparisions= list(
       #   c('Alpha', 'Beta'),
@@ -296,12 +307,17 @@ draw_titer_boxplot <- function(dfPlot, figLabel) {
       #   ),
       # ) +
     scale_y_continuous(
-      trans="log2",
-      expand=expansion(mult = c(0, .3))
-      # breaks=c(1, 10, 100, 1000, 10000)
-      # limits=c(0, 1700)
+      trans='log2',
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(64, 10000)
     ) +
-    scale_x_discrete(breaks=VARIANT, labels=VARIANT) + 
+    scale_x_discrete(breaks=VARIANT, labels=VARIANT) +
+    geom_text(
+      data=dfAgg,
+      aes(y=10000, label=label),
+      size = 7
+    ) +
     theme(
       legend.position = "none",
       # legend.title = element_blank(),
@@ -332,20 +348,37 @@ draw_titer_boxplot <- function(dfPlot, figLabel) {
 
 
 draw_titer_by_plasma <- function(dfPlot, figLabel) {
+  
+  dfAgg = dfPlot %>%
+    group_by(rx_name) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+  
   p <- ggplot(data=dfPlot, aes(x=rx_name, y=titer, fill=rx_name)) +
     geom_boxplot() + 
-    stat_compare_means(
-      method = "t.test",
-      ref.group = "CP",
-      vjust = -2
-      ) +
+    # stat_compare_means(
+    #   method = "t.test",
+    #   ref.group = "CP",
+    #   vjust = -2
+    #   ) +
     scale_y_continuous(
       trans='log2',
-      expand=expansion(mult = c(0, .3),
-      breaks=c(1, 4, 16, 64, 256, 1024, 4096),
-      limits=c(0, 1700)
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(64, 10000)
     ) +
     scale_x_discrete(breaks=RX_NAME_LIST, labels=RX_NAME_LIST) + 
+    geom_text(
+      data=dfAgg,
+      aes(y=10000, label=label),
+      size = 7
+    ) +
     theme(
       legend.position = "none",
       # legend.title = element_blank(),
@@ -381,12 +414,12 @@ draw_month_compare <- function(dfPlot, figLabel) {
       ">=2" = "cornflowerblue"
     )) +
     geom_boxplot() + 
-    stat_compare_means(
-      comparisions= list(c('1', '>=2')),
-      group.by ="variant",
-      method = "wilcox.test",
-      vjust=-2
-      ) +
+    # stat_compare_means(
+    #   comparisions= list(c('1', '>=2')),
+    #   group.by ="variant",
+    #   method = "wilcox.test",
+    #   vjust=-2
+    #   ) +
     scale_y_log10(
       expand=expansion(mult = c(0, .4)),
       breaks=c(1, 10, 100, 1000, 10000)
@@ -429,12 +462,12 @@ draw_infection_compare <- function(dfPlot, figLabel) {
       "infected" = "cornflowerblue"
     )) +
     geom_boxplot() + 
-    stat_compare_means(
-      comparisions= list(c('naive', 'infected')),
-      group.by ="variant",
-      method = "wilcox.test",
-      vjust=-2
-      ) +
+    # stat_compare_means(
+    #   comparisions= list(c('naive', 'infected')),
+    #   group.by ="variant",
+    #   method = "wilcox.test",
+    #   vjust=-2
+    #   ) +
     scale_y_log10(
       expand=expansion(mult = c(0, .4)),
       breaks=c(1, 10, 100, 1000, 10000)
@@ -538,6 +571,7 @@ grid.arrange(grobs = plots, ncol=3)
 ```
 
 
+
 ### Titer
 ```{r titer-cmp-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
@@ -601,6 +635,7 @@ for (rx in RX_NAME_LIST) {
 grid.arrange(grobs = plots, ncol=3, heights=c(1,1,1,1.3))
 # grid.arrange(grobs = plots)
 ```
+
 
 
 ### Fold vs Titer
@@ -701,6 +736,7 @@ for (rx in RX_NAME_LIST) {
 grid.arrange(grobs = plots, ncol=line_width)
 # grid.arrange(grobs = plots)
 ```
+
 
 <!-- ### Titer 1M vs Titer other -->
 <!-- ```{r titer-1m-vs-other, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE} -->
@@ -991,7 +1027,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 
 
 ## Titer 1M compare by variant
-```{r titer-1m-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+```{r titer-1m-variant-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
 titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
@@ -1055,13 +1091,21 @@ titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %
 plots = list()
 i = 1
 line_width = 1
-j = i + line_width
-x_axis_length = length(VARIANT)
+loop_length = length(VARIANT)
 
 for (var in VARIANT) {
   dfPlot = titer_df %>%
     filter(variant == var) %>%
-    filter(rx_name %in% RX_NAME_LIST) %>%
+    filter(rx_name %in% RX_NAME_LIST)
+
+  dfCP = dfPlot %>%
+    filter(rx_name == 'CP', infection == 'infected')
+  dfVP = dfPlot %>%
+    filter(rx_name != 'CP', infection =='naive')
+  dfPlot = rbind(dfCP, dfVP)
+  
+  
+  dfPlot = dfPlot %>%
     mutate(
       rx_name = factor(rx_name, RX_NAME_LIST)
     )
@@ -1069,21 +1113,19 @@ for (var in VARIANT) {
   figLabel = var
 
   p = draw_titer_by_plasma(dfPlot, figLabel)
-  
-  if (i %% line_width == 1) {
-    p = p + theme(
-      axis.title.y = element_text(size=15, face="bold", colour = "black"),
-    ) +
-      ylab("NT50")
-  }
-  
-  if (i > x_axis_length - line_width) {
+
+  p = p + theme(
+    axis.title.y = element_text(size=15, face="bold", colour = "black"),
+  ) +
+    ylab("NT50")
+
+  if (i == loop_length) {
     p = p + theme(
       axis.title.x = element_blank(),
       axis.text.x = element_text(size=14, angle=45, hjust=1),
     )
   }
-  
+
   plots[[i]] = p
   i = i + 1
 }
