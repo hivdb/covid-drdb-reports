@@ -280,7 +280,7 @@ draw_titer_violin <- function(dfPlot, figLabel) {
 }
 
 
-draw_titer_boxplot <- function(dfPlot, figLabel) {
+draw_titer_by_variant <- function(dfPlot, figLabel) {
   dfAgg = dfPlot %>%
     group_by(variant) %>%
     summarise(sum_results=sum(num_result)) %>%
@@ -570,8 +570,6 @@ grid.arrange(grobs = plots, ncol=3)
 # grid.arrange(grobs = plots)
 ```
 
-
-
 ### Titer
 ```{r titer-cmp-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
@@ -637,6 +635,117 @@ grid.arrange(grobs = plots, ncol=3, heights=c(1,1,1,1.3))
 ```
 
 
+### Titer percent
+```{r titer-percent, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+draw_titer_pcnt <- function(dfPlot, figLabel) {
+  dfAgg = dfPlot %>%
+    group_by(variant) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+  
+  p <- ggplot(data=dfPlot, aes(x=variant, y=num_result, fill=level)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+    scale_fill_manual(
+      values = c(
+        'low' = "#146aa8",
+        'middle' = "#7fcbee",
+        'high' = "#ffffff"
+      ),
+      name="NT titer",
+      breaks=TITER_LEVEL,
+      labels=c(
+        "<=40",
+        "40~100",
+        ">100"
+      )
+    ) +
+    scale_y_continuous(
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(0, 0.25, 0.5, 0.75, 1)
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(size=14),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+
+plots = list()
+i = 1
+
+for (rx in RX_NAME_LIST) {
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    filter(variant %in% VARIANT) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+  
+  if (rx == 'CP') {
+    figLabel = "Convalescent plasma"
+    dfPlot = dfPlot %>%
+      filter(infection == 'infected')
+  }
+  else {
+    figLabel = rx
+    dfPlot = dfPlot %>%
+      filter(infection == 'naive')
+  }
+  p = draw_titer_pcnt(dfPlot, figLabel)
+  
+  if (i %% 4 == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("% Titer results")
+  }
+  
+  if (i > 5) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+  
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=4)
+
+```
 
 ### Fold vs Titer
 ```{r fold-vs-titer-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
@@ -1057,7 +1166,7 @@ for (rx in RX_NAME_LIST) {
       filter(infection == 'naive')
   }
   
-  p = draw_titer_boxplot(dfPlot, figLabel)
+  p = draw_titer_by_variant(dfPlot, figLabel)
   
   if (i %% line_width == 1) {
     p = p + theme(
@@ -1235,6 +1344,125 @@ for (rx in RX_NAME_LIST) {
   
   plots[[i]] = p
   i = i + 1
+}
+
+
+grid.arrange(grobs = plots, ncol=line_width)
+```
+
+
+## Titer fold point cmp
+```{r titer-fold-point, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+
+draw_titer_fold_points <- function(dfPlot, figLabel='') {
+  
+  p <- ggplot(data=dfPlot, aes(x=titer, y=fold, color=rx_name)) +
+    geom_point(size=3) +
+    scale_y_continuous(
+      trans="log10",
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(1, 3, 10, 30),
+      limits=c(1, 30)
+    ) +
+    scale_color_brewer(palette='Set3') +
+    scale_x_continuous(
+      trans='log2',
+      expand=expansion(mult = c(0, 0)),
+      breaks=c(64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(64, 10000)
+    ) +
+    theme(
+      # legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_text(size=14),
+      axis.text.y = element_text(size=14),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black')
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+
+  
+  p
+}
+
+titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+titer_df_CP = titer_df %>%
+    filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_CP, titer_df_VP)
+titer_df = titer_df %>%
+  filter(!is.na(fold)) %>%
+  filter(rx_name != 'CP')
+
+p = draw_titer_fold_points(titer_df)
+p
+```
+
+
+## Titer fold point cmp details
+```{r titer-fold-point-details, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+
+plots = list()
+i = 1
+line_width = 4
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+  for (var in VARIANT) {
+    dfPlot = titer_df %>%
+      filter(rx_name == rx, variant == var)
+    
+    figLabel = sprintf('%s, %s', rx, var)
+    
+    p = draw_titer_fold_points(dfPlot, figLabel)
+    
+    if (i %% line_width == 1) {
+      p = p + theme(
+        axis.title.y = element_text(size=15, face="bold", colour = "black"),
+      ) +
+        ylab("Fold")
+    }
+    
+    p = p + theme(
+       legend.position = "none"
+    )
+    
+    # if (i > rx_name_length - line_width) {
+    #   p = p + theme(
+    #     axis.title.x = element_blank(),
+    #     axis.text.x = element_text(size=14, angle=45, hjust=1),
+    #   )
+    # }
+    
+    plots[[i]] = p
+    i = i + 1
+  }
 }
 
 

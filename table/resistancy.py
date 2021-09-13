@@ -102,3 +102,13 @@ def round_fold(number):
     #     return 100
     else:
         return '>100'
+
+
+def parse_fold(fold_str):
+    try:
+        fold = float(fold_str)
+        # fold_cmp = '='
+    except ValueError:
+        # fold_cmp = fold_str[0]
+        fold = float(fold_str[1:])
+    return fold

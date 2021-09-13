@@ -367,3 +367,12 @@ WHERE  EXISTS (SELECT 1
                           AND a.ref_name = b.ref_name
                           AND b.event LIKE '%dose%')
 """
+
+
+RX_TITER_FOLD = """
+SELECT *
+FROM susc_results a,
+     rx_potency b
+WHERE a.ref_name = b.ref_name
+  AND a.rx_name = b.rx_name
+"""

@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 09/12/2021 11:47 AM PDT
+Report generated at: 09/12/2021 11:11 PM PDT
 
 
 
@@ -18,12 +18,12 @@ Report generated at: 09/12/2021 11:47 AM PDT
 ### Fold
 <img src="figure_plasma_cmp_files/figure-html/fold-cmp-1m-1.png" width="1920" />
 
-
-
 ### Titer
 <img src="figure_plasma_cmp_files/figure-html/titer-cmp-1m-1.png" width="1920" />
 
 
+### Titer percent
+<img src="figure_plasma_cmp_files/figure-html/titer-percent-1.png" width="1920" />
 
 ### Fold vs Titer
 <img src="figure_plasma_cmp_files/figure-html/fold-vs-titer-1m-1.png" width="1920" />
@@ -331,3 +331,11 @@ Report generated at: 09/12/2021 11:47 AM PDT
 
 ## Titer VP Naive vs Infection boxplot
 <img src="figure_plasma_cmp_files/figure-html/titer-naive-vs-infection-boxplot-1.png" width="1920" />
+
+
+## Titer fold point cmp
+<img src="figure_plasma_cmp_files/figure-html/titer-fold-point-1.png" width="1920" />
+
+
+## Titer fold point cmp details
+<img src="figure_plasma_cmp_files/figure-html/titer-fold-point-details-1.png" width="1920" />

@@ -40,6 +40,8 @@ def gen_report(db_path):
     from plasma.gen_cp_summary import gen_cp_summary
     from plasma.gen_figure_plasma_fold import gen_figure_plasma_fold
     from plasma.gen_figure_plasma_titer import gen_figure_plasma_titer
+    from plasma.gen_figure_plasma_titer_fold import \
+        gen_figure_plasma_titer_fold
     from plasma.gen_vp_efficacy import gen_vp_efficacy
 
     gen_table_cp_muts(conn)
@@ -53,6 +55,7 @@ def gen_report(db_path):
     gen_vp_efficacy(conn)
     gen_figure_plasma_fold(conn)
     gen_figure_plasma_titer(conn)
+    gen_figure_plasma_titer_fold(conn)
 
     from mab.gen_table_mab import gen_table_mab
     from mab.gen_table_mab_variant import gen_table_mab_variant
