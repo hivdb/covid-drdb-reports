@@ -143,10 +143,11 @@ def process_record(variant, records):
 
     result = {'variant': variant}
     for mab_name, short_name in SHOW_MABS.items():
+        result[short_name] = {}
         rec_list = mab_groups.get(short_name)
 
         if not rec_list:
-            result[short_name] = '-'
+            result[short_name]['fold'] = '-'
             continue
 
         # rec_list = unique_reference(rec_list)
@@ -158,35 +159,44 @@ def process_record(variant, records):
         medium_value = median(fold_values)
 
         if medium_value >= 100:
-            medium_value_str = '&gt;100'
+            fold_cmp = '>'
+            fold = '100'
+            # medium_value_str = '&gt;100'
         else:
-            medium_value_str = str(round_fold(medium_value))
+            # medium_value_str = str(round_fold(medium_value))
+            fold_cmp = ''
+            fold = str(round_fold(medium_value))
         # num_rec_list = len(set([row['Reference'] for i in rec_list]))
         num_rec_list = len(rec_list)
 
-        tmpl = '{}<sub>{}</sub>'
+        # tmpl = '{}<sub>{}</sub>'
         for s, m in DATA_PROBLEM:
             if s == variant and m == short_name:
-                tmpl += '*'
+                # tmpl += '*'
+                fold = fold + '*'
                 break
 
-        result_markdown = tmpl.format(
-            medium_value_str, num_rec_list if num_rec_list > 1 else ''
-        )
+        result[short_name]['fold'] = fold
+        result[short_name]['fold_cmp'] = fold_cmp
+        result[short_name]['num'] = num_rec_list
 
-        color = get_color(medium_value)
-        if color:
-            color_tmpl = (
-                '<span '
-                'style="padding: 0.1rem 0.2rem;margin: '
-                '0px 0.2rem;background-color:{color};color:white">'
-                '{content}</span>')
-            result_markdown = color_tmpl.format(
-                color=color,
-                content=result_markdown
-            )
+        # result_markdown = tmpl.format(
+        #     medium_value_str, num_rec_list if num_rec_list > 1 else ''
+        # )
 
-        result[short_name] = result_markdown
+        # color = get_color(medium_value)
+        # if color:
+        #     color_tmpl = (
+        #         '<span '
+        #         'style="padding: 0.1rem 0.2rem;margin: '
+        #         '0px 0.2rem;background-color:{color};color:white">'
+        #         '{content}</span>')
+        #     result_markdown = color_tmpl.format(
+        #         color=color,
+        #         content=result_markdown
+        #     )
+
+        # result[short_name] = result_markdown
 
     return result
 
