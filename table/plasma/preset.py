@@ -373,6 +373,8 @@ RX_TITER_FOLD = """
 SELECT *
 FROM susc_results a,
      rx_potency b
-WHERE a.ref_name = b.ref_name
+WHERE
+    a.ref_name = b.ref_name
   AND a.rx_name = b.rx_name
+  AND a.iso_name = b.iso_name
 """

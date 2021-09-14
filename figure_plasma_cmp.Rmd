@@ -18,6 +18,8 @@ library(plotly)
 library(ggbeeswarm)
 library(viridis)
 library(ggpubr)
+library(ggpmisc)
+
 
 knitr::opts_chunk$set(
   echo = FALSE,
@@ -34,11 +36,17 @@ VARIANT = c(
   "Gamma",
   "Delta"
 )
+VARIANT_COLOR = c(
+  "Alpha" = "#e91e63",
+  "Beta" = "#3a96f3",
+  "Gamma" = "#cddc39",
+  "Delta" = "#795549"
+)
 
 RX_NAME_LIST = c(
-  "CP", 
-  "BNT162b2", 
-  'mRNA-1273', 
+  "CP",
+  "BNT162b2",
+  'mRNA-1273',
   'AZD1222',
   'Ad26.COV2.S',
   # 'NVX-CoV2373',
@@ -48,33 +56,72 @@ RX_NAME_LIST = c(
   'Sputnik V'
   # 'MVC-COV1901',
   # 'ZF2001'
-  )
-SUSC_VALUE = c("R", "I", "S")
-TITER_LEVEL = c("low", "middle", "high")
+)
+RX_NAME_COLOR = c(
+  "CP" = "#f44336",
+  "BNT162b2" = "#3a96f3",
+  'mRNA-1273' = "#a946bb",
+  'AZD1222' = "#f7c10a",
+  'Ad26.COV2.S' = "#f05723",
+  # 'NVX-CoV2373',
+  'BBV152' = "#795548",
+  'CoronaVac' = "#4caf50",
+  'BBIBP-CorV' = "#e91e63",
+  'Sputnik V' = "#607d8b"
+  # 'MVC-COV1901',
+  # 'ZF2001'
+)
+# SUSC_VALUE = c("R", "I", "S")
+SUSC_VALUE = c("S", "I", "R")
+# TITER_LEVEL = c("low", "middle", "high")
+TITER_LEVEL = c("high", "middle", "low")
 
 MONTH = c('1', '>=2')
 INFECTION = c('naive', 'infected')
+
+draw_blank <- function() {
+  dfPlot = data.frame()
+  p <- ggplot(dfPlot) +
+    geom_blank() +
+    theme(
+      legend.position = "none",
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      plot.title = element_blank(),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_blank()
+    )
+  p
+}
 ```
 
+## Number results {.tabset}
 
-```{r function, include=FALSE}
+### Fold 1M
+```{r fold-cmp-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
 draw_rx_fold <- function(dfPlot, figLabel) {
   dfAgg = dfPlot %>%
     group_by(variant, num_study) %>%
-    summarise(total=sum(num_result)) %>%
+    summarise(num_results=sum(num_result)) %>%
     mutate(
-      total_label = ifelse(
+      label = ifelse(
         num_study > 1,
-        yes=sprintf('%s\nstudies', num_study),
+        yes=sprintf('%s studies\n%s results', num_study, num_results),
         no=ifelse(
           num_study > 0,
-          yes=sprintf('%s\nstudy', num_study),
+          yes=sprintf('%s study\n%s results', num_study, num_results),
           no=''
         )
       )
-      
     )
-  
+
   p <- ggplot(data=dfPlot, aes(x=variant, y=num_result)) +
     # scale_x_discrete(labels=c(
     #   'Alpha' = 'Alpha (B.1.1.7)',
@@ -112,7 +159,7 @@ draw_rx_fold <- function(dfPlot, figLabel) {
     ) +
     geom_text(
       data=dfAgg,
-      aes(y=total, label=total_label),
+      aes(y=num_results, label=label),
       size = 4,
       vjust = -0.2
     ) +
@@ -143,23 +190,80 @@ draw_rx_fold <- function(dfPlot, figLabel) {
   p
 }
 
+
+fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+
+fold_df = fold_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+fold_df_CP = fold_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+fold_df_VP = fold_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+fold_df = rbind(fold_df_VP, fold_df_CP)
+
+plots = list()
+i = 1
+line_width = 4
+num_graph = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+  dfPlot = fold_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      susc = factor(susc, SUSC_VALUE)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_fold(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  if (i > num_graph - line_width) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
+```
+
+### Titer 1M
+```{r titer-cmp-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
 draw_rx_titer <- function(dfPlot, figLabel) {
   dfAgg = dfPlot %>%
     group_by(variant, num_study) %>%
-    summarise(total=sum(num_result)) %>%
+    summarise(num_results=sum(num_result)) %>%
     mutate(
-      total_label = ifelse(
+      label = ifelse(
         num_study > 1,
-        yes=sprintf('%s\nstudies', num_study),
+        yes=sprintf('%s studies\n%s results', num_study, num_results),
         no=ifelse(
           num_study > 0,
-          yes=sprintf('%s\nstudy', num_study),
+          yes=sprintf('%s study\n%s results', num_study, num_results),
           no=''
         )
       )
-      
     )
-  
+
   p <- ggplot(data=dfPlot, aes(x=variant, y=num_result)) +
     geom_bar(
       aes(fill=level),
@@ -189,7 +293,7 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     ) +
     geom_text(
       data=dfAgg,
-      aes(y=total, label=total_label),
+      aes(y=num_results, label=label),
       size = 4,
       vjust = -0.2
     ) +
@@ -221,437 +325,87 @@ draw_rx_titer <- function(dfPlot, figLabel) {
   p
 }
 
-draw_blank <- function() {
-  dfPlot = data.frame()
-  p <- ggplot(dfPlot) +
-    geom_blank() +
-    theme(
-      legend.position = "none",
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_blank(),
-      plot.title = element_blank(),
-      strip.background = element_blank(),
-      strip.text = element_blank(),
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.border = element_blank()
-    )
-  p
-}
-
-draw_titer_violin <- function(dfPlot, figLabel) {
-  p <- ggplot(data=dfPlot, aes(x=variant, y=titer)) +
-    geom_violin() + 
-    scale_y_log10(
-      expand=expansion(mult = c(0, .2)),
-      breaks=c(1, 10, 100, 1000, 10000)
-      # limits=c(0, 1700)
-    ) +
-    scale_x_discrete(breaks=VARIANT, labels=VARIANT) + 
-    theme(
-      legend.position = "none",
-      # legend.title = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
-      plot.title = element_text(hjust = 0.5, size=12),
-      strip.background = element_blank(),
-      strip.text = element_blank(),
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.border = element_rect(fill = NA, color = 'black'),
-      plot.margin = margin(t=0, l=10, r=10, b=10)
-    )
-
-  p = p + annotate(
-    "text",
-    y= Inf,
-    x = Inf,
-    label=figLabel,
-    size=5,
-    vjust=2,
-    hjust=1.1)
-  p
-}
-
-
-draw_titer_by_variant <- function(dfPlot, figLabel) {
-  dfAgg = dfPlot %>%
-    group_by(variant) %>%
-    summarise(sum_results=sum(num_result)) %>%
-    mutate(
-      label = ifelse(
-        sum_results > 1,
-        yes=sprintf('%s', sum_results),
-        no=''
-      )
-    )
-  
-  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=variant)) +
-    geom_boxplot() + 
-    # stat_compare_means(
-    #   method = "t.test",
-    #   ref.group = "Alpha",
-    #   aes(label=..p.adj..)
-    # ) +
-    # stat_compare_means(
-      # comparisions= list(
-      #   c('Alpha', 'Beta'),
-      #   c('Alpha', 'Gamma'),
-      #   c('Alpha', 'Delta')
-      #   ),
-      # ) +
-    scale_y_continuous(
-      trans='log2',
-      expand=expansion(mult = c(0, .2)),
-      breaks=c(64, 128, 256, 512, 1024, 2048, 4096),
-      limits=c(64, 10000)
-    ) +
-    scale_x_discrete(breaks=VARIANT, labels=VARIANT) +
-    geom_text(
-      data=dfAgg,
-      aes(y=10000, label=label),
-      size = 7
-    ) +
-    theme(
-      legend.position = "none",
-      # legend.title = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
-      plot.title = element_text(hjust = 0.5, size=12),
-      strip.background = element_blank(),
-      strip.text = element_blank(),
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.border = element_rect(fill = NA, color = 'black'),
-      plot.margin = margin(t=0, l=10, r=10, b=10)
-    )
-
-  p = p + annotate(
-    "text",
-    y= Inf,
-    x = Inf,
-    label=figLabel,
-    size=5,
-    vjust=2,
-    hjust=1.1)
-  p
-}
-
-
-draw_titer_by_plasma <- function(dfPlot, figLabel) {
-  
-  dfAgg = dfPlot %>%
-    group_by(rx_name) %>%
-    summarise(sum_results=sum(num_result)) %>%
-    mutate(
-      label = ifelse(
-        sum_results > 1,
-        yes=sprintf('%s', sum_results),
-        no=''
-      )
-    )
-  
-  p <- ggplot(data=dfPlot, aes(x=rx_name, y=titer, fill=rx_name)) +
-    geom_boxplot() + 
-    # stat_compare_means(
-    #   method = "t.test",
-    #   ref.group = "CP",
-    #   vjust = -2
-    #   ) +
-    scale_y_continuous(
-      trans='log2',
-      expand=expansion(mult = c(0, .2)),
-      breaks=c(64, 128, 256, 512, 1024, 2048, 4096),
-      limits=c(64, 10000)
-    ) +
-    scale_x_discrete(breaks=RX_NAME_LIST, labels=RX_NAME_LIST) + 
-    geom_text(
-      data=dfAgg,
-      aes(y=10000, label=label),
-      size = 7
-    ) +
-    theme(
-      legend.position = "none",
-      # legend.title = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
-      plot.title = element_text(hjust = 0.5, size=12),
-      strip.background = element_blank(),
-      strip.text = element_blank(),
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.border = element_rect(fill = NA, color = 'black'),
-      plot.margin = margin(t=0, l=10, r=10, b=10)
-    )
-
-  p = p + annotate(
-    "text",
-    y= Inf,
-    x = Inf,
-    label=figLabel,
-    size=5,
-    vjust=2,
-    hjust=1.1)
-  p
-}
-
-draw_month_compare <- function(dfPlot, figLabel) {
-  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, color=month)) +
-    scale_color_manual(values=c(
-      "1" = "cadetblue1",
-      ">=2" = "cornflowerblue"
-    )) +
-    geom_boxplot() + 
-    # stat_compare_means(
-    #   comparisions= list(c('1', '>=2')),
-    #   group.by ="variant",
-    #   method = "wilcox.test",
-    #   vjust=-2
-    #   ) +
-    scale_y_log10(
-      expand=expansion(mult = c(0, .4)),
-      breaks=c(1, 10, 100, 1000, 10000)
-      # limits=c(0, 1700)
-    ) +
-    scale_x_discrete(breaks=VARIANT, labels=VARIANT) + 
-    theme(
-      legend.position = "none",
-      # legend.title = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
-      plot.title = element_text(hjust = 0.5, size=12),
-      strip.background = element_blank(),
-      strip.text = element_blank(),
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.border = element_rect(fill = NA, color = 'black'),
-      plot.margin = margin(t=0, l=10, r=10, b=10)
-    )
-  
-  p = p + annotate(
-    "text",
-    y= Inf,
-    x = Inf,
-    label=figLabel,
-    size=5,
-    vjust=2,
-    hjust=1.1)
-  p
-}
-
-
-draw_infection_compare <- function(dfPlot, figLabel) {
-  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, color=infection)) +
-    scale_color_manual(values=c(
-      "naive" = "cadetblue1",
-      "infected" = "cornflowerblue"
-    )) +
-    geom_boxplot() + 
-    # stat_compare_means(
-    #   comparisions= list(c('naive', 'infected')),
-    #   group.by ="variant",
-    #   method = "wilcox.test",
-    #   vjust=-2
-    #   ) +
-    scale_y_log10(
-      expand=expansion(mult = c(0, .4)),
-      breaks=c(1, 10, 100, 1000, 10000)
-      # limits=c(0, 1700)
-    ) +
-    scale_x_discrete(breaks=VARIANT, labels=VARIANT) + 
-    theme(
-      legend.position = "none",
-      # legend.title = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
-      plot.title = element_text(hjust = 0.5, size=12),
-      strip.background = element_blank(),
-      strip.text = element_blank(),
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.border = element_rect(fill = NA, color = 'black'),
-      plot.margin = margin(t=0, l=10, r=10, b=10)
-    )
-  
-  p = p + annotate(
-    "text",
-    y= Inf,
-    x = Inf,
-    label=figLabel,
-    size=5,
-    vjust=2,
-    hjust=1.1)
-  p
-}
-```
-
-## Plasma comparison {.tabset}
-
-### Fold
-```{r fold-cmp-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
-  filter(month=='1')
-
-plots = list()
-i = 1
-
-for (rx in RX_NAME_LIST) {
-    dfPlot = fold_df %>%
-      filter(rx_name == rx) %>%
-      filter(variant %in% VARIANT) %>%
-      mutate(
-        variant = factor(variant, VARIANT),
-        susc = factor(susc, SUSC_VALUE)
-      )
-
-    if (rx == 'CP') {
-      figLabel = "Convalescent plasma"
-      dfPlot = dfPlot %>%
-        filter(infection == 'infected')
-    }
-    else {
-      figLabel = rx
-      dfPlot = dfPlot %>%
-        filter(infection == 'naive')
-    }
-    
-    p = draw_rx_fold(dfPlot, figLabel)
-    
-    if (i %% 3 == 1) {
-      p = p + theme(
-        axis.title.y = element_text(size=15, face="bold", colour = "black"),
-        ) +
-      ylab("# Results")
-    }
-    
-    if (i < 4) {
-      p = p + theme(
-        plot.margin = margin(t=0,l=0,r=10, b=10)
-      )
-    }
-
-    if (i == 4) {
-      p = p + theme(
-        plot.margin = margin(t=0,l=4,r=10, b=10)
-      )
-    }
-
-    if (i > 9) {
-      p = p + theme(
-        axis.title.x = element_blank(),
-        axis.text.x = element_text(size=14, angle=45, hjust=1),
-        )
-    }
-
-    plots[[i]] = p
-    i = i + 1
-}
-
-grid.arrange(grobs = plots, ncol=3)
-# grid.arrange(grobs = plots)
-```
-
-### Titer
-```{r titer-cmp-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
 titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_VP, titer_df_CP)
+
 plots = list()
 i = 1
+line_width = 4
+num_graph = length(RX_NAME_LIST) - 1
 
 for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
   dfPlot = titer_df %>%
     filter(rx_name == rx) %>%
-    filter(variant %in% VARIANT) %>%
     mutate(
       variant = factor(variant, VARIANT),
       level = factor(level, TITER_LEVEL)
     )
-  
-  if (rx == 'CP') {
-    figLabel = "Convalescent plasma"
-    dfPlot = dfPlot %>%
-      filter(infection == 'infected')
-  }
-  else {
-    figLabel = rx
-    dfPlot = dfPlot %>%
-      filter(infection == 'naive')
-  }
+
+  figLabel = rx
   p = draw_rx_titer(dfPlot, figLabel)
-  
-  if (i %% 3 == 1) {
+
+  if (i %% line_width == 1) {
     p = p + theme(
       axis.title.y = element_text(size=15, face="bold", colour = "black"),
     ) +
       ylab("# Results")
   }
-  
-  if (i < 4) {
-    p = p + theme(
-      plot.margin = margin(t=0, l=0,r=10, b=10)
-    )
-  }
-  
-  if (i == 4) {
-    p = p + theme(
-      plot.margin = margin(t=0, l=4,r=10, b=10)
-    )
-  }
-  
-  if (i > 9) {
+
+  if (i > num_graph - line_width) {
     p = p + theme(
       axis.title.x = element_blank(),
       axis.text.x = element_text(size=14, angle=45, hjust=1),
     )
   }
-  
+
   plots[[i]] = p
   i = i + 1
 }
 
-grid.arrange(grobs = plots, ncol=3, heights=c(1,1,1,1.3))
+grid.arrange(grobs = plots, ncol=line_width)
 # grid.arrange(grobs = plots)
 ```
 
+
+## Titer vs Fold {.tabset}
 
 ### Titer percent
 ```{r titer-percent, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
 draw_titer_pcnt <- function(dfPlot, figLabel) {
   dfAgg = dfPlot %>%
-    group_by(variant) %>%
-    summarise(sum_results=sum(num_result)) %>%
+    group_by(variant, num_study) %>%
+    summarise(num_results=sum(num_result)) %>%
     mutate(
       label = ifelse(
-        sum_results > 1,
-        yes=sprintf('%s', sum_results),
-        no=''
+        num_study > 1,
+        yes=sprintf('%s studies\n%s results', num_study, num_results),
+        no=ifelse(
+          num_study > 0,
+          yes=sprintf('%s study\n%s results', num_study, num_results),
+          no=''
+        )
       )
     )
-  
-  p <- ggplot(data=dfPlot, aes(x=variant, y=num_result, fill=level)) +
-    geom_bar(position="fill", stat="identity", colour="black") +
+
+  p <- ggplot(data=dfPlot, aes(x=variant, y=num_result)) +
+    geom_bar(
+      aes(fill=level),
+      position="fill",
+      stat="identity",
+      colour="black") +
     scale_fill_manual(
       values = c(
         'low' = "#146aa8",
@@ -667,8 +421,359 @@ draw_titer_pcnt <- function(dfPlot, figLabel) {
       )
     ) +
     scale_y_continuous(
+      expand=expansion(mult = c(0, .1)),
+      breaks=c(0, 0.25, 0.5, 0.75, 1),
+      labels=c('0', '25%', '50%', '75%', '100%')
+    ) +
+    geom_text(
+      data=dfAgg,
+      aes(label=label),
+      size = 4,
+      vjust = -0.2,
+      y = 1
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_VP, titer_df_CP)
+
+plots = list()
+i = 1
+line_width = 4
+num_graph = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+
+  figLabel = rx
+  p = draw_titer_pcnt(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+      axis.text.y = element_text(size=14)
+    ) +
+      ylab("% Results")
+  }
+
+  if (i > num_graph - line_width) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+
+```
+
+### Fold 1M vs Titer 1M
+```{r fold-vs-titer-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+fold_df = fold_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+fold_df_CP = fold_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+fold_df_VP = fold_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+fold_df = rbind(fold_df_VP, fold_df_CP)
+
+
+titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_VP, titer_df_CP)
+
+plots = list()
+i = 1
+line_width = length(RX_NAME_LIST) - 1
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == "CP") {
+    next
+  }
+  dfPlot = fold_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      susc = factor(susc, SUSC_VALUE)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_fold(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  plots[[i]] = p
+  i = i + 1
+  # if ((i + 1) %% 2 * line_width <= ) {
+  #   i = i + 1
+  # } else {
+  #   i = i + 1 + line_width
+  # }
+
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_titer(dfPlot, figLabel)
+
+  if (j %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  # if (j > (2 * rx_name_length - line_width)) {
+  p = p + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size=14, angle=45, hjust=1),
+  )
+  # }
+
+  plots[[j]] = p
+  j = i + line_width
+
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
+```
+
+
+## Titer by variant and by vaccine {.tabset}
+
+### Titer 1M compare by variant
+```{r titer-1m-variant-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+draw_titer_by_variant <- function(dfPlot, figLabel) {
+  dfAgg = dfPlot %>%
+    group_by(variant) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+
+  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=variant)) +
+    geom_boxplot() +
+    # stat_compare_means(
+    #   method = "t.test",
+    #   ref.group = "Alpha",
+    #   aes(label=..p.adj..)
+    # ) +
+    # stat_compare_means(
+      # comparisions= list(
+      #   c('Alpha', 'Beta'),
+      #   c('Alpha', 'Gamma'),
+      #   c('Alpha', 'Delta')
+      #   ),
+      # ) +
+    scale_fill_manual(
+      values = VARIANT_COLOR
+    ) +
+    scale_y_continuous(
+      trans='log2',
       expand=expansion(mult = c(0, .2)),
-      breaks=c(0, 0.25, 0.5, 0.75, 1)
+      breaks=c(32, 64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(32, 5000)
+    ) +
+    scale_x_discrete(breaks=VARIANT, labels=VARIANT) +
+    geom_text(
+      data=dfAgg,
+      aes(y=5000, label=label),
+      size = 7
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+
+titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_VP, titer_df_CP)
+
+plots = list()
+i = 1
+line_width = 2
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT)
+    )
+
+  figLabel = rx
+
+  p = draw_titer_by_variant(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.text.y = element_text(size=14),
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("NT50")
+  }
+
+  if (i > rx_name_length - line_width) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+
+```
+
+### Titer 1M compare by vaccine
+```{r titer-1m-cmp-plasma-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+draw_titer_by_plasma <- function(dfPlot, figLabel) {
+
+  dfAgg = dfPlot %>%
+    group_by(rx_name) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+
+  p <- ggplot(data=dfPlot, aes(x=rx_name, y=titer, fill=rx_name)) +
+    geom_boxplot() +
+    # stat_compare_means(
+    #   method = "t.test",
+    #   ref.group = "CP",
+    #   vjust = -2
+    #   ) +
+    scale_fill_manual(values=RX_NAME_COLOR) +
+    scale_y_continuous(
+      trans='log2',
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(32, 64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(32, 5000)
+    ) +
+    scale_x_discrete(breaks=RX_NAME_LIST, labels=RX_NAME_LIST) +
+    geom_text(
+      data=dfAgg,
+      aes(y=5000, label=label),
+      size = 7
     ) +
     theme(
       legend.position = "none",
@@ -697,502 +802,6 @@ draw_titer_pcnt <- function(dfPlot, figLabel) {
     hjust=1.1)
   p
 }
-
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
-  filter(month=='1')
-
-plots = list()
-i = 1
-
-for (rx in RX_NAME_LIST) {
-  dfPlot = titer_df %>%
-    filter(rx_name == rx) %>%
-    filter(variant %in% VARIANT) %>%
-    mutate(
-      variant = factor(variant, VARIANT),
-      level = factor(level, TITER_LEVEL)
-    )
-  
-  if (rx == 'CP') {
-    figLabel = "Convalescent plasma"
-    dfPlot = dfPlot %>%
-      filter(infection == 'infected')
-  }
-  else {
-    figLabel = rx
-    dfPlot = dfPlot %>%
-      filter(infection == 'naive')
-  }
-  p = draw_titer_pcnt(dfPlot, figLabel)
-  
-  if (i %% 4 == 1) {
-    p = p + theme(
-      axis.title.y = element_text(size=15, face="bold", colour = "black"),
-    ) +
-      ylab("% Titer results")
-  }
-  
-  if (i > 5) {
-    p = p + theme(
-      axis.title.x = element_blank(),
-      axis.text.x = element_text(size=14, angle=45, hjust=1),
-    )
-  }
-  
-  plots[[i]] = p
-  i = i + 1
-}
-
-grid.arrange(grobs = plots, ncol=4)
-
-```
-
-### Fold vs Titer
-```{r fold-vs-titer-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
-  filter(month=='1')
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
-  filter(month=='1')
-
-plots = list()
-i = 1
-line_width = length(RX_NAME_LIST) - 1
-j = i + line_width
-rx_name_length = length(RX_NAME_LIST) - 1
-
-for (rx in RX_NAME_LIST) {
-  if (rx == "CP") {
-    next
-  }
-    dfPlot = fold_df %>%
-      filter(rx_name == rx) %>%
-      filter(variant %in% VARIANT) %>%
-      mutate(
-        variant = factor(variant, VARIANT),
-        susc = factor(susc, SUSC_VALUE)
-      )
-
-    if (rx == 'CP') {
-      figLabel = "Convalescent plasma"
-      dfPlot = dfPlot %>%
-        filter(infection == 'infected')
-    }
-    else {
-      figLabel = rx
-      dfPlot = dfPlot %>%
-        filter(infection == 'naive')
-    }
-    
-    p = draw_rx_fold(dfPlot, figLabel)
-    
-    if (i %% line_width == 1) {
-      p = p + theme(
-        axis.title.y = element_text(size=15, face="bold", colour = "black"),
-        ) +
-      ylab("# Results")
-    }
-
-    plots[[i]] = p
-    i = i + 1
-    # if ((i + 1) %% 2 * line_width <= ) {
-    #   i = i + 1
-    # } else {
-    #   i = i + 1 + line_width
-    # }
-    
-    dfPlot = titer_df %>%
-      filter(rx_name == rx) %>%
-      filter(variant %in% VARIANT) %>%
-      mutate(
-        variant = factor(variant, VARIANT),
-        level = factor(level, TITER_LEVEL)
-      )
-    
-    if (rx == 'CP') {
-      figLabel = "Convalescent plasma"
-      dfPlot = dfPlot %>%
-        filter(infection == 'infected')
-    }
-    else {
-      figLabel = rx
-      dfPlot = dfPlot %>%
-        filter(infection == 'naive')
-    }
-
-    p = draw_rx_titer(dfPlot, figLabel)
-    
-    if (j %% line_width == 1) {
-      p = p + theme(
-        axis.title.y = element_text(size=15, face="bold", colour = "black"),
-      ) +
-        ylab("# Results")
-    }
-    
-    # if (j > (2 * rx_name_length - line_width)) {
-      p = p + theme(
-        axis.title.x = element_blank(),
-        axis.text.x = element_text(size=14, angle=45, hjust=1),
-      )
-    # }
-    
-    plots[[j]] = p
-    j = i + line_width
-    
-    
-}
-
-grid.arrange(grobs = plots, ncol=line_width)
-# grid.arrange(grobs = plots)
-```
-
-
-<!-- ### Titer 1M vs Titer other -->
-<!-- ```{r titer-1m-vs-other, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE} -->
-
-<!-- titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>% -->
-<!--   filter(month=='1') -->
-<!-- titer_other = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>% -->
-<!--   filter(month=='>=2') -->
-
-<!-- plots = list() -->
-<!-- i = 1 -->
-<!-- line_width = 4 -->
-<!-- j = i + line_width -->
-<!-- rx_name_length = length(RX_NAME_LIST) -->
-
-<!-- for (rx in RX_NAME_LIST) { -->
-<!--   dfPlot = titer_df %>% -->
-<!--     filter(rx_name == rx) %>% -->
-<!--     filter(variant %in% VARIANT) %>% -->
-<!--     mutate( -->
-<!--       variant = factor(variant, VARIANT), -->
-<!--       level = factor(level, TITER_LEVEL) -->
-<!--     ) -->
-
-<!--   if (rx == 'CP') { -->
-<!--     figLabel = "Convalescent plasma" -->
-<!--     dfPlot = dfPlot %>% -->
-<!--       filter(infection == 'infected') -->
-<!--   } -->
-<!--   else { -->
-<!--     figLabel = rx -->
-<!--     dfPlot = dfPlot %>% -->
-<!--       filter(infection == 'naive') -->
-<!--   } -->
-
-<!--   p = draw_rx_titer(dfPlot, figLabel) -->
-
-<!--   if (i %% line_width == 1) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--     ) + -->
-<!--       ylab("# Results (1M)") -->
-<!--   } -->
-
-<!--   plots[[i]] = p -->
-<!--   i = i + 1 -->
-
-<!--   dfPlot = titer_other %>% -->
-<!--     filter(rx_name == rx) %>% -->
-<!--     filter(variant %in% VARIANT) %>% -->
-<!--     mutate( -->
-<!--       variant = factor(variant, VARIANT), -->
-<!--       level = factor(level, TITER_LEVEL) -->
-<!--     ) -->
-<!--   p = draw_rx_titer(dfPlot, figLabel) -->
-
-<!--   if (j %% line_width == 1) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--     ) + -->
-<!--       ylab("# Results (>=2M)") -->
-<!--   } -->
-
-<!--   if (j > (2 * rx_name_length - line_width)) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.x = element_blank(), -->
-<!--       axis.text.x = element_text(size=14, angle=45, hjust=1), -->
-<!--     ) -->
-<!--   } -->
-
-<!--   plots[[j]] = p -->
-<!--   j = i + line_width -->
-<!-- } -->
-
-<!-- grid.arrange(grobs = plots, ncol=line_width) -->
-<!-- # grid.arrange(grobs = plots) -->
-<!-- ``` -->
-
-
-<!-- ### Fold infected vs uninfected -->
-<!-- ```{r fold-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE} -->
-
-<!-- fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>% -->
-<!--   filter(month=='1') -->
-
-<!-- plots = list() -->
-<!-- i = 1 -->
-<!-- line_width = 4 -->
-<!-- j = i + line_width -->
-<!-- rx_name_length = length(RX_NAME_LIST) - 1 -->
-
-<!-- for (rx in RX_NAME_LIST) { -->
-<!--     if (rx == 'CP') { -->
-<!--       next -->
-<!--     } -->
-
-<!--     dfPlot = fold_df %>% -->
-<!--       filter(rx_name == rx) %>% -->
-<!--       filter(variant %in% VARIANT) %>% -->
-<!--       mutate( -->
-<!--         variant = factor(variant, VARIANT), -->
-<!--         susc = factor(susc, SUSC_VALUE) -->
-<!--       ) -->
-<!--     figLabel = rx -->
-
-<!--     dfPlotNaive = dfPlot %>% -->
-<!--       filter(infection == 'naive') -->
-
-<!--     p = draw_rx_fold(dfPlotNaive, figLabel) -->
-
-<!--     if (i %% line_width == 1) { -->
-<!--       p = p + theme( -->
-<!--         axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--         ) + -->
-<!--       ylab("# Results (naive)") -->
-<!--     } -->
-
-<!--     plots[[i]] = p -->
-<!--     i = i+ 1 -->
-
-<!--     dfPlotInfected = dfPlot %>% -->
-<!--       filter(infection == 'infected') -->
-
-<!--     p = draw_rx_fold(dfPlotInfected, figLabel) -->
-
-<!--     if (j %% line_width == 1) { -->
-<!--       p = p + theme( -->
-<!--         axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--       ) + -->
-<!--         ylab("# Results (infected)") -->
-<!--     } -->
-
-<!--     if (j > (2 * rx_name_length - line_width)) { -->
-<!--       p = p + theme( -->
-<!--         axis.title.x = element_blank(), -->
-<!--         axis.text.x = element_text(size=14, angle=45, hjust=1), -->
-<!--       ) -->
-<!--     } -->
-
-<!--     plots[[j]] = p -->
-<!--     j = i + line_width -->
-<!-- } -->
-
-<!-- while (i %% 4 != 1) { -->
-<!--   p = draw_blank() -->
-<!--   plots[[i]] = p -->
-<!--   i = i + 1 -->
-<!-- } -->
-
-<!-- grid.arrange(grobs = plots, ncol=line_width) -->
-<!-- # grid.arrange(grobs = plots) -->
-<!-- ``` -->
-
-
-<!-- ### Titer infected vs uninfected -->
-<!-- ```{r titer-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE} -->
-
-<!-- titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>% -->
-<!--   filter(month=='1') -->
-
-<!-- plots = list() -->
-<!-- i = 1 -->
-<!-- line_width = 4 -->
-<!-- j = i + line_width -->
-<!-- rx_name_length = length(RX_NAME_LIST) - 1 -->
-
-<!-- for (rx in RX_NAME_LIST) { -->
-<!--   if (rx == 'CP') { -->
-<!--     next -->
-<!--   } -->
-
-<!--   dfPlot = titer_df %>% -->
-<!--     filter(rx_name == rx) %>% -->
-<!--     filter(variant %in% VARIANT) %>% -->
-<!--     mutate( -->
-<!--       variant = factor(variant, VARIANT), -->
-<!--       level = factor(level, TITER_LEVEL) -->
-<!--     ) -->
-<!--   figLabel = rx -->
-
-<!--   dfPlotNaive = dfPlot %>% -->
-<!--     filter(infection == 'naive') -->
-
-<!--   p = draw_rx_titer(dfPlotNaive, figLabel) -->
-
-<!--   if (i %% line_width == 1) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--     ) + -->
-<!--       ylab("# Results (naive)") -->
-<!--   } -->
-
-<!--   plots[[i]] = p -->
-<!--   if ((i + 1) %% 8 <= 4) { -->
-<!--     i = i + 1 -->
-<!--   } else { -->
-<!--     i = i + 1 + line_width -->
-<!--   } -->
-
-<!--   dfPlotInfected = dfPlot %>% -->
-<!--     filter(infection == 'infected') -->
-
-<!--   p = draw_rx_titer(dfPlotInfected, figLabel) -->
-
-<!--   if (j %% line_width == 1) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--     ) + -->
-<!--       ylab("# Results (infected)") -->
-<!--   } -->
-
-<!--   if (j > (2 * rx_name_length - line_width)) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.x = element_blank(), -->
-<!--       axis.text.x = element_text(size=14, angle=45, hjust=1), -->
-<!--     ) -->
-<!--   } -->
-
-<!--   plots[[j]] = p -->
-<!--   j = i + line_width -->
-<!-- } -->
-
-<!-- while (i %% 4 != 1) { -->
-<!--   p = draw_blank() -->
-<!--   plots[[i]] = p -->
-<!--   i = i + 1 -->
-<!-- } -->
-
-<!-- grid.arrange(grobs = plots, ncol=line_width) -->
-<!-- # grid.arrange(grobs = plots) -->
-<!-- ``` -->
-
-<!-- ## Titer 1M violin plot -->
-<!-- ```{r titer-1m-violin, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE} -->
-
-<!-- titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>% -->
-<!--   filter(month=='1') -->
-
-<!-- plots = list() -->
-<!-- i = 1 -->
-<!-- line_width = 4 -->
-<!-- j = i + line_width -->
-<!-- rx_name_length = length(RX_NAME_LIST) -->
-
-<!-- for (rx in RX_NAME_LIST) { -->
-<!--   dfPlot = titer_df %>% -->
-<!--     filter(rx_name == rx) %>% -->
-<!--     filter(variant %in% VARIANT) %>% -->
-<!--     mutate( -->
-<!--       variant = factor(variant, VARIANT) -->
-<!--     ) -->
-
-<!--   if (rx == 'CP') { -->
-<!--     figLabel = "Convalescent plasma" -->
-<!--     dfPlot = dfPlot %>% -->
-<!--       filter(infection == 'infected') -->
-<!--   } -->
-<!--   else { -->
-<!--     figLabel = rx -->
-<!--     dfPlot = dfPlot %>% -->
-<!--       filter(infection == 'naive') -->
-<!--   } -->
-
-<!--   p = draw_titer_violin(dfPlot, figLabel) -->
-
-<!--   if (i %% line_width == 1) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.y = element_text(size=15, face="bold", colour = "black"), -->
-<!--     ) + -->
-<!--       ylab("NT50") -->
-<!--   } -->
-
-<!--   if (i > rx_name_length - line_width) { -->
-<!--     p = p + theme( -->
-<!--       axis.title.x = element_blank(), -->
-<!--       axis.text.x = element_text(size=14, angle=45, hjust=1), -->
-<!--     ) -->
-<!--   } -->
-
-<!--   plots[[i]] = p -->
-<!--   i = i + 1 -->
-<!-- } -->
-
-<!-- grid.arrange(grobs = plots, ncol=line_width) -->
-
-<!-- ``` -->
-
-
-
-## Titer 1M compare by variant
-```{r titer-1m-variant-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
-  filter(month=='1')
-
-plots = list()
-i = 1
-line_width = 2
-j = i + line_width
-rx_name_length = length(RX_NAME_LIST)
-
-for (rx in RX_NAME_LIST) {
-  dfPlot = titer_df %>%
-    filter(rx_name == rx) %>%
-    filter(variant %in% VARIANT) %>%
-    mutate(
-      variant = factor(variant, VARIANT)
-    )
-
-  if (rx == 'CP') {
-    figLabel = "Convalescent plasma"
-    dfPlot = dfPlot %>%
-      filter(infection == 'infected')
-  }
-  else {
-    figLabel = rx
-    dfPlot = dfPlot %>%
-      filter(infection == 'naive')
-  }
-  
-  p = draw_titer_by_variant(dfPlot, figLabel)
-  
-  if (i %% line_width == 1) {
-    p = p + theme(
-      axis.title.y = element_text(size=15, face="bold", colour = "black"),
-    ) +
-      ylab("NT50")
-  }
-  
-  if (i > rx_name_length - line_width) {
-    p = p + theme(
-      axis.title.x = element_blank(),
-      axis.text.x = element_text(size=14, angle=45, hjust=1),
-    )
-  }
-  
-  plots[[i]] = p
-  i = i + 1
-}
-
-grid.arrange(grobs = plots, ncol=line_width)
-
-```
-
-
-## Titer 1M compare by Plasma
-```{r titer-1m-cmp-plasma-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
 titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
@@ -1212,8 +821,8 @@ for (var in VARIANT) {
   dfVP = dfPlot %>%
     filter(rx_name != 'CP', infection =='naive')
   dfPlot = rbind(dfCP, dfVP)
-  
-  
+
+
   dfPlot = dfPlot %>%
     mutate(
       rx_name = factor(rx_name, RX_NAME_LIST)
@@ -1243,68 +852,236 @@ grid.arrange(grobs = plots, ncol=line_width)
 
 ```
 
+## Titer fold regression
+```{r titer-fold-point-details, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-## Titer 1M vs 6M boxplot
-```{r titer-1m-vs-6m-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+draw_titer_fold_points <- function(dfPlot, figLabel='') {
+  fit <- lm(titer~fold, dfPlot)
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR)
+  p <- ggplot(data=dfPlot, aes(x=titer, y=fold)) +
+    geom_point(size=3, colour="red") +
+    scale_y_continuous(
+      trans="log10",
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(0.1, 1, 3, 10, 30),
+      limits=c(0.1, 40)
+    ) +
+    scale_color_brewer(palette='Set3') +
+    scale_x_continuous(
+      trans='log2',
+      expand=expansion(mult = c(0, .1)),
+      breaks=c(32, 64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(32, 4096)
+    ) +
+    geom_smooth(method="lm") +
+    geom_text(aes(
+      50,
+      40,
+      label = sprintf('r^2=%s', signif(summary(fit)$adj.r.squared, 5)),
+      parse = TRUE
+    )
+    ) +
+    # stat_poly_eq(formula = y ~ x,
+    #            aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
+    #            parse = TRUE) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black')
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+titer_df = read.dbTable('figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_CP, titer_df_VP)
+titer_df = titer_df %>%
+  filter(!is.na(fold)) %>%
+  filter(rx_name != 'CP')
 
 plots = list()
 i = 1
 line_width = 2
-j = i + line_width
-rx_name_length = length(RX_NAME_LIST)
+
+# for (rx in RX_NAME_LIST) {
+#   if (rx == 'CP') {
+#     next
+#   }
+#   for (var in VARIANT) {
+#     dfPlot = titer_df %>%
+#       filter(rx_name == rx, variant == var)
+#
+#     figLabel = sprintf('%s, %s', rx, var)
+#
+#     p = draw_titer_fold_points(dfPlot, figLabel)
+#
+#     if (i %% line_width == 1) {
+#       p = p + theme(
+#         axis.title.y = element_text(size=15, face="bold", colour = "black"),
+#       ) +
+#         ylab("Fold")
+#     }
+#
+#     p = p + theme(
+#        legend.position = "none"
+#     )
+#
+#     # if (i > rx_name_length - line_width) {
+#     #   p = p + theme(
+#     #     axis.title.x = element_blank(),
+#     #     axis.text.x = element_text(size=14, angle=45, hjust=1),
+#     #   )
+#     # }
+#
+#     plots[[i]] = p
+#     i = i + 1
+#   }
+# }
 
 for (rx in RX_NAME_LIST) {
-  dfPlot = titer_df %>%
-    filter(rx_name == rx) %>%
-    filter(variant %in% VARIANT) %>%
-    mutate(
-      variant = factor(variant, VARIANT),
-      month = factor(month, MONTH)
-    )
-
   if (rx == 'CP') {
-    figLabel = "Convalescent plasma"
-    dfPlot = dfPlot %>%
-      filter(infection == 'infected')
+    next
   }
-  else {
-    figLabel = rx
-    dfPlot = dfPlot %>%
-      filter(infection == 'naive')
-  }
-  
-  p = draw_month_compare(dfPlot, figLabel)
-  
+  dfPlot = titer_df %>%
+    filter(rx_name == rx)
+
+  figLabel = sprintf('%s', rx)
+
+  p = draw_titer_fold_points(dfPlot, figLabel)
+
   if (i %% line_width == 1) {
     p = p + theme(
+      axis.text.y = element_text(size=14),
       axis.title.y = element_text(size=15, face="bold", colour = "black"),
     ) +
-      ylab("NT50")
+      ylab("Fold")
   }
-  
+
   if (i > rx_name_length - line_width) {
     p = p + theme(
-      axis.title.x = element_blank(),
       axis.text.x = element_text(size=14, angle=45, hjust=1),
-    )
+      axis.title.x = element_text(size=15, face="bold", colour = "black"),
+    ) +
+    xlab('Titer')
   }
-  
+
   plots[[i]] = p
   i = i + 1
 }
 
-grid.arrange(grobs = plots, ncol=line_width)
 
+grid.arrange(grobs = plots, ncol=line_width)
 ```
 
+## Other titer compare {.tabset}
 
-## Titer VP Naive vs Infection boxplot
-```{r titer-naive-vs-infection-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+### Titer 1M vs >=2M, NT50
+```{r titer-1m-vs-6m-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
-  filter(month=='1')
+draw_month_compare <- function(dfPlot, figLabel) {
+  
+  dfAgg = dfPlot %>%
+    group_by(variant, month) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+  
+  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=month)) +
+    scale_fill_manual(values=c(
+      "1" = "turquoise",
+      ">=2" = "tomato1"
+    )) +
+    geom_boxplot() +
+    # stat_compare_means(
+    #   comparisions= list(c('1', '>=2')),
+    #   group.by ="variant",
+    #   method = "wilcox.test",
+    #   vjust=-2
+    #   ) +
+    scale_y_continuous(
+      trans="log2",
+      expand=expansion(mult = c(0, .2)),
+      breaks=c(32, 64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(32, 5000)
+    ) +
+    scale_x_discrete(breaks=VARIANT, labels=VARIANT) +
+    geom_text(
+      data=dfAgg,
+      aes(y=5000, label=label),
+      size = 7,
+      position = position_dodge(width = 1)
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR)
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_CP, titer_df_VP)
 
 plots = list()
 i = 1
@@ -1316,68 +1093,173 @@ for (rx in RX_NAME_LIST) {
   if (rx == 'CP') {
     next
   }
-  
   dfPlot = titer_df %>%
     filter(rx_name == rx) %>%
-    filter(variant %in% VARIANT) %>%
     mutate(
       variant = factor(variant, VARIANT),
-      infection = factor(infection, INFECTION)
+      month = factor(month, MONTH)
     )
+
   figLabel = rx
-  
-  p = draw_infection_compare(dfPlot, figLabel)
-  
+
+  p = draw_month_compare(dfPlot, figLabel)
+
   if (i %% line_width == 1) {
     p = p + theme(
+      axis.text.y = element_text(size=14),
       axis.title.y = element_text(size=15, face="bold", colour = "black"),
     ) +
       ylab("NT50")
   }
-  
+
   if (i > rx_name_length - line_width) {
     p = p + theme(
       axis.title.x = element_blank(),
       axis.text.x = element_text(size=14, angle=45, hjust=1),
     )
   }
-  
+
   plots[[i]] = p
   i = i + 1
 }
 
+grid.arrange(grobs = plots, ncol=line_width)
+
+```
+
+### Titer 1M vs >=2M, num results
+```{r titer-1m-vs-other, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_CP, titer_df_VP)
+
+titer_other = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='>=2')
+titer_other = titer_other %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+titer_other_CP = titer_other %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_other_VP = titer_other %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_other = rbind(titer_other_CP, titer_other_VP)
+
+plots = list()
+i = 1
+line_width = 8
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_titer(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results (1M)")
+  }
+
+  plots[[i]] = p
+  i = i + 1
+
+  dfPlot = titer_other %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+  p = draw_rx_titer(dfPlot, figLabel)
+
+  if (j %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results (>=2M)")
+  }
+
+  p = p + theme(
+    axis.text.x = element_text(size=14, angle=45, hjust=1),
+  )
+
+  plots[[j]] = p
+  j = i + line_width
+}
 
 grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
 ```
 
 
-## Titer fold point cmp
-```{r titer-fold-point, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+### Titer VP Naive vs Infection
+```{r titer-naive-vs-infection-boxplot, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-
-draw_titer_fold_points <- function(dfPlot, figLabel='') {
+draw_infection_compare <- function(dfPlot, figLabel) {
   
-  p <- ggplot(data=dfPlot, aes(x=titer, y=fold, color=rx_name)) +
-    geom_point(size=3) +
+  dfAgg = dfPlot %>%
+    group_by(variant, infection) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+  
+  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=infection)) +
+    scale_fill_manual(values=c(
+      "naive" = "turquoise",
+      "infected" = "tomato1"
+    )) +
+    geom_boxplot() +
+    # stat_compare_means(
+    #   comparisions= list(c('naive', 'infected')),
+    #   group.by ="variant",
+    #   method = "wilcox.test",
+    #   vjust=-2
+    #   ) +
     scale_y_continuous(
-      trans="log10",
+      trans="log2",
       expand=expansion(mult = c(0, .2)),
-      breaks=c(1, 3, 10, 30),
-      limits=c(1, 30)
+      breaks=c(32, 64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(32, 5000)
     ) +
-    scale_color_brewer(palette='Set3') +
-    scale_x_continuous(
-      trans='log2',
-      expand=expansion(mult = c(0, 0)),
-      breaks=c(64, 128, 256, 512, 1024, 2048, 4096),
-      limits=c(64, 10000)
+    scale_x_discrete(breaks=VARIANT, labels=VARIANT) +
+    geom_text(
+      data=dfAgg,
+      aes(y=5000, label=label),
+      size = 7,
+      position = position_dodge(width = 1)
     ) +
     theme(
-      # legend.position = "none",
+      legend.position = "none",
       # legend.title = element_blank(),
       axis.title.x = element_blank(),
       axis.title.y = element_blank(),
-      axis.text.x = element_text(size=14),
+      axis.text.x = element_blank(),
       axis.text.y = element_text(size=14),
       plot.title = element_text(hjust = 0.5, size=12),
       strip.background = element_blank(),
@@ -1396,75 +1278,317 @@ draw_titer_fold_points <- function(dfPlot, figLabel='') {
     size=5,
     vjust=2,
     hjust=1.1)
-
-  
   p
 }
 
 titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
-
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
   filter(rx_name %in% RX_NAME_LIST)
 
-titer_df_CP = titer_df %>%
-    filter(rx_name == 'CP', infection == 'infected')
-titer_df_VP = titer_df %>%
-  filter(rx_name != 'CP', infection =='naive')
-titer_df = rbind(titer_df_CP, titer_df_VP)
-titer_df = titer_df %>%
-  filter(!is.na(fold)) %>%
-  filter(rx_name != 'CP')
-
-p = draw_titer_fold_points(titer_df)
-p
-```
-
-
-## Titer fold point cmp details
-```{r titer-fold-point-details, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-
 plots = list()
 i = 1
-line_width = 4
+line_width = 2
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
 
 for (rx in RX_NAME_LIST) {
   if (rx == 'CP') {
     next
   }
-  for (var in VARIANT) {
-    dfPlot = titer_df %>%
-      filter(rx_name == rx, variant == var)
-    
-    figLabel = sprintf('%s, %s', rx, var)
-    
-    p = draw_titer_fold_points(dfPlot, figLabel)
-    
-    if (i %% line_width == 1) {
-      p = p + theme(
-        axis.title.y = element_text(size=15, face="bold", colour = "black"),
-      ) +
-        ylab("Fold")
-    }
-    
-    p = p + theme(
-       legend.position = "none"
+
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    filter(variant %in% VARIANT) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      infection = factor(infection, INFECTION)
     )
-    
-    # if (i > rx_name_length - line_width) {
-    #   p = p + theme(
-    #     axis.title.x = element_blank(),
-    #     axis.text.x = element_text(size=14, angle=45, hjust=1),
-    #   )
-    # }
-    
-    plots[[i]] = p
-    i = i + 1
+  figLabel = rx
+
+  p = draw_infection_compare(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("NT50")
   }
+
+  if (i > rx_name_length - line_width) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+
+  plots[[i]] = p
+  i = i + 1
 }
 
 
 grid.arrange(grobs = plots, ncol=line_width)
+```
+
+
+
+### Titer VP Naive vs infection, num results
+```{r titer-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+plots = list()
+i = 1
+line_width = 8
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+  
+  figLabel = rx
+
+  dfPlotNaive = dfPlot %>%
+    filter(infection == 'naive')
+
+  p = draw_rx_titer(dfPlotNaive, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results (naive)")
+  }
+
+  plots[[i]] = p
+  i = i + 1
+      
+  dfPlotInfected = dfPlot %>%
+    filter(infection == 'infected')
+
+  p = draw_rx_titer(dfPlotInfected, figLabel)
+
+  if (j %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results (infected)")
+  }
+
+  if (j > line_width) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+
+  plots[[j]] = p
+  j = i + line_width
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
+```
+
+### Titer 1M violin plot
+```{r titer-1m-violin, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+draw_titer_violin <- function(dfPlot, figLabel) {
+  
+  dfAgg = dfPlot %>%
+    group_by(variant, infection) %>%
+    summarise(sum_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        sum_results > 1,
+        yes=sprintf('%s', sum_results),
+        no=''
+      )
+    )
+    
+  p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=variant)) +
+    scale_fill_manual(
+      values = VARIANT_COLOR
+    ) +
+    geom_violin() +
+    scale_y_continuous(
+      trans="log2",
+      expand=expansion(mult = c(0, .1)),
+      breaks=c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096),
+      limits=c(1, 5000)
+    ) +
+    scale_x_discrete(breaks=VARIANT, labels=VARIANT) +
+    geom_text(
+      data=dfAgg,
+      aes(y=5000, label=label),
+      size = 7
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(size=14),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_CP, titer_df_VP)
+
+plots = list()
+i = 1
+line_width = 4
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == 'CP') {
+    next
+  }
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT)
+    )
+
+  figLabel = rx
+
+  p = draw_titer_violin(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("NT50")
+  }
+
+  if (i > rx_name_length - line_width) {
+    p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=14, angle=45, hjust=1),
+    )
+  }
+
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+
+```
+
+
+## Other Fold compare
+
+### Fold naive vs uninfected, num results
+```{r fold-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+fold_df = fold_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+
+plots = list()
+i = 1
+line_width = 8
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+    if (rx == 'CP') {
+      next
+    }
+
+    dfPlot = fold_df %>%
+      filter(rx_name == rx) %>%
+      mutate(
+        variant = factor(variant, VARIANT),
+        susc = factor(susc, SUSC_VALUE)
+      )
+    
+    figLabel = rx
+
+    dfPlotNaive = dfPlot %>%
+      filter(infection == 'naive')
+
+    p = draw_rx_fold(dfPlotNaive, figLabel)
+
+    if (i %% line_width == 1) {
+      p = p + theme(
+        axis.title.y = element_text(size=15, face="bold", colour = "black"),
+        ) +
+      ylab("# Results (naive)")
+    }
+
+    plots[[i]] = p
+    i = i+ 1
+
+    dfPlotInfected = dfPlot %>%
+      filter(infection == 'infected')
+
+    p = draw_rx_fold(dfPlotInfected, figLabel)
+
+    if (j %% line_width == 1) {
+      p = p + theme(
+        axis.title.y = element_text(size=15, face="bold", colour = "black"),
+      ) +
+        ylab("# Results (infected)")
+    }
+
+    if (j > line_width) {
+      p = p + theme(
+        axis.title.x = element_blank(),
+        axis.text.x = element_text(size=14, angle=45, hjust=1),
+      )
+    }
+
+    plots[[j]] = p
+    j = i + line_width
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
 ```

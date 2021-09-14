@@ -250,6 +250,48 @@ def gen_figure_plasma_titer(
 
     dump_csv(save_path, records)
 
+    indiv_records = []
+    used_key = []
+    for i in rows:
+        cumu = i['num_result']
+        i['num_result'] = 1
+
+        del i['ref_name']
+        i['variant'] = i['iso_name']
+
+        month = i['month']
+        if month < 2:
+            month = '1'
+        else:
+            month = '>=2'
+        i['month'] = month
+
+        for _ in range(int(cumu)):
+            indiv_records.append(i)
+
+        key = i['variant'], i['rx_name'], i['month'], i['infection']
+        if key in used_key:
+            continue
+        used_key.append(key)
+
+    for key in product(ISO_NAME_LIST, RX_NAME_LIST, MONTH, INFECTION):
+        if key in used_key:
+            continue
+        used_key.append(key)
+        iso_name, rx_name, month, infection = key
+
+        indiv_records.append({
+            'variant': iso_name,
+            'iso_name': '',
+            'rx_name': rx_name,
+            'titer': '',
+            'month': month,
+            'infection': infection,
+            'num_result': 1
+        })
+
+    dump_csv(DATA_FILE_PATH / 'figure_plasma_titer_points.csv', indiv_records)
+
 
 def _add_records(records):
     data_points = []

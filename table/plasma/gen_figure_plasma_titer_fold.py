@@ -233,6 +233,5 @@ def gen_figure_plasma_titer_fold(
             'num_result': 1
         })
 
-    dump_csv(DATA_FILE_PATH / 'figure_plasma_titer_points.csv', indiv_records)
-
-
+    dump_csv(
+        DATA_FILE_PATH / 'figure_plasma_titer_fold_points.csv', indiv_records)
