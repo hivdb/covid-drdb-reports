@@ -259,15 +259,22 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     summarise(num_results=sum(num_result)) %>%
     mutate(
       label = ifelse(
-        num_study > 1,
-        yes=sprintf('%s studies\n%s results', num_study, num_results),
-        no=ifelse(
-          num_study > 0,
-          yes=sprintf('%s study\n%s results', num_study, num_results),
-          no=''
-        )
+        num_study > 0,
+        yes=sprintf('%s', num_study),
+        no=''
       )
     )
+    # mutate(
+    #   label = ifelse(
+    #     num_study > 1,
+    #     yes=sprintf('%s studies\n%s results', num_study, num_results),
+    #     no=ifelse(
+    #       num_study > 0,
+    #       yes=sprintf('%s study\n%s results', num_study, num_results),
+    #       no=''
+    #     )
+    #   )
+    # )
 
   p <- ggplot(data=dfPlot, aes(x=variant, y=num_result)) +
     geom_bar(
@@ -299,7 +306,7 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     geom_text(
       data=dfAgg,
       aes(y=num_results, label=label),
-      size = 4,
+      size = 8,
       vjust = -0.2
     ) +
     theme(
@@ -614,6 +621,370 @@ grid.arrange(grobs = plots, ncol=line_width)
 # grid.arrange(grobs = plots)
 ```
 
+### Fold 1M vs Titer 1M same scale
+```{r fold-vs-titer-1m-same-scale, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+draw_rx_fold_same_axis <- function(dfPlot, figLabel) {
+  dfAgg = dfPlot %>%
+    group_by(variant, num_study) %>%
+    summarise(num_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        num_study > 0,
+        yes=sprintf('%s', num_study),
+        no=''
+      )
+      # label = ifelse(
+      #   num_study > 1,
+      #   yes=sprintf('%s studies\n%s results', num_study, num_results),
+      #   no=ifelse(
+      #     num_study > 0,
+      #     yes=sprintf('%s study\n%s results', num_study, num_results),
+      #     no=''
+      #   )
+      # )
+    )
+
+  p <- ggplot(data=dfPlot, aes(x=variant, y=num_result)) +
+    # scale_x_discrete(labels=c(
+    #   'Alpha' = 'Alpha (B.1.1.7)',
+    #   'Beta' = 'Beta (B.1.351)',
+    #   'Gamma' = 'Gamma (P.1)',
+    #   # 'B.1.427/9' = 'Epsilon (B.1.427/9)',
+    #   'Delta' = 'Delta (B.1.617.2)',
+    #   'Kappa' = 'Kappa (B.1.617.1)'
+    # ))  +
+    geom_bar(
+      aes(fill=susc),
+      size=0.2,
+      color="#000000",
+      stat="identity",
+      position='stack'
+    ) +
+    scale_fill_manual(
+      values = c(
+        'S' = "#ffffff",
+        'I' = "#7fcbee",
+        'R' = "#146aa8"
+      ),
+      name="Susceptibility",
+      breaks=SUSC_VALUE,
+      labels=c(
+        ">10-fold reduced susceptibility",
+        "3 to 10-fold reduced susceptibility",
+        "<3-fold reduced susceptibility"
+      )
+    ) +
+    scale_y_continuous(
+      expand=expansion(mult = c(0, 0.3)),
+      # breaks=c(1, 400, 800, 1200),
+      limits=c(0, 1500)
+    ) +
+    geom_text(
+      data=dfAgg,
+      aes(y=num_results, label=label),
+      size = 8,
+      vjust = -0.2
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(size=14),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+  p = p + annotate(
+          "text",
+          y= Inf,
+          x = Inf,
+          label=figLabel,
+          size=5,
+          vjust=2,
+          hjust=1.1)
+  p
+}
+
+draw_rx_titer_same_axis <- function(dfPlot, figLabel) {
+  dfAgg = dfPlot %>%
+    group_by(variant, num_study) %>%
+    summarise(num_results=sum(num_result)) %>%
+    mutate(
+      label = ifelse(
+        num_study > 0,
+        yes=sprintf('%s', num_study),
+        no=''
+      )
+    )
+    # mutate(
+    #   label = ifelse(
+    #     num_study > 1,
+    #     yes=sprintf('%s studies\n%s results', num_study, num_results),
+    #     no=ifelse(
+    #       num_study > 0,
+    #       yes=sprintf('%s study\n%s results', num_study, num_results),
+    #       no=''
+    #     )
+    #   )
+    # )
+
+  p <- ggplot(data=dfPlot, aes(x=variant, y=num_result)) +
+    geom_bar(
+      aes(fill=level),
+      size=0.2,
+      color="#000000",
+      stat="identity",
+      position='stack'
+    ) +
+    scale_fill_manual(
+      values = c(
+        'low' = "#146aa8",
+        'middle' = "#7fcbee",
+        'high' = "#ffffff"
+      ),
+      name="NT titer",
+      breaks=TITER_LEVEL,
+      labels=c(
+        "<=40",
+        "40~100",
+        ">100"
+      )
+    ) +
+    scale_y_continuous(
+      expand=expansion(mult = c(0, .3)),
+      # breaks=c(1, 400, 800, 1200),
+      limits=c(0, 1500)
+    ) +
+    geom_text(
+      data=dfAgg,
+      aes(y=num_results, label=label),
+      size = 8,
+      vjust = -0.2
+    ) +
+    theme(
+      legend.position = "none",
+      # legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(size=14),
+      plot.title = element_text(hjust = 0.5, size=12),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      plot.margin = margin(t=0, l=10, r=10, b=10)
+    )
+
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = Inf,
+    label=figLabel,
+    size=5,
+    vjust=2,
+    hjust=1.1)
+  p
+}
+
+fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+fold_df = fold_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+fold_df_CP = fold_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+fold_df_VP = fold_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+fold_df = rbind(fold_df_VP, fold_df_CP)
+
+titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_VP, titer_df_CP)
+
+plots = list()
+i = 1
+line_width = length(RX_NAME_LIST) - 1
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == "CP") {
+    next
+  }
+  dfPlot = fold_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      susc = factor(susc, SUSC_VALUE)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_fold_same_axis(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  plots[[i]] = p
+  i = i + 1
+  # if ((i + 1) %% 2 * line_width <= ) {
+  #   i = i + 1
+  # } else {
+  #   i = i + 1 + line_width
+  # }
+
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_titer_same_axis(dfPlot, figLabel)
+
+  if (j %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  # if (j > (2 * rx_name_length - line_width)) {
+  p = p + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size=14, angle=45, hjust=1),
+  )
+  # }
+
+  plots[[j]] = p
+  j = i + line_width
+
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
+```
+
+
+### Fold 1M vs Titer 1M Indiv
+```{r fold-vs-titer-1m-indiv, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+
+fold_df = read.dbTable('figure_plasma_fold_indiv.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+fold_df = fold_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+fold_df_CP = fold_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+fold_df_VP = fold_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+fold_df = rbind(fold_df_VP, fold_df_CP)
+
+
+titer_df = read.dbTable('figure_plasma_titer_indiv.csv', tables_dir=TABLEDIR) %>%
+  filter(month=='1')
+titer_df = titer_df %>%
+  filter(variant %in% VARIANT) %>%
+  filter(rx_name %in% RX_NAME_LIST)
+titer_df_CP = titer_df %>%
+  filter(rx_name == 'CP', infection == 'infected')
+titer_df_VP = titer_df %>%
+  filter(rx_name != 'CP', infection =='naive')
+titer_df = rbind(titer_df_VP, titer_df_CP)
+
+plots = list()
+i = 1
+line_width = length(RX_NAME_LIST) - 1
+j = i + line_width
+rx_name_length = length(RX_NAME_LIST) - 1
+
+for (rx in RX_NAME_LIST) {
+  if (rx == "CP") {
+    next
+  }
+  dfPlot = fold_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      susc = factor(susc, SUSC_VALUE)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_fold(dfPlot, figLabel)
+
+  if (i %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  plots[[i]] = p
+  i = i + 1
+  # if ((i + 1) %% 2 * line_width <= ) {
+  #   i = i + 1
+  # } else {
+  #   i = i + 1 + line_width
+  # }
+
+  dfPlot = titer_df %>%
+    filter(rx_name == rx) %>%
+    mutate(
+      variant = factor(variant, VARIANT),
+      level = factor(level, TITER_LEVEL)
+    )
+
+  figLabel = rx
+
+  p = draw_rx_titer(dfPlot, figLabel)
+
+  if (j %% line_width == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+
+  # if (j > (2 * rx_name_length - line_width)) {
+  p = p + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size=14, angle=45, hjust=1),
+  )
+  # }
+
+  plots[[j]] = p
+  j = i + line_width
+
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+# grid.arrange(grobs = plots)
+```
 
 ## Titer by variant and by vaccine {.tabset}
 
@@ -883,19 +1254,20 @@ draw_titer_fold_points <- function(dfPlot, figLabel='') {
       breaks=c(32, 64, 128, 256, 512, 1024, 2048, 4096),
       limits=c(32, 4096)
     ) +
+    # geom_text(aes(
+    #   Inf,
+    #   50,
+    #   label = sprintf('pearson=%s', signif(pearson_cor, 5))),
+    #   size = 5,
+    #   hjust = 1.2
+    # ) +
     geom_text(aes(
       Inf,
-      50,
-      label = sprintf('pearson=%s', signif(pearson_cor, 5))),
-      size = 5,
-      hjust = 1.2
-    ) +
-    geom_text(aes(
       Inf,
-      30,
       label = sprintf('spearman=%s', signif(spearman_cor, 5))),
       size = 5,
-      hjust = 1.2
+      vjust= 7,
+      hjust = 1.1
     ) +
     # geom_text(aes(label=ref_name),hjust=0, vjust=0) +
     # geom_smooth(method="lm") +
@@ -1063,29 +1435,31 @@ draw_titer_fold_points_normal <- function(dfPlot, figLabel='') {
   p <- ggplot(data=dfPlot, aes(x=titer, y=fold)) +
     geom_point(size=3, colour="red") +
     scale_y_continuous(
-      expand=expansion(mult = c(0, .2)),
-      breaks=c(0.1, 1, 10, 100),
-      limits=c(0.1, 100)
+      expand=expansion(mult = c(0, .1)),
+      # breaks=c(0, 1, 10, 100),
+      # limits=c(0, 100)
     ) +
     scale_color_brewer(palette='Set3') +
     scale_x_continuous(
+      trans="log2",
       expand=expansion(mult = c(0, .1)),
-      breaks=c(1, 10, 100, 1000, 5000),
-      limits=c(1, 5000)
+      # breaks=c(1, 10, 100, 1000, 5000),
+      # limits=c(1, 5000)
     ) +
+    # geom_text(aes(
+    #   Inf,
+    #   90,
+    #   label = sprintf('pearson=%s', signif(pearson_cor, 5))),
+    #   size = 5,
+    #   hjust = 1.2
+    # ) +
     geom_text(aes(
       Inf,
-      90,
-      label = sprintf('pearson=%s', signif(pearson_cor, 5))),
-      size = 5,
-      hjust = 1.2
-    ) +
-    geom_text(aes(
       Inf,
-      70,
       label = sprintf('spearman=%s', signif(spearman_cor, 5))),
       size = 5,
-      hjust = 1.2
+      vjust= 7,
+      hjust = 1.1
     ) +
     # geom_text(aes(label=ref_name),hjust=0, vjust=0) +
     theme(
@@ -1154,13 +1528,13 @@ for (rx in RX_NAME_LIST) {
       ylab("Fold")
   }
 
-  if (i > rx_name_length - line_width) {
+  # if (i > rx_name_length - line_width) {
     p = p + theme(
       axis.text.x = element_text(size=14, angle=45, hjust=1),
       axis.title.x = element_text(size=15, face="bold", colour = "black"),
     ) +
     xlab('Titer')
-  }
+  # }
 
   plots[[i]] = p
   i = i + 1
@@ -1215,13 +1589,13 @@ for (rx in RX_NAME_LIST) {
       ylab("Fold")
   }
 
-  if (i > rx_name_length - line_width) {
+  # if (i > rx_name_length - line_width) {
     p = p + theme(
       axis.text.x = element_text(size=14, angle=45, hjust=1),
       axis.title.x = element_text(size=15, face="bold", colour = "black"),
     ) +
     xlab('Titer')
-  }
+  # }
 
   plots[[i]] = p
   i = i + 1

@@ -207,7 +207,8 @@ INFECTION = [
 
 def gen_figure_plasma_titer(
         conn,
-        save_path=DATA_FILE_PATH / 'figure_plasma_titer.csv'):
+        save_path=DATA_FILE_PATH / 'figure_plasma_titer.csv',
+        save_path_indiv=DATA_FILE_PATH / 'figure_plasma_titer_indiv.csv'):
     sql_tmpl = " UNION ALL ".join([
         CP_TITER_VARIANT_SQL,
         VP_TITER_VARIANT_SQL,
@@ -228,27 +229,15 @@ def gen_figure_plasma_titer(
 
     records, used_header_combo = _add_records(rows)
 
-    for store_key in product(
-            ISO_NAME_LIST,
-            RX_NAME_LIST,
-            LEVEL,
-            MONTH,
-            INFECTION):
-        if store_key in used_header_combo:
-            continue
-        used_header_combo.append(store_key)
-        iso_name, rx_name, level, month, infection = store_key
-        records.append({
-                'variant': iso_name,
-                'rx_name': rx_name,
-                'level': level,
-                'month': month,
-                'infection': infection,
-                'num_study': 0,
-                'num_result': 0
-            })
+    padding_records(records, used_header_combo)
 
     dump_csv(save_path, records)
+
+    records, used_header_combo = _add_records(rows, True)
+
+    padding_records(records, used_header_combo)
+
+    dump_csv(save_path_indiv, records)
 
     indiv_records = []
     used_key = []
@@ -293,7 +282,7 @@ def gen_figure_plasma_titer(
     dump_csv(DATA_FILE_PATH / 'figure_plasma_titer_points.csv', indiv_records)
 
 
-def _add_records(records):
+def _add_records(records, indiv_data_only=False):
     data_points = []
     used_header_combo = []
 
@@ -343,15 +332,25 @@ def _add_records(records):
             r for r in rec_list
             if int(r['titer']) > 100]
 
+        if indiv_data_only:
+            num_result = sum([
+                r['num_result'] for r in low if r['num_result'] == 1])
+            num_study = len(
+                set(
+                    r['ref_name'] for r in rec_list if r['num_result'] == 1))
+        else:
+            num_result = sum([r['num_result'] for r in low])
+            num_study = len(
+                set(r['ref_name'] for r in rec_list))
+
         data_points.append({
             'variant': iso_name,
             'rx_name': rx_name,
             'level': 'low',
             'month': month,
             'infection': infection,
-            'num_study': len(
-                set(r['ref_name'] for r in rec_list)),
-            'num_result': sum([r['num_result'] for r in low])
+            'num_study': num_study,
+            'num_result': num_result
         })
 
         used_header_combo.append((
@@ -362,15 +361,25 @@ def _add_records(records):
             infection
         ))
 
+        if indiv_data_only:
+            num_result = sum([
+                r['num_result'] for r in middle if r['num_result'] == 1])
+            num_study = len(
+                set(
+                    r['ref_name'] for r in rec_list if r['num_result'] == 1))
+        else:
+            num_result = sum([r['num_result'] for r in middle])
+            num_study = len(
+                set(r['ref_name'] for r in rec_list))
+
         data_points.append({
             'variant': iso_name,
             'rx_name': rx_name,
             'level': 'middle',
             'month': month,
             'infection': infection,
-            'num_study': len(
-                set(r['ref_name'] for r in rec_list)),
-            'num_result': sum([r['num_result'] for r in middle])
+            'num_study': num_study,
+            'num_result': num_result
         })
 
         used_header_combo.append((
@@ -381,15 +390,25 @@ def _add_records(records):
             infection
         ))
 
+        if indiv_data_only:
+            num_result = sum([
+                r['num_result'] for r in high if r['num_result'] == 1])
+            num_study = len(
+                set(
+                    r['ref_name'] for r in rec_list if r['num_result'] == 1))
+        else:
+            num_result = sum([r['num_result'] for r in high])
+            num_study = len(
+                set(r['ref_name'] for r in rec_list))
+
         data_points.append({
             'variant': iso_name,
             'rx_name': rx_name,
             'level': 'high',
             'month': month,
             'infection': infection,
-            'num_study': len(
-                set(r['ref_name'] for r in rec_list)),
-            'num_result': sum([r['num_result'] for r in high])
+            'num_study': num_study,
+            'num_result': num_result
         })
 
         used_header_combo.append((
@@ -401,3 +420,25 @@ def _add_records(records):
         ))
 
     return data_points, used_header_combo
+
+
+def padding_records(records, used_header_combo):
+    for store_key in product(
+            ISO_NAME_LIST,
+            RX_NAME_LIST,
+            LEVEL,
+            MONTH,
+            INFECTION):
+        if store_key in used_header_combo:
+            continue
+        used_header_combo.append(store_key)
+        iso_name, rx_name, level, month, infection = store_key
+        records.append({
+                'variant': iso_name,
+                'rx_name': rx_name,
+                'level': level,
+                'month': month,
+                'infection': infection,
+                'num_study': 0,
+                'num_result': 0
+            })

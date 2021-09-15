@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 09/15/2021 12:37 PM PDT
+Report generated at: 09/15/2021 04:43 PM PDT
 
 
 
@@ -156,6 +156,12 @@ Report generated at: 09/15/2021 12:37 PM PDT
 ### Fold 1M vs Titer 1M
 <img src="figure_plasma_cmp_files/figure-html/fold-vs-titer-1m-1.png" width="1920" />
 
+### Fold 1M vs Titer 1M same scale
+<img src="figure_plasma_cmp_files/figure-html/fold-vs-titer-1m-same-scale-1.png" width="1920" />
+
+
+### Fold 1M vs Titer 1M Indiv
+<img src="figure_plasma_cmp_files/figure-html/fold-vs-titer-1m-indiv-1.png" width="1920" />
 
 ## Titer by variant and by vaccine {.tabset}
 
