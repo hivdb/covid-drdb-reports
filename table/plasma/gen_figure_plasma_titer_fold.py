@@ -192,9 +192,10 @@ def gen_figure_plasma_titer_fold(
     used_key = []
     for i in rows:
         cumu = i['num_result']
-        i['num_result'] = 1
 
-        del i['ref_name']
+        if cumu > 1:
+            continue
+
         i['variant'] = i['iso_name']
 
         month = i['month']
@@ -225,6 +226,7 @@ def gen_figure_plasma_titer_fold(
         indiv_records.append({
             'variant': iso_name,
             'iso_name': '',
+            'ref_name': '',
             'rx_name': rx_name,
             'titer': '',
             'fold': '',
