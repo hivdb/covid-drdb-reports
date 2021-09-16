@@ -12,8 +12,8 @@ from variant.preset import CONTROL_VARIANTS_SQL
 TABLE_SUMMARY_CP_SQL = """
 SELECT
     s.iso_name,
-    COUNT(DISTINCT s.ref_name) num_ref_name,
-    SUM(s.cumulative_count) cumulative_count
+    s.ref_name,
+    s.cumulative_count
 FROM
     susc_results AS s,
     {rxtype} AS rxtype
@@ -27,16 +27,14 @@ WHERE
     AND
     s.fold IS NOT NULL
     {filters}
-GROUP BY
-    s.iso_name
 ;
 """
 
 TABLE_SUMMARY_MAB_SQL = """
 SELECT
     s.iso_name,
-    COUNT(DISTINCT s.ref_name) num_ref_name,
-    SUM(s.cumulative_count) cumulative_count
+    s.ref_name,
+    s.cumulative_count
 FROM
     susc_results AS s,
     ({rxtype}) as rx
@@ -47,10 +45,9 @@ WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name IN ({control_variants})
-    AND s.fold IS NOT NULL
+    AND
+    s.fold IS NOT NULL
     {filters}
-GROUP BY
-    s.iso_name
 ;
 """
 
@@ -58,14 +55,6 @@ GROUP BY
 TABLE_SUMMARY_COLUMNS = {
     'CP': {
         'rxtype': 'rx_conv_plasma',
-        # 'cp_filters': [
-        #     (
-        #         "AND ("
-        #         "      rxtype.infected_iso_name IN ('Wildtype', 'S:614G')"
-        #         "   OR rxtype.infected_iso_name IS NULL"
-        #         "    )"
-        #     ),
-        # ]
     },
     'VP': {
         'rxtype': 'rx_vacc_plasma',
@@ -125,7 +114,7 @@ def gen_table_variant(conn):
         cursor.execute(sql)
         for rec in cursor.fetchall():
             variant = rec['iso_name']
-            num_ref_name = rec['num_ref_name']
+            ref_name = rec['ref_name']
             num_results = rec['cumulative_count']
             main_name = ONE_MUT_VARIANT.get(variant)
             if main_name:
@@ -133,7 +122,7 @@ def gen_table_variant(conn):
                 indiv_results[disp_name].append({
                     'pattern': disp_name,
                     'rx_name': column_name,
-                    'num_ref_name': num_ref_name,
+                    'ref_name': ref_name,
                     'num_results': num_results or 0
                 })
             else:
@@ -145,7 +134,7 @@ def gen_table_variant(conn):
                     'pattern': disp_name,
                     'varname': main_name['varname'],
                     'rx_name': column_name,
-                    'num_ref_name': num_ref_name,
+                    'ref_name': ref_name,
                     'num_results': num_results or 0
                 })
 
@@ -168,6 +157,7 @@ def gen_table_variant(conn):
             'Position': variant_info['position'],
             'AA': variant_info['aa'],
             'Domain': variant_info['domain'],
+            'num_ref_name': len(set(r['ref_name'] for r in record_list)),
             'CP': 0,
             'VP': 0,
             'mAbs phase3': 0,
@@ -179,6 +169,7 @@ def gen_table_variant(conn):
         record['all mAbs'] = (
             record['mAbs phase3'] + record['mAbs structure'] +
             record['other mAbs'])
+        record['num_exp'] = record['all mAbs'] + record['CP'] + record['VP']
         save_indiv.append(record)
 
     save_indiv.sort(key=itemgetter(
@@ -202,6 +193,7 @@ def gen_table_variant(conn):
         record = {
             'pattern': main_name,
             'varname': varname,
+            'num_ref_name': len(set(r['ref_name'] for r in record_list)),
             'CP': 0,
             'VP': 0,
             'mAbs phase3': 0,
@@ -213,6 +205,7 @@ def gen_table_variant(conn):
         record['all mAbs'] = (
             record['mAbs phase3'] + record['mAbs structure'] +
             record['other mAbs'])
+        record['num_exp'] = record['all mAbs'] + record['CP'] + record['VP']
         save_combo.append(record)
 
     save_combo.sort(key=itemgetter(
@@ -230,12 +223,14 @@ def gen_table_variant(conn):
         'Position',
         'AA',
         'Domain',
+        'num_ref_name',
         'CP',
         'VP',
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
         'all mAbs',
+        'num_exp',
     ]
 
     save_path = DATA_FILE_PATH / 'summary_variant_indiv.csv'
@@ -244,12 +239,14 @@ def gen_table_variant(conn):
     headers = [
         'pattern',
         'varname',
+        'num_ref_name',
         'CP',
         'VP',
         'mAbs phase3',
         'mAbs structure',
         'other mAbs',
         'all mAbs',
+        'num_exp',
     ]
     save_path = DATA_FILE_PATH / 'summary_variant_combo.csv'
     dump_csv(save_path, save_combo, headers)
