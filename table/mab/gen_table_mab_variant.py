@@ -29,7 +29,7 @@ ON
 WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     AND
     s.fold IS NOT NULL
     AND (
@@ -154,7 +154,7 @@ def gen_table_mab_variant(
                     uniq_record_list.add(uniq_record)
 
                 records.append({
-                    'Variant name': iso_name,
+                    'pattern': iso_name,
                     'Mab name': ab_name,
                     'Class': ab_class or '',
                     # 'Resistance level': resist_name,
@@ -163,13 +163,13 @@ def gen_table_mab_variant(
                 })
 
     records.sort(key=itemgetter(
-        'Variant name', 'Class', 'Mab name'))
+        'pattern', 'Class', 'Mab name'))
 
     dump_csv(csv_save_path, records)
 
     json_records = defaultdict(list)
     for r in records:
-        variant = r['Variant name']
+        variant = r['pattern']
         json_records[variant].append({
             'variant': variant,
             'rx': r['Mab name'],

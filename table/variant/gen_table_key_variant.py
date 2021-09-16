@@ -35,7 +35,7 @@ FROM
     AND
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     {filters};
 """
 
@@ -54,7 +54,7 @@ SELECT SUM(s.cumulative_count) FROM
     AND
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     -- AND s.ineffective IS NULL
     {filters};
 """
@@ -209,9 +209,9 @@ TABLE_SUMMARY_COLUMNS = {
         'cp_filters': [
             (
                 "AND ("
-                "      rxtype.infected_iso_name IN {}"
+                "      rxtype.infected_iso_name IN ({control_variants})"
                 "   OR rxtype.infected_iso_name IS NULL"
-                "    )".format(CONTROL_VARIANTS_SQL)
+                "    )".format(control_variants=CONTROL_VARIANTS_SQL)
             ),
         ]
     },
@@ -281,9 +281,9 @@ def gen_table_key_variant(conn):
             result = cursor.fetchone()
             result = result[0]
             records.append({
-                'Variant name': row_name,
-                'Rx name': column_name,
-                '#Published': result or 0
+                'pattern': row_name,
+                'rx_name': column_name,
+                'num_result': result or 0
             })
 
     save_path = DATA_FILE_PATH / 'table_summary.csv'
@@ -291,15 +291,15 @@ def gen_table_key_variant(conn):
 
     json_info = defaultdict(dict)
     for item in records:
-        variant = item['Variant name']
-        rx = item['Rx name']
+        variant = item['pattern']
+        rx = item['rx_name']
         if rx == 'mAbs phase3':
             rx = 'phase3'
         elif rx == 'mAbs structure':
             rx = 'structure'
         else:
             rx = rx.lower()
-        count = item.get('#Published', 0)
+        count = item.get('num_result', 0)
         json_info[variant][rx] = count
 
     result = []
@@ -313,16 +313,16 @@ def gen_table_key_variant(conn):
 
     variant_summary = defaultdict(dict)
     for item in records:
-        variant = item['Variant name']
-        rx = item['Rx name']
-        published = item['#Published']
+        variant = item['pattern']
+        rx = item['rx_name']
+        published = item['num_result']
         variant_summary[variant][rx] = published
-        variant_summary[variant]['Variant name'] = variant
+        variant_summary[variant]['pattern'] = variant
 
     variant_summary = list(variant_summary.values())
     save_path = DATA_FILE_PATH / 'summary_variant.csv'
     headers = [
-        'Variant name',
+        'pattern',
         'CP',
         'VP',
         'mAbs phase3',

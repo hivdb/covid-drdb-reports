@@ -30,7 +30,7 @@
                 "i_fold": 5,
                 "r_fold": 10,
                 "reference": "Jangra21",
-                "median": "3.5"
+                "median": "3.7"
             },
             {
                 "variant": "E484K",
@@ -190,7 +190,7 @@
                 "i_fold": 0,
                 "r_fold": 5,
                 "reference": "Alenquer21",
-                "median": "2.5"
+                "median": "4.9"
             },
             {
                 "variant": "E484K",
@@ -200,7 +200,7 @@
                 "i_fold": 0,
                 "r_fold": 2,
                 "reference": "Alenquer21",
-                "median": "4"
+                "median": "8"
             }
         ]
     },
@@ -215,7 +215,7 @@
                 "i_fold": 5,
                 "r_fold": 9,
                 "reference": "Chen21",
-                "median": "5.7"
+                "median": "6.9"
             },
             {
                 "variant": "E484K + N501Y",
@@ -439,16 +439,6 @@
             },
             {
                 "variant": "K417N + E484K + N501Y",
-                "rx": "CP_1M",
-                "samples": 45,
-                "s_fold": 36,
-                "i_fold": 8,
-                "r_fold": 1,
-                "reference": "Wang21",
-                "median": "2"
-            },
-            {
-                "variant": "K417N + E484K + N501Y",
                 "rx": "CP_2M",
                 "samples": 10,
                 "s_fold": 3,
@@ -469,23 +459,13 @@
             },
             {
                 "variant": "K417N + E484K + N501Y",
-                "rx": "CP_6M",
-                "samples": 44,
-                "s_fold": 35,
-                "i_fold": 7,
-                "r_fold": 2,
-                "reference": "Wang21",
-                "median": "1.9"
-            },
-            {
-                "variant": "K417N + E484K + N501Y",
                 "rx": "CP_8M",
                 "samples": 17,
                 "s_fold": 1,
                 "i_fold": 1,
                 "r_fold": 15,
                 "reference": "Hu21",
-                "median": "9.2"
+                "median": "9.7"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -505,7 +485,7 @@
                 "i_fold": 0,
                 "r_fold": 4,
                 "reference": "Alenquer21",
-                "median": "23"
+                "median": "45"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -515,7 +495,7 @@
                 "i_fold": 6,
                 "r_fold": 11,
                 "reference": "Wibmer21",
-                "median": "7.4"
+                "median": "8.8"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -525,7 +505,7 @@
                 "i_fold": 0,
                 "r_fold": 5,
                 "reference": "Alenquer21",
-                "median": "2.5"
+                "median": "4.9"
             },
             {
                 "variant": "K417N + E484K + N501Y",
@@ -545,7 +525,7 @@
                 "i_fold": 0,
                 "r_fold": 3,
                 "reference": "Alenquer21",
-                "median": "19"
+                "median": "38"
             }
         ]
     },
@@ -640,7 +620,7 @@
                 "i_fold": 0,
                 "r_fold": 4,
                 "reference": "Alenquer21",
-                "median": "2.4"
+                "median": "4.7"
             },
             {
                 "variant": "L452R",
@@ -870,7 +850,7 @@
                 "i_fold": 1,
                 "r_fold": 3,
                 "reference": "Alenquer21",
-                "median": "2.5"
+                "median": "3"
             },
             {
                 "variant": "N501Y",
@@ -895,7 +875,7 @@
                 "i_fold": 5,
                 "r_fold": 1,
                 "reference": "Hoffmann21b",
-                "median": "1.8"
+                "median": "2.1"
             },
             {
                 "variant": "Y453F",

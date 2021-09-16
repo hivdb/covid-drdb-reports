@@ -1,15 +1,15 @@
-﻿Variant name,CP,VP,mAbs phase3,mAbs structure
+﻿pattern,CP,VP,mAbs phase3,mAbs structure
 N501Y,227,105,63,40
-E484K,225,214,93,52
+E484K,225,199,83,47
 K417N,144,122,55,41
 K417T,29,0,8,6
 L452R,74,79,33,8
 Other individual mutations,1601,1443,900,905
-All individual mutations,1994,1689,1077,1014
-Alpha,1788,4014,93,55
-Beta,1964,4383,109,46
-Gamma,674,1716,64,25
+All individual mutations,1994,1674,1068,1014
+Alpha,1827,4032,93,55
+Beta,1978,4383,109,46
+Gamma,705,1716,64,25
 Epsilon,99,626,21,9
 Iota,81,263,28,8
-Other combinations of mutations,2729,5667,467,271
-All combinations of mutations,7525,16843,829,445
+Other combinations of mutations,2686,5498,456,261
+All combinations of mutations,7566,16692,817,430

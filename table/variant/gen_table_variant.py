@@ -23,7 +23,7 @@ ON
 WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     AND
     s.fold IS NOT NULL
     {filters}
@@ -46,7 +46,7 @@ ON
 WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     AND s.fold IS NOT NULL
     {filters}
 GROUP BY
@@ -131,8 +131,8 @@ def gen_table_variant(conn):
             if main_name:
                 disp_name = main_name['disp']
                 indiv_results[disp_name].append({
-                    'Variant name': disp_name,
-                    'Rx name': column_name,
+                    'pattern': disp_name,
+                    'rx_name': column_name,
                     'num_ref_name': num_ref_name,
                     'num_results': num_results or 0
                 })
@@ -142,9 +142,9 @@ def gen_table_variant(conn):
                     continue
                 disp_name = main_name['disp']
                 combo_results[disp_name].append({
-                    'Variant name': disp_name,
-                    'Nickname': main_name['nickname'],
-                    'Rx name': column_name,
+                    'pattern': disp_name,
+                    'varname': main_name['varname'],
+                    'rx_name': column_name,
                     'num_ref_name': num_ref_name,
                     'num_results': num_results or 0
                 })
@@ -158,12 +158,12 @@ def gen_table_variant(conn):
         variant_info = ONE_MUT_VARIANT[main_name]
         rx_group = defaultdict(int)
         for item in record_list:
-            rx = item['Rx name']
+            rx = item['rx_name']
             num = item['num_results']
             rx_group[rx] += num
 
         record = {
-            'Variant name': main_name,
+            'pattern': main_name,
             'RefAA': variant_info['ref_aa'],
             'Position': variant_info['position'],
             'AA': variant_info['aa'],
@@ -193,15 +193,15 @@ def gen_table_variant(conn):
     save_combo = []
     for main_name, record_list in combo_results.items():
         rx_group = defaultdict(int)
-        nickname = record_list[0]['Nickname']
+        varname = record_list[0]['varname']
         for item in record_list:
-            rx = item['Rx name']
+            rx = item['rx_name']
             num = item['num_results']
             rx_group[rx] += num
 
         record = {
-            'Variant name': main_name,
-            'Nickname': nickname,
+            'pattern': main_name,
+            'varname': varname,
             'CP': 0,
             'VP': 0,
             'mAbs phase3': 0,
@@ -216,7 +216,7 @@ def gen_table_variant(conn):
         save_combo.append(record)
 
     save_combo.sort(key=itemgetter(
-        'Nickname',
+        'varname',
         'CP',
         'VP',
         'mAbs phase3',
@@ -225,7 +225,7 @@ def gen_table_variant(conn):
         ))
 
     headers = [
-        'Variant name',
+        'pattern',
         'RefAA',
         'Position',
         'AA',
@@ -242,8 +242,8 @@ def gen_table_variant(conn):
     dump_csv(save_path, save_indiv, headers)
 
     headers = [
-        'Variant name',
-        'Nickname',
+        'pattern',
+        'varname',
         'CP',
         'VP',
         'mAbs phase3',

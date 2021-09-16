@@ -42,7 +42,7 @@ GROUP BY
     s.control_iso_name,
     s.iso_name
 """
-# -- s.control_iso_name in {control_variants}
+# -- s.control_iso_name in ({control_variants})
 # -- AND
 
 

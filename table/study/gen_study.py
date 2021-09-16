@@ -20,7 +20,7 @@ ON
 WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     AND s.fold IS NOT NULL
 """
 
@@ -36,7 +36,7 @@ WHERE
 #     s.ref_name = rx.ref_name
 #     AND s.rx_name = rx.rx_name
 # WHERE
-#     s.control_iso_name IN {control_variants}
+#     s.control_iso_name IN ({control_variants})
 #     AND s.fold IS NOT NULL
 # """
 

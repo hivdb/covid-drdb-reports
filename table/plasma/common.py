@@ -59,7 +59,7 @@ def gen_plasma_indiv_table(
                             iso_name, cp_name, reference, dosage)
 
                     rec = records[key]
-                    rec['Variant name'] = iso_name
+                    rec['pattern'] = iso_name
                     rec['Plasma'] = cp_name
                     rec['S'] = rec.get('S', 0)
                     rec['I'] = rec.get('I', 0)
@@ -116,14 +116,14 @@ def apply_modifier(records, record_modifier):
 
 
 def record_modifier(record):
-    iso_name = record['Variant name']
+    iso_name = record['pattern']
     reference = record['Reference']
 
     if 'full genome' in iso_name:
         reference = '{}*'.format(reference)
         iso_name = iso_name.split()[0]
 
-    record['Variant name'] = iso_name
+    record['pattern'] = iso_name
     record['Reference'] = reference
     return record
 
@@ -203,7 +203,7 @@ def gen_plasma_aggre_table(
                 median_fold = median(all_fold)
 
                 rec = {
-                    'Variant name': iso_name,
+                    'pattern': iso_name,
                     'Plasma': cp_name,
                     'Samples': num_results,
                     'Reference': reference,
@@ -227,7 +227,7 @@ def gen_plasma_aggre_table(
 def convert_to_json(json_save_path, records):
     json_results = defaultdict(list)
     for r in records:
-        variant = r['Variant name']
+        variant = r['pattern']
         json_results[variant].append({
             'variant': variant,
             'rx': r['Plasma'],

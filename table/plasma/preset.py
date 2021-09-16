@@ -24,7 +24,7 @@ ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
 WHERE
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     {filters}
 """
 
@@ -48,7 +48,7 @@ ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
 WHERE
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     {filters}
 """
 
@@ -74,7 +74,7 @@ ON
     AND rx.rx_name = s.rx_name
 WHERE
     rx.vaccine_name IS NOT NULL AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     {filters}
 """
 
@@ -96,7 +96,7 @@ FROM
 ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
-WHERE s.control_iso_name IN {control_variants}
+WHERE s.control_iso_name IN ({control_variants})
     {filters}
 """
 
@@ -120,7 +120,7 @@ FROM
 ON
     rx.ref_name = s.ref_name
     AND rx.rx_name = s.rx_name
-WHERE s.control_iso_name IN {control_variants}
+WHERE s.control_iso_name IN ({control_variants})
     {filters}
 """
 
@@ -146,7 +146,7 @@ ON
 WHERE
     rx.vaccine_name IS NOT NULL
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     {filters}
 """
 
@@ -157,9 +157,9 @@ CP_FILTER = {
         'cp_filters': [
             (
                 "AND ("
-                "      rx.infected_iso_name IN {}"
+                "      rx.infected_iso_name IN ({control_variants})"
                 "   OR rx.infected_iso_name IS NULL"
-                "    )".format(CONTROL_VARIANTS_SQL)
+                "    )".format(control_variants=CONTROL_VARIANTS_SQL)
             ),
         ]
     },

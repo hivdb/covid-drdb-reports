@@ -716,9 +716,9 @@
     {
         "variant": "E484K",
         "cas": {
-            "fold": "13",
+            "fold": "17",
             "fold_cmp": "",
-            "num": 15
+            "num": 14
         },
         "ete": {
             "fold": "2.9",
@@ -726,9 +726,9 @@
             "num": 7
         },
         "tix": {
-            "fold": "4.7",
+            "fold": "4.6",
             "fold_cmp": "",
-            "num": 5
+            "num": 4
         },
         "bam": {
             "fold": "100",
@@ -736,14 +736,14 @@
             "num": 5
         },
         "cil": {
-            "fold": "1.4",
+            "fold": "1.5",
             "fold_cmp": "",
-            "num": 5
+            "num": 4
         },
         "imd": {
             "fold": "1",
             "fold_cmp": "",
-            "num": 15
+            "num": 14
         },
         "sot": {
             "fold": "0.5",
@@ -756,14 +756,14 @@
             "num": 1
         },
         "cas_imd": {
-            "fold": "1.5",
+            "fold": "1.7",
             "fold_cmp": "",
-            "num": 9
+            "num": 8
         },
         "cil_tix": {
-            "fold": "3.1",
+            "fold": "3.2",
             "fold_cmp": "",
-            "num": 3
+            "num": 2
         },
         "bam_ete": {
             "fold": "17",
@@ -771,19 +771,17 @@
             "num": 1
         },
         "C135": {
-            "fold": "0.4",
+            "fold": "0.5",
             "fold_cmp": "",
-            "num": 5
+            "num": 4
         },
         "C144": {
             "fold": "100",
             "fold_cmp": ">",
-            "num": 6
+            "num": 4
         },
         "c_135_144": {
-            "fold": "2.2",
-            "fold_cmp": "",
-            "num": 1
+            "fold": "-"
         },
         "b_196": {
             "fold": "1.4",

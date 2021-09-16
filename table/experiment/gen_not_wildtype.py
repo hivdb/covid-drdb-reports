@@ -16,7 +16,7 @@ WHERE
     AND
     s.fold IS NOT NULL
     AND
-    control_iso_name NOT IN {control_variants}
+    control_iso_name NOT IN ({control_variants})
 GROUP BY
     s.ref_name,
     s.rx_name,

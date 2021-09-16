@@ -85,7 +85,7 @@ def get_color(medium_value):
 def group_variants(records):
     variant_groups = defaultdict(list)
     for r in records:
-        variant = r['Variant name']
+        variant = r['pattern']
         if variant not in SHOW_VARIANT:
             continue
         variant_groups[variant].append(r)

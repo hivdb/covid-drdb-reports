@@ -12,10 +12,6 @@ def gen_report(db_path):
     from mab.preset import load_mab_rename
     load_mab_rename(conn)
 
-    from variant.preset import gen_control_variants
-
-    gen_control_variants(conn)
-
     from variant.preset import get_spike_ref
     get_spike_ref(conn)
 

@@ -35,7 +35,7 @@ dt = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR)
 dt = dt %>%
   group_by(Domain) %>%
   summarise(
-    Mutations = length(unique(Variant.name)),
+    Mutations = length(unique(pattern)),
     Positions = length(unique(Position))
   )
 styledDT(dt)
@@ -181,7 +181,7 @@ dt = dt %>%
   mutate(
     target = ifelse(str_detect(mab, '/'), 'cocktail', target)
   ) %>%
-  group_by(nickname, target) %>%
+  group_by(varname, target) %>%
   summarise(
     samples_sum = sum(samples),
     S_sum = sum(S),
@@ -201,7 +201,7 @@ styledDT(dt)
 ```{r var-combo-cp-sum}
 dt = read.dbTable('summary_variant_combo_cp.csv', tables_dir=TABLEDIR)
 dt = dt %>%
-  group_by(nickname) %>%
+  group_by(varname) %>%
   summarise(
     samples_sum = sum(samples),
     S_sum = sum(S),
@@ -221,7 +221,7 @@ styledDT(dt)
 ```{r var-combo-vp-sum}
 dt = read.dbTable('summary_variant_combo_vp.csv', tables_dir=TABLEDIR)
 dt = dt %>%
-  group_by(nickname) %>%
+  group_by(varname) %>%
   summarise(
     samples_sum = sum(samples),
     S_sum = sum(S),

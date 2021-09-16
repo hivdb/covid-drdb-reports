@@ -9,9 +9,9 @@
     {
         "variant": "E484K",
         "cp": 225,
-        "vp": 214,
-        "phase3": 93,
-        "structure": 52
+        "vp": 199,
+        "phase3": 83,
+        "structure": 47
     },
     {
         "variant": "K417N",
@@ -44,27 +44,27 @@
     {
         "variant": "All individual mutations",
         "cp": 1994,
-        "vp": 1689,
-        "phase3": 1077,
+        "vp": 1674,
+        "phase3": 1068,
         "structure": 1014
     },
     {
         "variant": "Alpha",
-        "cp": 1788,
-        "vp": 4014,
+        "cp": 1827,
+        "vp": 4032,
         "phase3": 93,
         "structure": 55
     },
     {
         "variant": "Beta",
-        "cp": 1964,
+        "cp": 1978,
         "vp": 4383,
         "phase3": 109,
         "structure": 46
     },
     {
         "variant": "Gamma",
-        "cp": 674,
+        "cp": 705,
         "vp": 1716,
         "phase3": 64,
         "structure": 25
@@ -85,16 +85,16 @@
     },
     {
         "variant": "Other combinations of mutations",
-        "cp": 2729,
-        "vp": 5667,
-        "phase3": 467,
-        "structure": 271
+        "cp": 2686,
+        "vp": 5498,
+        "phase3": 456,
+        "structure": 261
     },
     {
         "variant": "All combinations of mutations",
-        "cp": 7525,
-        "vp": 16843,
-        "phase3": 829,
-        "structure": 445
+        "cp": 7566,
+        "vp": 16692,
+        "phase3": 817,
+        "structure": 430
     }
 ]

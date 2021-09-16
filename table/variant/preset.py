@@ -24,7 +24,17 @@ WHERE
 """
 
 
-CONTROL_VARIANTS_SQL = None
+CONTROL_VARIANTS_SQL = """
+SELECT
+    a.iso_name
+FROM
+    isolates a,
+    variants b
+WHERE
+    a.var_name = b.var_name
+    AND
+    b.as_wildtype
+"""
 
 D614G_ONLY_ISOLATE = """
 SELECT
@@ -147,34 +157,6 @@ WHERE
 """
 
 
-def gen_control_variants(conn):
-    global CONTROL_VARIANTS_SQL
-
-    cursor = conn.cursor()
-    # cursor.execute(D614G_ONLY_ISOLATE)
-    # isolates = [r for r in cursor.fetchall()]
-
-    # cursor.execute(NO_S_MUTATION)
-    cursor.execute(WT_MUTATIONS)
-    isolates = [r for r in cursor.fetchall()]
-
-    # print('Control isolates', [
-    #     (r['iso_name'], r['var_name']) for r in isolates])
-
-    iso_names = [r['iso_name'] for r in isolates]
-    # iso_names.extend([
-    #     'VIC',
-    #     'VIC Spike',
-    #     'WA1',
-    #     'WA1 Spike',
-    #     'S:683G',
-    # ])
-
-    CONTROL_VARIANTS_SQL = '({})'.format(
-        ', '.join(["'{}'".format(i) for i in iso_names])
-    )
-
-
 ISO_NAME_SQL = """
 SELECT
     iso_name,
@@ -261,31 +243,6 @@ IGNORE_VARIANT_SYNYNOMS = [
     'B.1.427',
 ]
 
-VARIANT_NICKNAMES = {
-    '69-70∆,N501Y': 'Alpha (variation)',
-    '69-70∆,N501Y,P681H': 'Alpha (variation)',
-    '69-70∆,N501Y,A570D': 'Alpha (variation)',
-    'K417T,E484K,N501Y': 'Gamma (variation)',
-    'K417T,E484K': 'Gamma (variation)',
-    'K417N,N501Y': 'Beta (variation)',
-    'K417N,E484K': 'Beta (variation)',
-    'B.1.427': 'Epsilon',
-    'B.1.1.7 S1': 'Alpha (variation)',
-    'B.1.1.7 + 484K (variation)': 'Alpha + E484K',
-    'B.1.1.7 :-144del+145del (variation)': 'Alpha',
-    'B.1.351 :-18F-215G (variation)': 'Beta (variation)',
-    'B.1.351 :-18F-242del-243del-244del-246I (variation)':
-        'Beta (variation)',
-    'B.1.351 :-18F-242del-243del-244del-246I-417N (variation)':
-        'Beta (variation)',
-    'B.1.351 :-18F-244del-246I (variation)': 'Beta (variation)',
-    'B.1.351 :-242del-243del-244del-246I (variation)': 'Beta (variation)',
-    'B.1.351 :-246I (variation)': 'Beta (variation)',
-    'B.1.351 RBD': 'Beta (variation)',
-    'B.1.526 :-484K+477N (variation)': 'Iota (variation)',
-    'B.1.526 v.2': 'Iota (variation)',
-}
-
 NTD_DELETION_GROUP_RULE = {
     (69, 70): '69-70∆',
     (69, 69): '69-70∆',
@@ -340,7 +297,7 @@ def get_grouped_variants(conn):
         iso_name = rec['iso_name']
         isolate_group[iso_name].append(rec)
 
-    uniq_isolate_list = get_uniq_isolate_list(isolate_group)
+    uniq_isolate_list = get_uniq_isolate_pattern_list(isolate_group)
 
     for mut_key, isolate_info in uniq_isolate_list.items():
         if isolate_info['mut_count'] == 1:
@@ -355,21 +312,20 @@ def get_grouped_variants(conn):
                 print('iso_name', isolate_info['iso_names'])
                 print('var_name', isolate_info['var_names'])
 
-            main_name, nickname = get_combined_mutation_main_name(isolate_info)
+            main_name = get_combined_mutation_main_name(isolate_info)
             if main_name in IGNORE_VARIANTS:
                 continue
 
-            nickname = VARIANT_NICKNAMES.get(
-                main_name,
-                VARIANT_NICKNAMES.get(nickname, nickname))
+            var_name = ','.join(isolate_info['var_names'])
+
             COMBO_MUT_VARIANT[main_name] = {
                 'disp': main_name,
-                'nickname': nickname,
+                'varname': var_name,
                 }
             for name in isolate_info['iso_names']:
                 COMBO_MUT_VARIANT[name] = {
                     'disp': main_name,
-                    'nickname': nickname,
+                    'varname': var_name,
                     }
 
     cursor.execute(NO_S_MUTATION)
@@ -404,7 +360,7 @@ def get_spike_ref(conn):
         SPIKE_REF[position] = aa
 
 
-def get_uniq_isolate_list(isolate_info):
+def get_uniq_isolate_pattern_list(isolate_info):
 
     uniq_isolate_list = defaultdict(dict)
 
@@ -417,7 +373,7 @@ def get_uniq_isolate_list(isolate_info):
             var_name = rec['var_name'] or ''
             uniq_var_name_list.add(var_name)
 
-            position = rec['position']
+            position = int(rec['position'])
             aa = rec['amino_acid']
             ref_aa = SPIKE_REF[position]
             if (position, aa) in IGNORE_MUTATION:
@@ -454,7 +410,9 @@ def get_uniq_isolate_list(isolate_info):
 
     for uniq_mutation_list, uniq_isolate in uniq_isolate_list.items():
         mut_list = uniq_isolate['mut_list']
+
         mut_list = merge_ntd_deletion(mut_list)
+
         uniq_isolate['mut_list'] = mut_list
         uniq_isolate['mut_count'] = len(mut_list)
 
@@ -463,27 +421,8 @@ def get_uniq_isolate_list(isolate_info):
 
 def get_combined_mutation_main_name(variant_info):
     mut_list = variant_info['mut_list']
-    nickname = ''
-    if len(mut_list) > 20:
-        main_name = variant_info['iso_names'][0]
-    else:
-        main_name = ','.join([m['disp'] for m in mut_list])
-        iso_names = variant_info['iso_names']
-        for name in iso_names:
-            if nickname:
-                break
-            if name.startswith('S:'):
-                continue
-
-            nickname = name.replace('Spike', '').strip()
-            nickname = nickname[:nickname.find('full genome')].strip()
-            if 'S:' in nickname:
-                nickname = nickname.replace('S:', ' ')
-                nickname += ' (variation)'
-            if ':-' in nickname:
-                nickname += ' (variation)'
-
-    return main_name, nickname
+    main_name = ','.join([m['disp'] for m in mut_list])
+    return main_name
 
 
 def get_domain(position):

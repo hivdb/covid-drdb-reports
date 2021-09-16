@@ -51,9 +51,9 @@ def get_fold_results(mut_group, variant_group_name):
         for r in r_list:
             variant_info = variant_group.get(variant)
             results.append({
-                'variant': variant,
+                'pattern': variant,
                 'domain': variant_info.get('domain'),
-                'nickname': variant_info.get('nickname'),
+                'varname': variant_info.get('varname'),
                 'reference': r['ref_name'],
                 'fold_cmp': r['fold_cmp'],
                 'median': r['fold'],

@@ -27,7 +27,7 @@ ON
 WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     AND s.fold IS NOT NULL;
 """.format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
 
@@ -79,7 +79,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                 variant_info = ONE_MUT_VARIANT.get(variant)
                 for r in rx_list:
                     record_list.append({
-                        'variant': variant,
+                        'pattern': variant,
                         'RefAA': variant_info['ref_aa'],
                         'Position': variant_info['position'],
                         'AA': variant_info['aa'],
@@ -91,11 +91,11 @@ def by_variant(conn, indiv_or_combo, save_path):
                     })
             else:
                 variant_info = COMBO_MUT_VARIANT.get(variant)
-                nickname = variant_info['nickname']
+                varname = variant_info['varname']
                 for r in rx_list:
                     record_list.append({
-                        'variant': variant,
-                        'nickname': nickname,
+                        'pattern': variant,
+                        'varname': varname,
                         'mab': ab_name,
                         'avail': avail,
                         'target': target,
@@ -103,7 +103,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                     })
 
     record_list.sort(key=itemgetter(
-        'variant',
+        'pattern',
         'mab',
         'avail',
         ))

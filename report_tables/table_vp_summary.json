@@ -59,12 +59,12 @@
             },
             {
                 "name": "BNT162b2",
-                "vp_studies": 36,
-                "vp_samples": 1401,
+                "vp_studies": 37,
+                "vp_samples": 1419,
                 "vp_s_fold": "87%",
                 "vp_i_fold": "13%",
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 1215,
+                "vp_num_s_fold": 1233,
                 "vp_num_i_fold": 180,
                 "vp_num_r_fold": 6
             },
@@ -133,11 +133,11 @@
                 "vp_studies": 6,
                 "vp_samples": 118,
                 "vp_s_fold": "2%",
-                "vp_i_fold": "38%",
-                "vp_r_fold": "60%",
+                "vp_i_fold": "28%",
+                "vp_r_fold": "70%",
                 "vp_num_s_fold": 2,
-                "vp_num_i_fold": 45,
-                "vp_num_r_fold": 71
+                "vp_num_i_fold": 33,
+                "vp_num_r_fold": 83
             },
             {
                 "name": "AZD1222 + AZD2816",
@@ -374,11 +374,11 @@
                 "vp_studies": 6,
                 "vp_samples": 152,
                 "vp_s_fold": "28%",
-                "vp_i_fold": "61%",
-                "vp_r_fold": "11%",
+                "vp_i_fold": "53%",
+                "vp_r_fold": "19%",
                 "vp_num_s_fold": 42,
-                "vp_num_i_fold": 92,
-                "vp_num_r_fold": 18
+                "vp_num_i_fold": 80,
+                "vp_num_r_fold": 30
             },
             {
                 "name": "AZD1222 + AZD2816",
@@ -693,13 +693,13 @@
         "vaccine": [
             {
                 "name": "BNT162b2",
-                "vp_studies": 8,
-                "vp_samples": 95,
-                "vp_s_fold": "49%",
-                "vp_i_fold": "46%",
+                "vp_studies": 7,
+                "vp_samples": 91,
+                "vp_s_fold": "48%",
+                "vp_i_fold": "47%",
                 "vp_r_fold": "5%",
-                "vp_num_s_fold": 47,
-                "vp_num_i_fold": 44,
+                "vp_num_s_fold": 44,
+                "vp_num_i_fold": 43,
                 "vp_num_r_fold": 4
             },
             {
@@ -715,13 +715,13 @@
             },
             {
                 "name": "mRNA-1273",
-                "vp_studies": 6,
-                "vp_samples": 107,
-                "vp_s_fold": "79%",
-                "vp_i_fold": "21%",
+                "vp_studies": 5,
+                "vp_samples": 96,
+                "vp_s_fold": "77%",
+                "vp_i_fold": "23%",
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 84,
-                "vp_num_i_fold": 23,
+                "vp_num_s_fold": 74,
+                "vp_num_i_fold": 22,
                 "vp_num_r_fold": 0
             }
         ]

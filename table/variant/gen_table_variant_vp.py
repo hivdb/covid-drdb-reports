@@ -27,7 +27,7 @@ INNER JOIN {rx_vaccine} as r ON
 WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
-    s.control_iso_name in {control_variants}
+    s.control_iso_name in ({control_variants})
     AND
     r.vaccine_name IS NOT NULL
     AND
@@ -93,7 +93,7 @@ def by_variant(conn, indiv_or_combo, save_path):
             if indiv_or_combo == 'indiv':
                 variant_info = ONE_MUT_VARIANT.get(variant)
                 record_list.append({
-                    'variant': variant,
+                    'pattern': variant,
                     'vaccine': vacc_name,
                     'vaccine_type': vaccine_type,
                     'RefAA': variant_info['ref_aa'],
@@ -108,10 +108,10 @@ def by_variant(conn, indiv_or_combo, save_path):
                 })
             else:
                 variant_info = COMBO_MUT_VARIANT.get(variant)
-                nickname = variant_info['nickname']
+                varname = variant_info['varname']
                 record_list.append({
-                    'variant': variant,
-                    'nickname': nickname,
+                    'pattern': variant,
+                    'varname': varname,
                     'vaccine': vacc_name,
                     'vaccine_type': vaccine_type,
                     'median_fold': median_fold,
@@ -122,7 +122,7 @@ def by_variant(conn, indiv_or_combo, save_path):
                 })
 
     record_list.sort(key=itemgetter(
-        'variant',
+        'pattern',
         'vaccine',
         ))
 

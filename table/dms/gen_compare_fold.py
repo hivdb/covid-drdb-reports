@@ -35,7 +35,7 @@ WHERE
     AND
     s.potency_type LIKE "IC%"
     AND
-    s.control_iso_name IN {control_variants}
+    s.control_iso_name IN ({control_variants})
     AND
     rx.ab_name IN (SELECT ab_name FROM ({rx_mab_dms}))
     AND

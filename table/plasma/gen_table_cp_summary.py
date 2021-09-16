@@ -29,7 +29,7 @@ SHOW_VARIANT = [
 
 def group_variants(variant_groups, records):
     for r in records:
-        variant = r['Variant name']
+        variant = r['pattern']
         if variant not in SHOW_VARIANT:
             continue
         variant_groups[variant].append(r)

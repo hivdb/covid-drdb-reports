@@ -6,7 +6,7 @@ output:
     css: "css/main.css"
 ---
 
-Report generated at: 09/15/2021 05:48 PM PDT
+Report generated at: 09/16/2021 12:28 PM PDT
 
 
 
@@ -211,5 +211,5 @@ Report generated at: 09/15/2021 05:48 PM PDT
 
 ## Other Fold compare
 
-### Fold naive vs uninfected, num results
+### Fold naive vs infected, num results
 <img src="figure_plasma_cmp_files/figure-html/fold-infect-cmp-1.png" width="1920" />
