@@ -12,7 +12,8 @@ from variant.preset import CONTROL_VARIANTS_SQL
 TABLE_SUMMARY_CP_SQL = """
 SELECT
     s.iso_name,
-    s.cumulative_count
+    COUNT(DISTINCT s.ref_name) num_ref_name,
+    SUM(s.cumulative_count) cumulative_count
 FROM
     susc_results AS s,
     {rxtype} AS rxtype
@@ -23,14 +24,19 @@ WHERE
     s.potency_type IN ('IC50', 'NT50')
     AND
     s.control_iso_name IN {control_variants}
-    AND s.fold IS NOT NULL
-    {filters};
+    AND
+    s.fold IS NOT NULL
+    {filters}
+GROUP BY
+    s.iso_name
+;
 """
 
 TABLE_SUMMARY_MAB_SQL = """
 SELECT
     s.iso_name,
-    s.cumulative_count
+    COUNT(DISTINCT s.ref_name) num_ref_name,
+    SUM(s.cumulative_count) cumulative_count
 FROM
     susc_results AS s,
     ({rxtype}) as rx
@@ -42,7 +48,10 @@ WHERE
     AND
     s.control_iso_name IN {control_variants}
     AND s.fold IS NOT NULL
-    {filters};
+    {filters}
+GROUP BY
+    s.iso_name
+;
 """
 
 
@@ -116,14 +125,16 @@ def gen_table_variant(conn):
         cursor.execute(sql)
         for rec in cursor.fetchall():
             variant = rec['iso_name']
-            count_num = rec['cumulative_count']
+            num_ref_name = rec['num_ref_name']
+            num_results = rec['cumulative_count']
             main_name = ONE_MUT_VARIANT.get(variant)
             if main_name:
                 disp_name = main_name['disp']
                 indiv_results[disp_name].append({
                     'Variant name': disp_name,
                     'Rx name': column_name,
-                    '#Published': count_num or 0
+                    'num_ref_name': num_ref_name,
+                    'num_results': num_results or 0
                 })
             else:
                 main_name = COMBO_MUT_VARIANT.get(variant)
@@ -134,7 +145,8 @@ def gen_table_variant(conn):
                     'Variant name': disp_name,
                     'Nickname': main_name['nickname'],
                     'Rx name': column_name,
-                    '#Published': count_num or 0
+                    'num_ref_name': num_ref_name,
+                    'num_results': num_results or 0
                 })
 
     # print(len(indiv_results))
@@ -147,7 +159,7 @@ def gen_table_variant(conn):
         rx_group = defaultdict(int)
         for item in record_list:
             rx = item['Rx name']
-            num = item['#Published']
+            num = item['num_results']
             rx_group[rx] += num
 
         record = {
@@ -184,7 +196,7 @@ def gen_table_variant(conn):
         nickname = record_list[0]['Nickname']
         for item in record_list:
             rx = item['Rx name']
-            num = item['#Published']
+            num = item['num_results']
             rx_group[rx] += num
 
         record = {
