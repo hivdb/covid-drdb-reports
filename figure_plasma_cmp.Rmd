@@ -2185,7 +2185,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 
 ## Other Fold compare
 
-### Fold naive vs uninfected, num results
+### Fold naive vs infected, num results
 ```{r fold-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
 fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
