@@ -1,30 +1,25 @@
-﻿Infection,Samples
-Alpha,1972
-Beta,2394
+﻿Infection,Results
+Alpha,1970
+Beta,2290
 B.1.463,50
-Epsilon,66
+Epsilon,106
 Gamma,1040
-,3128
-B.1.427,37
-B.1.1.345,90
+,3529
 B.1,246
 Iota,88
 Iota w/o E484K,38
 Zeta,101
 B,493
-B.1.177.31,116
-AP.1,84
 B.1.1.298,91
 A,40
-20A.EU2,18
+B.1.160,18
 Alpha/E484K,156
-Kappa,158
+Kappa,178
 Lambda,16
 Delta plus,8
-Delta,424
-COH.20G/677H,10
+Delta,408
 B.1.1.117,6
-B.1.258.24,15
+Beta w/o K417N,48
 Eta,28
 B.1.1.241,34
 D.2,31

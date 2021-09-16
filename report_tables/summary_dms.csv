@@ -179,6 +179,10 @@ Copin21,Imdevimab,486,L,0.8,=,0.002
 Copin21,Imdevimab,486,V,0.8,=,0.002
 Copin21,Imdevimab,494,P,1.2,=,0.002
 Copin21,Imdevimab,501,Y,0.8,=,0.002
+Dong21,COV2-2050,484,K,657.9,>,0.221
+Dong21,Cilgavimab,484,K,1.6,=,0.001
+Dong21,Cilgavimab/Tixagevimab,484,K,3.1,=,0.011
+Dong21,Tixagevimab,484,K,4.4,=,0.03
 FDA21,Bamlanivimab,452,R,1020.0,>,0.933
 FDA21,Bamlanivimab,483,A,48.0,=,0.002
 FDA21,Bamlanivimab,484,D,100.0,>,0.889

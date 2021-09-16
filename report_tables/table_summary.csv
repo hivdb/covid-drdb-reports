@@ -1,57 +1,57 @@
 ﻿Variant name,Rx name,#Published
 N501Y,CP,227
 N501Y,VP,105
-N501Y,mAbs phase3,61
-N501Y,mAbs structure,42
+N501Y,mAbs phase3,63
+N501Y,mAbs structure,40
 E484K,CP,225
 E484K,VP,214
-E484K,mAbs phase3,91
-E484K,mAbs structure,54
+E484K,mAbs phase3,93
+E484K,mAbs structure,52
 K417N,CP,144
 K417N,VP,122
-K417N,mAbs phase3,53
-K417N,mAbs structure,43
+K417N,mAbs phase3,55
+K417N,mAbs structure,41
 K417T,CP,29
 K417T,VP,0
-K417T,mAbs phase3,7
-K417T,mAbs structure,7
+K417T,mAbs phase3,8
+K417T,mAbs structure,6
 L452R,CP,74
 L452R,VP,79
-L452R,mAbs phase3,31
-L452R,mAbs structure,10
+L452R,mAbs phase3,33
+L452R,mAbs structure,8
 Other individual mutations,CP,1601
 Other individual mutations,VP,1443
-Other individual mutations,mAbs phase3,877
-Other individual mutations,mAbs structure,928
+Other individual mutations,mAbs phase3,900
+Other individual mutations,mAbs structure,905
 All individual mutations,CP,1994
 All individual mutations,VP,1689
-All individual mutations,mAbs phase3,1048
-All individual mutations,mAbs structure,1043
-Alpha,CP,1743
-Alpha,VP,4634
-Alpha,mAbs phase3,109
-Alpha,mAbs structure,68
-Beta,CP,1983
-Beta,VP,4946
-Beta,mAbs phase3,110
-Beta,mAbs structure,50
-Gamma,CP,705
-Gamma,VP,2254
-Gamma,mAbs phase3,63
-Gamma,mAbs structure,27
-Epsilon,CP,59
-Epsilon,VP,578
-Epsilon,mAbs phase3,19
-Epsilon,mAbs structure,11
+All individual mutations,mAbs phase3,1077
+All individual mutations,mAbs structure,1014
+Alpha,CP,1788
+Alpha,VP,4014
+Alpha,mAbs phase3,93
+Alpha,mAbs structure,55
+Beta,CP,1964
+Beta,VP,4383
+Beta,mAbs phase3,109
+Beta,mAbs structure,46
+Gamma,CP,674
+Gamma,VP,1716
+Gamma,mAbs phase3,64
+Gamma,mAbs structure,25
+Epsilon,CP,99
+Epsilon,VP,626
+Epsilon,mAbs phase3,21
+Epsilon,mAbs structure,9
 Iota,CP,81
-Iota,VP,829
-Iota,mAbs phase3,27
-Iota,mAbs structure,9
-Other combinations of mutations,CP,2535
-Other combinations of mutations,VP,5279
-Other combinations of mutations,mAbs phase3,437
-Other combinations of mutations,mAbs structure,266
-All combinations of mutations,CP,7296
-All combinations of mutations,VP,18694
-All combinations of mutations,mAbs phase3,810
-All combinations of mutations,mAbs structure,464
+Iota,VP,263
+Iota,mAbs phase3,28
+Iota,mAbs structure,8
+Other combinations of mutations,CP,2729
+Other combinations of mutations,VP,5667
+Other combinations of mutations,mAbs phase3,467
+Other combinations of mutations,mAbs structure,271
+All combinations of mutations,CP,7525
+All combinations of mutations,VP,16843
+All combinations of mutations,mAbs phase3,829
+All combinations of mutations,mAbs structure,445

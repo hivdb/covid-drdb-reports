@@ -10,7 +10,8 @@ SQL = """
 SELECT
     rx.ab_name,
     rx.synonyms,
-    s.cumulative_count AS count,
+    s.ref_name,
+    s.cumulative_count AS num_result,
     s.iso_name,
     rx.availability AS avail,
     rx.pdb_id AS pdb,
@@ -41,7 +42,7 @@ def gen_table_all_mab(conn):
 
     mab_group = defaultdict(list)
     records = cursor.fetchall()
-    records = filter_by_variant(records)
+    # records = filter_by_variant(records)
 
     for rec in records:
         ab_name = rec['ab_name']
@@ -50,7 +51,10 @@ def gen_table_all_mab(conn):
 
     record_list = []
     for ab_name, rlist in mab_group.items():
-        count = sum([r['count'] for r in rlist] + [0])
+        num_result = sum([r['num_result'] for r in rlist] + [0])
+        num_ref_name = len(set(
+            r['ref_name'] for r in rlist
+        ))
         target = rlist[0]['target']
         pdb = rlist[0]['pdb']
         avail = rlist[0]['avail']
@@ -65,7 +69,8 @@ def gen_table_all_mab(conn):
                 ab_name if not ab_name[0].isdigit() else "'{}".format(ab_name)
             ),
             'synonyms': synonyms,
-            'results': count,
+            'num_reference': num_ref_name,
+            'num_result': num_result,
             'avail': avail or '',
             'target': target or '',
             'class': ab_class or '',
@@ -77,7 +82,7 @@ def gen_table_all_mab(conn):
 
     record_list.sort(key=itemgetter(
         'avail',
-        'results',
+        'num_result',
         'mab',
         ), reverse=True)
 
