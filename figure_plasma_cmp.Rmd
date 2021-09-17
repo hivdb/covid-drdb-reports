@@ -189,7 +189,7 @@ draw_rx_fold <- function(dfPlot, figLabel) {
           y= Inf,
           x = Inf,
           label=figLabel,
-          size=5,
+          size=10,
           vjust=2,
           hjust=1.1)
   p
@@ -331,7 +331,7 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -466,7 +466,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 <!--     y= Inf, -->
 <!--     x = Inf, -->
 <!--     label=figLabel, -->
-<!--     size=5, -->
+<!--     size=10, -->
 <!--     vjust=2, -->
 <!--     hjust=1.1) -->
 <!--   p -->
@@ -707,7 +707,7 @@ draw_rx_fold_same_axis <- function(dfPlot, figLabel) {
           y= Inf,
           x = Inf,
           label=figLabel,
-          size=5,
+          size=10,
           vjust=2,
           hjust=1.1)
   p
@@ -791,7 +791,7 @@ draw_rx_titer_same_axis <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -1059,7 +1059,7 @@ draw_titer_by_variant <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -1178,7 +1178,7 @@ draw_titer_by_plasma <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -1270,8 +1270,8 @@ draw_titer_fold_points <- function(dfPlot, figLabel='') {
       Inf,
       Inf,
       label = sprintf('spearman=%s', signif(spearman_cor, 5))),
-      size = 5,
-      vjust= 7,
+      size = 10,
+      vjust= 4,
       hjust = 1.1
     ) +
     # geom_text(aes(label=ref_name),hjust=0, vjust=0) +
@@ -1306,7 +1306,7 @@ draw_titer_fold_points <- function(dfPlot, figLabel='') {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -1462,8 +1462,8 @@ draw_titer_fold_points_normal <- function(dfPlot, figLabel='') {
       Inf,
       Inf,
       label = sprintf('spearman=%s', signif(spearman_cor, 5))),
-      size = 5,
-      vjust= 7,
+      size = 10,
+      vjust= 4,
       hjust = 1.1
     ) +
     # geom_text(aes(label=ref_name),hjust=0, vjust=0) +
@@ -1488,7 +1488,7 @@ draw_titer_fold_points_normal <- function(dfPlot, figLabel='') {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -1734,7 +1734,7 @@ draw_month_compare <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -1943,7 +1943,7 @@ draw_infection_compare <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
@@ -2127,7 +2127,7 @@ draw_titer_violin <- function(dfPlot, figLabel) {
     y= Inf,
     x = Inf,
     label=figLabel,
-    size=5,
+    size=10,
     vjust=2,
     hjust=1.1)
   p
