@@ -320,12 +320,12 @@ def get_grouped_variants(conn):
 
             COMBO_MUT_VARIANT[main_name] = {
                 'disp': main_name,
-                'varname': var_name,
+                'var_name': var_name,
                 }
             for name in isolate_info['iso_names']:
                 COMBO_MUT_VARIANT[name] = {
                     'disp': main_name,
-                    'varname': var_name,
+                    'var_name': var_name,
                     }
 
     cursor.execute(NO_S_MUTATION)

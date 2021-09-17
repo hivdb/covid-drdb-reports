@@ -88,11 +88,11 @@ def by_variant(conn, indiv_or_combo, save_path):
                     })
             else:
                 variant_info = COMBO_MUT_VARIANT.get(variant)
-                varname = variant_info['varname']
+                var_name = variant_info['var_name']
                 for r in rx_list:
                     record_list.append({
                         'pattern': variant,
-                        'varname': varname,
+                        'var_name': var_name,
                         'vaccine': vacc_name,
                         'vaccine_type': r['vaccine_type'],
                         'fold': r['fold'],

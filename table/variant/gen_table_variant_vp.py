@@ -15,27 +15,34 @@ from variant.preset import CONTROL_VARIANTS_SQL
 SQL = """
 SELECT
     r.vaccine_name,
+    s.ref_name,
     s.iso_name,
     r.vaccine_type,
     s.fold,
-    s.cumulative_count as count
+    s.cumulative_count as num_results
 FROM
-    susc_results as s
-INNER JOIN {rx_vaccine} as r ON
-    s.ref_name = r.ref_name
-    AND s.rx_name = r.rx_name
+    susc_results as s,
+    {rx_vaccine} as r
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
+    s.ref_name = r.ref_name
     AND
-    s.control_iso_name in ({control_variants})
-    AND
-    r.vaccine_name IS NOT NULL
-    AND
-    s.fold IS NOT NULL;
+    s.rx_name = r.rx_name
+;
 """.format(
-    control_variants=CONTROL_VARIANTS_SQL,
     rx_vaccine=RX_VP
 )
+# WHERE
+#     s.potency_type IN ('IC50', 'NT50')
+#     AND
+#     s.control_iso_name in ({control_variants})
+#     AND
+#     r.vaccine_name IS NOT NULL
+#     AND
+#     s.fold IS NOT NULL;
+# """.format(
+#     control_variants=CONTROL_VARIANTS_SQL,
+#     rx_vaccine=RX_VP
+# )
 
 
 def gen_table_variant_vp(conn):
@@ -61,69 +68,109 @@ def by_variant(conn, indiv_or_combo, save_path):
     cursor.execute(SQL)
 
     variant_group = defaultdict(list)
-    for rec in cursor.fetchall():
+
+    db_records = cursor.fetchall()
+    selected_records = []
+    for rec in db_records:
         variant = rec['iso_name']
         variant = variant_mapper.get(variant)
         if not variant:
             continue
-        variant = variant['disp']
+
+        selected_records.append(rec)
+
+        var_name = variant.get('var_name')
+        if var_name:
+            var_name = var_name.split()[0]
+            var_name = var_name.split('/')[0]
+            if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda']:
+                var_name = 'KIEL'
+            elif var_name not in ('Alpha', 'Beta', 'Gamma', 'Delta'):
+                var_name = 'other variants'
+            variant = var_name
+        elif indiv_or_combo != 'indiv':
+            variant = 'other combo mut'
+        else:
+            variant = variant['disp']
+
         variant_group[variant].append(rec)
 
     record_list = []
-    for variant, rlist in variant_group.items():
-        vacc_group = defaultdict(list)
-        for rec in rlist:
-            vacc_name = rec['vaccine_name']
-            vacc_group[vacc_name].append(rec)
+    for variant, rx_list in variant_group.items():
+        # vacc_group = defaultdict(list)
+        # for rec in rx_list:
+        #     vacc_name = rec['vaccine_name']
+        #     vacc_group[vacc_name].append(rec)
 
-        for vacc_name, rx_list in vacc_group.items():
-            all_fold = [(r['fold'], r['count']) for r in rx_list if r['fold']]
-            num_s = sum([r[1] for r in all_fold if is_susc(r[0])])
-            num_i = sum([r[1] for r in all_fold if is_partial_resistant(r[0])])
-            num_r = sum([r[1] for r in all_fold if is_resistant(r[0])])
+        # for vacc_name, rx_list in vacc_group.items():
+        all_fold = [
+            (r['fold'], r['num_results']) for r in rx_list if r['fold']]
+        num_s = sum([r[1] for r in all_fold if is_susc(r[0])])
+        num_i = sum([r[1] for r in all_fold if is_partial_resistant(r[0])])
+        num_r = sum([r[1] for r in all_fold if is_resistant(r[0])])
 
-            all_fold = [[i[0]] * i[1] for i in all_fold]
-            all_fold = [i for j in all_fold for i in j if i]
-            median_fold = round_fold(median(all_fold)) if all_fold else ''
+        all_fold = [[i[0]] * i[1] for i in all_fold]
+        all_fold = [i for j in all_fold for i in j if i]
+        median_fold = round_fold(median(all_fold)) if all_fold else ''
 
-            num_results = sum([r['count'] for r in rx_list] + [0])
+        num_results = sum([r['num_results'] for r in rx_list] + [0])
 
-            vaccine_type = rx_list[0]['vaccine_type']
+        vaccine_type = rx_list[0]['vaccine_type']
 
-            if indiv_or_combo == 'indiv':
-                variant_info = ONE_MUT_VARIANT.get(variant)
-                record_list.append({
-                    'pattern': variant,
-                    'vaccine': vacc_name,
-                    'vaccine_type': vaccine_type,
-                    'RefAA': variant_info['ref_aa'],
-                    'Position': variant_info['position'],
-                    'AA': variant_info['aa'],
-                    'Domain': variant_info['domain'],
-                    'median_fold': median_fold,
-                    'samples': num_results,
-                    'S': num_s,
-                    'I': num_i,
-                    'R': num_r,
-                })
-            else:
-                variant_info = COMBO_MUT_VARIANT.get(variant)
-                varname = variant_info['varname']
-                record_list.append({
-                    'pattern': variant,
-                    'varname': varname,
-                    'vaccine': vacc_name,
-                    'vaccine_type': vaccine_type,
-                    'median_fold': median_fold,
-                    'samples': num_results,
-                    'S': num_s,
-                    'I': num_i,
-                    'R': num_r,
-                })
+        if indiv_or_combo == 'indiv':
+            variant_info = ONE_MUT_VARIANT.get(variant)
+            record_list.append({
+                'pattern': variant,
+                # 'vaccine': vacc_name,
+                # 'vaccine_type': vaccine_type,
+                'RefAA': variant_info['ref_aa'],
+                'Position': variant_info['position'],
+                'AA': variant_info['aa'],
+                'Domain': variant_info['domain'],
+                'median_fold': median_fold,
+                'references': len(set([
+                    r['ref_name']
+                    for r in rx_list
+                    ])),
+                'num_results': num_results,
+                'S': num_s,
+                'I': num_i,
+                'R': num_r,
+            })
+        else:
+            # variant_info = COMBO_MUT_VARIANT.get(variant)
+            # var_name = variant_info['var_name']
+            var_name = variant
+            record_list.append({
+                'pattern': variant,
+                'var_name': var_name,
+                # 'vaccine': vacc_name,
+                # 'vaccine_type': vaccine_type,
+                'median_fold': median_fold,
+                'references': len(set([
+                    r['ref_name']
+                    for r in rx_list
+                    ])),
+                'num_results': num_results,
+                'S': num_s,
+                'I': num_i,
+                'R': num_r,
+            })
+
+    if indiv_or_combo == 'indiv':
+
+        record_list.append({
+            'pattern': 'summary',
+            'references': len(set([
+                r['ref_name']
+                for r in selected_records
+            ])),
+            'num_results': sum([r['num_results'] for r in selected_records] + [0]),
+        })
 
     record_list.sort(key=itemgetter(
         'pattern',
-        'vaccine',
+        # 'vaccine',
         ))
 
     dump_csv(save_path, record_list)

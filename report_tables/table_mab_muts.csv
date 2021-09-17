@@ -392,8 +392,8 @@ N439K,S2E12,RBM Class I,0.9,Tortorici20
 N439K,S2E12,RBM Class I,1,Tortorici20
 N439K,BD-368-2,RBM Class II,2.2,Wang21f
 N439K,Bamlanivimab,RBM Class II,1.3,Wang21e
-N439K,C121,RBM Class II,2.4,Weisblum20
 N439K,C121,RBM Class II,0.9,Weisblum20
+N439K,C121,RBM Class II,2.4,Weisblum20
 N439K,C548,RBM Class II,1.2,Muecksch21
 N439K,LY3853113,RBM Class II,0.5,Westendorf21
 N439K,LY3853113,RBM Class II,1.1,Westendorf21
@@ -401,8 +401,8 @@ N439K,P2B-2F6,RBM Class II,2.1,Shen21
 N439K,P2B-2F6,RBM Class II,1,Li20h
 N439K,P5A-1B9,RBM Class II,1.3,Wang21f
 N439K,C144,RBM Class III,0.7,Muecksch21
-N439K,C144,RBM Class III,0.3,Weisblum20
 N439K,C144,RBM Class III,0.9,Weisblum20
+N439K,C144,RBM Class III,0.3,Weisblum20
 N439K,S2M11,RBM Class III,1.1,Tortorici20
 N439K,S2M11,RBM Class III,1.3,Tortorici20
 N501Y,Bamlanivimab/Etesevimab,,1,FDA21
@@ -488,8 +488,8 @@ N501Y,BD-368-2,RBM Class II,1.2,Wang21f
 N501Y,Bamlanivimab,RBM Class II,1.1,Wang21e
 N501Y,Bamlanivimab,RBM Class II,1,FDA21
 N501Y,Bamlanivimab,RBM Class II,1,Wang21b
-N501Y,C121,RBM Class II,0.8,Weisblum20
 N501Y,C121,RBM Class II,0.3,Weisblum20
+N501Y,C121,RBM Class II,0.8,Weisblum20
 N501Y,C121,RBM Class II,0.7,Wang21b
 N501Y,C548,RBM Class II,1.7,Muecksch21
 N501Y,COVOX-40,RBM Class II,2.5,Chen21
@@ -504,8 +504,8 @@ N501Y,P5A-1B9,RBM Class II,1.2,Wang21f
 N501Y,2-4,RBM Class III,2.8,Wang21b
 N501Y,C144,RBM Class III,1.1,Muecksch21
 N501Y,C144,RBM Class III,1.5,Wang21
-N501Y,C144,RBM Class III,0.4,Weisblum20
 N501Y,C144,RBM Class III,1.5,Weisblum20
+N501Y,C144,RBM Class III,0.4,Weisblum20
 S494P,Bamlanivimab/Etesevimab,,1,FDA21
 S494P,Casirivimab/Imdevimab,,0.9,Copin21
 S494P,S2E12/S2M11,,1.7,Tortorici20
@@ -535,13 +535,13 @@ S494P,S2E12,RBM Class I,0.5,Tortorici20
 S494P,BD-368-2,RBM Class II,1.5,Wang21f
 S494P,Bamlanivimab,RBM Class II,>100,Gottlieb21
 S494P,Bamlanivimab,RBM Class II,71,FDA21
-S494P,C121,RBM Class II,35,Weisblum20
 S494P,C121,RBM Class II,13,Weisblum20
+S494P,C121,RBM Class II,35,Weisblum20
 S494P,C548,RBM Class II,1.5,Muecksch21
 S494P,P5A-1B9,RBM Class II,1,Wang21f
 S494P,C144,RBM Class III,>100,Muecksch21
-S494P,C144,RBM Class III,17,Weisblum20
 S494P,C144,RBM Class III,61,Weisblum20
+S494P,C144,RBM Class III,17,Weisblum20
 S494P,S2M11,RBM Class III,>100,Tortorici20
 T478K,Casirivimab/Imdevimab,,2.6,Tada21e
 T478K,C032,RBD Core Cluster I,0.8,Muecksch21

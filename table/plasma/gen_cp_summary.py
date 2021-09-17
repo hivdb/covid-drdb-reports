@@ -13,21 +13,27 @@ SELECT
     s.ref_name,
     s.rx_name,
     s.iso_name,
+    var.as_wildtype,
     rx.timing,
     rx.severity,
     rx.infected_iso_name,
     iso.var_name AS infection,
-    SUM(s.cumulative_count) as samples
+    SUM(s.cumulative_count) as num_results
 FROM
     ({susc_results}) as s,
     rx_conv_plasma as rx,
-    isolates as iso
-ON
-    s.ref_name = rx.ref_name AND
-    s.rx_name = rx.rx_name AND
-    s.iso_name = iso.iso_name
+    isolates as iso,
+    variants as var
 WHERE
+    s.ref_name = rx.ref_name
+    AND
+    s.rx_name = rx.rx_name
+    AND
+    s.iso_name = iso.iso_name
+    AND
     s.fold IS NOT NULL
+    AND
+    iso.var_name = var.var_name
 GROUP BY
     s.ref_name,
     s.rx_name,
@@ -48,7 +54,7 @@ def gen_cp_summary(conn):
     records = cursor.execute(sql)
     records = filter_by_variant(records)
 
-    num_exp = sum([r['samples'] for r in records])
+    num_fold_results = sum([r['num_results'] for r in records])
     num_study = len(set([r['ref_name'] for r in records]))
 
     sql = SQL.format(
@@ -59,14 +65,14 @@ def gen_cp_summary(conn):
     aggre_records = cursor.execute(sql)
     aggre_records = filter_by_variant(aggre_records)
 
-    aggre_num_exp = sum([r['samples'] for r in aggre_records])
+    aggre_num_fold_results = sum([r['num_results'] for r in aggre_records])
     aggre_num_study = len(set([r['ref_name'] for r in aggre_records]))
 
     result = [{
-        'indiv_samples': num_exp,
-        'indiv_samples_study': num_study,
-        'aggre_samples': aggre_num_exp,
-        'aggre_samples_study': aggre_num_study,
+        'indiv_num_results': num_fold_results,
+        'indiv_num_results_study': num_study,
+        'aggre_num_results': aggre_num_fold_results,
+        'aggre_num_results_study': aggre_num_study,
     }]
     save_path = DATA_FILE_PATH / 'summary_cp.csv'
     dump_csv(save_path, result)
@@ -75,14 +81,25 @@ def gen_cp_summary(conn):
 
     timing_group = defaultdict(list)
     for rec in records:
-        timing = rec['timing']
+        timing = int(rec['timing'])
+        if timing < 2:
+            timing = '1'
+        elif timing < 4:
+            timing = '2-3'
+        elif timing < 7:
+            timing = '4-6'
+        else:
+            timing = '>6'
         timing_group[timing].append(rec)
 
     timing_results = []
     for timing, rx_list in timing_group.items():
         timing_results.append({
             'Timing': timing,
-            'Results': sum([r['samples'] for r in rx_list])
+            'References': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'Results': sum([r['num_results'] for r in rx_list])
         })
 
     timing_results.sort(key=lambda x: x['Timing'] if x['Timing'] else 0)
@@ -99,7 +116,10 @@ def gen_cp_summary(conn):
     for severity, rx_list in severity_group.items():
         severiy_results.append({
             'Severity': severity,
-            'Results': sum([r['samples'] for r in rx_list])
+            'References': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'Results': sum([r['num_results'] for r in rx_list])
         })
     save_path = DATA_FILE_PATH / 'summary_cp_severity.csv'
     dump_csv(save_path, severiy_results)
@@ -107,13 +127,22 @@ def gen_cp_summary(conn):
     infection_group = defaultdict(list)
     for rec in records:
         infection = rec['infection']
+        as_wildtype = rec['as_wildtype']
+        if as_wildtype:
+            infection = 'wt'
+        else:
+            infection = infection.split()[0]
+            infection = infection.split('/')[0]
         infection_group[infection].append(rec)
 
     infection_results = []
     for infection, rx_list in infection_group.items():
         infection_results.append({
             'Infection': infection,
-            'Results': sum([r['samples'] for r in rx_list])
+            'References': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'Results': sum([r['num_results'] for r in rx_list])
         })
     save_path = DATA_FILE_PATH / 'summary_cp_infection.csv'
     dump_csv(save_path, infection_results)

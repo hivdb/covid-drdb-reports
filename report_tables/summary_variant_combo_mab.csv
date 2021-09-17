@@ -1,4 +1,4 @@
-﻿pattern,varname,mab,avail,target,median_fold,samples,S,I,R
+﻿pattern,var_name,mab,avail,target,median_fold,samples,S,I,R
 "141-145∆,R408I",,157,,RBD,0.8,1,1,0,0
 "141-145∆,R408I",,247,,RBD,0.7,1,1,0,0
 "141-145∆,R408I",,261-262,,RBD,0.6,1,1,0,0

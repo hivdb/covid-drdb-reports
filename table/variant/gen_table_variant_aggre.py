@@ -53,7 +53,7 @@ def get_fold_results(mut_group, variant_group_name):
             results.append({
                 'pattern': variant,
                 'domain': variant_info.get('domain'),
-                'varname': variant_info.get('varname'),
+                'var_name': variant_info.get('var_name'),
                 'reference': r['ref_name'],
                 'fold_cmp': r['fold_cmp'],
                 'median': r['fold'],

@@ -21,8 +21,8 @@ SELECT
     rx.dosage,
     rx.vaccine_name,
     iso.var_name,
-    sub.subject_species as species,
-    SUM(s.cumulative_count) as samples
+    sub.subject_species species,
+    SUM(s.cumulative_count) num_results
 FROM
     ({susc_results}) as s,
     rx_vacc_plasma as rx,
@@ -56,7 +56,7 @@ def gen_vp_summary(conn):
     records = cursor.execute(sql)
     records = filter_by_variant(records)
 
-    num_exp = sum([r['samples'] for r in records])
+    num_fold_results = sum([r['num_results'] for r in records])
     num_study = len(set([r['ref_name'] for r in records]))
 
     sql = SQL.format(
@@ -67,25 +67,35 @@ def gen_vp_summary(conn):
     aggre_records = cursor.execute(sql)
     aggre_records = filter_by_variant(aggre_records)
 
-    aggre_num_exp = sum([r['samples'] for r in aggre_records])
+    aggre_num_fold_results = sum([r['num_results'] for r in aggre_records])
     aggre_num_study = len(set([r['ref_name'] for r in aggre_records]))
 
     result = [{
-        'indiv_samples': num_exp,
+        'indiv_samples': num_fold_results,
         'indiv_samples_study': num_study,
-        'aggre_samples': aggre_num_exp,
+        'aggre_samples': aggre_num_fold_results,
         'aggre_samples_study': aggre_num_study,
     }]
     save_path = DATA_FILE_PATH / 'summary_vp.csv'
     dump_csv(save_path, result)
 
     records += aggre_records
-    num_records = sum([r['samples'] for r in records])
+    num_records = sum([r['num_results'] for r in records])
 
     timing_dosage_group = defaultdict(list)
     for rec in records:
-        timing = rec['timing']
-        dosage = rec['dosage']
+        # timing = rec['timing']
+        timing = int(rec['timing'])
+        if timing < 2:
+            timing = '1'
+        elif timing < 4:
+            timing = '2-3'
+        elif timing < 7:
+            timing = '4-6'
+        else:
+            timing = '>6'
+        # dosage = rec['dosage']
+        dosage = ''
         timing_dosage_group[(timing, dosage)].append(rec)
 
     timing_results = []
@@ -93,7 +103,10 @@ def gen_vp_summary(conn):
         timing_results.append({
             'Timing': timing,
             'Dosage': dosage,
-            'Samples': sum([r['samples'] for r in rx_list])
+            'References': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'Results': sum([r['num_results'] for r in rx_list])
         })
 
     timing_results.sort(key=lambda x: x['Timing'] if x['Timing'] else 0)
@@ -109,9 +122,9 @@ def gen_vp_summary(conn):
     vaccine_results = []
     for vaccine, rx_list in vaccine_group.items():
 
-        all_fold = [[r['fold']] * r['samples'] for r in rx_list]
+        all_fold = [[r['fold']] * r['num_results'] for r in rx_list]
         all_fold = [r for j in all_fold for r in j]
-        samples = len(all_fold)
+        num_results = len(all_fold)
 
         s_fold = [r for r in all_fold if is_susc(r)]
         i_fold = [r for r in all_fold if is_partial_resistant(r)]
@@ -124,12 +137,15 @@ def gen_vp_summary(conn):
 
         vaccine_results.append({
             'Vaccine': vaccine,
-            'Samples': samples,
+            'References': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'Results': num_results,
             'S': num_s_fold,
             'I': num_i_fold,
             'R': num_r_fold,
             'median fold': median_fold,
-            'Percent': round_number(samples / num_records * 100),
+            'Percent': round_number(num_results / num_records * 100),
         })
     save_path = DATA_FILE_PATH / 'summary_vp_vaccine.csv'
     dump_csv(save_path, vaccine_results)
@@ -144,7 +160,10 @@ def gen_vp_summary(conn):
     for (vaccine, species), rx_list in vaccine_species_group.items():
         vaccine_species_results.append({
             'Vaccine': vaccine,
-            'Samples': sum([r['samples'] for r in rx_list]),
+            'References': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'Results': sum([r['num_results'] for r in rx_list]),
             'Species': species,
         })
     save_path = DATA_FILE_PATH / 'summary_vp_vaccine_species.csv'

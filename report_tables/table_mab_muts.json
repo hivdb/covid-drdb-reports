@@ -2787,14 +2787,14 @@
                 "variant": "N439K",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
-                "fold": "2.4",
+                "fold": "0.9",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "N439K",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
-                "fold": "0.9",
+                "fold": "2.4",
                 "reference": "Weisblum20"
             },
             {
@@ -2850,14 +2850,14 @@
                 "variant": "N439K",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "0.3",
+                "fold": "0.9",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "N439K",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "0.9",
+                "fold": "0.3",
                 "reference": "Weisblum20"
             },
             {
@@ -3464,14 +3464,14 @@
                 "variant": "N501Y",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
-                "fold": "0.8",
+                "fold": "0.3",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "N501Y",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
-                "fold": "0.3",
+                "fold": "0.8",
                 "reference": "Weisblum20"
             },
             {
@@ -3576,14 +3576,14 @@
                 "variant": "N501Y",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "0.4",
+                "fold": "1.5",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "N501Y",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "1.5",
+                "fold": "0.4",
                 "reference": "Weisblum20"
             }
         ]
@@ -3798,14 +3798,14 @@
                 "variant": "S494P",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
-                "fold": "35",
+                "fold": "13",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "S494P",
                 "rx": "C121",
                 "mab_class": "RBM Class II",
-                "fold": "13",
+                "fold": "35",
                 "reference": "Weisblum20"
             },
             {
@@ -3833,14 +3833,14 @@
                 "variant": "S494P",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "17",
+                "fold": "61",
                 "reference": "Weisblum20"
             },
             {
                 "variant": "S494P",
                 "rx": "C144",
                 "mab_class": "RBM Class III",
-                "fold": "61",
+                "fold": "17",
                 "reference": "Weisblum20"
             },
             {

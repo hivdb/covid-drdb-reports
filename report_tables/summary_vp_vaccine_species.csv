@@ -1,26 +1,25 @@
-﻿Vaccine,Samples,Species
-BNT162b2,8987,Human
-AZD1222,1398,Human
-AZD1222 + BNT162b2,258,Human
-Ad26.COV2.S,761,Human
-BBIBP-CorV,99,Human
-BBV152,477,Human
-,85,Human
-BNT162b2,12,Macaque
-BNT162b2,19,Mouse
-BBV154,40,Hamster
-BBV154,50,Mouse
-BBV154,30,Macaque
-CoronaVac,1607,Human
-mRNA-1273,3602,Human
-MVC-COV1901,135,Human
-NVX-CoV2373,74,Human
-Sputnik V,464,Human
-ZF2001,44,Human
-mRNA-1273,144,Macaque
-mRNA,210,Human
-MVC-COV1901,36,Mouse
-AZD1222 + AZD2816,54,Human
-AZD2816,15,Human
-mRNA-1273 + mRNA-1273.351,40,Human
-Ad26.COV2.S,48,Macaque
+﻿Vaccine,References,Results,Species
+BNT162b2,75,9020,Human
+AZD1222,14,1398,Human
+AZD1222 + BNT162b2,3,258,Human
+Ad26.COV2.S,7,819,Human
+BBIBP-CorV,2,99,Human
+BBV152,5,477,Human
+BNT162b2,1,12,Macaque
+BNT162b2,1,19,Mouse
+BBV154,1,40,Hamster
+BBV154,1,50,Mouse
+BBV154,1,30,Macaque
+CoronaVac,8,1607,Human
+mRNA-1273,29,3654,Human
+MVC-COV1901,1,135,Human
+NVX-CoV2373,2,74,Human
+Sputnik V,3,464,Human
+ZF2001,2,44,Human
+mRNA-1273,1,144,Macaque
+mRNA,1,210,Human
+MVC-COV1901,1,36,Mouse
+AZD1222 + AZD2816,1,54,Human
+AZD2816,1,15,Human
+mRNA-1273 + mRNA-1273.351,1,40,Human
+Ad26.COV2.S,1,48,Macaque
