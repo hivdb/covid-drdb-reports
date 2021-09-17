@@ -991,6 +991,10 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Titer 1M compare by variant
 ```{r titer-1m-variant-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
+gm_mean <- function(x) {
+  exp(mean(log(x)))
+}
+
 draw_titer_by_variant <- function(dfPlot, figLabel) {
   dfAgg = dfPlot %>%
     group_by(variant) %>%
@@ -1005,6 +1009,7 @@ draw_titer_by_variant <- function(dfPlot, figLabel) {
 
   p <- ggplot(data=dfPlot, aes(x=variant, y=titer, fill=variant)) +
     geom_boxplot() +
+    stat_summary(fun.y = gm_mean) +
     # stat_compare_means(
     #   method = "t.test",
     #   ref.group = "Alpha",

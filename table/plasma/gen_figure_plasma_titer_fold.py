@@ -19,11 +19,18 @@ SELECT
 FROM
     ({rx_titer_fold}) a,
     rx_conv_plasma b,
-    isolates c
+    isolates c,
+    subjects d
 WHERE
     a.ref_name = b.ref_name
     AND
     a.rx_name = b.rx_name
+    AND
+    b.ref_name = d.ref_name
+    AND
+    b.subject_name = d.subject_name
+    AND
+    d.subject_species = 'Human'
     AND
     a.iso_name = c.iso_name
     AND
@@ -34,11 +41,11 @@ WHERE
     NOT EXISTS (
         SELECT
             1
-        FROM ({infected_vaccinee}) d
+        FROM ({infected_vaccinee}) inf
         WHERE
-            b.ref_name = d.ref_name
+            b.ref_name = inf.ref_name
             AND
-            b.subject_name = d.subject_name
+            b.subject_name = inf.subject_name
     )
 """
 
@@ -56,7 +63,8 @@ FROM
     ({rx_titer_fold}) a,
     rx_vacc_plasma b,
     isolates c,
-    vaccines d
+    subjects d,
+    vaccines e
 WHERE
     a.ref_name = b.ref_name
     AND
@@ -64,22 +72,28 @@ WHERE
     AND
     a.iso_name = c.iso_name
     AND
+    b.ref_name = d.ref_name
+    AND
+    b.subject_name = d.subject_name
+    AND
+    d.subject_species = 'Human'
+    AND
     c.var_name IS NOT NULL
     AND
-    b.vaccine_name = d.vaccine_name
+    b.vaccine_name = e.vaccine_name
     AND
-    b.dosage = d.st_shot
+    b.dosage = e.st_shot
     AND
     a.potency_type = 'NT50'
     AND
     NOT EXISTS (
         SELECT
             1
-        FROM ({infected_vaccinee}) f
+        FROM ({infected_vaccinee}) inf
         WHERE
-            b.ref_name = f.ref_name
+            b.ref_name = inf.ref_name
             AND
-            b.subject_name = f.subject_name
+            b.subject_name = inf.subject_name
     )
 """
 
@@ -97,7 +111,8 @@ FROM
     ({rx_titer_fold}) a,
     rx_vacc_plasma b,
     isolates c,
-    vaccines d
+    subjects d,
+    vaccines e
 WHERE
     a.ref_name = b.ref_name
     AND
@@ -105,22 +120,28 @@ WHERE
     AND
     a.iso_name = c.iso_name
     AND
+    b.ref_name = d.ref_name
+    AND
+    b.subject_name = d.subject_name
+    AND
+    d.subject_species = 'Human'
+    AND
     c.var_name IS NOT NULL
     AND
-    b.vaccine_name = d.vaccine_name
+    b.vaccine_name = e.vaccine_name
     AND
-    b.dosage = d.st_shot
+    b.dosage = e.st_shot
     AND
     a.potency_type = 'NT50'
     AND
     EXISTS (
         SELECT
             1
-        FROM ({infected_vaccinee}) f
+        FROM ({infected_vaccinee}) inf
         WHERE
-            b.ref_name = f.ref_name
+            b.ref_name = inf.ref_name
             AND
-            b.subject_name = f.subject_name
+            b.subject_name = inf.subject_name
     )
 """
 
