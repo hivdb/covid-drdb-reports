@@ -2545,22 +2545,22 @@
             {
                 "variant": "Delta",
                 "rx": "BNT162b2",
-                "samples": 209,
-                "s_fold": 36,
-                "i_fold": 135,
-                "r_fold": 38,
-                "reference": "Wall21",
-                "median": "5.2"
-            },
-            {
-                "variant": "Delta",
-                "rx": "BNT162b2",
                 "samples": 225,
                 "s_fold": 38,
                 "i_fold": 35,
                 "r_fold": 152,
                 "reference": "Wall21",
                 "median": "9.4"
+            },
+            {
+                "variant": "Delta",
+                "rx": "BNT162b2",
+                "samples": 209,
+                "s_fold": 36,
+                "i_fold": 135,
+                "r_fold": 38,
+                "reference": "Wall21",
+                "median": "5.2"
             },
             {
                 "variant": "Delta",

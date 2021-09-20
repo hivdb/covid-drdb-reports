@@ -41,6 +41,13 @@
                 "variant": "Alpha",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21*"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Bamlanivimab/Etesevimab",
+                "mab_class": "",
                 "fold": "1.3",
                 "reference": "Wang21b*"
             },
@@ -92,6 +99,13 @@
                 "mab_class": "",
                 "fold": "3.1",
                 "reference": "Tada21c"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21*"
             },
             {
                 "variant": "Alpha",
@@ -972,14 +986,14 @@
                 "variant": "Alpha",
                 "rx": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.9",
+                "fold": "0.7",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Alpha",
                 "rx": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.7",
+                "fold": "0.9",
                 "reference": "Westendorf21"
             },
             {
@@ -1061,7 +1075,7 @@
                 "variant": "Beta",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
-                "fold": "45",
+                "fold": "&gt;100",
                 "reference": "FDA21"
             },
             {
@@ -1070,6 +1084,13 @@
                 "mab_class": "",
                 "fold": "&gt;100",
                 "reference": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Bamlanivimab/Etesevimab",
+                "mab_class": "",
+                "fold": "&gt;100",
+                "reference": "FDA21*"
             },
             {
                 "variant": "Beta",
@@ -1147,6 +1168,13 @@
                 "mab_class": "",
                 "fold": "7.5",
                 "reference": "Tada21e"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21*"
             },
             {
                 "variant": "Beta",
@@ -1719,6 +1747,13 @@
                 "variant": "Beta",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "5",
+                "reference": "FDA21*"
+            },
+            {
+                "variant": "Beta",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "&gt;100",
                 "reference": "Planas21b*"
             },
@@ -2072,6 +2107,13 @@
             },
             {
                 "variant": "Delta",
+                "rx": "Bamlanivimab/Etesevimab",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Delta",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "2.2",
@@ -2205,6 +2247,13 @@
             },
             {
                 "variant": "Delta",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Delta",
                 "rx": "Regdanvimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
@@ -2247,6 +2296,13 @@
             },
             {
                 "variant": "Delta",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Delta",
                 "rx": "Cilgavimab",
                 "mab_class": "RBM Class II",
                 "fold": "2.9",
@@ -2261,7 +2317,14 @@
                 "variant": "Epsilon",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
-                "fold": "7.7",
+                "fold": "9",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "Bamlanivimab/Etesevimab",
+                "mab_class": "",
+                "fold": "11",
                 "reference": "FDA21"
             },
             {
@@ -2367,6 +2430,13 @@
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Epsilon",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
                 "reference": "Zhang21c"
             },
             {
@@ -2443,14 +2513,14 @@
                 "variant": "Epsilon",
                 "rx": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.5",
+                "fold": "0.4",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Epsilon",
                 "rx": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.4",
+                "fold": "0.5",
                 "reference": "Westendorf21"
             },
             {
@@ -2513,6 +2583,13 @@
                 "mab_class": "",
                 "fold": "16",
                 "reference": "Tada21"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "Casirivimab/Imdevimab",
+                "mab_class": "",
+                "fold": "1",
+                "reference": "FDA21*"
             },
             {
                 "variant": "Gamma",
@@ -2845,6 +2922,13 @@
             },
             {
                 "variant": "Gamma",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "&gt;100",
+                "reference": "FDA21*"
+            },
+            {
+                "variant": "Gamma",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
                 "fold": "&gt;100",
@@ -3043,14 +3127,14 @@
                 "variant": "Gamma",
                 "rx": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.6",
+                "fold": "0.4",
                 "reference": "Westendorf21"
             },
             {
                 "variant": "Gamma",
                 "rx": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.4",
+                "fold": "0.6",
                 "reference": "Westendorf21"
             },
             {
@@ -3069,7 +3153,14 @@
                 "variant": "Iota",
                 "rx": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
-                "fold": "17",
+                "fold": "30",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Bamlanivimab/Etesevimab",
+                "mab_class": "",
+                "fold": "11",
                 "reference": "FDA21"
             },
             {
@@ -3216,6 +3307,13 @@
                 "variant": "Iota",
                 "rx": "Etesevimab",
                 "mab_class": "RBM Class I",
+                "fold": "1",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Iota",
+                "rx": "Etesevimab",
+                "mab_class": "RBM Class I",
                 "fold": "1.4",
                 "reference": "Zhang21c"
             },
@@ -3317,6 +3415,13 @@
             },
             {
                 "variant": "Kappa",
+                "rx": "Bamlanivimab/Etesevimab",
+                "mab_class": "",
+                "fold": "6",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Kappa",
                 "rx": "Casirivimab/Imdevimab",
                 "mab_class": "",
                 "fold": "1",
@@ -3389,6 +3494,13 @@
                 "variant": "Kappa",
                 "rx": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "6",
+                "reference": "FDA21"
+            },
+            {
+                "variant": "Kappa",
+                "rx": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "13",
                 "reference": "Wang21e"
             },
@@ -3447,6 +3559,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "&gt;100",
                 "reference": "Wang21e"
+            },
+            {
+                "variant": "Kappa",
+                "rx": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": "&gt;100",
+                "reference": "FDA21"
             },
             {
                 "variant": "Kappa",

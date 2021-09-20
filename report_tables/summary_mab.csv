@@ -1,15 +1,15 @@
 ﻿mab,synonyms,num_reference,num_result,avail,target,class,pdb,institute,origin
-Casirivimab,REGN10933,28,323,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
-Imdevimab,REGN10987,28,322,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
-Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,21,271,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
+Casirivimab,REGN10933,28,328,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
+Imdevimab,REGN10987,28,326,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
+Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,21,281,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
 Sotrovimab,GSK4182136;S309;Vir-7831,14,196,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
 BRII-196,P2C-1F11,4,146,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
-Bamlanivimab,LY-CoV555;LY3819253,17,130,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
-Casirivimab/Imdevimab,,14,118,Phase 3,,,,Regeneron,Transgenic mice
+Bamlanivimab,LY-CoV555;LY3819253,17,132,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
+Casirivimab/Imdevimab,,14,129,Phase 3,,,,Regeneron,Transgenic mice
 Tixagevimab,COV2-2196;AZD8895,10,48,Phase 3,RBD,RBM Class I,7L7D,AstraZeneca,CP
 Cilgavimab,COV2-2130;AZD1061,10,48,Phase 3,RBD,RBM Class II,7L7E,AstraZeneca,CP
 BRII-198,P2B-1G5,2,47,Phase 3,RBD,RBD Core Cluster II,,Brii Biosciences,
-Bamlanivimab/Etesevimab,,3,29,Phase 3,,,,Eli Lilly,CP
+Bamlanivimab/Etesevimab,,3,30,Phase 3,,,,Eli Lilly,CP
 Cilgavimab/Tixagevimab,,8,27,Phase 3,,,,AstraZeneca,CP
 Regdanvimab,CT-P59,4,19,Phase 3,RBD,RBM Class I,7CM4,Celltrion,Phage display library
 BRII-196/BRII-198,,1,4,Phase 3,,,,Brii Biosciences,
