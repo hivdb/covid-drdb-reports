@@ -36,6 +36,12 @@ VARIANT = c(
   "Gamma",
   "Delta"
 )
+VARIANT_GREEK = c(
+  "Alpha" = 'α',
+  "Beta" = 'β',
+  "Gamma" = 'γ',
+  "Delta" = 'δ'
+)
 VARIANT_COLOR = c(
   "Alpha" = "#e91e63",
   "Beta" = "#3a96f3",
@@ -54,6 +60,20 @@ RX_NAME_LIST = c(
   'CoronaVac',
   'BBIBP-CorV',
   'Sputnik V'
+  # 'MVC-COV1901',
+  # 'ZF2001'
+)
+RX_NAME_COMP_LIST = c(
+  "CP" = "CP",
+  "BNT162b2"= "BNT162b2\n(BioNTech)",
+  'mRNA-1273' = 'mRNA-1273\n(Moderna)',
+  'AZD1222' = "AZD1222\n(AstraZeneca)",
+  'Ad26.COV2.S' = "Ad26.COV2.S\n(Janssen Vaccines)",
+  # 'NVX-CoV2373',
+  'BBV152' = "BBV152\n(Bharat Biotech)",
+  'CoronaVac' = "CoronaVac\n(Sinovac Biotech)",
+  'BBIBP-CorV' = "BBIBP-CorV\n(Sinopharm Beijing)",
+  'Sputnik V' = "Sputnik V"
   # 'MVC-COV1901',
   # 'ZF2001'
 )
@@ -157,6 +177,9 @@ draw_rx_fold <- function(dfPlot, figLabel) {
         "<3-fold reduced susceptibility"
       )
     ) +
+    scale_x_discrete(
+      labels=VARIANT_GREEK
+    ) +
     scale_y_continuous(
       expand=expansion(mult = c(0, 0.3)),
       # breaks=c(1, 400, 800, 1200),
@@ -174,7 +197,7 @@ draw_rx_fold <- function(dfPlot, figLabel) {
       axis.title.x = element_blank(),
       axis.title.y = element_blank(),
       axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
+      axis.text.y = element_text(size=25, angle=90),
       plot.title = element_text(hjust = 0.5, size=12),
       strip.background = element_blank(),
       strip.text = element_blank(),
@@ -188,9 +211,9 @@ draw_rx_fold <- function(dfPlot, figLabel) {
           "text",
           y= Inf,
           x = Inf,
-          label=figLabel,
+          label=RX_NAME_COMP_LIST[figLabel],
           size=10,
-          vjust=2,
+          vjust=1.1,
           hjust=1.1)
   p
 }
@@ -230,7 +253,7 @@ for (rx in RX_NAME_LIST) {
 
   if (i %% line_width == 1) {
     p = p + theme(
-      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+      axis.title.y = element_text(size=25, face="bold", colour = "black"),
     ) +
       ylab("# Results")
   }
@@ -238,7 +261,8 @@ for (rx in RX_NAME_LIST) {
   if (i > num_graph - line_width) {
     p = p + theme(
       axis.title.x = element_blank(),
-      axis.text.x = element_text(size=14, angle=45, hjust=1),
+      # axis.text.x = element_text(size=24, angle=45, hjust=1),
+      axis.text.x = element_text(size=35),
     )
   }
 
@@ -298,6 +322,9 @@ draw_rx_titer <- function(dfPlot, figLabel) {
         ">100"
       )
     ) +
+    scale_x_discrete(
+      labels=VARIANT_GREEK
+    ) +
     scale_y_continuous(
       expand=expansion(mult = c(0, .3)),
       # breaks=c(1, 400, 800, 1200),
@@ -315,7 +342,7 @@ draw_rx_titer <- function(dfPlot, figLabel) {
       axis.title.x = element_blank(),
       axis.title.y = element_blank(),
       axis.text.x = element_blank(),
-      axis.text.y = element_text(size=14),
+      axis.text.y = element_text(size=25, angle=90),
       plot.title = element_text(hjust = 0.5, size=12),
       strip.background = element_blank(),
       strip.text = element_blank(),
@@ -330,9 +357,9 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     "text",
     y= Inf,
     x = Inf,
-    label=figLabel,
+    label=RX_NAME_COMP_LIST[figLabel],
     size=10,
-    vjust=2,
+    vjust=1.1,
     hjust=1.1)
   p
 }
@@ -370,7 +397,7 @@ for (rx in RX_NAME_LIST) {
 
   if (i %% line_width == 1) {
     p = p + theme(
-      axis.title.y = element_text(size=15, face="bold", colour = "black"),
+      axis.title.y = element_text(size=25, face="bold", colour = "black"),
     ) +
       ylab("# Results")
   }
@@ -378,7 +405,8 @@ for (rx in RX_NAME_LIST) {
   if (i > num_graph - line_width) {
     p = p + theme(
       axis.title.x = element_blank(),
-      axis.text.x = element_text(size=14, angle=45, hjust=1),
+      # axis.text.x = element_text(size=24, angle=45, hjust=1),
+      axis.text.x = element_text(size=35),
     )
   }
 
