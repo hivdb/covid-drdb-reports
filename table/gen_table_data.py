@@ -9,9 +9,6 @@ def gen_report(db_path):
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
 
-    from mab.preset import load_mab_rename
-    load_mab_rename(conn)
-
     from variant.preset import get_spike_ref
     get_spike_ref(conn)
 
@@ -63,8 +60,7 @@ def gen_report(db_path):
     gen_table_all_mab(conn)
     gen_table_mab()
 
-    from variant.gen_table_key_variant import gen_table_key_variant
-    from variant.gen_table_variant import gen_table_variant
+    from variant.gen_table_variant_summary import gen_table_variant_summary
     from variant.gen_table_variant_mab import gen_table_variant_mab
     from variant.gen_table_variant_vp import gen_table_variant_vp
     from variant.gen_table_variant_cp import gen_table_variant_cp
@@ -73,8 +69,7 @@ def gen_report(db_path):
     from variant.gen_figure_variant_cp import gen_figure_variant_cp
     from variant.gen_figure_variant_vp import gen_figure_variant_vp
 
-    gen_table_key_variant(conn)
-    gen_table_variant(conn)
+    gen_table_variant_summary(conn)
     gen_table_variant_mab(conn)
     gen_table_variant_vp(conn)
     gen_table_variant_cp(conn)
@@ -83,17 +78,19 @@ def gen_report(db_path):
     gen_figure_variant_vp(conn)
     gen_figure_variant_cp(conn)
 
-    from study.gen_study import gen_study
+    from reference.gen_ref_domain import gen_ref_domain
 
-    gen_study(conn)
+    gen_ref_domain(conn)
 
-    from experiment.gen_null_fold import gen_null_fold
-    from experiment.gen_not_wildtype import gen_not_wildtype
-    from experiment.gen_exp import gen_exp
+    from fold.gen_null_fold import gen_null_fold
+    from fold.gen_non_wt_control import gen_non_wt_control
+    from fold.gen_assay import gen_assay
+    from fold.gen_control import gen_control
 
     gen_null_fold(conn)
-    gen_not_wildtype(conn)
-    gen_exp(conn)
+    gen_non_wt_control(conn)
+    gen_assay(conn)
+    gen_control(conn)
 
     from dms.gen_compare_fold import gen_compare_fold
     from dms.gen_missing_fold import gen_missing_fold

@@ -2,105 +2,73 @@ from collections import defaultdict
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from plasma.preset import RX_VP
-from .preset import ONE_MUT_VARIANT
-from .preset import COMBO_MUT_VARIANT
-from variant.preset import CONTROL_VARIANTS_SQL
 
-SQL = """
+SQL_TMPL = """
 SELECT
-    r.vaccine_name,
-    r.vaccine_type,
-    s.iso_name,
-    s.fold,
-    s.cumulative_count as count
+    susc.fold_cmp,
+    susc.fold,
+    susc.cumulative_count as count,
+    susc.vaccine_name,
+    susc.vaccine_type,
+    iso.*
 FROM
-    susc_results as s
-INNER JOIN {rx_vaccine} as r ON
-    s.ref_name = r.ref_name
-    AND s.rx_name = r.rx_name
+    susc_results_vp_50_wt_view susc,
+    {iso_type} iso
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
-    AND
-    s.control_iso_name in ({control_variants})
-    AND
-    r.vaccine_name IS NOT NULL
-    AND
-    s.fold IS NOT NULL;
-""".format(
-    control_variants=CONTROL_VARIANTS_SQL,
-    rx_vaccine=RX_VP,
-)
+    susc.iso_name = iso.iso_name
+"""
 
 
 def gen_figure_variant_vp(conn):
-    by_variant(
-        conn,
-        'indiv',
-        save_path=DATA_FILE_PATH / 'figure_variant_indiv_vp.csv'
-    )
-    by_variant(
-        conn,
-        'combo',
-        save_path=DATA_FILE_PATH / 'figure_variant_combo_vp.csv'
-    )
+    iso_type = 'isolate_mutations_single_s_mut_view'
+    save_path = DATA_FILE_PATH / 'figure' / 'variant_single_vp.csv'
+    by_single(conn, iso_type, save_path)
+
+    iso_type = 'isolate_mutations_combo_s_mut_view'
+    save_path = DATA_FILE_PATH / 'figure' / 'variant_combo_vp.csv'
+    by_combo(conn, iso_type, save_path)
 
 
-def by_variant(conn, indiv_or_combo, save_path):
-    if indiv_or_combo == 'indiv':
-        variant_mapper = ONE_MUT_VARIANT
-    else:
-        variant_mapper = COMBO_MUT_VARIANT
+def by_single(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
+
     cursor = conn.cursor()
 
-    cursor.execute(SQL)
+    cursor.execute(sql)
 
-    variant_group = defaultdict(list)
+    results = []
     for rec in cursor.fetchall():
-        variant = rec['iso_name']
-        variant = variant_mapper.get(variant)
-        if not variant:
-            continue
-        variant = variant['disp']
-        variant_group[variant].append(rec)
+        results.append({
+            'pattern': rec['single_mut_name'],
+            'vaccine': rec['vaccine_name'],
+            'vaccine_type': rec['vaccine_type'],
+            'ref': rec['ref'],
+            'pos': rec['position'],
+            'aa': rec['amino_acid'],
+            'domain': rec['domain'],
+            'fold': rec['fold'],
+        })
 
-    record_list = []
-    for variant, rlist in variant_group.items():
-        vacc_group = defaultdict(list)
-        for rec in rlist:
-            vacc_name = rec['vaccine_name']
-            vacc_group[vacc_name].append(rec)
+    results.sort(key=itemgetter('pos', 'aa', 'vaccine'))
+    dump_csv(save_path, results)
 
-        for vacc_name, rx_list in vacc_group.items():
 
-            if indiv_or_combo == 'indiv':
-                variant_info = ONE_MUT_VARIANT.get(variant)
-                for r in rx_list:
-                    record_list.append({
-                        'pattern': variant,
-                        'vaccine': vacc_name,
-                        'vaccine_type': r['vaccine_type'],
-                        'RefAA': variant_info['ref_aa'],
-                        'Position': variant_info['position'],
-                        'AA': variant_info['aa'],
-                        'Domain': variant_info['domain'],
-                        'fold': r['fold'],
-                    })
-            else:
-                variant_info = COMBO_MUT_VARIANT.get(variant)
-                var_name = variant_info['var_name']
-                for r in rx_list:
-                    record_list.append({
-                        'pattern': variant,
-                        'var_name': var_name,
-                        'vaccine': vacc_name,
-                        'vaccine_type': r['vaccine_type'],
-                        'fold': r['fold'],
-                    })
+def by_combo(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
 
-    record_list.sort(key=itemgetter(
-        'pattern',
-        'vaccine',
-        ))
+    cursor = conn.cursor()
 
-    dump_csv(save_path, record_list)
+    cursor.execute(sql)
+
+    results = []
+    for rec in cursor.fetchall():
+        results.append({
+            'pattern': rec['pattern'],
+            'var_name': rec['var_name'] or '',
+            'vaccine': rec['vaccine_name'],
+            'vaccine_type': rec['vaccine_type'],
+            'fold': rec['fold'],
+        })
+
+    results.sort(key=itemgetter('var_name', 'pattern', 'vaccine'))
+    dump_csv(save_path, results)

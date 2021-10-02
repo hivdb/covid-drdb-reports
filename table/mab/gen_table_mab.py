@@ -94,7 +94,7 @@ def group_variants(records):
 
 
 def parse_fold(rec):
-    fold = rec['Fold']
+    fold = rec['fold']
     if fold[0].isdigit():
         return float(fold)
     else:
@@ -117,7 +117,7 @@ def parse_fold(rec):
 def unique_reference(rec_list):
     unique_rec_list = {}
     for r in rec_list:
-        reference = r['Reference']
+        reference = r['ref_name']
         reference = reference.replace('*', '').replace('†', '')
 
         previous = unique_rec_list.get(reference)
@@ -125,7 +125,7 @@ def unique_reference(rec_list):
             unique_rec_list[reference] = r
             continue
 
-        if previous['Fold'] < r['Fold']:
+        if previous['fold'] < r['fold']:
             unique_rec_list[reference] = r
 
     rec_list = list(unique_rec_list.values())
@@ -136,7 +136,7 @@ def unique_reference(rec_list):
 def process_record(variant, records):
     mab_groups = defaultdict(list)
     for r in records:
-        mab_name = r['Mab name']
+        mab_name = r['ab_name']
         if mab_name in SHOW_MABS.keys():
             short_name = SHOW_MABS[mab_name]
             mab_groups[short_name].append(r)
@@ -154,7 +154,7 @@ def process_record(variant, records):
 
         rec_list.sort(key=parse_fold)
         fold_values = [
-            100 if (i['Fold'] == '>100') else float(i['Fold'])
+            100 if (i['fold'] == '>100') else float(i['fold'])
             for i in rec_list]
         medium_value = median(fold_values)
 

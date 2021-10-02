@@ -4,8 +4,8 @@ from preset import load_csv
 
 
 def gen_issue_fold(
-        input_file_path=DATA_FILE_PATH / 'summary_dms.csv',
-        output_file_path=DATA_FILE_PATH / 'summary_dms_issue.csv'):
+        input_file_path=DATA_FILE_PATH / 'dms' / 'fold_dms.csv',
+        output_file_path=DATA_FILE_PATH / 'dms' / 'fold_dms_issue.csv'):
 
     results = []
 

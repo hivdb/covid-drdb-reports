@@ -6,11 +6,6 @@ from collections import defaultdict
 from resistancy import RESISTANCE_FILTER
 from resistancy import round_fold
 
-from .preset import MAB_RENAME
-from mab.preset import RX_MAB
-from variant.preset import CONTROL_VARIANTS_SQL
-from variant.preset import get_iso_names_by_var_name
-
 
 MAB_MUTS_SQL = """
 SELECT
@@ -21,81 +16,60 @@ SELECT
     s.fold,
     s.ineffective
 FROM
-    susc_results as s,
-    ({rx_type}) as rx
-ON
-    s.ref_name = rx.ref_name AND
-    s.rx_name = rx.rx_name
+    susc_results_50_wt_view as s,
+    rx_mab_view as rx,
+    isolate_mutations_combo_s_mut_view mut
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
+    s.ref_name = rx.ref_name
     AND
-    s.control_iso_name IN ({control_variants})
+    s.rx_name = rx.rx_name
+    AND
+    s.iso_name = mut.iso_name
     AND
     s.fold IS NOT NULL
     AND (
         rx.availability IS NOT NULL
         OR rx.pdb_id IS NOT NULL
     )
+    AND
     {filters}
 """
-
-
-def get_iso_name_filter(var_name, selector='all'):
-
-    iso_names = get_iso_names_by_var_name(var_name, selector)
-
-    return "AND s.iso_name in ({})".format(iso_names)
 
 
 ROWS = {
     'Alpha': {
         'filter': [
-            get_iso_name_filter('Alpha', 'spike')
-        ]
-    },
-    'Alpha full genome': {
-        'filter': [
-            get_iso_name_filter('Alpha', 'genome')
+            "mut.var_name = 'Alpha'"
         ]
     },
     'Beta': {
         'filter': [
-            get_iso_name_filter('Beta', 'spike')
-        ]
-    },
-    'Beta full genome': {
-        'filter': [
-            get_iso_name_filter('Beta', 'genome')
+             "mut.var_name = 'Beta'"
         ]
     },
     'Gamma': {
         'filter': [
-            get_iso_name_filter('Gamma', 'spike')
-        ]
-    },
-    'Gamma full genome': {
-        'filter': [
-            get_iso_name_filter('Gamma', 'genome')
+            "mut.var_name = 'Gamma'"
         ]
     },
     'Epsilon': {
         'filter': [
-            get_iso_name_filter('Epsilon')
+            "mut.var_name = 'Epsilon'"
         ]
     },
     'Iota': {
         'filter': [
-            get_iso_name_filter('Iota')
+            "mut.var_name = 'Iota'"
         ]
     },
     'Delta': {
         'filter': [
-            get_iso_name_filter('Delta')
+            "mut.var_name = 'Delta'"
         ]
     },
     'Kappa': {
         'filter': [
-            get_iso_name_filter('Kappa')
+            "mut.var_name = 'Kappa'"
         ]
     },
 }
@@ -118,8 +92,6 @@ def gen_table_mab_variant(
             filter = '\n    '.join(r_filter + resist_filter)
             sql = MAB_MUTS_SQL.format(
                 filters=filter,
-                rx_type=RX_MAB,
-                control_variants=CONTROL_VARIANTS_SQL,
             )
 
             # print(sql)
@@ -136,34 +108,35 @@ def gen_table_mab_variant(
                 #     fold = 100
                 fold = '{}'.format(round_fold(fold))
 
-                ab_name = MAB_RENAME.get(ab_name, ab_name)
                 iso_name = row_name
                 if 'full genome' in iso_name:
                     reference = '{}*'.format(reference)
                     iso_name = iso_name.split()[0]
 
-                uniq_record = (
-                    iso_name,
-                    ab_name,
-                    reference,
-                    fold,
-                )
-                if uniq_record in uniq_record_list:
-                    continue
-                else:
-                    uniq_record_list.add(uniq_record)
+                # uniq_record = (
+                #     iso_name,
+                #     ab_name,
+                #     reference,
+                #     fold,
+                # )
+                # if uniq_record in uniq_record_list:
+                #     continue
+                # else:
+                #     uniq_record_list.add(uniq_record)
 
                 records.append({
                     'pattern': iso_name,
-                    'Mab name': ab_name,
-                    'Class': ab_class or '',
+                    'ab_name': ab_name,
+                    'class': ab_class or '',
                     # 'Resistance level': resist_name,
-                    'Fold': fold,
-                    'Reference': reference
+                    'fold': fold,
+                    'ref_name': reference
                 })
 
     records.sort(key=itemgetter(
-        'pattern', 'Class', 'Mab name'))
+        'pattern',
+        'class',
+        'ab_name'))
 
     dump_csv(csv_save_path, records)
 
@@ -172,10 +145,11 @@ def gen_table_mab_variant(
         variant = r['pattern']
         json_records[variant].append({
             'variant': variant,
-            'rx': r['Mab name'],
-            'mab_class': r['Class'],
-            'fold': r['Fold'].replace('>', '&gt;'),
-            'reference': r['Reference']
+            'rx_name': r['ab_name'],
+            'mab_class': r['class'],
+            # 'fold': r['Fold'].replace('>', '&gt;'),
+            'fold': r['fold'],
+            'ref_name': r['ref_name']
         })
 
     records = []

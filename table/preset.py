@@ -18,6 +18,8 @@ def dump_csv(file_path, records, headers=[]):
     if not headers and records:
         headers = records[0].keys()
 
+    file_path.parent.mkdir(exist_ok=True, parents=True)
+
     with open(file_path, 'w', encoding='utf-8-sig') as fd:
         writer = csv.DictWriter(fd, fieldnames=headers)
         writer.writeheader()
@@ -60,3 +62,14 @@ def group_records_by(records, key_name):
         group_result[key].append(rec)
 
     return group_result
+
+
+def row2dict(rows):
+    result = []
+    for row in rows:
+        rec = {}
+        for key in row.keys():
+            rec[key] = row[key]
+        result.append(rec)
+
+    return result

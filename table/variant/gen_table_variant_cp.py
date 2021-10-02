@@ -1,152 +1,134 @@
 from collections import defaultdict
-from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from .preset import ONE_MUT_VARIANT
-from .preset import COMBO_MUT_VARIANT
-from resistancy import round_fold
-from resistancy import is_partial_resistant
-from resistancy import is_resistant
-from resistancy import is_susc
-from variant.preset import CONTROL_VARIANTS_SQL
+from .preset import get_fold_stat, group_var_name
 
-SQL = """
+SQL_TMPL = """
 SELECT
     s.iso_name,
     s.ref_name,
+    s.fold_cmp,
     s.fold,
-    s.cumulative_count as num_results
+    s.cumulative_count as num_fold,
+    iso.*
 FROM
-    susc_results as s,
-    rx_conv_plasma as r
-ON
+    susc_results s,
+    rx_conv_plasma r,
+    {iso_type} iso
+WHERE
     s.ref_name = r.ref_name
     AND
     s.rx_name = r.rx_name
+    AND
+    s.iso_name = iso.iso_name
 ;
 """
-# WHERE
-#     s.potency_type IN ('IC50', 'NT50')
-#     AND
-#     s.control_iso_name in ({control_variants})
-#     AND s.fold IS NOT NULL
-# ;
-# """.format(control_variants=CONTROL_VARIANTS_SQL)
 
 
 def gen_table_variant_cp(conn):
-    by_variant(
-        conn,
-        'indiv',
-        save_path=DATA_FILE_PATH / 'summary_variant_indiv_cp.csv'
-    )
-    by_variant(
-        conn,
-        'combo',
-        save_path=DATA_FILE_PATH / 'summary_variant_combo_cp.csv'
-    )
+    iso_type = 'isolate_mutations_single_s_mut_view'
+    save_path = DATA_FILE_PATH / 'variant' / 'summary_single_cp.csv'
+    by_single(conn, iso_type, save_path)
+
+    iso_type = 'isolate_mutations_combo_s_mut_view'
+    save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_cp.csv'
+    by_combo(conn, iso_type, save_path)
 
 
-def by_variant(conn, indiv_or_combo, save_path):
-    if indiv_or_combo == 'indiv':
-        variant_mapper = ONE_MUT_VARIANT
-    else:
-        variant_mapper = COMBO_MUT_VARIANT
-
+def by_single(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
     cursor = conn.cursor()
-
-    cursor.execute(SQL)
-
-    variant_group = defaultdict(list)
+    cursor.execute(sql)
     db_records = cursor.fetchall()
-    selected_records = []
+
+    mut_group = defaultdict(list)
     for rec in db_records:
-        variant = rec['iso_name']
-        variant = variant_mapper.get(variant)
-        if not variant:
-            continue
-
-        selected_records.append(rec)
-
-        var_name = variant.get('var_name')
-        if var_name:
-            var_name = var_name.split()[0]
-            var_name = var_name.split('/')[0]
-            if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda']:
-                var_name = 'KIEL'
-            elif var_name not in ('Alpha', 'Beta', 'Gamma', 'Delta'):
-                var_name = 'other variants'
-            variant = var_name
-        elif indiv_or_combo != 'indiv':
-            variant = 'other combo mut'
-        else:
-            variant = variant['disp']
-
-        variant_group[variant].append(rec)
+        mut_name = rec['single_mut_name']
+        mut_group[mut_name].append(rec)
 
     record_list = []
-    for variant, rx_list in variant_group.items():
-        all_fold = [(r['fold'], r['num_results']) for r in rx_list if r['fold']]
-        num_s = sum([r[1] for r in all_fold if is_susc(r[0])])
-        num_i = sum([r[1] for r in all_fold if is_partial_resistant(r[0])])
-        num_r = sum([r[1] for r in all_fold if is_resistant(r[0])])
-
-        all_fold = [[i[0]] * i[1] for i in all_fold]
-        all_fold = [i for j in all_fold for i in j if i]
-        median_fold = round_fold(median(all_fold)) if all_fold else ''
-
-        num_results = sum([r['num_results'] for r in rx_list] + [0])
-
-        if indiv_or_combo == 'indiv':
-            variant_info = ONE_MUT_VARIANT.get(variant)
-            record_list.append({
-                'pattern': variant,
-                'RefAA': variant_info['ref_aa'],
-                'Position': variant_info['position'],
-                'AA': variant_info['aa'],
-                'Domain': variant_info['domain'],
-                'median_fold': median_fold,
-                'references': len(set([
-                    r['ref_name']
-                    for r in rx_list
-                ])),
-                'results': num_results,
-                'S': num_s,
-                'I': num_i,
-                'R': num_r,
-            })
-        else:
-            # variant_info = COMBO_MUT_VARIANT.get(variant)
-            # var_name = variant_info['var_name']
-            var_name = variant
-            record_list.append({
-                'pattern': variant,
-                'var_name': var_name,
-                'median_fold': median_fold,
-                'references': len(set([
-                    r['ref_name']
-                    for r in rx_list
-                ])),
-                'results': num_results,
-                'S': num_s,
-                'I': num_i,
-                'R': num_r,
-            })
-
-    if indiv_or_combo == 'indiv':
+    for mut_name, rx_list in mut_group.items():
+        num_s, num_i, num_r, median_fold, num_fold = get_fold_stat(rx_list)
 
         record_list.append({
-            'pattern': 'summary',
+            'pattern': mut_name,
+            'ref': rx_list[0]['ref'],
+            'pos': rx_list[0]['position'],
+            'aa': rx_list[0]['amino_acid'],
+            'domain': rx_list[0]['domain'],
+            'median_fold': median_fold,
             'references': len(set([
                 r['ref_name']
-                for r in selected_records
+                for r in rx_list
             ])),
-            'results': sum([r['num_results'] for r in selected_records] + [0]),
+            'num_fold': num_fold,
+            'S': num_s,
+            'I': num_i,
+            'R': num_r,
         })
 
     record_list.sort(key=itemgetter(
+        'pos',
+        'aa',
+        ))
+
+    record_list.append({
+        'pattern': 'summary',
+        'references': len(set([
+            r['ref_name']
+            for r in db_records
+        ])),
+        'num_fold': sum([r['num_fold'] for r in db_records] + [0]),
+    })
+
+    dump_csv(save_path, record_list)
+
+
+def by_combo(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    db_records = cursor.fetchall()
+
+    mut_group = defaultdict(list)
+    for rec in db_records:
+        var_name = rec['var_name']
+        var_name = group_var_name(var_name)
+        mut_group[var_name].append(rec)
+
+    record_list = []
+    for var_name, rx_list in mut_group.items():
+        num_s, num_i, num_r, median_fold, num_fold = get_fold_stat(rx_list)
+
+        record_list.append({
+            'pattern': var_name,
+            'var_name': var_name,
+            'median_fold': median_fold,
+            'references': len(set([
+                r['ref_name']
+                for r in rx_list
+            ])),
+            'num_fold': num_fold,
+            'S': num_s,
+            'I': num_i,
+            'R': num_r,
+        })
+
+    record_list.sort(key=itemgetter(
+        'var_name',
         'pattern',
         ))
 
+    record_list.append({
+        'pattern': 'summary',
+        'references': len(set([
+            r['ref_name']
+            for r in db_records
+        ])),
+        'num_fold': sum([r['num_fold'] for r in db_records] + [0]),
+    })
+
     dump_csv(save_path, record_list)
+
+

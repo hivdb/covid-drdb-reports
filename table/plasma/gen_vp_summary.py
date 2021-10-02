@@ -5,8 +5,8 @@ from collections import defaultdict
 from statistics import median
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import filter_by_variant
-from susceptibility import INDIVIDUAL_SAMPLE_SQL
-from susceptibility import AGGREGATED_SUSC_VIEW_SQL
+from susceptibility import INDIVIDUAL_FOLD_SQL
+from susceptibility import AGGREGATED_FOLD_SQL
 from resistancy import is_susc
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
@@ -49,7 +49,7 @@ GROUP BY
 def gen_vp_summary(conn):
     cursor = conn.cursor()
     sql = SQL.format(
-        susc_results=INDIVIDUAL_SAMPLE_SQL,
+        susc_results=INDIVIDUAL_FOLD_SQL,
         control_variants=CONTROL_VARIANTS_SQL
     )
 
@@ -60,7 +60,7 @@ def gen_vp_summary(conn):
     num_study = len(set([r['ref_name'] for r in records]))
 
     sql = SQL.format(
-        susc_results=AGGREGATED_SUSC_VIEW_SQL,
+        susc_results=AGGREGATED_FOLD_SQL,
         control_variants=CONTROL_VARIANTS_SQL
     )
 
@@ -71,10 +71,10 @@ def gen_vp_summary(conn):
     aggre_num_study = len(set([r['ref_name'] for r in aggre_records]))
 
     result = [{
-        'indiv_samples': num_fold_results,
-        'indiv_samples_study': num_study,
-        'aggre_samples': aggre_num_fold_results,
-        'aggre_samples_study': aggre_num_study,
+        'indiv_num_fold': num_fold_results,
+        'indiv_fold_study': num_study,
+        'aggre_num_fold': aggre_num_fold_results,
+        'aggre_fold_study': aggre_num_study,
     }]
     save_path = DATA_FILE_PATH / 'summary_vp.csv'
     dump_csv(save_path, result)

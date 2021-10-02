@@ -2,87 +2,68 @@ from collections import defaultdict
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from .preset import ONE_MUT_VARIANT
-from .preset import COMBO_MUT_VARIANT
-from variant.preset import CONTROL_VARIANTS_SQL
 
-SQL = """
+SQL_TMPL = """
 SELECT
-    s.iso_name,
-    s.fold,
-    s.cumulative_count as count
+    susc.fold_cmp,
+    susc.fold,
+    susc.cumulative_count as count,
+    iso.*
 FROM
-    susc_results as s
-INNER JOIN rx_conv_plasma as r ON
-    s.ref_name = r.ref_name
-    AND s.rx_name = r.rx_name
+    susc_results_cp_50_wt_view susc,
+    {iso_type} iso
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
-    AND
-    s.control_iso_name in ({control_variants})
-    AND
-    s.fold IS NOT NULL;
-""".format(control_variants=CONTROL_VARIANTS_SQL)
+    susc.iso_name = iso.iso_name
+"""
 
 
 def gen_figure_variant_cp(conn):
-    by_variant(
-        conn,
-        'indiv',
-        save_path=DATA_FILE_PATH / 'figure_variant_indiv_cp.csv'
-    )
-    by_variant(
-        conn,
-        'combo',
-        save_path=DATA_FILE_PATH / 'figure_variant_combo_cp.csv'
-    )
+
+    iso_type = 'isolate_mutations_single_s_mut_view'
+    save_path = DATA_FILE_PATH / 'figure' / 'variant_single_cp.csv'
+    by_single(conn, iso_type, save_path)
+
+    iso_type = 'isolate_mutations_combo_s_mut_view'
+    save_path = DATA_FILE_PATH / 'figure' / 'variant_combo_cp.csv'
+    by_combo(conn, iso_type, save_path)
 
 
-def by_variant(conn, indiv_or_combo, save_path):
-    if indiv_or_combo == 'indiv':
-        variant_mapper = ONE_MUT_VARIANT
-    else:
-        variant_mapper = COMBO_MUT_VARIANT
+def by_single(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
 
     cursor = conn.cursor()
 
-    cursor.execute(SQL)
+    cursor.execute(sql)
 
-    variant_group = defaultdict(list)
+    results = []
     for rec in cursor.fetchall():
-        variant = rec['iso_name']
-        variant = variant_mapper.get(variant)
-        if not variant:
-            continue
-        variant = variant['disp']
-        variant_group[variant].append(rec)
+        results.append({
+            'pattern': rec['single_mut_name'],
+            'ref': rec['ref'],
+            'pos': rec['position'],
+            'aa': rec['amino_acid'],
+            'domain': rec['domain'],
+            'fold': rec['fold'],
+        })
 
-    record_list = []
-    for variant, rx_list in variant_group.items():
+    results.sort(key=itemgetter('pos', 'aa'))
+    dump_csv(save_path, results)
 
-        if indiv_or_combo == 'indiv':
-            variant_info = ONE_MUT_VARIANT.get(variant)
-            for r in rx_list:
-                record_list.append({
-                    'pattern': variant,
-                    'RefAA': variant_info['ref_aa'],
-                    'Position': variant_info['position'],
-                    'AA': variant_info['aa'],
-                    'Domain': variant_info['domain'],
-                    'fold': r['fold'],
-                })
-        else:
-            variant_info = COMBO_MUT_VARIANT.get(variant)
-            var_name = variant_info['var_name']
-            for r in rx_list:
-                record_list.append({
-                    'pattern': variant,
-                    'var_name': var_name,
-                    'fold': r['fold'],
-                })
 
-    record_list.sort(key=itemgetter(
-        'pattern',
-        ))
+def by_combo(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
 
-    dump_csv(save_path, record_list)
+    cursor = conn.cursor()
+
+    cursor.execute(sql)
+
+    results = []
+    for rec in cursor.fetchall():
+        results.append({
+            'pattern': rec['pattern'],
+            'var_name': rec['var_name'] or '',
+            'fold': rec['fold'],
+        })
+
+    results.sort(key=itemgetter('var_name', 'pattern'))
+    dump_csv(save_path, results)

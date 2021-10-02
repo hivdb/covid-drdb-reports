@@ -1,4 +1,4 @@
-AGGREGATED_SUSC_VIEW_SQL = """
+AGGREGATED_FOLD_SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
@@ -28,7 +28,7 @@ WHERE
     )
 """
 
-INDIVIDUAL_SAMPLE_SQL = """
+INDIVIDUAL_FOLD_SQL = """
 SELECT
     s.ref_name,
     s.rx_name,

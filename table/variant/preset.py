@@ -1,4 +1,10 @@
 from collections import defaultdict
+from statistics import median
+from resistancy import is_partial_resistant
+from resistancy import is_resistant
+from resistancy import is_susc
+from resistancy import round_fold
+
 
 DOMAINS = {
     'NTD': (1, 305),
@@ -227,22 +233,6 @@ WHERE
     gene = 'S';
 """
 
-IGNORE_VARIANTS = [
-    'SARS-CoV Spike',
-    'L455Y,F456L',
-    'T470N,E471V,I472P',
-    'E324G,S325D',
-    'K444T,V445S,G446T',
-    'WIV1 Spike',
-]
-
-IGNORE_VARIANT_SYNYNOMS = [
-    'Kemp21-d101',
-    'WA-RML/d85',
-    'WA-RML/d105',
-    'B.1.427',
-]
-
 NTD_DELETION_GROUP_RULE = {
     (69, 70): '69-70∆',
     (69, 69): '69-70∆',
@@ -313,8 +303,6 @@ def get_grouped_variants(conn):
                 print('var_name', isolate_info['var_names'])
 
             main_name = get_combined_mutation_main_name(isolate_info)
-            if main_name in IGNORE_VARIANTS:
-                continue
 
             var_name = ','.join(isolate_info['var_names'])
 
@@ -572,3 +560,46 @@ def load_isoname_mutations(conn):
         ISONAME_MUTATIONS[iso_name] = {}
         ISONAME_MUTATIONS[iso_name]['s_mut_str'] = s_mut_str
         ISONAME_MUTATIONS[iso_name]['non_s_mut_list'] = non_s_mut_list
+
+
+def get_fold_stat(rx_list):
+    fold_list = [r for r in rx_list if r['fold']]
+
+    num_s = sum([
+        r['num_fold']
+        for r in fold_list
+        if is_susc(r['fold'])])
+    # num_s = sum(
+    #     [r['num_fold']
+    #     for r in fold_list
+    #     if is_susc(r['fold_cmp']r['fold'])])
+    num_i = sum([
+        r['num_fold']
+        for r in fold_list
+        if is_partial_resistant(r['fold'])])
+    num_r = sum([
+        r['num_fold']
+        for r in fold_list
+        if is_resistant(r['fold'])])
+
+    all_fold = [[i['fold']] * i['num_fold'] for i in fold_list]
+    all_fold = [i for j in all_fold for i in j if i]
+    median_fold = round_fold(median(all_fold)) if all_fold else ''
+
+    num_fold = sum([r['num_fold'] for r in rx_list] + [0])
+
+    return num_s, num_i, num_r, median_fold, num_fold
+
+
+def group_var_name(var_name):
+    if var_name:
+        var_name = var_name.split()[0]
+        var_name = var_name.split('/')[0]
+        if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda']:
+            var_name = 'KIEL'
+        elif var_name not in ('Alpha', 'Beta', 'Gamma', 'Delta'):
+            var_name = 'other variants'
+    else:
+        var_name = 'other combo mut'
+
+    return var_name

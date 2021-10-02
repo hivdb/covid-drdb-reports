@@ -2,109 +2,87 @@ from collections import defaultdict
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from operator import itemgetter
-from .preset import ONE_MUT_VARIANT
-from .preset import COMBO_MUT_VARIANT
-from mab.preset import MAB_RENAME
-from mab.preset import RX_MAB
-from variant.preset import CONTROL_VARIANTS_SQL
 
 
-SQL = """
+SQL_TMPL = """
 SELECT
-    rx.ab_name,
-    s.iso_name,
-    s.fold,
-    s.cumulative_count as count,
-    rx.availability as avail,
-    rx.pdb_id as pdb,
-    rx.target as target
+    susc.ab_name,
+    susc.fold_cmp,
+    susc.fold,
+    susc.cumulative_count as count,
+    susc.availability as avail,
+    susc.pdb_id as pdb,
+    susc.target as target,
+    iso.*
 FROM
-    susc_results as s,
-    ({rx_type}) as rx
-ON
-    s.ref_name = rx.ref_name
-    AND s.rx_name = rx.rx_name
+    susc_results_mab_50_wt_view as susc,
+    {iso_type} iso
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
-    AND
-    s.control_iso_name IN ({control_variants})
-    AND s.fold IS NOT NULL;
-""".format(rx_type=RX_MAB, control_variants=CONTROL_VARIANTS_SQL)
+    susc.iso_name = iso.iso_name
+"""
 
 
 def gen_figure_variant_mab(conn):
-    by_variant(
-        conn,
-        'indiv',
-        save_path=DATA_FILE_PATH / 'figure_variant_indiv_mab.csv'
-    )
-    by_variant(
-        conn,
-        'combo',
-        save_path=DATA_FILE_PATH / 'figure_variant_combo_mab.csv'
-    )
+
+    iso_type = 'isolate_mutations_single_s_mut_view'
+    save_path = DATA_FILE_PATH / 'figure' / 'variant_single_mab.csv'
+    by_single(conn, iso_type, save_path)
+
+    iso_type = 'isolate_mutations_combo_s_mut_view'
+    save_path = DATA_FILE_PATH / 'figure' / 'variant_combo_mab.csv'
+    by_combo(conn, iso_type, save_path)
 
 
-def by_variant(conn, indiv_or_combo, save_path):
-    if indiv_or_combo == 'indiv':
-        variant_mapper = ONE_MUT_VARIANT
-    else:
-        variant_mapper = COMBO_MUT_VARIANT
+def by_single(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
 
     cursor = conn.cursor()
-    cursor.execute(SQL)
 
-    variant_group = defaultdict(list)
+    cursor.execute(sql)
+
+    results = []
     for rec in cursor.fetchall():
-        variant = rec['iso_name']
-        variant = variant_mapper.get(variant)
-        if not variant:
-            continue
-        variant = variant['disp']
-        variant_group[variant].append(rec)
+        results.append({
+            'pattern': rec['single_mut_name'],
+            'ref': rec['ref'],
+            'pos': rec['position'],
+            'aa': rec['amino_acid'],
+            'domain': rec['domain'],
+            'mab': rec['ab_name'],
+            'avail': rec['avail'],
+            'target': rec['target'],
+            'fold': rec['fold'],
+        })
 
-    record_list = []
-    for variant, rlist in variant_group.items():
-        rx_group = defaultdict(list)
-        for rec in rlist:
-            ab_name = rec['ab_name']
-            rx_group[ab_name].append(rec)
+    results.sort(key=itemgetter(
+        'pos',
+        'aa',
+        'mab',
+        'avail'))
+    dump_csv(save_path, results)
 
-        for ab_name, rx_list in rx_group.items():
-            ab_name = MAB_RENAME.get(ab_name, ab_name)
-            avail = rx_list[0]['avail']
-            target = rx_list[0]['target']
 
-            if indiv_or_combo == 'indiv':
-                variant_info = ONE_MUT_VARIANT.get(variant)
-                for r in rx_list:
-                    record_list.append({
-                        'pattern': variant,
-                        'RefAA': variant_info['ref_aa'],
-                        'Position': variant_info['position'],
-                        'AA': variant_info['aa'],
-                        'Domain': variant_info['domain'],
-                        'mab': ab_name,
-                        'avail': avail,
-                        'target': target,
-                        'fold': r['fold'],
-                    })
-            else:
-                variant_info = COMBO_MUT_VARIANT.get(variant)
-                var_name = variant_info['var_name']
-                for r in rx_list:
-                    record_list.append({
-                        'pattern': variant,
-                        'var_name': var_name,
-                        'mab': ab_name,
-                        'avail': avail,
-                        'target': target,
-                        'fold': r['fold'],
-                    })
+def by_combo(conn, iso_type, save_path):
+    sql = SQL_TMPL.format(iso_type=iso_type)
 
-    record_list.sort(key=itemgetter(
+    cursor = conn.cursor()
+
+    cursor.execute(sql)
+
+    results = []
+    for rec in cursor.fetchall():
+        results.append({
+            'pattern': rec['pattern'],
+            'var_name': rec['var_name'] or '',
+            'mab': rec['ab_name'],
+            'avail': rec['avail'],
+            'target': rec['target'],
+            'fold': rec['fold'],
+        })
+
+    results.sort(key=itemgetter(
+        'var_name',
         'pattern',
         'mab',
-        'avail',
-        ))
-    dump_csv(save_path, record_list)
+        'avail',))
+    dump_csv(save_path, results)

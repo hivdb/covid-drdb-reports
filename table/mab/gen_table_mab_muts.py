@@ -7,10 +7,6 @@ from collections import defaultdict
 from resistancy import RESISTANCE_FILTER
 from resistancy import round_fold
 
-from .preset import MAB_RENAME
-from mab.preset import RX_MAB
-from variant_filter import include_similar_mutations
-from variant.preset import CONTROL_VARIANTS_SQL
 
 MAB_MUTS_SQL = """
 SELECT
@@ -21,134 +17,120 @@ SELECT
     s.fold,
     s.ineffective
 FROM
-    susc_results as s,
-    ({rx_type}) as rx
-ON
-    s.ref_name = rx.ref_name AND
-    s.rx_name = rx.rx_name
+    susc_results_50_wt_view as s,
+    rx_mab_view as rx,
+    {iso_type} mut
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
+    s.ref_name = rx.ref_name
     AND
-    s.control_iso_name IN ({control_variants})
-    AND s.fold IS NOT NULL
-    {filters}
+    s.rx_name = rx.rx_name
+    AND
+    s.iso_name = mut.iso_name
+    AND
+    s.fold IS NOT NULL
     AND (
         rx.availability IS NOT NULL
         OR rx.pdb_id IS NOT NULL
     )
+    AND
+    {filters}
 """
 
 ROWS = {
     'N501Y': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:501Y',
-            ])
+            "mut.single_mut_name = 'N501Y'"
         ]
     },
     '∆69/70': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:69del+70del',
-            ])
+            "mut.single_mut_name LIKE '%69-70∆'"
         ]
     },
     '∆69/70 + N501Y': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:69del+70del+501Y',
-            ])
+            "mut.pattern LIKE '%69-70∆+N501Y'"
         ]
     },
     '∆69/70 + N501Y + A570D': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:69del+70del+501Y+570D',
-            ])
+            "mut.pattern LIKE '%69-70∆+N501Y+A570D'"
         ]
     },
     '∆69/70 + N501Y + Y453F': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:69del+70del+501Y+453F',
-            ])
+            "mut.pattern LIKE '%69-70∆+N501Y+Y453F'"
         ]
     },
     '∆144': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:144del',
-            ])
+            "mut.single_mut_name LIKE '%144∆'"
         ]
     },
     'E484K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:484K',
-            ])
+            "mut.single_mut_name = 'E484K'"
         ]
     },
     'Y453F': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:453F',
-            ])
+            "mut.single_mut_name = 'Y453F'"
         ]
     },
     'L452R': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:452R',
-            ])
+            "mut.single_mut_name = 'L452R'"
         ]
     },
     'E484K + N501Y': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:484K+501Y',
-            ])
+            "mut.pattern = 'E484K+N501Y'"
         ]
     },
     'K417N': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:417N',
-            ])
+            "mut.single_mut_name = 'K417N'"
         ]
     },
     'F490S': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:490S',
-            ])
+            "mut.single_mut_name = 'F490S'"
         ]
     },
     'S494P': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:494P',
-            ])
+            "mut.single_mut_name = 'S494P'"
         ]
     },
     'K417N + E484K + N501Y': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:417N+484K+501Y',
-                ])
+            "mut.pattern = 'K417N+E484K+N501Y'"
         ]
     },
     'N439K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:439K',
-            ])
+            "mut.single_mut_name = 'N439K'"
         ]
     },
     'T478K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            include_similar_mutations([
-                'S:478K',
-            ])
+            "mut.single_mut_name = 'T478K'"
         ]
     },
 }
@@ -164,12 +146,13 @@ def gen_table_mab_muts(
     records = []
     for row_name, attr_r in ROWS.items():
         for resist_name, resist_filter in RESISTANCE_FILTER.items():
+            iso_type = attr_r.get('iso_type')
+
             r_filter = attr_r.get('filter', [])
             filter = '\n    '.join(r_filter + resist_filter)
             sql = MAB_MUTS_SQL.format(
+                iso_type=iso_type,
                 filters=filter,
-                rx_type=RX_MAB,
-                control_variants=CONTROL_VARIANTS_SQL,
             )
             # print(sql)
 
@@ -185,18 +168,20 @@ def gen_table_mab_muts(
                 #     fold = 100
                 fold = '{}'.format(round_fold(fold))
 
-                ab_name = MAB_RENAME.get(ab_name, ab_name)
                 records.append({
                     'pattern': row_name,
-                    'Mab name': ab_name,
-                    'Class': ab_class or '',
+                    'ab_name': ab_name,
+                    'class': ab_class or '',
                     # 'Resistance level': resist_name,
-                    'Fold': fold,
-                    'Reference': reference
+                    'fold': fold,
+                    'ref_name': reference
                 })
 
     records.sort(key=itemgetter(
-        'pattern', 'Class', 'Mab name'))
+        'pattern',
+        'class',
+        'ab_name',
+        ))
 
     dump_csv(csv_save_path, records)
 
@@ -205,18 +190,20 @@ def gen_table_mab_muts(
         variant = r['pattern']
         json_records[variant].append({
             'variant': variant,
-            'rx': r['Mab name'],
-            'mab_class': r['Class'],
-            'fold': r['Fold'].replace('>', '&gt;'),
-            'reference': r['Reference']
+            'rx_name': r['ab_name'],
+            'mab_class': r['class'],
+            # 'fold': r['fold'].replace('>', '&gt;'),
+            'fold': r['fold'],
+            'ref_name': r['ref_name']
         })
 
     records = []
-    for variant, assays in json_records.items():
+    for pattern, assays in json_records.items():
         records.append({
-            'variant': variant,
+            'pattern': pattern,
             'assays': sorted(assays, key=itemgetter('mab_class')),
         })
 
-    variant = sorted(records, key=itemgetter('variant'))
+    records.sort(key=itemgetter('pattern'))
+
     dump_json(json_save_path, records)

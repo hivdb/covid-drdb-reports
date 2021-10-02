@@ -1,7 +1,7 @@
-from variant_filter import include_similar_mutations
+from variant.variant_filter import include_similar_mutations
 
-from susceptibility import INDIVIDUAL_SAMPLE_SQL
-from susceptibility import AGGREGATED_SUSC_VIEW_SQL
+from susceptibility import INDIVIDUAL_FOLD_SQL
+from susceptibility import AGGREGATED_FOLD_SQL
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import get_iso_names_by_var_name
 
@@ -12,12 +12,12 @@ SELECT
     rx.cumulative_group as rx_name,
     s.control_iso_name as control,
     s.iso_name as iso_name,
-    s.cumulative_count as sample_count,
+    s.cumulative_count as num_fold,
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
     (
-""" + INDIVIDUAL_SAMPLE_SQL + """
+""" + INDIVIDUAL_FOLD_SQL + """
 ) as s,
     {rxtype} AS rx
 ON
@@ -36,12 +36,12 @@ SELECT
     rx.severity,
     s.control_iso_name as control,
     s.iso_name as iso_name,
-    s.cumulative_count as sample_count,
+    s.cumulative_count as num_fold,
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
     (
-""" + INDIVIDUAL_SAMPLE_SQL + """
+""" + INDIVIDUAL_FOLD_SQL + """
 ) as s,
     {rxtype} AS rx
 ON
@@ -61,12 +61,12 @@ SELECT
     rx.dosage,
     s.control_iso_name as control,
     s.iso_name as iso_name,
-    s.cumulative_count as sample_count,
+    s.cumulative_count as num_fold,
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
     (
-""" + INDIVIDUAL_SAMPLE_SQL + """
+""" + INDIVIDUAL_FOLD_SQL + """
 ) as s,
     {rxtype} AS rx
 ON
@@ -85,12 +85,12 @@ SELECT
     rx.cumulative_group as rx_name,
     s.control_iso_name as control,
     s.iso_name as iso_name,
-    s.cumulative_count as sample_count,
+    s.cumulative_count as num_fold,
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
     (
-""" + AGGREGATED_SUSC_VIEW_SQL + """
+""" + AGGREGATED_FOLD_SQL + """
 ) as s,
     {rxtype} AS rx
 ON
@@ -109,12 +109,12 @@ SELECT
     rx.severity,
     s.control_iso_name as control,
     s.iso_name as iso_name,
-    s.cumulative_count as sample_count,
+    s.cumulative_count as num_fold,
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
     (
-""" + AGGREGATED_SUSC_VIEW_SQL + """
+""" + AGGREGATED_FOLD_SQL + """
 ) as s,
     {rxtype} AS rx
 ON
@@ -132,12 +132,12 @@ SELECT
     rx.dosage,
     s.control_iso_name as control,
     s.iso_name as iso_name,
-    s.cumulative_count as sample_count,
+    s.cumulative_count as num_fold,
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
     (
-""" + AGGREGATED_SUSC_VIEW_SQL + """
+""" + AGGREGATED_FOLD_SQL + """
 ) as s,
     {rxtype} AS rx
 ON

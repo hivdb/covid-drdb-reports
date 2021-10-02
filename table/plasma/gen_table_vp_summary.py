@@ -4,7 +4,7 @@ from preset import dump_json
 from preset import dump_csv
 
 from .preset import IGNORE_VACCINE_NAME
-from .common import get_sample_number_pair
+from .common import get_num_fold_results_number_pair
 from collections import defaultdict
 
 SHOW_VARIANT = [
@@ -68,13 +68,13 @@ def process_record(variant, records):
         aggre_list = [r for r in rec_list if 'Fold' in r.keys()]
         indiv_list = [r for r in rec_list if 'Fold' not in r.keys()]
 
-        num_s, num_i, num_r = get_sample_number_pair(indiv_list, aggre_list)
+        num_s, num_i, num_r = get_num_fold_results_number_pair(indiv_list, aggre_list)
 
-        num_samples = num_i + num_r + num_s
+        num_fold_results = num_i + num_r + num_s
 
-        if num_samples:
-            pcnt_s = round(num_s / num_samples * 100)
-            pcnt_i = round(num_i / num_samples * 100)
+        if num_fold_results:
+            pcnt_s = round(num_s / num_fold_results * 100)
+            pcnt_i = round(num_i / num_fold_results * 100)
             pcnt_r = 100 - pcnt_s - pcnt_i
         else:
             pcnt_i = 0
@@ -82,7 +82,7 @@ def process_record(variant, records):
             pcnt_s = 0
 
         result['vp_studies'] = num_studies
-        result['vp_samples'] = num_samples
+        result['vp_num_fold_results'] = num_fold_results
         result['vp_s_fold'] = '{}%'.format(
             pcnt_s) if pcnt_s else 0
         result['vp_i_fold'] = '{}%'.format(

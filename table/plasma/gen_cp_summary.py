@@ -4,8 +4,8 @@ from collections import defaultdict
 from operator import itemgetter
 from variant.preset import CONTROL_VARIANTS_SQL
 from variant.preset import filter_by_variant
-from susceptibility import INDIVIDUAL_SAMPLE_SQL
-from susceptibility import AGGREGATED_SUSC_VIEW_SQL
+from susceptibility import INDIVIDUAL_FOLD_SQL
+from susceptibility import AGGREGATED_FOLD_SQL
 
 
 SQL = """
@@ -47,7 +47,7 @@ GROUP BY
 def gen_cp_summary(conn):
     cursor = conn.cursor()
     sql = SQL.format(
-        susc_results=INDIVIDUAL_SAMPLE_SQL,
+        susc_results=INDIVIDUAL_FOLD_SQL,
         control_variants=CONTROL_VARIANTS_SQL
     )
 
@@ -58,7 +58,7 @@ def gen_cp_summary(conn):
     num_study = len(set([r['ref_name'] for r in records]))
 
     sql = SQL.format(
-        susc_results=AGGREGATED_SUSC_VIEW_SQL,
+        susc_results=AGGREGATED_FOLD_SQL,
         control_variants=CONTROL_VARIANTS_SQL
     )
 

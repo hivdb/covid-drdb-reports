@@ -1,58 +1,43 @@
-from variant.preset import CONTROL_VARIANTS_SQL
-from variant.preset import SINGLE_S_MUTATION_ISOLATES
-from preset import DATA_FILE_PATH
-from mab.preset import RX_MAB
-from mab.preset import RX_MAB_DMS
-from preset import dump_csv
-import re
 from collections import defaultdict
 from operator import itemgetter
-
-
-MUT_POS_AA = re.compile(r'(\d+)(\w)')
+from preset import DATA_FILE_PATH
+from preset import dump_csv
 
 
 FOLD_SQL = """
 SELECT
-    s.ref_name,
-    s.rx_name,
+    susc.ref_name,
+    susc.rx_name,
     rx.ab_name,
-    s.fold,
-    s.fold_cmp,
-    s.iso_name,
-    iso.position,
-    iso.amino_acid
+    susc.fold,
+    susc.fold_cmp,
+    susc.iso_name,
+    mut.position,
+    mut.amino_acid
 FROM
-    susc_results as s,
-    ({rx_antibodies}) as rx,
-    ({isolate_mutations}) as iso
+    susc_results_50_wt_view susc,
+    rx_mab_view rx,
+    isolate_mutations_single_s_mut_view mut
 WHERE
-    s.ref_name = rx.ref_name
+    susc.ref_name = rx.ref_name
     AND
-    s.rx_name = rx.rx_name
+    susc.rx_name = rx.rx_name
     AND
-    s.iso_name = iso.iso_name
+    susc.iso_name = mut.iso_name
     AND
-    s.potency_type LIKE "IC%"
+    susc.potency_type = "IC50"
     AND
-    s.control_iso_name IN ({control_variants})
+    rx.ab_name IN (SELECT ab_name FROM rx_dms_mab_view)
     AND
-    rx.ab_name IN (SELECT ab_name FROM ({rx_mab_dms}))
-    AND
-    s.fold IS NOT NULL
+    susc.fold IS NOT NULL
 GROUP BY
-    s.ref_name,
-    s.rx_name,
-    s.control_iso_name,
-    s.iso_name,
-    s.assay_name
+    susc.ref_name,
+    susc.rx_name,
+    susc.control_iso_name,
+    susc.iso_name,
+    susc.assay_name
 ;
-""".format(
-    control_variants=CONTROL_VARIANTS_SQL,
-    rx_antibodies=RX_MAB,
-    rx_mab_dms=RX_MAB_DMS,
-    isolate_mutations=SINGLE_S_MUTATION_ISOLATES
-    )
+"""
 
 
 DMS_SQL = """
@@ -63,7 +48,7 @@ SELECT
     dms.escape_score
 FROM
     dms_escape_results as dms,
-    ({rx_mab_dms}) as rx
+    rx_dms_mab_view as rx
 ON
     dms.ref_name = rx.ref_name AND
     dms.rx_name = rx.rx_name
@@ -72,7 +57,9 @@ WHERE
 """
 
 
-def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
+def gen_compare_fold(
+        conn,
+        save_path=DATA_FILE_PATH / 'dms' / 'fold_dms.csv'):
 
     cursor = conn.cursor()
 
@@ -100,9 +87,7 @@ def gen_compare_fold(conn, save_path=DATA_FILE_PATH / 'summary_dms.csv'):
         positions.add(pos)
 
     dms_sql = DMS_SQL.format(
-        positions=','.join(list(
-            [str(p) for p in positions])),
-        rx_mab_dms=RX_MAB_DMS
+        positions=','.join(list([str(p) for p in positions]))
     )
 
     cursor.execute(dms_sql)

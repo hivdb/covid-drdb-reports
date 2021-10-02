@@ -1,45 +1,43 @@
-from variant.preset import ONE_MUT_VARIANT
-from variant.preset import CONTROL_VARIANTS_SQL
-from preset import DATA_FILE_PATH
-from mab.preset import MAB_RENAME
-from preset import dump_csv
-import re
 from collections import defaultdict
 from operator import itemgetter
+from preset import DATA_FILE_PATH
+from preset import dump_csv
 
 
-MUT_POS_AA = re.compile(r'(\d+)(\w)')
-
-
-SQL = """
+FOLD_SQL = """
 SELECT
-    s.ref_name,
-    s.rx_name,
-    s.fold,
-    s.fold_cmp,
-    s.iso_name
+    susc.ref_name,
+    susc.rx_name,
+    susc.fold,
+    susc.fold_cmp,
+    susc.iso_name,
+    rx.ab_name,
+    mut.position,
+    mut.amino_acid
 FROM
-    susc_results as s,
-    rx_antibodies as rx
-ON
-    s.ref_name = rx.ref_name
-    AND s.rx_name = rx.rx_name
+    susc_results_50_wt_view as susc,
+    rx_mab_view as rx,
+    isolate_mutations_single_s_mut_view mut
 WHERE
-    s.potency_type IN ('IC50', 'NT50')
+    susc.ref_name = rx.ref_name
     AND
-    s.control_iso_name IN ({control_variants})
+    susc.rx_name = rx.rx_name
     AND
-    rx.ab_name IN (SELECT ab_name FROM rx_dms)
+    susc.iso_name = mut.iso_name
     AND
-    s.fold IS NOT NULL
+    susc.potency_type = "IC50"
+    AND
+    rx.ab_name IN (SELECT ab_name FROM rx_dms_mab_view)
+    AND
+    susc.fold IS NOT NULL
 GROUP BY
-    s.ref_name,
-    s.rx_name,
-    s.control_iso_name,
-    s.iso_name,
-    s.assay_name
+    susc.ref_name,
+    susc.rx_name,
+    susc.control_iso_name,
+    susc.iso_name,
+    susc.assay_name
 ;
-""".format(control_variants=CONTROL_VARIANTS_SQL)
+"""
 
 
 DMS_SQL = """
@@ -48,6 +46,7 @@ SELECT
     d.position,
     d.amino_acid,
     d.escape_score,
+    rx.ab_name,
     dms.ace2_binding,
     dms.expression,
     dms.ace2_contact
@@ -65,24 +64,20 @@ ON
 
 def gen_missing_fold(
         conn,
-        save_path=DATA_FILE_PATH / 'summary_dms_missing_fold.csv'):
+        save_path=DATA_FILE_PATH / 'dms' / 'dms_missing_fold.csv'):
 
     cursor = conn.cursor()
 
-    cursor.execute(SQL)
+    cursor.execute(FOLD_SQL)
 
     mab2mutations = defaultdict(list)
     positions = set()
 
     for rec in cursor.fetchall():
-        iso_name = rec['iso_name']
-        if iso_name not in ONE_MUT_VARIANT.keys():
-            continue
+        pos = rec['position']
+        aa = rec['amino_acid']
 
-        mab = rec['rx_name']
-        mab = MAB_RENAME.get(mab, mab)
-
-        pos, aa = re.search(MUT_POS_AA, iso_name).groups()
+        mab = rec['ab_name']
 
         mab2mutations[mab].append((
             int(pos),
@@ -94,8 +89,7 @@ def gen_missing_fold(
 
     results = []
     for rec in cursor.fetchall():
-        mab = rec['rx_name']
-        mab = MAB_RENAME.get(mab, mab)
+        mab = rec['ab_name']
 
         if mab not in mab2mutations.keys():
             continue

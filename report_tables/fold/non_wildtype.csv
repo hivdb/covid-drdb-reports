@@ -1,0 +1,821 @@
+﻿ref_name,rx_name,control_var,iso_name,potency_type,num_fold
+Supasa21,150,Alpha,VIC,IC50,1
+Supasa21,150H+222L,Alpha,VIC,IC50,1
+Supasa21,158,Alpha,VIC,IC50,1
+Supasa21,158H+222L,Alpha,VIC,IC50,1
+Supasa21,175,Alpha,VIC,IC50,1
+Supasa21,175H+222L,Alpha,VIC,IC50,1
+Supasa21,222,Alpha,VIC,IC50,1
+Supasa21,222H+222L,Alpha,VIC,IC50,1
+Supasa21,269H+222L,Alpha,VIC,IC50,1
+Supasa21,ADG10,Alpha,VIC,IC50,1
+Supasa21,ADG20,Alpha,VIC,IC50,1
+Supasa21,ADG30,Alpha,VIC,IC50,1
+Supasa21,AZD1061,Alpha,VIC,IC50,1
+Supasa21,AZD7442,Alpha,VIC,IC50,1
+Supasa21,AZD8895,Alpha,VIC,IC50,1
+Sapkal21c,AZD_Breakthrough_1,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_10,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_11,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_12,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_13,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_14,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_15,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_16,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_17,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_18,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_19,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_2,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_20,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_3,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_4,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_5,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_6,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_7,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_8,Delta,B.1 full genome,NT50,1
+Sapkal21c,AZD_Breakthrough_9,Delta,B.1 full genome,NT50,1
+Yadav21d,BBV152,B.1.258,hCoV-19/India/DL-ICMR-30100647IST_P3/2021,NT50,42
+Yadav21d,BBV152,B.1.258,hCoV-19/India/MH-ICMR-202356035_isolate/2021,NT50,42
+Yadav21d,BBV152,B.1.258,hCoV-19/India/TN-ICMR-MCL_3687_4681_Iso/2021,NT50,42
+Yadav21d,BBV152_breakthrough,B.1.258,hCoV-19/India/DL-ICMR-30100647IST_P3/2021,NT50,30
+Yadav21d,BBV152_breakthrough,B.1.258,hCoV-19/India/MH-ICMR-202356035_isolate/2021,NT50,30
+Yadav21d,BBV152_breakthrough,B.1.258,hCoV-19/India/TN-ICMR-MCL_3687_4681_Iso/2021,NT50,30
+Yadav21d,BBV152_recovered,B.1.258,hCoV-19/India/DL-ICMR-30100647IST_P3/2021,NT50,14
+Yadav21d,BBV152_recovered,B.1.258,hCoV-19/India/MH-ICMR-202356035_isolate/2021,NT50,14
+Yadav21d,BBV152_recovered,B.1.258,hCoV-19/India/TN-ICMR-MCL_3687_4681_Iso/2021,NT50,14
+Groß21,BNT162b2_2x,Alpha,B.1.351 Spike,NT50,12
+Groß21,BNT162b2_2x,Alpha,B.1.617 Spike,NT50,12
+Hadjadj21,BNT_1,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_10,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_11,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_12,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_13,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_14,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_15,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_16,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_17,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_18,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_19,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_2,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_20,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_21,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_3,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_4,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_5,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_6,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_7,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_8,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_9,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_1,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_10,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_11,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_12,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_13,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_14,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_15,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_2,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_3,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_4,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_5,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_6,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_7,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_8,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_MTX_9,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_1,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_10,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_11,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_12,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_13,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_14,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_15,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_16,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_17,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_18,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_19,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_2,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_20,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_3,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_4,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_5,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_6,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_7,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_8,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_RTX_9,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_1,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_10,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_11,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_12,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_13,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_14,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_15,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_16,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_17,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_18,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_19,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_2,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_3,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_4,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_5,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_6,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_7,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_8,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_cDMARDs_9,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_1,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_2,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_3,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_4,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_5,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_6,Alpha,B.1.617.2 full genome,NT50,1
+Hadjadj21,BNT_other_Rx_7,Alpha,B.1.617.2 full genome,NT50,1
+Muecksch21,C032,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C032,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C032,S:683G,S:484K+683G,IC50,1
+Muecksch21,C051,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C051,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C051,S:683G,S:484K+683G,IC50,1
+Muecksch21,C052,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C052,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C052,S:683G,S:484K+683G,IC50,1
+Muecksch21,C055,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C055,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C055,S:683G,S:484K+683G,IC50,1
+Muecksch21,C080,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C080,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C080,S:683G,S:484K+683G,IC50,1
+Muecksch21,C098,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C098,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C098,S:683G,S:484K+683G,IC50,1
+Muecksch21,C099,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C099,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C099,S:683G,S:484K+683G,IC50,1
+Muecksch21,C132,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C132,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C132,S:683G,S:484K+683G,IC50,1
+Wang21,C135,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,C135,S:683G,S:484K,IC50,1
+Muecksch21,C143,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C143,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C143,S:683G,S:484K+683G,IC50,1
+Wang21,C144,S:683G,S:417N+484K+501Y,IC50,1
+Muecksch21,C144,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C144,S:683G,S:455R+484K+683G,IC50,1
+Wang21,C144,S:683G,S:484K,IC50,1
+Muecksch21,C144,S:683G,S:484K+683G,IC50,1
+Wang21,C144+C135,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,C144+C135,S:683G,S:484K,IC50,1
+Muecksch21,C164,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C164,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C164,S:683G,S:484K+683G,IC50,1
+Muecksch21,C512,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C512,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C512,S:683G,S:484K+683G,IC50,1
+Muecksch21,C548,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C548,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C548,S:683G,S:484K+683G,IC50,1
+Muecksch21,C549,S:683G,S:417N+484K+501Y+683G,IC50,1
+Muecksch21,C549,S:683G,S:455R+484K+683G,IC50,1
+Muecksch21,C549,S:683G,S:484K+683G,IC50,1
+Wang21,C601,S:683G,S:484K,IC50,1
+Wang21,C602,S:683G,S:484K,IC50,1
+Wang21,C603,S:683G,S:484K,IC50,1
+Wang21,C613,S:683G,S:484K,IC50,1
+Wang21,C614,S:683G,S:484K,IC50,1
+Wang21,C627,S:683G,S:484K,IC50,1
+Wang21,C628,S:683G,S:484K,IC50,1
+Wang21,C643,S:683G,S:484K,IC50,1
+Wang21,C653,S:683G,S:484K,IC50,1
+Wang21,C660,S:683G,S:484K,IC50,1
+Wang21,C663,S:683G,S:484K,IC50,1
+Wang21,C666,S:683G,S:484K,IC50,1
+Wang21,C669,S:683G,S:484K,IC50,1
+Wang21,C670,S:683G,S:484K,IC50,1
+Wang21,C671,S:683G,S:484K,IC50,1
+Wang21,C675,S:683G,S:484K,IC50,1
+Wang21,C682,S:683G,S:484K,IC50,1
+Wang21,CP_114_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_114_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_119_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_119_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_120_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_120_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_123_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_123_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_131_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_131_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_132_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_132_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_135_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_135_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_154_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_154_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_157_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_157_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_172_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_172_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_178_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_178_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_186_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_186_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_190_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_190_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_192_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_192_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_222_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_222_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_230_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_230_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_241_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_241_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_256_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_256_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_287_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_287_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_310_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_310_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_314_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_314_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_323_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_323_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_328_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_328_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_352_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_352_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_38_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_38_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_393_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_393_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_401_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_401_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_403_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_403_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_437_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_437_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_470_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_470_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_478_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_478_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_48_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_48_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_506_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_506_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_507_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_507_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_509_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_509_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_537_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_537_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_539_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_539_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_57_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_57_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_633_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_633_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_674_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_674_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_75_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_75_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_76_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_76_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_8_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_8_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_96_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_96_M6,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_98_M1,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,CP_98_M6,S:683G,S:417N+484K+501Y,NT50,1
+Zhang21c,CP_B.1.1.7,Alpha,B.1.1.298 Spike:+69del+70del,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,B.1.1.318 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,B.1.351 Spike:-18F-246I,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,B.1.429 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,B.1.525 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,B.1.526 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,B.1.526 v.2 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,P.1 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,P.2 Spike,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:417N+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:417T+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:452R+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:453F+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:477N+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:484K+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:501Y+614G,NT50,4
+Zhang21c,CP_B.1.1.7,Alpha,S:614G,NT50,4
+Trinite21,CP_B.1.1.7_01,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_01,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_01,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_01,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_02,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_02,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_02,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_02,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_03,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_03,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_03,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_03,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_04,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_04,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_04,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_04,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_05,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_05,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_05,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_05,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_06,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_06,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_06,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_06,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_07,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_07,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_07,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_07,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_08,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_08,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_08,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_08,Alpha,hCoV-19/England/02/2020,NT50,1
+Trinite21,CP_B.1.1.7_09,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_09,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_09,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_09,Alpha,hCoV-19/England/02/2020,NT50,1
+Supasa21,CP_B.1.1.7_1,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_1,Alpha,IC19 full genome,NT50,1
+Brown21,CP_B.1.1.7_10,Alpha,S:614G,NT50,1
+Supasa21,CP_B.1.1.7_10,Alpha,VIC,NT50,1
+Trinite21,CP_B.1.1.7_10,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_10,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_10,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_10,Alpha,hCoV-19/England/02/2020,NT50,1
+Brown21,CP_B.1.1.7_11,Alpha,S:614G,NT50,1
+Supasa21,CP_B.1.1.7_11,Alpha,VIC,NT50,1
+Trinite21,CP_B.1.1.7_11,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_11,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_11,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_11,Alpha,hCoV-19/England/02/2020,NT50,1
+Supasa21,CP_B.1.1.7_12,Alpha,VIC,NT50,1
+Trinite21,CP_B.1.1.7_12,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_12,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_12,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_12,Alpha,hCoV-19/England/02/2020,NT50,1
+Supasa21,CP_B.1.1.7_13,Alpha,VIC,NT50,1
+Trinite21,CP_B.1.1.7_13,Alpha,S:614G,NT50,1
+Trinite21,CP_B.1.1.7_13,Alpha,Wuhan-Hu-1,NT50,1
+Faulkner21,CP_B.1.1.7_13,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_13,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_14,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_14,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_15,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_15,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_16,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_16,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_17,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_17,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_18,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_18,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_19,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_19,Alpha,hCoV-19/England/02/2020,NT50,1
+Supasa21,CP_B.1.1.7_2,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_2,Alpha,IC19 full genome,NT50,1
+Faulkner21,CP_B.1.1.7_20,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_20,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_21,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_21,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_22,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_22,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_23,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_23,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_24,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_24,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_25,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_25,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_26,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_26,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_27,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_27,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_28,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_28,Alpha,hCoV-19/England/02/2020,NT50,1
+Faulkner21,CP_B.1.1.7_29,Alpha,501Y.V2.HV001,NT50,1
+Faulkner21,CP_B.1.1.7_29,Alpha,hCoV-19/England/02/2020,NT50,1
+Supasa21,CP_B.1.1.7_3,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_3,Alpha,IC19 full genome,NT50,1
+Supasa21,CP_B.1.1.7_4,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_4,Alpha,IC19 full genome,NT50,1
+Supasa21,CP_B.1.1.7_5,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_5,Alpha,IC19 full genome,NT50,1
+Supasa21,CP_B.1.1.7_6,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_6,Alpha,IC19 full genome,NT50,1
+Supasa21,CP_B.1.1.7_7,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_7,Alpha,IC19 full genome,NT50,1
+Supasa21,CP_B.1.1.7_8,Alpha,VIC,NT50,1
+Brown21,CP_B.1.1.7_8,Alpha,IC19 full genome,NT50,1
+Brown21,CP_B.1.1.7_9,Alpha,S:614G,NT50,1
+Supasa21,CP_B.1.1.7_9,Alpha,VIC,NT50,1
+Zhang21c,CP_B.1.351,Beta,B.1.1.298 Spike:+69del+70del,NT50,3
+Zhang21c,CP_B.1.351,Beta,B.1.1.318 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,B.1.1.7 Spike:-144del+145del,NT50,3
+Zhang21c,CP_B.1.351,Beta,B.1.429 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,B.1.525 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,B.1.526 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,B.1.526 v.2 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,P.1 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,P.2 Spike,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:417N+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:417T+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:452R+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:453F+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:477N+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:484K+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:501Y+614G,NT50,3
+Zhang21c,CP_B.1.351,Beta,S:614G,NT50,3
+Cele21,CP_B.1.351_01,Beta,hCoV-19/South Africa/KRISP-K002868/2020,NT50,1
+Cele21,CP_B.1.351_02,Beta,hCoV-19/South Africa/KRISP-K002868/2020,NT50,1
+Cele21,CP_B.1.351_03,Beta,hCoV-19/South Africa/KRISP-K002868/2020,NT50,1
+Cele21,CP_B.1.351_04,Beta,hCoV-19/South Africa/KRISP-K002868/2020,NT50,1
+Cele21,CP_B.1.351_05,Beta,hCoV-19/South Africa/KRISP-K002868/2020,NT50,1
+Cele21,CP_B.1.351_06,Beta,hCoV-19/South Africa/KRISP-K002868/2020,NT50,1
+Moyo-Gwete21,CP_B.1.351_1,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_10,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_11,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_12,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_13,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_14,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_15,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_16,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_17,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_18,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_19,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_2,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_20,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_21,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_22,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_23,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_24,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_25,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_26,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_27,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_28,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_29,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_3,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_30,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_31,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_32,Beta,P.1 Spike,NT50,1
+Moyo-Gwete21,CP_B.1.351_4,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_5,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_6,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_7,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_8,Beta,S:614G,NT50,1
+Moyo-Gwete21,CP_B.1.351_9,Beta,S:614G,NT50,1
+Dupont21,CP_Fig3D_1,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_1,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_1,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_10,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_10,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_10,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_11,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_11,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_11,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_12,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_12,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_12,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_13,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_13,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_13,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_14,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_14,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_14,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_15,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_15,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_15,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_16,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_16,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_16,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_17,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_17,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_17,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_18,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_18,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_18,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_19,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_19,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_19,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_2,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_2,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_2,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_20,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_20,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_20,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_21,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_21,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_21,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_22,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_22,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_22,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_23,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_23,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_23,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_24,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_24,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_24,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_25,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_25,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_25,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_26,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_26,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_26,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_27,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_27,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_27,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_28,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_28,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_28,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_29,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_29,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_29,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_3,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_3,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_3,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_30,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_30,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_30,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_31,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_31,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_31,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_32,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_32,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_32,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_33,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_33,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_33,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_34,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_34,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_34,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_35,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_35,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_35,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_36,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_36,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_36,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_37,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_37,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_37,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_38,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_38,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_38,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_39,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_39,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_39,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_4,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_4,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_4,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_40,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_40,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_40,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_41,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_41,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_41,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_42,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_42,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_42,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_43,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_43,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_43,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_44,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_44,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_44,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_45,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_45,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_45,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_46,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_46,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_46,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_47,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_47,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_47,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_48,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_48,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_48,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_49,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_49,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_49,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_5,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_5,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_5,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_50,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_50,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_50,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_51,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_51,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_51,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_52,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_52,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_52,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_53,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_53,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_53,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_54,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_54,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_54,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_55,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_55,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_55,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_56,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_56,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_56,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_57,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_57,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_57,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_58,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_58,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_58,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_59,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_59,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_59,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_6,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_6,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_6,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_60,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_60,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_60,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_61,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_61,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_61,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_62,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_62,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_62,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_63,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_63,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_63,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_64,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_64,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_64,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_65,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_65,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_65,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_66,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_66,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_66,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_67,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_67,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_67,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_68,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_68,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_68,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_69,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_69,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_69,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_7,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_7,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_7,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_70,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_70,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_70,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_71,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_71,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_71,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_72,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_72,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_72,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_73,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_73,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_73,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_74,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_74,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_74,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_8,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_8,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_8,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3D_9,Alpha,B.1.351 Spike,NT50,1
+Dupont21,CP_Fig3D_9,Alpha,P.1 Spike,NT50,1
+Dupont21,CP_Fig3D_9,Alpha,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3G_1,Beta,B.1.1.7 Spike,NT50,1
+Dupont21,CP_Fig3G_1,Beta,P.1 Spike,NT50,1
+Dupont21,CP_Fig3G_1,Beta,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3G_2,Beta,B.1.1.7 Spike,NT50,1
+Dupont21,CP_Fig3G_2,Beta,P.1 Spike,NT50,1
+Dupont21,CP_Fig3G_2,Beta,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3G_3,Beta,B.1.1.7 Spike,NT50,1
+Dupont21,CP_Fig3G_3,Beta,P.1 Spike,NT50,1
+Dupont21,CP_Fig3G_3,Beta,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3G_4,Beta,B.1.1.7 Spike,NT50,1
+Dupont21,CP_Fig3G_4,Beta,P.1 Spike,NT50,1
+Dupont21,CP_Fig3G_4,Beta,Wuhan-Hu-1,NT50,1
+Dupont21,CP_Fig3G_5,Beta,B.1.1.7 Spike,NT50,1
+Dupont21,CP_Fig3G_5,Beta,P.1 Spike,NT50,1
+Dupont21,CP_Fig3G_5,Beta,Wuhan-Hu-1,NT50,1
+Weigang21,CP_WT_mice_6d_1,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_WT_mice_6d_2,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_WT_mice_6d_3,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_WT_mice_6d_4,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_WT_mice_6d_5,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_WT_mice_6d_6,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_WT_mice_6d_7,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_01,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_02,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_03,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_04,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_05,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_06,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_07,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_08,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_09,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_10,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_11,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_12,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Weigang21,CP_d105_mice_6e_13,Alpha,hCoV-19/Germany/NW-RKI-I-0029/2020,NT50,1
+Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW-R0099/2021,NT50,17
+Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW2713/2020,NT50,17
+Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW3878/2021,NT50,17
+Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW4318/2021,NT50,17
+Riou21,CP_wave2_1,Beta,S:614G,NT50,1
+Riou21,CP_wave2_10,Beta,S:614G,NT50,1
+Riou21,CP_wave2_11,Beta,S:614G,NT50,1
+Riou21,CP_wave2_12,Beta,S:614G,NT50,1
+Riou21,CP_wave2_13,Beta,S:614G,NT50,1
+Riou21,CP_wave2_14,Beta,S:614G,NT50,1
+Riou21,CP_wave2_15,Beta,S:614G,NT50,1
+Riou21,CP_wave2_16,Beta,S:614G,NT50,1
+Riou21,CP_wave2_17,Beta,S:614G,NT50,1
+Riou21,CP_wave2_18,Beta,S:614G,NT50,1
+Riou21,CP_wave2_19,Beta,S:614G,NT50,1
+Riou21,CP_wave2_2,Beta,S:614G,NT50,1
+Riou21,CP_wave2_3,Beta,S:614G,NT50,1
+Riou21,CP_wave2_4,Beta,S:614G,NT50,1
+Riou21,CP_wave2_5,Beta,S:614G,NT50,1
+Riou21,CP_wave2_6,Beta,S:614G,NT50,1
+Riou21,CP_wave2_7,Beta,S:614G,NT50,1
+Riou21,CP_wave2_8,Beta,S:614G,NT50,1
+Riou21,CP_wave2_9,Beta,S:614G,NT50,1
+Wang21,Casirivimab,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,Casirivimab,S:683G,S:484K,IC50,1
+Wang21,Casirivimab + Imdevimab,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,Casirivimab + Imdevimab,S:683G,S:484K,IC50,1
+Groß21,ChAdOx1_BNT162b2,Alpha,B.1.351 Spike,NT50,26
+Groß21,ChAdOx1_BNT162b2,Alpha,B.1.617 Spike,NT50,26
+Wang21,Cilgavimab,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,Cilgavimab,S:683G,S:484K,IC50,1
+Wang21,Imdevimab,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,Imdevimab,S:683G,S:484K,IC50,1
+Supasa21,LY-CoV16,Alpha,VIC,IC50,1
+Supasa21,LY-CoV555,Alpha,VIC,IC50,1
+Wang21,Moderna_01_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_01_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_02_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_02_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_03_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_03_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_04_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_04_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_05_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_05_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_06_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_06_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_07_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_07_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_08_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_08_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_09_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_09_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_10_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_10_484K,S:683G,S:484K,NT50,1
+Wang21,Moderna_11_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Moderna_11_484K,S:683G,S:484K,NT50,1
+Imai21,NCCo-503,Gamma,SARS-CoV-2/UT-HP095-1N/Human/2020/Tokyo,NT50,1
+Imai21,NCCo-503,Gamma,SARS-CoV-2/UT-NCGM02/Human/2020/Tokyo,NT50,1
+Wang21,Pfizer-BioNTech_01_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Pfizer-BioNTech_01_484K,S:683G,S:484K,NT50,1
+Wang21,Pfizer-BioNTech_02_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Pfizer-BioNTech_02_484K,S:683G,S:484K,NT50,1
+Wang21,Pfizer-BioNTech_03_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Pfizer-BioNTech_03_484K,S:683G,S:484K,NT50,1
+Wang21,Pfizer-BioNTech_04_417N_484K_501Y,S:683G,S:417N+484K+501Y,NT50,1
+Wang21,Pfizer-BioNTech_04_484K,S:683G,S:484K,NT50,1
+Supasa21,REGN10933,Alpha,VIC,IC50,1
+Supasa21,REGN10987,Alpha,VIC,IC50,1
+Supasa21,S309,Alpha,VIC,IC50,1
+Gushchin21,Sputnik_T1,B.1.1.1,hCoV-19/Netherlands/NoordHolland_20432/2020,NT50,27
+Gushchin21,Sputnik_T1,B.1.1.1,hCoV-19/Russia/MOW-PMVL-31/2020,NT50,27
+Gushchin21,Sputnik_T1,B.1.1.1,hCoV-19/Russia/MOW-PMVL-43/2021,NT50,27
+Gushchin21,Sputnik_T1,B.1.1.1,hCoV-19/Russia/SPE-RII-27029S/2021,NT50,27
+Gushchin21,Sputnik_T2,B.1.1.1,B.1.617.2 Spike:+142D,NT50,16
+Gushchin21,Sputnik_T2,B.1.1.1,P.1 full genome,NT50,16
+Gushchin21,Sputnik_T2,B.1.1.1,S:19R+142D+156G+157del+158del+452R+484Q+614G+681R+950N,NT50,16
+Wang21,Tixagevimab,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,Tixagevimab,S:683G,S:484K,IC50,1
+Wang21,Tixagevimab + Cilgavimab,S:683G,S:417N+484K+501Y,IC50,1
+Wang21,Tixagevimab + Cilgavimab,S:683G,S:484K,IC50,1
+Keeton21,VP_2nd_wave_1,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_10,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_11,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_12,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_13,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_14,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_15,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_16,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_17,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_18,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_19,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_2,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_3,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_4,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_5,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_6,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_7,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_8,Beta,S:614G,NT50,1
+Keeton21,VP_2nd_wave_9,Beta,S:614G,NT50,1

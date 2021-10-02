@@ -48,7 +48,7 @@ def gen_plasma_indiv_table(
                     if reference in IGNORE_STUDY:
                         continue
 
-                    num_results = row['sample_count']
+                    num_results = row['num_fold']
                     fold = row['fold']
 
                     key = '{}{}{}'.format(iso_name, cp_name, reference)
@@ -93,7 +93,7 @@ def gen_plasma_indiv_table(
             rec['Median'] = '-'
         del rec['folds']
 
-        rec['Samples'] = rec['S'] + rec['I'] + rec['R']
+        rec['num_fold'] = rec['S'] + rec['I'] + rec['R']
 
     records = list(records.values())
 
@@ -164,7 +164,7 @@ def gen_plasma_aggre_table(
                 reference = row['ref_name']
 
                 if reference in IGNORE_STUDY:
-                        continue
+                    continue
 
                 group_key = '{}{}{}{}'.format(
                     iso_name,
@@ -188,7 +188,7 @@ def gen_plasma_aggre_table(
                 reference = r_list[0]['ref_name']
 
                 all_fold = [
-                    [r['fold']] * r['sample_count']
+                    [r['fold']] * r['num_fold']
                     for r in r_list if r['fold']]
                 all_fold = [r for j in all_fold for r in j]
                 s_fold = [r for r in all_fold if is_susc(r)]
@@ -205,7 +205,7 @@ def gen_plasma_aggre_table(
                 rec = {
                     'pattern': iso_name,
                     'Plasma': cp_name,
-                    'Samples': num_results,
+                    'num_fold': num_results,
                     'Reference': reference,
                     'Median': median_fold,
                     'S': num_s_fold,
@@ -231,7 +231,7 @@ def convert_to_json(json_save_path, records):
         json_results[variant].append({
             'variant': variant,
             'rx': r['Plasma'],
-            'samples': r['Samples'],
+            'num_fold': r['num_fold'],
             's_fold': r['S'],
             'i_fold': r['I'],
             'r_fold': r['R'],
@@ -250,7 +250,7 @@ def convert_to_json(json_save_path, records):
     dump_json(json_save_path, results)
 
 
-def get_sample_number_pair(indiv_list, aggre_list):
+def get_num_fold_results_number_pair(indiv_list, aggre_list):
 
     num_s = sum([int(r['S']) for r in indiv_list])
     num_i = sum([int(r['I']) for r in indiv_list])
@@ -266,8 +266,8 @@ def get_sample_number_pair(indiv_list, aggre_list):
         r for r in aggre_list
         if get_susceptibility(r['Fold']) == 'resistant']
 
-    num_s_aggre = sum([int(r['Samples']) for r in aggre_s])
-    num_i_aggre = sum([int(r['Samples']) for r in aggre_i])
-    num_r_aggre = sum([int(r['Samples']) for r in aggre_r])
+    num_s_aggre = sum([int(r['num_fold']) for r in aggre_s])
+    num_i_aggre = sum([int(r['num_fold']) for r in aggre_i])
+    num_r_aggre = sum([int(r['num_fold']) for r in aggre_r])
 
     return (num_s + num_s_aggre), (num_i + num_i_aggre), (num_r + num_r_aggre)
