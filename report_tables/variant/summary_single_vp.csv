@@ -1,4 +1,4 @@
-﻿pattern,ref,pos,aa,domain,median_fold,references,num_fold,S,I,R
+﻿pattern,ref,pos,aa,domain,median_fold,num_ref_name,num_fold,S,I,R
 L18F,L,18,F,NTD,1,1,22,22,0,0
 HV69-70∆,HV,69,∆,NTD,0.7,2,44,44,0,0
 G75V,G,75,V,NTD,1.2,1,18,18,0,0

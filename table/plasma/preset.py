@@ -1,7 +1,7 @@
 INDIVIDUAL_CP_SQL = """
 SELECT
     s.ref_name as ref_name,
-    rx.cumulative_group as rx_name,
+    'CP' as rx_name,
     rx.timing,
     rx.severity,
     s.control_iso_name as control,
@@ -10,11 +10,17 @@ SELECT
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
-    susc_results_indiv_wt_view s,
-    {rx_type} AS rx
+    susc_results_indiv_50_wt_view s,
+    {rx_type} rx,
+    {iso_type} mut
 WHERE
     rx.ref_name = s.ref_name
-    AND rx.rx_name = s.rx_name
+    AND
+    rx.rx_name = s.rx_name
+    AND
+    s.iso_name = mut.iso_name
+    AND
+    {filter}
 """
 
 
@@ -30,18 +36,24 @@ SELECT
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
-    susc_results_indiv_wt_view s,
-    {rx_type} AS rx
+    susc_results_indiv_50_wt_view s,
+    {rx_type} rx,
+    {iso_type} mut
 WHERE
     rx.ref_name = s.ref_name
-    AND rx.rx_name = s.rx_name
+    AND
+    rx.rx_name = s.rx_name
+    AND
+    s.iso_name = mut.iso_name
+    AND
+    {filter}
 """
 
 
 AGGREGATED_CP_SQL = """
 SELECT
     s.ref_name as ref_name,
-    rx.cumulative_group as rx_name,
+    'CP' as rx_name,
     rx.timing,
     rx.severity,
     s.control_iso_name as control,
@@ -50,11 +62,17 @@ SELECT
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
-    susc_results_aggr_wt_view s,
-    {rx_type} AS rx
+    susc_results_aggr_50_wt_view s,
+    {rx_type} rx,
+    {iso_type} mut
 WHERE
     rx.ref_name = s.ref_name
-    AND rx.rx_name = s.rx_name
+    AND
+    rx.rx_name = s.rx_name
+    AND
+    s.iso_name = mut.iso_name
+    AND
+    {filter}
 """
 
 AGGREGATED_VP_SQL = """
@@ -69,11 +87,17 @@ SELECT
     s.fold_cmp as fold_cmp,
     s.fold as fold
 FROM
-    susc_results_aggr_wt_view s,
-    {rx_type} AS rx
+    susc_results_aggr_50_wt_view s,
+    {rx_type} rx,
+    {iso_type} mut
 WHERE
     rx.ref_name = s.ref_name
-    AND rx.rx_name = s.rx_name
+    AND
+    rx.rx_name = s.rx_name
+    AND
+    s.iso_name = mut.iso_name
+    AND
+    {filter}
 """
 
 

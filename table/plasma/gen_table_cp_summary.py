@@ -52,7 +52,7 @@ def process_record(variant, rec_list):
     }
 
     num_studies = len(
-        set([r['Reference'].replace('*', '')
+        set([r['ref_name'].replace('*', '')
             for r in rec_list]))
 
     aggre_list = [r for r in rec_list if 'Fold' in r.keys()]

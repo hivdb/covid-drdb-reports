@@ -117,16 +117,16 @@ def parse_fold(rec):
 def unique_reference(rec_list):
     unique_rec_list = {}
     for r in rec_list:
-        reference = r['ref_name']
-        reference = reference.replace('*', '').replace('†', '')
+        ref_name = r['ref_name']
+        ref_name = ref_name.replace('*', '').replace('†', '')
 
-        previous = unique_rec_list.get(reference)
+        previous = unique_rec_list.get(ref_name)
         if not previous:
-            unique_rec_list[reference] = r
+            unique_rec_list[ref_name] = r
             continue
 
         if previous['fold'] < r['fold']:
-            unique_rec_list[reference] = r
+            unique_rec_list[ref_name] = r
 
     rec_list = list(unique_rec_list.values())
 
@@ -166,7 +166,7 @@ def process_record(variant, records):
             # medium_value_str = str(round_fold(medium_value))
             fold_cmp = ''
             fold = str(round_fold(medium_value))
-        # num_rec_list = len(set([row['Reference'] for i in rec_list]))
+        # num_rec_list = len(set([row['ref_name'] for i in rec_list]))
         num_rec_list = len(rec_list)
 
         # tmpl = '{}<sub>{}</sub>'

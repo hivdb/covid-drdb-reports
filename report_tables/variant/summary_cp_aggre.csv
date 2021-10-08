@@ -1,4 +1,4 @@
-﻿pattern,domain,var_name,reference,fold_cmp,median,num_fold
+﻿pattern,domain,var_name,ref_name,fold_cmp,median,num_fold
 L18F,NTD,,Li21c,=,0.9,18
 D215G,NTD,,Li21c,=,0.9,18
 LAL242-244∆,NTD,,Li21c,=,0.9,18

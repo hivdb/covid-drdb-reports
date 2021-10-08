@@ -63,7 +63,7 @@ def gen_table_mab_variant(
 
             cursor.execute(sql)
             for row in cursor.fetchall():
-                reference = row['ref_name']
+                ref_name = row['ref_name']
                 ab_name = row['ab_name']
                 ab_class = row['class']
 
@@ -75,13 +75,13 @@ def gen_table_mab_variant(
 
                 iso_name = row_name
                 if 'full genome' in iso_name:
-                    reference = '{}*'.format(reference)
+                    ref_name = '{}*'.format(ref_name)
                     iso_name = iso_name.split()[0]
 
                 # uniq_record = (
                 #     iso_name,
                 #     ab_name,
-                #     reference,
+                #     ref_name,
                 #     fold,
                 # )
                 # if uniq_record in uniq_record_list:
@@ -95,7 +95,7 @@ def gen_table_mab_variant(
                     'class': ab_class or '',
                     # 'Resistance level': resist_name,
                     'fold': fold,
-                    'ref_name': reference
+                    'ref_name': ref_name
                 })
 
     records.sort(key=itemgetter(

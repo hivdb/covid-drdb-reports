@@ -6,7 +6,6 @@ from preset import row2dict
 SQL_TMPL = """
 SELECT
     s.ref_name ref_name,
-    rx.cumulative_group rx_name,
     s.control_iso_name control,
     s.iso_name iso_name,
     s.cumulative_count num_fold,
@@ -79,7 +78,7 @@ def get_fold_by_single(rx_list):
                 'pattern': mut_name,
                 'domain': r.get('domain'),
                 'var_name': r.get('var_name'),
-                'reference': r['ref_name'],
+                'ref_name': r['ref_name'],
                 'fold_cmp': r['fold_cmp'],
                 'median': r['fold'],
                 'num_fold': r['num_fold']
@@ -102,7 +101,7 @@ def get_fold_by_combo(rx_list):
                 'pattern': mut_name,
                 'domain': r.get('domain'),
                 'var_name': r.get('var_name'),
-                'reference': r['ref_name'],
+                'ref_name': r['ref_name'],
                 'fold_cmp': r['fold_cmp'],
                 'median': r['fold'],
                 'num_fold': r['num_fold']

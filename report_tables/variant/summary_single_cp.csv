@@ -1,4 +1,4 @@
-﻿pattern,ref,pos,aa,domain,median_fold,references,num_fold,S,I,R
+﻿pattern,ref,pos,aa,domain,median_fold,num_ref_name,num_fold,S,I,R
 L5F,L,5,F,NTD,1.1,1,20,20,0,0
 L8V,L,8,V,NTD,1.3,1,10,10,0,0
 L8W,L,8,W,NTD,0.9,1,10,10,0,0

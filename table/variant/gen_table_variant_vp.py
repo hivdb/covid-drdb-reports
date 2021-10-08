@@ -72,7 +72,7 @@ def by_single(conn, iso_type, save_path):
             'aa': rx_list[0]['amino_acid'],
             'domain': rx_list[0]['domain'],
             'median_fold': median_fold,
-            'references': len(set([
+            'num_ref_name': len(set([
                 r['ref_name']
                 for r in rx_list
                 ])),
@@ -90,7 +90,7 @@ def by_single(conn, iso_type, save_path):
 
     record_list.append({
         'pattern': 'summary',
-        'references': len(set([
+        'num_ref_name': len(set([
             r['ref_name']
             for r in db_records
         ])),
@@ -128,7 +128,7 @@ def by_combo(conn, iso_type, save_path):
             # 'vaccine': rx_list[0]['vaccine_name'],
             # 'vaccine_type': rx_list[0]['vaccine_type'],
             'median_fold': median_fold,
-            'references': len(set([
+            'num_ref_name': len(set([
                 r['ref_name']
                 for r in rx_list
                 ])),
@@ -146,7 +146,7 @@ def by_combo(conn, iso_type, save_path):
 
     record_list.append({
         'pattern': 'summary',
-        'references': len(set([
+        'num_ref_name': len(set([
             r['ref_name']
             for r in db_records
         ])),

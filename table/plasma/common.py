@@ -22,29 +22,34 @@ def gen_plasma_indiv_table(
     records = defaultdict(dict)
     for iso_name, attr_r in mut_filters.items():
         for resist_name, resist_filter in RESISTANCE_FILTER.items():
+            iso_type = attr_r['iso_type']
+            r_filter = attr_r.get('filter', [])
+            filter = '\n    '.join(r_filter + resist_filter)
 
             sql = sql_template.format(
                 rx_type=rx_type_view,
+                iso_type=iso_type,
+                filter=filter
             )
             # print(sql)
 
             cursor.execute(sql)
             for row in cursor.fetchall():
                 cp_name = row['rx_name']
-                reference = row['ref_name']
+                ref_name = row['ref_name']
 
-                if reference in IGNORE_STUDY:
+                if ref_name in IGNORE_STUDY:
                     continue
 
                 num_results = row['num_fold']
                 fold = row['fold']
 
-                key = '{}{}{}'.format(iso_name, cp_name, reference)
+                key = '{}{}{}'.format(iso_name, cp_name, ref_name)
 
                 if plasma_type == 'VP':
                     dosage = row['dosage']
                     key = '{}{}{}{}'.format(
-                        iso_name, cp_name, reference, dosage)
+                        iso_name, cp_name, ref_name, dosage)
 
                 rec = records[key]
                 rec['pattern'] = iso_name
@@ -67,7 +72,7 @@ def gen_plasma_indiv_table(
                 else:
                     rec['R'] += num_results
 
-                rec['Reference'] = reference
+                rec['ref_name'] = ref_name
                 rec['Aggregate'] = False
 
                 if plasma_type == 'VP':
@@ -105,14 +110,14 @@ def apply_modifier(records, record_modifier):
 
 def record_modifier(record):
     iso_name = record['pattern']
-    reference = record['Reference']
+    ref_name = record['ref_name']
 
     if 'full genome' in iso_name:
-        reference = '{}*'.format(reference)
+        ref_name = '{}*'.format(ref_name)
         iso_name = iso_name.split()[0]
 
     record['pattern'] = iso_name
-    record['Reference'] = reference
+    record['ref_name'] = ref_name
     return record
 
 
@@ -125,9 +130,14 @@ def gen_plasma_aggre_table(
 
     records = []
     for row_name, attr_r in mut_filters.items():
+        iso_type = attr_r['iso_type']
+        r_filter = attr_r.get('filter', [])
+        filter = '\n    '.join(r_filter)
 
         sql = sql_template.format(
             rx_type=rx_type_view,
+            iso_type=iso_type,
+            filter=filter
         )
         # print(sql)
 
@@ -138,16 +148,16 @@ def gen_plasma_aggre_table(
             iso_name = row_name
             control = row['control']
             cp_name = row['rx_name']
-            reference = row['ref_name']
+            ref_name = row['ref_name']
 
-            if reference in IGNORE_STUDY:
+            if ref_name in IGNORE_STUDY:
                 continue
 
             group_key = '{}{}{}{}'.format(
                 iso_name,
                 control,
                 cp_name,
-                reference
+                ref_name
             )
             if plasma_type == 'VP':
                 dosage = row['dosage']
@@ -155,14 +165,14 @@ def gen_plasma_aggre_table(
                     iso_name,
                     control,
                     cp_name,
-                    reference,
+                    ref_name,
                     dosage
                 )
             groups[group_key].append(row)
 
         for _, r_list in groups.items():
             cp_name = r_list[0]['rx_name']
-            reference = r_list[0]['ref_name']
+            ref_name = r_list[0]['ref_name']
 
             all_fold = [
                 [r['fold']] * r['num_fold']
@@ -183,7 +193,7 @@ def gen_plasma_aggre_table(
                 'pattern': iso_name,
                 'Plasma': cp_name,
                 'num_fold': num_results,
-                'Reference': reference,
+                'ref_name': ref_name,
                 'Median': median_fold,
                 'S': num_s_fold,
                 'I': num_i_fold,
@@ -212,7 +222,7 @@ def convert_to_json(json_save_path, records):
             's_fold': r['S'],
             'i_fold': r['I'],
             'r_fold': r['R'],
-            'reference': r['Reference'],
+            'ref_name': r['ref_name'],
             'median': r['Median'],
         })
 

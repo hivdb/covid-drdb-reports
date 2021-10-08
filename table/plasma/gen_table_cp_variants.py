@@ -37,7 +37,7 @@ def gen_table_cp_variants(
     records = indiv_records + aggre_records
 
     records.sort(key=itemgetter(
-        'pattern', 'Plasma', 'Reference'))
+        'pattern', 'Plasma', 'ref_name'))
 
     dump_csv(csv_save_path, records)
 

@@ -1,4 +1,4 @@
-﻿pattern,var_name,median_fold,references,num_fold,S,I,R
+﻿pattern,var_name,median_fold,num_ref_name,num_fold,S,I,R
 Alpha,Alpha,1.4,55,2294,1789,398,90
 Beta,Beta,3.7,58,2417,917,1051,439
 Delta,Delta,3.1,13,444,207,182,55

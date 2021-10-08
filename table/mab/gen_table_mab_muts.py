@@ -61,7 +61,7 @@ def gen_table_mab_muts(
 
             cursor.execute(sql)
             for row in cursor.fetchall():
-                reference = row['ref_name']
+                ref_name = row['ref_name']
                 ab_name = row['ab_name']
                 ab_class = row['class']
 
@@ -77,7 +77,7 @@ def gen_table_mab_muts(
                     'class': ab_class or '',
                     # 'Resistance level': resist_name,
                     'fold': fold,
-                    'ref_name': reference
+                    'ref_name': ref_name
                 })
 
     records.sort(key=itemgetter(

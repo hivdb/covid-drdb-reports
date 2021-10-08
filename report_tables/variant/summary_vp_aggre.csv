@@ -1,4 +1,4 @@
-﻿pattern,domain,var_name,reference,fold_cmp,median,num_fold
+﻿pattern,domain,var_name,ref_name,fold_cmp,median,num_fold
 K417N,RBD,,Kuzmina21,=,1.2,10
 E484K,RBD,,Kuzmina21,=,3.7,10
 N501Y,RBD,,Kuzmina21,=,1.1,10

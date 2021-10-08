@@ -62,7 +62,7 @@ def process_record(variant, records):
         }
 
         num_studies = len(
-            set([r['Reference'].replace('*', '')
+            set([r['ref_name'].replace('*', '')
                 for r in rec_list]))
 
         aggre_list = [r for r in rec_list if 'Fold' in r.keys()]
@@ -82,7 +82,7 @@ def process_record(variant, records):
             pcnt_s = 0
 
         result['vp_studies'] = num_studies
-        result['vp_num_fold_results'] = num_fold_results
+        result['vp_num_fold'] = num_fold_results
         result['vp_s_fold'] = '{}%'.format(
             pcnt_s) if pcnt_s else 0
         result['vp_i_fold'] = '{}%'.format(

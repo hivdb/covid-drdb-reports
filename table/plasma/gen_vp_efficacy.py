@@ -40,7 +40,7 @@ def gen_vp_efficacy(
                 rec['efficacy'],
                 rec['design'],
             ),
-            'reference': rec['ref_name'],
+            'ref_name': rec['ref_name'],
         } for rec in rec_list]
 
         records.append({
