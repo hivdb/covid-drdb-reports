@@ -5,8 +5,7 @@ from preset import dump_csv
 from .common import gen_plasma_indiv_table
 from .common import gen_plasma_aggre_table
 from .common import convert_to_json
-from .preset import CP_FILTER
-from .preset import VARIANTS
+from variant.preset import KEY_VARIANTS
 from .preset import INDIVIDUAL_CP_SQL
 from .preset import AGGREGATED_CP_SQL
 from .common import record_modifier
@@ -19,8 +18,8 @@ def gen_table_cp_variants(
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,
-        VARIANTS,
-        CP_FILTER,
+        KEY_VARIANTS,
+        'rx_conv_plasma_wt_infect_view',
         INDIVIDUAL_CP_SQL,
         'CP',
         record_modifier=record_modifier
@@ -28,8 +27,8 @@ def gen_table_cp_variants(
 
     aggre_records = gen_plasma_aggre_table(
         conn,
-        VARIANTS,
-        CP_FILTER,
+        KEY_VARIANTS,
+        'rx_conv_plasma_wt_infect_view',
         AGGREGATED_CP_SQL,
         'CP',
         record_modifier=record_modifier

@@ -53,9 +53,6 @@ def gen_vp_summary(conn):
     cursor.execute(sql)
     records = cursor.fetchall()
 
-    num_fold_results = sum([r['num_fold'] for r in records])
-    num_ref_name = len(set([r['ref_name'] for r in records]))
-
     sql = SQL.format(
         susc_results_type='susc_results_aggr_view'
     )
@@ -63,14 +60,23 @@ def gen_vp_summary(conn):
     cursor.execute(sql)
     aggre_records = cursor.fetchall()
 
-    aggre_num_fold_results = sum([r['num_fold'] for r in aggre_records])
-    aggre_num_ref_study = len(set([r['ref_name'] for r in aggre_records]))
+    records += aggre_records
 
-    result = [{
-        'indiv_num_fold': num_fold_results,
-        'indiv_num_fold_ref_name': num_ref_name,
-        'aggre_num_fold': aggre_num_fold_results,
-        'aggre_num_fold_ref_name': aggre_num_ref_study,
-    }]
-    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp.csv'
-    dump_csv(save_path, result)
+    vaccine_species_group = defaultdict(list)
+    for rec in records:
+        vaccine = rec['vaccine_name']
+        species = rec['species']
+        vaccine_species_group[(vaccine, species)].append(rec)
+
+    vaccine_species_results = []
+    for (vaccine, species), rx_list in vaccine_species_group.items():
+        vaccine_species_results.append({
+            'vaccine': vaccine,
+            'num_ref_name': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'num_fold': sum([r['num_fold'] for r in rx_list]),
+            'species': species,
+        })
+    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_vaccine_species.csv'
+    dump_csv(save_path, vaccine_species_results)

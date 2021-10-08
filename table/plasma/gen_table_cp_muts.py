@@ -5,8 +5,7 @@ from preset import dump_csv
 from .common import gen_plasma_indiv_table
 from .common import gen_plasma_aggre_table
 from .common import convert_to_json
-from .preset import CP_FILTER
-from .preset import MUTATIONS
+from variant.preset import KEY_MUTATIONS
 from .preset import INDIVIDUAL_CP_SQL
 from .preset import AGGREGATED_CP_SQL
 
@@ -18,16 +17,16 @@ def gen_table_cp_muts(
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,
-        MUTATIONS,
-        CP_FILTER,
+        KEY_MUTATIONS,
+        'rx_conv_plasma_wt_infect_view',
         INDIVIDUAL_CP_SQL,
         'CP',
     )
 
     aggre_records = gen_plasma_aggre_table(
         conn,
-        MUTATIONS,
-        CP_FILTER,
+        KEY_MUTATIONS,
+        'rx_conv_plasma_wt_infect_view',
         AGGREGATED_CP_SQL,
         'CP',
     )

@@ -53,9 +53,6 @@ def gen_vp_summary(conn):
     cursor.execute(sql)
     records = cursor.fetchall()
 
-    num_fold_results = sum([r['num_fold'] for r in records])
-    num_ref_name = len(set([r['ref_name'] for r in records]))
-
     sql = SQL.format(
         susc_results_type='susc_results_aggr_view'
     )
@@ -63,14 +60,37 @@ def gen_vp_summary(conn):
     cursor.execute(sql)
     aggre_records = cursor.fetchall()
 
-    aggre_num_fold_results = sum([r['num_fold'] for r in aggre_records])
-    aggre_num_ref_study = len(set([r['ref_name'] for r in aggre_records]))
+    records += aggre_records
+    num_records = sum([r['num_fold'] for r in records])
 
-    result = [{
-        'indiv_num_fold': num_fold_results,
-        'indiv_num_fold_ref_name': num_ref_name,
-        'aggre_num_fold': aggre_num_fold_results,
-        'aggre_num_fold_ref_name': aggre_num_ref_study,
-    }]
-    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp.csv'
-    dump_csv(save_path, result)
+    timing_dosage_group = defaultdict(list)
+    for rec in records:
+        # timing = rec['timing']
+        timing = int(rec['timing'])
+        if timing < 2:
+            timing = '1'
+        elif timing < 4:
+            timing = '2-3'
+        elif timing < 7:
+            timing = '4-6'
+        else:
+            timing = '>6'
+        # dosage = rec['dosage']
+        dosage = ''
+        timing_dosage_group[(timing, dosage)].append(rec)
+
+    timing_results = []
+    for (timing, dosage), rx_list in timing_dosage_group.items():
+        timing_results.append({
+            'timing': timing,
+            'dosage': dosage,
+            'num_ref_name': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'num_fold': sum([r['num_fold'] for r in rx_list])
+        })
+
+    timing_results.sort(key=lambda x: x['timing'] if x['timing'] else 0)
+
+    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_timing.csv'
+    dump_csv(save_path, timing_results)

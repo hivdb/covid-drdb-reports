@@ -9,20 +9,6 @@ def gen_report(db_path):
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
 
-    from variant.preset import get_spike_ref
-    get_spike_ref(conn)
-
-    from variant.preset import get_grouped_variants
-    get_grouped_variants(conn)
-
-    from variant.preset import gen_iso_name2var_name
-    gen_iso_name2var_name(conn)
-
-    from variant.preset import load_isoname_mutations
-    load_isoname_mutations(conn)
-
-    # from plasma.preset import CP_VIEW
-    # print(CP_VIEW)
     from plasma.gen_table_cp_summary import gen_table_cp_summary
     from plasma.gen_table_vp_summary import gen_table_vp_summary
     from plasma.gen_table_cp_muts import gen_table_cp_muts

@@ -286,6 +286,13 @@
                 "variant": "Alpha",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.1",
+                "ref_name": "Fenwick21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "ref_name": "Hoffmann21"
             },
@@ -372,6 +379,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "ref_name": "Collier21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "2",
+                "ref_name": "Fenwick21"
             },
             {
                 "variant": "Alpha",
@@ -596,6 +610,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "1.1",
                 "ref_name": "Copin21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.2",
+                "ref_name": "Fenwick21"
             },
             {
                 "variant": "Alpha",
@@ -993,14 +1014,14 @@
                 "variant": "Alpha",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.9",
+                "fold": "0.7",
                 "ref_name": "Westendorf21"
             },
             {
                 "variant": "Alpha",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.7",
+                "fold": "0.9",
                 "ref_name": "Westendorf21"
             },
             {
@@ -1341,6 +1362,13 @@
                 "variant": "Beta",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.4",
+                "ref_name": "Fenwick21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "ref_name": "Hoffmann21"
             },
@@ -1441,6 +1469,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "3.5",
                 "ref_name": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Sotrovimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "2.5",
+                "ref_name": "Fenwick21"
             },
             {
                 "variant": "Beta",
@@ -1558,14 +1593,14 @@
                 "variant": "Beta",
                 "rx_name": "CV2-75",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "1.6",
+                "fold": "2.3",
                 "ref_name": "Stamatatos21"
             },
             {
                 "variant": "Beta",
                 "rx_name": "CV2-75",
                 "mab_class": "RBD Core Cluster II",
-                "fold": "2.3",
+                "fold": "1.6",
                 "ref_name": "Stamatatos21"
             },
             {
@@ -1663,14 +1698,14 @@
                 "variant": "Beta",
                 "rx_name": "CV30",
                 "mab_class": "RBM Class I",
-                "fold": "16",
+                "fold": "25",
                 "ref_name": "Stamatatos21"
             },
             {
                 "variant": "Beta",
                 "rx_name": "CV30",
                 "mab_class": "RBM Class I",
-                "fold": "25",
+                "fold": "16",
                 "ref_name": "Stamatatos21"
             },
             {
@@ -1700,6 +1735,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "59",
                 "ref_name": "Copin21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "70",
+                "ref_name": "Fenwick21"
             },
             {
                 "variant": "Beta",
@@ -2723,14 +2765,14 @@
                 "variant": "Epsilon",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.5",
+                "fold": "0.4",
                 "ref_name": "Westendorf21"
             },
             {
                 "variant": "Epsilon",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.4",
+                "fold": "0.5",
                 "ref_name": "Westendorf21"
             },
             {
@@ -3393,14 +3435,14 @@
                 "variant": "Gamma",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.6",
+                "fold": "0.4",
                 "ref_name": "Westendorf21"
             },
             {
                 "variant": "Gamma",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
-                "fold": "0.4",
+                "fold": "0.6",
                 "ref_name": "Westendorf21"
             },
             {

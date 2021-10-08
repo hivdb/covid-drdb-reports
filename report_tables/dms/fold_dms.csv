@@ -273,6 +273,13 @@ FDA21,Sotrovimab,356,R,0.8,=,0.044
 FDA21,Sotrovimab,357,I,1.0,=,0.041
 FDA21,Sotrovimab,358,V,0.7,=,0.077
 FDA21,Sotrovimab,359,G,0.8,=,0.053
+Fenwick21,Casirivimab,477,N,3.4,=,0.004
+Fenwick21,Casirivimab,493,K,2.4,=,0.628
+Fenwick21,Casirivimab,494,P,2.0,=,0.004
+Fenwick21,Imdevimab,439,K,27.9,=,0.004
+Fenwick21,Imdevimab,477,N,1.8,=,0.002
+Fenwick21,Imdevimab,493,K,1.5,=,0.002
+Fenwick21,Imdevimab,494,P,1.7,=,0.002
 Gottlieb21,Bamlanivimab,484,K,100.0,>,0.97
 Gottlieb21,Bamlanivimab,484,Q,100.0,>,0.987
 Gottlieb21,Bamlanivimab,490,S,100.0,>,0.858

@@ -37,7 +37,7 @@ GROUP BY
 """
 
 
-def gen_cp_summary(conn):
+def gen_cp_severity(conn):
     cursor = conn.cursor()
     sql = SQL.format(
         susc_results_type='susc_results_indiv_view'
@@ -46,9 +46,6 @@ def gen_cp_summary(conn):
     cursor.execute(sql)
     records = cursor.fetchall()
 
-    num_fold_results = sum([r['num_fold'] for r in records])
-    num_ref_name = len(set([r['ref_name'] for r in records]))
-
     sql = SQL.format(
         susc_results_type='susc_results_aggr_view'
     )
@@ -56,14 +53,21 @@ def gen_cp_summary(conn):
     cursor.execute(sql)
     aggre_records = cursor.fetchall()
 
-    aggre_num_fold_results = sum([r['num_fold'] for r in aggre_records])
-    aggre_num_ref_study = len(set([r['ref_name'] for r in aggre_records]))
+    records += aggre_records
 
-    result = [{
-        'indiv_num_fold': num_fold_results,
-        'indiv_num_fold_ref_name': num_ref_name,
-        'aggre_num_fold': aggre_num_fold_results,
-        'aggre_num_fold_ref_name': aggre_num_ref_study,
-    }]
-    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp.csv'
-    dump_csv(save_path, result)
+    severity_group = defaultdict(list)
+    for rec in records:
+        severity = rec['severity']
+        severity_group[severity].append(rec)
+
+    severiy_results = []
+    for severity, rx_list in severity_group.items():
+        severiy_results.append({
+            'severity': severity,
+            'num_ref_name': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'num_fold': sum([r['num_fold'] for r in rx_list])
+        })
+    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp_severity.csv'
+    dump_csv(save_path, severiy_results)

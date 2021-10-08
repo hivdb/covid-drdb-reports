@@ -5,8 +5,7 @@ from preset import dump_csv
 from .common import gen_plasma_indiv_table
 from .common import gen_plasma_aggre_table
 from .common import convert_to_json
-from .preset import VP_FILTER
-from .preset import MUTATIONS
+from variant.preset import KEY_MUTATIONS
 from .preset import INDIVIDUAL_VP_SQL
 from .preset import AGGREGATED_VP_SQL
 
@@ -18,16 +17,16 @@ def gen_table_vp_muts(
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,
-        MUTATIONS,
-        VP_FILTER,
+        KEY_MUTATIONS,
+        'rx_vacc_plasma',
         INDIVIDUAL_VP_SQL,
         plasma_type='VP',
     )
 
     aggre_records = gen_plasma_aggre_table(
         conn,
-        MUTATIONS,
-        VP_FILTER,
+        KEY_MUTATIONS,
+        'rx_vacc_plasma',
         AGGREGATED_VP_SQL,
         plasma_type='VP',
     )

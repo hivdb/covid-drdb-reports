@@ -37,7 +37,7 @@ GROUP BY
 """
 
 
-def gen_cp_summary(conn):
+def gen_cp_infection(conn):
     cursor = conn.cursor()
     sql = SQL.format(
         susc_results_type='susc_results_indiv_view'
@@ -46,9 +46,6 @@ def gen_cp_summary(conn):
     cursor.execute(sql)
     records = cursor.fetchall()
 
-    num_fold_results = sum([r['num_fold'] for r in records])
-    num_ref_name = len(set([r['ref_name'] for r in records]))
-
     sql = SQL.format(
         susc_results_type='susc_results_aggr_view'
     )
@@ -56,14 +53,27 @@ def gen_cp_summary(conn):
     cursor.execute(sql)
     aggre_records = cursor.fetchall()
 
-    aggre_num_fold_results = sum([r['num_fold'] for r in aggre_records])
-    aggre_num_ref_study = len(set([r['ref_name'] for r in aggre_records]))
+    records += aggre_records
 
-    result = [{
-        'indiv_num_fold': num_fold_results,
-        'indiv_num_fold_ref_name': num_ref_name,
-        'aggre_num_fold': aggre_num_fold_results,
-        'aggre_num_fold_ref_name': aggre_num_ref_study,
-    }]
-    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp.csv'
-    dump_csv(save_path, result)
+    infection_group = defaultdict(list)
+    for rec in records:
+        infection = rec['infection']
+        as_wildtype = rec['as_wildtype']
+        if as_wildtype:
+            infection = 'wt'
+        else:
+            infection = infection.split()[0]
+            infection = infection.split('/')[0]
+        infection_group[infection].append(rec)
+
+    infection_results = []
+    for infection, rx_list in infection_group.items():
+        infection_results.append({
+            'infection': infection,
+            'num_ref_name': len(set(
+                r['ref_name'] for r in rx_list
+            )),
+            'num_fold': sum([r['num_fold'] for r in rx_list])
+        })
+    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp_infection.csv'
+    dump_csv(save_path, infection_results)

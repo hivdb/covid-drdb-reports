@@ -1,8 +1,8 @@
 ﻿mab,synonyms,num_ref_name,num_fold,avail,target,class,pdb,institute,origin
-Casirivimab,REGN10933,29,312,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
-Imdevimab,REGN10987,29,311,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
+Casirivimab,REGN10933,30,336,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
+Imdevimab,REGN10987,30,335,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
 Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,22,279,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
-Sotrovimab,GSK4182136;S309;Vir-7831,15,197,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
+Sotrovimab,GSK4182136;S309;Vir-7831,16,205,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
 BRII-196,P2C-1F11,4,146,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
 Bamlanivimab,LY-CoV555;LY3819253,19,144,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
 Casirivimab/Imdevimab,,14,116,Phase 3,,,,Regeneron,Transgenic mice
@@ -116,6 +116,7 @@ REGN10986,,1,16,,,,,Regeneron,Transgenic mice
 REGN10984,,1,16,,,,,Regeneron,Transgenic mice
 REGN10964,,1,16,,,,,Regeneron,Transgenic mice
 REGN10954,,1,16,,,,,Regeneron,Transgenic mice
+P5C3,,1,16,,RBD,RBM Class I,,Lausanne University Hospital and University of Lausanne,CP
 COVA1-21,,2,15,,RBD,,,University of Amsterdam,CP
 COVA1-12,,2,15,,RBD,,,University of Amsterdam,CP
 S2X259,,4,13,,RBD,RBD Core Cluster II,7M7W,University of Washington,CP
@@ -159,6 +160,7 @@ COVOX-40,,1,9,,RBD,RBM Class II,7ND6,University of Oxford,CP
 COVOX-384,,1,9,,RBD,RBM Class I,7BEP,University of Oxford,CP
 COVA2-04,,3,9,,RBD,RBM Class I,7JMO,University of Amsterdam,CP
 COV2-2381,,1,9,,RBD,,,Vanderbilt University Medical Center,CP
+P5C3-LS,,1,8,,RBD,RBM Class I,,Lausanne University Hospital and University of Lausanne,CP
 ADG30,,4,7,,RBD,,,Adagio Therapeutics,CP
 ADG10,,4,7,,RBD,,,Adagio Therapeutics,CP
 '4-18,MAb-4-18;MAb4-18,1,7,,NTD,NTD,7L2E,,

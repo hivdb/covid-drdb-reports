@@ -5,8 +5,7 @@ from preset import dump_csv
 from .common import gen_plasma_indiv_table
 from .common import gen_plasma_aggre_table
 from .common import convert_to_json
-from .preset import VP_FILTER
-from .preset import VARIANTS
+from variant.preset import KEY_VARIANTS
 from .preset import INDIVIDUAL_VP_SQL
 from .preset import AGGREGATED_VP_SQL
 from .common import record_modifier
@@ -19,8 +18,8 @@ def gen_table_vp_variants(
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,
-        VARIANTS,
-        VP_FILTER,
+        KEY_VARIANTS,
+        'rx_vacc_plasma',
         INDIVIDUAL_VP_SQL,
         plasma_type='VP',
         record_modifier=record_modifier
@@ -28,8 +27,8 @@ def gen_table_vp_variants(
 
     aggre_records = gen_plasma_aggre_table(
         conn,
-        VARIANTS,
-        VP_FILTER,
+        KEY_VARIANTS,
+        'rx_vacc_plasma',
         AGGREGATED_VP_SQL,
         plasma_type='VP',
         record_modifier=record_modifier

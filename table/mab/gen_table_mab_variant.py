@@ -1,6 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import dump_json
+from variant.preset import KEY_VARIANTS
 from operator import itemgetter
 from collections import defaultdict
 from resistancy import RESISTANCE_FILTER
@@ -36,43 +37,7 @@ WHERE
 """
 
 
-ROWS = {
-    'Alpha': {
-        'filter': [
-            "mut.var_name = 'Alpha'"
-        ]
-    },
-    'Beta': {
-        'filter': [
-             "mut.var_name = 'Beta'"
-        ]
-    },
-    'Gamma': {
-        'filter': [
-            "mut.var_name = 'Gamma'"
-        ]
-    },
-    'Epsilon': {
-        'filter': [
-            "mut.var_name = 'Epsilon'"
-        ]
-    },
-    'Iota': {
-        'filter': [
-            "mut.var_name = 'Iota'"
-        ]
-    },
-    'Delta': {
-        'filter': [
-            "mut.var_name = 'Delta'"
-        ]
-    },
-    'Kappa': {
-        'filter': [
-            "mut.var_name = 'Kappa'"
-        ]
-    },
-}
+
 
 
 def gen_table_mab_variant(
@@ -86,7 +51,7 @@ def gen_table_mab_variant(
 
     uniq_record_list = set()
 
-    for row_name, attr_r in ROWS.items():
+    for row_name, attr_r in KEY_VARIANTS.items():
         for resist_name, resist_filter in RESISTANCE_FILTER.items():
             r_filter = attr_r.get('filter', [])
             filter = '\n    '.join(r_filter + resist_filter)

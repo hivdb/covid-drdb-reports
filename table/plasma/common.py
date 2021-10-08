@@ -9,81 +9,69 @@ from resistancy import is_partial_resistant
 from resistancy import is_resistant
 from resistancy import get_susceptibility
 from statistics import median
-from variant.preset import CONTROL_VARIANTS_SQL
 from .preset import IGNORE_STUDY
 
 
 def gen_plasma_indiv_table(
-        conn, row_filters, subrow_filters,
+        conn, mut_filters, rx_type_view,
         sql_template,
         plasma_type=None, record_modifier=None):
 
     cursor = conn.cursor()
 
     records = defaultdict(dict)
-    for iso_name, attr_r in row_filters.items():
-        for plasma_name, attr_subr in subrow_filters.items():
-            for resist_name, resist_filter in RESISTANCE_FILTER.items():
-                rxtype = attr_subr['rxtype']
+    for iso_name, attr_r in mut_filters.items():
+        for resist_name, resist_filter in RESISTANCE_FILTER.items():
 
-                r_filter = attr_r.get('filter', [])
-                filter = '\n    '.join(r_filter + resist_filter)
+            sql = sql_template.format(
+                rx_type=rx_type_view,
+            )
+            # print(sql)
 
-                if plasma_name.lower().startswith('cp'):
-                    filter += '\n   '
-                    filter += '\n   '.join(attr_subr.get('cp_filters', []))
+            cursor.execute(sql)
+            for row in cursor.fetchall():
+                cp_name = row['rx_name']
+                reference = row['ref_name']
 
-                sql = sql_template.format(
-                    rxtype=rxtype,
-                    filters=filter,
-                    control_variants=CONTROL_VARIANTS_SQL,
-                )
-                # print(sql)
+                if reference in IGNORE_STUDY:
+                    continue
 
-                cursor.execute(sql)
-                for row in cursor.fetchall():
-                    cp_name = row['rx_name']
-                    reference = row['ref_name']
+                num_results = row['num_fold']
+                fold = row['fold']
 
-                    if reference in IGNORE_STUDY:
-                        continue
+                key = '{}{}{}'.format(iso_name, cp_name, reference)
 
-                    num_results = row['num_fold']
-                    fold = row['fold']
+                if plasma_type == 'VP':
+                    dosage = row['dosage']
+                    key = '{}{}{}{}'.format(
+                        iso_name, cp_name, reference, dosage)
 
-                    key = '{}{}{}'.format(iso_name, cp_name, reference)
+                rec = records[key]
+                rec['pattern'] = iso_name
+                rec['Plasma'] = cp_name
+                rec['S'] = rec.get('S', 0)
+                rec['I'] = rec.get('I', 0)
+                rec['R'] = rec.get('R', 0)
 
-                    if plasma_type == 'VP':
-                        dosage = row['dosage']
-                        key = '{}{}{}{}'.format(
-                            iso_name, cp_name, reference, dosage)
+                if not rec.get('folds'):
+                    rec['folds'] = []
 
-                    rec = records[key]
-                    rec['pattern'] = iso_name
-                    rec['Plasma'] = cp_name
-                    rec['S'] = rec.get('S', 0)
-                    rec['I'] = rec.get('I', 0)
-                    rec['R'] = rec.get('R', 0)
+                fold_list = rec.get('folds')
+                if fold is not None:
+                    fold_list.append(fold)
 
-                    if not rec.get('folds'):
-                        rec['folds'] = []
+                if resist_name == 'susceptible':
+                    rec['S'] += num_results
+                elif resist_name == 'partial':
+                    rec['I'] += num_results
+                else:
+                    rec['R'] += num_results
 
-                    fold_list = rec.get('folds')
-                    if fold is not None:
-                        fold_list.append(fold)
+                rec['Reference'] = reference
+                rec['Aggregate'] = False
 
-                    if resist_name == 'susceptible':
-                        rec['S'] += num_results
-                    elif resist_name == 'partial':
-                        rec['I'] += num_results
-                    else:
-                        rec['R'] += num_results
-
-                    rec['Reference'] = reference
-                    rec['Aggregate'] = False
-
-                    if plasma_type == 'VP':
-                        rec['dosage'] = row['dosage']
+                if plasma_type == 'VP':
+                    rec['dosage'] = row['dosage']
 
     for rec in records.values():
         folds = rec.get('folds', [])
@@ -129,95 +117,84 @@ def record_modifier(record):
 
 
 def gen_plasma_aggre_table(
-        conn, row_filters, subrow_filters,
+        conn, mut_filters, rx_type_view,
         sql_template,
         plasma_type=None, record_modifier=None):
 
     cursor = conn.cursor()
 
     records = []
-    for row_name, attr_r in row_filters.items():
-        for subrow_name, attr_subr in subrow_filters.items():
-            rxtype = attr_subr['rxtype']
+    for row_name, attr_r in mut_filters.items():
 
-            r_filter = attr_r.get('filter', [])
-            filter = '\n    '.join(r_filter)
+        sql = sql_template.format(
+            rx_type=rx_type_view,
+        )
+        # print(sql)
 
-            if subrow_name.lower().startswith('cp'):
-                filter += '\n   '
-                filter += '\n   '.join(attr_subr.get('cp_filters', []))
+        cursor.execute(sql)
 
-            sql = sql_template.format(
-                rxtype=rxtype,
-                filters=filter,
-                control_variants=CONTROL_VARIANTS_SQL,
+        groups = defaultdict(list)
+        for row in cursor.fetchall():
+            iso_name = row_name
+            control = row['control']
+            cp_name = row['rx_name']
+            reference = row['ref_name']
+
+            if reference in IGNORE_STUDY:
+                continue
+
+            group_key = '{}{}{}{}'.format(
+                iso_name,
+                control,
+                cp_name,
+                reference
             )
-            # print(sql)
-
-            cursor.execute(sql)
-
-            groups = defaultdict(list)
-            for row in cursor.fetchall():
-                iso_name = row_name
-                control = row['control']
-                cp_name = row['rx_name']
-                reference = row['ref_name']
-
-                if reference in IGNORE_STUDY:
-                    continue
-
-                group_key = '{}{}{}{}'.format(
+            if plasma_type == 'VP':
+                dosage = row['dosage']
+                group_key = '{}{}{}{}{}'.format(
                     iso_name,
                     control,
                     cp_name,
-                    reference
+                    reference,
+                    dosage
                 )
-                if plasma_type == 'VP':
-                    dosage = row['dosage']
-                    group_key = '{}{}{}{}{}'.format(
-                        iso_name,
-                        control,
-                        cp_name,
-                        reference,
-                        dosage
-                    )
-                groups[group_key].append(row)
+            groups[group_key].append(row)
 
-            for _, r_list in groups.items():
-                cp_name = r_list[0]['rx_name']
-                reference = r_list[0]['ref_name']
+        for _, r_list in groups.items():
+            cp_name = r_list[0]['rx_name']
+            reference = r_list[0]['ref_name']
 
-                all_fold = [
-                    [r['fold']] * r['num_fold']
-                    for r in r_list if r['fold']]
-                all_fold = [r for j in all_fold for r in j]
-                s_fold = [r for r in all_fold if is_susc(r)]
-                i_fold = [
-                    r for r in all_fold if is_partial_resistant(r)]
-                r_fold = [r for r in all_fold if is_resistant(r)]
+            all_fold = [
+                [r['fold']] * r['num_fold']
+                for r in r_list if r['fold']]
+            all_fold = [r for j in all_fold for r in j]
+            s_fold = [r for r in all_fold if is_susc(r)]
+            i_fold = [
+                r for r in all_fold if is_partial_resistant(r)]
+            r_fold = [r for r in all_fold if is_resistant(r)]
 
-                num_s_fold = len(s_fold)
-                num_i_fold = len(i_fold)
-                num_r_fold = len(r_fold)
-                num_results = num_s_fold + num_i_fold + num_r_fold
-                median_fold = median(all_fold)
+            num_s_fold = len(s_fold)
+            num_i_fold = len(i_fold)
+            num_r_fold = len(r_fold)
+            num_results = num_s_fold + num_i_fold + num_r_fold
+            median_fold = median(all_fold)
 
-                rec = {
-                    'pattern': iso_name,
-                    'Plasma': cp_name,
-                    'num_fold': num_results,
-                    'Reference': reference,
-                    'Median': median_fold,
-                    'S': num_s_fold,
-                    'I': num_i_fold,
-                    'R': num_r_fold,
-                    'Aggregate': True,
-                }
+            rec = {
+                'pattern': iso_name,
+                'Plasma': cp_name,
+                'num_fold': num_results,
+                'Reference': reference,
+                'Median': median_fold,
+                'S': num_s_fold,
+                'I': num_i_fold,
+                'R': num_r_fold,
+                'Aggregate': True,
+            }
 
-                if plasma_type == 'VP':
-                    rec['dosage'] = r_list[0]['dosage']
+            if plasma_type == 'VP':
+                rec['dosage'] = r_list[0]['dosage']
 
-                records.append(rec)
+            records.append(rec)
 
     records = apply_modifier(records, record_modifier)
 

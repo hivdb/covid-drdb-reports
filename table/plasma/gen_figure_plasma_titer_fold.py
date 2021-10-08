@@ -187,7 +187,7 @@ INFECTION = [
 
 def gen_figure_plasma_titer_fold(
         conn,
-        save_path=DATA_FILE_PATH / 'figure_plasma_titer_fold.csv'):
+        save_path=DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_fold.csv'):
     sql_tmpl = " UNION ALL ".join([
         CP_TITER_FOLD_VARIANT_SQL,
         VP_TITER_FOLD_VARIANT_SQL,
@@ -257,4 +257,4 @@ def gen_figure_plasma_titer_fold(
         })
 
     dump_csv(
-        DATA_FILE_PATH / 'figure_plasma_titer_fold_points.csv', indiv_records)
+        DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_fold_points.csv', indiv_records)

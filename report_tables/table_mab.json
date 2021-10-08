@@ -4,7 +4,7 @@
         "cas": {
             "fold": "1",
             "fold_cmp": "",
-            "num": 13
+            "num": 14
         },
         "ete": {
             "fold": "10",
@@ -29,12 +29,12 @@
         "imd": {
             "fold": "0.7",
             "fold_cmp": "",
-            "num": 13
+            "num": 14
         },
         "sot": {
             "fold": "3*",
             "fold_cmp": "",
-            "num": 11
+            "num": 12
         },
         "reg": {
             "fold": "1.4",
@@ -99,9 +99,9 @@
     {
         "variant": "Beta",
         "cas": {
-            "fold": "76",
+            "fold": "73",
             "fold_cmp": "",
-            "num": 17
+            "num": 18
         },
         "ete": {
             "fold": "100",
@@ -124,14 +124,14 @@
             "num": 4
         },
         "imd": {
-            "fold": "0.9",
+            "fold": "0.7",
             "fold_cmp": "",
-            "num": 16
+            "num": 17
         },
         "sot": {
             "fold": "1",
             "fold_cmp": "",
-            "num": 10
+            "num": 11
         },
         "reg": {
             "fold": "27",
@@ -1058,7 +1058,7 @@
         "cas": {
             "fold": "0.8",
             "fold_cmp": "",
-            "num": 4
+            "num": 5
         },
         "ete": {
             "fold": "0.4",
@@ -1079,7 +1079,7 @@
         "imd": {
             "fold": "28",
             "fold_cmp": "",
-            "num": 5
+            "num": 6
         },
         "sot": {
             "fold": "1",
@@ -1299,9 +1299,9 @@
     {
         "variant": "S494P",
         "cas": {
-            "fold": "4.8",
+            "fold": "3.5",
             "fold_cmp": "",
-            "num": 3
+            "num": 4
         },
         "ete": {
             "fold": "0.6",
@@ -1320,9 +1320,9 @@
             "fold": "-"
         },
         "imd": {
-            "fold": "1",
+            "fold": "1.2",
             "fold_cmp": "",
-            "num": 2
+            "num": 3
         },
         "sot": {
             "fold": "2",

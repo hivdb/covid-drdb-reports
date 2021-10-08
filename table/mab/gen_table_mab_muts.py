@@ -1,6 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import dump_json
+from variant.preset import KEY_MUTATIONS
 
 from operator import itemgetter
 from collections import defaultdict
@@ -36,104 +37,6 @@ WHERE
     {filters}
 """
 
-ROWS = {
-    'N501Y': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'N501Y'"
-        ]
-    },
-    '∆69/70': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name LIKE '%69-70∆'"
-        ]
-    },
-    '∆69/70 + N501Y': {
-        'iso_type': 'isolate_mutations_combo_s_mut_view',
-        'filter': [
-            "mut.pattern LIKE '%69-70∆+N501Y'"
-        ]
-    },
-    '∆69/70 + N501Y + A570D': {
-        'iso_type': 'isolate_mutations_combo_s_mut_view',
-        'filter': [
-            "mut.pattern LIKE '%69-70∆+N501Y+A570D'"
-        ]
-    },
-    '∆69/70 + N501Y + Y453F': {
-        'iso_type': 'isolate_mutations_combo_s_mut_view',
-        'filter': [
-            "mut.pattern LIKE '%69-70∆+N501Y+Y453F'"
-        ]
-    },
-    '∆144': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name LIKE '%144∆'"
-        ]
-    },
-    'E484K': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'E484K'"
-        ]
-    },
-    'Y453F': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'Y453F'"
-        ]
-    },
-    'L452R': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'L452R'"
-        ]
-    },
-    'E484K + N501Y': {
-        'iso_type': 'isolate_mutations_combo_s_mut_view',
-        'filter': [
-            "mut.pattern = 'E484K+N501Y'"
-        ]
-    },
-    'K417N': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'K417N'"
-        ]
-    },
-    'F490S': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'F490S'"
-        ]
-    },
-    'S494P': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'S494P'"
-        ]
-    },
-    'K417N + E484K + N501Y': {
-        'iso_type': 'isolate_mutations_combo_s_mut_view',
-        'filter': [
-            "mut.pattern = 'K417N+E484K+N501Y'"
-        ]
-    },
-    'N439K': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'N439K'"
-        ]
-    },
-    'T478K': {
-        'iso_type': 'isolate_mutations_single_s_mut_view',
-        'filter': [
-            "mut.single_mut_name = 'T478K'"
-        ]
-    },
-}
 
 
 def gen_table_mab_muts(
@@ -144,7 +47,7 @@ def gen_table_mab_muts(
     cursor = conn.cursor()
 
     records = []
-    for row_name, attr_r in ROWS.items():
+    for row_name, attr_r in KEY_MUTATIONS.items():
         for resist_name, resist_filter in RESISTANCE_FILTER.items():
             iso_type = attr_r.get('iso_type')
 
