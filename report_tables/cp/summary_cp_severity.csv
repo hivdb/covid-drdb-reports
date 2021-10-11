@@ -1,7 +1,8 @@
 ﻿severity,num_ref_name,num_fold
-,57,4769
-Mild,22,1300
-Hospitalized,15,913
-Severe,10,249
+,63,7832
+Mild,25,1651
+Hospitalized,17,1153
+Severe,12,273
 Asymptomatic,3,29
 Moderate,6,401
+Non-Hospitalized,2,52

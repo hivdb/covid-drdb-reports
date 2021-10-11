@@ -1,25 +1,25 @@
 ﻿vaccine,num_ref_name,num_fold,species
-BNT162b2,77,9657,Human
 AZD1222,15,1527,Human
+AZD1222 + AZD2816,1,108,Human
 AZD1222 + BNT162b2,3,258,Human
-Ad26.COV2.S,1,48,Macaque
+AZD2816,1,30,Human
 Ad26.COV2.S,7,780,Human
+Ad26.COV2.S,1,48,Macaque
 BBIBP-CorV,2,111,Human
 BBV152,5,449,Human
+BBV154,1,40,Hamster
+BBV154,1,30,Macaque
+BBV154,1,50,Mouse
+BNT162b2,82,10651,Human
 BNT162b2,1,12,Macaque
 BNT162b2,1,19,Mouse
-BBV154,1,40,Hamster
-BBV154,1,50,Mouse
-BBV154,1,30,Macaque
 CoronaVac,8,1607,Human
-mRNA-1273,30,3904,Human
 MVC-COV1901,1,270,Human
-NVX-CoV2373,2,148,Human
-Sputnik V,3,464,Human
-ZF2001,2,56,Human
-mRNA-1273,1,144,Macaque
-AZD1222 + AZD2816,1,108,Human
-AZD2816,1,30,Human
 MVC-COV1901,1,72,Mouse
-mRNA-1273 + mRNA-1273.351,1,40,Human
+NVX-CoV2373,2,148,Human
+Sputnik V,3,408,Human
+ZF2001,2,56,Human
 mRNA,1,210,Human
+mRNA-1273,30,3904,Human
+mRNA-1273,1,144,Macaque
+mRNA-1273 + mRNA-1273.351,1,40,Human

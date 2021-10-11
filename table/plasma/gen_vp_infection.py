@@ -12,7 +12,7 @@ SELECT
     SUM(s.cumulative_count) as num_fold
 FROM
     susc_results as s,
-    rx_conv_plasma_infect_var_view as rx
+    rx_vacc_plasma_infect_var_view as rx
 WHERE
     s.ref_name = rx.ref_name
     AND
@@ -27,7 +27,7 @@ GROUP BY
 """
 
 
-def gen_cp_infection(conn):
+def gen_vp_infection(conn):
     cursor = conn.cursor()
 
     cursor.execute(SQL)
@@ -44,7 +44,7 @@ def gen_cp_infection(conn):
             infection_group['infected'].append(rec)
             infection_group[infection].append(rec)
         else:
-            infection_group['unknown'].append(rec)
+            infection_group['uninfected'].append(rec)
 
     infection_results = []
     for infection, rx_list in infection_group.items():
@@ -55,5 +55,5 @@ def gen_cp_infection(conn):
             )),
             'num_fold': sum([r['num_fold'] for r in rx_list])
         })
-    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp_infection.csv'
+    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_infection.csv'
     dump_csv(save_path, infection_results)

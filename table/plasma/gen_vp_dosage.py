@@ -7,11 +7,11 @@ SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
-    rx.severity,
+    rx.dosage,
     SUM(s.cumulative_count) as num_fold
 FROM
     susc_results as s,
-    rx_conv_plasma as rx
+    rx_vacc_plasma as rx
 WHERE
     s.ref_name = rx.ref_name
     AND
@@ -26,24 +26,25 @@ GROUP BY
 """
 
 
-def gen_cp_severity(conn):
+def gen_vp_dosage(conn):
     cursor = conn.cursor()
+
     cursor.execute(SQL)
     records = cursor.fetchall()
 
-    severity_group = defaultdict(list)
+    dosage_group = defaultdict(list)
     for rec in records:
-        severity = rec['severity']
-        severity_group[severity].append(rec)
+        dosage = rec['dosage']
+        dosage_group[dosage].append(rec)
 
-    severiy_results = []
-    for severity, rx_list in severity_group.items():
-        severiy_results.append({
-            'severity': severity,
+    results = []
+    for dosage, rx_list in dosage_group.items():
+        results.append({
+            'dosage': dosage,
             'num_ref_name': len(set(
                 r['ref_name'] for r in rx_list
             )),
             'num_fold': sum([r['num_fold'] for r in rx_list])
         })
-    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp_severity.csv'
-    dump_csv(save_path, severiy_results)
+    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_dosage.csv'
+    dump_csv(save_path, results)

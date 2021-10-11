@@ -7,28 +7,17 @@ SQL = """
 SELECT
     s.ref_name,
     s.rx_name,
-    s.iso_name,
-    var.as_wildtype,
     rx.timing,
-    rx.severity,
-    rx.infected_iso_name,
-    iso.var_name AS infection,
     SUM(s.cumulative_count) as num_fold
 FROM
-    {susc_results_type} as s,
-    rx_conv_plasma as rx,
-    isolates as iso,
-    variants as var
+    susc_results as s,
+    rx_conv_plasma as rx
 WHERE
     s.ref_name = rx.ref_name
     AND
     s.rx_name = rx.rx_name
     AND
-    s.iso_name = iso.iso_name
-    AND
     s.fold IS NOT NULL
-    AND
-    iso.var_name = var.var_name
 GROUP BY
     s.ref_name,
     s.rx_name,
@@ -39,21 +28,9 @@ GROUP BY
 
 def gen_cp_timing(conn):
     cursor = conn.cursor()
-    sql = SQL.format(
-        susc_results_type='susc_results_indiv_view'
-    )
 
-    cursor.execute(sql)
+    cursor.execute(SQL)
     records = cursor.fetchall()
-
-    sql = SQL.format(
-        susc_results_type='susc_results_aggr_view'
-    )
-
-    cursor.execute(sql)
-    aggre_records = cursor.fetchall()
-
-    records += aggre_records
 
     timing_group = defaultdict(list)
     for rec in records:
