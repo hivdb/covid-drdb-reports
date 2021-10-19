@@ -110,7 +110,7 @@ SELECT
     ab.institute,
     ab.origin
 FROM
-    rx_dms AS r,
+    rx_antibodies r,
     ({single_mab_info_sql}) AS ab
 ON r.ab_name = ab.ab_name
 GROUP BY r.ref_name, r.rx_name
@@ -222,7 +222,7 @@ FROM
         b.institute,
         b.origin
     FROM
-        rx_dms a,
+        rx_antibodies a,
         antibodies b
     ON
         a.ab_name = b.ab_name
@@ -233,7 +233,7 @@ FROM
         b.institute,
         b.origin
     FROM
-        rx_dms a,
+        rx_antibodies a,
         antibodies b
     ON
         a.ab_name = b.ab_name

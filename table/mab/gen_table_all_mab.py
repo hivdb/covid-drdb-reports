@@ -18,7 +18,7 @@ SELECT
     rx.origin origin,
     iso.var_name
 FROM
-    susc_results s,
+    susc_results_view s,
     rx_mab_view rx,
     isolates iso
 WHERE

@@ -52,7 +52,7 @@ SELECT
     dms.ace2_contact
 FROM
     dms_escape_results as d,
-    rx_dms as rx,
+    rx_antibodies rx,
     dms_ace2_binding as dms
 ON
     d.ref_name = rx.ref_name AND

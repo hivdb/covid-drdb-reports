@@ -13,7 +13,7 @@ SELECT
     s.cumulative_count as num_fold,
     iso.*
 FROM
-    susc_results s,
+    susc_results_view s,
     rx_conv_plasma r,
     {iso_type} iso
 WHERE

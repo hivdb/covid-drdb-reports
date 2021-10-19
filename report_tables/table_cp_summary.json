@@ -13,13 +13,13 @@
     {
         "variant": "Beta",
         "cp_studies": 57,
-        "cp_num_fold": 1908,
-        "cp_s_fold": "33%",
-        "cp_i_fold": "40%",
+        "cp_num_fold": 1906,
+        "cp_s_fold": "34%",
+        "cp_i_fold": "39%",
         "cp_r_fold": "27%",
-        "cp_num_s_fold": 628,
-        "cp_num_i_fold": 767,
-        "cp_num_r_fold": 513
+        "cp_num_s_fold": 644,
+        "cp_num_i_fold": 746,
+        "cp_num_r_fold": 516
     },
     {
         "variant": "Gamma",
@@ -47,12 +47,12 @@
         "variant": "Iota",
         "cp_studies": 5,
         "cp_num_fold": 81,
-        "cp_s_fold": "49%",
-        "cp_i_fold": "46%",
-        "cp_r_fold": "5%",
-        "cp_num_s_fold": 40,
-        "cp_num_i_fold": 37,
-        "cp_num_r_fold": 4
+        "cp_s_fold": "63%",
+        "cp_i_fold": "30%",
+        "cp_r_fold": "7%",
+        "cp_num_s_fold": 51,
+        "cp_num_i_fold": 24,
+        "cp_num_r_fold": 6
     },
     {
         "variant": "Epsilon",

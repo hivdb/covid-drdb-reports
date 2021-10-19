@@ -1,76 +1,19 @@
 ﻿variant,rx_name,level,month,infection,num_study,num_result
-B,CP,low,1,infected,23,78
-B,CP,middle,1,infected,23,52
-B,CP,high,1,infected,23,496
-B,CP,low,>=2,infected,14,60
-B,CP,middle,>=2,infected,14,51
-B,CP,high,>=2,infected,14,429
-B,CoronaVac,low,>=2,naive,2,43
-B,CoronaVac,middle,>=2,naive,2,93
-B,CoronaVac,high,>=2,naive,2,180
-B,CoronaVac,low,1,naive,2,22
-B,CoronaVac,middle,1,naive,2,20
-B,CoronaVac,high,1,naive,2,20
-B,BNT162b2,low,>=2,naive,3,1
-B,BNT162b2,middle,>=2,naive,3,1
-B,BNT162b2,high,>=2,naive,3,125
-B,BNT162b2,low,1,naive,19,9
-B,BNT162b2,middle,1,naive,19,21
-B,BNT162b2,high,1,naive,19,498
-B,BNT162b2,low,1,infected,4,0
-B,BNT162b2,middle,1,infected,4,1
-B,BNT162b2,high,1,infected,4,67
-B,AZD1222,low,1,naive,7,8
-B,AZD1222,middle,1,naive,7,14
-B,AZD1222,high,1,naive,7,197
-B,AZD1222,low,>=2,naive,1,0
-B,AZD1222,middle,>=2,naive,1,0
-B,AZD1222,high,>=2,naive,1,5
-B,AZD1222 + BNT162b2,low,1,naive,2,0
-B,AZD1222 + BNT162b2,middle,1,naive,2,1
-B,AZD1222 + BNT162b2,high,1,naive,2,64
-B,Sputnik V,low,>=2,naive,2,7
-B,Sputnik V,middle,>=2,naive,2,4
-B,Sputnik V,high,>=2,naive,2,69
-B,Sputnik V,low,1,naive,2,0
-B,Sputnik V,middle,1,naive,2,4
-B,Sputnik V,high,1,naive,2,73
-B,ZF2001,low,1,naive,1,0
-B,ZF2001,middle,1,naive,1,5
-B,ZF2001,high,1,naive,1,7
-B,BBIBP-CorV,low,1,naive,2,10
-B,BBIBP-CorV,middle,1,naive,2,17
-B,BBIBP-CorV,high,1,naive,2,10
-B,MVC-COV1901,low,1,naive,1,0
-B,MVC-COV1901,middle,1,naive,1,0
-B,MVC-COV1901,high,1,naive,1,45
-B,mRNA-1273,low,1,naive,4,3
-B,mRNA-1273,middle,1,naive,4,4
-B,mRNA-1273,high,1,naive,4,26
-B,mRNA-1273,low,>=2,naive,1,0
-B,mRNA-1273,middle,>=2,naive,1,1
-B,mRNA-1273,high,>=2,naive,1,32
-B,mRNA-1273,low,1,infected,1,0
-B,mRNA-1273,middle,1,infected,1,0
-B,mRNA-1273,high,1,infected,1,3
-B,AZD1222 + AZD2816,low,>=2,naive,1,0
-B,AZD1222 + AZD2816,middle,>=2,naive,1,0
-B,AZD1222 + AZD2816,high,>=2,naive,1,6
-B.1,CP,low,1,infected,37,102
-B.1,CP,middle,1,infected,37,121
-B.1,CP,high,1,infected,37,640
-B.1,CP,low,>=2,infected,25,59
-B.1,CP,middle,>=2,infected,25,68
-B.1,CP,high,>=2,infected,25,376
-B.1,mRNA-1273,low,1,naive,19,7
-B.1,mRNA-1273,middle,1,naive,19,6
-B.1,mRNA-1273,high,1,naive,19,369
+B.1,CP,low,1,infected,38,103
+B.1,CP,middle,1,infected,38,121
+B.1,CP,high,1,infected,38,662
+B.1,CP,low,>=2,infected,26,59
+B.1,CP,middle,>=2,infected,26,68
+B.1,CP,high,>=2,infected,26,394
+B.1,mRNA-1273,low,1,naive,20,7
+B.1,mRNA-1273,middle,1,naive,20,6
+B.1,mRNA-1273,high,1,naive,20,381
 B.1,mRNA-1273,low,>=2,naive,3,0
 B.1,mRNA-1273,middle,>=2,naive,3,0
 B.1,mRNA-1273,high,>=2,naive,3,34
-B.1,BNT162b2,low,1,naive,35,22
-B.1,BNT162b2,middle,1,naive,35,50
-B.1,BNT162b2,high,1,naive,35,623
+B.1,BNT162b2,low,1,naive,36,22
+B.1,BNT162b2,middle,1,naive,36,50
+B.1,BNT162b2,high,1,naive,36,633
 B.1,BNT162b2,low,>=2,naive,5,2
 B.1,BNT162b2,middle,>=2,naive,5,4
 B.1,BNT162b2,high,>=2,naive,5,117
@@ -125,9 +68,63 @@ B.1,BBV152,high,1,naive,2,41
 B.1,NVX-CoV2373,low,1,naive,2,0
 B.1,NVX-CoV2373,middle,1,naive,2,0
 B.1,NVX-CoV2373,high,1,naive,2,51
-Alpha,CP,low,1,infected,28,124
-Alpha,CP,middle,1,infected,28,112
-Alpha,CP,high,1,infected,28,456
+B,CP,low,1,infected,23,79
+B,CP,middle,1,infected,23,53
+B,CP,high,1,infected,23,507
+B,CP,low,>=2,infected,14,60
+B,CP,middle,>=2,infected,14,51
+B,CP,high,>=2,infected,14,429
+B,CoronaVac,low,>=2,naive,2,43
+B,CoronaVac,middle,>=2,naive,2,93
+B,CoronaVac,high,>=2,naive,2,180
+B,CoronaVac,low,1,naive,2,22
+B,CoronaVac,middle,1,naive,2,20
+B,CoronaVac,high,1,naive,2,20
+B,BNT162b2,low,>=2,naive,3,1
+B,BNT162b2,middle,>=2,naive,3,1
+B,BNT162b2,high,>=2,naive,3,125
+B,BNT162b2,low,1,naive,18,9
+B,BNT162b2,middle,1,naive,18,21
+B,BNT162b2,high,1,naive,18,492
+B,BNT162b2,low,1,infected,4,0
+B,BNT162b2,middle,1,infected,4,1
+B,BNT162b2,high,1,infected,4,67
+B,AZD1222,low,1,naive,7,8
+B,AZD1222,middle,1,naive,7,14
+B,AZD1222,high,1,naive,7,197
+B,AZD1222,low,>=2,naive,1,0
+B,AZD1222,middle,>=2,naive,1,0
+B,AZD1222,high,>=2,naive,1,5
+B,AZD1222 + BNT162b2,low,1,naive,2,0
+B,AZD1222 + BNT162b2,middle,1,naive,2,1
+B,AZD1222 + BNT162b2,high,1,naive,2,64
+B,Sputnik V,low,>=2,naive,2,7
+B,Sputnik V,middle,>=2,naive,2,4
+B,Sputnik V,high,>=2,naive,2,69
+B,Sputnik V,low,1,naive,2,0
+B,Sputnik V,middle,1,naive,2,4
+B,Sputnik V,high,1,naive,2,73
+B,ZF2001,low,1,naive,1,0
+B,ZF2001,middle,1,naive,1,5
+B,ZF2001,high,1,naive,1,7
+B,BBIBP-CorV,low,1,naive,2,10
+B,BBIBP-CorV,middle,1,naive,2,17
+B,BBIBP-CorV,high,1,naive,2,10
+B,MVC-COV1901,low,1,naive,1,0
+B,MVC-COV1901,middle,1,naive,1,0
+B,MVC-COV1901,high,1,naive,1,45
+B,mRNA-1273,low,1,naive,3,3
+B,mRNA-1273,middle,1,naive,3,4
+B,mRNA-1273,high,1,naive,3,23
+B,mRNA-1273,low,>=2,naive,1,0
+B,mRNA-1273,middle,>=2,naive,1,1
+B,mRNA-1273,high,>=2,naive,1,32
+B,mRNA-1273,low,1,infected,1,0
+B,mRNA-1273,middle,1,infected,1,0
+B,mRNA-1273,high,1,infected,1,3
+Alpha,CP,low,1,infected,29,125
+Alpha,CP,middle,1,infected,29,114
+Alpha,CP,high,1,infected,29,474
 Alpha,CP,low,>=2,infected,21,77
 Alpha,CP,middle,>=2,infected,21,62
 Alpha,CP,high,>=2,infected,21,524
@@ -191,12 +188,12 @@ Alpha,NVX-CoV2373,high,1,naive,1,24
 Alpha,BBIBP-CorV,low,1,naive,1,5
 Alpha,BBIBP-CorV,middle,1,naive,1,14
 Alpha,BBIBP-CorV,high,1,naive,1,6
-Beta,CP,low,1,infected,30,324
-Beta,CP,middle,1,infected,30,147
-Beta,CP,high,1,infected,30,412
-Beta,CP,low,>=2,infected,17,196
-Beta,CP,middle,>=2,infected,17,118
-Beta,CP,high,>=2,infected,17,338
+Beta,CP,low,1,infected,30,328
+Beta,CP,middle,1,infected,30,145
+Beta,CP,high,1,infected,30,396
+Beta,CP,low,>=2,infected,18,198
+Beta,CP,middle,>=2,infected,18,120
+Beta,CP,high,>=2,infected,18,369
 Beta,mRNA-1273,low,1,naive,14,37
 Beta,mRNA-1273,middle,1,naive,14,24
 Beta,mRNA-1273,high,1,naive,14,123
@@ -251,9 +248,6 @@ Beta,MVC-COV1901,high,1,naive,1,7
 Beta,NVX-CoV2373,low,1,naive,1,6
 Beta,NVX-CoV2373,middle,1,naive,1,13
 Beta,NVX-CoV2373,high,1,naive,1,4
-Beta,AZD1222 + AZD2816,low,>=2,naive,1,0
-Beta,AZD1222 + AZD2816,middle,>=2,naive,1,0
-Beta,AZD1222 + AZD2816,high,>=2,naive,1,6
 Beta,CoronaVac,low,1,naive,1,20
 Beta,CoronaVac,middle,1,naive,1,5
 Beta,CoronaVac,high,1,naive,1,0
@@ -275,9 +269,9 @@ Gamma,mRNA-1273,high,>=2,naive,0,0
 Gamma,mRNA-1273,low,1,infected,1,5
 Gamma,mRNA-1273,middle,1,infected,1,6
 Gamma,mRNA-1273,high,1,infected,1,4
-Gamma,BNT162b2,low,1,naive,13,12
-Gamma,BNT162b2,middle,1,naive,13,20
-Gamma,BNT162b2,high,1,naive,13,173
+Gamma,BNT162b2,low,1,naive,14,21
+Gamma,BNT162b2,middle,1,naive,14,42
+Gamma,BNT162b2,high,1,naive,14,192
 Gamma,BNT162b2,low,>=2,naive,1,1
 Gamma,BNT162b2,middle,>=2,naive,1,1
 Gamma,BNT162b2,high,>=2,naive,1,56
@@ -308,6 +302,57 @@ Gamma,Sputnik V,high,>=2,naive,2,16
 Gamma,Sputnik V,low,1,naive,1,21
 Gamma,Sputnik V,middle,1,naive,1,4
 Gamma,Sputnik V,high,1,naive,1,10
+Iota,CP,low,1,infected,3,4
+Iota,CP,middle,1,infected,3,6
+Iota,CP,high,1,infected,3,44
+Iota,CP,low,>=2,infected,1,7
+Iota,CP,middle,>=2,infected,1,2
+Iota,CP,high,>=2,infected,1,3
+Iota,mRNA-1273,low,1,naive,5,4
+Iota,mRNA-1273,middle,1,naive,5,9
+Iota,mRNA-1273,high,1,naive,5,40
+Iota,mRNA-1273,low,>=2,naive,1,0
+Iota,mRNA-1273,middle,>=2,naive,1,0
+Iota,mRNA-1273,high,>=2,naive,1,5
+Iota,mRNA-1273,low,1,infected,1,3
+Iota,mRNA-1273,middle,1,infected,1,2
+Iota,mRNA-1273,high,1,infected,1,10
+Iota,BNT162b2,low,1,naive,4,0
+Iota,BNT162b2,middle,1,naive,4,0
+Iota,BNT162b2,high,1,naive,4,45
+Iota,BNT162b2,low,>=2,naive,1,0
+Iota,BNT162b2,middle,>=2,naive,1,0
+Iota,BNT162b2,high,>=2,naive,1,3
+A,CP,low,1,infected,8,24
+A,CP,middle,1,infected,8,11
+A,CP,high,1,infected,8,98
+A,CP,low,>=2,infected,5,19
+A,CP,middle,>=2,infected,5,7
+A,CP,high,>=2,infected,5,93
+A,mRNA-1273,low,1,naive,7,3
+A,mRNA-1273,middle,1,naive,7,5
+A,mRNA-1273,high,1,naive,7,71
+A,mRNA-1273,low,>=2,naive,1,0
+A,mRNA-1273,middle,>=2,naive,1,0
+A,mRNA-1273,high,>=2,naive,1,26
+A,mRNA-1273,low,1,infected,1,1
+A,mRNA-1273,middle,1,infected,1,2
+A,mRNA-1273,high,1,infected,1,12
+A,BNT162b2,low,1,naive,15,2
+A,BNT162b2,middle,1,naive,15,14
+A,BNT162b2,high,1,naive,15,324
+A,BNT162b2,low,>=2,naive,1,0
+A,BNT162b2,middle,>=2,naive,1,0
+A,BNT162b2,high,>=2,naive,1,1
+A,BNT162b2,low,1,infected,2,0
+A,BNT162b2,middle,1,infected,2,0
+A,BNT162b2,high,1,infected,2,18
+A,Ad26.COV2.S,low,1,naive,1,1
+A,Ad26.COV2.S,middle,1,naive,1,0
+A,Ad26.COV2.S,high,1,naive,1,9
+A,Ad26.COV2.S,low,>=2,naive,1,1
+A,Ad26.COV2.S,middle,>=2,naive,1,0
+A,Ad26.COV2.S,high,>=2,naive,1,7
 Delta,CP,low,1,infected,5,28
 Delta,CP,middle,1,infected,5,13
 Delta,CP,high,1,infected,5,90
@@ -329,9 +374,6 @@ Delta,Ad26.COV2.S,high,>=2,naive,3,10
 Delta,Ad26.COV2.S,low,1,infected,1,2
 Delta,Ad26.COV2.S,middle,1,infected,1,1
 Delta,Ad26.COV2.S,high,1,infected,1,36
-Delta,AZD1222 + BNT162b2,low,1,naive,1,1
-Delta,AZD1222 + BNT162b2,middle,1,naive,1,1
-Delta,AZD1222 + BNT162b2,high,1,naive,1,9
 Delta,AZD1222,low,1,naive,3,41
 Delta,AZD1222,middle,1,naive,3,12
 Delta,AZD1222,high,1,naive,3,15
@@ -341,6 +383,9 @@ Delta,AZD1222,high,>=2,naive,2,17
 Delta,AZD1222,low,1,infected,1,0
 Delta,AZD1222,middle,1,infected,1,0
 Delta,AZD1222,high,1,infected,1,19
+Delta,AZD1222 + BNT162b2,low,1,naive,1,1
+Delta,AZD1222 + BNT162b2,middle,1,naive,1,1
+Delta,AZD1222 + BNT162b2,high,1,naive,1,9
 Delta,mRNA-1273,low,1,naive,4,8
 Delta,mRNA-1273,middle,1,naive,4,9
 Delta,mRNA-1273,high,1,naive,4,17
@@ -356,9 +401,6 @@ Delta,Sputnik V,high,>=2,naive,2,16
 Delta,Sputnik V,low,1,naive,1,4
 Delta,Sputnik V,middle,1,naive,1,5
 Delta,Sputnik V,high,1,naive,1,10
-Delta,AZD1222 + AZD2816,low,>=2,naive,0,0
-Delta,AZD1222 + AZD2816,middle,>=2,naive,0,0
-Delta,AZD1222 + AZD2816,high,>=2,naive,0,0
 Delta,BBV152,low,1,naive,1,5
 Delta,BBV152,middle,1,naive,1,2
 Delta,BBV152,high,1,naive,1,10
@@ -371,36 +413,6 @@ Delta,BBV152,high,>=2,infected,0,0
 Delta,CoronaVac,low,1,naive,0,0
 Delta,CoronaVac,middle,1,naive,0,0
 Delta,CoronaVac,high,1,naive,0,0
-A,CP,low,>=2,infected,5,19
-A,CP,middle,>=2,infected,5,7
-A,CP,high,>=2,infected,5,93
-A,CP,low,1,infected,7,24
-A,CP,middle,1,infected,7,11
-A,CP,high,1,infected,7,78
-A,Ad26.COV2.S,low,>=2,naive,2,3
-A,Ad26.COV2.S,middle,>=2,naive,2,3
-A,Ad26.COV2.S,high,>=2,naive,2,21
-A,Ad26.COV2.S,low,1,naive,1,1
-A,Ad26.COV2.S,middle,1,naive,1,0
-A,Ad26.COV2.S,high,1,naive,1,9
-A,BNT162b2,low,1,naive,13,2
-A,BNT162b2,middle,1,naive,13,9
-A,BNT162b2,high,1,naive,13,270
-A,BNT162b2,low,>=2,naive,1,0
-A,BNT162b2,middle,>=2,naive,1,0
-A,BNT162b2,high,>=2,naive,1,1
-A,BNT162b2,low,1,infected,2,0
-A,BNT162b2,middle,1,infected,2,0
-A,BNT162b2,high,1,infected,2,18
-A,mRNA-1273,low,1,naive,6,3
-A,mRNA-1273,middle,1,naive,6,5
-A,mRNA-1273,high,1,naive,6,59
-A,mRNA-1273,low,>=2,naive,1,0
-A,mRNA-1273,middle,>=2,naive,1,0
-A,mRNA-1273,high,>=2,naive,1,26
-A,mRNA-1273,low,1,infected,1,1
-A,mRNA-1273,middle,1,infected,1,2
-A,mRNA-1273,high,1,infected,1,12
 B.1.1.298,CP,low,1,infected,2,6
 B.1.1.298,CP,middle,1,infected,2,10
 B.1.1.298,CP,high,1,infected,2,63
@@ -479,9 +491,6 @@ Kappa,AZD1222,high,>=2,naive,1,2
 Kappa,AZD1222,low,1,infected,0,0
 Kappa,AZD1222,middle,1,infected,0,0
 Kappa,AZD1222,high,1,infected,0,0
-Kappa,AZD1222 + AZD2816,low,>=2,naive,1,0
-Kappa,AZD1222 + AZD2816,middle,>=2,naive,1,2
-Kappa,AZD1222 + AZD2816,high,>=2,naive,1,4
 Kappa,BBV152,low,>=2,naive,1,0
 Kappa,BBV152,middle,>=2,naive,1,19
 Kappa,BBV152,high,>=2,naive,1,9
@@ -512,9 +521,9 @@ B.1.463,CP,high,1,infected,1,0
 B.1.463,BNT162b2,low,1,naive,1,1
 B.1.463,BNT162b2,middle,1,naive,1,7
 B.1.463,BNT162b2,high,1,naive,1,78
-Beta w/o K417N,CP,low,1,infected,1,2
-Beta w/o K417N,CP,middle,1,infected,1,0
-Beta w/o K417N,CP,high,1,infected,1,16
+Beta w/o K417N,CP,low,>=2,infected,1,2
+Beta w/o K417N,CP,middle,>=2,infected,1,0
+Beta w/o K417N,CP,high,>=2,infected,1,16
 Eta,CP,low,>=2,infected,1,0
 Eta,CP,middle,>=2,infected,1,0
 Eta,CP,high,>=2,infected,1,16
@@ -554,12 +563,6 @@ Zeta,BNT162b2,high,1,naive,1,0
 Zeta,BNT162b2,low,1,infected,1,0
 Zeta,BNT162b2,middle,1,infected,1,1
 Zeta,BNT162b2,high,1,infected,1,0
-B.1.160,CP,low,1,infected,1,0
-B.1.160,CP,middle,1,infected,1,4
-B.1.160,CP,high,1,infected,1,14
-B.1.160,BNT162b2,low,1,naive,1,0
-B.1.160,BNT162b2,middle,1,naive,1,0
-B.1.160,BNT162b2,high,1,naive,1,5
 Lambda,CP,low,1,infected,2,2
 Lambda,CP,middle,1,infected,2,2
 Lambda,CP,high,1,infected,2,10
@@ -641,27 +644,6 @@ Mu,BNT162b2,high,1,naive,2,19
 Mu,BNT162b2,low,>=2,naive,0,0
 Mu,BNT162b2,middle,>=2,naive,0,0
 Mu,BNT162b2,high,>=2,naive,0,0
-Iota,CP,low,1,infected,2,4
-Iota,CP,middle,1,infected,2,6
-Iota,CP,high,1,infected,2,4
-Iota,CP,low,>=2,infected,1,7
-Iota,CP,middle,>=2,infected,1,2
-Iota,CP,high,>=2,infected,1,3
-Iota,mRNA-1273,low,1,naive,4,4
-Iota,mRNA-1273,middle,1,naive,4,9
-Iota,mRNA-1273,high,1,naive,4,16
-Iota,mRNA-1273,low,>=2,naive,1,0
-Iota,mRNA-1273,middle,>=2,naive,1,0
-Iota,mRNA-1273,high,>=2,naive,1,5
-Iota,mRNA-1273,low,1,infected,1,3
-Iota,mRNA-1273,middle,1,infected,1,2
-Iota,mRNA-1273,high,1,infected,1,10
-Iota,BNT162b2,low,1,naive,3,0
-Iota,BNT162b2,middle,1,naive,3,0
-Iota,BNT162b2,high,1,naive,3,26
-Iota,BNT162b2,low,>=2,naive,1,0
-Iota,BNT162b2,middle,>=2,naive,1,0
-Iota,BNT162b2,high,>=2,naive,1,3
 Iota w/o E484K,CP,low,1,infected,2,0
 Iota w/o E484K,CP,middle,1,infected,2,1
 Iota w/o E484K,CP,high,1,infected,2,13

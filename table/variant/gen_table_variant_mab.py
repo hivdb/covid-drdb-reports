@@ -17,7 +17,7 @@ SELECT
     rx.target target,
     iso.*
 FROM
-    susc_results s,
+    susc_results_view s,
     rx_mab_view rx,
     {iso_type} iso
 WHERE

@@ -8,10 +8,10 @@ SELECT
     s.ref_name,
     s.rx_name,
     rx.timing,
-    SUM(s.cumulative_count) as num_fold
+    SUM(s.cumulative_count) num_fold
 FROM
-    susc_results as s,
-    rx_conv_plasma as rx
+    susc_results_view s,
+    rx_conv_plasma rx
 WHERE
     s.ref_name = rx.ref_name
     AND

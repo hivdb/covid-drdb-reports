@@ -11,9 +11,9 @@ SELECT
     s.cumulative_count num_fold,
     iso.*
 FROM
-    susc_results AS s,
-    {rx_type} as rx,
-    {iso_type} as iso
+    susc_results_view s,
+    {rx_type} rx,
+    {iso_type} iso
 WHERE
     s.ref_name = rx.ref_name
     AND
@@ -67,14 +67,14 @@ DOMAIN_PATTERN_LIST = {
         'E484Q',
     ],
     'NTD': [
-        '69-70∆',
-        '242-244∆',
+        'HV69-70∆',
+        'LAL242-244∆',
         'L18F',
         'D215G',
         'S247R',
         'R246I',
         'D80A',
-        '141-145∆',
+        'Y144∆',
     ],
     'CTD': [
         'P681H',

@@ -15,7 +15,7 @@ SELECT
     susc.potency_type,
     SUM(susc.cumulative_count) AS num_fold
 FROM
-    susc_results susc,
+    susc_results_view susc,
     isolate_non_wildtype_view wt
 WHERE
     susc.control_iso_name = wt.iso_name

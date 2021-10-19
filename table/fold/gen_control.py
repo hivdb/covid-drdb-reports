@@ -5,10 +5,13 @@ from collections import defaultdict
 
 CONTROL_50_SQL = """
 SELECT
-    'WT' control_iso_name,
+    wt.var_name control_iso_name,
     SUM(susc.cumulative_count) num_fold
 FROM
-    susc_results_50_wt_view susc
+    susc_results_50_wt_view susc,
+    isolate_wildtype_view wt
+WHERE
+    susc.control_iso_name = wt.iso_name
 GROUP BY
     susc.control_iso_name
 
@@ -33,10 +36,10 @@ GROUP BY
 
 CONTROL_SQL = """
 SELECT
-    'WT' control_iso_name,
+    wt.var_name control_iso_name,
     SUM(susc.cumulative_count) num_fold
 FROM
-    susc_results susc,
+    susc_results_view susc,
     isolate_wildtype_view wt
 WHERE
     susc.control_iso_name = wt.iso_name
@@ -54,7 +57,7 @@ SELECT
     END control_iso_name,
     SUM(susc.cumulative_count) num_fold
 FROM
-    susc_results susc,
+    susc_results_view susc,
     isolate_non_wildtype_view wt
 WHERE
     susc.control_iso_name = wt.iso_name

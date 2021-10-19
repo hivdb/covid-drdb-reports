@@ -9,10 +9,10 @@ SELECT
     s.rx_name,
     rx.as_wildtype,
     rx.var_name infection,
-    SUM(s.cumulative_count) as num_fold
+    SUM(s.cumulative_count) num_fold
 FROM
-    susc_results as s,
-    rx_conv_plasma_infect_var_view as rx
+    susc_results_view s,
+    rx_conv_plasma_infect_var_view rx
 WHERE
     s.ref_name = rx.ref_name
     AND

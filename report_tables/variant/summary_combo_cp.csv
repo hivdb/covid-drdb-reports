@@ -1,9 +1,9 @@
 ﻿pattern,var_name,median_fold,num_ref_name,num_fold,S,I,R
 Alpha,Alpha,1.4,55,2294,1789,398,90
-Beta,Beta,3.7,58,2417,917,1051,439
+Beta,Beta,3.9,58,2416,934,1031,441
 Delta,Delta,3.1,13,444,207,182,55
-Gamma,Gamma,1.8,26,964,596,232,131
+Gamma,Gamma,1.7,26,964,596,232,131
 KIEL,KIEL,2.2,9,161,112,39,10
-other combo mut,other combo mut,1.7,22,883,590,215,76
-other variants,other variants,2.3,19,655,382,200,70
-summary,,,93,7818,,,
+other combo mut,other combo mut,1.7,22,883,608,197,76
+other variants,other variants,2,19,655,393,187,72
+summary,,,93,7817,,,

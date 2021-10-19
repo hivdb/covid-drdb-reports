@@ -11,13 +11,13 @@ SELECT
     s.ref_name,
     s.fold_cmp,
     s.fold,
-    s.cumulative_count as num_fold,
+    s.cumulative_count num_fold,
     r.vaccine_name,
     vac.vaccine_type,
     iso.*
 FROM
-    susc_results as s,
-    rx_vacc_plasma as r,
+    susc_results_view s,
+    rx_vacc_plasma r,
     vaccines vac,
     {iso_type} iso
 WHERE

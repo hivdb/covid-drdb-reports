@@ -16,8 +16,8 @@ SELECT
     rx.vaccine_name,
     SUM(s.cumulative_count) num_fold
 FROM
-    susc_results as s,
-    rx_vacc_plasma as rx
+    susc_results_view s,
+    rx_vacc_plasma rx
 WHERE
     s.ref_name = rx.ref_name
     AND
@@ -58,7 +58,7 @@ def gen_vp_vaccine(conn):
         num_s_fold = len(s_fold)
         num_i_fold = len(i_fold)
         num_r_fold = len(r_fold)
-        median_fold = median(all_fold)
+        median_fold = round_number(median(all_fold))
 
         vaccine_results.append({
             'vaccine': vaccine,

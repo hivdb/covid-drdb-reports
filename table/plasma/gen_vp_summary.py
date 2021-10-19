@@ -20,10 +20,10 @@ SELECT
     sub.subject_species species,
     SUM(s.cumulative_count) num_fold
 FROM
-    {susc_results_type} as s,
-    rx_vacc_plasma as rx,
-    subjects as sub,
-    isolates as iso
+    {susc_results_type} s,
+    rx_vacc_plasma rx,
+    subjects sub,
+    isolates iso
 WHERE
     s.ref_name = rx.ref_name
     AND

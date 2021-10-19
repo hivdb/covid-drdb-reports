@@ -10,8 +10,8 @@ SELECT
     rx.severity,
     SUM(s.cumulative_count) as num_fold
 FROM
-    susc_results as s,
-    rx_conv_plasma as rx
+    susc_results_view s,
+    rx_conv_plasma rx
 WHERE
     s.ref_name = rx.ref_name
     AND

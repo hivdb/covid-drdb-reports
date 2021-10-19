@@ -11,9 +11,9 @@ SELECT
     sub.subject_species species,
     SUM(s.cumulative_count) num_fold
 FROM
-    susc_results as s,
-    rx_vacc_plasma as rx,
-    subjects as sub
+    susc_results_view s,
+    rx_vacc_plasma rx,
+    subjects sub
 WHERE
     s.ref_name = rx.ref_name
     AND

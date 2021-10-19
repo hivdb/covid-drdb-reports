@@ -28,11 +28,11 @@
                 "name": "Ad26.COV2.S",
                 "vp_studies": 5,
                 "vp_num_fold": 67,
-                "vp_s_fold": "88%",
-                "vp_i_fold": "3%",
+                "vp_s_fold": "85%",
+                "vp_i_fold": "6%",
                 "vp_r_fold": "9%",
-                "vp_num_s_fold": 59,
-                "vp_num_i_fold": 2,
+                "vp_num_s_fold": 57,
+                "vp_num_i_fold": 4,
                 "vp_num_r_fold": 6
             },
             {
@@ -60,11 +60,11 @@
             {
                 "name": "BNT162b2",
                 "vp_studies": 43,
-                "vp_num_fold": 1589,
+                "vp_num_fold": 1569,
                 "vp_s_fold": "88%",
                 "vp_i_fold": "11%",
                 "vp_r_fold": "1%",
-                "vp_num_s_fold": 1402,
+                "vp_num_s_fold": 1382,
                 "vp_num_i_fold": 180,
                 "vp_num_r_fold": 7
             },
@@ -133,22 +133,22 @@
                 "vp_studies": 6,
                 "vp_num_fold": 118,
                 "vp_s_fold": "2%",
-                "vp_i_fold": "28%",
-                "vp_r_fold": "70%",
+                "vp_i_fold": "38%",
+                "vp_r_fold": "60%",
                 "vp_num_s_fold": 2,
-                "vp_num_i_fold": 33,
-                "vp_num_r_fold": 83
+                "vp_num_i_fold": 45,
+                "vp_num_r_fold": 71
             },
             {
                 "name": "AZD1222 + AZD2816",
                 "vp_studies": 1,
-                "vp_num_fold": 13,
-                "vp_s_fold": "54%",
+                "vp_num_fold": 7,
+                "vp_s_fold": "100%",
                 "vp_i_fold": 0,
-                "vp_r_fold": "46%",
+                "vp_r_fold": 0,
                 "vp_num_s_fold": 7,
                 "vp_num_i_fold": 0,
-                "vp_num_r_fold": 6
+                "vp_num_r_fold": 0
             },
             {
                 "name": "AZD1222 + BNT162b2",
@@ -165,11 +165,11 @@
                 "name": "Ad26.COV2.S",
                 "vp_studies": 7,
                 "vp_num_fold": 153,
-                "vp_s_fold": "31%",
+                "vp_s_fold": "32%",
                 "vp_i_fold": "24%",
-                "vp_r_fold": "45%",
-                "vp_num_s_fold": 48,
-                "vp_num_i_fold": 37,
+                "vp_r_fold": "44%",
+                "vp_num_s_fold": 49,
+                "vp_num_i_fold": 36,
                 "vp_num_r_fold": 68
             },
             {
@@ -197,12 +197,12 @@
             {
                 "name": "BNT162b2",
                 "vp_studies": 47,
-                "vp_num_fold": 1758,
+                "vp_num_fold": 1757,
                 "vp_s_fold": "25%",
                 "vp_i_fold": "53%",
                 "vp_r_fold": "22%",
                 "vp_num_s_fold": 434,
-                "vp_num_i_fold": 936,
+                "vp_num_i_fold": 935,
                 "vp_num_r_fold": 388
             },
             {
@@ -291,11 +291,11 @@
                 "name": "AZD1222",
                 "vp_studies": 3,
                 "vp_num_fold": 68,
-                "vp_s_fold": "24%",
-                "vp_i_fold": "29%",
+                "vp_s_fold": "41%",
+                "vp_i_fold": "12%",
                 "vp_r_fold": "47%",
-                "vp_num_s_fold": 16,
-                "vp_num_i_fold": 20,
+                "vp_num_s_fold": 28,
+                "vp_num_i_fold": 8,
                 "vp_num_r_fold": 32
             },
             {
@@ -323,13 +323,13 @@
             {
                 "name": "BNT162b2",
                 "vp_studies": 23,
-                "vp_num_fold": 765,
-                "vp_s_fold": "80%",
-                "vp_i_fold": "20%",
-                "vp_r_fold": 0,
-                "vp_num_s_fold": 609,
-                "vp_num_i_fold": 152,
-                "vp_num_r_fold": 4
+                "vp_num_fold": 747,
+                "vp_s_fold": "81%",
+                "vp_i_fold": "17%",
+                "vp_r_fold": "2%",
+                "vp_num_s_fold": 608,
+                "vp_num_i_fold": 125,
+                "vp_num_r_fold": 14
             },
             {
                 "name": "CoronaVac",
@@ -374,21 +374,21 @@
                 "vp_studies": 6,
                 "vp_num_fold": 152,
                 "vp_s_fold": "28%",
-                "vp_i_fold": "53%",
-                "vp_r_fold": "19%",
+                "vp_i_fold": "61%",
+                "vp_r_fold": "11%",
                 "vp_num_s_fold": 42,
-                "vp_num_i_fold": 80,
-                "vp_num_r_fold": 30
+                "vp_num_i_fold": 92,
+                "vp_num_r_fold": 18
             },
             {
                 "name": "AZD1222 + AZD2816",
                 "vp_studies": 1,
-                "vp_num_fold": 13,
+                "vp_num_fold": 7,
                 "vp_s_fold": 0,
                 "vp_i_fold": "100%",
                 "vp_r_fold": 0,
                 "vp_num_s_fold": 0,
-                "vp_num_i_fold": 13,
+                "vp_num_i_fold": 7,
                 "vp_num_r_fold": 0
             },
             {
@@ -476,12 +476,12 @@
             {
                 "name": "BNT162b2",
                 "vp_studies": 4,
-                "vp_num_fold": 49,
-                "vp_s_fold": "63%",
-                "vp_i_fold": "37%",
+                "vp_num_fold": 48,
+                "vp_s_fold": "69%",
+                "vp_i_fold": "31%",
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 31,
-                "vp_num_i_fold": 18,
+                "vp_num_s_fold": 33,
+                "vp_num_i_fold": 15,
                 "vp_num_r_fold": 0
             },
             {
@@ -585,12 +585,12 @@
             {
                 "name": "AZD1222 + AZD2816",
                 "vp_studies": 1,
-                "vp_num_fold": 13,
+                "vp_num_fold": 7,
                 "vp_s_fold": 0,
                 "vp_i_fold": "100%",
                 "vp_r_fold": 0,
                 "vp_num_s_fold": 0,
-                "vp_num_i_fold": 13,
+                "vp_num_i_fold": 7,
                 "vp_num_r_fold": 0
             },
             {
@@ -787,11 +787,11 @@
                 "name": "BNT162b2",
                 "vp_studies": 2,
                 "vp_num_fold": 9,
-                "vp_s_fold": "44%",
-                "vp_i_fold": "56%",
+                "vp_s_fold": "100%",
+                "vp_i_fold": 0,
                 "vp_r_fold": 0,
-                "vp_num_s_fold": 4,
-                "vp_num_i_fold": 5,
+                "vp_num_s_fold": 9,
+                "vp_num_i_fold": 0,
                 "vp_num_r_fold": 0
             },
             {

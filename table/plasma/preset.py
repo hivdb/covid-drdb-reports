@@ -131,7 +131,7 @@ WHERE  EXISTS (SELECT 1
 
 RX_TITER_FOLD = """
 SELECT *
-FROM susc_results a,
+FROM susc_results_view a,
      rx_potency b
 WHERE
     a.ref_name = b.ref_name

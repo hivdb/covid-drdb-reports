@@ -9,7 +9,7 @@ SELECT
     susc.potency_type,
     SUM(susc.cumulative_count) num_fold
 FROM
-    susc_results AS susc
+    susc_results_view susc
 WHERE
     fold IS NULL
 GROUP BY

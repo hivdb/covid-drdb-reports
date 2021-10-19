@@ -8,9 +8,9 @@ SELECT
     COUNT(DISTINCT rx.ref_name) num_ref,
     iso.domain
 FROM
-    susc_results as s,
-    {rx_view} as rx,
-    {iso_view} as iso
+    susc_results_view s,
+    {rx_view} rx,
+    {iso_view} iso
 WHERE
     s.ref_name = rx.ref_name
     AND

@@ -17,7 +17,7 @@ SELECT
     'infected' infection,
     a.cumulative_count num_result
 FROM
-    susc_results a,
+    susc_results_view a,
     rx_conv_plasma b,
     isolates c,
     subjects d
@@ -59,7 +59,7 @@ SELECT
     'naive' infection,
     a.cumulative_count num_result
 FROM
-    susc_results a,
+    susc_results_view a,
     rx_vacc_plasma b,
     isolates c,
     subjects d,
@@ -106,7 +106,7 @@ SELECT
     'infected' infection,
     a.cumulative_count num_result
 FROM
-    susc_results a,
+    susc_results_view a,
     rx_vacc_plasma b,
     isolates c,
     subjects d,
