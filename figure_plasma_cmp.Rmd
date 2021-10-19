@@ -219,7 +219,7 @@ draw_rx_fold <- function(dfPlot, figLabel) {
 }
 
 
-fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+fold_df = read.dbTable('figure/figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 fold_df = fold_df %>%
@@ -364,7 +364,7 @@ draw_rx_titer <- function(dfPlot, figLabel) {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 titer_df = titer_df %>%
@@ -556,7 +556,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Fold 1M vs Titer 1M
 ```{r fold-vs-titer-1m, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+fold_df = read.dbTable('figure/figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 fold_df = fold_df %>%
   filter(variant %in% VARIANT) %>%
@@ -568,7 +568,7 @@ fold_df_VP = fold_df %>%
 fold_df = rbind(fold_df_VP, fold_df_CP)
 
 
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -825,7 +825,7 @@ draw_rx_titer_same_axis <- function(dfPlot, figLabel) {
   p
 }
 
-fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+fold_df = read.dbTable('figure/figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 fold_df = fold_df %>%
   filter(variant %in% VARIANT) %>%
@@ -836,7 +836,7 @@ fold_df_VP = fold_df %>%
   filter(rx_name != 'CP', infection =='naive')
 fold_df = rbind(fold_df_VP, fold_df_CP)
 
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -921,7 +921,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Fold 1M vs Titer 1M Indiv
 ```{r fold-vs-titer-1m-indiv, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-fold_df = read.dbTable('figure_plasma_fold_indiv.csv', tables_dir=TABLEDIR) %>%
+fold_df = read.dbTable('figure/figure_plasma_fold_indiv.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 fold_df = fold_df %>%
   filter(variant %in% VARIANT) %>%
@@ -933,7 +933,7 @@ fold_df_VP = fold_df %>%
 fold_df = rbind(fold_df_VP, fold_df_CP)
 
 
-titer_df = read.dbTable('figure_plasma_titer_indiv.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_indiv.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -1094,7 +1094,7 @@ draw_titer_by_variant <- function(dfPlot, figLabel) {
 }
 
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -1212,7 +1212,7 @@ draw_titer_by_plasma <- function(dfPlot, figLabel) {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 plots = list()
@@ -1340,7 +1340,7 @@ draw_titer_fold_points <- function(dfPlot, figLabel='') {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 titer_df = titer_df %>%
@@ -1398,7 +1398,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Log axis without one study
 ```{r titer-fold-point-details-sp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-titer_df = read.dbTable('figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 titer_df = titer_df %>%
@@ -1522,7 +1522,7 @@ draw_titer_fold_points_normal <- function(dfPlot, figLabel='') {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 titer_df = titer_df %>%
@@ -1580,7 +1580,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Normal axis without one study
 ```{r titer-fold-point-details-normal-axis-sp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-titer_df = read.dbTable('figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 titer_df = titer_df %>%
@@ -1641,7 +1641,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Titer fold correlation by variant and VP
 ```{r titer-fold-correlation, fig.height=80, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-titer_df = read.dbTable('figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_fold_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 
 titer_df = titer_df %>%
@@ -1768,7 +1768,7 @@ draw_month_compare <- function(dfPlot, figLabel) {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR)
+titer_df = read.dbTable('figure/figure_plasma_titer_points.csv', tables_dir=TABLEDIR)
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
   filter(rx_name %in% RX_NAME_LIST)
@@ -1826,7 +1826,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Titer 1M vs >=2M, num results
 ```{r titer-1m-vs-other, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -1838,7 +1838,7 @@ titer_df_VP = titer_df %>%
   filter(rx_name != 'CP', infection =='naive')
 titer_df = rbind(titer_df_CP, titer_df_VP)
 
-titer_other = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+titer_other = read.dbTable('figure/figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='>=2')
 titer_other = titer_other %>%
   filter(variant %in% VARIANT) %>%
@@ -1977,7 +1977,7 @@ draw_infection_compare <- function(dfPlot, figLabel) {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -2032,7 +2032,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Titer VP Naive vs infection, num results
 ```{r titer-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-titer_df = read.dbTable('figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -2161,7 +2161,7 @@ draw_titer_violin <- function(dfPlot, figLabel) {
   p
 }
 
-titer_df = read.dbTable('figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
+titer_df = read.dbTable('figure/figure_plasma_titer_points.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 titer_df = titer_df %>%
   filter(variant %in% VARIANT) %>%
@@ -2221,7 +2221,7 @@ grid.arrange(grobs = plots, ncol=line_width)
 ### Fold naive vs infected, num results
 ```{r fold-infect-cmp, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
 
-fold_df = read.dbTable('figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
+fold_df = read.dbTable('figure/figure_plasma_fold.csv', tables_dir=TABLEDIR) %>%
   filter(month=='1')
 fold_df = fold_df %>%
   filter(variant %in% VARIANT) %>%

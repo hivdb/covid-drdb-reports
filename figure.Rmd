@@ -40,7 +40,7 @@ INDIV_MUT_LIST = c(
   'L452R'
 )
 
-df = read.dbTable('figure_variant_indiv_cp.csv', tables_dir=TABLEDIR)
+df = read.dbTable('figure/variant_single_cp.csv', tables_dir=TABLEDIR)
 df = df %>%
   filter(pattern %in% INDIV_MUT_LIST) %>%
   mutate(
@@ -107,7 +107,7 @@ COMBO_MUT_LIST = c(
   'Epislon'
 )
 
-df = read.dbTable('figure_variant_combo_cp.csv', tables_dir=TABLEDIR)
+df = read.dbTable('figure/variant_combo_cp.csv', tables_dir=TABLEDIR)
 df = df %>%
   filter(var_name %in% COMBO_MUT_LIST)  %>%
   mutate(
@@ -199,7 +199,7 @@ INDIV_MUT_LIST = c(
   'L452R'
 )
 
-df = read.dbTable('figure_variant_indiv_vp.csv', tables_dir=TABLEDIR)
+df = read.dbTable('figure/variant_single_vp.csv', tables_dir=TABLEDIR)
 df = df %>%
   filter(pattern %in% INDIV_MUT_LIST) %>%
   filter(vaccine %in% VACCINE_LIST) %>%
@@ -285,7 +285,7 @@ COMBO_MUT_LIST = c(
   'Delta'
 )
 
-df = read.dbTable('figure_variant_combo_vp.csv', tables_dir=TABLEDIR)
+df = read.dbTable('figure/variant_combo_vp.csv', tables_dir=TABLEDIR)
 df = df %>%
   filter(var_name %in% COMBO_MUT_LIST) %>%
   filter(vaccine %in% VACCINE_LIST) %>%
@@ -361,7 +361,7 @@ plot3
 
 ### DMS vs fold
 ```{r dms-fold, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
-df = read.dbTable('summary_dms.csv', tables_dir=TABLEDIR) %>%
+df = read.dbTable('dms/fold_dms.csv', tables_dir=TABLEDIR) %>%
   mutate(
     susceptible_level=ifelse(
         fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
@@ -491,7 +491,7 @@ grid.arrange(grobs = plots, ncol=3)
 
 ### DMS no fold
 ```{r dms-missing-fold, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
-df = read.dbTable('summary_dms_missing_fold.csv', tables_dir=TABLEDIR)
+df = read.dbTable('dms/dms_missing_fold.csv', tables_dir=TABLEDIR)
 
 plots = list()
 i = 1
@@ -537,7 +537,7 @@ grid.arrange(grobs = plots, ncol=3)
 
 ### All
 ```{r dms-fold-st-all}
-df = read.dbTable('summary_dms.csv', tables_dir=TABLEDIR) %>%
+df = read.dbTable('dms/fold_dms.csv', tables_dir=TABLEDIR) %>%
   mutate(
     susceptible_level=ifelse(
         fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
@@ -620,22 +620,25 @@ chisq.test(tbl)
 
 MIN_SAMPLES = 10
 
-df = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR) %>%
+df = read.dbTable('variant/summary_single.csv', tables_dir=TABLEDIR) %>%
   mutate(
-    samples=CP + VP + all.mAbs
+    samples=cp + vp + all.mAbs
   ) %>%
   filter(
     samples > MIN_SAMPLES
+  ) %>%
+  filter(
+    ref != ''
   )
 
 plots = list()
 i = 1
 
-for (d in unique(df$Domain)) {
+for (d in unique(df$domain)) {
   dfPlot = df %>%
-    filter(Domain == d)
+    filter(domain == d)
 
-  p <- ggplot(dfPlot, aes(x=reorder(pattern, Position), y=samples)) +
+  p <- ggplot(dfPlot, aes(x=reorder(pattern, position), y=samples)) +
       geom_bar(
         stat='identity',
         width=0.01 * length(unique(dfPlot$pattern)),
@@ -684,9 +687,9 @@ STUDY_TYPE_ORDER = c(
   "mAb"
 )
 
-df = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR) %>%
+df = read.dbTable('variant/summary_single.csv', tables_dir=TABLEDIR) %>%
   mutate(
-    samples=CP + VP + all.mAbs
+    samples=cp + vp + all.mAbs
   ) %>%
   filter(
     samples > MIN_SAMPLES
@@ -695,9 +698,9 @@ df = read.dbTable('summary_variant_indiv.csv', tables_dir=TABLEDIR) %>%
 dfCP = df %>%
   select(
     pattern,
-    Position,
-    Domain,
-    samples=CP
+    position,
+    domain,
+    samples=cp
   ) %>%
   mutate(
     study_type=factor("CP", levels=STUDY_TYPE_ORDER)
@@ -706,9 +709,9 @@ dfCP = df %>%
 dfVP = df %>%
   select(
     pattern,
-    Position,
-    Domain,
-    samples=VP
+    position,
+    domain,
+    samples=vp
   ) %>%
   mutate(
     study_type=factor("VP", levels=STUDY_TYPE_ORDER)
@@ -717,8 +720,8 @@ dfVP = df %>%
 dfMAb = df %>%
   select(
     pattern,
-    Position,
-    Domain,
+    position,
+    domain,
     samples=all.mAbs
   ) %>%
   mutate(
@@ -730,11 +733,11 @@ df = bind_rows(dfCP, dfVP, dfMAb)
 plots = list()
 i = 1
 
-for (d in unique(df$Domain)) {
+for (d in unique(df$domain)) {
   dfPlot = df %>%
-    filter(Domain == d)
+    filter(domain == d)
 
-  p <- ggplot(dfPlot, aes(x=reorder(pattern, Position), y=samples)) +
+  p <- ggplot(dfPlot, aes(x=reorder(pattern, position), y=samples)) +
       geom_bar(
         aes(fill=study_type),
         stat='identity',
@@ -792,16 +795,16 @@ DOMAINS = c(
 get_domain_table = function(table, treatment) {
   table = table %>%
     mutate(
-      Domain=factor(Domain, levels=DOMAINS)
+      domain=factor(domain, levels=DOMAINS)
     ) %>%
     select(
-      Domain,
+      domain,
       S,
       I,
       R
     ) %>%
     group_by(
-      Domain
+      domain
     ) %>%
     summarise(
       S_samples=sum(S),
@@ -821,7 +824,7 @@ get_domain_table = function(table, treatment) {
 }
 
 get_domain_plot <- function(table) {
-  plot <- ggplot(table, aes(x=Domain, y=samples, fill=category)) +
+  plot <- ggplot(table, aes(x=domain, y=samples, fill=category)) +
       geom_bar(
         stat = "identity",
         width = 0.4,
@@ -862,11 +865,11 @@ get_domain_plot <- function(table) {
   plot
 }
 
-dfCP = read.dbTable('summary_variant_indiv_cp.csv', tables_dir=TABLEDIR)
+dfCP = read.dbTable('variant/summary_single_cp.csv', tables_dir=TABLEDIR)
 dfCP = get_domain_table(dfCP, 'CP')
-dfVP = read.dbTable('summary_variant_indiv_vp.csv', tables_dir=TABLEDIR)
-dfVP =get_domain_table(dfVP, 'VP')
-dfMAb = read.dbTable('summary_variant_indiv_mab.csv', tables_dir=TABLEDIR)
+dfVP = read.dbTable('variant/summary_single_vp.csv', tables_dir=TABLEDIR)
+dfVP = get_domain_table(dfVP, 'VP')
+dfMAb = read.dbTable('variant/summary_single_mab.csv', tables_dir=TABLEDIR)
 dfMAb = get_domain_table(dfMAb, 'MAb')
 
 table = bind_rows(dfCP, dfVP, dfMAb)
@@ -894,33 +897,33 @@ NICKNAME_LIST = c(
   'Delta'
 )
 
-df = read.dbTable('summary_variant_combo.csv', tables_dir=TABLEDIR) %>%
+df = read.dbTable('variant/summary_combo.csv', tables_dir=TABLEDIR) %>%
   filter(
     var_name %in% NICKNAME_LIST
   ) %>%
   select(
     var_name,
-    CP,
-    VP,
+    cp,
+    vp,
     all.mAbs
   ) %>%
   group_by(
     var_name
   ) %>%
   summarise(
-    CP=sum(CP),
-    VP=sum(VP),
+    cp=sum(cp),
+    vp=sum(vp),
     all.mAbs=sum(all.mAbs)
   ) %>%
   mutate(
-    samples=CP + VP + all.mAbs,
+    samples=cp + vp + all.mAbs,
     var_name=factor(var_name, levels=NICKNAME_LIST)
   )
 
 dfCP = df %>%
   select(
     var_name,
-    samples=CP
+    samples=cp
   ) %>%
   mutate(
     study_type=factor("CP", levels=STUDY_TYPE_ORDER)
@@ -929,7 +932,7 @@ dfCP = df %>%
 dfVP = df %>%
   select(
     var_name,
-    samples=VP
+    samples=vp
   ) %>%
   mutate(
     study_type=factor("VP", levels=STUDY_TYPE_ORDER)
