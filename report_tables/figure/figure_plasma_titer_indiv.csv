@@ -92,9 +92,6 @@ B,BNT162b2,high,1,infected,4,67
 B,AZD1222,low,1,naive,7,8
 B,AZD1222,middle,1,naive,7,14
 B,AZD1222,high,1,naive,7,197
-B,AZD1222,low,>=2,naive,1,0
-B,AZD1222,middle,>=2,naive,1,0
-B,AZD1222,high,>=2,naive,1,5
 B,AZD1222 + BNT162b2,low,1,naive,2,0
 B,AZD1222 + BNT162b2,middle,1,naive,2,1
 B,AZD1222 + BNT162b2,high,1,naive,2,64
@@ -224,9 +221,9 @@ Beta,Ad26.COV2.S,high,1,infected,1,37
 Beta,AZD1222,low,1,naive,4,70
 Beta,AZD1222,middle,1,naive,4,18
 Beta,AZD1222,high,1,naive,4,7
-Beta,AZD1222,low,>=2,naive,2,1
-Beta,AZD1222,middle,>=2,naive,2,7
-Beta,AZD1222,high,>=2,naive,2,17
+Beta,AZD1222,low,>=2,naive,1,1
+Beta,AZD1222,middle,>=2,naive,1,5
+Beta,AZD1222,high,>=2,naive,1,14
 Beta,AZD1222 + BNT162b2,low,1,naive,2,16
 Beta,AZD1222 + BNT162b2,middle,1,naive,2,26
 Beta,AZD1222 + BNT162b2,high,1,naive,2,23
@@ -377,9 +374,9 @@ Delta,Ad26.COV2.S,high,1,infected,1,36
 Delta,AZD1222,low,1,naive,3,41
 Delta,AZD1222,middle,1,naive,3,12
 Delta,AZD1222,high,1,naive,3,15
-Delta,AZD1222,low,>=2,naive,2,5
-Delta,AZD1222,middle,>=2,naive,2,3
-Delta,AZD1222,high,>=2,naive,2,17
+Delta,AZD1222,low,>=2,naive,1,1
+Delta,AZD1222,middle,>=2,naive,1,3
+Delta,AZD1222,high,>=2,naive,1,16
 Delta,AZD1222,low,1,infected,1,0
 Delta,AZD1222,middle,1,infected,1,0
 Delta,AZD1222,high,1,infected,1,19
@@ -485,9 +482,6 @@ Kappa,CoronaVac,high,1,naive,1,0
 Kappa,AZD1222,low,1,naive,1,3
 Kappa,AZD1222,middle,1,naive,1,9
 Kappa,AZD1222,high,1,naive,1,13
-Kappa,AZD1222,low,>=2,naive,1,0
-Kappa,AZD1222,middle,>=2,naive,1,3
-Kappa,AZD1222,high,>=2,naive,1,2
 Kappa,AZD1222,low,1,infected,0,0
 Kappa,AZD1222,middle,1,infected,0,0
 Kappa,AZD1222,high,1,infected,0,0

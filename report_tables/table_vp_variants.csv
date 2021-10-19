@@ -114,14 +114,12 @@ Beta,AZD1222,0,12,0,Behrens21,False,2.0,4.1,12
 Beta,AZD1222,0,3,22,Madhi21,False,2.0,11,25
 Beta,AZD1222,1,0,16,Planas21b,False,1.0,8.2,17
 Beta,AZD1222,1,13,6,Planas21b,False,2.0,7.6,20
-Beta,AZD1222,0,5,0,Spencer21,False,1.0,4.6,5
-Beta,AZD1222,0,5,0,Spencer21,False,2.0,7.2,5
+Beta,AZD1222,0,0,5,Spencer21,False,1.0,9.3,5
 Beta,AZD1222,1,12,12,Zhou21b,False,2.0,9.4,25
-Beta,AZD1222 + AZD2816,7,0,0,Spencer21,False,3.0,2,7
-Beta,AZD1222 + AZD2816,0,5,0,Spencer21,False,1.0,3,5
+Beta,AZD1222 + AZD2816,0,5,0,Spencer21,False,1.0,3.9,5
 Beta,AZD1222 + BNT162b2,0,0,54,Barros-Martins21,False,2.0,81,54
 Beta,AZD1222 + BNT162b2,11,0,0,Behrens21,False,2.0,1.4,11
-Beta,AZD2816,5,0,0,Spencer21,False,1.0,1,5
+Beta,AZD2816,5,0,0,Spencer21,False,1.0,0.9,5
 Beta,Ad26.COV2.S,7,4,8,Alter21,False,1.0,4,19
 Beta,Ad26.COV2.S,9,10,11,Alter21,False,2.0,4.9,30
 Beta,Ad26.COV2.S,5,7,6,Barouch21,False,1.0,5.7,18
@@ -242,8 +240,6 @@ Delta,AZD1222,1,1,15,Planas21b,False,1.0,7.1,17
 Delta,AZD1222,4,14,2,Planas21b,False,2.0,4.7,20
 Delta,AZD1222,20,6,13,Sapkal21c,False,1.0,2.9,39
 Delta,AZD1222,30,10,7,Sapkal21c,False,2.0,2.4,47
-Delta,AZD1222,0,0,5,Spencer21,False,2.0,18,5
-Delta,AZD1222 + AZD2816,0,7,0,Spencer21,False,3.0,5.7,7
 Delta,AZD1222 + BNT162b2,11,0,0,Behrens21,False,2.0,1.3,11
 Delta,Ad26.COV2.S,8,6,4,Barouch21,False,1.0,3.3,18
 Delta,Ad26.COV2.S,6,7,5,Barouch21,False,2.0,3.7,18
@@ -377,9 +373,7 @@ Iota,mRNA-1273,0,6,0,West21,False,2.0,4.8,6
 Iota,mRNA-1273,1,2,0,Zhou21c,False,2.0,4.4,3
 Kappa,AZD1222,16,8,1,Liu21f,False,2.0,2.2,25
 Kappa,AZD1222,0,33,0,Mlcochova21,True,2.0,5.7,33
-Kappa,AZD1222,0,0,5,Spencer21,False,2.0,11,5
 Kappa,AZD1222,61,0,0,Yadav21c,True,2.0,1.9,61
-Kappa,AZD1222 + AZD2816,0,7,0,Spencer21,False,3.0,3.3,7
 Kappa,Ad26.COV2.S,10,4,4,Barouch21,False,1.0,2.8,18
 Kappa,Ad26.COV2.S,8,6,4,Barouch21,False,2.0,3.3,18
 Kappa,Ad26.COV2.S,7,1,0,Jongeneelen21,False,1.0,1.3,8

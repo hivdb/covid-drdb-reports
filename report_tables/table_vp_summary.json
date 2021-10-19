@@ -130,25 +130,14 @@
         "vaccine": [
             {
                 "name": "AZD1222",
-                "vp_studies": 6,
-                "vp_num_fold": 118,
+                "vp_studies": 5,
+                "vp_num_fold": 113,
                 "vp_s_fold": "2%",
-                "vp_i_fold": "38%",
-                "vp_r_fold": "60%",
+                "vp_i_fold": "35%",
+                "vp_r_fold": "63%",
                 "vp_num_s_fold": 2,
-                "vp_num_i_fold": 45,
+                "vp_num_i_fold": 40,
                 "vp_num_r_fold": 71
-            },
-            {
-                "name": "AZD1222 + AZD2816",
-                "vp_studies": 1,
-                "vp_num_fold": 7,
-                "vp_s_fold": "100%",
-                "vp_i_fold": 0,
-                "vp_r_fold": 0,
-                "vp_num_s_fold": 7,
-                "vp_num_i_fold": 0,
-                "vp_num_r_fold": 0
             },
             {
                 "name": "AZD1222 + BNT162b2",
@@ -371,25 +360,14 @@
         "vaccine": [
             {
                 "name": "AZD1222",
-                "vp_studies": 6,
-                "vp_num_fold": 152,
-                "vp_s_fold": "28%",
-                "vp_i_fold": "61%",
-                "vp_r_fold": "11%",
+                "vp_studies": 5,
+                "vp_num_fold": 147,
+                "vp_s_fold": "29%",
+                "vp_i_fold": "63%",
+                "vp_r_fold": "8%",
                 "vp_num_s_fold": 42,
                 "vp_num_i_fold": 92,
-                "vp_num_r_fold": 18
-            },
-            {
-                "name": "AZD1222 + AZD2816",
-                "vp_studies": 1,
-                "vp_num_fold": 7,
-                "vp_s_fold": 0,
-                "vp_i_fold": "100%",
-                "vp_r_fold": 0,
-                "vp_num_s_fold": 0,
-                "vp_num_i_fold": 7,
-                "vp_num_r_fold": 0
+                "vp_num_r_fold": 13
             },
             {
                 "name": "AZD1222 + BNT162b2",
@@ -573,25 +551,14 @@
         "vaccine": [
             {
                 "name": "AZD1222",
-                "vp_studies": 4,
-                "vp_num_fold": 124,
-                "vp_s_fold": "62%",
-                "vp_i_fold": "33%",
-                "vp_r_fold": "5%",
+                "vp_studies": 3,
+                "vp_num_fold": 119,
+                "vp_s_fold": "65%",
+                "vp_i_fold": "34%",
+                "vp_r_fold": "1%",
                 "vp_num_s_fold": 77,
                 "vp_num_i_fold": 41,
-                "vp_num_r_fold": 6
-            },
-            {
-                "name": "AZD1222 + AZD2816",
-                "vp_studies": 1,
-                "vp_num_fold": 7,
-                "vp_s_fold": 0,
-                "vp_i_fold": "100%",
-                "vp_r_fold": 0,
-                "vp_num_s_fold": 0,
-                "vp_num_i_fold": 7,
-                "vp_num_r_fold": 0
+                "vp_num_r_fold": 1
             },
             {
                 "name": "Ad26.COV2.S",

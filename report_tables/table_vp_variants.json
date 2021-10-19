@@ -1162,20 +1162,10 @@
                 "rx": "AZD1222",
                 "num_fold": 5,
                 "s_fold": 0,
-                "i_fold": 5,
-                "r_fold": 0,
+                "i_fold": 0,
+                "r_fold": 5,
                 "ref_name": "Spencer21",
-                "median": "4.6"
-            },
-            {
-                "variant": "Beta",
-                "rx": "AZD1222",
-                "num_fold": 5,
-                "s_fold": 0,
-                "i_fold": 5,
-                "r_fold": 0,
-                "ref_name": "Spencer21",
-                "median": "7.2"
+                "median": "9.3"
             },
             {
                 "variant": "Beta",
@@ -1190,22 +1180,12 @@
             {
                 "variant": "Beta",
                 "rx": "AZD1222 + AZD2816",
-                "num_fold": 7,
-                "s_fold": 7,
-                "i_fold": 0,
-                "r_fold": 0,
-                "ref_name": "Spencer21",
-                "median": "2"
-            },
-            {
-                "variant": "Beta",
-                "rx": "AZD1222 + AZD2816",
                 "num_fold": 5,
                 "s_fold": 0,
                 "i_fold": 5,
                 "r_fold": 0,
                 "ref_name": "Spencer21",
-                "median": "3"
+                "median": "3.9"
             },
             {
                 "variant": "Beta",
@@ -1235,7 +1215,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Spencer21",
-                "median": "1"
+                "median": "0.9"
             },
             {
                 "variant": "Beta",
@@ -2441,26 +2421,6 @@
                 "r_fold": 7,
                 "ref_name": "Sapkal21c",
                 "median": "2.4"
-            },
-            {
-                "variant": "Delta",
-                "rx": "AZD1222",
-                "num_fold": 5,
-                "s_fold": 0,
-                "i_fold": 0,
-                "r_fold": 5,
-                "ref_name": "Spencer21",
-                "median": "18"
-            },
-            {
-                "variant": "Delta",
-                "rx": "AZD1222 + AZD2816",
-                "num_fold": 7,
-                "s_fold": 0,
-                "i_fold": 7,
-                "r_fold": 0,
-                "ref_name": "Spencer21",
-                "median": "5.7"
             },
             {
                 "variant": "Delta",
@@ -3815,32 +3775,12 @@
             {
                 "variant": "Kappa",
                 "rx": "AZD1222",
-                "num_fold": 5,
-                "s_fold": 0,
-                "i_fold": 0,
-                "r_fold": 5,
-                "ref_name": "Spencer21",
-                "median": "11"
-            },
-            {
-                "variant": "Kappa",
-                "rx": "AZD1222",
                 "num_fold": 61,
                 "s_fold": 61,
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Yadav21c",
                 "median": 1.9
-            },
-            {
-                "variant": "Kappa",
-                "rx": "AZD1222 + AZD2816",
-                "num_fold": 7,
-                "s_fold": 0,
-                "i_fold": 7,
-                "r_fold": 0,
-                "ref_name": "Spencer21",
-                "median": "3.3"
             },
             {
                 "variant": "Kappa",

@@ -5767,7 +5767,6 @@ B.1,CP,6938.0,>=2,infected,1,B.1
 B.1,CP,95.0,>=2,infected,1,B.1
 B.1,CP,1297.0,>=2,infected,1,B.1
 B.1,CP,1522.0,>=2,infected,1,B.1
-Gamma,CP,300.0,>=2,infected,1,Gamma
 B,CP,39.0,1,infected,1,B
 B,CP,112.0,1,infected,1,B
 B,CP,32.0,1,infected,1,B
@@ -5807,6 +5806,7 @@ Beta,CP,1249.0,1,infected,1,Beta
 B.1,CP,300.0,>=2,infected,1,B.1
 Alpha,CP,300.0,>=2,infected,1,Alpha
 Beta,CP,75.0,>=2,infected,1,Beta
+Gamma,CP,300.0,>=2,infected,1,Gamma
 B.1,CP,300.0,>=2,infected,1,B.1
 Alpha,CP,300.0,>=2,infected,1,Alpha
 Beta,CP,75.0,>=2,infected,1,Beta
@@ -6491,7 +6491,7 @@ B.1,CP,1026.0,1,infected,1,B.1
 Alpha,CP,1910.0,1,infected,1,Alpha
 B.1,CP,828.0,1,infected,1,B.1
 Alpha,CP,988.0,1,infected,1,Alpha
-Alpha,CP,225.0,1,infected,1,Alpha
+B,CP,895.0,1,infected,1,B
 B,CP,112.0,1,infected,1,B
 B,CP,112.0,1,infected,1,B
 B,CP,1286.0,1,infected,1,B
@@ -6501,7 +6501,6 @@ B,CP,895.0,1,infected,1,B
 B,CP,1286.0,1,infected,1,B
 B,CP,112.0,1,infected,1,B
 B,CP,160.0,1,infected,1,B
-B,CP,895.0,1,infected,1,B
 B,CP,1286.0,1,infected,1,B
 B,CP,112.0,1,infected,1,B
 B,CP,1286.0,1,infected,1,B
@@ -6548,6 +6547,7 @@ Alpha,CP,319.0,1,infected,1,Alpha
 Alpha,CP,28.0,1,infected,1,Alpha
 Alpha,CP,56.0,1,infected,1,Alpha
 Alpha,CP,79.0,1,infected,1,Alpha
+Alpha,CP,225.0,1,infected,1,Alpha
 Alpha,CP,319.0,1,infected,1,Alpha
 Alpha,CP,630.0,1,infected,1,Alpha
 Alpha,CP,13.0,1,infected,1,Alpha
@@ -6645,8 +6645,7 @@ Alpha,CP,28.0,1,infected,1,Alpha
 Beta,CP,21.0,1,infected,1,Beta
 Beta,CP,45.0,1,infected,1,Beta
 Beta,CP,22.0,1,infected,1,Beta
-Epsilon,CP,362.0,1,infected,1,Epsilon
-Epsilon,CP,3613.0,1,infected,1,Epsilon
+B.1,CP,2579.0,1,infected,1,B.1
 B.1,CP,1609.0,>=2,infected,1,B.1
 B.1,CP,500.0,>=2,infected,1,B.1
 B.1,CP,293.0,1,infected,1,B.1
@@ -6654,7 +6653,6 @@ B.1,CP,718.0,1,infected,1,B.1
 B.1,CP,773.0,1,infected,1,B.1
 B.1,CP,7834.0,1,infected,1,B.1
 B.1,CP,834.0,1,infected,1,B.1
-B.1,CP,2579.0,1,infected,1,B.1
 Alpha,CP,890.0,>=2,infected,1,Alpha
 Alpha,CP,158.0,>=2,infected,1,Alpha
 Alpha,CP,370.0,1,infected,1,Alpha
@@ -6690,6 +6688,8 @@ Epsilon,CP,640.0,>=2,infected,1,Epsilon
 Epsilon,CP,200.0,>=2,infected,1,Epsilon
 Epsilon,CP,260.0,1,infected,1,Epsilon
 Epsilon,CP,145.0,1,infected,1,Epsilon
+Epsilon,CP,362.0,1,infected,1,Epsilon
+Epsilon,CP,3613.0,1,infected,1,Epsilon
 Epsilon,CP,404.0,1,infected,1,Epsilon
 Epsilon,CP,624.0,1,infected,1,Epsilon
 Lambda,CP,414.0,>=2,infected,1,Lambda
@@ -7858,7 +7858,6 @@ Beta,CP,867.0,1,infected,1,Beta
 Beta,CP,336.0,1,infected,1,Beta
 Beta,CP,1150.0,1,infected,1,Beta
 Beta,CP,705.0,1,infected,1,Beta
-Beta,CP,10.0,1,infected,1,Beta
 B.1,CP,210.0,1,infected,1,B.1
 B.1,CP,208.0,1,infected,1,B.1
 B.1,CP,232.0,1,infected,1,B.1
@@ -7896,7 +7895,6 @@ Gamma,CP,15.0,1,infected,1,Gamma
 Beta,CP,15.0,1,infected,1,Beta
 Gamma,CP,15.0,1,infected,1,Gamma
 Gamma,CP,15.0,1,infected,1,Gamma
-A,CP,5.0,>=2,infected,1,A
 B.1,CP,5.0,1,infected,1,B.1
 B.1,CP,5.0,1,infected,1,B.1
 B,CP,5.0,1,infected,1,B
@@ -7907,22 +7905,23 @@ B.1,CP,5.0,1,infected,1,B.1
 B.1,CP,5.0,1,infected,1,B.1
 B.1,CP,5.0,1,infected,1,B.1
 B.1,CP,5.0,1,infected,1,B.1
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
-A,CP,5.0,>=2,infected,1,A
 Alpha,CP,5.0,>=2,infected,1,Alpha
 Alpha,CP,5.0,>=2,infected,1,Alpha
 Alpha,CP,5.0,>=2,infected,1,Alpha
 Alpha,CP,5.0,>=2,infected,1,Alpha
 Alpha,CP,5.0,>=2,infected,1,Alpha
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
+A,CP,5.0,>=2,infected,1,A
 Alpha,CP,5.0,>=2,infected,1,Alpha
 Alpha,CP,5.0,>=2,infected,1,Alpha
 Alpha,CP,5.0,>=2,infected,1,Alpha
@@ -8050,7 +8049,6 @@ Gamma,CP,10.0,1,infected,1,Gamma
 Gamma,CP,10.0,>=2,infected,1,Gamma
 Gamma,CP,10.0,>=2,infected,1,Gamma
 Gamma,CP,10.0,>=2,infected,1,Gamma
-Beta,CP,10.0,>=2,infected,1,Beta
 B,CP,12.5,>=2,infected,1,B
 Alpha,CP,12.5,>=2,infected,1,Alpha
 Alpha,CP,12.5,>=2,infected,1,Alpha
@@ -8097,6 +8095,7 @@ Beta,CP,10.0,>=2,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
+Beta,CP,10.0,>=2,infected,1,Beta
 Beta,CP,10.0,>=2,infected,1,Beta
 Beta,CP,10.0,>=2,infected,1,Beta
 Beta,CP,10.0,>=2,infected,1,Beta
@@ -8811,7 +8810,6 @@ Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,20.0,>=2,infected,1,Beta
 Mu,CP,20.0,>=2,infected,1,Mu
 Mu,CP,20.0,1,infected,1,Mu
-B,CP,10.0,1,infected,1,B
 B.1,CP,10.0,1,infected,1,B.1
 Alpha,CP,10.0,1,infected,1,Alpha
 B,CP,10.0,1,infected,1,B
@@ -8820,6 +8818,7 @@ Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 B,CP,10.0,1,infected,1,B
 B,CP,10.0,>=2,infected,1,B
+B,CP,10.0,1,infected,1,B
 B,CP,10.0,>=2,infected,1,B
 B,CP,10.0,>=2,infected,1,B
 B.1,CP,10.0,>=2,infected,1,B.1
@@ -8909,13 +8908,13 @@ Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
+B.1,CP,10.0,>=2,infected,1,B.1
 Beta,CP,10.0,1,infected,1,Beta
 B,CP,10.0,>=2,infected,1,B
 B,CP,10.0,>=2,infected,1,B
 B,CP,10.0,>=2,infected,1,B
 B,CP,10.0,>=2,infected,1,B
 B,CP,10.0,>=2,infected,1,B
-B.1,CP,10.0,>=2,infected,1,B.1
 B.1,CP,10.0,>=2,infected,1,B.1
 B.1,CP,10.0,>=2,infected,1,B.1
 B.1,CP,10.0,>=2,infected,1,B.1
@@ -8957,6 +8956,7 @@ Delta,CP,10.0,>=2,infected,1,Delta
 Delta,CP,10.0,>=2,infected,1,Delta
 Delta,CP,10.0,>=2,infected,1,Delta
 Delta,CP,0.1,>=2,infected,1,Delta
+Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
 Beta,CP,10.0,1,infected,1,Beta
@@ -20278,26 +20278,6 @@ Beta,BNT162b2,932.0,1,naive,1,Beta
 Beta,BNT162b2,874.0,1,naive,1,Beta
 Beta,BNT162b2,45.0,1,naive,1,Beta
 Beta,BNT162b2,67.0,1,naive,1,Beta
-B,AZD1222,1150.0,>=2,naive,1,B
-B,AZD1222,613.0,>=2,naive,1,B
-B,AZD1222,862.0,>=2,naive,1,B
-B,AZD1222,1150.0,>=2,naive,1,B
-B,AZD1222,1618.0,>=2,naive,1,B
-Beta,AZD1222,95.0,>=2,naive,1,Beta
-Beta,AZD1222,302.0,>=2,naive,1,Beta
-Beta,AZD1222,50.0,>=2,naive,1,Beta
-Beta,AZD1222,111.0,>=2,naive,1,Beta
-Beta,AZD1222,372.0,>=2,naive,1,Beta
-Kappa,AZD1222,56.0,>=2,naive,1,Kappa
-Kappa,AZD1222,174.0,>=2,naive,1,Kappa
-Kappa,AZD1222,95.0,>=2,naive,1,Kappa
-Kappa,AZD1222,43.0,>=2,naive,1,Kappa
-Kappa,AZD1222,183.0,>=2,naive,1,Kappa
-Delta,AZD1222,245.0,>=2,naive,1,Delta
-Delta,AZD1222,40.0,>=2,naive,1,Delta
-Delta,AZD1222,40.0,>=2,naive,1,Delta
-Delta,AZD1222,40.0,>=2,naive,1,Delta
-Delta,AZD1222,40.0,>=2,naive,1,Delta
 B,BNT162b2,2310.0,1,naive,1,B
 B,BNT162b2,459.0,1,naive,1,B
 B,BNT162b2,285.0,1,naive,1,B
@@ -20468,7 +20448,6 @@ Alpha,BNT162b2,464.0,1,naive,1,Alpha
 Alpha,BNT162b2,406.0,1,naive,1,Alpha
 Alpha,BNT162b2,355.0,1,naive,1,Alpha
 Alpha,BNT162b2,355.0,1,naive,1,Alpha
-B,BNT162b2,5.0,1,naive,1,B
 Alpha,BNT162b2,238.0,1,naive,1,Alpha
 Alpha,BNT162b2,355.0,1,naive,1,Alpha
 Alpha,BNT162b2,355.0,1,naive,1,Alpha
@@ -20476,6 +20455,7 @@ Alpha,BNT162b2,355.0,1,naive,1,Alpha
 Alpha,BNT162b2,311.0,1,naive,1,Alpha
 Alpha,BNT162b2,355.0,1,naive,1,Alpha
 Alpha,BNT162b2,355.0,1,naive,1,Alpha
+B,BNT162b2,5.0,1,naive,1,B
 A,BNT162b2,302.0,>=2,naive,1,A
 A,BNT162b2,302.0,>=2,naive,1,A
 A,BNT162b2,302.0,>=2,naive,1,A
@@ -21406,6 +21386,7 @@ Gamma,BNT162b2,288.0,1,naive,1,Gamma
 Gamma,BNT162b2,288.0,1,naive,1,Gamma
 Gamma,BNT162b2,288.0,1,naive,1,Gamma
 Gamma,BNT162b2,288.0,1,naive,1,Gamma
+B,BNT162b2,5120.0,1,naive,1,B
 B,BNT162b2,310.0,1,naive,1,B
 B,BNT162b2,142.0,>=2,naive,1,B
 B,BNT162b2,1319.0,1,naive,1,B
@@ -21432,7 +21413,6 @@ B,BNT162b2,509.0,1,naive,1,B
 B,BNT162b2,173.0,1,naive,1,B
 B,BNT162b2,660.0,1,naive,1,B
 B,BNT162b2,540.0,1,naive,1,B
-B,BNT162b2,5120.0,1,naive,1,B
 B,BNT162b2,5120.0,1,naive,1,B
 B,BNT162b2,1313.0,>=2,naive,1,B
 B,BNT162b2,5120.0,1,naive,1,B
@@ -22848,7 +22828,6 @@ Alpha,BNT162b2,409.0,1,naive,1,Alpha
 Alpha,BNT162b2,499.0,1,naive,1,Alpha
 Beta,mRNA-1273,3834.0,1,naive,1,Beta
 Beta,mRNA-1273,1385.0,1,naive,1,Beta
-A,BNT162b2,830.0,1,naive,1,A
 Beta,mRNA-1273,424.0,1,naive,1,Beta
 Beta,mRNA-1273,729.0,1,naive,1,Beta
 Beta,mRNA-1273,1140.0,1,naive,1,Beta
@@ -22868,8 +22847,6 @@ Beta,BNT162b2,195.0,1,naive,1,Beta
 Beta,BNT162b2,132.0,1,naive,1,Beta
 Beta,BNT162b2,255.0,1,naive,1,Beta
 Beta,BNT162b2,180.0,1,naive,1,Beta
-Alpha,mRNA-1273,12310.0,1,naive,1,Alpha
-Alpha,mRNA-1273,6349.0,1,naive,1,Alpha
 A,mRNA-1273,13541.0,1,naive,1,A
 A,mRNA-1273,7619.0,1,naive,1,A
 A,mRNA-1273,13914.0,1,naive,1,A
@@ -22891,6 +22868,9 @@ A,BNT162b2,754.0,1,naive,1,A
 A,BNT162b2,1684.0,1,naive,1,A
 A,BNT162b2,1582.0,1,naive,1,A
 A,BNT162b2,343.0,1,naive,1,A
+A,BNT162b2,830.0,1,naive,1,A
+Alpha,mRNA-1273,12310.0,1,naive,1,Alpha
+Alpha,mRNA-1273,6349.0,1,naive,1,Alpha
 Alpha,mRNA-1273,8185.0,1,naive,1,Alpha
 Alpha,mRNA-1273,18647.0,1,naive,1,Alpha
 Alpha,mRNA-1273,9364.0,1,naive,1,Alpha
@@ -24464,6 +24444,7 @@ Delta,AZD1222,5.0,1,naive,1,Delta
 Delta,AZD1222,5.0,1,naive,1,Delta
 Delta,AZD1222,5.0,1,naive,1,Delta
 Delta,AZD1222,5.0,1,naive,1,Delta
+B,CoronaVac,10.0,>=2,naive,1,B
 Beta,BNT162b2,10.0,1,naive,1,Beta
 Beta,BNT162b2,10.0,1,naive,1,Beta
 Beta,BNT162b2,10.0,1,naive,1,Beta
@@ -24474,7 +24455,6 @@ Epsilon,mRNA-1273,50.0,1,naive,1,Epsilon
 Epsilon,mRNA-1273,50.0,1,naive,1,Epsilon
 Epsilon,BNT162b2,50.0,1,naive,1,Epsilon
 Epsilon,mRNA-1273,50.0,1,naive,1,Epsilon
-B,CoronaVac,10.0,>=2,naive,1,B
 B,CoronaVac,10.0,>=2,naive,1,B
 B,CoronaVac,10.0,>=2,naive,1,B
 B,CoronaVac,10.0,>=2,naive,1,B
@@ -26126,7 +26106,7 @@ B,BNT162b2,6476.0,1,infected,1,B
 B,BNT162b2,6937.0,1,infected,1,B
 B,BNT162b2,10650.0,1,infected,1,B
 B,BNT162b2,6677.0,1,infected,1,B
-B.1,BNT162b2,5686.0,1,infected,1,B.1
+B.1,BNT162b2,14580.0,1,infected,1,B.1
 B.1,BNT162b2,1723.0,1,infected,1,B.1
 Alpha,BNT162b2,595.0,1,infected,1,Alpha
 B.1,BNT162b2,6991.0,1,infected,1,B.1
@@ -26139,6 +26119,7 @@ B.1,BNT162b2,7547.0,1,infected,1,B.1
 Alpha,BNT162b2,3998.0,1,infected,1,Alpha
 B.1,BNT162b2,9715.0,1,infected,1,B.1
 Alpha,BNT162b2,5999.0,1,infected,1,Alpha
+B.1,BNT162b2,5686.0,1,infected,1,B.1
 Alpha,BNT162b2,3819.0,1,infected,1,Alpha
 B.1,BNT162b2,2877.0,1,infected,1,B.1
 Alpha,BNT162b2,1349.0,1,infected,1,Alpha
@@ -26150,7 +26131,6 @@ B.1,BNT162b2,14580.0,1,infected,1,B.1
 Alpha,BNT162b2,5431.0,1,infected,1,Alpha
 B.1,BNT162b2,14580.0,1,infected,1,B.1
 Alpha,BNT162b2,11065.0,1,infected,1,Alpha
-B.1,BNT162b2,14580.0,1,infected,1,B.1
 Alpha,BNT162b2,14580.0,1,infected,1,Alpha
 B.1,BNT162b2,14580.0,1,infected,1,B.1
 Alpha,BNT162b2,12797.0,1,infected,1,Alpha

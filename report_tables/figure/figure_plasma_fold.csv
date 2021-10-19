@@ -149,9 +149,9 @@ Beta,Ad26.COV2.S,R,1,infected,1,4
 Beta,AZD1222,S,1,naive,5,6
 Beta,AZD1222,I,1,naive,5,34
 Beta,AZD1222,R,1,naive,5,118
-Beta,AZD1222,S,>=2,naive,2,1
-Beta,AZD1222,I,>=2,naive,2,19
-Beta,AZD1222,R,>=2,naive,2,5
+Beta,AZD1222,S,>=2,naive,1,1
+Beta,AZD1222,I,>=2,naive,1,14
+Beta,AZD1222,R,>=2,naive,1,5
 Beta,AZD1222 + BNT162b2,S,1,naive,3,37
 Beta,AZD1222 + BNT162b2,I,1,naive,3,0
 Beta,AZD1222 + BNT162b2,R,1,naive,3,54
@@ -287,9 +287,9 @@ Delta,Ad26.COV2.S,R,1,infected,1,7
 Delta,AZD1222,S,1,naive,5,30
 Delta,AZD1222,I,1,naive,5,74
 Delta,AZD1222,R,1,naive,5,70
-Delta,AZD1222,S,>=2,naive,2,4
-Delta,AZD1222,I,>=2,naive,2,15
-Delta,AZD1222,R,>=2,naive,2,6
+Delta,AZD1222,S,>=2,naive,1,4
+Delta,AZD1222,I,>=2,naive,1,15
+Delta,AZD1222,R,>=2,naive,1,1
 Delta,AZD1222,S,1,infected,1,12
 Delta,AZD1222,I,1,infected,1,7
 Delta,AZD1222,R,1,infected,1,0
@@ -434,9 +434,6 @@ Kappa,ZF2001,R,1,naive,1,0
 Kappa,AZD1222,S,1,naive,3,59
 Kappa,AZD1222,I,1,naive,3,41
 Kappa,AZD1222,R,1,naive,3,1
-Kappa,AZD1222,S,>=2,naive,1,0
-Kappa,AZD1222,I,>=2,naive,1,0
-Kappa,AZD1222,R,>=2,naive,1,5
 Kappa,AZD1222,S,1,infected,1,18
 Kappa,AZD1222,I,1,infected,1,0
 Kappa,AZD1222,R,1,infected,1,0

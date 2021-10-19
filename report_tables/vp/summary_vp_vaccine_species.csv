@@ -1,6 +1,6 @@
 ﻿vaccine,num_ref_name,num_fold,species
-AZD1222,15,1527,Human
-AZD1222 + AZD2816,1,92,Human
+AZD1222,15,1502,Human
+AZD1222 + AZD2816,1,59,Human
 AZD1222 + BNT162b2,3,258,Human
 AZD2816,1,20,Human
 Ad26.COV2.S,7,711,Human
