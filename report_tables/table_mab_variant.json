@@ -286,6 +286,13 @@
                 "variant": "Alpha",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.3",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "1",
                 "ref_name": "Tada21"
             },
@@ -372,6 +379,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.6",
                 "ref_name": "Rothenberger21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.2",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Alpha",
@@ -515,6 +529,13 @@
             },
             {
                 "variant": "Alpha",
+                "rx_name": "COVA1-16",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "1.8",
+                "ref_name": "Moriyama21"
+            },
+            {
+                "variant": "Alpha",
                 "rx_name": "DH1047",
                 "mab_class": "RBD Core Cluster II",
                 "fold": "1.2",
@@ -615,6 +636,13 @@
                 "variant": "Alpha",
                 "rx_name": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "0.9",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "1",
                 "ref_name": "Tada21"
             },
@@ -694,6 +722,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "0.6",
                 "ref_name": "Rothenberger21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Alpha",
@@ -963,6 +998,13 @@
             },
             {
                 "variant": "Alpha",
+                "rx_name": "C002",
+                "mab_class": "RBM Class II",
+                "fold": "1.6",
+                "ref_name": "Moriyama21"
+            },
+            {
+                "variant": "Alpha",
                 "rx_name": "C121",
                 "mab_class": "RBM Class II",
                 "fold": "0.4",
@@ -1009,6 +1051,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "0.3",
                 "ref_name": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "3",
+                "ref_name": "Chen21d"
             },
             {
                 "variant": "Alpha",
@@ -1369,6 +1418,13 @@
                 "variant": "Beta",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.9",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "2.3",
                 "ref_name": "Tada21"
             },
@@ -1462,6 +1518,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.2",
                 "ref_name": "Copin21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.1",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Beta",
@@ -1588,6 +1651,13 @@
                 "mab_class": "RBD Core Cluster II",
                 "fold": "0.2",
                 "ref_name": "Caniels21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "COVA1-16",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.1",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Beta",
@@ -1740,6 +1810,13 @@
                 "variant": "Beta",
                 "rx_name": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "12",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "76",
                 "ref_name": "Tada21"
             },
@@ -1833,6 +1910,13 @@
                 "mab_class": "RBM Class I",
                 "fold": "59",
                 "ref_name": "Copin21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": ">100",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Beta",
@@ -2095,6 +2179,13 @@
             },
             {
                 "variant": "Beta",
+                "rx_name": "C002",
+                "mab_class": "RBM Class II",
+                "fold": "51",
+                "ref_name": "Moriyama21"
+            },
+            {
+                "variant": "Beta",
                 "rx_name": "C121",
                 "mab_class": "RBM Class II",
                 "fold": ">100",
@@ -2256,6 +2347,13 @@
                 "variant": "Delta",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "1.5",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "0.5",
                 "ref_name": "Liu21f"
             },
@@ -2335,6 +2433,13 @@
                 "mab_class": "RBD Core Cluster II",
                 "fold": "1.4",
                 "ref_name": "Mlcochova21"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.9",
+                "ref_name": "Miyakawa21b"
             },
             {
                 "variant": "Delta",
@@ -2763,6 +2868,13 @@
             },
             {
                 "variant": "Epsilon",
+                "rx_name": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "3",
+                "ref_name": "Chen21d"
+            },
+            {
+                "variant": "Epsilon",
                 "rx_name": "LY3853113",
                 "mab_class": "RBM Class II",
                 "fold": "0.4",
@@ -2945,6 +3057,13 @@
                 "variant": "Gamma",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
+                "fold": "0.3",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Gamma",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
                 "fold": "1.9",
                 "ref_name": "Tada21"
             },
@@ -3003,6 +3122,13 @@
                 "mab_class": "RBD Core Cluster I",
                 "fold": "0.7",
                 "ref_name": "Yao21"
+            },
+            {
+                "variant": "Gamma",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "0.1",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Gamma",
@@ -3090,6 +3216,13 @@
             },
             {
                 "variant": "Gamma",
+                "rx_name": "COVA1-16",
+                "mab_class": "RBD Core Cluster II",
+                "fold": "0.1",
+                "ref_name": "Moriyama21"
+            },
+            {
+                "variant": "Gamma",
                 "rx_name": "2-15",
                 "mab_class": "RBM Class I",
                 "fold": ">100",
@@ -3148,6 +3281,13 @@
                 "variant": "Gamma",
                 "rx_name": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "17",
+                "ref_name": "Miyakawa21b"
+            },
+            {
+                "variant": "Gamma",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": ">100",
                 "ref_name": "Tada21"
             },
@@ -3199,6 +3339,13 @@
                 "mab_class": "RBM Class I",
                 "fold": ">100",
                 "ref_name": "Yao21"
+            },
+            {
+                "variant": "Gamma",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": ">100",
+                "ref_name": "Moriyama21"
             },
             {
                 "variant": "Gamma",
@@ -3398,6 +3545,13 @@
             },
             {
                 "variant": "Gamma",
+                "rx_name": "C002",
+                "mab_class": "RBM Class II",
+                "fold": "51",
+                "ref_name": "Moriyama21"
+            },
+            {
+                "variant": "Gamma",
                 "rx_name": "C121",
                 "mab_class": "RBM Class II",
                 "fold": ">100",
@@ -3430,6 +3584,13 @@
                 "mab_class": "RBM Class II",
                 "fold": "0.5",
                 "ref_name": "Wang21d"
+            },
+            {
+                "variant": "Gamma",
+                "rx_name": "Cilgavimab",
+                "mab_class": "RBM Class II",
+                "fold": "8",
+                "ref_name": "Chen21d"
             },
             {
                 "variant": "Gamma",

@@ -90,7 +90,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Diez21",
-                "median": 1.5
+                "median": "1.5"
             },
             {
                 "variant": "Alpha",
@@ -131,6 +131,16 @@
                 "r_fold": 1,
                 "ref_name": "Geers21",
                 "median": "0.3"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "CP",
+                "num_fold": 154,
+                "s_fold": 154,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Gidari21",
+                "median": 2.0
             },
             {
                 "variant": "Alpha",
@@ -240,7 +250,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Mlcochova21",
-                "median": 2.3
+                "median": "2.6"
             },
             {
                 "variant": "Alpha",
@@ -251,6 +261,16 @@
                 "r_fold": 3,
                 "ref_name": "Muecksch21b",
                 "median": "0.9"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "CP",
+                "num_fold": 61,
+                "s_fold": 23,
+                "i_fold": 3,
+                "r_fold": 35,
+                "ref_name": "Muller21",
+                "median": "3.2"
             },
             {
                 "variant": "Alpha",
@@ -635,7 +655,7 @@
                 "i_fold": 3,
                 "r_fold": 0,
                 "ref_name": "Diez21",
-                "median": 6.7
+                "median": "7.1"
             },
             {
                 "variant": "Beta",
@@ -795,7 +815,27 @@
                 "i_fold": 12,
                 "r_fold": 0,
                 "ref_name": "Mlcochova21",
-                "median": 8.3
+                "median": "9.4"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CP",
+                "num_fold": 59,
+                "s_fold": 7,
+                "i_fold": 11,
+                "r_fold": 41,
+                "ref_name": "Moriyama21",
+                "median": "6.4"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CP",
+                "num_fold": 125,
+                "s_fold": 0,
+                "i_fold": 125,
+                "r_fold": 0,
+                "ref_name": "Moriyama21",
+                "median": 5.3
             },
             {
                 "variant": "Beta",
@@ -1150,7 +1190,7 @@
                 "i_fold": 12,
                 "r_fold": 0,
                 "ref_name": "Mlcochova21",
-                "median": 6.2
+                "median": "5.6"
             },
             {
                 "variant": "Delta",
@@ -1400,7 +1440,7 @@
                 "i_fold": 3,
                 "r_fold": 0,
                 "ref_name": "Diez21",
-                "median": 4.8
+                "median": "4"
             },
             {
                 "variant": "Gamma",
@@ -1411,6 +1451,16 @@
                 "r_fold": 0,
                 "ref_name": "Dupont21",
                 "median": "1.2"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "CP",
+                "num_fold": 154,
+                "s_fold": 0,
+                "i_fold": 154,
+                "r_fold": 0,
+                "ref_name": "Gidari21",
+                "median": 8.0
             },
             {
                 "variant": "Gamma",
@@ -1461,6 +1511,26 @@
                 "r_fold": 6,
                 "ref_name": "McCallum21b",
                 "median": "7.3"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "CP",
+                "num_fold": 59,
+                "s_fold": 33,
+                "i_fold": 12,
+                "r_fold": 14,
+                "ref_name": "Moriyama21",
+                "median": "2.4"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "CP",
+                "num_fold": 125,
+                "s_fold": 79,
+                "i_fold": 46,
+                "r_fold": 0,
+                "ref_name": "Moriyama21",
+                "median": 2.9
             },
             {
                 "variant": "Gamma",

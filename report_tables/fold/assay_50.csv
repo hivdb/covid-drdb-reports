@@ -1,10 +1,11 @@
 ﻿assay,num_fold
-Pseudovirus,23
-Pseudovirus (HIV),10095
+Pseudovirus,35
+Pseudovirus (HIV),10124
 Pseudovirus (MLV),310
-Pseudovirus (VSV),8186
-Pseudovirus (lentivirus),4248
-SARS-CoV-2 recombinant,1219
+Pseudovirus (VSV),8546
+Pseudovirus (lentivirus),4055
+SARS-CoV-2 recombinant,1322
 VSV chimeric virus,61
-Virus isolate,11840
+Virus isolate,12636
+hiVNT,150
 sVNT (ACE2 blocking assay),522
