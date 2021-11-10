@@ -65,6 +65,16 @@
             {
                 "variant": "E484K",
                 "rx": "CP",
+                "num_fold": 9,
+                "s_fold": 9,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Ren21",
+                "median": 2.3
+            },
+            {
+                "variant": "E484K",
+                "rx": "CP",
                 "num_fold": 10,
                 "s_fold": 10,
                 "i_fold": 0,
@@ -375,6 +385,16 @@
             {
                 "variant": "K417N + E484K + N501Y",
                 "rx": "CP",
+                "num_fold": 56,
+                "s_fold": 49,
+                "i_fold": 3,
+                "r_fold": 4,
+                "ref_name": "Wang21j",
+                "median": "1.5"
+            },
+            {
+                "variant": "K417N + E484K + N501Y",
+                "rx": "CP",
                 "num_fold": 44,
                 "s_fold": 13,
                 "i_fold": 11,
@@ -436,6 +456,16 @@
                 "r_fold": 2,
                 "ref_name": "Liu21",
                 "median": "3.2"
+            },
+            {
+                "variant": "L452R",
+                "rx": "CP",
+                "num_fold": 9,
+                "s_fold": 9,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Ren21",
+                "median": 1.8
             },
             {
                 "variant": "L452R",
@@ -667,6 +697,16 @@
     {
         "variant": "T478K",
         "assays": [
+            {
+                "variant": "T478K",
+                "rx": "CP",
+                "num_fold": 10,
+                "s_fold": 10,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Ren21",
+                "median": 2.0
+            },
             {
                 "variant": "T478K",
                 "rx": "CP",

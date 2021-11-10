@@ -420,7 +420,7 @@
                 "i_fold": 31,
                 "r_fold": 0,
                 "ref_name": "Tea21",
-                "median": 4.0
+                "median": "3.4"
             },
             {
                 "variant": "Alpha",
@@ -455,12 +455,12 @@
             {
                 "variant": "Alpha",
                 "rx": "CP",
-                "num_fold": 8,
-                "s_fold": 5,
+                "num_fold": 13,
+                "s_fold": 10,
                 "i_fold": 3,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "2.8"
+                "median": "2.3"
             },
             {
                 "variant": "Alpha",
@@ -525,6 +525,16 @@
             {
                 "variant": "Alpha",
                 "rx": "CP",
+                "num_fold": 101,
+                "s_fold": 51,
+                "i_fold": 26,
+                "r_fold": 24,
+                "ref_name": "Wang21j",
+                "median": "2.8"
+            },
+            {
+                "variant": "Alpha",
+                "rx": "CP",
                 "num_fold": 12,
                 "s_fold": 12,
                 "i_fold": 0,
@@ -535,12 +545,12 @@
             {
                 "variant": "Alpha",
                 "rx": "CP",
-                "num_fold": 20,
-                "s_fold": 20,
+                "num_fold": 17,
+                "s_fold": 17,
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Wilson21",
-                "median": 0.95
+                "median": "1"
             },
             {
                 "variant": "Alpha",
@@ -1000,6 +1010,16 @@
             {
                 "variant": "Beta",
                 "rx": "CP",
+                "num_fold": 31,
+                "s_fold": 0,
+                "i_fold": 0,
+                "r_fold": 31,
+                "ref_name": "Tea21",
+                "median": "10"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CP",
                 "num_fold": 42,
                 "s_fold": 0,
                 "i_fold": 42,
@@ -1020,12 +1040,12 @@
             {
                 "variant": "Beta",
                 "rx": "CP",
-                "num_fold": 8,
-                "s_fold": 1,
-                "i_fold": 4,
-                "r_fold": 3,
+                "num_fold": 13,
+                "s_fold": 3,
+                "i_fold": 6,
+                "r_fold": 4,
                 "ref_name": "Uriu21",
-                "median": "8.6"
+                "median": "6.8"
             },
             {
                 "variant": "Beta",
@@ -1090,6 +1110,16 @@
             {
                 "variant": "Beta",
                 "rx": "CP",
+                "num_fold": 104,
+                "s_fold": 7,
+                "i_fold": 21,
+                "r_fold": 76,
+                "ref_name": "Wang21j",
+                "median": "16"
+            },
+            {
+                "variant": "Beta",
+                "rx": "CP",
                 "num_fold": 44,
                 "s_fold": 5,
                 "i_fold": 11,
@@ -1115,7 +1145,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Wilson21",
-                "median": 1.5
+                "median": "1.8"
             },
             {
                 "variant": "Beta",
@@ -1161,6 +1191,16 @@
                 "r_fold": 0,
                 "ref_name": "Arora21",
                 "median": "1.8"
+            },
+            {
+                "variant": "Delta",
+                "rx": "CP",
+                "num_fold": 9,
+                "s_fold": 9,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Arora21b",
+                "median": 2.3
             },
             {
                 "variant": "Delta",
@@ -1225,12 +1265,12 @@
             {
                 "variant": "Delta",
                 "rx": "CP",
-                "num_fold": 8,
-                "s_fold": 2,
-                "i_fold": 6,
+                "num_fold": 13,
+                "s_fold": 3,
+                "i_fold": 10,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "4.1"
+                "median": "3.7"
             },
             {
                 "variant": "Delta",
@@ -1265,12 +1305,12 @@
             {
                 "variant": "Delta",
                 "rx": "CP",
-                "num_fold": 10,
-                "s_fold": 0,
-                "i_fold": 10,
-                "r_fold": 0,
+                "num_fold": 7,
+                "s_fold": 1,
+                "i_fold": 0,
+                "r_fold": 6,
                 "ref_name": "Wilson21",
-                "median": 3.1
+                "median": "8"
             },
             {
                 "variant": "Delta",
@@ -1330,12 +1370,12 @@
             {
                 "variant": "Epsilon",
                 "rx": "CP",
-                "num_fold": 8,
-                "s_fold": 6,
+                "num_fold": 13,
+                "s_fold": 11,
                 "i_fold": 2,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "2.4"
+                "median": "2.1"
             },
             {
                 "variant": "Epsilon",
@@ -1567,10 +1607,10 @@
                 "rx": "CP",
                 "num_fold": 31,
                 "s_fold": 0,
-                "i_fold": 0,
-                "r_fold": 31,
+                "i_fold": 31,
+                "r_fold": 0,
                 "ref_name": "Tea21",
-                "median": 160.0
+                "median": "6.6"
             },
             {
                 "variant": "Gamma",
@@ -1585,22 +1625,22 @@
             {
                 "variant": "Gamma",
                 "rx": "CP",
-                "num_fold": 8,
-                "s_fold": 2,
+                "num_fold": 13,
+                "s_fold": 7,
                 "i_fold": 6,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "4.1"
+                "median": "2.9"
             },
             {
                 "variant": "Gamma",
                 "rx": "CP",
                 "num_fold": 20,
-                "s_fold": 20,
-                "i_fold": 0,
+                "s_fold": 19,
+                "i_fold": 1,
                 "r_fold": 0,
                 "ref_name": "Vicenti21",
-                "median": 0.6
+                "median": "0.8"
             },
             {
                 "variant": "Gamma",
@@ -1625,12 +1665,12 @@
             {
                 "variant": "Gamma",
                 "rx": "CP",
-                "num_fold": 20,
-                "s_fold": 10,
-                "i_fold": 10,
-                "r_fold": 0,
+                "num_fold": 17,
+                "s_fold": 8,
+                "i_fold": 8,
+                "r_fold": 1,
                 "ref_name": "Wilson21",
-                "median": 2.05
+                "median": "3"
             },
             {
                 "variant": "Gamma",
@@ -1685,7 +1725,7 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Wilson21",
-                "median": 1.1
+                "median": "1.2"
             },
             {
                 "variant": "Iota",
@@ -1755,6 +1795,16 @@
             {
                 "variant": "Kappa",
                 "rx": "CP",
+                "num_fold": 9,
+                "s_fold": 9,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Ren21",
+                "median": 1.8
+            },
+            {
+                "variant": "Kappa",
+                "rx": "CP",
                 "num_fold": 10,
                 "s_fold": 0,
                 "i_fold": 10,
@@ -1775,12 +1825,12 @@
             {
                 "variant": "Kappa",
                 "rx": "CP",
-                "num_fold": 20,
-                "s_fold": 20,
-                "i_fold": 0,
-                "r_fold": 0,
+                "num_fold": 17,
+                "s_fold": 10,
+                "i_fold": 1,
+                "r_fold": 6,
                 "ref_name": "Wilson21",
-                "median": 1.95
+                "median": "2.6"
             }
         ]
     }

@@ -1,6 +1,8 @@
 ﻿pattern,ab_name,class,fold,ref_name
 Alpha,ADG20,,1.5,Supasa21
+Alpha,BRII-196/BRII-198,,2.5,Margolis21
 Alpha,BRII-196/BRII-198,,0.5,Wang21b
+Alpha,BRII-196/BRII-198,,2.5,Margolis21
 Alpha,BRII-196/BRII-198,,0.2,Wang21b
 Alpha,Bamlanivimab/Etesevimab,,1,FDA21
 Alpha,Bamlanivimab/Etesevimab,,1.7,Wang21b
@@ -83,6 +85,9 @@ Alpha,2-15,RBM Class I,3,Wang21b
 Alpha,2-7,RBM Class I,0.7,Wang21b
 Alpha,2-7,RBM Class I,0.7,Wang21b
 Alpha,B38,RBM Class I,14,Shen21
+Alpha,BG1-22,RBM Class I,0.7,Scheid21
+Alpha,BG10-19,RBM Class I,0.5,Scheid21
+Alpha,BG4-25,RBM Class I,1,Scheid21
 Alpha,BRII-196,RBM Class I,0.5,Wang21b
 Alpha,BRII-196,RBM Class I,0.7,Wang21f
 Alpha,BRII-196,RBM Class I,0.1,Wang21b
@@ -131,6 +136,7 @@ Alpha,1-57,RBM Class II,1.5,Wang21b
 Alpha,910-30,RBM Class II,14,Wang21b
 Alpha,910-30,RBM Class II,10,Wang21b
 Alpha,BD-368-2,RBM Class II,1.2,Wang21f
+Alpha,BG7-15,RBM Class II,0.3,Scheid21
 Alpha,Bamlanivimab,RBM Class II,1,FDA21
 Alpha,Bamlanivimab,RBM Class II,0.5,Hoffmann21
 Alpha,Bamlanivimab,RBM Class II,0.6,Wang21b
@@ -159,7 +165,9 @@ Alpha,2-4,RBM Class III,1.2,Wang21b
 Alpha,2-4,RBM Class III,0.8,Wang21b
 Alpha,S2M11,RBM Class III,0.4,Collier21
 Beta,ADG20,,2.5,Zhou21b
+Beta,BRII-196/BRII-198,,2.5,Margolis21
 Beta,BRII-196/BRII-198,,0.8,Wang21b
+Beta,BRII-196/BRII-198,,2.5,Margolis21
 Beta,BRII-196/BRII-198,,1.1,Wang21b
 Beta,Bamlanivimab/Etesevimab,,>100,FDA21
 Beta,Bamlanivimab/Etesevimab,,>100,Hoffmann21c
@@ -244,6 +252,9 @@ Beta,2-15,RBM Class I,>100,Wang21b
 Beta,2-15,RBM Class I,>100,Wang21b
 Beta,2-7,RBM Class I,0.8,Wang21b
 Beta,2-7,RBM Class I,0.9,Wang21b
+Beta,BG1-22,RBM Class I,15,Scheid21
+Beta,BG10-19,RBM Class I,2,Scheid21
+Beta,BG4-25,RBM Class I,15,Scheid21
 Beta,BRII-196,RBM Class I,0.6,Wang21b
 Beta,BRII-196,RBM Class I,0.5,Wang21b
 Beta,BRII-196,RBM Class I,0.5,Wang21f
@@ -297,6 +308,7 @@ Beta,1-57,RBM Class II,5.2,Wang21b
 Beta,910-30,RBM Class II,>100,Wang21b
 Beta,910-30,RBM Class II,>100,Wang21b
 Beta,BD-368-2,RBM Class II,>100,Wang21f
+Beta,BG7-15,RBM Class II,0.7,Scheid21
 Beta,Bamlanivimab,RBM Class II,>100,FDA21
 Beta,Bamlanivimab,RBM Class II,>100,Hoffmann21
 Beta,Bamlanivimab,RBM Class II,>100,Hoffmann21c
@@ -325,6 +337,7 @@ Beta,P5A-1B9,RBM Class II,>100,Wang21f
 Beta,2-4,RBM Class III,>100,Wang21b
 Beta,2-4,RBM Class III,>100,Wang21b
 Delta,ADG20,,1.5,Liu21f
+Delta,BRII-196/BRII-198,,2.5,Margolis21
 Delta,Bamlanivimab/Etesevimab,,1,FDA21
 Delta,Bamlanivimab/Etesevimab,,1,FDA21
 Delta,Casirivimab/Imdevimab,,1,FDA21
@@ -335,8 +348,9 @@ Delta,S2X333,NTD,>100,Mlcochova21
 Delta,Imdevimab,RBD Core Cluster I,1.5,Miyakawa21b
 Delta,Imdevimab,RBD Core Cluster I,0.5,Liu21f
 Delta,Imdevimab,RBD Core Cluster I,1,Planas21b
-Delta,Imdevimab,RBD Core Cluster I,1.4,Mlcochova21
 Delta,Imdevimab,RBD Core Cluster I,0.5,Arora21
+Delta,Imdevimab,RBD Core Cluster I,1.5,Arora21b
+Delta,Imdevimab,RBD Core Cluster I,1.4,Mlcochova21
 Delta,Imdevimab,RBD Core Cluster I,4.4,Wang21e
 Delta,Imdevimab,RBD Core Cluster I,3.1,Tada21e
 Delta,Imdevimab,RBD Core Cluster I,4.5,Yao21
@@ -349,18 +363,20 @@ Delta,Casirivimab,RBM Class I,0.9,Miyakawa21b
 Delta,Casirivimab,RBM Class I,0.8,Liu21f
 Delta,Casirivimab,RBM Class I,1,Planas21b
 Delta,Casirivimab,RBM Class I,0.4,Wang21e
+Delta,Casirivimab,RBM Class I,0.7,Arora21
+Delta,Casirivimab,RBM Class I,0.5,Arora21b
 Delta,Casirivimab,RBM Class I,1.2,Mlcochova21
 Delta,Casirivimab,RBM Class I,0.7,Yao21
-Delta,Casirivimab,RBM Class I,0.7,Arora21
 Delta,Casirivimab,RBM Class I,12,Tada21e
 Delta,Etesevimab,RBM Class I,1,FDA21
 Delta,Etesevimab,RBM Class I,1,FDA21
 Delta,Etesevimab,RBM Class I,0.4,Liu21f
 Delta,Etesevimab,RBM Class I,0.8,Planas21b
 Delta,Etesevimab,RBM Class I,0.5,Wang21e
+Delta,Etesevimab,RBM Class I,0.6,Arora21
+Delta,Etesevimab,RBM Class I,0.2,Arora21b
 Delta,Etesevimab,RBM Class I,0.4,Mlcochova21
 Delta,Etesevimab,RBM Class I,0.1,Yao21
-Delta,Etesevimab,RBM Class I,0.6,Arora21
 Delta,Regdanvimab,RBM Class I,7.4,Mlcochova21
 Delta,Regdanvimab,RBM Class I,>100,Ryu21b
 Delta,S2E12,RBM Class I,0.8,Mlcochova21
@@ -371,12 +387,14 @@ Delta,Bamlanivimab,RBM Class II,>100,FDA21
 Delta,Bamlanivimab,RBM Class II,>100,Liu21f
 Delta,Bamlanivimab,RBM Class II,>100,Planas21b
 Delta,Bamlanivimab,RBM Class II,>100,Wang21e
+Delta,Bamlanivimab,RBM Class II,>100,Arora21
+Delta,Bamlanivimab,RBM Class II,>100,Arora21b
 Delta,Bamlanivimab,RBM Class II,>100,Mlcochova21
 Delta,Bamlanivimab,RBM Class II,>100,Yao21
-Delta,Bamlanivimab,RBM Class II,>100,Arora21
 Delta,Cilgavimab,RBM Class II,2.9,Liu21f
 Delta,S2D106,RBM Class II,4.3,Mlcochova21
 Delta,S2M11,RBM Class III,4,Mlcochova21
+Epsilon,BRII-196/BRII-198,,2.5,Margolis21
 Epsilon,Bamlanivimab/Etesevimab,,9,FDA21
 Epsilon,Bamlanivimab/Etesevimab,,11,FDA21
 Epsilon,Casirivimab/Imdevimab,,1,FDA21
@@ -412,6 +430,7 @@ Epsilon,LY3853113,RBM Class II,0.5,Westendorf21
 Epsilon,S2D106,RBM Class II,0.6,McCallum21b
 Epsilon,S2M11,RBM Class III,2,McCallum21b
 Gamma,ADG20,,2.3,Dejnirattisai21
+Gamma,BRII-196/BRII-198,,2.5,Margolis21
 Gamma,Bamlanivimab/Etesevimab,,>100,FDA21
 Gamma,Casirivimab/Imdevimab,,1,Hoffmann21
 Gamma,Casirivimab/Imdevimab,,1,FDA21
@@ -512,6 +531,7 @@ Gamma,Cilgavimab,RBM Class II,8,Chen21d
 Gamma,LY3853113,RBM Class II,0.4,Westendorf21
 Gamma,LY3853113,RBM Class II,0.6,Westendorf21
 Gamma,P5A-1B9,RBM Class II,>100,Wang21f
+Iota,BRII-196/BRII-198,,2.5,Margolis21
 Iota,Bamlanivimab/Etesevimab,,11,FDA21
 Iota,Bamlanivimab/Etesevimab,,30,FDA21
 Iota,Casirivimab/Imdevimab,,1,FDA21
@@ -552,6 +572,7 @@ Iota,Cilgavimab,RBM Class II,0.8,Annavajhala21b
 Iota,Cilgavimab,RBM Class II,1,Annavajhala21b
 Iota,LY3853113,RBM Class II,0.7,Westendorf21
 Kappa,ADG20,,2.5,Liu21f
+Kappa,BRII-196/BRII-198,,2.5,Margolis21
 Kappa,Bamlanivimab/Etesevimab,,6,FDA21
 Kappa,Bamlanivimab/Etesevimab,,5,Hoffmann21c
 Kappa,Casirivimab/Imdevimab,,1,FDA21

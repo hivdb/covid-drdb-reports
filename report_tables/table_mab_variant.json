@@ -13,8 +13,22 @@
                 "variant": "Alpha",
                 "rx_name": "BRII-196/BRII-198",
                 "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
                 "fold": "0.5",
                 "ref_name": "Wang21b"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
             },
             {
                 "variant": "Alpha",
@@ -592,6 +606,27 @@
             },
             {
                 "variant": "Alpha",
+                "rx_name": "BG1-22",
+                "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "BG10-19",
+                "mab_class": "RBM Class I",
+                "fold": "0.5",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Alpha",
+                "rx_name": "BG4-25",
+                "mab_class": "RBM Class I",
+                "fold": "1",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Alpha",
                 "rx_name": "BRII-196",
                 "mab_class": "RBM Class I",
                 "fold": "0.5",
@@ -928,6 +963,13 @@
             },
             {
                 "variant": "Alpha",
+                "rx_name": "BG7-15",
+                "mab_class": "RBM Class II",
+                "fold": "0.3",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Alpha",
                 "rx_name": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": "1",
@@ -1131,8 +1173,22 @@
                 "variant": "Beta",
                 "rx_name": "BRII-196/BRII-198",
                 "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
                 "fold": "0.8",
                 "ref_name": "Wang21b"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
             },
             {
                 "variant": "Beta",
@@ -1724,6 +1780,27 @@
             },
             {
                 "variant": "Beta",
+                "rx_name": "BG1-22",
+                "mab_class": "RBM Class I",
+                "fold": "15",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "BG10-19",
+                "mab_class": "RBM Class I",
+                "fold": "2",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Beta",
+                "rx_name": "BG4-25",
+                "mab_class": "RBM Class I",
+                "fold": "15",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Beta",
                 "rx_name": "BRII-196",
                 "mab_class": "RBM Class I",
                 "fold": "0.6",
@@ -2095,6 +2172,13 @@
             },
             {
                 "variant": "Beta",
+                "rx_name": "BG7-15",
+                "mab_class": "RBM Class II",
+                "fold": "0.7",
+                "ref_name": "Scheid21"
+            },
+            {
+                "variant": "Beta",
                 "rx_name": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": ">100",
@@ -2296,6 +2380,13 @@
             },
             {
                 "variant": "Delta",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
+            },
+            {
+                "variant": "Delta",
                 "rx_name": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
                 "fold": "1",
@@ -2368,15 +2459,22 @@
                 "variant": "Delta",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "1.4",
-                "ref_name": "Mlcochova21"
+                "fold": "0.5",
+                "ref_name": "Arora21"
             },
             {
                 "variant": "Delta",
                 "rx_name": "Imdevimab",
                 "mab_class": "RBD Core Cluster I",
-                "fold": "0.5",
-                "ref_name": "Arora21"
+                "fold": "1.5",
+                "ref_name": "Arora21b"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Imdevimab",
+                "mab_class": "RBD Core Cluster I",
+                "fold": "1.4",
+                "ref_name": "Mlcochova21"
             },
             {
                 "variant": "Delta",
@@ -2466,6 +2564,20 @@
                 "variant": "Delta",
                 "rx_name": "Casirivimab",
                 "mab_class": "RBM Class I",
+                "fold": "0.7",
+                "ref_name": "Arora21"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.5",
+                "ref_name": "Arora21b"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Casirivimab",
+                "mab_class": "RBM Class I",
                 "fold": "1.2",
                 "ref_name": "Mlcochova21"
             },
@@ -2475,13 +2587,6 @@
                 "mab_class": "RBM Class I",
                 "fold": "0.7",
                 "ref_name": "Yao21"
-            },
-            {
-                "variant": "Delta",
-                "rx_name": "Casirivimab",
-                "mab_class": "RBM Class I",
-                "fold": "0.7",
-                "ref_name": "Arora21"
             },
             {
                 "variant": "Delta",
@@ -2529,6 +2634,20 @@
                 "variant": "Delta",
                 "rx_name": "Etesevimab",
                 "mab_class": "RBM Class I",
+                "fold": "0.6",
+                "ref_name": "Arora21"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Etesevimab",
+                "mab_class": "RBM Class I",
+                "fold": "0.2",
+                "ref_name": "Arora21b"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Etesevimab",
+                "mab_class": "RBM Class I",
                 "fold": "0.4",
                 "ref_name": "Mlcochova21"
             },
@@ -2538,13 +2657,6 @@
                 "mab_class": "RBM Class I",
                 "fold": "0.1",
                 "ref_name": "Yao21"
-            },
-            {
-                "variant": "Delta",
-                "rx_name": "Etesevimab",
-                "mab_class": "RBM Class I",
-                "fold": "0.6",
-                "ref_name": "Arora21"
             },
             {
                 "variant": "Delta",
@@ -2621,6 +2733,20 @@
                 "rx_name": "Bamlanivimab",
                 "mab_class": "RBM Class II",
                 "fold": ">100",
+                "ref_name": "Arora21"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": ">100",
+                "ref_name": "Arora21b"
+            },
+            {
+                "variant": "Delta",
+                "rx_name": "Bamlanivimab",
+                "mab_class": "RBM Class II",
+                "fold": ">100",
                 "ref_name": "Mlcochova21"
             },
             {
@@ -2629,13 +2755,6 @@
                 "mab_class": "RBM Class II",
                 "fold": ">100",
                 "ref_name": "Yao21"
-            },
-            {
-                "variant": "Delta",
-                "rx_name": "Bamlanivimab",
-                "mab_class": "RBM Class II",
-                "fold": ">100",
-                "ref_name": "Arora21"
             },
             {
                 "variant": "Delta",
@@ -2663,6 +2782,13 @@
     {
         "variant": "Epsilon",
         "assays": [
+            {
+                "variant": "Epsilon",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
+            },
             {
                 "variant": "Epsilon",
                 "rx_name": "Bamlanivimab/Etesevimab",
@@ -2912,6 +3038,13 @@
                 "mab_class": "",
                 "fold": "2.3",
                 "ref_name": "Dejnirattisai21"
+            },
+            {
+                "variant": "Gamma",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
             },
             {
                 "variant": "Gamma",
@@ -3620,6 +3753,13 @@
         "assays": [
             {
                 "variant": "Iota",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
+            },
+            {
+                "variant": "Iota",
                 "rx_name": "Bamlanivimab/Etesevimab",
                 "mab_class": "",
                 "fold": "11",
@@ -3902,6 +4042,13 @@
                 "mab_class": "",
                 "fold": "2.5",
                 "ref_name": "Liu21f"
+            },
+            {
+                "variant": "Kappa",
+                "rx_name": "BRII-196/BRII-198",
+                "mab_class": "",
+                "fold": "2.5",
+                "ref_name": "Margolis21"
             },
             {
                 "variant": "Kappa",

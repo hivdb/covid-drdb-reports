@@ -635,6 +635,46 @@ Muecksch21,C548,S:683G,S:484K+683G,IC50,1
 Muecksch21,C549,S:683G,S:417N+484K+501Y+683G,IC50,1
 Muecksch21,C549,S:683G,S:455R+484K+683G,IC50,1
 Muecksch21,C549,S:683G,S:484K+683G,IC50,1
+Reincke21,SA1,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA10,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA11,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA12,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA13,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA14,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA15,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA17,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA19,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA2,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA20,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA21,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA23,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA24,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA25,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA26,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA27,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA28,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA29,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA3,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA30,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA31,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA32,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA33,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA34,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA35,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA36,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA37,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA38,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA39,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA4,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA40,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA41,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA42,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA43,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA5,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA6,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA7,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA8,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
+Reincke21,SA9,Beta,hCoV-19/Germany/BY-ChVir-929/2020,NT50,1
 Riou21,CP_wave2_1,Beta,S:614G,NT50,1
 Riou21,CP_wave2_10,Beta,S:614G,NT50,1
 Riou21,CP_wave2_11,Beta,S:614G,NT50,1
@@ -674,6 +714,8 @@ Sapkal21c,AZD_Breakthrough_6,Delta,B.1 full genome,NT50,1
 Sapkal21c,AZD_Breakthrough_7,Delta,B.1 full genome,NT50,1
 Sapkal21c,AZD_Breakthrough_8,Delta,B.1 full genome,NT50,1
 Sapkal21c,AZD_Breakthrough_9,Delta,B.1 full genome,NT50,1
+Stadtmuller21,BNT162b2,Alpha,hCoV-19/Germany/SN-RKI-I-038776/2021,NT50,7
+Stadtmuller21,BNT162b2,Alpha,hCoV-19/Germany/SN-UKDD-91348010S+/2021,NT50,7
 Supasa21,150,Alpha,VIC,IC50,1
 Supasa21,150H+222L,Alpha,VIC,IC50,1
 Supasa21,158,Alpha,VIC,IC50,1
@@ -707,10 +749,6 @@ Supasa21,LY-CoV555,Alpha,VIC,IC50,1
 Supasa21,REGN10933,Alpha,VIC,IC50,1
 Supasa21,REGN10987,Alpha,VIC,IC50,1
 Supasa21,S309,Alpha,VIC,IC50,1
-Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW-R0099/2021,NT50,17
-Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW2713/2020,NT50,17
-Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW3878/2021,NT50,17
-Tea21,CP_second_wave,D.2,hCoV-19/Australia/NSW4318/2021,NT50,17
 Trinite21,CP_B.1.1.7_01,Alpha,S:614G,NT50,1
 Trinite21,CP_B.1.1.7_01,Alpha,Wuhan-Hu-1,NT50,1
 Trinite21,CP_B.1.1.7_02,Alpha,S:614G,NT50,1

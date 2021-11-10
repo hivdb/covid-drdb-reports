@@ -1,18 +1,18 @@
 ﻿mab,synonyms,num_ref_name,num_fold,avail,target,class,pdb,institute,origin
-Casirivimab,REGN10933,32,345,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
-Imdevimab,REGN10987,32,344,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
-Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,22,279,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
+Casirivimab,REGN10933,33,347,Phase 3,RBD,RBM Class I,6XDG,Regeneron,Transgenic mice
+Imdevimab,REGN10987,33,346,Phase 3,RBD,RBD Core Cluster I,6XDG,Regeneron,Transgenic mice
+Etesevimab,CB6;JS-016;LY-CoV016;LY3832479,23,281,Phase 3,RBD,RBM Class I,7C01,Eli Lilly,CP
 Sotrovimab,GSK4182136;S309;Vir-7831,16,205,Phase 3,RBD,RBD Core Cluster I,6WPS,Vir Biotechnol,SARS-CoV CP
-BRII-196,P2C-1F11,4,146,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
-Bamlanivimab,LY-CoV555;LY3819253,19,144,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
+BRII-196,P2C-1F11,5,157,Phase 3,RBD,RBM Class I,7CDI,Brii Biosciences,
+Bamlanivimab,LY-CoV555;LY3819253,20,146,Phase 3,RBD,RBM Class II,7KMG,Eli Lilly,CP
 Casirivimab/Imdevimab,,14,116,Phase 3,,,,Regeneron,Transgenic mice
+BRII-198,P2B-1G5,3,58,Phase 3,RBD,RBD Core Cluster II,,Brii Biosciences,
 Cilgavimab,COV2-2130;AZD1061,11,52,Phase 3,RBD,RBM Class II,7L7E,AstraZeneca,CP
 Tixagevimab,COV2-2196;AZD8895,10,48,Phase 3,RBD,RBM Class I,7L7E,AstraZeneca,CP
-BRII-198,P2B-1G5,2,47,Phase 3,RBD,RBD Core Cluster II,,Brii Biosciences,
 Bamlanivimab/Etesevimab,,3,30,Phase 3,,,,Eli Lilly,CP
 Cilgavimab/Tixagevimab,,8,27,Phase 3,,,,AstraZeneca,CP
+BRII-196/BRII-198,,2,27,Phase 3,,,,Brii Biosciences,
 Regdanvimab,CT-P59,4,20,Phase 3,RBD,RBM Class I,7CM4,Celltrion,Phage display library
-BRII-196/BRII-198,,1,4,Phase 3,,,,Brii Biosciences,
 C144,,4,138,Phase 2,RBD,RBM Class III,7K90,Rockefeller University,CP
 C135,,4,105,Phase 2,RBD,RBD Core Cluster I,7K8Z,Rockefeller University,CP
 LY3853113,LY-CoV1404,1,73,Phase 2,RBD,RBM Class II,7MMO,Eli Lilly,CP
@@ -161,6 +161,7 @@ COVOX-384,,1,9,,RBD,RBM Class I,7BEP,University of Oxford,CP
 COVA2-04,,3,9,,RBD,RBM Class I,7JMO,University of Amsterdam,CP
 COV2-2381,,1,9,,RBD,,,Vanderbilt University Medical Center,CP
 P5C3-LS,,1,8,,RBD,RBM Class I,,Lausanne University Hospital and University of Lausanne,CP
+J08,,2,7,,RBD,,,Fondazione Toscana Life Sciences,CP
 ADG30,,4,7,,RBD,,,Adagio Therapeutics,CP
 ADG10,,4,7,,RBD,,,Adagio Therapeutics,CP
 '4-18,MAb-4-18;MAb4-18,1,7,,NTD,NTD,7L2E,,
@@ -239,6 +240,10 @@ Fab 150,,3,4,,RBD,,,University of Oxford,CP
 COV2-2531,,1,4,,RBD,,,Vanderbilt University Medical Center,CP
 COV2-2479,,1,4,,RBD,,,Vanderbilt University Medical Center,CP
 C126,,1,4,,RBD,,,Vanderbilt University Medical Center,CP
+BG7-15,,1,4,,RBD,RBM Class II,7M6G,Broad Institute,CP
+BG4-25,,1,4,,RBD,RBM Class I,7M6D,Broad Institute,CP
+BG10-19,,1,4,,RBD,RBM Class I,7M6E,Broad Institute,CP
+BG1-22,,1,4,,RBD,RBM Class I,7M6F,Broad Institute,CP
 BD-629,,1,4,,RBD,RBM Class I,7CH5,Peking University,CP
 BD-368-2/BD-629,,1,4,,,,,Peking University,CP
 '3A11,,1,4,,,,,Washington University School of Medicine,CP
@@ -266,7 +271,6 @@ RBD-48,,1,3,,,,,Institut Pasteur,CP
 RBD-109,,1,3,,,,,Institut Pasteur,CP
 NTD-18,,1,3,,,,,,
 J13,,1,3,,NTD,NTD,,Fondazione Toscana Life Sciences,CP
-J08,,1,3,,RBD,,,Fondazione Toscana Life Sciences,CP
 I21,,1,3,,S1,S1,,Fondazione Toscana Life Sciences,CP
 I15,,1,3,,S,S,,Fondazione Toscana Life Sciences,CP
 I14,,1,3,,RBD,,,Fondazione Toscana Life Sciences,CP

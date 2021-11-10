@@ -755,12 +755,12 @@
             {
                 "variant": "Alpha",
                 "rx": "BNT162b2",
-                "num_fold": 10,
-                "s_fold": 9,
-                "i_fold": 1,
+                "num_fold": 14,
+                "s_fold": 12,
+                "i_fold": 2,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "1.7"
+                "median": "1.9"
             },
             {
                 "variant": "Alpha",
@@ -834,6 +834,16 @@
             },
             {
                 "variant": "Alpha",
+                "rx": "BNT162b2 or AZD1222",
+                "num_fold": 233,
+                "s_fold": 233,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Nadesalingam21",
+                "median": 1.0
+            },
+            {
+                "variant": "Alpha",
                 "rx": "CoronaVac",
                 "num_fold": 75,
                 "s_fold": 52,
@@ -891,6 +901,16 @@
                 "r_fold": 0,
                 "ref_name": "Zhao21",
                 "median": 1.1
+            },
+            {
+                "variant": "Alpha",
+                "rx": "INO-4800",
+                "num_fold": 13,
+                "s_fold": 12,
+                "i_fold": 1,
+                "r_fold": 0,
+                "ref_name": "Andrade21",
+                "median": "1.9"
             },
             {
                 "variant": "Alpha",
@@ -1950,12 +1970,12 @@
             {
                 "variant": "Beta",
                 "rx": "BNT162b2",
-                "num_fold": 10,
-                "s_fold": 1,
-                "i_fold": 8,
-                "r_fold": 1,
+                "num_fold": 14,
+                "s_fold": 2,
+                "i_fold": 10,
+                "r_fold": 2,
                 "ref_name": "Uriu21",
-                "median": "5.1"
+                "median": "6.2"
             },
             {
                 "variant": "Beta",
@@ -2039,6 +2059,16 @@
             },
             {
                 "variant": "Beta",
+                "rx": "BNT162b2 or AZD1222",
+                "num_fold": 233,
+                "s_fold": 91,
+                "i_fold": 142,
+                "r_fold": 0,
+                "ref_name": "Nadesalingam21",
+                "median": 3.3
+            },
+            {
+                "variant": "Beta",
                 "rx": "CoronaVac",
                 "num_fold": 93,
                 "s_fold": 0,
@@ -2076,6 +2106,16 @@
                 "r_fold": 0,
                 "ref_name": "Zhao21",
                 "median": 3.5
+            },
+            {
+                "variant": "Beta",
+                "rx": "INO-4800",
+                "num_fold": 13,
+                "s_fold": 3,
+                "i_fold": 7,
+                "r_fold": 3,
+                "ref_name": "Andrade21",
+                "median": "6.4"
             },
             {
                 "variant": "Beta",
@@ -2360,12 +2400,12 @@
             {
                 "variant": "Beta",
                 "rx": "mRNA-1273",
-                "num_fold": 40,
+                "num_fold": 39,
                 "s_fold": 0,
-                "i_fold": 40,
+                "i_fold": 39,
                 "r_fold": 0,
                 "ref_name": "Wu21c",
-                "median": 7.449999999999999
+                "median": "7.3"
             },
             {
                 "variant": "Beta",
@@ -2375,7 +2415,7 @@
                 "i_fold": 20,
                 "r_fold": 0,
                 "ref_name": "Wu21c",
-                "median": 5.3
+                "median": "5.3"
             },
             {
                 "variant": "Beta",
@@ -2390,12 +2430,12 @@
             {
                 "variant": "Beta",
                 "rx": "mRNA-1273 + mRNA-1273.351",
-                "num_fold": 20,
-                "s_fold": 20,
+                "num_fold": 19,
+                "s_fold": 19,
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Wu21c",
-                "median": 2.6
+                "median": "2.3"
             }
         ]
     },
@@ -2565,6 +2605,16 @@
             {
                 "variant": "Delta",
                 "rx": "BNT162b2",
+                "num_fold": 14,
+                "s_fold": 14,
+                "i_fold": 0,
+                "r_fold": 0,
+                "ref_name": "Arora21b",
+                "median": 2.9
+            },
+            {
+                "variant": "Delta",
+                "rx": "BNT162b2",
                 "num_fold": 10,
                 "s_fold": 4,
                 "i_fold": 6,
@@ -2715,9 +2765,9 @@
             {
                 "variant": "Delta",
                 "rx": "BNT162b2",
-                "num_fold": 10,
-                "s_fold": 7,
-                "i_fold": 3,
+                "num_fold": 14,
+                "s_fold": 8,
+                "i_fold": 6,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
                 "median": "2.4"
@@ -2990,12 +3040,12 @@
             {
                 "variant": "Epsilon",
                 "rx": "BNT162b2",
-                "num_fold": 10,
-                "s_fold": 6,
-                "i_fold": 4,
+                "num_fold": 14,
+                "s_fold": 7,
+                "i_fold": 7,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "2.6"
+                "median": "2.8"
             },
             {
                 "variant": "Epsilon",
@@ -3535,12 +3585,12 @@
             {
                 "variant": "Gamma",
                 "rx": "BNT162b2",
-                "num_fold": 10,
-                "s_fold": 5,
-                "i_fold": 5,
+                "num_fold": 14,
+                "s_fold": 8,
+                "i_fold": 6,
                 "r_fold": 0,
                 "ref_name": "Uriu21",
-                "median": "2.9"
+                "median": "2.5"
             },
             {
                 "variant": "Gamma",
@@ -3550,17 +3600,17 @@
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Vicenti21",
-                "median": 0.4
+                "median": "0.4"
             },
             {
                 "variant": "Gamma",
                 "rx": "BNT162b2",
                 "num_fold": 15,
-                "s_fold": 15,
-                "i_fold": 0,
+                "s_fold": 13,
+                "i_fold": 2,
                 "r_fold": 0,
                 "ref_name": "Vicenti21",
-                "median": 0.7
+                "median": "0.4"
             },
             {
                 "variant": "Gamma",
@@ -3581,6 +3631,16 @@
                 "r_fold": 0,
                 "ref_name": "Zani21",
                 "median": 1.3
+            },
+            {
+                "variant": "Gamma",
+                "rx": "BNT162b2 or AZD1222",
+                "num_fold": 233,
+                "s_fold": 0,
+                "i_fold": 233,
+                "r_fold": 0,
+                "ref_name": "Nadesalingam21",
+                "median": 4.9
             },
             {
                 "variant": "Gamma",
@@ -3641,6 +3701,16 @@
                 "r_fold": 15,
                 "ref_name": "deSouza21",
                 "median": "3"
+            },
+            {
+                "variant": "Gamma",
+                "rx": "INO-4800",
+                "num_fold": 13,
+                "s_fold": 12,
+                "i_fold": 1,
+                "r_fold": 0,
+                "ref_name": "Andrade21",
+                "median": "1"
             },
             {
                 "variant": "Gamma",
@@ -3735,12 +3805,12 @@
             {
                 "variant": "Gamma",
                 "rx": "mRNA-1273",
-                "num_fold": 40,
+                "num_fold": 38,
                 "s_fold": 0,
-                "i_fold": 40,
+                "i_fold": 38,
                 "r_fold": 0,
                 "ref_name": "Wu21c",
-                "median": 6.55
+                "median": "6.8"
             },
             {
                 "variant": "Gamma",
@@ -3750,17 +3820,17 @@
                 "i_fold": 20,
                 "r_fold": 0,
                 "ref_name": "Wu21c",
-                "median": 3.5
+                "median": "3.5"
             },
             {
                 "variant": "Gamma",
                 "rx": "mRNA-1273 + mRNA-1273.351",
-                "num_fold": 20,
-                "s_fold": 20,
+                "num_fold": 18,
+                "s_fold": 18,
                 "i_fold": 0,
                 "r_fold": 0,
                 "ref_name": "Wu21c",
-                "median": 2.9
+                "median": "2.2"
             }
         ]
     },
