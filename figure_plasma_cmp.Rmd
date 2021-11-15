@@ -310,8 +310,8 @@ draw_rx_titer <- function(dfPlot, figLabel) {
     ) +
     scale_fill_manual(
       values = c(
-        'low' = "#146aa8",
-        'middle' = "#7fcbee",
+        'low' = "#a82f14",
+        'middle' = "#ee8e7f",
         'high' = "#ffffff"
       ),
       name="NT titer",
