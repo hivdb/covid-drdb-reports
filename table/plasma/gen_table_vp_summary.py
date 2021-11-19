@@ -38,14 +38,6 @@ def group_variants(variant_groups, records):
     return variant_groups
 
 
-def parse_fold(rec):
-    fold = rec['Fold']
-    if fold[0].isdigit():
-        return float(fold)
-    else:
-        return float(fold[1:])
-
-
 def process_record(variant, records):
 
     vaccine_group = group_vaccine(records)
@@ -68,7 +60,8 @@ def process_record(variant, records):
         aggre_list = [r for r in rec_list if 'Fold' in r.keys()]
         indiv_list = [r for r in rec_list if 'Fold' not in r.keys()]
 
-        num_s, num_i, num_r = get_num_fold_results_number_pair(indiv_list, aggre_list)
+        num_s, num_i, num_r = get_num_fold_results_number_pair(
+            indiv_list, aggre_list)
 
         num_fold_results = num_i + num_r + num_s
 

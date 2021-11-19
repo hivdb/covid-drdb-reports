@@ -37,14 +37,6 @@ def group_variants(variant_groups, records):
     return variant_groups
 
 
-def parse_fold(rec):
-    fold = rec['Fold']
-    if fold[0].isdigit():
-        return float(fold)
-    else:
-        return float(fold[1:])
-
-
 def process_record(variant, rec_list):
 
     result = {

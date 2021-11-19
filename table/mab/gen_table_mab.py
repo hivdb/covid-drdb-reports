@@ -4,6 +4,8 @@ from preset import dump_json
 from collections import defaultdict
 from statistics import median
 from resistancy import round_fold
+from resistancy import parse_fold
+from z_score import get_outlier
 
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
@@ -93,14 +95,6 @@ def group_variants(records):
     return variant_groups
 
 
-def parse_fold(rec):
-    fold = rec['fold']
-    if fold[0].isdigit():
-        return float(fold)
-    else:
-        return float(fold[1:])
-
-
 # def get_mab_names(mab_name):
 #     return [mab_name]
 #     if '/' in mab_name:
@@ -152,11 +146,20 @@ def process_record(variant, records):
 
         # rec_list = unique_reference(rec_list)
 
-        rec_list.sort(key=parse_fold)
-        fold_values = [
-            100 if (i['fold'] == '>100') else float(i['fold'])
-            for i in rec_list]
+        [
+            rec.update({
+                'fold': parse_fold(rec['fold'])
+            })
+            for rec in rec_list
+        ]
+
+        rec_list.sort(key=lambda i: i['fold'])
+        fold_values = [rec['fold'] for rec in rec_list]
         medium_value = median(fold_values)
+
+        outlier = get_outlier(rec_list, 'fold')
+        if outlier:
+            print('Outliers', outlier)
 
         if medium_value >= 100:
             fold_cmp = '>'
