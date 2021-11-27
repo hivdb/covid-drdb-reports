@@ -2,6 +2,7 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from collections import defaultdict
 from operator import itemgetter
+import re
 
 
 TABLE_SUMMARY_SQL = """
@@ -226,6 +227,8 @@ def by_single(conn, iso_type, save_path):
     save_path = DATA_FILE_PATH / 'variant' / 'summary_single.csv'
     dump_csv(save_path, save_results, headers)
 
+    dump_json(DATA_FILE_PATH / 'variant' / 'summary_single.json', save_results)
+
 
 def by_combo(conn, iso_type, save_path):
 
@@ -325,7 +328,13 @@ def by_combo(conn, iso_type, save_path):
             num = item['num_fold']
             rx_group[rx] += num
 
+        rbd_muts = set()
+
+        for rec in record_list:
+            rbd_muts |= get_RBD_mutation(rec['pattern'])
+
         record = {
+            'pattern': '+'.join(list(rbd_muts)),
             'var_name': var_name,
             'num_ref_name': len(set(r['ref_name'] for r in record_list)),
             'cp': 0,
@@ -353,3 +362,17 @@ def by_combo(conn, iso_type, save_path):
 
     save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_by_var.csv'
     dump_csv(save_path, merged_same_combo, headers)
+
+
+def get_RBD_mutation(mutation_list):
+    rbd_muts = set()
+    for mut in mutation_list.split('+'):
+        pos_search = re.search(r'\d+', mut)
+        if not pos_search:
+            continue
+
+        pos = int(pos_search.group())
+        if pos in range(306, 535):
+            rbd_muts.add(mut)
+
+    return rbd_muts
