@@ -227,8 +227,6 @@ def by_single(conn, iso_type, save_path):
     save_path = DATA_FILE_PATH / 'variant' / 'summary_single.csv'
     dump_csv(save_path, save_results, headers)
 
-    dump_json(DATA_FILE_PATH / 'variant' / 'summary_single.json', save_results)
-
 
 def by_combo(conn, iso_type, save_path):
 
