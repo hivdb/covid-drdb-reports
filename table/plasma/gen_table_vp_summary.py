@@ -12,6 +12,7 @@ SHOW_VARIANT = [
     'Beta',
     'Gamma',
     'Delta',
+    'Omicron',
     'Iota',
     'Epsilon',
     'Kappa',

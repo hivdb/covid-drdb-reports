@@ -86,6 +86,9 @@ def gen_report(db_path):
     gen_figure_variant_vp(conn)
     gen_figure_variant_cp(conn)
 
+    from variant.gen_omicron import gen_omicron
+    gen_omicron(conn)
+
     from reference.gen_ref_domain import gen_ref_domain
 
     gen_ref_domain(conn)

@@ -146,6 +146,60 @@ KEY_MUTATIONS = {
             "mut.single_mut_name = 'T478K'"
         ]
     },
+    'T95I': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'T95I'"
+        ]
+    },
+    'G142D': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'G142D'"
+        ]
+    },
+    'G339D': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'G339D'"
+        ]
+    },
+    'S373F': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S373F'"
+        ]
+    },
+    'N440K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N440K'"
+        ]
+    },
+    'G446S': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'G446S'"
+        ]
+    },
+    'S477N': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S477N'"
+        ]
+    },
+    'E484A': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'E484A'"
+        ]
+    },
+    'Q493R': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'Q493R'"
+        ]
+    },
 }
 
 
@@ -190,6 +244,12 @@ KEY_VARIANTS = {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
             "mut.var_name = 'Kappa'"
+        ]
+    },
+    'Omicron': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
+        'filter': [
+            "mut.var_name = 'Omicron'"
         ]
     },
 }
