@@ -1,7 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import dump_json
-from variant.preset import KEY_MUTATIONS
+from variant.preset import OMICRON_MUTATIONS
 
 from operator import itemgetter
 from collections import defaultdict
@@ -38,15 +38,15 @@ WHERE
 """
 
 
-def gen_table_mab_muts(
+def gen_table_mab_omicron_muts(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'table_mab_muts.csv',
-        json_save_path=DATA_FILE_PATH / 'table_mab_muts.json'
+        csv_save_path=DATA_FILE_PATH / 'table_mab_omicron_muts.csv',
+        json_save_path=DATA_FILE_PATH / 'table_mab_omicron_muts.json'
         ):
     cursor = conn.cursor()
 
     records = []
-    for row_name, attr_r in KEY_MUTATIONS.items():
+    for row_name, attr_r in OMICRON_MUTATIONS.items():
         for resist_name, resist_filter in RESISTANCE_FILTER.items():
             iso_type = attr_r.get('iso_type')
 

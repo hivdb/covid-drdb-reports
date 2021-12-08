@@ -9,26 +9,8 @@ from z_score import get_outlier
 
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
+from variant.preset import OMICRON_MUTATIONS
 
-SHOW_VARIANT = [
-    'Alpha',
-    'Beta',
-    'Gamma',
-    'Delta',
-    'Omicron',
-    'Iota',
-    'Epsilon',
-    'Kappa',
-    'N501Y',
-    'E484K',
-    'K417N',
-    'L452R',
-    'T478K',
-    'N439K',
-    'Y453F',
-    'F490S',
-    'S494P',
-]
 
 SHOW_MABS = {
     'Casirivimab': 'cas',
@@ -87,8 +69,6 @@ def group_variants(records):
     variant_groups = defaultdict(list)
     for r in records:
         variant = r['pattern']
-        if variant not in SHOW_VARIANT:
-            continue
         variant_groups[variant].append(r)
 
     return variant_groups
@@ -203,16 +183,14 @@ def process_record(variant, records):
     return result
 
 
-def gen_table_mab():
-    mab_variant_records = load_csv(DATA_FILE_PATH / 'table_mab_variant.csv')
-    mab_mut_records = load_csv(DATA_FILE_PATH / 'table_mab_muts.csv')
+def gen_table_mab_omicron():
+    mab_mut_records = load_csv(DATA_FILE_PATH / 'table_mab_omicron_muts.csv')
 
     variant_groups = {}
-    variant_groups.update(group_variants(mab_variant_records))
     variant_groups.update(group_variants(mab_mut_records))
 
     result = []
-    for variant in SHOW_VARIANT:
+    for variant in OMICRON_MUTATIONS.keys():
         records = variant_groups.get(variant)
         if not records:
             continue
@@ -220,5 +198,5 @@ def gen_table_mab():
             process_record(variant, records)
         )
 
-    save_file = DATA_FILE_PATH / 'table_mab.json'
+    save_file = DATA_FILE_PATH / 'table_mab_omicron.json'
     dump_json(save_file, result)

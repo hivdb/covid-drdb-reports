@@ -146,6 +146,34 @@ KEY_MUTATIONS = {
             "mut.single_mut_name = 'T478K'"
         ]
     },
+}
+
+
+OMICRON_MUTATIONS = {
+    'T19I': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'T19I'"
+        ]
+    },
+    'L24S': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'L24S'"
+        ]
+    },
+    'A67V': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'A67V'"
+        ]
+    },
+    '∆69/70': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name LIKE '%69-70∆'"
+        ]
+    },
     'T95I': {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
@@ -158,16 +186,76 @@ KEY_MUTATIONS = {
             "mut.single_mut_name = 'G142D'"
         ]
     },
+    '∆143-145': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name LIKE '%145∆'"
+        ]
+    },
+    'N211I': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N211I'"
+        ]
+    },
+    'V213G': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'V213G'"
+        ]
+    },
     'G339D': {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
             "mut.single_mut_name = 'G339D'"
         ]
     },
-    'S373F': {
+    'S371L': {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
-            "mut.single_mut_name = 'S373F'"
+            "mut.single_mut_name = 'S371L'"
+        ]
+    },
+    'S371F': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S371F'"
+        ]
+    },
+    'S373P': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S373P'"
+        ]
+    },
+    'S375F': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S375F'"
+        ]
+    },
+    'T376A': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'T376A'"
+        ]
+    },
+    'D405N': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'D405N'"
+        ]
+    },
+    'R408S': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'R408S'"
+        ]
+    },
+    'K417N': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'K417N'"
         ]
     },
     'N440K': {
@@ -188,6 +276,12 @@ KEY_MUTATIONS = {
             "mut.single_mut_name = 'S477N'"
         ]
     },
+    'T478K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'T478K'"
+        ]
+    },
     'E484A': {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
@@ -198,6 +292,90 @@ KEY_MUTATIONS = {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
             "mut.single_mut_name = 'Q493R'"
+        ]
+    },
+    'G496S': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'G496S'"
+        ]
+    },
+    'Q498R': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'Q498R'"
+        ]
+    },
+    'N501Y': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N501Y'"
+        ]
+    },
+    'Y505H': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'Y505H'"
+        ]
+    },
+    'T547K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'T547K'"
+        ]
+    },
+    'H655Y': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'H655Y'"
+        ]
+    },
+    'N679K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N679K'"
+        ]
+    },
+    'P681H': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'P681H'"
+        ]
+    },
+    'N764K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N764K'"
+        ]
+    },
+    'D796Y': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'D796Y'"
+        ]
+    },
+    'N856K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N856K'"
+        ]
+    },
+    'Q954H': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'Q954H'"
+        ]
+    },
+    'N969K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N969K'"
+        ]
+    },
+    'L981F': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'L981F'"
         ]
     },
 }
