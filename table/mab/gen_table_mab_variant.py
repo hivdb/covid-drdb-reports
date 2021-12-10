@@ -37,13 +37,9 @@ WHERE
 """
 
 
-
-
-
 def gen_table_mab_variant(
         conn,
         csv_save_path=DATA_FILE_PATH / 'table_mab_variant.csv',
-        json_save_path=DATA_FILE_PATH / 'table_mab_variant.json'
         ):
     cursor = conn.cursor()
 
@@ -125,4 +121,3 @@ def gen_table_mab_variant(
         })
 
     variant = sorted(records, key=itemgetter('variant'))
-    dump_json(json_save_path, records)

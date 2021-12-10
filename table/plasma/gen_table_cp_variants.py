@@ -4,7 +4,6 @@ from preset import dump_csv
 
 from .common import gen_plasma_indiv_table
 from .common import gen_plasma_aggre_table
-from .common import convert_to_json
 from variant.preset import KEY_VARIANTS
 from .preset import INDIVIDUAL_CP_SQL
 from .preset import AGGREGATED_CP_SQL
@@ -14,7 +13,6 @@ from .common import record_modifier
 def gen_table_cp_variants(
         conn,
         csv_save_path=DATA_FILE_PATH / 'table_cp_variants.csv',
-        json_save_path=DATA_FILE_PATH / 'table_cp_variants.json',
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,
@@ -40,5 +38,3 @@ def gen_table_cp_variants(
         'pattern', 'Plasma', 'ref_name'))
 
     dump_csv(csv_save_path, records)
-
-    convert_to_json(json_save_path, records)

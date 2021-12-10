@@ -41,7 +41,6 @@ WHERE
 def gen_table_mab_omicron_muts(
         conn,
         csv_save_path=DATA_FILE_PATH / 'table_mab_omicron_muts.csv',
-        json_save_path=DATA_FILE_PATH / 'table_mab_omicron_muts.json'
         ):
     cursor = conn.cursor()
 
@@ -107,5 +106,3 @@ def gen_table_mab_omicron_muts(
         })
 
     records.sort(key=itemgetter('pattern'))
-
-    dump_json(json_save_path, records)
