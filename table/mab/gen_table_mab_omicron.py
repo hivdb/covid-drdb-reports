@@ -33,6 +33,7 @@ SHOW_MABS = {
     'JMB2002': 'JMB2002',
     'ADG20': 'ADG20',
     'Vir-7832': 'Vir7832',
+    'DXP-604': 'DXP604',
 }
 
 DATA_PROBLEM = [
