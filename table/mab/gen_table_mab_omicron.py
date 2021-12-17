@@ -31,7 +31,7 @@ SHOW_MABS = {
     'BRII-198': 'b_198',
     'BRII-196/BRII-198': 'b_196_198',
     'JMB2002': 'JMB2002',
-    'ADG20': 'ADG20',
+    'Adintrevimab': 'Adintrevimab',
     'Vir-7832': 'Vir7832',
     'DXP-604': 'DXP604',
 }
@@ -199,5 +199,5 @@ def gen_table_mab_omicron():
             process_record(variant, records)
         )
 
-    save_file = DATA_FILE_PATH / 'table_mab_omicron.json'
+    save_file = DATA_FILE_PATH / 'table_omicron_mab.json'
     dump_json(save_file, result)
