@@ -66,7 +66,7 @@ def gen_table_mab_variant(
                 fold = row['fold']
                 # ineffective = row['ineffective']
                 # if ineffective:
-                #     fold = 100
+                #     fold = 1000
                 fold = '{}'.format(round_fold(fold))
 
                 iso_name = row_name

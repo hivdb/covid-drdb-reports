@@ -141,10 +141,10 @@ def process_record(variant, records):
         if outlier:
             print('Outliers', outlier)
 
-        if medium_value >= 100:
+        if medium_value >= 1000:
             fold_cmp = '>'
-            fold = '100'
-            # medium_value_str = '&gt;100'
+            fold = '1000'
+            # medium_value_str = '&gt;1000'
         else:
             # medium_value_str = str(round_fold(medium_value))
             fold_cmp = ''

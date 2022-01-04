@@ -96,12 +96,12 @@ def round_fold(number):
             # with localcontext() as ctx:
             #     ctx.prec = 2
             #     return Decimal(str(number)) + Decimal(0)
-    elif number >= 10 and number < 100:
+    elif number >= 10 and number < 1000:
         return Decimal(str(number)).quantize(Decimal('1'))
-    # elif number == 100:
-    #     return 100
+    # elif number == 1000:
+    #     return 1000
     else:
-        return '>100'
+        return '>1000'
 
 
 def parse_fold(fold_str):
