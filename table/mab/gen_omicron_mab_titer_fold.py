@@ -108,7 +108,7 @@ MAB_LIST = [
 
 
 def draw_figure(results, figure_save_path):
-    fig, axes = plt.subplots(5, 3, figsize=(10, 25))
+    fig, axes = plt.subplots(5, 3, figsize=(15, 25))
 
     rows = axes.shape[0]
     cols = axes.shape[1]
@@ -128,14 +128,16 @@ def draw_sub_figure(ax, draw_info):
     ax.set_xticklabels(['WT', 'Omicron', 'fold'])
     ax.set_ylim([0.05, 100000])
     ax.set_yscale('log', base=10)
+    ax.set_ylabel('IC50 (ng/ml) or Fold change')
 
     for x_points, y_points in draw_info['lines']:
         ax.plot(x_points, y_points, 'r-')
 
-    for xp, yp, m in zip(
+    for idx, (xp, yp, m) in enumerate(zip(
             draw_info['x_points'],
             draw_info['y_points'],
-            draw_info['markers']):
+            draw_info['markers'])):
+
         if m == 'filled':
             ax.scatter(
                 [xp], [yp], marker='o', facecolors='b', edgecolors='b')
