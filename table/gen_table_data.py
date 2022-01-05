@@ -64,6 +64,8 @@ def gen_report(db_path):
     from mab.gen_table_all_mab import gen_table_all_mab
     from mab.gen_table_mab_omicron_muts import gen_table_mab_omicron_muts
     from mab.gen_table_mab_omicron import gen_table_mab_omicron
+    from mab.gen_omicron_s_pattern import gen_omicron_s_pattern
+    from mab.gen_omicron_mab_titer_fold import gen_omicron_mab_titer_fold
 
     gen_table_mab_variant(conn)
     gen_table_mab_muts(conn)
@@ -71,6 +73,8 @@ def gen_report(db_path):
     gen_table_mab()
     gen_table_mab_omicron_muts(conn)
     gen_table_mab_omicron()
+    gen_omicron_s_pattern(conn)
+    gen_omicron_mab_titer_fold(conn)
 
     from variant.gen_table_variant_summary import gen_table_variant_summary
     from variant.gen_table_variant_mab import gen_table_variant_mab
