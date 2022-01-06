@@ -363,10 +363,10 @@ def _add_records(records, indiv_data_only=False):
         middle = [
             r for r in rec_list
             if int(r['titer']) > 40
-            and int(r['titer']) <= 1000]
+            and int(r['titer']) <= 100]
         high = [
             r for r in rec_list
-            if int(r['titer']) > 1000]
+            if int(r['titer']) > 100]
 
         if indiv_data_only:
             num_result = sum([
