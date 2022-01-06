@@ -76,7 +76,7 @@ RX_NAME_COMP_LIST = c(
   'BBV152' = "BBV152\n(Bharat Biotech)",
   'CoronaVac' = "CoronaVac\n(Sinovac Biotech)",
   'BBIBP-CorV' = "BBIBP-CorV\n(Sinopharm Beijing)",
-  'Sputnik V' = "Sputnik V"
+  'Sputnik V' = "Sputnik V (Gamaleya)"
   # 'MVC-COV1901',
   # 'ZF2001'
 )
