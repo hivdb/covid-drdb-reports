@@ -206,6 +206,7 @@ ISO_NAME_LIST = [
     "Beta",
     "Gamma",
     "Delta",
+    "Omicron",
 ]
 
 RX_NAME_LIST = [

@@ -41,7 +41,7 @@ def group_var_name(var_name):
         var_name = var_name.split('/')[0]
         if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda']:
             var_name = 'KIEL'
-        elif var_name not in ('Alpha', 'Beta', 'Gamma', 'Delta'):
+        elif var_name not in ('Alpha', 'Beta', 'Gamma', 'Delta', 'Omicron'):
             var_name = 'other variants'
     else:
         var_name = 'other combo mut'

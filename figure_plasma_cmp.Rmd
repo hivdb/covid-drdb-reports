@@ -34,19 +34,22 @@ VARIANT = c(
   "Alpha",
   "Beta",
   "Gamma",
-  "Delta"
+  "Delta",
+  "Omicron"
 )
 VARIANT_GREEK = c(
   "Alpha" = 'α',
   "Beta" = 'β',
   "Gamma" = 'γ',
-  "Delta" = 'δ'
+  "Delta" = 'δ',
+  "Omicron" = 'ο'
 )
 VARIANT_COLOR = c(
   "Alpha" = "#e91e63",
   "Beta" = "#3a96f3",
   "Gamma" = "#cddc39",
-  "Delta" = "#795549"
+  "Delta" = "#795549",
+  "Omicron" = "#795549"
 )
 
 RX_NAME_LIST = c(

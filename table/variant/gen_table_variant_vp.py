@@ -35,11 +35,11 @@ WHERE
 def gen_table_variant_vp(conn):
     iso_type = 'isolate_mutations_single_s_mut_view'
     save_path = DATA_FILE_PATH / 'variant' / 'summary_single_vp.csv'
-    by_single(conn, iso_type, save_path)
+    single_mut_records = by_single(conn, iso_type, save_path)
 
     iso_type = 'isolate_mutations_combo_s_mut_view'
     save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_vp.csv'
-    by_combo(conn, iso_type, save_path)
+    by_combo(conn, iso_type, save_path, single_mut_records)
 
 
 def by_single(conn, iso_type, save_path):
@@ -99,8 +99,10 @@ def by_single(conn, iso_type, save_path):
 
     dump_csv(save_path, record_list)
 
+    return db_records
 
-def by_combo(conn, iso_type, save_path):
+
+def by_combo(conn, iso_type, save_path, single_mut_records):
     sql = SQL_TMPL.format(iso_type=iso_type)
     cursor = conn.cursor()
     cursor.execute(sql)
@@ -137,6 +139,25 @@ def by_combo(conn, iso_type, save_path):
             'I': num_i,
             'R': num_r,
         })
+
+        if var_name == 'other variants':
+            rx_list += single_mut_records
+            num_s, num_i, num_r, median_fold, num_fold = get_fold_stat(rx_list)
+            record_list.append({
+                'pattern': 'other variants and single muts',
+                'var_name': 'other variants and single muts',
+                # 'vaccine': rx_list[0]['vaccine_name'],
+                # 'vaccine_type': rx_list[0]['vaccine_type'],
+                'median_fold': '',
+                'num_ref_name': len(set([
+                    r['ref_name']
+                    for r in rx_list
+                    ])),
+                'num_fold': num_fold,
+                'S': '',
+                'I': '',
+                'R': '',
+            })
 
     record_list.sort(key=itemgetter(
         'var_name',
