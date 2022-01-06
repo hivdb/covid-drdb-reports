@@ -66,11 +66,16 @@ def gen_vp_summary(conn):
     aggre_num_fold_results = sum([r['num_fold'] for r in aggre_records])
     aggre_num_ref_study = len(set([r['ref_name'] for r in aggre_records]))
 
+    all_num_ref_name = num_fold_results + aggre_num_fold_results
+    all_num_fold = len(set([r['ref_name'] for r in records + aggre_records]))
+
     result = [{
         'indiv_num_fold': num_fold_results,
         'indiv_num_fold_ref_name': num_ref_name,
         'aggre_num_fold': aggre_num_fold_results,
         'aggre_num_fold_ref_name': aggre_num_ref_study,
+        'all_num_fold': all_num_fold,
+        'all_num_ref_name': all_num_ref_name,
     }]
     save_path = DATA_FILE_PATH / 'vp' / 'summary_vp.csv'
     dump_csv(save_path, result)
