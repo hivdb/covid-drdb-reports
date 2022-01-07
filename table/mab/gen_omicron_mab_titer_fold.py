@@ -195,10 +195,6 @@ def draw_points(ax, draw_info):
                 [xp], [yp], marker=m, facecolors=color, edgecolors=color)
 
 
-
-
-
-
 def get_points_and_lines(records, mab):
 
     x_points = []

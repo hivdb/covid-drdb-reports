@@ -1,6 +1,5 @@
 from preset import dump_csv
 from preset import DATA_FILE_PATH
-from collections import defaultdict
 
 
 SQL = """

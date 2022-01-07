@@ -244,7 +244,8 @@ INFECTION = [
 def gen_figure_plasma_titer(
         conn,
         save_path=DATA_FILE_PATH / 'figure' / 'figure_plasma_titer.csv',
-        save_path_indiv=DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_indiv.csv'):
+        save_path_indiv=(
+            DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_indiv.csv')):
     sql_tmpl = " UNION ALL ".join([
         CP_TITER_VARIANT_SQL,
         VP_TITER_VARIANT_SQL,
@@ -315,7 +316,9 @@ def gen_figure_plasma_titer(
             'num_result': 1
         })
 
-    dump_csv(DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_points.csv', indiv_records)
+    dump_csv(
+        DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_points.csv',
+        indiv_records)
 
 
 def _add_records(records, indiv_data_only=False):

@@ -1,11 +1,6 @@
 from preset import dump_csv
 from preset import DATA_FILE_PATH
-from preset import round_number
-from collections import defaultdict
-from statistics import median
-from resistancy import is_susc
-from resistancy import is_partial_resistant
-from resistancy import is_resistant
+
 
 SQL = """
 SELECT
