@@ -2,6 +2,8 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import cm
+import numpy as np
 
 
 SUMMARY_SQL = """
@@ -108,10 +110,11 @@ MAB_LIST = [
 
 
 def draw_figure(results, figure_save_path):
-    fig, axes = plt.subplots(5, 3, figsize=(15, 25))
+    rows = 3
+    cols = 6
+    fig, axes = plt.subplots(rows, cols, figsize=(25, 15))
 
-    rows = axes.shape[0]
-    cols = axes.shape[1]
+    colors_map = get_colors_map(results)
 
     for row in range(rows):
         hide_x_axis = False
@@ -119,12 +122,26 @@ def draw_figure(results, figure_save_path):
         sub_axis = False
         if row != (rows - 1):
             hide_x_axis = True
+
         for col in range(cols):
             if col != 0:
                 hide_y_axis = True
             if col == (cols - 1):
                 sub_axis = True
-            draw_info = get_points_and_lines(results, MAB_LIST[row * 3 + col])
+
+            mab_index = row * cols + col
+
+            if mab_index == (len(MAB_LIST) - 1):
+                sub_axis = True
+            if (mab_index + cols) >= len(MAB_LIST):
+                hide_x_axis = False
+
+            if mab_index >= len(MAB_LIST):
+                draw_blank(axes[row, col])
+                continue
+
+            draw_info = get_points_and_lines(
+                results, MAB_LIST[mab_index], colors_map)
             draw_sub_figure(
                 axes[row, col], draw_info, hide_x_axis, hide_y_axis, sub_axis)
 
@@ -132,13 +149,26 @@ def draw_figure(results, figure_save_path):
     plt.savefig(str(figure_save_path), format='svg', bbox_inches='tight')
 
 
+def draw_blank(ax):
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.patch.set_alpha(0)
+
+
 def draw_sub_figure(
         ax, draw_info, hide_x_axis=False, hide_y_axis=False, sub_axis=False):
 
-    ax.set_title(draw_info['mab'], y=1.0, pad=-14)
+    ax.set_title(draw_info['mab'], y=1.0, pad=-14, loc='left')
+
+    y_lower = 0.7
+    y_upper = 30000
 
     ax.set_xticklabels(['WT', 'Omicron', 'Fold'])
-    ax.set_ylim([0.7, 3000])
+    ax.set_ylim([y_lower, y_upper])
     ax.set_yscale('log', base=10)
     ax.set_ylabel('IC50 (ng/ml)')
     ax.yaxis.label.set_color('blue')
@@ -149,14 +179,14 @@ def draw_sub_figure(
     if hide_y_axis:
         ax.get_yaxis().set_visible(False)
 
-    for x_points, y_points in draw_info['lines']:
-        ax.plot(x_points, y_points, 'k-')
+    # for x_points, y_points in draw_info['lines']:
+    #     ax.plot(x_points, y_points, 'k-')
 
     draw_points(ax, draw_info)
 
     if sub_axis:
         ax2 = ax.twinx()
-        ax2.set_ylim([0.7, 3000])
+        ax2.set_ylim([y_lower, y_upper])
         ax2.set_yscale('log', base=10)
         ax2.set_ylabel('Fold change')
         ax2.yaxis.label.set_color('red')
@@ -181,28 +211,42 @@ def draw_points(ax, draw_info):
         capprops={'color': 'gray'},
         whiskerprops={'color': 'gray'})
 
-    for idx, (xp, yp, m) in enumerate(zip(
+    for idx, (xp, yp, m, c) in enumerate(zip(
             draw_info['x_points'],
             draw_info['y_points'],
-            draw_info['markers'])):
+            draw_info['markers'],
+            draw_info['colors'])):
 
-        if (idx + 1) % 3 == 0:
-            color = 'r'
-        else:
-            color = 'b'
+        # if (idx + 1) % 3 == 0:
+        #     color = 'r'
+        # else:
+        #     color = 'b'
 
         ax.scatter(
-                [xp], [yp], marker=m, facecolors=color, edgecolors=color)
+                [xp], [yp], marker=m, facecolors=c, edgecolors=c)
 
 
-def get_points_and_lines(records, mab):
+def get_colors_map(records):
+    ref_list = set([rec['ref_name'] for rec in records])
+    rainbow = cm.rainbow(np.linspace(0, 1, len(ref_list)))
+
+    colors_map = {}
+    for ref_name, color in zip(sorted(list(ref_list)), rainbow):
+        colors_map[ref_name] = color
+
+    return colors_map
+
+
+def get_points_and_lines(records, mab, colors_map):
 
     x_points = []
     y_points = []
     markers = []
     lines = []
+    colors = []
 
     for rec in records:
+
         if not rec['as_wildtype']:
             continue
 
@@ -210,9 +254,9 @@ def get_points_and_lines(records, mab):
         if ab_name != mab:
             continue
 
-        control = {}
-        test = {}
-        fold = {}
+        control = {'ref_name': rec['ref_name']}
+        test = {'ref_name': rec['ref_name']}
+        fold = {'ref_name': rec['ref_name']}
         for k, v in rec.items():
             if k == 'control_ic50':
                 control['type'] = 'WT'
@@ -231,8 +275,8 @@ def get_points_and_lines(records, mab):
                 fold['cmp'] = v
 
         for rec in [control, test, fold]:
-            if rec['value'] > 1000:
-                rec['value'] = 1000
+            if rec['value'] == 1000 and rec['cmp'] == '>':
+                rec['value'] = 10000
                 rec['cmp'] = '>'
 
             if rec['value'] < 1:
@@ -250,6 +294,10 @@ def get_points_and_lines(records, mab):
                     else:
                         markers.append('^')
 
+            ref_name = rec['ref_name']
+            choose_color = colors_map[ref_name]
+            colors.append(choose_color)
+
         lines.append((
             x_points[-3:-1],
             y_points[-3:-1]
@@ -265,4 +313,5 @@ def get_points_and_lines(records, mab):
         'x_points': x_points,
         'y_points': y_points,
         'markers': markers,
+        'colors': colors
     }

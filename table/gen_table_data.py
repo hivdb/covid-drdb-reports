@@ -84,6 +84,7 @@ def gen_report(db_path):
     from variant.gen_figure_variant_mab import gen_figure_variant_mab
     from variant.gen_figure_variant_cp import gen_figure_variant_cp
     from variant.gen_figure_variant_vp import gen_figure_variant_vp
+    from variant.gen_table_single_mut_summary import gen_table_single_mut_summary
 
     gen_table_variant_summary(conn)
     gen_table_variant_mab(conn)
@@ -93,12 +94,15 @@ def gen_report(db_path):
     gen_figure_variant_mab(conn)
     gen_figure_variant_vp(conn)
     gen_figure_variant_cp(conn)
+    gen_table_single_mut_summary(conn)
 
     from variant.gen_omicron import gen_omicron
     gen_omicron(conn)
 
     from reference.gen_ref_domain import gen_ref_domain
+    from reference.gen_ref_info import gen_ref_info
 
+    gen_ref_info(conn)
     gen_ref_domain(conn)
 
     from fold.gen_null_fold import gen_null_fold
