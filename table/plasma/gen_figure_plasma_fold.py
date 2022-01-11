@@ -206,6 +206,8 @@ def gen_figure_plasma_fold(
             rec[key] = row[key]
         rows.append(rec)
 
+    dump_csv(DATA_FILE_PATH / 'figure' / 'figure_plasma_fold_dp.csv', rows)
+
     records, used_header_combo = _add_records(rows)
 
     padding_records(records, used_header_combo)
