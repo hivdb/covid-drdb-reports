@@ -2,13 +2,13 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
 import matplotlib.pyplot as plt
-from matplotlib.pyplot import cm
 import numpy as np
 
 
 SUMMARY_SQL = """
 SELECT DISTINCT
     s.ref_name,
+    rx.rx_name,
     rx.ab_name,
     control_iso.var_name as control_var_name,
     control_pot.potency as control_ic50,
@@ -17,7 +17,8 @@ SELECT DISTINCT
     test_pot.potency_upper_limit as test_upper_ic50,
     s.fold_cmp,
     s.fold,
-    variants.as_wildtype
+    variants.as_wildtype,
+    s.assay_name
 FROM
     susc_results_view s,
     rx_mab_view rx,
@@ -58,11 +59,38 @@ WHERE
     s.iso_name = test_iso.iso_name
     AND
     test_iso.var_name = 'Omicron'
+    AND
+    test_iso.pattern NOT LIKE '%R346K%'
 
     AND
     rx.availability IS NOT NULL
 ;
 """
+
+
+# D3 category20
+CATEGORY_COLOR = [
+    '#1f77b4',
+    '#aec7e8',
+    '#ff7f0e',
+    '#ffbb78',
+    '#2ca02c',
+    '#98df8a',
+    '#d62728',
+    '#ff9896',
+    '#9467bd',
+    '#c5b0d5',
+    '#8c564b',
+    '#c49c94',
+    '#e377c2',
+    '#f7b6d2',
+    '#7f7f7f',
+    '#c7c7c7',
+    '#bcbd22',
+    '#dbdb8d',
+    '#17becf',
+    '#9edae5',
+]
 
 
 def gen_omicron_mab_titer_fold(
@@ -82,6 +110,17 @@ def gen_omicron_mab_titer_fold(
         if rec['test_ic50'] >= rec['test_upper_ic50']:
             rec['test_ic50_cmp'] = '>'
         del rec['test_upper_ic50']
+
+        if 'Monogram' in rec['assay_name']:
+            rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'Monogram')
+        if 'FDA' in rec['assay_name']:
+            rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'FDA')
+
+        if '_' in rec['rx_name']:
+            index = rec['rx_name'].split('_')[-1]
+            if not index.isdigit():
+                continue
+            rec['ref_name'] = '{}-{}'.format(rec['ref_name'], index)
 
     dump_csv(csv_save_path, results)
 
@@ -112,7 +151,7 @@ MAB_LIST = [
 def draw_figure(results, figure_save_path):
     rows = 3
     cols = 6
-    fig, axes = plt.subplots(rows, cols, figsize=(25, 15))
+    fig, axes = plt.subplots(rows, cols, figsize=(18, 15))
 
     colors_map = get_colors_map(results)
 
@@ -145,8 +184,23 @@ def draw_figure(results, figure_save_path):
             draw_sub_figure(
                 axes[row, col], draw_info, hide_x_axis, hide_y_axis, sub_axis)
 
+    draw_legend(axes[rows-1, cols-2], colors_map)
     fig.subplots_adjust(wspace=0, hspace=0)
+
     plt.savefig(str(figure_save_path), format='svg', bbox_inches='tight')
+
+
+def draw_legend(ax, colors_map):
+
+    for k, v in colors_map.items():
+        ax.scatter(
+                [],
+                [],
+                marker='o',
+                c=np.array([v]),
+                label=k)
+
+    ax.legend(loc="center left", ncol=2)
 
 
 def draw_blank(ax):
@@ -227,11 +281,11 @@ def draw_points(ax, draw_info):
 
 
 def get_colors_map(records):
-    ref_list = set([rec['ref_name'] for rec in records])
-    rainbow = cm.rainbow(np.linspace(0, 1, len(ref_list)))
+    ref_list = sorted(set([rec['ref_name'] for rec in records]))
 
     colors_map = {}
-    for ref_name, color in zip(sorted(list(ref_list)), rainbow):
+    for idx, ref_name in enumerate(ref_list):
+        color = CATEGORY_COLOR[idx]
         colors_map[ref_name] = color
 
     return colors_map
