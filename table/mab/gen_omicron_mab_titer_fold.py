@@ -124,9 +124,36 @@ def gen_omicron_mab_titer_fold(
 
     dump_csv(csv_save_path, results)
 
+    results = adjust_titer_and_fold(results)
+
     draw_figure(
         results,
         figure_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab.svg')
+
+
+def adjust_titer_and_fold(records):
+
+    results = []
+
+    for rec in records:
+        if rec['control_ic50_cmp'] == '>' and rec['control_ic50'] >= 1000:
+            rec['control_ic50'] = 10000
+        if rec['test_ic50_cmp'] == '>' and rec['test_ic50'] >= 1000:
+            rec['test_ic50'] = 10000
+        rec['fold'] = rec['test_ic50'] / rec['control_ic50']
+        results.append(rec)
+
+        if rec['control_ic50'] < 1:
+            rec['control_ic50'] = 1
+            rec['control_ic50_cmp'] = '='
+        if rec['test_ic50'] < 1:
+            rec['test_ic50'] = 1
+            rec['test_ic50_cmp'] = '='
+        if rec['fold'] < 1:
+            rec['fold'] = 1
+            rec['fold_cmp'] = '<'
+
+    return results
 
 
 MAB_LIST = [
@@ -221,6 +248,7 @@ def draw_sub_figure(
     y_lower = 0.7
     y_upper = 30000
 
+    ax.set_xticks([0, 1, 2])
     ax.set_xticklabels(['WT', 'Omicron', 'Fold'])
     ax.set_ylim([y_lower, y_upper])
     ax.set_yscale('log', base=10)
@@ -271,11 +299,6 @@ def draw_points(ax, draw_info):
             draw_info['markers'],
             draw_info['colors'])):
 
-        # if (idx + 1) % 3 == 0:
-        #     color = 'r'
-        # else:
-        #     color = 'b'
-
         ax.scatter(
                 [xp], [yp], marker=m, facecolors=c, edgecolors=c)
 
@@ -313,13 +336,13 @@ def get_points_and_lines(records, mab, colors_map):
         fold = {'ref_name': rec['ref_name']}
         for k, v in rec.items():
             if k == 'control_ic50':
-                control['type'] = 'WT'
+                control['type'] = 0
                 control['value'] = v
             if k == 'test_ic50':
-                test['type'] = 'Omicron'
+                test['type'] = 1
                 test['value'] = v
             if k == 'fold':
-                fold['type'] = 'Fold'
+                fold['type'] = 2
                 fold['value'] = v
             if k == 'control_ic50_cmp':
                 control['cmp'] = v
@@ -329,13 +352,6 @@ def get_points_and_lines(records, mab, colors_map):
                 fold['cmp'] = v
 
         for rec in [control, test, fold]:
-            if rec['value'] == 1000 and rec['cmp'] == '>':
-                rec['value'] = 10000
-                rec['cmp'] = '>'
-
-            if rec['value'] < 1:
-                rec['value'] = 1
-                rec['cmp'] = '='
 
             for k, v in rec.items():
                 if k == 'type':
@@ -343,10 +359,12 @@ def get_points_and_lines(records, mab, colors_map):
                 if k == 'value':
                     y_points.append(v)
                 if k == 'cmp':
-                    if v == '=':
-                        markers.append('o')
-                    else:
+                    if v == '>':
                         markers.append('^')
+                    # elif v == '<':
+                    #     markers.append('v')
+                    else:
+                        markers.append('o')
 
             ref_name = rec['ref_name']
             choose_color = colors_map[ref_name]
