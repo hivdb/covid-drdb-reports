@@ -169,9 +169,9 @@ MAB_LIST = [
     'Sotrovimab',
     'Regdanvimab',
     'Adintrevimab',
-    'BRII-196',
-    'BRII-198',
-    'BRII-196/BRII-198',
+    'Amubarvimab',
+    'Romlusevimab',
+    'Amubarvimab/Romlusevimab',
 ]
 
 

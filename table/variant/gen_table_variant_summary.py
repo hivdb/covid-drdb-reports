@@ -85,7 +85,6 @@ DOMAIN_PATTERN_LIST = {
         'A570D',
         'P681R',
         'H655Y',
-        'Q675H',
     ],
     'S2': [
         'A701V',
