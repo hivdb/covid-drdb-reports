@@ -126,9 +126,40 @@ def gen_omicron_mab_titer_fold(
 
     results = adjust_titer_and_fold(results)
 
+    get_dfplot(results)
+
     draw_figure(
         results,
         figure_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab.svg')
+
+
+def get_dfplot(dataframe):
+
+    colors_map = get_colors_map(dataframe)
+
+    dfplot = []
+
+    for mab in MAB_LIST:
+        draw_info = get_points_and_lines(
+            dataframe, mab, colors_map)
+
+        for (xp, yp, m, r, c) in zip(
+                draw_info['x_points'],
+                draw_info['y_points'],
+                draw_info['markers'],
+                draw_info['ref_names'],
+                draw_info['colors']):
+            rec = {
+                'x': xp,
+                'y': yp,
+                'm': m,
+                'ref_name': r,
+                'c': c[1:],
+                'mab': mab
+            }
+            dfplot.append(rec)
+
+    dump_csv(DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_df.csv', dfplot)
 
 
 def adjust_titer_and_fold(records):
@@ -321,6 +352,7 @@ def get_points_and_lines(records, mab, colors_map):
     markers = []
     lines = []
     colors = []
+    ref_names = []
 
     for rec in records:
 
@@ -331,9 +363,11 @@ def get_points_and_lines(records, mab, colors_map):
         if ab_name != mab:
             continue
 
-        control = {'ref_name': rec['ref_name']}
-        test = {'ref_name': rec['ref_name']}
-        fold = {'ref_name': rec['ref_name']}
+        ref_name = rec['ref_name']
+
+        control = {'ref_name': ref_name}
+        test = {'ref_name': ref_name}
+        fold = {'ref_name': ref_name}
         for k, v in rec.items():
             if k == 'control_ic50':
                 control['type'] = 0
@@ -369,6 +403,7 @@ def get_points_and_lines(records, mab, colors_map):
             ref_name = rec['ref_name']
             choose_color = colors_map[ref_name]
             colors.append(choose_color)
+            ref_names.append(ref_name)
 
         lines.append((
             x_points[-3:-1],
@@ -379,11 +414,13 @@ def get_points_and_lines(records, mab, colors_map):
             y_points[-2:]
         ))
 
+
     return {
         'mab': mab,
         'lines': lines,
         'x_points': x_points,
         'y_points': y_points,
         'markers': markers,
-        'colors': colors
+        'colors': colors,
+        'ref_names': ref_names
     }
