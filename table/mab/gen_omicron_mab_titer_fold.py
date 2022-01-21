@@ -3,6 +3,8 @@ from preset import dump_csv
 from preset import row2dict
 import matplotlib.pyplot as plt
 import numpy as np
+from statistics import stdev, median, mean
+import math
 
 
 SUMMARY_SQL = """
@@ -31,6 +33,8 @@ WHERE
     s.ref_name = rx.ref_name
     AND
     s.rx_name = rx.rx_name
+    AND
+    s.potency_type = 'IC50'
 
     AND
     s.ref_name = control_pot.ref_name
@@ -40,6 +44,8 @@ WHERE
     s.control_iso_name = control_pot.iso_name
     AND
     s.assay_name = control_pot.assay_name
+    AND
+    s.potency_type = control_pot.potency_type
 
     AND
     s.ref_name = test_pot.ref_name
@@ -49,6 +55,8 @@ WHERE
     s.iso_name = test_pot.iso_name
     AND
     s.assay_name = test_pot.assay_name
+    AND
+    s.potency_type = test_pot.potency_type
 
     AND
     s.control_iso_name = control_iso.iso_name
@@ -69,27 +77,54 @@ WHERE
 
 
 # D3 category20
+# CATEGORY_COLOR = [
+#     '#1f77b4',
+#     '#aec7e8',
+#     '#ff7f0e',
+#     '#ffbb78',
+#     '#2ca02c',
+#     '#98df8a',
+#     '#d62728',
+#     '#ff9896',
+#     '#9467bd',
+#     '#c5b0d5',
+#     '#8c564b',
+#     '#c49c94',
+#     '#e377c2',
+#     '#f7b6d2',
+#     '#7f7f7f',
+#     '#c7c7c7',
+#     '#bcbd22',
+#     '#dbdb8d',
+#     '#17becf',
+#     '#9edae5',
+# ]
+
 CATEGORY_COLOR = [
-    '#1f77b4',
-    '#aec7e8',
-    '#ff7f0e',
-    '#ffbb78',
-    '#2ca02c',
-    '#98df8a',
-    '#d62728',
-    '#ff9896',
-    '#9467bd',
-    '#c5b0d5',
-    '#8c564b',
-    '#c49c94',
-    '#e377c2',
-    '#f7b6d2',
-    '#7f7f7f',
-    '#c7c7c7',
-    '#bcbd22',
-    '#dbdb8d',
-    '#17becf',
-    '#9edae5',
+    '#2E91E5',
+    '#E15F99',
+    '#1CA71C',
+    '#FB0D0D',
+    '#DA16FF',
+    '#222A2A',
+    '#B68100',
+    '#750D86',
+    "#EB663B",
+    "#511CFB",
+    "#00A08B",
+    "#FB00D1",
+    "#FC0080",
+    "#B2828D",
+    "#6C7C32",
+    "#778AAE",
+    "#862A16",
+    "#A777F1",
+    "#620042",
+    "#1616A7",
+    "#DA60CA",
+    "#6C4516",
+    "#0D2A63",
+    "#AF0038",
 ]
 
 
@@ -161,6 +196,8 @@ def get_dfplot(dataframe):
 
     dump_csv(DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_df.csv', dfplot)
 
+    calc_mab_cv(dfplot)
+
 
 def adjust_titer_and_fold(records):
 
@@ -200,6 +237,7 @@ MAB_LIST = [
     'Sotrovimab',
     'Regdanvimab',
     'Adintrevimab',
+    'Bebtelovimab',
     'Amubarvimab',
     'Romlusevimab',
     'Amubarvimab/Romlusevimab',
@@ -356,9 +394,6 @@ def get_points_and_lines(records, mab, colors_map):
 
     for rec in records:
 
-        if not rec['as_wildtype']:
-            continue
-
         ab_name = rec['ab_name']
         if ab_name != mab:
             continue
@@ -385,7 +420,12 @@ def get_points_and_lines(records, mab, colors_map):
             if k == 'fold_cmp':
                 fold['cmp'] = v
 
-        for rec in [control, test, fold]:
+        if not rec['as_wildtype']:
+            rec_list = [test]
+        else:
+            rec_list = [control, test, fold]
+
+        for rec in rec_list:
 
             for k, v in rec.items():
                 if k == 'type':
@@ -414,7 +454,6 @@ def get_points_and_lines(records, mab, colors_map):
             y_points[-2:]
         ))
 
-
     return {
         'mab': mab,
         'lines': lines,
@@ -424,3 +463,36 @@ def get_points_and_lines(records, mab, colors_map):
         'colors': colors,
         'ref_names': ref_names
     }
+
+
+def calc_coefficient_of_variation(dataframe):
+    samples = [math.log(i['y']) for i in dataframe]
+
+    mean_value = mean(samples)
+    std = stdev(samples)
+
+    return std / mean_value
+
+
+def calc_mab_cv(records):
+
+    mabs = list(set([i['mab'] for i in records]))
+
+    results = []
+    for mab in mabs:
+        for idx, t in zip([0, 1, 2], ['wt', 'omicron', 'fold']):
+            dataframe = [
+                i for i in records if i['mab'] == mab and i['x'] == idx]
+            if len(dataframe) > 1:
+                cv_value = calc_coefficient_of_variation(dataframe)
+                cv_value = (cv_value * 100 // 1) / 100
+            else:
+                cv_value = 'NA'
+            results.append({
+                'mab': mab,
+                'data_type': t,
+                'cv': cv_value,
+                'num_sample': len(dataframe)
+            })
+
+    dump_csv(DATA_FILE_PATH / 'mab' / 'omicron_mab_cv.csv', results)
