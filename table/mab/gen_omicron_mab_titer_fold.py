@@ -465,8 +465,11 @@ def get_points_and_lines(records, mab, colors_map):
     }
 
 
-def calc_coefficient_of_variation(dataframe):
-    samples = [math.log(i['y']) for i in dataframe]
+def calc_coefficient_of_variation(dataframe, log_sample=False):
+    samples = [i['y'] for i in dataframe]
+
+    if log_sample:
+        samples = [math.log(i) for i in samples]
 
     mean_value = mean(samples)
     std = stdev(samples)
@@ -486,13 +489,18 @@ def calc_mab_cv(records):
             if len(dataframe) > 1:
                 cv_value = calc_coefficient_of_variation(dataframe)
                 cv_value = (cv_value * 100 // 1) / 100
+                cv_value_log = calc_coefficient_of_variation(
+                    dataframe, log_sample=True)
+                cv_value_log = (cv_value_log * 100 // 1) / 100
             else:
                 cv_value = 'NA'
             results.append({
                 'mab': mab,
                 'data_type': t,
                 'cv': cv_value,
-                'num_sample': len(dataframe)
+                'cv_log_sample': cv_value_log,
+                'num_sample': len(dataframe),
+                # 'samples': [math.log(i['y']) for i in dataframe]
             })
 
     dump_csv(DATA_FILE_PATH / 'mab' / 'omicron_mab_cv.csv', results)
