@@ -67,8 +67,6 @@ WHERE
     s.iso_name = test_iso.iso_name
     AND
     test_iso.var_name = 'Omicron'
-    AND
-    test_iso.pattern NOT LIKE '%R346K%'
 
     AND
     rx.availability IS NOT NULL
@@ -128,6 +126,26 @@ CATEGORY_COLOR = [
 ]
 
 
+def skip_rec(rec):
+    if (rec['ref_name'] == 'Cameroni21'
+            and rec['assay_name'] == 'Virus isolate'):
+        return True
+
+    if (rec['ref_name'].startswith('VanBlargan22')
+            and rec['rx_name'] == 'AZD1061'):
+        return True
+
+    if (rec['ref_name'].startswith('VanBlargan22')
+            and rec['rx_name'] == 'AZD7442'):
+        return True
+
+    if (rec['ref_name'].startswith('VanBlargan22')
+            and rec['rx_name'] == 'AZD8895'):
+        return True
+
+    return False
+
+
 def gen_omicron_mab_titer_fold(
         conn,
         csv_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold.csv'):
@@ -139,6 +157,7 @@ def gen_omicron_mab_titer_fold(
 
     results = row2dict(cursor.fetchall())
 
+    save_results = []
     for rec in results:
         rec['test_ic50_cmp'] = '='
         rec['control_ic50_cmp'] = '='
@@ -157,14 +176,23 @@ def gen_omicron_mab_titer_fold(
                 continue
             rec['ref_name'] = '{}-{}'.format(rec['ref_name'], index)
 
-    dump_csv(csv_save_path, results)
+        if skip_rec(rec):
+            continue
 
-    results = adjust_titer_and_fold(results)
+        save_results.append(rec)
 
-    get_dfplot(results)
+    dump_csv(csv_save_path, save_results)
+
+    save_results = adjust_titer_and_fold(save_results)
+
+    dump_csv(
+        DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_forest_figure.csv',
+        save_results)
+
+    get_dfplot(save_results)
 
     draw_figure(
-        results,
+        save_results,
         figure_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab.svg')
 
 
