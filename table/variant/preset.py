@@ -210,6 +210,12 @@ OMICRON_MUTATIONS = {
             "mut.single_mut_name = 'G339D'"
         ]
     },
+    'R346K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'R346K'"
+        ]
+    },
     'S371L': {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [

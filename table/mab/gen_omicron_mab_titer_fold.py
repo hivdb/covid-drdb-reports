@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from statistics import stdev, median, mean
 import math
+from .preset import MAIN_MAB
 
 
 SUMMARY_SQL = """
@@ -127,9 +128,9 @@ CATEGORY_COLOR = [
 
 
 def skip_rec(rec):
-    if (rec['ref_name'] == 'Cameroni21'
-            and rec['assay_name'] == 'Virus isolate'):
-        return True
+    # if (rec['ref_name'] == 'Cameroni21'
+    #         and rec['assay_name'] == 'Virus isolate'):
+    #     return True
 
     if (rec['ref_name'].startswith('VanBlargan22')
             and rec['rx_name'] == 'AZD1061'):
@@ -172,11 +173,13 @@ def gen_omicron_mab_titer_fold(
 
         if '_' in rec['rx_name']:
             index = rec['rx_name'].split('_')[-1]
-            if not index.isdigit():
-                continue
-            rec['ref_name'] = '{}-{}'.format(rec['ref_name'], index)
+            if index.isdigit():
+                rec['ref_name'] = '{}-{}'.format(rec['ref_name'], index)
 
         if skip_rec(rec):
+            continue
+
+        if rec['ab_name'] not in MAIN_MAB.keys():
             continue
 
         save_results.append(rec)
@@ -184,6 +187,7 @@ def gen_omicron_mab_titer_fold(
     dump_csv(csv_save_path, save_results)
 
     save_results = adjust_titer_and_fold(save_results)
+    save_results = [i for i in save_results if i['as_wildtype'] == 1]
 
     dump_csv(
         DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_forest_figure.csv',
@@ -202,7 +206,7 @@ def get_dfplot(dataframe):
 
     dfplot = []
 
-    for mab in MAB_LIST:
+    for mab in MAIN_MAB.keys():
         draw_info = get_points_and_lines(
             dataframe, mab, colors_map)
 
@@ -239,37 +243,24 @@ def adjust_titer_and_fold(records):
         rec['fold'] = rec['test_ic50'] / rec['control_ic50']
         results.append(rec)
 
-        if rec['control_ic50'] < 1:
-            rec['control_ic50'] = 1
-            rec['control_ic50_cmp'] = '='
-        if rec['test_ic50'] < 1:
-            rec['test_ic50'] = 1
-            rec['test_ic50_cmp'] = '='
-        if rec['fold'] < 1:
-            rec['fold'] = 1
-            rec['fold_cmp'] = '<'
+        # if rec['control_ic50'] < 1:
+        #     rec['control_ic50'] = 1
+        #     rec['control_ic50_cmp'] = '='
+        # if rec['test_ic50'] < 1:
+        #     rec['test_ic50'] = 1
+        #     rec['test_ic50_cmp'] = '='
+        # if rec['fold'] < 1:
+        #     rec['fold'] = 1
+        #     rec['fold_cmp'] = '<'
+
+        if '/' not in rec['ab_name']:
+            rec['mAb'] = rec['ab_name'].upper()[:3]
+        else:
+            ab1, ab2 = rec['ab_name'].split('/', 1)
+            ab1, ab2 = ab1.upper()[:3], ab2.upper()[:3]
+            rec['mAb'] = '/'.join([ab1, ab2])
 
     return results
-
-
-MAB_LIST = [
-    'Bamlanivimab',
-    'Etesevimab',
-    'Bamlanivimab/Etesevimab',
-    'Casirivimab',
-    'Imdevimab',
-    'Casirivimab/Imdevimab',
-    'Cilgavimab',
-    'Tixagevimab',
-    'Cilgavimab/Tixagevimab',
-    'Sotrovimab',
-    'Regdanvimab',
-    'Adintrevimab',
-    'Bebtelovimab',
-    'Amubarvimab',
-    'Romlusevimab',
-    'Amubarvimab/Romlusevimab',
-]
 
 
 def draw_figure(results, figure_save_path):
@@ -294,17 +285,17 @@ def draw_figure(results, figure_save_path):
 
             mab_index = row * cols + col
 
-            if mab_index == (len(MAB_LIST) - 1):
+            if mab_index == (len(MAIN_MAB) - 1):
                 sub_axis = True
-            if (mab_index + cols) >= len(MAB_LIST):
+            if (mab_index + cols) >= len(MAIN_MAB):
                 hide_x_axis = False
 
-            if mab_index >= len(MAB_LIST):
+            if mab_index >= len(MAIN_MAB):
                 draw_blank(axes[row, col])
                 continue
 
             draw_info = get_points_and_lines(
-                results, MAB_LIST[mab_index], colors_map)
+                results, list(MAIN_MAB.keys())[mab_index], colors_map)
             draw_sub_figure(
                 axes[row, col], draw_info, hide_x_axis, hide_y_axis, sub_axis)
 
@@ -522,6 +513,7 @@ def calc_mab_cv(records):
                 cv_value_log = (cv_value_log * 100 // 1) / 100
             else:
                 cv_value = 'NA'
+                cv_value_log = 'NA'
             results.append({
                 'mab': mab,
                 'data_type': t,

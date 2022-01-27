@@ -1,12 +1,11 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from preset import dump_json
 from variant.preset import OMICRON_MUTATIONS
-
+from .preset import MAIN_MAB
 from operator import itemgetter
-from collections import defaultdict
 from resistancy import RESISTANCE_FILTER
 from resistancy import round_fold
+from preset import group_records_by
 
 
 MAB_MUTS_SQL = """
@@ -14,17 +13,38 @@ SELECT
     s.ref_name,
     rx.ab_name,
     rx.class,
+    mut.position,
+    mut.domain,
     s.fold_cmp,
     s.fold,
+    -- control_pot.potency as control_ic50,
+    -- test_pot.potency as test_ic50,
     s.ineffective
 FROM
     susc_results_50_wt_view as s,
     rx_mab_view as rx,
+    -- rx_potency as control_pot,
+    -- rx_potency as test_pot,
     {iso_type} mut
 WHERE
     s.ref_name = rx.ref_name
     AND
     s.rx_name = rx.rx_name
+
+    -- AND
+    -- s.ref_name = control_pot.ref_name
+    -- AND
+    -- s.rx_name = control_pot.rx_name
+    -- AND
+    -- s.control_iso_name = control_pot.iso_name
+
+    -- AND
+    -- s.ref_name = test_pot.ref_name
+    -- AND
+    -- s.rx_name = test_pot.rx_name
+    -- AND
+    -- s.iso_name = test_pot.iso_name
+
     AND
     s.iso_name = mut.iso_name
     AND
@@ -62,6 +82,10 @@ def gen_table_mab_omicron_muts(
                 ref_name = row['ref_name']
                 ab_name = row['ab_name']
                 ab_class = row['class']
+                position = row['position']
+                domain = row['domain']
+                # control_ic50 = row['control_ic50']
+                # test_ic50 = row['test_ic50']
 
                 fold = row['fold']
                 # ineffective = row['ineffective']
@@ -71,38 +95,78 @@ def gen_table_mab_omicron_muts(
 
                 records.append({
                     'pattern': row_name,
+                    'position': position,
+                    'domain': domain,
                     'ab_name': ab_name,
                     'class': ab_class or '',
-                    # 'Resistance level': resist_name,
                     'fold': fold,
+                    # 'control_ic50': control_ic50,
+                    # 'test_ic50': test_ic50,
                     'ref_name': ref_name
                 })
 
     records.sort(key=itemgetter(
-        'pattern',
+        'position',
         'class',
         'ab_name',
         ))
 
     dump_csv(csv_save_path, records)
 
-    json_records = defaultdict(list)
-    for r in records:
-        variant = r['pattern']
-        json_records[variant].append({
-            'variant': variant,
-            'rx_name': r['ab_name'],
-            'mab_class': r['class'],
-            # 'fold': r['fold'].replace('>', '&gt;'),
-            'fold': r['fold'],
-            'ref_name': r['ref_name']
-        })
+    get_main_mab_fold(records)
+    # get_main_mab_ic50(records)
 
-    records = []
-    for pattern, assays in json_records.items():
-        records.append({
-            'pattern': pattern,
-            'assays': sorted(assays, key=itemgetter('mab_class')),
-        })
 
-    records.sort(key=itemgetter('pattern'))
+def get_main_mab_fold(
+        records,
+        save_path=DATA_FILE_PATH / 'mab' / 'main_mab_omicron_muts_fold.csv'):
+
+    mut_group = group_records_by(records, 'pattern')
+
+    results = []
+    for mut_pattern, rec_list in mut_group.items():
+        position = rec_list[0]['position']
+        domain = rec_list[0]['domain']
+
+        rec_list = [i for i in rec_list if i['ab_name'] in MAIN_MAB.keys()]
+
+        ref_group = group_records_by(rec_list, 'ref_name')
+
+        for ref_name, ref_rec_list in ref_group.items():
+
+            rec = {
+                'aa_mut': mut_pattern,
+                'position': position,
+                'domain': domain,
+                'ref_name': ref_name,
+            }
+            for mab_name, acronym in MAIN_MAB.items():
+                _ref_rec_list = [
+                    i for i in ref_rec_list if i['ab_name'] == mab_name]
+                if not _ref_rec_list:
+                    rec[acronym] = ''
+                    continue
+                for _rec in _ref_rec_list:
+                    rec[acronym] = _rec['fold']
+
+            results.append(rec)
+
+    dump_csv(save_path, results)
+
+
+def get_main_mab_ic50(
+        records,
+        save_path=DATA_FILE_PATH / 'mab' / 'main_mab_omicron_muts_ic50.csv'):
+
+    results = []
+    for rec in records:
+        del rec['class']
+        if rec['ab_name'] not in MAIN_MAB.keys():
+            continue
+
+        rec['mab'] = MAIN_MAB[rec['ab_name']]
+        del rec['ab_name']
+
+        results.append(rec)
+
+    dump_csv(save_path, results)
