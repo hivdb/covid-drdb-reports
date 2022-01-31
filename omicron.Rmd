@@ -46,6 +46,7 @@ MAB_LIST = c(
     'Sotrovimab',
     'Regdanvimab',
     'Adintrevimab',
+    'Bebtelovimab',
     'Amubarvimab',
     'Romlusevimab',
     'Amubarvimab/Romlusevimab'
@@ -63,6 +64,7 @@ MAB_RENAME_LIST = c(
     'Cilgavimab/Tixagevimab'="CIL/TIX",
     'Sotrovimab'="SOT",
     'Regdanvimab'="REG",
+    'Bebtelovimab'="BEB",
     'Adintrevimab'="ADG20",
     'Amubarvimab'="BRII-196",
     'Romlusevimab'="BRII-198",
@@ -204,13 +206,29 @@ for (mab_name in MAB_LIST) {
   i = i + 1
 }
 
-p = draw_omicron_mab(df, MAB_RENAME_LIST[mab_name], REF_LABELS, COLOR_LABELS)
+dfLegend1 = df %>%
+  filter(substr(ref_name, 1, 1) < "T")
+
+p = draw_omicron_mab(dfLegend1, MAB_RENAME_LIST[mab_name], REF_LABELS, COLOR_LABELS)
 p = p + theme(
   legend.position = "left",
   legend.title = element_text(size=20),
   legend.text = element_text(size=20)
   )
 plots[[i]] = p
+i = i + 1
+
+dfLegend2 = df %>%
+  filter(substr(ref_name, 1, 1) >= "T")
+
+p = draw_omicron_mab(dfLegend2, MAB_RENAME_LIST[mab_name], REF_LABELS, COLOR_LABELS)
+p = p + theme(
+  legend.position = "left",
+  legend.title = element_text(size=20),
+  legend.text = element_text(size=20)
+  )
+plots[[i]] = p
+
 
 grid.arrange(grobs = plots, p_legend, ncol=line_width, widths=c(1.2,1,1,1,1,1.2))
 ```
