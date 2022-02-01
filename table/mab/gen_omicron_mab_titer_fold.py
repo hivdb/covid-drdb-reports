@@ -1,3 +1,4 @@
+from operator import itemgetter
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
@@ -6,6 +7,7 @@ import numpy as np
 from statistics import stdev, median, mean
 import math
 from .preset import MAIN_MAB
+from preset import group_records_by
 
 
 SUMMARY_SQL = """
@@ -128,10 +130,7 @@ CATEGORY_COLOR = [
 
 
 def skip_rec(rec):
-    # if (rec['ref_name'] == 'Cameroni21'
-    #         and rec['assay_name'] == 'Virus isolate'):
-    #     return True
-
+    # Ignore because VanBalrgan tested both parent and commercial drugs
     if (rec['ref_name'].startswith('VanBlargan22')
             and rec['rx_name'] == 'AZD1061'):
         return True
@@ -144,7 +143,41 @@ def skip_rec(rec):
             and rec['rx_name'] == 'AZD8895'):
         return True
 
+    if (rec['ref_name'] == 'Boschi22'):
+        return True
+    if (rec['ref_name'] == 'Gruell21'):
+        return True
+
     return False
+
+
+def filter_records(records):
+
+    records = [i for i in records if not skip_rec(i)]
+    records = [i for i in records if i['ab_name'] in MAIN_MAB.keys()]
+
+    for rec in records:
+        if 'Monogram' in rec['assay_name']:
+            rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'Monogram')
+        if 'FDA' in rec['assay_name']:
+            rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'FDA')
+
+    results = []
+    ref_name_groups = group_records_by(records, 'ref_name')
+
+    for ref_name, ref_name_rec_list in ref_name_groups.items():
+        ab_name_groups = group_records_by(ref_name_rec_list, 'ab_name')
+        for ab_name, ab_name_rec_list in ab_name_groups.items():
+            if len(ab_name_rec_list) == 1:
+                results.append(ab_name_rec_list[0])
+                continue
+
+            ab_name_rec_list.sort(key=itemgetter('assay_name'))
+            for idx, rec in enumerate(ab_name_rec_list):
+                rec['ref_name'] = '{}-{}'.format(rec['ref_name'], idx + 1)
+                results.append(rec)
+
+    return results
 
 
 def gen_omicron_mab_titer_fold(
@@ -156,31 +189,17 @@ def gen_omicron_mab_titer_fold(
 
     cursor.execute(sql)
 
-    results = row2dict(cursor.fetchall())
+    records = row2dict(cursor.fetchall())
+
+    records = filter_records(records)
 
     save_results = []
-    for rec in results:
+    for rec in records:
         rec['test_ic50_cmp'] = '='
         rec['control_ic50_cmp'] = '='
         if rec['test_ic50'] >= rec['test_upper_ic50']:
             rec['test_ic50_cmp'] = '>'
         del rec['test_upper_ic50']
-
-        if 'Monogram' in rec['assay_name']:
-            rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'Monogram')
-        if 'FDA' in rec['assay_name']:
-            rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'FDA')
-
-        if '_' in rec['rx_name']:
-            index = rec['rx_name'].split('_')[-1]
-            if index.isdigit():
-                rec['ref_name'] = '{}-{}'.format(rec['ref_name'], index)
-
-        if skip_rec(rec):
-            continue
-
-        if rec['ab_name'] not in MAIN_MAB.keys():
-            continue
 
         save_results.append(rec)
 
@@ -237,9 +256,9 @@ def adjust_titer_and_fold(records):
 
     for rec in records:
         if rec['control_ic50_cmp'] == '>' and rec['control_ic50'] >= 1000:
-            rec['control_ic50'] = 10000
+            rec['control_ic50'] = 100000
         if rec['test_ic50_cmp'] == '>' and rec['test_ic50'] >= 1000:
-            rec['test_ic50'] = 10000
+            rec['test_ic50'] = 100000
         rec['fold'] = rec['test_ic50'] / rec['control_ic50']
         results.append(rec)
 
@@ -254,13 +273,20 @@ def adjust_titer_and_fold(records):
         #     rec['fold_cmp'] = '<'
 
         if '/' not in rec['ab_name']:
-            rec['mAb'] = rec['ab_name'].upper()[:3]
+            rec['mAb'] = short_mab_name(rec['ab_name'])
         else:
             ab1, ab2 = rec['ab_name'].split('/', 1)
-            ab1, ab2 = ab1.upper()[:3], ab2.upper()[:3]
+            ab1, ab2 = short_mab_name(ab1), short_mab_name(ab2)
             rec['mAb'] = '/'.join([ab1, ab2])
 
     return results
+
+
+def short_mab_name(ab_name):
+    if 'mab' in ab_name:
+        return ab_name.upper()[:3]
+    else:
+        return ab_name
 
 
 def draw_figure(results, figure_save_path):
@@ -396,7 +422,10 @@ def get_colors_map(records):
 
     colors_map = {}
     for idx, ref_name in enumerate(ref_list):
-        color = CATEGORY_COLOR[idx]
+        if idx >= len(CATEGORY_COLOR):
+            color = '#000000'
+        else:
+            color = CATEGORY_COLOR[idx]
         colors_map[ref_name] = color
 
     return colors_map

@@ -1,0 +1,217 @@
+---
+title: "Omicron Mab Tree figure"
+output:
+  html_document:
+    keep_md: yes
+---
+
+Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), "%m/%d/%Y %I:%M %p")` PDT
+
+
+```{r load-library, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+library(grid)
+library(gridExtra)
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = c("png", "svg")
+)
+source("./lib/readers.R", chdir = TRUE)
+source("./lib/datatables.R", chdir = TRUE)
+
+TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
+```
+
+```{r load-config, include=FALSE}
+mydata <- read.dbTable('mab/omicron_mab_titer_fold_forest_figure.csv', tables_dir=TABLEDIR)
+mydata <- as_tibble(mydata)
+mydata <- mutate(mydata, 
+       logWT = log10(control_ic50),
+       logOmicron = log10(test_ic50),
+       pshape = ifelse(test_ic50 >= 10000, "diamond", "circle"),
+       ref_name = paste(ref_name, "_", assay_name, sep="")
+       )
+
+############################ FUNCTIONS ##############################################
+rank_by_omicron_wt_ref <- function(df) {
+  df$rank_omicron <- dense_rank(df$test_ic50)
+  df$rank_wt <- dense_rank(df$control_ic50)
+  df = df %>% 
+    mutate(rank_omicron=sprintf('%02d', as.integer(rank_omicron))) %>%
+    mutate(rank_wt=sprintf('%02d', as.integer(rank_wt))) %>%
+    mutate(rank_both = paste(rank_omicron, "_",  
+                             rank_wt, "_", 
+                             ref_name, sep=""))
+  df$rank<-rank(df$rank_both)
+  df
+}
+
+rank_by_virus_type <- function(df) {
+  df$rank<-rank(df$assay_name)
+  df
+}
+
+mann_whitney_virus_type_test <- function (df, mab_name) {
+  df <- filter(df, mAb == mab_name)
+  live_virus = df %>% filter(assay_name == 'Virus isolate')
+  live_virus_wt = live_virus$control_ic50
+  live_virus_omicron = live_virus$test_ic50
+  
+  pseudovirus = df %>% filter(assay_name != 'Virus isolate')
+  pseudovirus_wt = pseudovirus$control_ic50
+  pseudovirus_omicron = pseudovirus$test_ic50
+
+  if (length(live_virus_wt) == 0) {
+    return()
+  }
+  if (length(pseudovirus_wt) == 0) {
+    return()
+  }
+  print(mab_name)
+  print("Wildtype: pseudovirus IC50 < live virus IC50")
+  print(wilcox.test(live_virus_wt, pseudovirus_wt))
+  
+  if (length(live_virus_omicron) == 0) {
+    return()
+  }
+  if (length(pseudovirus_omicron) == 0) {
+    return()
+  }
+  print(mab_name)
+  print("Omicron: pseudovirus IC50 < live virus IC50")
+  print(wilcox.test(live_virus_omicron, pseudovirus_omicron))
+}
+
+draw_plot <- function(df, mab_name, params) {
+  df <- filter(df, mAb == mab_name)
+  df <- rank_by_virus_type(df)
+  fp <- ggplot(df) +
+    geom_point(aes(x=logOmicron, y=reorder(ref_name, rank), color="red", shape=pshape)) +
+    geom_point(aes(x=logWT, y=reorder(ref_name, rank))) +
+    scale_shape_manual(values=c('circle'=16,'diamond'=15)) +
+    xlab("IC50 (ng/ml)") +
+    scale_x_continuous(limits = c(-1,5), 
+                       breaks = c(-1, 0, 1, 2, 3, 4, 5),
+                       labels = c(0.1, 1, 10, 100, 1000, 10000, "100000")) +
+    geom_errorbarh(
+      aes(xmax=logOmicron, xmin=logWT, y=reorder(ref_name, rank), height = 0)) +
+    theme(
+      legend.position = "none",
+      legend.title = element_blank(),
+      axis.title.y = element_blank(), 
+      axis.text=element_text(size=10),
+      panel.border = element_rect(fill = NA, color = 'black'),
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+    ) 
+  fp = fp +  annotate(
+    "text",
+    y= Inf,
+    x = -0.3,
+    label=mab_name,
+    size=4,
+    vjust=1.2
+  )
+  if (params == "No X") {
+    fp = fp + theme(axis.title.x = element_blank(), 
+                    axis.text.x = element_blank(),
+                    axis.ticks.x = element_blank(),
+                    )
+  }
+  fp 
+} 
+```
+
+## Figures {.tabset}
+
+### BAM and ETE
+```{r bam-ete, fig.height=10, fig.retina=4, fig.width=8, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+
+mann_whitney_virus_type_test(mydata, "BAM")
+mann_whitney_virus_type_test(mydata, "ETE")
+mann_whitney_virus_type_test(mydata, "BAM/ETE")
+plots[[1]] =  draw_plot(mydata, "BAM", params = "No X")
+plots[[2]] =  draw_plot(mydata, "ETE", params = "No X")
+plots[[3]] =  draw_plot(mydata, "BAM/ETE", params = "")
+grid.arrange(grobs = plots)
+```
+
+### CAS and IMD
+```{r cas-imd, fig.height=10, fig.retina=4, fig.width=8, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+mann_whitney_virus_type_test(mydata, "CAS")
+mann_whitney_virus_type_test(mydata, "IMD")
+mann_whitney_virus_type_test(mydata, "CAS/IMD")
+plots[[1]] =  draw_plot(mydata, "CAS", params = "No X")
+plots[[2]] =  draw_plot(mydata, "IMD", params = "No X")
+plots[[3]] =  draw_plot(mydata, "CAS/IMD", params = "")
+grid.arrange(grobs = plots)
+```
+
+### SOT
+```{r sot, fig.height=5, fig.retina=4, fig.width=8, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+mann_whitney_virus_type_test(mydata, "SOT")
+plots[[1]] =  draw_plot(mydata, "SOT", params = "")
+grid.arrange(grobs = plots)
+```
+
+### CIL and TIX
+```{r cil-tix, fig.height=10, fig.retina=4, fig.width=8, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+mann_whitney_virus_type_test(mydata, "CIL")
+mann_whitney_virus_type_test(mydata, "TIX")
+mann_whitney_virus_type_test(mydata, "CIL/TIX")
+plots[[1]] =  draw_plot(mydata, "CIL", params = "No X")
+plots[[2]] =  draw_plot(mydata, "TIX", params = "No X")
+plots[[3]] =  draw_plot(mydata, "CIL/TIX", params = "")
+grid.arrange(grobs = plots)
+```
+
+### Other
+```{r other, fig.height=10, fig.retina=4, fig.width=8, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+mann_whitney_virus_type_test(mydata, "ADI")
+mann_whitney_virus_type_test(mydata, "REG")
+mann_whitney_virus_type_test(mydata, "BEB")
+mann_whitney_virus_type_test(mydata, "AMU")
+mann_whitney_virus_type_test(mydata, "ROM")
+mann_whitney_virus_type_test(mydata, "AMU/ROM")
+mann_whitney_virus_type_test(mydata, "C135")
+mann_whitney_virus_type_test(mydata, "C144")
+
+plots[[1]] =  draw_plot(mydata, "ADI", params = "No X")
+plots[[2]] =  draw_plot(mydata, "REG", params = "No X")
+plots[[3]] =  draw_plot(mydata, "BEB", params = "No X")
+plots[[4]] =  draw_plot(mydata, "AMU", params = "No X")
+plots[[5]] =  draw_plot(mydata, "ROM", params = "No X")
+plots[[6]] =  draw_plot(mydata, "AMU/ROM", params = "No X")
+plots[[7]] =  draw_plot(mydata, "C135", params = "No X")
+plots[[8]] =  draw_plot(mydata, "C144", params = "")
+
+grobs <- list()
+widths <- list()
+for (i in 1:length(plots)){
+    grobs[[i]] <- ggplotGrob(plots[[i]])
+    widths[[i]] <- grobs[[i]]$widths[2:5]
+}
+maxwidth <- do.call(grid::unit.pmax, widths)
+
+for (i in 1:length(grobs)){
+     grobs[[i]]$widths[2:5] <- as.list(maxwidth)
+}
+do.call("grid.arrange", c(grobs, ncol = 1))
+```
