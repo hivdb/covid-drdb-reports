@@ -29,10 +29,13 @@ TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
 ```{r load-config, include=FALSE}
 mydata <- read.dbTable('mab/omicron_mab_titer_fold_forest_figure.csv', tables_dir=TABLEDIR)
 mydata <- as_tibble(mydata)
-mydata <- mutate(mydata, 
+mydata <- mutate(mydata,
        logWT = log10(control_ic50),
        logOmicron = log10(test_ic50),
-       pshape = ifelse(test_ic50 >= 10000, "diamond", "circle"),
+       test_shape = ifelse(
+         test_ic50 >= 10000 || test_ic50 <= 1, "diamond", "circle"),
+       control_shape = ifelse(
+         control_ic50 >= 10000 || control_ic50 <= 1, "diamond", "circle"),
        # ref_name = paste(ref_name, "_", assay_name, sep="")
        )
 
@@ -40,11 +43,11 @@ mydata <- mutate(mydata,
 rank_by_omicron_wt_ref <- function(df) {
   df$rank_omicron <- dense_rank(df$test_ic50)
   df$rank_wt <- dense_rank(df$control_ic50)
-  df = df %>% 
+  df = df %>%
     mutate(rank_omicron=sprintf('%02d', as.integer(rank_omicron))) %>%
     mutate(rank_wt=sprintf('%02d', as.integer(rank_wt))) %>%
-    mutate(rank_both = paste(rank_omicron, "_",  
-                             rank_wt, "_", 
+    mutate(rank_both = paste(rank_omicron, "_",
+                             rank_wt, "_",
                              ref_name, sep=""))
   df$rank<-rank(df$rank_both)
   df
@@ -60,7 +63,7 @@ mann_whitney_virus_type_test <- function (df, mab_name) {
   live_virus = df %>% filter(assay_name == 'Virus isolate')
   live_virus_wt = live_virus$control_ic50
   live_virus_omicron = live_virus$test_ic50
-  
+
   pseudovirus = df %>% filter(assay_name != 'Virus isolate')
   pseudovirus_wt = pseudovirus$control_ic50
   pseudovirus_omicron = pseudovirus$test_ic50
@@ -74,7 +77,7 @@ mann_whitney_virus_type_test <- function (df, mab_name) {
   print(mab_name)
   print("Wildtype: pseudovirus IC50 < live virus IC50")
   print(wilcox.test(live_virus_wt, pseudovirus_wt))
-  
+
   if (length(live_virus_omicron) == 0) {
     return()
   }
@@ -89,109 +92,138 @@ mann_whitney_virus_type_test <- function (df, mab_name) {
 draw_plot <- function(df, mab_name, params) {
   df <- filter(df, mAb == mab_name)
   df <- rank_by_omicron_wt_ref(df)
+  print(mab_name)
+  print(length(df$ref_name))
   fp <- ggplot(df) +
-    geom_point(aes(x=logOmicron, y=reorder(ref_name, rank), color="red", shape=pshape)) +
-    geom_point(aes(x=logWT, y=reorder(ref_name, rank))) +
+    geom_point(
+      aes(x=logOmicron, y=reorder(ref_name, rank), color="red", shape=test_shape)) +
+    geom_point(aes(x=logWT, y=reorder(ref_name, rank), shape=control_shape)) +
     scale_shape_manual(values=c('circle'=16,'diamond'=15)) +
     xlab("IC50 (ng/ml)") +
-    scale_x_continuous(limits = c(-1,5), 
-                       breaks = c(-1, 0, 1, 2, 3, 4, 5),
-                       labels = c(0.1, 1, 10, 100, 1000, 10000, "100000")) +
+    scale_x_continuous(limits = c(0, 4),
+                       breaks = c(0, 1, 2, 3, 4),
+                       labels = c(1, 10, 100, 1000, 10000)) +
     geom_errorbarh(
       aes(xmax=logOmicron, xmin=logWT, y=reorder(ref_name, rank), height = 0)) +
     theme(
       legend.position = "none",
       legend.title = element_blank(),
-      axis.title.y = element_blank(), 
-      axis.text=element_text(size=10),
+      axis.title.y = element_blank(),
+      axis.text.y=element_text(size=7),
+      axis.text.x=element_text(size=7),
+      axis.title.x=element_text(size=7),
       panel.border = element_rect(fill = NA, color = 'black'),
       strip.background = element_blank(),
       strip.text = element_blank(),
       panel.background = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
-    ) 
+      plot.margin = margin(t=0, b=0),
+      panel.margin = margin(t=0, b=0)
+    )
   fp = fp +  annotate(
     "text",
     y= Inf,
-    x = -0.3,
+    x = 0.3,
     label=mab_name,
-    size=4,
+    size=2.5,
     vjust=1.2
   )
   if (params == "No X") {
-    fp = fp + theme(axis.title.x = element_blank(), 
+    fp = fp + theme(axis.title.x = element_blank(),
                     axis.text.x = element_blank(),
                     axis.ticks.x = element_blank(),
                     )
   }
-  fp 
-} 
+  fp
+}
+
+
 ```
 
 ## Figures {.tabset}
 
 ### BAM and ETE
-```{r bam-ete, fig.height=10, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r bam-ete, fig.height=6, fig.retina=4, fig.width=6, message=FALSE, warning=FALSE, echo=FALSE}
 
 plots = list()
 plots[[1]] =  draw_plot(mydata, "BAM", params = "No X")
 plots[[2]] =  draw_plot(mydata, "ETE", params = "No X")
 plots[[3]] =  draw_plot(mydata, "BAM/ETE", params = "")
-grid.arrange(grobs = plots)
+grid.arrange(grobs = plots, heights=c(15, 14, 8))
 ```
 
 ### CAS and IMD
-```{r cas-imd, fig.height=10, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r cas-imd, fig.height=7, fig.retina=4, fig.width=6, message=FALSE, warning=FALSE, echo=FALSE}
 
 plots = list()
 plots[[1]] =  draw_plot(mydata, "CAS", params = "No X")
 plots[[2]] =  draw_plot(mydata, "IMD", params = "No X")
 plots[[3]] =  draw_plot(mydata, "CAS/IMD", params = "")
-grid.arrange(grobs = plots)
-```
-
-### SOT
-```{r sot, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
-
-plots = list()
-plots[[1]] =  draw_plot(mydata, "SOT", params = "")
-grid.arrange(grobs = plots)
+grid.arrange(grobs = plots, heights=c(16, 16, 10))
 ```
 
 ### CIL and TIX
-```{r cil-tix, fig.height=10, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+```{r cil-tix, fig.height=6, fig.retina=4, fig.width=6, message=FALSE, warning=FALSE, echo=FALSE}
 
 plots = list()
 plots[[1]] =  draw_plot(mydata, "CIL", params = "No X")
 plots[[2]] =  draw_plot(mydata, "TIX", params = "No X")
 plots[[3]] =  draw_plot(mydata, "CIL/TIX", params = "")
-grid.arrange(grobs = plots)
-```
 
-### Other
-```{r other, fig.height=10, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
-
-plots = list()
-plots[[1]] =  draw_plot(mydata, "ADI", params = "No X")
-plots[[2]] =  draw_plot(mydata, "REG", params = "No X")
-plots[[3]] =  draw_plot(mydata, "BEB", params = "No X")
-plots[[4]] =  draw_plot(mydata, "AMU", params = "No X")
-plots[[5]] =  draw_plot(mydata, "ROM", params = "No X")
-plots[[6]] =  draw_plot(mydata, "AMU/ROM", params = "No X")
-plots[[7]] =  draw_plot(mydata, "C135", params = "No X")
-plots[[8]] =  draw_plot(mydata, "C144", params = "")
-
-grobs <- list()
+grob_list <- list()
 widths <- list()
 for (i in 1:length(plots)){
-    grobs[[i]] <- ggplotGrob(plots[[i]])
-    widths[[i]] <- grobs[[i]]$widths[2:5]
+    grob_list[[i]] <- ggplotGrob(plots[[i]])
+    widths[[i]] <- grob_list[[i]]$widths[2:5]
 }
 maxwidth <- do.call(grid::unit.pmax, widths)
 
-for (i in 1:length(grobs)){
-     grobs[[i]]$widths[2:5] <- as.list(maxwidth)
+for (i in 1:length(grob_list)){
+     grob_list[[i]]$widths[2:5] <- as.list(maxwidth)
 }
-do.call("grid.arrange", c(grobs, ncol = 1))
+
+grid.arrange(
+  grobs=grob_list, ncol=1,
+  heights=c(14, 14, 10))
+```
+
+### SOT
+```{r sot, fig.height=3.5, fig.retina=4, fig.width=6, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+plots[[1]] =  draw_plot(mydata, "SOT", params = "")
+grob_list2 <- list()
+grob_list2[[1]] <- ggplotGrob(plots[[1]])
+grob_list2[[1]]$widths[2:5] <- as.list(maxwidth)
+grid.arrange(grobs = grob_list2)
+```
+
+### Other
+```{r other, fig.height=4.5, fig.retina=4, fig.width=6, message=FALSE, warning=FALSE, echo=FALSE}
+
+plots = list()
+plots[[1]] =  draw_plot(mydata, "ADG20", params = "No X")
+plots[[2]] =  draw_plot(mydata, "REG", params = "No X")
+plots[[3]] =  draw_plot(mydata, "LY-CoV1404", params = "No X")
+plots[[4]] =  draw_plot(mydata, "BRII-196", params = "No X")
+plots[[5]] =  draw_plot(mydata, "BRII-198", params = "No X")
+plots[[6]] =  draw_plot(mydata, "BRII-196/198", params = "No X")
+plots[[7]] =  draw_plot(mydata, "C135", params = "No X")
+plots[[8]] =  draw_plot(mydata, "C144", params = "")
+grob_list <- list()
+widths <- list()
+for (i in 1:length(plots)){
+    grob_list[[i]] <- ggplotGrob(plots[[i]])
+    widths[[i]] <- grob_list[[i]]$widths[2:5]
+}
+maxwidth <- do.call(grid::unit.pmax, widths)
+
+for (i in 1:length(grob_list)){
+     grob_list[[i]]$widths[2:5] <- as.list(maxwidth)
+}
+
+grid.arrange(
+  grobs=grob_list, ncol=1,
+  heights=c(5, 6, 3, 2, 1, 1, 2, 3))
 ```

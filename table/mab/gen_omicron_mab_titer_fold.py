@@ -1,4 +1,5 @@
 from operator import itemgetter
+from re import I
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
@@ -8,11 +9,12 @@ from statistics import stdev, median, mean
 import math
 from .preset import MAIN_MAB
 from preset import group_records_by
-
+import copy
 
 SUMMARY_SQL = """
 SELECT DISTINCT
     s.ref_name,
+    s.section,
     rx.rx_name,
     rx.ab_name,
     control_iso.var_name as control_var_name,
@@ -157,10 +159,15 @@ def filter_records(records):
     records = [i for i in records if i['ab_name'] in MAIN_MAB.keys()]
 
     for rec in records:
+        rec['_ref_name'] = copy.deepcopy(rec['ref_name'])
         if 'Monogram' in rec['assay_name']:
             rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'Monogram')
         if 'FDA' in rec['assay_name']:
             rec['ref_name'] = '{} ({})'.format(rec['ref_name'], 'FDA')
+
+        rec['assay_group'] = (
+            'AV' if rec['assay_name'] == 'Virus isolate' else 'PV'
+        )
 
     results = []
     ref_name_groups = group_records_by(records, 'ref_name')
@@ -168,11 +175,20 @@ def filter_records(records):
     for ref_name, ref_name_rec_list in ref_name_groups.items():
         ab_name_groups = group_records_by(ref_name_rec_list, 'ab_name')
         for ab_name, ab_name_rec_list in ab_name_groups.items():
+            if ref_name == 'Westendorf21':
+                ab_name_rec_list = [
+                    i
+                    for i in ab_name_rec_list
+                    if not (
+                        i['section'] == 'Table 3D' and
+                        i['rx_name'].endswith('_2'))
+                ]
+
             if len(ab_name_rec_list) == 1:
                 results.append(ab_name_rec_list[0])
                 continue
 
-            ab_name_rec_list.sort(key=itemgetter('assay_name'))
+            ab_name_rec_list.sort(key=itemgetter('assay_name', 'rx_name'))
             for idx, rec in enumerate(ab_name_rec_list):
                 rec['ref_name'] = '{}-{}'.format(rec['ref_name'], idx + 1)
                 results.append(rec)
@@ -212,11 +228,116 @@ def gen_omicron_mab_titer_fold(
         DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_forest_figure.csv',
         save_results)
 
-    get_dfplot(save_results)
+    report_virus_type(save_results)
+    dump_for_assay_analysis(save_results)
 
-    draw_figure(
-        save_results,
-        figure_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab.svg')
+    # get_dfplot(save_results)
+
+    # draw_figure(
+    #     save_results,
+    #     figure_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab.svg')
+
+    draw_tree_figure(save_results)
+
+
+def draw_tree_figure(records):
+
+    fig, axes = plt.subplots(
+        3, 1,
+        gridspec_kw={'height_ratios': [16, 15, 7]},
+        figsize=(5, (16 + 15 + 7) / 3)
+        )
+    draw_mab_figure(records, 'BAM', axes[0], 16, 5)
+    draw_mab_figure(records, 'ETE', axes[1], 15, 5)
+    draw_mab_figure(records, 'BAM/ETE', axes[2], 7, 5)
+
+    plt.savefig(
+        str(DATA_FILE_PATH / 'mab' / 'omicron_tree.svg'),
+        format='svg', bbox_inches='tight')
+
+
+def draw_mab_figure(records, mab, ax, width, height):
+
+    records = [i for i in records if i['mAb'] == mab]
+
+    ax.set_xlim([0.07, 12000])
+    ax.set_xscale('log', base=10)
+    ax.set_xlabel('IC50 (ng/ml)')
+
+    for rec in records:
+        ax.scatter(
+            [rec['control_ic50']], [rec['ref_name']], color='black')
+        ax.scatter(
+            [rec['test_ic50']], [rec['ref_name']], color='red')
+        ax.plot(
+            (rec['control_ic50'], rec['test_ic50']),
+            (rec['ref_name'], rec['ref_name']),
+            marker='', color='black')
+
+
+def dump_for_assay_analysis(records):
+
+    prepare_records = []
+
+    mab_list = ['BAM', 'ETE', 'CAS', 'IMD', 'CIL', 'TIX', 'SOT']
+    records = [i for i in records if i['mAb'] in mab_list]
+
+    for rec in records:
+        new_rec = {
+            'ref_name': "{}_{}".format(rec['ref_name'], rec['assay_group']),
+            'condition': 'WT-{}'.format(rec['mAb']),
+            'ic50': rec['control_ic50'],
+            'assay_group': rec['assay_group'],
+            'assay': rec['assay_name'],
+            'section': rec['section'],
+            'rx_name': rec['rx_name'],
+        }
+        prepare_records.append(new_rec)
+
+    grouped_ref_name = group_records_by(prepare_records, 'ref_name')
+    single_result_ref_name = set()
+    for ref_name, ref_rec_list in grouped_ref_name.items():
+        if len(ref_rec_list) <= 1:
+            single_result_ref_name.add(ref_name)
+
+    prepare_records = [
+        i for i in prepare_records
+        if i['ref_name'] not in single_result_ref_name]
+
+    conditions = sorted(list(set(i['condition'] for i in prepare_records)))
+    color_map = {
+        cond: CATEGORY_COLOR[idx]
+        for idx, cond in enumerate(conditions)
+    }
+
+    ref_name_sets = set([
+        (i['assay_group'], i['ref_name']) for i in prepare_records
+    ])
+
+    ref_name_order_rec = [
+        {
+            'assay_group': i[0],
+            'ref_name': i[1],
+        }
+        for i in ref_name_sets
+    ]
+
+    ref_name_order_rec = sorted(
+        ref_name_order_rec, key=itemgetter('assay_group', 'ref_name'))
+
+    ref_name_to_id = {
+        item['ref_name']: idx + 1
+        for idx, item in enumerate(ref_name_order_rec)
+    }
+
+    save_records = []
+    for rec in prepare_records:
+        rec['color'] = color_map[rec['condition']][1:]
+        rec['order_id'] = ref_name_to_id[rec['ref_name']]
+        save_records.append(rec)
+
+    dump_csv(
+        DATA_FILE_PATH / 'mab' / 'omicron_assay_analysis.csv', save_records)
 
 
 def get_dfplot(dataframe):
@@ -256,9 +377,24 @@ def adjust_titer_and_fold(records):
 
     for rec in records:
         if rec['control_ic50_cmp'] == '>' and rec['control_ic50'] >= 1000:
-            rec['control_ic50'] = 100000
+            rec['control_ic50'] = 10000
+        if rec['control_ic50_cmp'] == '=' and rec['control_ic50'] > 10000:
+            rec['control_ic50'] = 10000
+            rec['control_ic50_cmp'] = '>'
+
         if rec['test_ic50_cmp'] == '>' and rec['test_ic50'] >= 1000:
-            rec['test_ic50'] = 100000
+            rec['test_ic50'] = 10000
+        if rec['test_ic50_cmp'] == '=' and rec['test_ic50'] > 10000:
+            rec['test_ic50'] = 10000
+            rec['test_ic50_cmp'] = '>'
+
+        if rec['control_ic50_cmp'] == '=' and rec['control_ic50'] < 1:
+            rec['control_ic50_cmp'] == '<'
+            rec['control_ic50'] = 1
+        if rec['test_ic50_cmp'] == '=' and rec['test_ic50'] < 1:
+            rec['test_ic50_cmp'] == '<'
+            rec['test_ic50'] = 1
+
         rec['fold'] = rec['test_ic50'] / rec['control_ic50']
         results.append(rec)
 
@@ -272,12 +408,13 @@ def adjust_titer_and_fold(records):
         #     rec['fold'] = 1
         #     rec['fold_cmp'] = '<'
 
-        if '/' not in rec['ab_name']:
-            rec['mAb'] = short_mab_name(rec['ab_name'])
-        else:
-            ab1, ab2 = rec['ab_name'].split('/', 1)
-            ab1, ab2 = short_mab_name(ab1), short_mab_name(ab2)
-            rec['mAb'] = '/'.join([ab1, ab2])
+        # if '/' not in rec['ab_name']:
+        #     rec['mAb'] = short_mab_name(rec['ab_name'])
+        # else:
+        #     ab1, ab2 = rec['ab_name'].split('/', 1)
+        #     ab1, ab2 = short_mab_name(ab1), short_mab_name(ab2)
+        #     rec['mAb'] = '/'.join([ab1, ab2])
+        rec['mAb'] = MAIN_MAB[rec['ab_name']]
 
     return results
 
@@ -553,3 +690,27 @@ def calc_mab_cv(records):
             })
 
     dump_csv(DATA_FILE_PATH / 'mab' / 'omicron_mab_cv.csv', results)
+
+
+def report_virus_type(records):
+    report_records = []
+    mab_group = group_records_by(records, 'ab_name')
+    for mab, mab_rec_list in mab_group.items():
+        assay_group = group_records_by(mab_rec_list, 'assay_group')
+        report_rec = {
+            'mab': mab
+        }
+        for assay, assay_list in assay_group.items():
+            median_ic50 = median([i['control_ic50'] for i in assay_list])
+            report_rec[assay] = median_ic50
+            report_rec['num_{}'.format(assay)] = len(assay_list)
+        if 'AV' in report_rec and 'PV' in report_rec and report_rec['PV'] > 0:
+            report_rec['fold'] = report_rec['AV'] / report_rec['PV']
+        else:
+            report_rec['fold'] = ''
+        report_records.append(report_rec)
+
+    dump_csv(
+        DATA_FILE_PATH / 'mab' / 'omicron_assay_virus_type_report.csv',
+        report_records
+    )
