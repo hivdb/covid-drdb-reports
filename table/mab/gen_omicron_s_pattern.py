@@ -35,7 +35,7 @@ WHERE
     AND
     s.iso_name = test.iso_name
     AND
-    test.var_name = 'Omicron'
+    test.var_name = 'Omicron/BA.1'
     AND
     test.iso_name = test_meta.iso_name
 ;

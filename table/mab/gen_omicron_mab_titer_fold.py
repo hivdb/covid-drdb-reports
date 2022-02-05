@@ -1,5 +1,4 @@
 from operator import itemgetter
-from re import I
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
@@ -71,7 +70,7 @@ WHERE
     AND
     s.iso_name = test_iso.iso_name
     AND
-    test_iso.var_name = 'Omicron'
+    test_iso.var_name = 'Omicron/BA.1'
 
     AND
     rx.availability IS NOT NULL
@@ -145,10 +144,10 @@ def skip_rec(rec):
             and rec['rx_name'] == 'AZD8895'):
         return True
 
-    if (rec['ref_name'] == 'Boschi22'):
-        return True
-    if (rec['ref_name'] == 'Gruell21'):
-        return True
+    # if (rec['ref_name'] == 'Boschi22'):
+    #     return True
+    # if (rec['ref_name'] == 'Gruell21'):
+    #     return True
 
     return False
 
@@ -181,7 +180,17 @@ def filter_records(records):
                     for i in ab_name_rec_list
                     if not (
                         i['section'] == 'Table 3D' and
-                        i['rx_name'].endswith('_2'))
+                        i['rx_name'].endswith('_2')
+                        ) and not (
+                            i['section'] == 'Table 3B'
+                        )
+                ]
+
+            if ref_name == 'Cameroni21':
+                ab_name_rec_list = [
+                    i
+                    for i in ab_name_rec_list
+                    if i['assay_group'] != 'AV'
                 ]
 
             if len(ab_name_rec_list) == 1:

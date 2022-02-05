@@ -33,9 +33,21 @@ mydata <- mutate(mydata,
        logWT = log10(control_ic50),
        logOmicron = log10(test_ic50),
        test_shape = ifelse(
-         test_ic50 >= 10000 || test_ic50 <= 1, "diamond", "circle"),
+         test_ic50 >= 10000,
+         'right arrow',
+         ifelse(
+           test_ic50 <= 1,
+           'left arrow',
+           'point'
+         )),
        control_shape = ifelse(
-         control_ic50 >= 10000 || control_ic50 <= 1, "diamond", "circle"),
+         control_ic50 >= 10000,
+         'right arrow',
+         ifelse(
+           control_ic50 <= 1,
+           'left arrow',
+           'point'
+         )),
        # ref_name = paste(ref_name, "_", assay_name, sep="")
        )
 
@@ -98,13 +110,27 @@ draw_plot <- function(df, mab_name, params) {
     geom_point(
       aes(x=logOmicron, y=reorder(ref_name, rank), color="red", shape=test_shape)) +
     geom_point(aes(x=logWT, y=reorder(ref_name, rank), shape=control_shape)) +
-    scale_shape_manual(values=c('circle'=16,'diamond'=15)) +
+    scale_shape_manual(
+      values=c(
+        'right arrow'="\u25BA",
+        'left arrow'="\u25C4",
+        'point'="\u25A0"
+      )
+      ) +
     xlab("IC50 (ng/ml)") +
     scale_x_continuous(limits = c(0, 4),
                        breaks = c(0, 1, 2, 3, 4),
                        labels = c(1, 10, 100, 1000, 10000)) +
-    geom_errorbarh(
-      aes(xmax=logOmicron, xmin=logWT, y=reorder(ref_name, rank), height = 0)) +
+    # geom_errorbarh(
+      # aes(xmax=logOmicron, xmin=logWT, y=reorder(ref_name, rank), height = 0)) +
+    geom_segment(
+      aes(
+        x=logWT, 
+        xend=logOmicron, 
+        y=reorder(ref_name, rank), 
+        yend=reorder(ref_name, rank)), 
+      # arrow=arrow(length = unit(0.5, 'cm'))
+      ) +
     theme(
       legend.position = "none",
       legend.title = element_blank(),
@@ -119,7 +145,7 @@ draw_plot <- function(df, mab_name, params) {
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       plot.margin = margin(t=0, b=0),
-      panel.margin = margin(t=0, b=0)
+      panel.spacing = margin(t=0, b=0)
     )
   fp = fp +  annotate(
     "text",
