@@ -1,5 +1,6 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
+from variant.preset import group_var_name
 from collections import defaultdict
 from operator import itemgetter
 import re
@@ -255,33 +256,28 @@ def by_combo(conn, iso_type, save_path):
             mut_group[mut_name].append(rec)
 
     save_results = []
+    non_voc_voi = []
+    mut_combo = []
     for mut_name, record_list in mut_group.items():
 
-        rx_group = defaultdict(int)
-        for item in record_list:
-            rx = item['rx_name']
-            num = item['num_fold']
-            rx_group[rx] += num
+        g_var_name = group_var_name(record_list[0]['var_name'])
+        if g_var_name == 'other variants':
+            non_voc_voi.extend(record_list)
+        elif g_var_name == 'other combo mut':
+            mut_combo.extend(record_list)
 
-        record = {
-            'pattern': record_list[0]['pattern'],
-            'var_name': record_list[0]['var_name'] or '',
-            'num_ref_name': len(
-                set(r['ref_name'] for r in record_list)),
-            'cp': 0,
-            'vp': 0,
-            'mAbs phase3': 0,
-            'mAbs structure': 0,
-            'other mAbs': 0,
-        }
-
-        for rx, num in rx_group.items():
-            record[rx] = num
-        record['all mAbs'] = (
-            record['mAbs phase3'] + record['mAbs structure'] +
-            record['other mAbs'])
-        record['num_exp'] = record['all mAbs'] + record['cp'] + record['vp']
+        record = create_record(record_list)
         save_results.append(record)
+
+    record = create_record(non_voc_voi)
+    record['pattern'] = 'other variants'
+    record['var_name'] = 'other variants'
+    save_results.append(record)
+
+    record = create_record(mut_combo)
+    record['pattern'] = 'mut_combo'
+    record['var_name'] = 'mut_combo'
+    save_results.append(record)
 
     save_results.sort(key=itemgetter(
         'var_name',
@@ -376,3 +372,32 @@ def get_RBD_mutation(mutation_list):
             rbd_muts.add(mut)
 
     return rbd_muts
+
+
+def create_record(record_list):
+    rx_group = defaultdict(int)
+    for item in record_list:
+        rx = item['rx_name']
+        num = item['num_fold']
+        rx_group[rx] += num
+
+    record = {
+        'pattern': record_list[0]['pattern'],
+        'var_name': record_list[0]['var_name'] or '',
+        'num_ref_name': len(
+            set(r['ref_name'] for r in record_list)),
+        'cp': 0,
+        'vp': 0,
+        'mAbs phase3': 0,
+        'mAbs structure': 0,
+        'other mAbs': 0,
+    }
+
+    for rx, num in rx_group.items():
+        record[rx] = num
+    record['all mAbs'] = (
+        record['mAbs phase3'] + record['mAbs structure'] +
+        record['other mAbs'])
+    record['num_exp'] = record['all mAbs'] + record['cp'] + record['vp']
+
+    return record
