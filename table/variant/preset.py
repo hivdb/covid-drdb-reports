@@ -39,8 +39,8 @@ def group_var_name(var_name):
     if var_name:
         var_name = var_name.split()[0]
         var_name = var_name.split('/')[0]
-        if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda']:
-            var_name = 'KIEL'
+        if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda', 'Eta', 'Mu']:
+            var_name = 'VOI'
         elif var_name not in (
                 'Alpha', 'Beta', 'Gamma', 'Delta', 'Omicron'):
             var_name = 'other variants'
@@ -431,10 +431,16 @@ KEY_VARIANTS = {
             "mut.var_name = 'Kappa'"
         ]
     },
-    'Omicron': {
+    'Omicron/BA.1': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
             "mut.var_name = 'Omicron/BA.1'"
+        ]
+    },
+    'Omicron/BA.2': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
+        'filter': [
+            "mut.var_name = 'Omicron/BA.2'"
         ]
     },
 }

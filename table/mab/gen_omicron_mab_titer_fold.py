@@ -240,7 +240,7 @@ def gen_omicron_mab_titer_fold(
     report_virus_type(save_results)
     dump_for_assay_analysis(save_results)
 
-    # get_dfplot(save_results)
+    get_dfplot(save_results)
 
     # draw_figure(
     #     save_results,

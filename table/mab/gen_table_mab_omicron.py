@@ -21,6 +21,7 @@ SHOW_MABS = {
     'Imdevimab': 'imd',
     'Sotrovimab': 'sot',
     'Regdanvimab': 'reg',
+    'Bebtelovimab': 'beb',
     'Casirivimab/Imdevimab': 'cas_imd',
     'Cilgavimab/Tixagevimab': 'cil_tix',
     'Bamlanivimab/Etesevimab': 'bam_ete',
