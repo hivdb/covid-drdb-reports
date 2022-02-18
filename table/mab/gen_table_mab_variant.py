@@ -1,6 +1,5 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from preset import dump_json
 from variant.preset import KEY_VARIANTS
 from operator import itemgetter
 from collections import defaultdict

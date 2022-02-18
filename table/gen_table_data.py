@@ -66,6 +66,7 @@ def gen_report(db_path):
     from mab.gen_table_mab_omicron import gen_table_mab_omicron
     from mab.gen_omicron_s_pattern import gen_omicron_s_pattern
     from mab.gen_omicron_mab_titer_fold import gen_omicron_mab_titer_fold
+    from mab.gen_ba_2_mab_titer_fold import gen_ba_2_mab_titer_fold
     from mab.gen_mab_synonyms import gen_mab_synonyms
     from mab.gen_mab_epitope_aligned import gen_mab_epitope_aligned
 
@@ -77,6 +78,7 @@ def gen_report(db_path):
     gen_table_mab_omicron()
     gen_omicron_s_pattern(conn)
     gen_omicron_mab_titer_fold(conn)
+    gen_ba_2_mab_titer_fold(conn)
     gen_mab_epitope_aligned(conn)
     gen_mab_synonyms(conn)
 
