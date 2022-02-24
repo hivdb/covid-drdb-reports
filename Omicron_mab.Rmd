@@ -250,13 +250,7 @@ p <- ggplot(data=dfPlot, aes(x=y)) +
       expand=expansion(mult = c(0.1, 0.1)),
       labels = trans_format("log10", math_format(10^.x)),
       limits=c(1, 10000),
-      name="IC50 (ng/ml)",
-      sec.axis = sec_axis(
-        trans=~.,
-        breaks=c(1, 10, 100, 1000, 10000),
-        labels = trans_format("log10", math_format(10^.x)),
-        name="Fold"
-        )
+      name="Fold",
     ) +
     theme(
       legend.position = "none",
@@ -298,6 +292,92 @@ for (mab_name in MAB_LIST) {
     filter(mab==mab_name) %>%
     filter(category=="Fold")
   p = draw_omicron_mab_density(dfPlot, MAB_RENAME_LIST[mab_name])
+  
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+```
+
+
+## WT IC50 PV
+```{r wt-mab-density, fig.height=20, fig.retina=4, fig.width=30, message=FALSE, warning=FALSE, echo=FALSE}
+
+df = read.dbTable('mab/omicron_mab_titer_fold_forest_figure.csv', tables_dir=TABLEDIR) %>%
+  filter(assay_group=='PV')
+
+draw_wt_mab_density = function(dfPlot, figLabel) {
+p <- ggplot(data=dfPlot, aes(x=control_var_name, y=control_ic50)) +
+    geom_beeswarm(size=7, cex = 3, method = "center") +
+    scale_y_continuous(
+      trans='log10',
+      expand=expansion(mult = c(0.1, 0.1)),
+      labels = trans_format("log10", math_format(10^.x)),
+      limits=c(1, 10000),
+      name="IC50 (ng/ml)",
+    ) +
+    theme(
+      legend.position = "none",
+      legend.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_text(size=20),
+      # axis.text.x = element_blank(),
+      axis.text.y = element_text(size=20),
+      # axis.ticks.y = element_blank(),
+      # plot.title = element_text(hjust = 0.5, size=12),
+      
+      panel.border = element_rect(fill = NA, color = 'black'),
+      
+      strip.background = element_blank(),
+      strip.text = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+    ) + 
+    guides(shape=FALSE)
+  p = p + annotate(
+    "text",
+    y= Inf,
+    x = 1.2,
+    label=figLabel,
+    size=9,
+    vjust=1.1
+    )
+  p
+}
+
+
+plots = list()
+i = 1
+line_width = 3
+
+for (mab_name in MAB_LIST) {
+  dfPlot = df %>%
+    filter(ab_name==mab_name)
+  p = draw_wt_mab_density(dfPlot, MAB_RENAME_LIST[mab_name])
+  
+  plots[[i]] = p
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=line_width)
+```
+
+## WT IC50 AV
+```{r wt-mab-density-authentic, fig.height=20, fig.retina=4, fig.width=30, message=FALSE, warning=FALSE, echo=FALSE}
+
+df = read.dbTable('mab/omicron_mab_titer_fold_forest_figure.csv', tables_dir=TABLEDIR) %>%
+  filter(assay_group=='AV')
+
+plots = list()
+i = 1
+line_width = 3
+
+for (mab_name in MAB_LIST) {
+  dfPlot = df %>%
+    filter(ab_name==mab_name)
+  p = draw_wt_mab_density(dfPlot, MAB_RENAME_LIST[mab_name])
   
   plots[[i]] = p
   i = i + 1

@@ -11,7 +11,7 @@ MAIN_MAB = {
     'Sotrovimab': 'SOT',
     'Regdanvimab': 'REG',
     'Adintrevimab': 'ADG20',
-    'Bebtelovimab': 'LY-CoV1404',
+    'Bebtelovimab': 'BEB',
     'Amubarvimab': 'BRII-196',
     'Romlusevimab': 'BRII-198',
     'Amubarvimab/Romlusevimab': 'BRII-196/198',
