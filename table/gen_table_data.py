@@ -64,11 +64,12 @@ def gen_report(db_path):
     from mab.gen_table_all_mab import gen_table_all_mab
     from mab.gen_table_mab_omicron_muts import gen_table_mab_omicron_muts
     from mab.gen_table_mab_omicron import gen_table_mab_omicron
-    from mab.gen_omicron_s_pattern import gen_omicron_s_pattern
-    from mab.gen_omicron_mab_titer_fold import gen_omicron_mab_titer_fold
+    from mab.gen_ba_1_s_pattern import gen_ba_1_s_pattern
+    from mab.gen_ba_1_mab_titer_fold import gen_ba_1_mab_titer_fold
     from mab.gen_ba_2_mab_titer_fold import gen_ba_2_mab_titer_fold
     from mab.gen_mab_synonyms import gen_mab_synonyms
     from mab.gen_mab_epitope_aligned import gen_mab_epitope_aligned
+    from mab.gen_omicron_ref_info import gen_omicron_ref_info
 
     gen_table_mab_variant(conn)
     gen_table_mab_muts(conn)
@@ -76,11 +77,12 @@ def gen_report(db_path):
     gen_table_mab()
     gen_table_mab_omicron_muts(conn)
     gen_table_mab_omicron()
-    gen_omicron_s_pattern(conn)
-    gen_omicron_mab_titer_fold(conn)
+    gen_ba_1_s_pattern(conn)
+    gen_ba_1_mab_titer_fold(conn)
     gen_ba_2_mab_titer_fold(conn)
     gen_mab_epitope_aligned(conn)
     gen_mab_synonyms(conn)
+    gen_omicron_ref_info(conn)
 
     from variant.gen_table_variant_summary import gen_table_variant_summary
     from variant.gen_table_variant_mab import gen_table_variant_mab

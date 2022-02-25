@@ -2,9 +2,10 @@ from operator import itemgetter
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
+from preset import round_number
 import matplotlib.pyplot as plt
 import numpy as np
-from statistics import stdev, median, mean
+from statistics import stdev, median, mean, quantiles
 import math
 from .preset import MAIN_MAB
 from preset import group_records_by
@@ -205,7 +206,7 @@ def filter_records(records):
     return results
 
 
-def gen_omicron_mab_titer_fold(
+def gen_ba_1_mab_titer_fold(
         conn,
         csv_save_path=DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold.csv'):
     cursor = conn.cursor()
@@ -234,8 +235,17 @@ def gen_omicron_mab_titer_fold(
     save_results = [i for i in save_results if i['as_wildtype'] == 1]
 
     dump_csv(
-        DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_forest_figure.csv',
+        (
+            DATA_FILE_PATH / 'mab' /
+            'omicron_ba_1_mab_titer_fold_forest_figure.csv'
+        ),
         save_results)
+
+    calc_median_iqr(
+        save_results, (
+            DATA_FILE_PATH / 'mab' /
+            'omicron_ba_1_mab_median_iqr.csv'
+        ))
 
     report_virus_type(save_results)
     dump_for_assay_analysis(save_results)
@@ -377,7 +387,7 @@ def get_dfplot(dataframe):
 
     dump_csv(DATA_FILE_PATH / 'mab' / 'omicron_mab_titer_fold_df.csv', dfplot)
 
-    calc_mab_cv(dfplot)
+    # calc_mab_cv(dfplot)
 
 
 def adjust_titer_and_fold(records):
@@ -723,3 +733,33 @@ def report_virus_type(records):
         DATA_FILE_PATH / 'mab' / 'omicron_assay_virus_type_report.csv',
         report_records
     )
+
+
+def calc_median_iqr(table, file_name):
+    ab_name_list = sorted(list(set([
+        r['mAb']
+        for r in table
+    ])))
+
+    results = []
+    for ab_name in ab_name_list:
+        fold_list = [r['fold'] for r in table if r['mAb'] == ab_name]
+        ref_list = set([r['ref_name'] for r in table if r['mAb'] == ab_name])
+        median_fold = median(fold_list)
+        if len(fold_list) < 2:
+            iqr_fold = []
+        else:
+            iqr_fold = quantiles(fold_list)
+        rec = {
+            'ab_name': ab_name,
+            'median_fold': round_number(median_fold),
+            'iqr_fold': ','.join([
+                str(round_number(iqr_fold[0])),
+                str(round_number(iqr_fold[-1])),
+            ]) if iqr_fold else '',
+            'num_ref': len(ref_list),
+            'ref_list': ', '.join(list(sorted(ref_list)))
+        }
+        results.append(rec)
+
+    dump_csv(file_name, results)

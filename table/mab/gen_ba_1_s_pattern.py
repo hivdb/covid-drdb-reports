@@ -42,7 +42,7 @@ WHERE
 """
 
 
-def gen_omicron_s_pattern(
+def gen_ba_1_s_pattern(
         conn,
         csv_save_path=DATA_FILE_PATH / 'mab' / 'omicron_s_pattern.csv'):
     cursor = conn.cursor()

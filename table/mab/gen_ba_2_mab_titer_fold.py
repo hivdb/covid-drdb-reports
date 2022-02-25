@@ -1,8 +1,10 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
-from .gen_omicron_mab_titer_fold import adjust_titer_and_fold
-from .gen_omicron_mab_titer_fold import filter_records
+from .gen_ba_1_mab_titer_fold import adjust_titer_and_fold
+from .gen_ba_1_mab_titer_fold import filter_records
+from .gen_ba_1_mab_titer_fold import calc_median_iqr
+
 
 SUMMARY_SQL = """
 SELECT DISTINCT
@@ -101,7 +103,11 @@ def gen_ba_2_mab_titer_fold(
     save_results = [i for i in save_results if i['as_wildtype'] == 1]
 
     dump_csv(
-        DATA_FILE_PATH / 'mab' / 'omicron_ba_2_mab_titer_fold_forest_figure.csv',
+        DATA_FILE_PATH / 'mab' / 'omicron_BA_2_mab_titer_fold_forest_figure.csv',
         save_results)
 
-
+    calc_median_iqr(
+        save_results, (
+            DATA_FILE_PATH / 'mab' /
+            'omicron_ba_2_mab_median_iqr.csv'
+        ))
