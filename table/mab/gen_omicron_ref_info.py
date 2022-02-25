@@ -108,7 +108,7 @@ def gen_omicron_ref_info(
         'ref_names': ', '.join(sorted(list(ba_2_only_ref_info))),
     })
     detail.append({
-        'variant': 'BA.1',
+        'variant': 'BA.1 and BA.2',
         'num_ref': len(ba_1_and_ba_2_ref_info),
         'ref_names': ', '.join(sorted(list(ba_1_and_ba_2_ref_info))),
     })
