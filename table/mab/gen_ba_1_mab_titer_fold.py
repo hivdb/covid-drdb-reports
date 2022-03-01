@@ -1,4 +1,5 @@
 from operator import itemgetter
+import math
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
@@ -6,7 +7,6 @@ from preset import round_number
 import matplotlib.pyplot as plt
 import numpy as np
 from statistics import stdev, median, mean, quantiles
-import math
 from .preset import MAIN_MAB
 from preset import group_records_by
 import copy
@@ -233,6 +233,15 @@ def gen_ba_1_mab_titer_fold(
 
     save_results = adjust_titer_and_fold(save_results)
     save_results = [i for i in save_results if i['as_wildtype'] == 1]
+    save_results = mark_outlier(
+        save_results, 'control_ic50', 'wt_outlier',
+        'wt_log_median', 'wt_log_mad')
+    save_results = mark_outlier(
+        save_results, 'test_ic50', 'omicron_outlier',
+        'omicron_log_median', 'omicron_log_mad')
+    save_results = mark_outlier(
+        save_results, 'fold', 'fold_outlier',
+        'fold_log_median', 'fold_log_mad')
 
     dump_csv(
         (
@@ -743,23 +752,72 @@ def calc_median_iqr(table, file_name):
 
     results = []
     for ab_name in ab_name_list:
-        fold_list = [r['fold'] for r in table if r['mAb'] == ab_name]
+        fold_list = sorted([r['fold'] for r in table if r['mAb'] == ab_name])
         ref_list = set([r['ref_name'] for r in table if r['mAb'] == ab_name])
         median_fold = median(fold_list)
-        if len(fold_list) < 2:
+        if len(fold_list) < 4:
             iqr_fold = []
         else:
-            iqr_fold = quantiles(fold_list)
+            iqr_fold = quantiles(fold_list, method='inclusive')
         rec = {
             'ab_name': ab_name,
+            'authorized': '',
             'median_fold': round_number(median_fold),
-            'iqr_fold': ','.join([
-                str(round_number(iqr_fold[0])),
-                str(round_number(iqr_fold[-1])),
-            ]) if iqr_fold else '',
+            'iqr_25': round_number(iqr_fold[0]) if iqr_fold else '',
+            'iqr_75': round_number(iqr_fold[-1]) if iqr_fold else '',
+            'min': round_number(fold_list[0]),
+            'max': round_number(fold_list[-1]),
+            'fold range': round_number(fold_list[-1] / fold_list[0]),
             'num_ref': len(ref_list),
-            'ref_list': ', '.join(list(sorted(ref_list)))
+            'ref_names': ', '.join(list(sorted(ref_list)))
         }
         results.append(rec)
 
     dump_csv(file_name, results)
+
+
+def get_median_absolute_deviation(records):
+    median_value = median(records)
+    mad = median([
+        abs(i - median_value)
+        for i in records
+    ])
+    return mad
+
+
+def mark_outlier(table, calc_column, mark_column, med_column, mad_column):
+    sigma = 2
+
+    result_table = []
+    for mab, mab_rec_list in group_records_by(table, 'mAb').items():
+        values = [r[calc_column] for r in mab_rec_list]
+        median_value = median(values)
+        if len(values) >= 4:
+            iqr = quantiles(values, method='inclusive')
+        else:
+            iqr = []
+        log_values = [
+            math.log(r[calc_column], 10)
+            for r in mab_rec_list
+        ]
+        log_median_value = median(log_values)
+        log_mad = get_median_absolute_deviation(log_values)
+        for rec in mab_rec_list:
+            rec['median_{}'.format(calc_column)] = median_value
+            rec['iqr_25_{}'.format(calc_column)] = iqr[0] if iqr else ''
+            rec['iqr_75_{}'.format(calc_column)] = iqr[-1] if iqr else ''
+            rec[med_column] = log_median_value
+            rec[mad_column] = log_mad
+            if (
+                    math.log(rec[calc_column], 10) <
+                    log_median_value - sigma * log_mad):
+                rec[mark_column] = 1
+            elif (
+                    math.log(rec[calc_column], 10) >
+                    log_median_value + sigma * log_mad):
+                rec[mark_column] = 1
+            else:
+                rec[mark_column] = 0
+            result_table.append(rec)
+
+    return result_table

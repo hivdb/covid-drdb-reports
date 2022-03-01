@@ -8,13 +8,19 @@ SQL = """
 SELECT
     DISTINCT
         susc.ref_name,
+        art.year,
+        art.doi,
+        art.url,
         iso.var_name,
         mab.ab_name
 FROM
     susc_results susc,
+    articles art,
     isolates iso,
     rx_mab_view mab
 WHERE
+    susc.ref_name = art.ref_name
+    AND
     susc.iso_name = iso.iso_name
     AND
     iso.var_name like 'Omicron%'
@@ -78,23 +84,44 @@ def gen_omicron_ref_info(
         if r['var_name'] == 'Omicron/BA.2'
     ])
 
-    # ref_names = sorted(list(
-    #     set(ba_1_list) | set(ba_1_list) | set(ba_2_list))
-    # )
-    # detail_1 = []
-    # for ref_name in ref_names:
-    #     rec = {
-    #         'ref_name': ref_name,
-    #         'BA.1': True if ref_name in ba_1_list else False,
-    #         'BA.1.1': True if ref_name in ba_1_1_list else False,
-    #         'BA.2': True if ref_name in ba_2_list else False,
-    #     }
-    #     detail_1.append(rec)
-
     ba_1_ref_info = set(ba_1_list) | set(ba_1_1_list)
     ba_1_only_ref_info = ba_1_ref_info - ba_2_list
     ba_2_only_ref_info = ba_2_list - ba_1_ref_info
     ba_1_and_ba_2_ref_info = ba_1_ref_info & ba_2_list
+
+    group_by_ref_name = group_records_by(table, 'ref_name')
+    all_ab_name = sorted(list(set([
+        r['ab_name']
+        for r in table
+    ])))
+
+    detail_records = []
+    for ref_name, ref_name_list in group_by_ref_name.items():
+        rec = {
+            'ref_name': ref_name,
+            'doi': (
+                ref_name_list[0]['doi']
+                if ref_name_list[0]['doi'] else ref_name_list[0]['url']),
+            'year': ref_name_list[0]['year'],
+        }
+        ref_ab_name = [
+            r['ab_name']
+            for r in ref_name_list
+        ]
+
+        rec['BA.1'] = 1 if ref_name in ba_1_ref_info else 0
+        rec['BA.2'] = 1 if ref_name in ba_2_list else 0
+        for ab_name in all_ab_name:
+            if ab_name not in AB_NAME_MAP.keys():
+                continue
+            if ab_name in ref_ab_name:
+                rec[AB_NAME_MAP[ab_name]] = 1
+            else:
+                rec[AB_NAME_MAP[ab_name]] = 0
+
+        detail_records.append(rec)
+
+    dump_csv(folder / 'omicron_ref_meta_info.csv', detail_records)
 
     detail = []
     detail.append({

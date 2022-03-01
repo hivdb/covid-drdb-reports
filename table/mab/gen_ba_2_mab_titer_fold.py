@@ -4,6 +4,7 @@ from preset import row2dict
 from .gen_ba_1_mab_titer_fold import adjust_titer_and_fold
 from .gen_ba_1_mab_titer_fold import filter_records
 from .gen_ba_1_mab_titer_fold import calc_median_iqr
+from .gen_ba_1_mab_titer_fold import mark_outlier
 
 
 SUMMARY_SQL = """
@@ -101,6 +102,15 @@ def gen_ba_2_mab_titer_fold(
 
     save_results = adjust_titer_and_fold(save_results)
     save_results = [i for i in save_results if i['as_wildtype'] == 1]
+    save_results = mark_outlier(
+        save_results, 'control_ic50', 'wt_outlier',
+        'wt_log_median', 'wt_log_mad')
+    save_results = mark_outlier(
+        save_results, 'test_ic50', 'omicron_outlier',
+        'omicron_log_median', 'omicron_log_mad')
+    save_results = mark_outlier(
+        save_results, 'fold', 'fold_outlier',
+        'fold_log_median', 'fold_log_mad')
 
     dump_csv(
         DATA_FILE_PATH / 'mab' / 'omicron_BA_2_mab_titer_fold_forest_figure.csv',
