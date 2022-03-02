@@ -2,6 +2,9 @@ import decimal
 from decimal import Decimal
 from decimal import localcontext
 
+partial_cutoff = 5
+resist_cutoff = 25
+
 
 def get_susceptibility(fold_str):
     try:
@@ -11,41 +14,41 @@ def get_susceptibility(fold_str):
         fold_cmp = fold_str[0]
         fold = float(fold_str[1:])
 
-    if fold < 3:
+    if fold < partial_cutoff:
         return 'susceptible'
-    elif fold == 3 and fold_cmp in ['~', '<']:
+    elif fold == partial_cutoff and fold_cmp in ['~', '<']:
         return 'susceptible'
-    elif fold == 3 and fold_cmp in ['=', '>']:
+    elif fold == partial_cutoff and fold_cmp in ['=', '>']:
         return 'partial-resistance'
-    elif (fold > 3 and fold < 10):
+    elif (fold > partial_cutoff and fold < resist_cutoff):
         return 'partial-resistance'
-    elif fold == 10 and fold_cmp in ['~', '<']:
+    elif fold == resist_cutoff and fold_cmp in ['~', '<']:
         return 'partial-resistance'
-    elif fold == 10 and fold_cmp in ['=', '>']:
+    elif fold == resist_cutoff and fold_cmp in ['=', '>']:
         return 'resistant'
-    elif fold > 10:
+    elif fold > resist_cutoff:
         return 'resistant'
     else:
         raise Exception(fold_str)
 
 
 def is_susc(x):
-    return x < 3
+    return x < partial_cutoff
 
 
 def is_resistant(x):
-    return x >= 10
+    return x >= resist_cutoff
 
 
 def is_partial_resistant(x):
-    return x >= 3 and x < 10
+    return x >= partial_cutoff and x < resist_cutoff
 
 
 SUSCEPTIBLE_LEVEL_FILTER = """
     AND (
-        (fold < 3
-             OR (fold = 3 AND fold_cmp = '<')
-             OR (fold = 3 AND fold_cmp = '~'))
+        (fold < 5
+             OR (fold = 5 AND fold_cmp = '<')
+             OR (fold = 5 AND fold_cmp = '~'))
         OR (resistance_level = 'susceptible')
         )
     AND (ineffective IS NULL)
@@ -54,11 +57,11 @@ SUSCEPTIBLE_LEVEL_FILTER = """
 PARTIAL_RESISTANCE_LEVEL_FILTER = """
     AND (
         (
-            (fold = 3 AND fold_cmp = '>')
-            OR (fold = 3 AND fold_cmp = '=')
-            OR (fold > 3 AND fold < 10)
-            OR (fold = 10 AND fold_cmp = '~')
-            OR (fold = 10 AND fold_cmp = '<'))
+            (fold = 5 AND fold_cmp = '>')
+            OR (fold = 5 AND fold_cmp = '=')
+            OR (fold > 5 AND fold < 25)
+            OR (fold = 25 AND fold_cmp = '~')
+            OR (fold = 25 AND fold_cmp = '<'))
         OR (resistance_level = 'partial-resistance'))
     AND (ineffective IS NULL)
 """
@@ -66,9 +69,9 @@ PARTIAL_RESISTANCE_LEVEL_FILTER = """
 RESISTANT_LEVLE_FILTER = """
     AND (
         (
-            (fold = 10 AND fold_cmp = '>')
-            OR (fold = 10 AND fold_cmp = '=')
-            OR (fold > 10))
+            (fold = 25 AND fold_cmp = '>')
+            OR (fold = 25 AND fold_cmp = '=')
+            OR (fold > 25))
         OR (resistance_level = 'resistant')
         OR (ineffective = 'experimental')
         )
