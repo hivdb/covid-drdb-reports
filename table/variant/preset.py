@@ -39,10 +39,13 @@ def group_var_name(var_name):
     if var_name:
         var_name = var_name.split()[0]
         var_name = var_name.split('/')[0]
-        if var_name in ['Kappa' 'Iota', 'Epsilon', 'Lambda', 'Eta', 'Mu']:
+        if var_name in [
+                'Kappa' 'Iota',
+                'Epsilon', 'Lambda', 'Eta', 'Mu']:
             var_name = 'VOI'
         elif var_name not in (
-                'Alpha', 'Beta', 'Gamma', 'Delta', 'Omicron'):
+                'Alpha', 'Beta', 'Gamma', 'Delta',
+                'Omicron'):
             var_name = 'other variants'
     else:
         var_name = 'other combo mut'
@@ -161,6 +164,12 @@ OMICRON_MUTATIONS = {
         'iso_type': 'isolate_mutations_single_s_mut_view',
         'filter': [
             "mut.single_mut_name = 'L24S'"
+        ]
+    },
+    '∆25-27': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name LIKE '%25-27∆'"
         ]
     },
     'A67V': {
@@ -416,7 +425,7 @@ KEY_VARIANTS = {
     'Iota': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            "mut.var_name = 'Iota'"
+            "mut.var_name LIKE 'Iota%'"
         ]
     },
     'Delta': {

@@ -35,9 +35,17 @@ WHERE
         OR
         (a.position = 371 AND a.amino_acid = 'L')
         OR
+        (a.position = 371 AND a.amino_acid = 'F')
+        OR
         (a.position = 373 AND a.amino_acid = 'P')
         OR
         (a.position = 375 AND a.amino_acid = 'F')
+        OR
+        (a.position = 376 AND a.amino_acid = 'A')
+        OR
+        (a.position = 405 AND a.amino_acid = 'N')
+        OR
+        (a.position = 408 AND a.amino_acid = 'S')
         OR
         (a.position = 417 AND a.amino_acid = 'N')
         OR

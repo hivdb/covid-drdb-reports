@@ -1,6 +1,7 @@
 from collections import defaultdict
 from preset import DATA_FILE_PATH
 from preset import dump_csv
+from preset import dump_json
 from operator import itemgetter
 
 SQL = """
@@ -71,3 +72,11 @@ def gen_table_all_mab(conn):
 
     save_path = DATA_FILE_PATH / 'mab' / 'summary_mab.csv'
     dump_csv(save_path, record_list)
+
+    record_list = [
+        i
+        for i in record_list
+        if i['synonyms'] and i['avail']
+    ]
+
+    dump_json(DATA_FILE_PATH / 'table_mab_detail.json', record_list)
