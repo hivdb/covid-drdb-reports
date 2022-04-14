@@ -87,7 +87,7 @@ def gen_omicron_single_mut(
     table = row2dict(cursor.fetchall())
     dump_csv(folder / 'omicron_BA_2_single_mut.csv', table)
 
-    sql = SQL.format(variant_name='BA.1 Spike:+346K')
+    sql = SQL.format(variant_name='BA.1.1 Spike')
     cursor.execute(sql)
     table = row2dict(cursor.fetchall())
     dump_csv(folder / 'omicron_BA_1_single_mut.csv', table)

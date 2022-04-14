@@ -76,7 +76,7 @@ def gen_omicron_ref_info(
     ba_1_1_list = set([
         r['ref_name']
         for r in table
-        if r['var_name'] == 'Omicron/BA.1+R346K'
+        if r['var_name'] == 'Omicron/BA.1.1'
     ])
     ba_2_list = set([
         r['ref_name']

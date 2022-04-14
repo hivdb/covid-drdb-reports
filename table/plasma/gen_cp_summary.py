@@ -10,7 +10,7 @@ SELECT
     var.as_wildtype,
     rx.timing,
     rx.severity,
-    rx.infected_iso_name,
+    rx.infected_var_name,
     iso.var_name AS infection,
     SUM(s.cumulative_count) as num_fold
 FROM
@@ -23,7 +23,7 @@ WHERE
     AND
     s.rx_name = rx.rx_name
     AND
-    rx.infected_iso_name = iso.iso_name
+    rx.infected_var_name = iso.var_name
     AND
     s.fold IS NOT NULL
     AND

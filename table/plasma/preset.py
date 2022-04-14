@@ -115,17 +115,12 @@ IGNORE_STUDY = [
 INFECTED_VACCINEE = """
 SELECT DISTINCT ref_name,
                 subject_name
-FROM   subject_history a
+FROM   subject_infections a
 WHERE  EXISTS (SELECT 1
-               FROM   subject_history b
+               FROM   subject_vaccines b
                WHERE  a.subject_name = b.subject_name
-                      AND a.ref_name = b.ref_name
-                      AND b.event = 'infection')
-       AND EXISTS (SELECT 1
-                   FROM   subject_history b
-                   WHERE  a.subject_name = b.subject_name
-                          AND a.ref_name = b.ref_name
-                          AND b.event LIKE '%dose%')
+                      AND a.ref_name = b.ref_name)
+
 """
 
 

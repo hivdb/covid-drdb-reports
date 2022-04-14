@@ -446,6 +446,12 @@ KEY_VARIANTS = {
             "mut.var_name = 'Omicron/BA.1'"
         ]
     },
+    'Omicron/BA.1.1': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
+        'filter': [
+            "mut.var_name = 'Omicron/BA.1.1'"
+        ]
+    },
     'Omicron/BA.2': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
