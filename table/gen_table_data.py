@@ -34,55 +34,68 @@ def gen_report(db_path):
     from plasma.gen_figure_plasma_titer_fold import \
         gen_figure_plasma_titer_fold
 
-    gen_table_cp_muts(conn)
-    gen_table_cp_variants(conn)
-    gen_table_vp_muts(conn)
-    gen_table_vp_variants(conn)
-    gen_table_cp_summary()
-    gen_table_vp_summary()
+    # gen_table_cp_muts(conn)
+    # gen_table_cp_variants(conn)
+    # gen_table_vp_muts(conn)
+    # gen_table_vp_variants(conn)
+    # gen_table_cp_summary()
+    # gen_table_vp_summary()
 
-    gen_vp_summary(conn)
-    gen_vp_efficacy(conn)
-    gen_vp_infection(conn)
-    gen_vp_timing(conn)
-    gen_vp_vaccine_species(conn)
-    gen_vp_vaccine(conn)
-    gen_vp_dosage(conn)
+    # gen_vp_summary(conn)
+    # gen_vp_efficacy(conn)
+    # gen_vp_infection(conn)
+    # gen_vp_timing(conn)
+    # gen_vp_vaccine_species(conn)
+    # gen_vp_vaccine(conn)
+    # gen_vp_dosage(conn)
 
-    gen_cp_summary(conn)
-    gen_cp_severity(conn)
-    gen_cp_infection(conn)
-    gen_cp_timing(conn)
+    # gen_cp_summary(conn)
+    # gen_cp_severity(conn)
+    # gen_cp_infection(conn)
+    # gen_cp_timing(conn)
 
-    gen_figure_plasma_fold(conn)
-    gen_figure_plasma_titer(conn)
-    gen_figure_plasma_titer_fold(conn)
+    # gen_figure_plasma_fold(conn)
+    # gen_figure_plasma_titer(conn)
+    # gen_figure_plasma_titer_fold(conn)
 
     from mab.gen_table_mab import gen_table_mab
     from mab.gen_table_mab_variant import gen_table_mab_variant
     from mab.gen_table_mab_muts import gen_table_mab_muts
     from mab.gen_table_all_mab import gen_table_all_mab
-    from mab.gen_table_mab_omicron_muts import gen_table_mab_omicron_muts
-    from mab.gen_table_mab_omicron import gen_table_mab_omicron
-    from mab.gen_ba_1_s_pattern import gen_ba_1_s_pattern
-    from mab.gen_ba_1_mab_titer_fold import gen_ba_1_mab_titer_fold
-    from mab.gen_ba_2_mab_titer_fold import gen_ba_2_mab_titer_fold
+
     from mab.gen_mab_synonyms import gen_mab_synonyms
     from mab.gen_mab_epitope_aligned import gen_mab_epitope_aligned
-    from mab.gen_omicron_ref_info import gen_omicron_ref_info
 
-    gen_table_mab_variant(conn)
-    gen_table_mab_muts(conn)
-    gen_table_all_mab(conn)
-    gen_table_mab()
+    # gen_table_mab_variant(conn)
+    # gen_table_mab_muts(conn)
+    # gen_table_all_mab(conn)
+    # gen_table_mab()
+    # gen_mab_epitope_aligned(conn)
+    # gen_mab_synonyms(conn)
+
+    from omicron.gen_omicron_ref_info import gen_omicron_ref_info
+    from omicron.gen_omicron_titer_fold import gen_omicron_titer_fold
+    from omicron.gen_omicron_assay import gen_omicron_assay
+    from omicron.gen_omicron_single_mut import gen_omicron_single_mut
+    from omicron.gen_table_mab_omicron_muts import gen_table_mab_omicron_muts
+    from omicron.gen_table_mab_omicron import gen_table_mab_omicron
+    from omicron.gen_ba_1_s_pattern import gen_ba_1_s_pattern
+    from omicron.gen_omicron_wildtype_ic50 import gen_omicron_wildtype_ic50
+    from omicron.gen_omicron_titer_fold_ba1_compare import \
+        gen_omicron_titer_fold_ba1_compare
+
+    gen_omicron_titer_fold(conn)
+    gen_omicron_ref_info(conn)
+    gen_omicron_assay(conn)
+    gen_ba_1_s_pattern(conn)
+    gen_omicron_wildtype_ic50(conn)
+    gen_omicron_single_mut(conn)
+    gen_omicron_titer_fold_ba1_compare(conn)
+    return
+
     gen_table_mab_omicron_muts(conn)
     gen_table_mab_omicron()
-    gen_ba_1_s_pattern(conn)
-    gen_ba_1_mab_titer_fold(conn)
-    gen_ba_2_mab_titer_fold(conn)
-    gen_mab_epitope_aligned(conn)
-    gen_mab_synonyms(conn)
-    gen_omicron_ref_info(conn)
+
 
     from variant.gen_table_variant_summary import gen_table_variant_summary
     from variant.gen_table_variant_mab import gen_table_variant_mab

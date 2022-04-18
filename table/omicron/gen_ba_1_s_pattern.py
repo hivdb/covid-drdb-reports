@@ -44,7 +44,7 @@ WHERE
 
 def gen_ba_1_s_pattern(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'mab' / 'omicron_s_pattern.csv'):
+        csv_save_path=DATA_FILE_PATH / 'omicron' / 'omicron_s_pattern.csv'):
     cursor = conn.cursor()
 
     sql = SUMMARY_SQL.format(

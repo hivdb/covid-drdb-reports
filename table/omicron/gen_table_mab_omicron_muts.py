@@ -1,7 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from variant.preset import OMICRON_MUTATIONS
-from .preset import MAIN_MAB
+from mab.preset import MAIN_MAB
 from operator import itemgetter
 from resistancy import RESISTANCE_FILTER
 from resistancy import round_fold
@@ -119,7 +119,7 @@ def gen_table_mab_omicron_muts(
 
 def get_main_mab_fold(
         records,
-        save_path=DATA_FILE_PATH / 'mab' / 'main_mab_omicron_muts_fold.csv'):
+        save_path=DATA_FILE_PATH / 'omicron' / 'main_mab_omicron_muts_fold.csv'):
 
     mut_group = group_records_by(records, 'pattern')
 
@@ -156,7 +156,7 @@ def get_main_mab_fold(
 
 def get_main_mab_ic50(
         records,
-        save_path=DATA_FILE_PATH / 'mab' / 'main_mab_omicron_muts_ic50.csv'):
+        save_path=DATA_FILE_PATH / 'omicron' / 'main_mab_omicron_muts_ic50.csv'):
 
     results = []
     for rec in records:

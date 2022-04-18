@@ -23,7 +23,7 @@ WHERE
     AND
     susc.iso_name = iso.iso_name
     AND
-    iso.var_name like 'Omicron%'
+    iso.var_name IN ('Omicron/BA.1', 'Omicron/BA.2', 'Omicron/BA.1.1')
     AND
     susc.ref_name = mab.ref_name
     AND
@@ -58,8 +58,8 @@ AB_NAME_MAP = {
 
 def gen_omicron_ref_info(
         conn,
-        folder=DATA_FILE_PATH / 'mab',
-        file_name='omicron_ref_info.csv'):
+        folder=DATA_FILE_PATH / 'omicron',
+        file_name='omicron_ref_info_raw_data.csv'):
     cursor = conn.cursor()
 
     cursor.execute(SQL)
@@ -84,10 +84,12 @@ def gen_omicron_ref_info(
         if r['var_name'] == 'Omicron/BA.2'
     ])
 
-    ba_1_ref_info = set(ba_1_list) | set(ba_1_1_list)
-    ba_1_only_ref_info = ba_1_ref_info - ba_2_list
-    ba_2_only_ref_info = ba_2_list - ba_1_ref_info
-    ba_1_and_ba_2_ref_info = ba_1_ref_info & ba_2_list
+    ba_1_only_list = ba_1_list - (ba_2_list & ba_1_1_list)
+    # ba_2_only_list = ba_2_list - (ba_1_list & ba_1_1_list)
+    # ba_1_1_only_list = ba_2_list - (ba_2_list & ba_1_list)
+
+    ba_1_and_ba_2_list = ba_1_list & ba_2_list
+    ba_1_and_ba_1_1_list = ba_1_list & ba_1_1_list
 
     group_by_ref_name = group_records_by(table, 'ref_name')
     all_ab_name = sorted(list(set([
@@ -109,8 +111,9 @@ def gen_omicron_ref_info(
             for r in ref_name_list
         ]
 
-        rec['BA.1'] = 1 if ref_name in ba_1_ref_info else 0
+        rec['BA.1'] = 1 if ref_name in ba_1_list else 0
         rec['BA.2'] = 1 if ref_name in ba_2_list else 0
+        rec['BA.1.1'] = 1 if ref_name in ba_1_1_list else 0
         for ab_name in all_ab_name:
             if ab_name not in AB_NAME_MAP.keys():
                 continue
@@ -121,64 +124,83 @@ def gen_omicron_ref_info(
 
         detail_records.append(rec)
 
-    dump_csv(folder / 'omicron_ref_meta_info.csv', detail_records)
+    dump_csv(folder / 'omicron_ref_info_detail.csv', detail_records)
 
     detail = []
     detail.append({
         'variant': 'BA.1',
-        'num_ref': len(ba_1_only_ref_info),
-        'ref_names': ', '.join(sorted(list(ba_1_only_ref_info))),
+        'num_ref': len(ba_1_list),
+        'ref_names': ', '.join(sorted(list(ba_1_list))),
     })
     detail.append({
         'variant': 'BA.2',
-        'num_ref': len(ba_2_only_ref_info),
-        'ref_names': ', '.join(sorted(list(ba_2_only_ref_info))),
+        'num_ref': len(ba_2_list),
+        'ref_names': ', '.join(sorted(list(ba_2_list))),
+    })
+    detail.append({
+        'variant': 'BA.1.1',
+        'num_ref': len(ba_1_1_list),
+        'ref_names': ', '.join(sorted(list(ba_1_1_list))),
+    })
+    detail.append({
+        'variant': 'BA.1 only',
+        'num_ref': len(ba_1_only_list),
+        'ref_names': ', '.join(sorted(list(ba_1_only_list))),
     })
     detail.append({
         'variant': 'BA.1 and BA.2',
-        'num_ref': len(ba_1_and_ba_2_ref_info),
-        'ref_names': ', '.join(sorted(list(ba_1_and_ba_2_ref_info))),
+        'num_ref': len(ba_1_and_ba_2_list),
+        'ref_names': ', '.join(sorted(list(ba_1_and_ba_2_list))),
+    })
+    detail.append({
+        'variant': 'BA.1 and BA.1.1',
+        'num_ref': len(ba_1_and_ba_1_1_list),
+        'ref_names': ', '.join(sorted(list(ba_1_and_ba_1_1_list))),
     })
 
-    dump_csv(folder / 'omicron_ref_info_about_variant.csv', detail)
+    dump_csv(folder / 'omicron_ref_info_by_subvariant.csv', detail)
 
     process_mab(
         table,
-        filter=lambda x: (x not in ba_1_only_ref_info) or (
-                x in ba_2_list),
+        exclude=lambda x: (x not in ba_1_list),
         file_name=folder / 'omicron_ref_info_BA_1_mab.csv')
 
     process_mab(
         table,
-        filter=lambda x: (x not in ba_2_list),
+        exclude=lambda x: (x not in ba_2_list),
         file_name=folder / 'omicron_ref_info_BA_2_mab.csv')
 
+    process_mab(
+        table,
+        exclude=lambda x: (x not in ba_1_1_list),
+        file_name=folder / 'omicron_ref_info_BA_1_1_mab.csv')
 
-def process_mab(table, filter=lambda x: False, file_name=None):
+
+def process_mab(table, exclude=lambda x: False, file_name=None):
 
     detail_meta = []
     for ref_name, ref_name_list in group_records_by(table, 'ref_name').items():
-        if filter(ref_name):
+        if exclude(ref_name):
             continue
 
         for rec in ref_name_list:
             ab_name = rec['ab_name']
             if ab_name not in AB_NAME_MAP:
                 continue
-            rec['ab_name'] = AB_NAME_MAP[ab_name]
+            rec['_ab_name'] = AB_NAME_MAP[ab_name]
             detail_meta.append(rec)
 
     detail_ab_name = sorted(list(
-        set([r['ab_name'] for r in detail_meta])
+        set([r['_ab_name'] for r in detail_meta])
     ))
     detail = []
     for ab_name in detail_ab_name:
         ref_list = set([
             r['ref_name'] for r in detail_meta
-            if r['ab_name'] == ab_name
+            if r['_ab_name'] == ab_name
             ])
         detail.append({
-            'ab_name': ab_name,
+            '_ab_name': ab_name,
             'num_ref': len(ref_list),
             'ref_info': ', '.join(sorted(ref_list))
         })
