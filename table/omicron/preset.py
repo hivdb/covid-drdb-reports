@@ -105,7 +105,7 @@ def gen_omicron_mab_titer_fold(
 
     # Dump figure data
     save_results = adjust_titer_and_fold_1(copy.deepcopy(records))
-    save_results = [i for i in records if i['test_ic50']]
+    save_results = [i for i in save_results if i['test_ic50']]
     dump_csv(figure_data_path, save_results)
 
 
@@ -138,15 +138,19 @@ def skip_rec(rec):
         if rec['rx_name'] == 'AZD8895':
             return True
 
-    if (rec['ref_name'] == 'Westendorf21'):
-        if rec['section'] == 'Table 3D' and rec['rx_name'].endswith('_2'):
-            return True
-        if rec['section'] == 'Table 3B':
+    if rec['ref_name'] == 'AstraZenica21c (FDA)':
+        if rec['assay_name'] == 'Pseudovirus (FDA)':
             return True
 
-    if rec['ref_name'] == 'Cameroni21':
-        if rec['assay_name'] == 'Virus isolate':
-            return True
+    # if (rec['ref_name'] == 'Westendorf21'):
+    #     if rec['section'] == 'Table 3D' and rec['rx_name'].endswith('_2'):
+    #         return True
+    #     if rec['section'] == 'Table 3B':
+    #         return True
+
+    # if rec['ref_name'] == 'Cameroni21':
+    #     if rec['assay_name'] == 'Virus isolate':
+    #         return True
 
     # if (rec['ref_name'] == 'Boschi22'):
     #     return True

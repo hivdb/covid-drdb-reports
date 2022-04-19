@@ -157,6 +157,6 @@ def skip_rec(rec):
     #     if rec['section'] == 'Table 3B':
     #         return True
 
-    if rec['ref_name'] == 'Cameroni21':
-        if rec['assay_name'] == 'Virus isolate':
-            return True
+    # if rec['ref_name'] == 'Cameroni21':
+    #     if rec['assay_name'] == 'Virus isolate':
+    #         return True
