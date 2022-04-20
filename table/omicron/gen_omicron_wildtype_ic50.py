@@ -6,6 +6,7 @@ from preset import group_records_by
 from mab.preset import MAIN_MAB
 from preset import load_csv
 from statistics import median
+from scipy import stats
 
 SQL = """
 SELECT DISTINCT
@@ -75,8 +76,7 @@ def gen_omicron_wildtype_ic50(
         conn,
         folder=DATA_FILE_PATH / 'omicron',
         file_name='omicron_wildtype_ic50_data.csv',
-        report_file_name1='omicron_wildtype_ic50_11mab_stat.csv',
-        report_file_name2='omicron_wildtype_ic50_pv_av_11mab_stat.csv'):
+        report_file_name1='omicron_wildtype_ic50_11mab_stat.csv'):
     cursor = conn.cursor()
 
     cursor.execute(SQL)
@@ -149,8 +149,22 @@ def gen_omicron_wildtype_ic50(
 
     table = [i for i in table if i['ab_name'] in mab_list]
 
-    process_virus_assay1(table, folder / report_file_name1)
-    process_virus_assay2(table, folder / report_file_name2)
+    process_virus_assay(table, folder / report_file_name1)
+    create_assay_statistics(
+        table, folder / 'omicron_wildtype_ic50_assay_stat.csv',
+        'assay', 'PV', 'AV')
+
+    create_assay_statistics(
+        table, folder / 'omicron_wildtype_ic50_cell_line_stat.csv',
+        'cell_line', '293T', 'Vero')
+
+    create_assay_statistics(
+        table, folder / 'omicron_wildtype_ic50_ACE2_1_stat.csv',
+        'receptor', 'ACE2-TMPRSS2', 'ACE2')
+
+    create_assay_statistics(
+        table, folder / 'omicron_wildtype_ic50_ACE2_2_stat.csv',
+        'receptor', 'ACE2-TMPRSS2', 'TMPRSS2')
 
 
 def process_cell_line(table, cell_line_info):
@@ -205,7 +219,7 @@ def skip_rec(rec):
     #         return True
 
 
-def process_virus_assay1(table, file_path):
+def process_virus_assay(table, file_path):
 
     pseudo_list = [
         i
@@ -243,84 +257,71 @@ def process_virus_assay1(table, file_path):
     ]
 
     stat_detail.append({
-        'name': 'min_PV',
+        'name': 'min_#PV',
         'value': min(mab_pseudo_group_length_list),
     })
 
     stat_detail.append({
-        'name': 'max_PV',
+        'name': 'max_#PV',
         'value': max(mab_pseudo_group_length_list),
     })
 
     stat_detail.append({
-        'name': 'min_PV',
+        'name': 'min_#PV',
         'value': min(mab_pseudo_group_length_list),
     })
 
     stat_detail.append({
-        'name': 'max_AV',
+        'name': 'max_#AV',
         'value': max(mab_infect_group_length_list),
     })
 
     stat_detail.append({
-        'name': 'min_AV',
+        'name': 'min_#AV',
         'value': min(mab_infect_group_length_list),
     })
 
     dump_csv(file_path, stat_detail)
 
 
-def process_virus_assay2(table, file_path):
+def create_assay_statistics(
+        table, file_path,
+        column,
+        group_a,
+        group_b,
+        ):
 
-    pseudo_list = [
-        i
-        for i in table
-        if i['assay'] == 'PV'
-    ]
+    results = []
+    for mab, mab_rec_list in group_records_by(table, 'ab_name').items():
 
-    infect_list = [
-        i
-        for i in table
-        if i['assay'] == 'AV'
-    ]
-
-    mab_pseudo_group = group_records_by(pseudo_list, 'ab_name')
-    mab_infect_group = group_records_by(infect_list, 'ab_name')
-
-    pseudo_median_list = {}
-    for mab, rec_list in mab_pseudo_group.items():
-        ic50_list = [
+        group_a_list = [
             i['control_ic50']
-            for i in rec_list
+            for i in mab_rec_list
+            if i[column] == group_a
         ]
 
-        pseudo_median_list[mab] = median(ic50_list)
-
-    infect_median_list = {}
-    for mab, rec_list in mab_infect_group.items():
-        ic50_list = [
+        group_b_list = [
             i['control_ic50']
-            for i in rec_list
+            for i in table
+            if i[column] == group_b
         ]
 
-        infect_median_list[mab] = median(ic50_list)
-
-    result = []
-    for mab in set(list(
-            pseudo_median_list.keys()) +
-            list(infect_median_list.keys())):
-        av_median = infect_median_list.get(mab, '')
-        pv_median = pseudo_median_list.get(mab, '')
-        if not av_median or not pv_median:
+        group_a_median = median(group_a_list)
+        group_b_median = median(group_b_list)
+        if not group_a_median or not group_b_median:
             fold = ''
+            r, p = '', ''
         else:
-            fold = av_median / pv_median
+            fold = group_b_median / group_a_median
+            r, p = stats.ranksums(group_a_list, group_b_list)
         rec = {
             'mab': mab,
-            'av_median': av_median,
-            'pv_median': pv_median,
-            'fold': fold
+            f'{group_a}_median': group_a_median,
+            f'{group_b}_median': group_b_median,
+            'fold': fold,
+            'r': r,
+            'p': p,
         }
-        result.append(rec)
+        results.append(rec)
 
-    dump_csv(file_path, result)
+    dump_csv(file_path, results)
