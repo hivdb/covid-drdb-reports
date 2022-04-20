@@ -1,4 +1,3 @@
-from os import stat
 from preset import row2dict
 from preset import dump_csv
 from operator import itemgetter
@@ -86,6 +85,10 @@ def gen_omicron_mab_titer_fold(
     records.sort(key=itemgetter('ref_name'))
 
     save_results = copy.deepcopy(records)
+    save_results = [
+        i for i in save_results
+        if not (i['ref_name'].startswith('FDA') and i['fold'] == 1 and i['ab_name'] == 'Sotrovimab')
+    ]
     save_results = mark_outlier(
         save_results, 'control_ic50', 'wt_outlier',
         'wt_log_median', 'wt_log_mad')
@@ -98,10 +101,129 @@ def gen_omicron_mab_titer_fold(
 
     save_results = calc_pearsonr(save_results)
 
-    save_results = calc_fold_of_fold(save_results)
+    save_results = calc_wildtype_ic50_fold(save_results)
     dump_csv(stat_data_path, save_results)
 
     calc_median_fold_iqr(save_results, iqr_save_path)
+
+    headers = [
+        'ref_name',
+        'section',
+        'rx_name',
+        'ab_name',
+        'control_var_name',
+        'control_ic50',
+        'test_var_name',
+        'test_ic50',
+        'fold_cmp',
+        'fold',
+        'as_wildtype',
+        'assay_name',
+        'test_ic50_cmp',
+        'control_ic50_cmp',
+        '_ref_name',
+        'assay_group',
+        'mAb',
+        'median_control_ic50',
+        'min_control_ic50',
+        'max_control_ic50',
+        'iqr_25_control_ic50',
+        'iqr_75_control_ic50',
+        'wt_log_median',
+        'wt_log_mad',
+        'wt_outlier',
+    ]
+    dump_csv(
+        figure_data_path.parent / (figure_data_path.stem + '_0' + '.csv'),
+        save_results, headers=headers)
+
+    headers = [
+        'ref_name',
+        'section',
+        'rx_name',
+        'ab_name',
+        'control_var_name',
+        'control_ic50',
+        'test_var_name',
+        'test_ic50',
+        'fold_cmp',
+        'fold',
+        'as_wildtype',
+        'assay_name',
+        'test_ic50_cmp',
+        'control_ic50_cmp',
+        '_ref_name',
+        'assay_group',
+        'mAb',
+        'median_test_ic50',
+        'min_test_ic50',
+        'max_test_ic50',
+        'iqr_25_test_ic50',
+        'iqr_75_test_ic50',
+        'omicron_log_median',
+        'omicron_log_mad',
+        'omicron_outlier',
+    ]
+    dump_csv(
+        figure_data_path.parent / (figure_data_path.stem + '_1' + '.csv'),
+        save_results, headers=headers)
+
+    headers = [
+        'ref_name',
+        'section',
+        'rx_name',
+        'ab_name',
+        'control_var_name',
+        'control_ic50',
+        'test_var_name',
+        'test_ic50',
+        'fold_cmp',
+        'fold',
+        'as_wildtype',
+        'assay_name',
+        'test_ic50_cmp',
+        'control_ic50_cmp',
+        '_ref_name',
+        'assay_group',
+        'mAb',
+        'median_fold',
+        'min_fold',
+        'max_fold',
+        'iqr_25_fold',
+        'iqr_75_fold',
+        'fold_log_median',
+        'fold_log_mad',
+        'fold_outlier',
+        'r-value',
+        'p-value',
+    ]
+    dump_csv(
+        figure_data_path.parent / (figure_data_path.stem + '_2' + '.csv'),
+        save_results, headers=headers)
+
+    headers = [
+        'ref_name',
+        'section',
+        'rx_name',
+        'ab_name',
+        'control_var_name',
+        'control_ic50',
+        'test_var_name',
+        'test_ic50',
+        'fold_cmp',
+        'fold',
+        'as_wildtype',
+        'assay_name',
+        'test_ic50_cmp',
+        'control_ic50_cmp',
+        '_ref_name',
+        'assay_group',
+        'mAb',
+        'wildtype_ic50_fold',
+    ]
+    dump_csv(
+        figure_data_path.parent / (figure_data_path.stem + '_3' + '.csv'),
+        save_results, headers=headers)
 
     # Dump figure data
     save_results = adjust_titer_and_fold_1(copy.deepcopy(records))
@@ -148,9 +270,13 @@ def skip_rec(rec):
     #     if rec['section'] == 'Table 3B':
     #         return True
 
-    # if rec['ref_name'] == 'Cameroni21':
-    #     if rec['assay_name'] == 'Virus isolate':
-    #         return True
+    if rec['ref_name'] == 'Cameroni21':
+        if rec['assay_name'] == 'Virus isolate':
+            return True
+
+    if rec['ref_name'] == 'Cao22':
+        if rec['assay_name'] == 'Virus isolate':
+            return True
 
     # if (rec['ref_name'] == 'Boschi22'):
     #     return True
@@ -349,23 +475,23 @@ def calc_pearsonr(table):
     return result_table
 
 
-def calc_fold_of_fold(table):
+def calc_wildtype_ic50_fold(table):
 
     result = []
-    fold_of_fold_list = []
+    wildtype_ic50_fold_list = []
     for mab, mab_rec_list in group_records_by(table, 'mAb').items():
         rec = mab_rec_list[0]
-        fold_of_fold = rec['max_fold'] / rec['min_fold']
-        fold_of_fold_list.append(fold_of_fold)
+        wildtype_ic50_fold = rec['max_control_ic50'] / rec['min_control_ic50']
+        wildtype_ic50_fold_list.append(wildtype_ic50_fold)
 
         for rec in mab_rec_list:
-            rec['fold_of_fold'] = fold_of_fold
+            rec['wildtype_ic50_fold'] = wildtype_ic50_fold
             result.append(rec)
 
-    # p25, p75 = np.percentile(fold_of_fold_list, [25, 75])
+    # p25, p75 = np.percentile(wildtype_ic50_fold_list, [25, 75])
 
     # for rec in result:
-    #     rec['median_fold_fold'] = median(fold_of_fold_list)
+    #     rec['median_fold_fold'] = median(wildtype_ic50_fold_list)
     #     rec['iqr25_fold_fold'] = p25
     #     rec['iqr75_fold_fold'] = p75
 

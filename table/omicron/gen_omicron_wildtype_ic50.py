@@ -5,6 +5,7 @@ from preset import row2dict
 from preset import group_records_by
 from mab.preset import MAIN_MAB
 from preset import load_csv
+from statistics import median
 
 SQL = """
 SELECT DISTINCT
@@ -21,6 +22,7 @@ FROM
     susc_results_view s,
     rx_mab_view rx,
     rx_potency control_pot,
+    rx_potency test_pot,
     isolates control_iso,
     variants,
     isolate_mutations_combo_s_mut_view test_iso
@@ -43,6 +45,17 @@ WHERE
     s.potency_type = control_pot.potency_type
 
     AND
+    s.ref_name = test_pot.ref_name
+    AND
+    s.rx_name = test_pot.rx_name
+    AND
+    s.iso_name = test_pot.iso_name
+    AND
+    s.assay_name = test_pot.assay_name
+    AND
+    s.potency_type = test_pot.potency_type
+
+    AND
     s.control_iso_name = control_iso.iso_name
     AND
     control_iso.var_name = variants.var_name
@@ -61,7 +74,9 @@ WHERE
 def gen_omicron_wildtype_ic50(
         conn,
         folder=DATA_FILE_PATH / 'omicron',
-        file_name='omicron_wildtype_ic50_data.csv'):
+        file_name='omicron_wildtype_ic50_data.csv',
+        report_file_name1='omicron_wildtype_ic50_11mab_stat.csv',
+        report_file_name2='omicron_wildtype_ic50_pv_av_11mab_stat.csv'):
     cursor = conn.cursor()
 
     cursor.execute(SQL)
@@ -118,6 +133,25 @@ def gen_omicron_wildtype_ic50(
 
     dump_csv(folder / file_name, results)
 
+    mab_list = [
+        'Casirivimab',
+        'Etesevimab',
+        'Tixagevimab',
+        'Bamlanivimab',
+        'Cilgavimab',
+        'Imdevimab',
+        'Sotrovimab',
+        'Bebtelovimab',
+        'Casirivimab/Imdevimab',
+        'Cilgavimab/Tixagevimab',
+        'Bamlanivimab/Etesevimab',
+    ]
+
+    table = [i for i in table if i['ab_name'] in mab_list]
+
+    process_virus_assay1(table, folder / report_file_name1)
+    process_virus_assay2(table, folder / report_file_name2)
+
 
 def process_cell_line(table, cell_line_info):
     cell_line_map = {
@@ -132,8 +166,17 @@ def process_cell_line(table, cell_line_info):
 
     results = []
     for rec in table:
-        rec['cell_line'] = cell_line_map.get(rec['ref_name'], '')
-        rec['receptor'] = receptor_map.get(rec['ref_name'], '')
+        selector = rec['ref_name']
+        selector = selector.split('-')[0]
+        if selector == 'VanBlargan22':
+            section = rec['section']
+            if section == 'Figure 2g':
+                selector = f'{selector}-1'
+            else:
+                selector = f'{selector}-2'
+
+        rec['cell_line'] = cell_line_map.get(selector, '')
+        rec['receptor'] = receptor_map.get(selector, '')
         results.append(rec)
 
     return results
@@ -160,3 +203,124 @@ def skip_rec(rec):
     # if rec['ref_name'] == 'Cameroni21':
     #     if rec['assay_name'] == 'Virus isolate':
     #         return True
+
+
+def process_virus_assay1(table, file_path):
+
+    pseudo_list = [
+        i
+        for i in table
+        if i['assay'] == 'PV'
+    ]
+
+    infect_list = [
+        i
+        for i in table
+        if i['assay'] == 'AV'
+    ]
+
+    stat_detail = []
+    stat_detail.append({
+        'name': '#PV',
+        'value': len(pseudo_list),
+    })
+    stat_detail.append({
+        'name': '#AV',
+        'value': len(infect_list),
+    })
+
+    mab_pseudo_group = group_records_by(pseudo_list, 'ab_name')
+    mab_infect_group = group_records_by(infect_list, 'ab_name')
+
+    mab_pseudo_group_length_list = [
+        len(rec_list)
+        for _, rec_list in mab_pseudo_group.items()
+    ]
+
+    mab_infect_group_length_list = [
+        len(rec_list)
+        for _, rec_list in mab_infect_group.items()
+    ]
+
+    stat_detail.append({
+        'name': 'min_PV',
+        'value': min(mab_pseudo_group_length_list),
+    })
+
+    stat_detail.append({
+        'name': 'max_PV',
+        'value': max(mab_pseudo_group_length_list),
+    })
+
+    stat_detail.append({
+        'name': 'min_PV',
+        'value': min(mab_pseudo_group_length_list),
+    })
+
+    stat_detail.append({
+        'name': 'max_AV',
+        'value': max(mab_infect_group_length_list),
+    })
+
+    stat_detail.append({
+        'name': 'min_AV',
+        'value': min(mab_infect_group_length_list),
+    })
+
+    dump_csv(file_path, stat_detail)
+
+
+def process_virus_assay2(table, file_path):
+
+    pseudo_list = [
+        i
+        for i in table
+        if i['assay'] == 'PV'
+    ]
+
+    infect_list = [
+        i
+        for i in table
+        if i['assay'] == 'AV'
+    ]
+
+    mab_pseudo_group = group_records_by(pseudo_list, 'ab_name')
+    mab_infect_group = group_records_by(infect_list, 'ab_name')
+
+    pseudo_median_list = {}
+    for mab, rec_list in mab_pseudo_group.items():
+        ic50_list = [
+            i['control_ic50']
+            for i in rec_list
+        ]
+
+        pseudo_median_list[mab] = median(ic50_list)
+
+    infect_median_list = {}
+    for mab, rec_list in mab_infect_group.items():
+        ic50_list = [
+            i['control_ic50']
+            for i in rec_list
+        ]
+
+        infect_median_list[mab] = median(ic50_list)
+
+    result = []
+    for mab in set(list(
+            pseudo_median_list.keys()) +
+            list(infect_median_list.keys())):
+        av_median = infect_median_list.get(mab, '')
+        pv_median = pseudo_median_list.get(mab, '')
+        if not av_median or not pv_median:
+            fold = ''
+        else:
+            fold = av_median / pv_median
+        rec = {
+            'mab': mab,
+            'av_median': av_median,
+            'pv_median': pv_median,
+            'fold': fold
+        }
+        result.append(rec)
+
+    dump_csv(file_path, result)

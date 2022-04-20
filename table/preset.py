@@ -12,18 +12,33 @@ DATA_FILE_PATH = WS / 'report_tables'
 DATA_FILE_PATH.mkdir(exist_ok=True)
 
 
-def dump_csv(file_path, records, headers=[]):
+def dump_csv(file_path, records, headers=None):
     if not records:
         return
-    if not headers and records:
-        headers = records[0].keys()
+    if not headers:
+        headers = []
+        for rec in records:
+            for key in rec.keys():
+                if key not in headers:
+                    headers.append(key)
 
+    final_records = []
+    for rec in records:
+        new_rec = {}
+        for key in headers:
+            new_rec[key] = rec.get(key, '')
+        for k, v in rec.items():
+            if type(v) == bool:
+                new_rec[k] = 'yes' if v else 'no'
+        final_records.append(new_rec)
+
+    file_path = Path(file_path)
     file_path.parent.mkdir(exist_ok=True, parents=True)
 
     with open(file_path, 'w', encoding='utf-8-sig') as fd:
         writer = csv.DictWriter(fd, fieldnames=headers)
         writer.writeheader()
-        writer.writerows(records)
+        writer.writerows(final_records)
 
 
 def load_csv(file_path):

@@ -47,9 +47,9 @@ AB_NAME_MAP = {
     'Regdanvimab': 'REG',
     'Adintrevimab': 'ADG20',
     'Bebtelovimab': 'BEB',
-    'Amubarvimab': 'BRII-196/198',
-    'Romlusevimab': 'BRII-196/198',
-    'Amubarvimab/Romlusevimab': 'BRII-196/198',
+    'Amubarvimab': 'AMU/ROM',
+    'Romlusevimab': 'AMU/ROM',
+    'Amubarvimab/Romlusevimab': 'AMU/ROM',
     'C135': 'C135/C144',
     'C144': 'C135/C144',
     'C135/C144': 'C135/C144',
@@ -126,6 +126,46 @@ def gen_omicron_ref_info(
 
     dump_csv(folder / 'omicron_ref_info_detail.csv', detail_records)
 
+    process_subvariant(
+        folder,
+        ba_1_list, ba_2_list, ba_1_1_list, ba_1_only_list,
+        ba_1_and_ba_2_list, ba_1_and_ba_1_1_list)
+
+    process_mab(
+        table,
+        exclude=lambda x: (x not in ba_1_list),
+        file_name=folder / 'omicron_ref_info_BA_1_mab.csv')
+
+    process_mab(
+        table,
+        exclude=lambda x: (x not in ba_2_list),
+        file_name=folder / 'omicron_ref_info_BA_2_mab.csv')
+
+    process_mab(
+        table,
+        exclude=lambda x: (x not in ba_1_1_list),
+        file_name=folder / 'omicron_ref_info_BA_1_1_mab.csv')
+
+    process_mab2(
+        table,
+        exclude=lambda x: (x not in ba_1_list),
+        file_name=folder / 'omicron_ref_info_BA_1_mab2.csv')
+
+    process_mab2(
+        table,
+        exclude=lambda x: (x not in ba_2_list),
+        file_name=folder / 'omicron_ref_info_BA_2_mab2.csv')
+
+    process_mab2(
+        table,
+        exclude=lambda x: (x not in ba_1_1_list),
+        file_name=folder / 'omicron_ref_info_BA_1_1_mab2.csv')
+
+
+def process_subvariant(
+        folder,
+        ba_1_list, ba_2_list, ba_1_1_list, ba_1_only_list,
+        ba_1_and_ba_2_list, ba_1_and_ba_1_1_list):
     detail = []
     detail.append({
         'variant': 'BA.1',
@@ -160,21 +200,6 @@ def gen_omicron_ref_info(
 
     dump_csv(folder / 'omicron_ref_info_by_subvariant.csv', detail)
 
-    process_mab(
-        table,
-        exclude=lambda x: (x not in ba_1_list),
-        file_name=folder / 'omicron_ref_info_BA_1_mab.csv')
-
-    process_mab(
-        table,
-        exclude=lambda x: (x not in ba_2_list),
-        file_name=folder / 'omicron_ref_info_BA_2_mab.csv')
-
-    process_mab(
-        table,
-        exclude=lambda x: (x not in ba_1_1_list),
-        file_name=folder / 'omicron_ref_info_BA_1_1_mab.csv')
-
 
 def process_mab(table, exclude=lambda x: False, file_name=None):
 
@@ -204,6 +229,45 @@ def process_mab(table, exclude=lambda x: False, file_name=None):
             'num_ref': len(ref_list),
             'ref_info': ', '.join(sorted(ref_list))
         })
+
+    dump_csv(
+        file_name,
+        detail)
+
+
+def process_mab2(table, exclude=lambda x: False, file_name=None):
+
+    detail_meta = []
+    for ref_name, ref_name_list in group_records_by(table, 'ref_name').items():
+        if exclude(ref_name):
+            continue
+
+        for rec in ref_name_list:
+            ab_name = rec['ab_name']
+            if ab_name not in AB_NAME_MAP:
+                continue
+            rec['_ab_name'] = AB_NAME_MAP[ab_name]
+            detail_meta.append(rec)
+
+    detail_ab_name = sorted(list(
+        set([r['_ab_name'] for r in detail_meta])
+    ))
+
+    detail = []
+    for ref_name, ref_name_list in group_records_by(
+            detail_meta, 'ref_name').items():
+
+        new_rec = {
+            'ref_name': ref_name,
+        }
+        for mab in detail_ab_name:
+            ab_list = [
+                i
+                for i in ref_name_list
+                if i['_ab_name'] == mab
+            ]
+            new_rec[mab] = 1 if len(ab_list) else 0
+        detail.append(new_rec)
 
     dump_csv(
         file_name,

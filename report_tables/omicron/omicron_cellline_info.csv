@@ -1,54 +1,58 @@
-﻿Ref,section,cell,receptor
-Aggarwal21,Table 2,Vero,
-Ai22,Figure 3A,Vero,
-AstraZenica21c,Excel table,293T,ACE2-TMPRSS2
-Boschi22,,Vero,
-Brii21,,,
-Bruel22,Table 1,U2OS,ACE2
-Cameroni21,,Vero,
-Cao21,Fig 4b,Huh-7,
-Cao22,Figure 4a ??,Huh-7,
-Cao22,Table S2 ??,Huh-7,
-Case22,Figure 1n,Vero,TMPRSS2
-Cathcart22,Table 2,Vero,
-Chen22,Fig 1h,293T,ACE2-TMPRSS2
-Cui22,Figure 5C,Huh-7,
-Dejnirattisai22,"Figure 4C, Table S1",Vero,
-Duty22,,293T,ACE2-TMPRSS2
-FDA21c,,293T,ACE2-TMPRSS2
-FDA21e,,293T,ACE2-TMPRSS2
-FDA22,,293T,ACE2-TMPRSS2
-Fenwick22,Figure 2f,Vero,
-Gruell22,Fig 2,293T,ACE2
-Gruell22b,Figure 4B,293T,ACE2
-Hoffmann22,Figure 2C,Vero,
-Ikemura21,Figure 2A,293T,ACE2
-Iketani22,,Vero,
-Ju22,Figure S1F,293T,ACE2
-Liu21l,,Vero,
-Lusvarghi22,Fig 4,293T,ACE2-TMPRSS2
-Ma22,Figure 2b,Vero,
-Meng22,Figure 1a,HOS,ACE2-TMPRSS2
-Ohashi22,Table 1,Vero,TMPRSS2
-Pelzek22,Extended Table 1,,
-Planas21c,Extended Data Fig 4,U2OS,ACE2
-Rothenberger21,V4 Table 2,Vero,
-Schulz22,Table 1,Vero,
-Sheward22,Table 2,293T,ACE2
-Tada21f,Figure 2D,293T,ACE2
-Takashita22,Table 1,Vero,TMPRSS2
-Takashita22b,Table 1,Vero,TMPRSS2
-Touret22,"Figure 1, Table 1",Vero,TMPRSS2
-Touret22b,Table 1,Vero,TMPRSS2
-VanBlargan22-1,Figure 2g,Vero,TMPRSS2
-VanBlargan22-2,Figure 3g,Vero,ACE2-TMPRSS2
-Wang22,Figure 2,Vero,
-Wang22b,Figure 1B,293T,ACE2
-Wang22c,Supplmentary Table 2,Huh-7,
-Westendorf21,Table 3D,293T,ACE2
-Westendorf21,Table 3D 2 ??,293T,ACE2-TMPRSS2
-Wilhelm21b,Figure 1,,
-Yamasoba22,Figure 2d,HOS,ACE2-TMPRSS2
-Yuan22,Figure 2A,Vero,
-Zhou21e,Figure 2C,293T,ACE2-TMPRSS2
-Zhou22,Figure 1B,293T,ACE2
+﻿Ref,cell,receptor
+FDA21c,,
+FDA21e,,
+FDA21e,,
+FDA22,,
+NCATS Brii21,,
+Wilhelm21b,,
+Chen22,293T,ACE2-TMPRSS2
+FDA21c,293T,ACE2-TMPRSS2
+FDA22,293T,ACE2
+Syed21,293T,
+Ikemura21,293T,ACE2
+Ju22,293T,ACE2
+Sheward22,293T,ACE2
+Gruell22,293T,ACE2
+Gruell22b,293T,ACE2
+Tada21f,293T,ACE2
+Wang22b,293T,ACE2
+Westendorf21,293T,ACE2
+Zhou22,293T,ACE2
+Pelzek22,293T,ACE2
+Lusvarghi22,293T,ACE2-TMPRSS2
+AstraZenica21c,293T,ACE2-TMPRSS2
+AstraZenica21c,293T,ACE2-TMPRSS2
+Zhou21e,293T,ACE2-TMPRSS2
+Meng22,293T,ACE2-TMPRSS2
+Yamasoba22,293T,ACE2-TMPRSS2
+Wang22c,Huh-7,
+Cao21,Huh-7 ,
+Cao22,Huh-7 ,
+Cui22,Huh-7 ,
+Bruel22,U2OS,ACE2
+Planas21c,U2OS,ACE2
+Case22,Vero,TMPRSS2
+Wang22,Vero,
+Aggarwal21,Vero ,
+Ai22,Vero ,
+Boschi22,Vero ,
+Cameroni21,Vero ,
+Cameroni21,Vero ,
+Dejnirattisai22,Vero ,
+Duty22,Vero ,
+Duty22,Vero ,
+Fenwick22,Vero ,
+Hoffmann22,Vero ,
+Iketani22,Vero ,
+Liu21l,Vero ,
+Ma22,Vero ,
+Rothenberger21,Vero ,
+Schulz22,Vero ,
+Yuan22,Vero ,
+VanBlargan22-2,Vero,ACE2-TMPRSS2
+Ohashi22,Vero,TMPRSS2
+Takashita22,Vero,TMPRSS2
+Takashita22b,Vero,TMPRSS2
+Touret22,Vero,TMPRSS2
+Touret22b,Vero,TMPRSS2
+VanBlargan22-1,Vero,TMPRSS2
