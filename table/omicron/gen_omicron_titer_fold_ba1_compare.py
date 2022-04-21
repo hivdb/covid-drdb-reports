@@ -30,8 +30,6 @@ WHERE
     AND
     ba1.rx_name = ba11.rx_name
     AND
-    ba1.section = ba11.section
-    AND
     ba1.control_iso_name = ba11.control_iso_name
     AND
     ba1.potency_type = ba11.potency_type
