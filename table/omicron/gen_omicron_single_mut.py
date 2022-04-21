@@ -51,30 +51,24 @@ WHERE
     s.iso_name = mut.iso_name
 
     AND
-    s.iso_name IN (
+    mut.domain = 'RBD'
+    AND
+    EXISTS (
         SELECT
-            iso_name
+        1
         FROM
-            isolate_mutations_single_s_mut_view a
-        WHERE EXISTS (
-            SELECT 1
-            FROM
-                isolate_mutations b,
-                isolates c
-            WHERE
-                b.iso_name = c.iso_name
-                AND
-                c.var_name = '{var_name}'
-                AND
-                a.position = b.position
-                AND
-                a.amino_acid = b.amino_acid
-            )
+            isolate_mutations b
+        WHERE
+            b.iso_name = '{iso_name}'
             AND
-            gene = 'S'
+            mut.gene = b.gene
             AND
-            domain = 'RBD'
-            )
+            mut.position = b.position
+            AND
+            mut.amino_acid = b.amino_acid
+            AND
+            b.gene = 'S'
+        )
 ORDER BY
     mut.position
 ;
@@ -86,10 +80,12 @@ def gen_omicron_single_mut(
 
     cursor = conn.cursor()
 
-    for var_name in ['Omicron/BA.1', 'Omicron/BA.2', 'Omicron/BA.1.1']:
+    for iso_name in ['BA.1 Spike', 'BA.2 Spike', 'BA.1 Spike:+346K']:
 
-        sql = SQL.format(var_name=var_name)
+        sql = SQL.format(iso_name=iso_name)
         cursor.execute(sql)
         table = row2dict(cursor.fetchall())
-        file_prefix = var_name.split('/')[-1]
+        file_prefix = iso_name.split()[0]
+        if iso_name == 'BA.1 Spike:+346K':
+            file_prefix = 'BA.1.1'
         dump_csv(folder / f'{file_prefix}_single_mut.csv', table)

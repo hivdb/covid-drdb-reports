@@ -302,12 +302,18 @@ def create_assay_statistics(
 
         group_b_list = [
             i['control_ic50']
-            for i in table
+            for i in mab_rec_list
             if i[column] == group_b
         ]
 
-        group_a_median = median(group_a_list)
-        group_b_median = median(group_b_list)
+        if group_a_list:
+            group_a_median = median(group_a_list)
+        else:
+            group_a_median = ''
+        if group_b_list:
+            group_b_median = median(group_b_list)
+        else:
+            group_b_median = ''
         if not group_a_median or not group_b_median:
             fold = ''
             r, p = '', ''

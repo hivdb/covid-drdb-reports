@@ -1,3 +1,4 @@
+from ast import Or
 from preset import row2dict
 from preset import dump_csv
 from operator import itemgetter
@@ -106,6 +107,9 @@ def gen_omicron_mab_titer_fold(
 
     calc_median_fold_iqr(save_results, iqr_save_path)
 
+    dump_supplementary_table(
+        copy.deepcopy(save_results), stat_data_path)
+
     headers = [
         'ref_name',
         'section',
@@ -134,7 +138,7 @@ def gen_omicron_mab_titer_fold(
         'wt_outlier',
     ]
     dump_csv(
-        figure_data_path.parent / (figure_data_path.stem + '_0' + '.csv'),
+        stat_data_path.parent / (stat_data_path.stem + '_0' + '.csv'),
         save_results, headers=headers)
 
     headers = [
@@ -165,7 +169,7 @@ def gen_omicron_mab_titer_fold(
         'omicron_outlier',
     ]
     dump_csv(
-        figure_data_path.parent / (figure_data_path.stem + '_1' + '.csv'),
+        stat_data_path.parent / (stat_data_path.stem + '_1' + '.csv'),
         save_results, headers=headers)
 
     headers = [
@@ -198,7 +202,7 @@ def gen_omicron_mab_titer_fold(
         'p-value',
     ]
     dump_csv(
-        figure_data_path.parent / (figure_data_path.stem + '_2' + '.csv'),
+        stat_data_path.parent / (stat_data_path.stem + '_2' + '.csv'),
         save_results, headers=headers)
 
     headers = [
@@ -222,7 +226,7 @@ def gen_omicron_mab_titer_fold(
         'wildtype_ic50_fold',
     ]
     dump_csv(
-        figure_data_path.parent / (figure_data_path.stem + '_3' + '.csv'),
+        stat_data_path.parent / (stat_data_path.stem + '_3' + '.csv'),
         save_results, headers=headers)
 
     # Dump figure data
@@ -538,3 +542,74 @@ def calc_mad(records):
         for i in records
     ])
     return mad
+
+
+def dump_supplementary_table(table, stat_data_path):
+    [
+        i.update({
+            'fold': round_number(i['fold'])
+        })
+        for i in table
+    ]
+    [
+        i.update({
+            '_ref_name': i['ref_name'],
+            'control_ic50': (
+                "{}{}".format(
+                    i.get('control_ic50_cmp'),
+                    i.get('control_ic50')
+                )
+                if i.get('control_ic50_cmp') and i['control_ic50_cmp'] != '='
+                else i.get('control_ic50', '')
+            ),
+            'fold': (
+                i['fold']
+                if i['fold_cmp'] == '='
+                else f"{i['fold_cmp']}{i['fold']}"
+            ),
+            'omicron_ic50': (
+                "{}{}".format(
+                    i.get('test_ic50_cmp'),
+                    i.get('test_ic50')
+                )
+                if i.get('test_ic50_cmp') and i['test_ic50_cmp'] == '='
+                else i.get('test_ic50', '')
+            ),
+        })
+        for i in table
+    ]
+
+    [
+        i.update({
+            'control_ic50': (
+                f"{i['control_ic50']}*"
+                if i['control_ic50'] and i['wt_outlier']
+                else i['control_ic50']
+            ),
+            'fold': (
+                f"{i['fold']}*"
+                if i['fold_outlier']
+                else i['fold']
+            ),
+            'omicron_ic50': (
+                f"{i['test_ic50']}*"
+                if i['test_ic50'] and i['omicron_outlier']
+                else i['test_ic50']
+            ),
+        })
+        for i in table
+    ]
+
+    headers = [
+        'ref_name',
+        'section',
+        'ab_name',
+        'control_var_name',
+        'control_ic50',
+        'test_ic50',
+        'fold',
+    ]
+
+    dump_csv(
+        stat_data_path.parent / (stat_data_path.stem + '_supply' + '.csv'),
+        table, headers=headers)
