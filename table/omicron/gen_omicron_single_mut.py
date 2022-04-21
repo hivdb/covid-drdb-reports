@@ -8,16 +8,46 @@ SELECT
     rx.ab_name,
     s.fold_cmp,
     s.fold,
-    control_potency,
-    potency,
+    s.control_potency,
+    s.potency,
     mut.single_mut_name,
     mut.ref,
     mut.position,
-    mut.amino_acid
+    mut.amino_acid,
+    mut.var_name
 FROM
     susc_results_50_wt_view s,
     rx_mab_view rx,
-    isolate_mutations_single_s_mut_view mut
+    (
+        select
+            m.iso_name,
+            m.single_mut_name,
+            m.ref,
+            m.position,
+            m.amino_acid,
+            group_concat(i.var_name, ', ') as var_name
+        from
+            isolate_mutations_single_s_mut_view m,
+            isolate_mutations iso,
+            isolates i
+        where
+            m.gene = iso.gene
+            and
+            m.position = iso.position
+            and
+            m.amino_acid = iso.amino_acid
+            and
+            iso.iso_name = i.iso_name
+            and
+            iso.iso_name in ('BA.1 Spike', 'BA.2 Spike', 'BA.1 Spike:+346K') and m.domain = 'RBD' and m.gene = 'S'
+        group by
+            m.iso_name,
+            m.single_mut_name,
+            m.ref,
+            m.position,
+            m.amino_acid
+    ) as mut
+
 WHERE
     s.ref_name = rx.ref_name
     AND
@@ -49,26 +79,6 @@ WHERE
 
     AND
     s.iso_name = mut.iso_name
-
-    AND
-    mut.domain = 'RBD'
-    AND
-    EXISTS (
-        SELECT
-        1
-        FROM
-            isolate_mutations b
-        WHERE
-            b.iso_name = '{iso_name}'
-            AND
-            mut.gene = b.gene
-            AND
-            mut.position = b.position
-            AND
-            mut.amino_acid = b.amino_acid
-            AND
-            b.gene = 'S'
-        )
 ORDER BY
     mut.position
 ;
@@ -80,12 +90,16 @@ def gen_omicron_single_mut(
 
     cursor = conn.cursor()
 
-    for iso_name in ['BA.1 Spike', 'BA.2 Spike', 'BA.1 Spike:+346K']:
+    # for iso_name in ['BA.1 Spike', 'BA.2 Spike', 'BA.1 Spike:+346K']:
 
-        sql = SQL.format(iso_name=iso_name)
-        cursor.execute(sql)
-        table = row2dict(cursor.fetchall())
-        file_prefix = iso_name.split()[0]
-        if iso_name == 'BA.1 Spike:+346K':
-            file_prefix = 'BA.1.1'
-        dump_csv(folder / f'{file_prefix}_single_mut.csv', table)
+    #     sql = SQL.format(iso_name=iso_name)
+    #     cursor.execute(sql)
+    #     table = row2dict(cursor.fetchall())
+    #     file_prefix = iso_name.split()[0]
+    #     if iso_name == 'BA.1 Spike:+346K':
+    #         file_prefix = 'BA.1.1'
+    #     dump_csv(folder / f'{file_prefix}_single_mut.csv', table)
+
+    cursor.execute(SQL)
+    table = row2dict(cursor.fetchall())
+    dump_csv(folder / f'omicron_single_mut.csv', table)
