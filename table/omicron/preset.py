@@ -404,11 +404,13 @@ def short_mab_name(ab_name):
         return ab_name
 
 
-def mark_outlier(table, calc_column, mark_column, med_column, mad_column):
+def mark_outlier(
+        table, calc_column, mark_column, med_column, mad_column,
+        group_by='mAb'):
     sigma = 2
 
     result_table = []
-    for mab, mab_rec_list in group_records_by(table, 'mAb').items():
+    for mab, mab_rec_list in group_records_by(table, group_by).items():
         values = [r[calc_column] for r in mab_rec_list]
         values = [i for i in values if i]
         median_value = median(values)
@@ -433,19 +435,24 @@ def mark_outlier(table, calc_column, mark_column, med_column, mad_column):
             rec[mad_column] = log_mad
             if not rec[calc_column]:
                 rec[mark_column] = 0
-            elif (
-                    math.log(rec[calc_column], 10) <
-                    log_median_value - sigma * log_mad):
-                rec[mark_column] = 1
-            elif (
-                    math.log(rec[calc_column], 10) >
-                    log_median_value + sigma * log_mad):
+            elif is_mad_outlier(
+                    rec[calc_column], log_median_value, sigma, log_mad):
                 rec[mark_column] = 1
             else:
                 rec[mark_column] = 0
             result_table.append(rec)
 
     return result_table
+
+
+def is_mad_outlier(value, log_median, sigma, log_mad):
+    if (math.log(value, 10) <
+            log_median - sigma * log_mad):
+        return True
+    elif (math.log(value, 10) >
+            log_median + sigma * log_mad):
+        return True
+    return False
 
 
 def calc_pearsonr(table):
