@@ -2,4 +2,4 @@
 __pycache__
 *.png
 
-report_tables/figure_plasma*.csv
+report_tables
