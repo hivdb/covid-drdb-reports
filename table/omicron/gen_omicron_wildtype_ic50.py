@@ -483,24 +483,41 @@ def process_statistics(table, file_path, column_name, outlier_col):
             ic_50_list_no_outlier[0]
         )
 
+        med = round_number(median(ic_50_list))
+
+        low_outliers = sorted(set(
+                [
+                    i['_ref_name']
+                    for i in mab_rec_list
+                    if i[outlier_col]
+                    and i['control_ic50'] <= med
+                ]))
+
+        high_outliers = sorted(set(
+                [
+                    i['_ref_name']
+                    for i in mab_rec_list
+                    if i[outlier_col]
+                    and i['control_ic50'] >= med
+                ]))
+
+
+
         rec = {
             'mab': mab,
             '#ref': num_ref,
             '#result': len(mab_rec_list),
-            'median': round_number(median(ic_50_list)),
+            'median': med,
             'low': low,
             'high': high,
             'fold': fold,
             'fold_no_outlier': fold_no_outlier,
             'iqr25': round_number(iqr25),
             'iqr75': round_number(iqr75),
-            'outliers': ','.join(sorted(set(
-                [
-                    i['_ref_name']
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                ]))
-            )
+            '#low_out': len(low_outliers),
+            'low_out': ','.join(low_outliers),
+            '#high_out': len(high_outliers),
+            'high_out': ','.join(high_outliers),
         }
         results.append(rec)
     dump_csv(file_path, results)
