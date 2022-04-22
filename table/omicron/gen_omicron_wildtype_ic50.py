@@ -6,7 +6,7 @@ from preset import group_records_by
 from mab.preset import MAIN_MAB
 from preset import load_csv
 from statistics import median
-from scipy import stats
+from .preset import process_statistics
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -132,6 +132,8 @@ def gen_omicron_wildtype_ic50(
     cell_line_info = load_csv(
         DATA_FILE_PATH / 'omicron' / 'omicron_cellline_info.csv')
 
+    draw_figures_mab_and_assay(table, DATA_FILE_PATH / 'omicron')
+
     process_cell_line(table, cell_line_info)
 
     mark_outlier(
@@ -144,15 +146,16 @@ def gen_omicron_wildtype_ic50(
 
     process_statistics(
         table, folder / 'wt_ic50_mab_stat.csv',
+        'control_ic50',
         'ab_name', 'wt_outlier')
 
-    table = [
-        i
-        for i in table
-        if not i['wt_outlier']
-    ]
-
-    dump_csv(folder / (file_name + 'no_outlier.csv'), table)
+    # remove outlier
+    # table = [
+    #     i
+    #     for i in table
+    #     if not i['wt_outlier']
+    # ]
+    # dump_csv(folder / (file_name + 'no_outlier.csv'), table)
 
     # mark_outlier(
     #     table, 'control_ic50', 'assay_outlier',
@@ -204,6 +207,7 @@ def gen_omicron_wildtype_ic50(
 
     process_virus_assay(table, folder / report_file_name1)
 
+    # analyzing different assay
     [
         i.update({
             'w_614G': (
@@ -454,75 +458,6 @@ def process_virus_assay(table, file_path):
     dump_csv(file_path, stat_detail)
 
 
-def process_statistics(table, file_path, column_name, outlier_col):
-
-    results = []
-
-    for mab, mab_rec_list in group_records_by(table, column_name).items():
-        num_ref = len(set([
-            i['_ref_name']
-            for i in mab_rec_list
-        ]))
-        ic_50_list = sorted([
-            i['control_ic50']
-            for i in mab_rec_list
-        ])
-        iqr25, iqr75 = np.percentile(ic_50_list, [25, 75])
-
-        low = ic_50_list[0]
-        high = ic_50_list[-1]
-        fold = round_number(high / low)
-
-        ic_50_list_no_outlier = sorted([
-            i['control_ic50']
-            for i in mab_rec_list
-            if not i['wt_outlier']
-        ])
-        fold_no_outlier = round_number(
-            ic_50_list_no_outlier[-1] /
-            ic_50_list_no_outlier[0]
-        )
-
-        med = round_number(median(ic_50_list))
-
-        low_outliers = sorted(set(
-                [
-                    i['_ref_name']
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                    and i['control_ic50'] <= med
-                ]))
-
-        high_outliers = sorted(set(
-                [
-                    i['_ref_name']
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                    and i['control_ic50'] >= med
-                ]))
-
-
-
-        rec = {
-            'mab': mab,
-            '#ref': num_ref,
-            '#result': len(mab_rec_list),
-            'median': med,
-            'low': low,
-            'high': high,
-            'fold': fold,
-            'fold_no_outlier': fold_no_outlier,
-            'iqr25': round_number(iqr25),
-            'iqr75': round_number(iqr75),
-            '#low_out': len(low_outliers),
-            'low_out': ','.join(low_outliers),
-            '#high_out': len(high_outliers),
-            'high_out': ','.join(high_outliers),
-        }
-        results.append(rec)
-    dump_csv(file_path, results)
-
-
 def create_assay_statistics(
         table,
         file_path,
@@ -609,3 +544,34 @@ def draw_figures_assay_cell_line(ax, table, col1, col2):
     ax.set_xlabel('')
     ax.set_ylabel('')
     # ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+
+def draw_figures_mab_and_assay(table, save_folder):
+    fig, ax = plt.subplots(figsize=(15, 8))
+
+    [
+        i.update({
+            'x': f"{i['mAb']}-{i['assay']}"
+        })
+        for i in table
+    ]
+    table.sort(key=itemgetter('x'))
+
+    ax.scatter(
+        [
+            i['x']
+            for i in table
+        ],
+        [
+            i['control_ic50']
+            for i in table
+        ]
+    )
+    ax.set_yscale('log', base=10)
+
+    for tick in ax.get_xticklabels():
+        tick.set_rotation(90)
+
+    plt.savefig(
+        str(save_folder / 'mab_and_assay_group.svg'),
+        format='svg')

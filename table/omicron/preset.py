@@ -110,124 +110,23 @@ def gen_omicron_mab_titer_fold(
     dump_supplementary_table(
         copy.deepcopy(save_results), stat_data_path)
 
-    headers = [
-        'ref_name',
-        'section',
-        'rx_name',
-        'ab_name',
-        'control_var_name',
+    process_statistics(
+        save_results, stat_data_path.parent / (
+            stat_data_path.stem + '_wt' + '.csv'),
         'control_ic50',
-        'test_var_name',
-        'test_ic50',
-        'fold_cmp',
-        'fold',
-        'as_wildtype',
-        'assay_name',
-        'test_ic50_cmp',
-        'control_ic50_cmp',
-        '_ref_name',
-        'assay_group',
-        'mAb',
-        'median_control_ic50',
-        'min_control_ic50',
-        'max_control_ic50',
-        'iqr_25_control_ic50',
-        'iqr_75_control_ic50',
-        'wt_log_median',
-        'wt_log_mad',
-        'wt_outlier',
-    ]
-    dump_csv(
-        stat_data_path.parent / (stat_data_path.stem + '_0' + '.csv'),
-        save_results, headers=headers)
+        'ab_name', 'wt_outlier')
 
-    headers = [
-        'ref_name',
-        'section',
-        'rx_name',
-        'ab_name',
-        'control_var_name',
-        'control_ic50',
-        'test_var_name',
+    process_statistics(
+        save_results, stat_data_path.parent / (
+            stat_data_path.stem + '_omicron' + '.csv'),
         'test_ic50',
-        'fold_cmp',
-        'fold',
-        'as_wildtype',
-        'assay_name',
-        'test_ic50_cmp',
-        'control_ic50_cmp',
-        '_ref_name',
-        'assay_group',
-        'mAb',
-        'median_test_ic50',
-        'min_test_ic50',
-        'max_test_ic50',
-        'iqr_25_test_ic50',
-        'iqr_75_test_ic50',
-        'omicron_log_median',
-        'omicron_log_mad',
-        'omicron_outlier',
-    ]
-    dump_csv(
-        stat_data_path.parent / (stat_data_path.stem + '_1' + '.csv'),
-        save_results, headers=headers)
+        'ab_name', 'omicron_outlier')
 
-    headers = [
-        'ref_name',
-        'section',
-        'rx_name',
-        'ab_name',
-        'control_var_name',
-        'control_ic50',
-        'test_var_name',
-        'test_ic50',
-        'fold_cmp',
+    process_statistics(
+        save_results, stat_data_path.parent / (
+            stat_data_path.stem + '_fold' + '.csv'),
         'fold',
-        'as_wildtype',
-        'assay_name',
-        'test_ic50_cmp',
-        'control_ic50_cmp',
-        '_ref_name',
-        'assay_group',
-        'mAb',
-        'median_fold',
-        'min_fold',
-        'max_fold',
-        'iqr_25_fold',
-        'iqr_75_fold',
-        'fold_log_median',
-        'fold_log_mad',
-        'fold_outlier',
-        'r-value',
-        'p-value',
-    ]
-    dump_csv(
-        stat_data_path.parent / (stat_data_path.stem + '_2' + '.csv'),
-        save_results, headers=headers)
-
-    headers = [
-        'ref_name',
-        'section',
-        'rx_name',
-        'ab_name',
-        'control_var_name',
-        'control_ic50',
-        'test_var_name',
-        'test_ic50',
-        'fold_cmp',
-        'fold',
-        'as_wildtype',
-        'assay_name',
-        'test_ic50_cmp',
-        'control_ic50_cmp',
-        '_ref_name',
-        'assay_group',
-        'mAb',
-        'wildtype_ic50_fold',
-    ]
-    dump_csv(
-        stat_data_path.parent / (stat_data_path.stem + '_3' + '.csv'),
-        save_results, headers=headers)
+        'ab_name', 'fold_outlier')
 
     # Dump figure data
     save_results = adjust_titer_and_fold_1(copy.deepcopy(records))
@@ -620,3 +519,80 @@ def dump_supplementary_table(table, stat_data_path):
     dump_csv(
         stat_data_path.parent / (stat_data_path.stem + '_supply' + '.csv'),
         table, headers=headers)
+
+
+def process_statistics(
+        table, file_path,
+        calc_column,
+        column_name,
+        outlier_col):
+
+    table = [
+        i
+        for i in table
+        if i[calc_column]
+    ]
+
+    results = []
+
+    for mab, mab_rec_list in group_records_by(table, column_name).items():
+        num_ref = len(set([
+            i['_ref_name']
+            for i in mab_rec_list
+        ]))
+        ic_50_list = sorted([
+            i[calc_column]
+            for i in mab_rec_list
+        ])
+        iqr25, iqr75 = np.percentile(ic_50_list, [25, 75])
+
+        low = ic_50_list[0]
+        high = ic_50_list[-1]
+        fold = round_number(high / low)
+
+        ic_50_list_no_outlier = sorted([
+            i[calc_column]
+            for i in mab_rec_list
+            if not i[outlier_col]
+        ])
+        fold_no_outlier = round_number(
+            ic_50_list_no_outlier[-1] /
+            ic_50_list_no_outlier[0]
+        )
+
+        med = round_number(median(ic_50_list))
+
+        low_outliers = sorted(set(
+                [
+                    i['_ref_name']
+                    for i in mab_rec_list
+                    if i[outlier_col]
+                    and i[calc_column] <= med
+                ]))
+
+        high_outliers = sorted(set(
+                [
+                    i['_ref_name']
+                    for i in mab_rec_list
+                    if i[outlier_col]
+                    and i[calc_column] >= med
+                ]))
+
+        rec = {
+            'mab': mab,
+            '#ref': num_ref,
+            '#result': len(mab_rec_list),
+            'median': med,
+            'low': low,
+            'high': high,
+            f'fold_{calc_column}': fold,
+            'fold_no_outlier': fold_no_outlier,
+            'iqr25': round_number(iqr25),
+            'iqr75': round_number(iqr75),
+            '#low_out': len(low_outliers),
+            'low_out': ','.join(low_outliers),
+            '#high_out': len(high_outliers),
+            'high_out': ','.join(high_outliers),
+        }
+        results.append(rec)
+    dump_csv(file_path, results)
