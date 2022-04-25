@@ -150,6 +150,48 @@ KEY_MUTATIONS = {
             "mut.single_mut_name = 'T478K'"
         ]
     },
+    'S371F': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S371F'"
+        ]
+    },
+    'S371L': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'S371L'"
+        ]
+    },
+    'D405N': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'D405N'"
+        ]
+    },
+    'N440K': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'N440K'"
+        ]
+    },
+    'G446S': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'G446S'"
+        ]
+    },
+    'E484A': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'E484A'"
+        ]
+    },
+    'Q493R': {
+        'iso_type': 'isolate_mutations_single_s_mut_view',
+        'filter': [
+            "mut.single_mut_name = 'Q493R'"
+        ]
+    },
 }
 
 
@@ -456,6 +498,18 @@ KEY_VARIANTS = {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
             "mut.var_name = 'Omicron/BA.2'"
+        ]
+    },
+    'Lambda': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
+        'filter': [
+            "mut.var_name = 'Lambda'"
+        ]
+    },
+    'Mu': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
+        'filter': [
+            "mut.var_name = 'Mu'"
         ]
     },
 }

@@ -37,11 +37,6 @@ SHOW_MABS = {
     'DXP-604': 'DXP604',
 }
 
-DATA_PROBLEM = [
-    ('Alpha', 'sot'),
-    ('N501Y', 'sot'),
-]
-
 
 COLOR_SETTING = {
     'resistant': {
@@ -152,13 +147,6 @@ def process_record(variant, records):
             fold = str(round_fold(medium_value))
         # num_rec_list = len(set([row['ref_name'] for i in rec_list]))
         num_rec_list = len(rec_list)
-
-        # tmpl = '{}<sub>{}</sub>'
-        for s, m in DATA_PROBLEM:
-            if s == variant and m == short_name:
-                # tmpl += '*'
-                fold = fold + '*'
-                break
 
         result[short_name]['fold'] = fold
         result[short_name]['fold_cmp'] = fold_cmp

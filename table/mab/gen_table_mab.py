@@ -20,6 +20,8 @@ SHOW_VARIANT = [
     'Iota',
     'Epsilon',
     'Kappa',
+    'Lambda',
+    'Mu',
     'N501Y',
     'E484K',
     'K417N',
@@ -29,6 +31,14 @@ SHOW_VARIANT = [
     'Y453F',
     'F490S',
     'S494P',
+    'S371F',
+    'S371L',
+    'D405N',
+    'N440K',
+    'G446S',
+    'E484A',
+    'Q493R',
+    ''
 ]
 
 SHOW_MABS = {
@@ -56,10 +66,10 @@ SHOW_MABS = {
     'DXP-604': 'DXP604',
 }
 
-DATA_PROBLEM = [
-    ('Alpha', 'sot'),
-    ('N501Y', 'sot'),
-]
+# DATA_PROBLEM = [
+#     ('Alpha', 'sot'),
+#     ('N501Y', 'sot'),
+# ]
 
 
 COLOR_SETTING = {
@@ -175,11 +185,11 @@ def process_record(variant, records):
         num_rec_list = len(rec_list)
 
         # tmpl = '{}<sub>{}</sub>'
-        for s, m in DATA_PROBLEM:
-            if s == variant and m == short_name:
-                # tmpl += '*'
-                fold = fold + '*'
-                break
+        # for s, m in DATA_PROBLEM:
+        #     if s == variant and m == short_name:
+        #         # tmpl += '*'
+        #         fold = fold + '*'
+        #         break
 
         result[short_name]['fold'] = fold
         result[short_name]['fold_cmp'] = fold_cmp

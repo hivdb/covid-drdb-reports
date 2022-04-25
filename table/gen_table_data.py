@@ -91,8 +91,8 @@ def gen_report(db_path):
     gen_omicron_assay(conn)
     gen_ba_1_s_pattern(conn)
     gen_omicron_wildtype_ic50(conn)
-    gen_omicron_single_mut(conn)
-    gen_omicron_titer_fold_ba1_compare(conn)
+    # gen_omicron_single_mut(conn)
+    # gen_omicron_titer_fold_ba1_compare(conn)
     return
 
     gen_table_mab_omicron_muts(conn)

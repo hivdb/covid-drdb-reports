@@ -14,7 +14,7 @@ import numpy as np
 from .preset import mark_outlier
 from preset import round_number
 from mpl_toolkits.mplot3d import Axes3D
-
+from scipy import stats
 
 
 SQL = """
@@ -183,6 +183,8 @@ def gen_omicron_wildtype_ic50(
         'Casirivimab/Imdevimab',
         'Cilgavimab/Tixagevimab',
         'Bamlanivimab/Etesevimab',
+        'Adintrevimab',
+        'Regdanvimab',
     ]
 
     table = [i for i in table if i['ab_name'] in mab_list]
@@ -191,7 +193,7 @@ def gen_omicron_wildtype_ic50(
         i.update({
             'cell_line': (
                 'other'
-                if i['cell_line'] not in ['Vero', '293T']
+                if i['cell_line'] not in ['Vero', '293T', 'Huh-7']
                 else i['cell_line']
             ),
             'receptor': (
@@ -226,6 +228,42 @@ def gen_omicron_wildtype_ic50(
     create_assay_statistics(
         table, folder / 'wt_ic50_mab_cell_line.csv',
         'ab_name', 'cell_line')
+
+    _table = [
+        i
+        for i in table
+        if i['assay'] == 'AV'
+    ]
+    create_assay_statistics(
+        _table, folder / 'wt_ic50_mab_cell_line_AV.csv',
+        'ab_name', 'cell_line')
+
+    _table = [
+        i
+        for i in table
+        if i['assay'] == 'PV'
+    ]
+    create_assay_statistics(
+        _table, folder / 'wt_ic50_mab_cell_line_PV.csv',
+        'ab_name', 'cell_line')
+
+    _table = [
+        i
+        for i in table
+        if i['assay'] == 'PV'
+    ]
+    create_assay_statistics(
+        _table, folder / 'wt_ic50_mab_receptor_PV.csv',
+        'ab_name', 'receptor')
+
+    _table = [
+        i
+        for i in table
+        if i['assay'] == 'AV'
+    ]
+    create_assay_statistics(
+        _table, folder / 'wt_ic50_mab_receptor_AV.csv',
+        'ab_name', 'receptor')
 
     create_assay_statistics(
         table, folder / 'wt_ic50_mab_receptor.csv',
@@ -547,15 +585,96 @@ def draw_figures_assay_cell_line(ax, table, col1, col2):
 
 
 def draw_figures_mab_and_assay(table, save_folder):
-    fig, ax = plt.subplots(figsize=(15, 8))
+    fig, ax = plt.subplots(figsize=(15, 9))
 
     [
         i.update({
-            'x': f"{i['mAb']}-{i['assay']}"
+            'xlabel': f"{i['mAb']}-{i['assay']}"
         })
         for i in table
     ]
-    table.sort(key=itemgetter('x'))
+
+    _table = []
+    for mab, mab_list in group_records_by(table, 'mAb').items():
+        pv = [
+            i
+            for i in mab_list
+            if i['assay'] == 'PV'
+        ]
+        av = [
+            i
+            for i in mab_list
+            if i['assay'] == 'AV'
+        ]
+        if len(pv) < 2 or len(av) < 2:
+            continue
+        _table.extend(mab_list)
+
+    table = _table
+
+    ORDER = [
+        'BAM', 'ETE', 'BAM/ETE', 'CAS', "IMD", 'CAS/IMD', 'SOT', 'CIL', 'TIX',
+        'CIL/TIX', 'ADG20', "REG",
+    ]
+
+    _table = []
+    box_plot_data = []
+    median_values = []
+    lables = []
+    ticks = []
+    p_values = []
+    for o in ORDER:
+        _list = [
+            i
+            for i in table
+            if i['mAb'] == o
+        ]
+        pv_list = [
+            i
+            for i in _list
+            if i['assay'] == 'PV'
+        ]
+        av_list = [
+            i
+            for i in _list
+            if i['assay'] == 'AV'
+        ]
+        [
+            i.update({'x': ORDER.index(o) * 2 + 1})
+            for i in av_list
+        ]
+        [
+            i.update({'x': ORDER.index(o) * 2 + 1.7})
+            for i in pv_list
+        ]
+        lables.append(av_list[0]['xlabel'])
+        ticks.append(ORDER.index(o) * 2 + 1)
+        lables.append(pv_list[0]['xlabel'])
+        ticks.append(ORDER.index(o) * 2 + 1.7)
+
+        _table.extend(av_list)
+        _table.extend(pv_list)
+
+        pv_ic50 = [
+            i['control_ic50']
+            for i in pv_list
+        ]
+        av_ic50 = [
+            i['control_ic50']
+            for i in av_list
+        ]
+        median_values.append((
+            median(av_ic50), median(pv_ic50)
+        ))
+        box_plot_data.append(av_ic50)
+        box_plot_data.append(pv_ic50)
+        r, p = stats.ranksums(av_ic50, pv_ic50)
+        p_values.append(round_number(p))
+
+    fold_values = []
+    for i, j in median_values:
+        fold = round_number(i/j)
+        fold_values.append(fold)
 
     ax.scatter(
         [
@@ -565,12 +684,41 @@ def draw_figures_mab_and_assay(table, save_folder):
         [
             i['control_ic50']
             for i in table
+        ],
+        color=[
+            'orangered' if i['assay'] == 'AV' else 'deepskyblue'
+            for i in table
         ]
     )
     ax.set_yscale('log', base=10)
+    ax.set_xticks(ticks)
+    ax.set_xticklabels(lables)
 
     for tick in ax.get_xticklabels():
         tick.set_rotation(90)
+
+    # [ax.axvline(x, color = 'r', linestyle='--') for x in [1,2,3,4]]
+    for i in range(len(ORDER)):
+        x1 = i * 2 + 1
+        x2 = i * 2 + 1.7
+        ax.hlines(y=7000, xmin=x1, xmax=x2, color='black')
+        ax.vlines(x=x1, ymin=5000, ymax=7000, color='black')
+        ax.vlines(x=x2, ymin=5000, ymax=7000, color='black')
+        fold_value = fold_values[i]
+        p_value = p_values[i]
+        ax.text(i * 2 + 1 + 0.1, 8000, f'{fold_value}')
+
+        av_median, pv_median = median_values[i]
+        ax.hlines(
+            y=av_median, xmin=x1 - 0.3, xmax=x1 + 0.3,
+            color='black')
+        ax.hlines(
+            y=pv_median, xmin=x2 - 0.3, xmax=x2 + 0.3,
+            color='black')
+
+    # ax.boxplot(box_plot_data)
+    # ax.set_xticks(ticks)
+    # ax.set_xticklabels(lables)
 
     plt.savefig(
         str(save_folder / 'mab_and_assay_group.svg'),
