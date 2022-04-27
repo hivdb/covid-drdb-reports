@@ -65,7 +65,7 @@ CATEGORY_COLOR = [
 
 
 def gen_omicron_mab_titer_fold(
-        conn, sql,
+        conn, sql, variant,
         raw_save_path,
         stat_data_path,
         figure_data_path,
@@ -88,7 +88,9 @@ def gen_omicron_mab_titer_fold(
     save_results = copy.deepcopy(records)
     save_results = [
         i for i in save_results
-        if not (i['ref_name'].startswith('FDA') and i['fold'] == 1 and i['ab_name'] == 'Sotrovimab')
+        if not (
+            i['ref_name'].startswith('FDA') and
+            i['fold'] == 1 and i['ab_name'] == 'Sotrovimab')
     ]
     save_results = mark_outlier(
         save_results, 'control_ic50', 'wt_outlier',
@@ -108,7 +110,7 @@ def gen_omicron_mab_titer_fold(
     calc_median_fold_iqr(save_results, iqr_save_path)
 
     dump_supplementary_table(
-        copy.deepcopy(save_results), stat_data_path)
+        copy.deepcopy(save_results), stat_data_path, variant)
 
     process_statistics(
         save_results, stat_data_path.parent / (
@@ -174,10 +176,6 @@ def skip_rec(rec):
     #         return True
 
     if rec['ref_name'] == 'Cameroni21':
-        if rec['assay_name'] == 'Virus isolate':
-            return True
-
-    if rec['ref_name'] == 'Cao22':
         if rec['assay_name'] == 'Virus isolate':
             return True
 
@@ -450,7 +448,7 @@ def calc_mad(records):
     return mad
 
 
-def dump_supplementary_table(table, stat_data_path):
+def dump_supplementary_table(table, stat_data_path, variant):
     [
         i.update({
             'fold': round_number(i['fold'])
@@ -506,10 +504,16 @@ def dump_supplementary_table(table, stat_data_path):
         for i in table
     ]
 
+    [
+        i.update({'variants': variant})
+        for i in table
+    ]
+
     headers = [
         'ref_name',
         'section',
         'ab_name',
+        'variants',
         'control_var_name',
         'control_ic50',
         'test_ic50',
@@ -562,7 +566,7 @@ def process_statistics(
 
         med = round_number(median(ic_50_list))
 
-        low_outliers = sorted(set(
+        low_outliers_ref = sorted(set(
                 [
                     i['_ref_name']
                     for i in mab_rec_list
@@ -570,7 +574,15 @@ def process_statistics(
                     and i[calc_column] <= med
                 ]))
 
-        high_outliers = sorted(set(
+        low_outliers_value = sorted(
+                [
+                    i[calc_column]
+                    for i in mab_rec_list
+                    if i[outlier_col]
+                    and i[calc_column] <= med
+                ])
+
+        high_outliers_ref = sorted(set(
                 [
                     i['_ref_name']
                     for i in mab_rec_list
@@ -578,21 +590,44 @@ def process_statistics(
                     and i[calc_column] >= med
                 ]))
 
+        high_outliers_value = sorted(
+                [
+                    i[calc_column]
+                    for i in mab_rec_list
+                    if i[outlier_col]
+                    and i[calc_column] >= med
+                ])
+
         rec = {
             'mab': mab,
             '#ref': num_ref,
             '#result': len(mab_rec_list),
-            'median': med,
-            'low': low,
-            'high': high,
-            f'fold_{calc_column}': fold,
-            'fold_no_outlier': fold_no_outlier,
+            'median': round_number(med),
+            'low': round_number(low),
+            'high': round_number(high),
+            'high/low': fold,
+            # 'fold_no_outlier': fold_no_outlier,
             'iqr25': round_number(iqr25),
             'iqr75': round_number(iqr75),
-            '#low_out': len(low_outliers),
-            'low_out': ','.join(low_outliers),
-            '#high_out': len(high_outliers),
-            'high_out': ','.join(high_outliers),
+            '#low_out': len(low_outliers_value),
+            'low_out_ref': ','.join(low_outliers_ref),
+            'low_out_value': ';'.join(
+                [str(round_number(i)) for i in low_outliers_value]),
+            '#high_out': len(high_outliers_value),
+            'high_out': ','.join(high_outliers_ref),
+            'high_out_value': ';'.join(
+                [str(round_number(i)) for i in high_outliers_value]),
         }
         results.append(rec)
     dump_csv(file_path, results)
+
+
+MAB_ORDER = [
+        'BAM', 'ETE', 'BAM/ETE',
+        'CAS', 'IMD', 'CAS/IMD',
+        'SOT',
+        'CIL', 'TIX', 'CIL/TIX',
+        'BEB', 'ADI', 'REG',
+        'AMU', 'ROM', 'AMU/ROM',
+        'C135', 'C144', 'C135/C144',
+]

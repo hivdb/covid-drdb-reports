@@ -2,7 +2,7 @@ from preset import group_records_by
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
-
+from .preset import MAB_ORDER
 
 SQL = """
 SELECT
@@ -45,7 +45,7 @@ AB_NAME_MAP = {
     'Cilgavimab/Tixagevimab': 'CIL/TIX',
     'Sotrovimab': 'SOT',
     'Regdanvimab': 'REG',
-    'Adintrevimab': 'ADG20',
+    'Adintrevimab': 'ADI',
     'Bebtelovimab': 'BEB',
     'Amubarvimab': 'AMU/ROM',
     'Romlusevimab': 'AMU/ROM',
@@ -114,13 +114,44 @@ def gen_omicron_ref_info(
         rec['BA.1'] = 1 if ref_name in ba_1_list else 0
         rec['BA.2'] = 1 if ref_name in ba_2_list else 0
         rec['BA.1.1'] = 1 if ref_name in ba_1_1_list else 0
-        for ab_name in all_ab_name:
-            if ab_name not in AB_NAME_MAP.keys():
-                continue
+        variants = []
+        for v, l in {
+                'BA.1': ba_1_list,
+                'BA.2': ba_2_list,
+                'BA.1.1': ba_1_1_list}.items():
+            if ref_name in l:
+                variants.append(v)
+        rec['variants'] = ','.join(variants)
+
+        mabs = []
+
+        _all_ab_name = [
+            AB_NAME_MAP[i]
+            for i in all_ab_name
+            if i in AB_NAME_MAP
+        ]
+        _all_ab_name = list(set(_all_ab_name))
+
+        ref_ab_name = [
+            AB_NAME_MAP[i]
+            for i in all_ab_name
+            if i in AB_NAME_MAP and i in ref_ab_name
+
+        ]
+
+        for ab_name in _all_ab_name:
             if ab_name in ref_ab_name:
-                rec[AB_NAME_MAP[ab_name]] = 1
+                rec[ab_name] = 1
+                mabs.append(ab_name)
             else:
-                rec[AB_NAME_MAP[ab_name]] = 0
+                rec[ab_name] = 0
+
+        rec['mabs'] = ','.join(
+            sorted(
+                list(set(mabs)),
+                key=lambda x: MAB_ORDER.index(x)
+            )
+        )
 
         detail_records.append(rec)
 

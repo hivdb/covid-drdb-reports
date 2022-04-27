@@ -15,6 +15,7 @@ from .preset import mark_outlier
 from preset import round_number
 from mpl_toolkits.mplot3d import Axes3D
 from scipy import stats
+from .preset import MAB_ORDER
 
 
 SQL = """
@@ -612,9 +613,13 @@ def draw_figures_mab_and_assay(table, save_folder):
 
     table = _table
 
-    ORDER = [
-        'BAM', 'ETE', 'BAM/ETE', 'CAS', "IMD", 'CAS/IMD', 'SOT', 'CIL', 'TIX',
-        'CIL/TIX', 'ADG20', "REG",
+    figure_mab_order = [
+        i
+        for i in MAB_ORDER
+        if i in [
+            j['mAb']
+            for j in table
+        ]
     ]
 
     _table = []
@@ -623,7 +628,7 @@ def draw_figures_mab_and_assay(table, save_folder):
     lables = []
     ticks = []
     p_values = []
-    for o in ORDER:
+    for o in figure_mab_order:
         _list = [
             i
             for i in table
@@ -640,17 +645,17 @@ def draw_figures_mab_and_assay(table, save_folder):
             if i['assay'] == 'AV'
         ]
         [
-            i.update({'x': ORDER.index(o) * 2 + 1})
+            i.update({'x': figure_mab_order.index(o) * 2 + 1})
             for i in av_list
         ]
         [
-            i.update({'x': ORDER.index(o) * 2 + 1.7})
+            i.update({'x': figure_mab_order.index(o) * 2 + 1.7})
             for i in pv_list
         ]
         lables.append(av_list[0]['xlabel'])
-        ticks.append(ORDER.index(o) * 2 + 1)
+        ticks.append(figure_mab_order.index(o) * 2 + 1)
         lables.append(pv_list[0]['xlabel'])
-        ticks.append(ORDER.index(o) * 2 + 1.7)
+        ticks.append(figure_mab_order.index(o) * 2 + 1.7)
 
         _table.extend(av_list)
         _table.extend(pv_list)
@@ -698,7 +703,7 @@ def draw_figures_mab_and_assay(table, save_folder):
         tick.set_rotation(90)
 
     # [ax.axvline(x, color = 'r', linestyle='--') for x in [1,2,3,4]]
-    for i in range(len(ORDER)):
+    for i in range(len(figure_mab_order)):
         x1 = i * 2 + 1
         x2 = i * 2 + 1.7
         ax.hlines(y=7000, xmin=x1, xmax=x2, color='black')
@@ -706,7 +711,8 @@ def draw_figures_mab_and_assay(table, save_folder):
         ax.vlines(x=x2, ymin=5000, ymax=7000, color='black')
         fold_value = fold_values[i]
         p_value = p_values[i]
-        ax.text(i * 2 + 1 + 0.1, 8000, f'{fold_value}')
+        p_value_star = '*' if p_value < 0.05 else ''
+        ax.text(i * 2 + 1 + 0.1, 8000, f'{fold_value}{p_value_star}')
 
         av_median, pv_median = median_values[i]
         ax.hlines(

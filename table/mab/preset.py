@@ -10,7 +10,7 @@ MAIN_MAB = {
     'Cilgavimab/Tixagevimab': 'CIL/TIX',
     'Sotrovimab': 'SOT',
     'Regdanvimab': 'REG',
-    'Adintrevimab': 'ADG20',
+    'Adintrevimab': 'ADI',
     'Bebtelovimab': 'BEB',
     'Amubarvimab': 'AMU',
     'Romlusevimab': 'ROM',

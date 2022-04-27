@@ -122,6 +122,7 @@ def gen_omicron_titer_fold(conn):
         variant_name = variant.split('/', 1)[-1]
         gen_omicron_mab_titer_fold(
             conn, sql,
+            variant,
             omicron_path / f'{variant_name}_raw_data.csv',
             omicron_path / f'{variant_name}_stat_data.csv',
             omicron_path / f'{variant_name}_figure_data.csv',
