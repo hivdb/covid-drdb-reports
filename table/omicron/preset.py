@@ -414,8 +414,9 @@ def calc_median_fold_iqr(table, file_name):
 
     results = []
     for ab_name in ab_name_list:
-        fold_list = sorted([r['fold'] for r in table if r['mAb'] == ab_name])
-        ref_list = set([r['_ref_name'] for r in table if r['mAb'] == ab_name])
+        ab_rec_list = [r for r in table if r['mAb'] == ab_name]
+        fold_list = sorted([r['fold'] for r in ab_rec_list])
+        ref_list = set([r['_ref_name'] for r in ab_rec_list])
         median_fold = median(fold_list)
         if len(fold_list) < 4:
             iqr_fold = []
@@ -430,8 +431,11 @@ def calc_median_fold_iqr(table, file_name):
             'min': round_number(fold_list[0]),
             'max': round_number(fold_list[-1]),
             'fold range': round_number(fold_list[-1] / fold_list[0]),
-            'num_ref': len(ref_list),
-            'ref_names': ', '.join(list(sorted(ref_list)))
+            '#ref': len(ref_list),
+            '#results': len(fold_list),
+            'ref_names': ', '.join(list(sorted(ref_list))),
+            'r-value': ab_rec_list[-1]['r-value'],
+            'p-value': ab_rec_list[-1]['p-value'],
         }
         results.append(rec)
 
@@ -476,7 +480,7 @@ def dump_supplementary_table(table, stat_data_path, variant):
                     i.get('test_ic50_cmp'),
                     i.get('test_ic50')
                 )
-                if i.get('test_ic50_cmp') and i['test_ic50_cmp'] == '='
+                if i.get('test_ic50_cmp') and i['test_ic50_cmp'] != '='
                 else i.get('test_ic50', '')
             ),
         })
@@ -496,9 +500,9 @@ def dump_supplementary_table(table, stat_data_path, variant):
                 else i['fold']
             ),
             'omicron_ic50': (
-                f"{i['test_ic50']}*"
-                if i['test_ic50'] and i['omicron_outlier']
-                else i['test_ic50']
+                f"{i['omicron_ic50']}*"
+                if i['omicron_ic50'] and i['omicron_outlier']
+                else i['omicron_ic50']
             ),
         })
         for i in table
@@ -516,7 +520,7 @@ def dump_supplementary_table(table, stat_data_path, variant):
         'variants',
         'control_var_name',
         'control_ic50',
-        'test_ic50',
+        'omicron_ic50',
         'fold',
     ]
 
@@ -566,6 +570,30 @@ def process_statistics(
 
         med = round_number(median(ic_50_list))
 
+        low_outliers = [
+            i
+            for i in mab_rec_list
+            if i[outlier_col]
+            and i[calc_column] <= med
+        ]
+        low_outliers.sort(key=itemgetter(calc_column))
+        low_outliers_fmt = [
+            f"{i['_ref_name']} ({round_number(i[calc_column])})"
+            for i in low_outliers
+        ]
+
+        high_outliers = [
+            i
+            for i in mab_rec_list
+            if i[outlier_col]
+            and i[calc_column] >= med
+        ]
+        high_outliers.sort(key=itemgetter(calc_column))
+        high_outliers_fmt = [
+            f"{i['_ref_name']} ({round_number(i[calc_column])})"
+            for i in high_outliers
+        ]
+
         low_outliers_ref = sorted(set(
                 [
                     i['_ref_name']
@@ -613,10 +641,12 @@ def process_statistics(
             'low_out_ref': ','.join(low_outliers_ref),
             'low_out_value': ';'.join(
                 [str(round_number(i)) for i in low_outliers_value]),
+            'low_out': ', '.join(low_outliers_fmt),
             '#high_out': len(high_outliers_value),
-            'high_out': ','.join(high_outliers_ref),
+            'high_out_ref': ','.join(high_outliers_ref),
             'high_out_value': ';'.join(
                 [str(round_number(i)) for i in high_outliers_value]),
+            'high_out': ', '.join(high_outliers_fmt),
         }
         results.append(rec)
     dump_csv(file_path, results)

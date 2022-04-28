@@ -1,6 +1,8 @@
+from statistics import median
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from preset import row2dict
+from preset import group_records_by
 
 SQL = """
 SELECT
@@ -102,4 +104,41 @@ def gen_omicron_single_mut(
 
     cursor.execute(SQL)
     table = row2dict(cursor.fetchall())
-    dump_csv(folder / f'omicron_single_mut.csv', table)
+
+    for i, mut_list in group_records_by(table, 'single_mut_name').items():
+        for mab, mab_list in group_records_by(mut_list, 'ab_name').items():
+            med = median([
+                i['fold']
+                for i in mab_list
+            ])
+            fold_values = [
+                i['fold']
+                for i in mab_list
+            ]
+            if med >=5:
+                low_value = min([
+                    i
+                    for i in fold_values
+                    if i >= 5
+                ])
+                high_value = max([
+                    i
+                    for i in fold_values
+                    if i >= 5
+                ])
+                range = f'{low_value}-{high_value}'
+            else:
+                range = ''
+
+            high_value = max(fold_values)
+            low_value = min(fold_values)
+            [
+                r.update({
+                    'median': med,
+                    'range': range,
+                })
+                for r in mab_list
+            ]
+
+
+    dump_csv(folder / 'omicron_single_mut.csv', table)
