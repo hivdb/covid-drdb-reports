@@ -102,6 +102,25 @@ def gen_omicron_mab_titer_fold(
         save_results, 'fold', 'fold_outlier',
         'fold_log_median', 'fold_log_mad')
 
+    draw_mad_outliers(
+        save_results, 'control_ic50',
+        'log IC50 (WT)', 'mAb',
+        stat_data_path.parent / (
+            stat_data_path.stem + '_wt' + '.png')
+    )
+    draw_mad_outliers(
+        save_results, 'test_ic50',
+        'log IC50 (Omicron)', 'mAb',
+        stat_data_path.parent / (
+            stat_data_path.stem + '_omicron' + '.png')
+    )
+    draw_mad_outliers(
+        save_results, 'fold',
+        'log Fold', 'mAb',
+        stat_data_path.parent / (
+            stat_data_path.stem + '_fold' + '.png')
+    )
+
     save_results = calc_pearsonr(save_results)
 
     save_results = calc_wildtype_ic50_fold(save_results)
@@ -116,19 +135,19 @@ def gen_omicron_mab_titer_fold(
         save_results, stat_data_path.parent / (
             stat_data_path.stem + '_wt' + '.csv'),
         'control_ic50',
-        'ab_name', 'wt_outlier')
+        'ab_name', 'wt_outlier', 'wt_log_median', 'wt_log_mad')
 
     process_statistics(
         save_results, stat_data_path.parent / (
             stat_data_path.stem + '_omicron' + '.csv'),
         'test_ic50',
-        'ab_name', 'omicron_outlier')
+        'ab_name', 'omicron_outlier', 'omicron_log_median', 'omicron_log_mad')
 
     process_statistics(
         save_results, stat_data_path.parent / (
             stat_data_path.stem + '_fold' + '.csv'),
         'fold',
-        'ab_name', 'fold_outlier')
+        'ab_name', 'fold_outlier', 'fold_log_median', 'fold_log_mad')
 
     # Dump figure data
     save_results = adjust_titer_and_fold_1(copy.deepcopy(records))
@@ -330,6 +349,9 @@ def mark_outlier(
             rec['iqr_75_{}'.format(calc_column)] = iqr[-1] if iqr else ''
             rec[med_column] = log_median_value
             rec[mad_column] = log_mad
+            rec[f'log_{calc_column}'] = math.log(rec[calc_column], 10) if rec[calc_column] else ''
+            rec[f'abs_dev_log_{calc_column}'] = abs(
+                math.log(rec[calc_column], 10) - log_median_value) if rec[calc_column] else ''
             if not rec[calc_column]:
                 rec[mark_column] = 0
             elif is_mad_outlier(
@@ -533,7 +555,9 @@ def process_statistics(
         table, file_path,
         calc_column,
         column_name,
-        outlier_col):
+        outlier_col,
+        log_median_col,
+        log_mad_col):
 
     table = [
         i
@@ -626,6 +650,8 @@ def process_statistics(
                     and i[calc_column] >= med
                 ])
 
+        log_median = mab_rec_list[0][log_median_col]
+        log_mad = mab_rec_list[0][log_mad_col]
         rec = {
             'mab': mab,
             '#ref': num_ref,
@@ -647,6 +673,8 @@ def process_statistics(
             'high_out_value': ';'.join(
                 [str(round_number(i)) for i in high_outliers_value]),
             'high_out': ', '.join(high_outliers_fmt),
+            'log_median': log_median,
+            'log_mad': log_mad,
         }
         results.append(rec)
     dump_csv(file_path, results)
@@ -661,3 +689,67 @@ MAB_ORDER = [
         'AMU', 'ROM', 'AMU/ROM',
         'C135', 'C144', 'C135/C144',
 ]
+
+
+def draw_mad_outliers(table, column, x_label, y_label, file_path):
+
+    fig, ax = plt.subplots(figsize=(10, 10))
+
+    mab_values = {}
+    mad_values = {}
+    for mab, mab_list in group_records_by(table, 'mAb').items():
+        values = [
+            i[column]
+            for i in mab_list
+            if i[column]
+        ]
+        log_values = [
+            math.log(i, 10)
+            for i in values
+        ]
+        log_median = median(log_values)
+        abs_log_values = [
+            i - log_median
+            for i in log_values
+        ]
+
+        mad = calc_mad(log_values)
+        low = - 2 * mad
+        high = 2 * mad
+        mad_values[mab] = (low, high)
+
+        mab_values[mab] = abs_log_values
+
+    x_list = []
+    y_list = []
+    ticks = []
+    labels = []
+    for odr, mab in enumerate(MAB_ORDER):
+        x_values = mab_values.get(mab, [])
+        if not x_values:
+            continue
+        x_list.extend(x_values)
+        y_list.extend([odr] * len(x_values))
+        ticks.append(odr)
+        labels.append(mab)
+
+    ax.scatter(x_list, y_list)
+
+    for mab, (low, high) in mad_values.items():
+        y = MAB_ORDER.index(mab)
+        ymin = y - 0.2
+        ymax = y + 0.2
+        ax.vlines(x=low, ymin=ymin, ymax=ymax, color='black')
+        ax.vlines(x=high, ymin=ymin, ymax=ymax, color='black')
+        ax.hlines(y=y, xmin=low, xmax=high, color='black')
+
+    ax.set_yticks(ticks)
+    ax.set_yticklabels(labels)
+    ax.set_xticks([-2, -1, 0, 1, 2])
+
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
+    plt.savefig(
+        str(file_path),
+        dpi=300,
+        format='png')

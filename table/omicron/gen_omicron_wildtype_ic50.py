@@ -9,11 +9,12 @@ from statistics import median
 from .preset import process_statistics
 import matplotlib.pyplot as plt
 import pandas as pd
+from .preset import draw_mad_outliers
 import seaborn as sns
 import numpy as np
 from .preset import mark_outlier
 from preset import round_number
-from mpl_toolkits.mplot3d import Axes3D
+# from mpl_toolkits.mplot3d import Axes3D
 from scipy import stats
 from .preset import MAB_ORDER
 
@@ -137,6 +138,13 @@ def gen_omicron_wildtype_ic50(
 
     process_cell_line(table, cell_line_info)
 
+    # Process outliers
+
+    draw_mad_outliers(
+        table, 'control_ic50',
+        'log IC50 (WT)', 'mAb',
+        DATA_FILE_PATH / 'omicron' / 'wt_ic50_mad.png')
+
     mark_outlier(
         table, 'control_ic50', 'wt_outlier',
         'wt_log_median', 'wt_log_mad')
@@ -148,7 +156,8 @@ def gen_omicron_wildtype_ic50(
     process_statistics(
         table, folder / 'wt_ic50_mab_stat.csv',
         'control_ic50',
-        'ab_name', 'wt_outlier')
+        'ab_name', 'wt_outlier',
+        'wt_log_median', 'wt_log_mad')
 
     # remove outlier
     # table = [
@@ -549,8 +558,8 @@ def draw_figures(table, save_folder):
     draw_figures_assay_cell_line(axes[3], table, 'assay', 'control_var_name')
 
     plt.savefig(
-        str(save_folder / 'assay_figure.svg'),
-        format='svg')
+        str(save_folder / 'assay_figure.png'),
+        format='png')
 
 
 def draw_figures_assay_cell_line(ax, table, col1, col2):
@@ -625,7 +634,7 @@ def draw_figures_mab_and_assay(table, save_folder):
     _table = []
     box_plot_data = []
     median_values = []
-    lables = []
+    labels = []
     ticks = []
     p_values = []
     for o in figure_mab_order:
@@ -652,9 +661,9 @@ def draw_figures_mab_and_assay(table, save_folder):
             i.update({'x': figure_mab_order.index(o) * 2 + 1.7})
             for i in pv_list
         ]
-        lables.append(av_list[0]['xlabel'])
+        labels.append(av_list[0]['xlabel'])
         ticks.append(figure_mab_order.index(o) * 2 + 1)
-        lables.append(pv_list[0]['xlabel'])
+        labels.append(pv_list[0]['xlabel'])
         ticks.append(figure_mab_order.index(o) * 2 + 1.7)
 
         _table.extend(av_list)
@@ -697,7 +706,7 @@ def draw_figures_mab_and_assay(table, save_folder):
     )
     ax.set_yscale('log', base=10)
     ax.set_xticks(ticks)
-    ax.set_xticklabels(lables)
+    ax.set_xticklabels(labels)
 
     for tick in ax.get_xticklabels():
         tick.set_rotation(90)
@@ -724,8 +733,8 @@ def draw_figures_mab_and_assay(table, save_folder):
 
     # ax.boxplot(box_plot_data)
     # ax.set_xticks(ticks)
-    # ax.set_xticklabels(lables)
+    # ax.set_xticklabels(labels)
 
     plt.savefig(
-        str(save_folder / 'mab_and_assay_group.svg'),
-        format='svg')
+        str(save_folder / 'mab_and_assay_group.png'),
+        format='png')

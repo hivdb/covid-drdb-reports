@@ -138,7 +138,7 @@
 
 #     # draw_figure(
 #     #     save_results,
-#     #     figure_save_path=DATA_FILE_PATH / 'omicron' / 'omicron_mab.svg')
+#     #     figure_save_path=DATA_FILE_PATH / 'omicron' / 'omicron_mab.png')
 
 #     draw_tree_figure(save_results)
 
@@ -155,8 +155,8 @@
 #     draw_mab_figure(records, 'BAM/ETE', axes[2], 7, 5)
 
 #     plt.savefig(
-#         str(DATA_FILE_PATH / 'omicron' / 'omicron_tree.svg'),
-#         format='svg', bbox_inches='tight')
+#         str(DATA_FILE_PATH / 'omicron' / 'omicron_tree.png'),
+#         format='png', bbox_inches='tight')
 
 
 # def draw_mab_figure(records, mab, ax, width, height):
@@ -316,7 +316,7 @@
 #     draw_legend(axes[rows-1, cols-2], colors_map)
 #     fig.subplots_adjust(wspace=0, hspace=0)
 
-#     plt.savefig(str(figure_save_path), format='svg', bbox_inches='tight')
+#     plt.savefig(str(figure_save_path), format='png', bbox_inches='tight')
 
 
 # def draw_legend(ax, colors_map):
