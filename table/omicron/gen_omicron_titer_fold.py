@@ -1,5 +1,8 @@
 from .preset import gen_omicron_mab_titer_fold
 from preset import DATA_FILE_PATH
+from .preset import draw_mad_outliers_bin
+from .preset import draw_mad_outliers
+from preset import load_csv
 
 SUMMARY_SQL = """
 SELECT DISTINCT
@@ -127,3 +130,26 @@ def gen_omicron_titer_fold(conn):
             omicron_path / f'{variant_name}_stat_data.csv',
             omicron_path / f'{variant_name}_figure_data.csv',
             omicron_path / f'{variant_name}_iqr_data.csv')
+
+    table_list = []
+    table_list2 = []
+    for variant in ['Omicron/BA.1', 'Omicron/BA.2']:
+        sql = SUMMARY_SQL.format(variant=variant)
+        variant_name = variant.split('/', 1)[-1]
+        table = load_csv(omicron_path / f'{variant_name}_stat_data.csv')
+        [
+            i.update({'fold': float(i['fold'])})
+            for i in table
+        ]
+        table_list.append(table)
+        table_list2.extend(table)
+
+    draw_mad_outliers_bin(
+        table_list[0], table_list[1], 'fold',
+        'fold change to median Fold', 'mAb',
+        omicron_path / 'BA_1_BA_2_fold.png')
+
+    draw_mad_outliers(
+        table_list2, 'fold',
+        'fold change to median Fold', 'mAb',
+        omicron_path / 'BA_1_BA_2_fold2.png')

@@ -142,7 +142,7 @@ def gen_omicron_wildtype_ic50(
 
     draw_mad_outliers(
         table, 'control_ic50',
-        'log IC50 (WT)', 'mAb',
+        'fold change to median IC50 (WT)', 'mAb',
         DATA_FILE_PATH / 'omicron' / 'wt_ic50_mad.png')
 
     mark_outlier(

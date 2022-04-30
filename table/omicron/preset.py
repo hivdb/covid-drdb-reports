@@ -1,4 +1,5 @@
 from ast import Or
+from re import I
 from preset import row2dict
 from preset import dump_csv
 from operator import itemgetter
@@ -11,6 +12,8 @@ from mab.preset import MAIN_MAB
 from preset import group_records_by
 import copy
 from scipy import stats
+from matplotlib.ticker import MaxNLocator
+
 
 # D3 category20
 # CATEGORY_COLOR = [
@@ -104,19 +107,19 @@ def gen_omicron_mab_titer_fold(
 
     draw_mad_outliers(
         save_results, 'control_ic50',
-        'log IC50 (WT)', 'mAb',
+        'fold change to median IC50 (WT)', 'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_wt' + '.png')
     )
     draw_mad_outliers(
         save_results, 'test_ic50',
-        'log IC50 (Omicron)', 'mAb',
+        'fold change to median IC50 (Omicron)', 'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_omicron' + '.png')
     )
     draw_mad_outliers(
         save_results, 'fold',
-        'log Fold', 'mAb',
+        'fold change to median Fold', 'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_fold' + '.png')
     )
@@ -693,8 +696,100 @@ MAB_ORDER = [
 
 def draw_mad_outliers(table, column, x_label, y_label, file_path):
 
-    fig, ax = plt.subplots(figsize=(10, 10))
+    mab_values, mad_values = _draw_mad_outliers_mab_value(table, column)
 
+    x_list = []
+    authorized_mab_x_list = []
+    authorized_mab_no_out = []
+    authorized_mab_out = []
+    y_list = []
+    color_list = []
+    ticks = []
+    labels = []
+
+    _draw_mad_outliers_prep_draw_material(
+        mab_values,
+        mad_values,
+        x_list,
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        y_list,
+        color_list,
+        ticks,
+        labels,
+        )
+
+    _draw_mad_outliers_draw_scatter(
+        mad_values,
+        x_list,
+        y_list,
+        color_list,
+        ticks,
+        labels,
+        x_label,
+        y_label,
+        file_path
+        )
+
+    _draw_mad_outliers_draw_bin(
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        x_label,
+        file_path
+        )
+
+
+def draw_mad_outliers_bin(table1, table2, column, x_label, y_label, file_path):
+
+    mab_values1, mad_values1 = _draw_mad_outliers_mab_value(table1, column)
+    mab_values2, mad_values2 = _draw_mad_outliers_mab_value(table2, column)
+
+    x_list = []
+    authorized_mab_x_list = []
+    authorized_mab_no_out = []
+    authorized_mab_out = []
+    y_list = []
+    color_list = []
+    ticks = []
+    labels = []
+
+    _draw_mad_outliers_prep_draw_material(
+        mab_values1,
+        mad_values1,
+        x_list,
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        y_list,
+        color_list,
+        ticks,
+        labels,
+        )
+    _draw_mad_outliers_prep_draw_material(
+        mab_values2,
+        mad_values2,
+        x_list,
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        y_list,
+        color_list,
+        ticks,
+        labels,
+        )
+
+    _draw_mad_outliers_draw_bin(
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        x_label,
+        file_path
+        )
+
+
+def _draw_mad_outliers_mab_value(table, column):
     mab_values = {}
     mad_values = {}
     for mab, mab_list in group_records_by(table, 'mAb').items():
@@ -704,7 +799,7 @@ def draw_mad_outliers(table, column, x_label, y_label, file_path):
             if i[column]
         ]
         log_values = [
-            math.log(i, 10)
+            math.log(i, 2)
             for i in values
         ]
         log_median = median(log_values)
@@ -714,26 +809,73 @@ def draw_mad_outliers(table, column, x_label, y_label, file_path):
         ]
 
         mad = calc_mad(log_values)
-        low = - 2 * mad
-        high = 2 * mad
-        mad_values[mab] = (low, high)
+        low_mad = - 2 * mad
+        high_mad = 2 * mad
+        mad_values[mab] = (low_mad, high_mad)
 
         mab_values[mab] = abs_log_values
 
-    x_list = []
-    y_list = []
-    ticks = []
-    labels = []
+    return mab_values, mad_values
+
+
+def _draw_mad_outliers_prep_draw_material(
+        mab_values,
+        mad_values,
+        x_list,
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        y_list,
+        color_list,
+        ticks,
+        labels,
+        ):
     for odr, mab in enumerate(MAB_ORDER):
         x_values = mab_values.get(mab, [])
         if not x_values:
             continue
+
+        low_mad, high_mad = mad_values[mab]
+
         x_list.extend(x_values)
+        x_values_out = [
+            i
+            for i in x_values
+            if i < low_mad or i > high_mad
+        ]
+        x_values_no_out = [
+            i
+            for i in x_values
+            if i not in x_values_out
+        ]
+        if odr < 11:
+            authorized_mab_x_list.extend(x_values)
+            authorized_mab_no_out.extend(x_values_no_out)
+            authorized_mab_out.extend(x_values_out)
+
         y_list.extend([odr] * len(x_values))
         ticks.append(odr)
         labels.append(mab)
 
-    ax.scatter(x_list, y_list)
+        color_list.extend([
+            'orangered' if i < low_mad or i > high_mad else 'deepskyblue'
+            for i in x_values
+        ])
+
+
+def _draw_mad_outliers_draw_scatter(
+        mad_values,
+        x_list,
+        y_list,
+        color_list,
+        ticks,
+        labels,
+        x_label,
+        y_label,
+        file_path
+        ):
+    fig, ax = plt.subplots(figsize=(10, 10))
+    ax.scatter(x_list, y_list, c=color_list)
 
     for mab, (low, high) in mad_values.items():
         y = MAB_ORDER.index(mab)
@@ -743,9 +885,18 @@ def draw_mad_outliers(table, column, x_label, y_label, file_path):
         ax.vlines(x=high, ymin=ymin, ymax=ymax, color='black')
         ax.hlines(y=y, xmin=low, xmax=high, color='black')
 
+    max_value = math.ceil(max(x_list))
+    min_value = math.floor(min(x_list))
+    bins = list(np.arange(min_value, max_value + 1, 1))
+
     ax.set_yticks(ticks)
     ax.set_yticklabels(labels)
-    ax.set_xticks([-2, -1, 0, 1, 2])
+
+    ax.set_xticks(bins)
+    ax.set_xticklabels([
+        rf'$2^{{{i}}}$'
+        for i in bins
+    ])
 
     ax.set_xlabel(x_label)
     ax.set_ylabel(y_label)
@@ -753,3 +904,40 @@ def draw_mad_outliers(table, column, x_label, y_label, file_path):
         str(file_path),
         dpi=300,
         format='png')
+
+
+def _draw_mad_outliers_draw_bin(
+        authorized_mab_x_list,
+        authorized_mab_no_out,
+        authorized_mab_out,
+        x_label,
+        file_path
+        ):
+    fig, ax = plt.subplots(figsize=(10, 10))
+    max_value = math.ceil(max(authorized_mab_x_list))
+    min_value = math.floor(min(authorized_mab_x_list))
+    bins = list(np.arange(min_value, max_value + 1, 0.5))
+
+    ax.hist([
+        authorized_mab_no_out,
+        authorized_mab_out,
+    ], bins=bins, stacked=True)
+
+    # ax.hist(authorized_mab_x_list, bins=bins)
+
+    ax.set_ylabel('# Results')
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+    bins = list(np.arange(min_value, max_value + 1, 1))
+    ax.set_xticks(bins)
+    ax.set_xticklabels([
+        rf'$2^{{{i}}}$'
+        for i in bins
+    ])
+    ax.set_xlabel(x_label)
+
+    plt.savefig(
+        str(file_path.parent / (file_path.stem + '_approved_hist.png')),
+        dpi=300,
+        format='png'
+    )
