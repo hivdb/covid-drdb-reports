@@ -142,7 +142,8 @@ def gen_omicron_wildtype_ic50(
 
     draw_mad_outliers(
         table, 'control_ic50',
-        'fold change to median IC50 (WT)', 'mAb',
+        'Fold changes in $IC_{50}$ relative to the normalized median $IC_{50}$ (wildtype variants)',
+        'mAb',
         DATA_FILE_PATH / 'omicron' / 'wt_ic50_mad.png')
 
     mark_outlier(
@@ -737,4 +738,5 @@ def draw_figures_mab_and_assay(table, save_folder):
 
     plt.savefig(
         str(save_folder / 'mab_and_assay_group.png'),
+        dpi=300,
         format='png')

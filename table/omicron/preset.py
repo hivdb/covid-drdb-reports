@@ -15,6 +15,12 @@ from scipy import stats
 from matplotlib.ticker import MaxNLocator
 
 
+log2 = lambda x: math.log(x, 2)
+
+
+log10 = lambda x: math.log(x, 10)
+
+
 # D3 category20
 # CATEGORY_COLOR = [
 #     '#1f77b4',
@@ -107,19 +113,21 @@ def gen_omicron_mab_titer_fold(
 
     draw_mad_outliers(
         save_results, 'control_ic50',
-        'fold change to median IC50 (WT)', 'mAb',
+        'Fold changes in $IC_{50}$ relative to the normalized median $IC_{50}$ (wildtype variants)',
+        'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_wt' + '.png')
     )
     draw_mad_outliers(
         save_results, 'test_ic50',
-        'fold change to median IC50 (Omicron)', 'mAb',
+        'fold change to median $IC_{50}$ (Omicron)', 'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_omicron' + '.png')
     )
     draw_mad_outliers(
         save_results, 'fold',
-        'fold change to median Fold', 'mAb',
+        'Fold reductions in susceptibility relative to the normalized median fold reduction',
+        'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_fold' + '.png')
     )
@@ -338,7 +346,7 @@ def mark_outlier(
         else:
             iqr = []
         log_values = [
-            math.log(r[calc_column], 10)
+            log10(r[calc_column])
             for r in mab_rec_list
             if r[calc_column]
         ]
@@ -352,13 +360,24 @@ def mark_outlier(
             rec['iqr_75_{}'.format(calc_column)] = iqr[-1] if iqr else ''
             rec[med_column] = log_median_value
             rec[mad_column] = log_mad
-            rec[f'log_{calc_column}'] = math.log(rec[calc_column], 10) if rec[calc_column] else ''
-            rec[f'abs_dev_log_{calc_column}'] = abs(
-                math.log(rec[calc_column], 10) - log_median_value) if rec[calc_column] else ''
+            rec[f'log_{calc_column}'] = (
+                log10(rec[calc_column])
+                if rec[calc_column] else ''
+            )
+            rec[f'abs_dev_log_{calc_column}'] = (
+                abs(log10(rec[calc_column]) - log_median_value)
+                if rec[calc_column] else ''
+            )
+            rec[f'log2_fold_to_median_{calc_column}'] = (
+                log2(float(rec[calc_column]) / median_value)
+                if rec[calc_column] else ''
+            )
             if not rec[calc_column]:
                 rec[mark_column] = 0
-            elif is_mad_outlier(
-                    rec[calc_column], log_median_value, sigma, log_mad):
+            # elif is_mad_outlier(
+            #         rec[calc_column], log_median_value, sigma, log_mad):
+            #     rec[mark_column] = 1
+            elif is_median_outlier(float(rec[calc_column]), median_value, 4):
                 rec[mark_column] = 1
             else:
                 rec[mark_column] = 0
@@ -367,11 +386,18 @@ def mark_outlier(
     return result_table
 
 
+def is_median_outlier(value, median_value, fold):
+    if abs(log2(value) - log2(median_value)) > log2(fold):
+        return True
+    else:
+        return False
+
+
 def is_mad_outlier(value, log_median, sigma, log_mad):
-    if (math.log(value, 10) <
+    if (log10(value) <
             log_median - sigma * log_mad):
         return True
-    elif (math.log(value, 10) >
+    elif (log10(value) >
             log_median + sigma * log_mad):
         return True
     return False
@@ -585,24 +611,43 @@ def process_statistics(
         high = ic_50_list[-1]
         fold = round_number(high / low)
 
-        ic_50_list_no_outlier = sorted([
-            i[calc_column]
-            for i in mab_rec_list
-            if not i[outlier_col]
-        ])
-        fold_no_outlier = round_number(
-            ic_50_list_no_outlier[-1] /
-            ic_50_list_no_outlier[0]
-        )
+        # ic_50_list_no_outlier = sorted([
+        #     i[calc_column]
+        #     for i in mab_rec_list
+        #     if not i[outlier_col]
+        # ])
+        # fold_no_outlier = round_number(
+        #     ic_50_list_no_outlier[-1] /
+        #     ic_50_list_no_outlier[0]
+        # )
 
-        med = round_number(median(ic_50_list))
+        med = median(ic_50_list)
 
         low_outliers = [
             i
             for i in mab_rec_list
             if i[outlier_col]
             and i[calc_column] <= med
+            and is_median_outlier(i[calc_column], med, 4)
         ]
+
+        within_two_fold = [
+            i
+            for i in mab_rec_list
+            if not is_median_outlier(i[calc_column], med, 2)
+        ]
+        within_four_fold = [
+            i
+            for i in mab_rec_list
+            if not is_median_outlier(i[calc_column], med, 4)
+        ]
+
+        # low_outliers = [
+        #     i
+        #     for i in mab_rec_list
+        #     if i[outlier_col]
+        #     and i[calc_column] <= med
+        # ]
         low_outliers.sort(key=itemgetter(calc_column))
         low_outliers_fmt = [
             f"{i['_ref_name']} ({round_number(i[calc_column])})"
@@ -614,47 +659,54 @@ def process_statistics(
             for i in mab_rec_list
             if i[outlier_col]
             and i[calc_column] >= med
+            and is_median_outlier(i[calc_column], med, 4)
         ]
+        # high_outliers = [
+        #     i
+        #     for i in mab_rec_list
+        #     if i[outlier_col]
+        #     and i[calc_column] >= med
+        # ]
         high_outliers.sort(key=itemgetter(calc_column))
         high_outliers_fmt = [
             f"{i['_ref_name']} ({round_number(i[calc_column])})"
             for i in high_outliers
         ]
 
-        low_outliers_ref = sorted(set(
-                [
-                    i['_ref_name']
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                    and i[calc_column] <= med
-                ]))
+        # low_outliers_ref = sorted(set(
+        #         [
+        #             i['_ref_name']
+        #             for i in mab_rec_list
+        #             if i[outlier_col]
+        #             and i[calc_column] <= med
+        #         ]))
 
-        low_outliers_value = sorted(
-                [
-                    i[calc_column]
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                    and i[calc_column] <= med
-                ])
+        # low_outliers_value = sorted(
+        #         [
+        #             i[calc_column]
+        #             for i in mab_rec_list
+        #             if i[outlier_col]
+        #             and i[calc_column] <= med
+        #         ])
 
-        high_outliers_ref = sorted(set(
-                [
-                    i['_ref_name']
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                    and i[calc_column] >= med
-                ]))
+        # high_outliers_ref = sorted(set(
+        #         [
+        #             i['_ref_name']
+        #             for i in mab_rec_list
+        #             if i[outlier_col]
+        #             and i[calc_column] >= med
+        #         ]))
 
-        high_outliers_value = sorted(
-                [
-                    i[calc_column]
-                    for i in mab_rec_list
-                    if i[outlier_col]
-                    and i[calc_column] >= med
-                ])
+        # high_outliers_value = sorted(
+        #         [
+        #             i[calc_column]
+        #             for i in mab_rec_list
+        #             if i[outlier_col]
+        #             and i[calc_column] >= med
+        #         ])
 
-        log_median = mab_rec_list[0][log_median_col]
-        log_mad = mab_rec_list[0][log_mad_col]
+        # log_median = mab_rec_list[0][log_median_col]
+        # log_mad = mab_rec_list[0][log_mad_col]
         rec = {
             'mab': mab,
             '#ref': num_ref,
@@ -666,18 +718,22 @@ def process_statistics(
             # 'fold_no_outlier': fold_no_outlier,
             'iqr25': round_number(iqr25),
             'iqr75': round_number(iqr75),
-            '#low_out': len(low_outliers_value),
-            'low_out_ref': ','.join(low_outliers_ref),
-            'low_out_value': ';'.join(
-                [str(round_number(i)) for i in low_outliers_value]),
+            # '#low_out': len(low_outliers_value),
+            # 'low_out_ref': ','.join(low_outliers_ref),
+            # 'low_out_value': ';'.join(
+            # [str(round_number(i)) for i in low_outliers_value]),
+            '# 2-fold': len(within_two_fold),
+            '# 4-fold': len(within_four_fold),
+            '#low_out': len(low_outliers_fmt),
             'low_out': ', '.join(low_outliers_fmt),
-            '#high_out': len(high_outliers_value),
-            'high_out_ref': ','.join(high_outliers_ref),
-            'high_out_value': ';'.join(
-                [str(round_number(i)) for i in high_outliers_value]),
+            # '#high_out': len(high_outliers_value),
+            # 'high_out_ref': ','.join(high_outliers_ref),
+            # 'high_out_value': ';'.join(
+            # [str(round_number(i)) for i in high_outliers_value]),
+            '#high_out': len(high_outliers_fmt),
             'high_out': ', '.join(high_outliers_fmt),
-            'log_median': log_median,
-            'log_mad': log_mad,
+            # 'log_median': log_median,
+            # 'log_mad': log_mad,
         }
         results.append(rec)
     dump_csv(file_path, results)
@@ -799,7 +855,7 @@ def _draw_mad_outliers_mab_value(table, column):
             if i[column]
         ]
         log_values = [
-            math.log(i, 2)
+            log2(i)
             for i in values
         ]
         log_median = median(log_values)
@@ -918,12 +974,12 @@ def _draw_mad_outliers_draw_bin(
     min_value = math.floor(min(authorized_mab_x_list))
     bins = list(np.arange(min_value, max_value + 1, 0.5))
 
-    ax.hist([
-        authorized_mab_no_out,
-        authorized_mab_out,
-    ], bins=bins, stacked=True)
+    # ax.hist([
+    #     authorized_mab_no_out,
+    #     authorized_mab_out,
+    # ], bins=bins, stacked=True)
 
-    # ax.hist(authorized_mab_x_list, bins=bins)
+    ax.hist(authorized_mab_x_list, bins=bins)
 
     ax.set_ylabel('# Results')
     ax.yaxis.set_major_locator(MaxNLocator(integer=True))
@@ -935,6 +991,9 @@ def _draw_mad_outliers_draw_bin(
         for i in bins
     ])
     ax.set_xlabel(x_label)
+
+    ax.axvline(x=-2, color='black', linestyle='--')
+    ax.axvline(x=2, color='black', linestyle='--')
 
     plt.savefig(
         str(file_path.parent / (file_path.stem + '_approved_hist.png')),

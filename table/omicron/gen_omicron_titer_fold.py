@@ -146,10 +146,12 @@ def gen_omicron_titer_fold(conn):
 
     draw_mad_outliers_bin(
         table_list[0], table_list[1], 'fold',
-        'fold change to median Fold', 'mAb',
+        'Fold reductions in susceptibility relative to the normalized median fold reduction',
+        'mAb',
         omicron_path / 'BA_1_BA_2_fold.png')
 
     draw_mad_outliers(
         table_list2, 'fold',
-        'fold change to median Fold', 'mAb',
-        omicron_path / 'BA_1_BA_2_fold2.png')
+        'Fold reductions in susceptibility relative to the normalized median fold reduction',
+        'mAb',
+        omicron_path / 'BA_1_BA_2_fold_merge_median.png')
