@@ -113,7 +113,7 @@ def gen_omicron_mab_titer_fold(
 
     draw_mad_outliers(
         save_results, 'control_ic50',
-        'Fold changes in $IC_{50}$ relative to the normalized median $IC_{50}$ (wildtype variants)',
+        'Fold changes in IC50 relative to the normalized median IC50 of wildtype variants',
         'mAb',
         stat_data_path.parent / (
             stat_data_path.stem + '_wt' + '.png')

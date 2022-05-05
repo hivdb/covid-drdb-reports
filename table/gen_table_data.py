@@ -92,12 +92,11 @@ def gen_report(db_path):
     gen_ba_1_s_pattern(conn)
     gen_omicron_wildtype_ic50(conn)
     gen_omicron_single_mut(conn)
-    # gen_omicron_titer_fold_ba1_compare(conn)
+    gen_omicron_titer_fold_ba1_compare(conn)
     return
 
     gen_table_mab_omicron_muts(conn)
     gen_table_mab_omicron()
-    return
 
     from variant.gen_table_variant_summary import gen_table_variant_summary
     from variant.gen_table_variant_mab import gen_table_variant_mab
@@ -107,7 +106,8 @@ def gen_report(db_path):
     from variant.gen_figure_variant_mab import gen_figure_variant_mab
     from variant.gen_figure_variant_cp import gen_figure_variant_cp
     from variant.gen_figure_variant_vp import gen_figure_variant_vp
-    from variant.gen_table_single_mut_summary import gen_table_single_mut_summary
+    from variant.gen_table_single_mut_summary import \
+        gen_table_single_mut_summary
     from variant.gen_wildtype import gen_wildtype
 
     gen_table_variant_summary(conn)
