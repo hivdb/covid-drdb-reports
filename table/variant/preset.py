@@ -500,22 +500,22 @@ KEY_VARIANTS = {
             "mut.var_name = 'Omicron/BA.2'"
         ]
     },
-    'BA.2.12.1': {
+    'Omicron/BA.2.12.1': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            "mut.var_name = 'BA.2.12.1'"
+            "mut.var_name = 'Omicron/BA.2.12.1'"
         ]
     },
-    'BA.4': {
+    'Omicron/BA.4': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            "mut.var_name = 'BA.4'"
+            "mut.var_name = 'Omicron/BA.4'"
         ]
     },
-    'BA.5': {
+    'Omicron/BA.5': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
-            "mut.var_name = 'BA.5'"
+            "mut.var_name = 'Omicron/BA.5'"
         ]
     },
     'Lambda': {
