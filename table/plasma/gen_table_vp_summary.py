@@ -107,7 +107,8 @@ def group_vaccine(rx_list):
 
 
 def gen_table_vp_summary():
-    vp_variant_records = load_csv(DATA_FILE_PATH / 'table_vp_variants.csv')
+    vp_variant_records = load_csv(
+        DATA_FILE_PATH / 'vp' / 'table_vp_variants.csv')
     vp_mut_records = load_csv(DATA_FILE_PATH / 'table_vp_muts.csv')
 
     variant_groups = defaultdict(list)

@@ -220,8 +220,9 @@ def process_record(variant, records):
 
 
 def gen_table_mab():
-    mab_variant_records = load_csv(DATA_FILE_PATH / 'table_mab_variant.csv')
-    mab_mut_records = load_csv(DATA_FILE_PATH / 'table_mab_muts.csv')
+    mab_variant_records = load_csv(
+        DATA_FILE_PATH / 'mab' / 'table_mab_variant.csv')
+    mab_mut_records = load_csv(DATA_FILE_PATH / 'mab' / 'table_mab_muts.csv')
 
     variant_groups = {}
     variant_groups.update(group_variants(mab_variant_records))

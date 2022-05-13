@@ -11,7 +11,7 @@ from .preset import AGGREGATED_CP_SQL
 
 def gen_table_cp_muts(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'table_cp_muts.csv',
+        csv_save_path=DATA_FILE_PATH / 'cp' / 'table_cp_muts.csv',
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,

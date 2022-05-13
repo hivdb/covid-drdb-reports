@@ -1,5 +1,6 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
+from preset import dump_json
 from variant.preset import group_var_name
 from collections import defaultdict
 from operator import itemgetter
@@ -58,19 +59,34 @@ TABLE_SUMMARY_COLUMNS = {
 
 DOMAIN_PATTERN_LIST = {
     'RBD': [
-        'E484K',
-        'N501Y',
+        'G339D',
+        'R346K',
+        'S371F',
+        'S371L',
+        'S373P',
+        'S375F',
+        'T376A',
+        'D405N',
+        'R408S',
         'K417N',
-        'L452R',
         'N439K',
-        'S477N',
-        'Y453F',
-        'F490S',
-        'E484Q',
-        'G446V',
-        'A475V',
         'N440K',
+        'G446S',
+        'G446V',
+        'Y453F',
+        'A475V',
+        'S477N',
         'T478K',
+        'E484A',
+        'E484K',
+        'E484Q',
+        'F486V',
+        'L452R',
+        'F490S',
+        'Q493R',
+        'Q496S',
+        'Q498R',
+        'N501Y',
     ],
     'NTD': [
         'HV69-70∆',
@@ -99,15 +115,13 @@ DOMAIN_PATTERN_LIST = {
 
 def gen_table_variant_summary(conn):
     iso_type = 'isolate_mutations_single_s_mut_view'
-    save_path = DATA_FILE_PATH / 'variant' / 'summary_single_cp.csv'
-    by_single(conn, iso_type, save_path)
+    by_single(conn, iso_type)
 
     iso_type = 'isolate_mutations_combo_s_mut_view'
-    save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_cp.csv'
-    by_combo(conn, iso_type, save_path)
+    by_combo(conn, iso_type)
 
 
-def by_single(conn, iso_type, save_path):
+def by_single(conn, iso_type):
 
     cursor = conn.cursor()
 
@@ -203,6 +217,7 @@ def by_single(conn, iso_type, save_path):
         save_results.append(record)
 
     save_results.sort(key=itemgetter(
+        'domain',
         'position',
         'cp',
         'vp',
@@ -210,6 +225,20 @@ def by_single(conn, iso_type, save_path):
         'mAbs structure',
         'other mAbs',
         ))
+
+    save_results = [
+        i for i in save_results
+        if i['domain'] == 'RBD'
+    ] + [
+        i for i in save_results
+        if i['domain'] == 'NTD'
+    ] + [
+        i for i in save_results
+        if i['domain'] == 'CTD'
+    ] + [
+        i for i in save_results
+        if i['domain'] == 'S2'
+    ]
 
     headers = [
         'pattern',
@@ -226,12 +255,11 @@ def by_single(conn, iso_type, save_path):
         'all mAbs',
         'num_exp',
     ]
+    dump_csv(DATA_FILE_PATH / 'table_single_mut.csv', save_results, headers)
+    dump_json(DATA_FILE_PATH / 'table_single_mut.json', save_results)
 
-    save_path = DATA_FILE_PATH / 'variant' / 'summary_single.csv'
-    dump_csv(save_path, save_results, headers)
 
-
-def by_combo(conn, iso_type, save_path):
+def by_combo(conn, iso_type):
 
     cursor = conn.cursor()
     mut_group = defaultdict(list)
@@ -329,8 +357,14 @@ def by_combo(conn, iso_type, save_path):
         for rec in record_list:
             rbd_muts |= get_RBD_mutation(rec['pattern'])
 
+        if not rbd_muts:
+            continue
+
         record = {
-            'pattern': '+'.join(list(rbd_muts)),
+            'pattern': '+'.join(
+                    sorted(list(rbd_muts),
+                           key=lambda x: int(re.search(r'\d+', x).group()))
+                ),
             'var_name': var_name,
             'num_ref_name': len(set(r['ref_name'] for r in record_list)),
             'cp': 0,
@@ -347,6 +381,21 @@ def by_combo(conn, iso_type, save_path):
         record['num_exp'] = record['all mAbs'] + record['cp'] + record['vp']
         merged_same_combo.append(record)
 
+    merged_same_combo = [
+        i for i in merged_same_combo
+        if i['var_name'] not in [
+            'SARS-CoV-1',
+            'WIV1',
+            'pCoV-GD',
+            'pCoV-GX',
+            'PMSD4',
+            'PMS20',
+            'PMS1-1',
+            'B.1',
+            'bCoV-RaTG13'
+        ]
+    ]
+
     merged_same_combo.sort(key=itemgetter(
         'var_name',
         'cp',
@@ -356,8 +405,48 @@ def by_combo(conn, iso_type, save_path):
         'other mAbs',
         ))
 
+    vocs = ['Alpha', 'Beta', 'Gamma', 'Delta', 'Omicron']
+    vois = [
+        'Epsilon', 'Eta', 'Iota', 'Kappa', 'Lambda',
+        'Mu', 'Zeta', 'Theta'
+    ]
+
+    voc_list = [
+        i for i in merged_same_combo
+        if i['var_name'] in vocs
+    ]
+    [
+        i.update({'var_type': 'VOC'})
+        for i in voc_list
+    ]
+    voi_list = [
+        i for i in merged_same_combo
+        if i['var_name'] in vois
+    ]
+    [
+        i.update({'var_type': 'VOI'})
+        for i in voi_list
+    ]
+    other_list = [
+        i for i in merged_same_combo
+        if i['var_name'] not in (vocs + vois)
+    ]
+    [
+        i.update({
+            'var_type': 'Other variants containing >=1 RBD mutation',
+            'var_name': f"{i['var_name']}({i['pattern']})"
+            })
+        for i in other_list
+    ]
+    results = voc_list + voi_list + other_list
+
     save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_by_var.csv'
-    dump_csv(save_path, merged_same_combo, headers)
+    dump_csv(
+        DATA_FILE_PATH / 'table_variants.csv',
+        results, headers)
+    dump_json(
+        DATA_FILE_PATH / 'table_variants.json',
+        results)
 
 
 def get_RBD_mutation(mutation_list):

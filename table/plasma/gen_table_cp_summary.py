@@ -82,8 +82,9 @@ def process_record(variant, rec_list):
 
 
 def gen_table_cp_summary():
-    cp_variant_records = load_csv(DATA_FILE_PATH / 'table_cp_variants.csv')
-    cp_mut_records = load_csv(DATA_FILE_PATH / 'table_cp_muts.csv')
+    cp_variant_records = load_csv(
+        DATA_FILE_PATH / 'cp' / 'summary_cp_variants.csv')
+    cp_mut_records = load_csv(DATA_FILE_PATH / 'cp' / 'table_cp_muts.csv')
 
     variant_groups = defaultdict(list)
     group_variants(variant_groups, cp_variant_records)

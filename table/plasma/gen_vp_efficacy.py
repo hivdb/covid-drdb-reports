@@ -19,8 +19,7 @@ FROM
 
 def gen_vp_efficacy(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'table_vp_efficacy.csv',
-        json_save_path=DATA_FILE_PATH / 'table_vp_efficacy.json',
+        csv_save_path=DATA_FILE_PATH / 'table_vp_efficacy.csv'
         ):
 
     cursor = conn.cursor()
@@ -49,4 +48,3 @@ def gen_vp_efficacy(
         })
 
     dump_csv(csv_save_path, records)
-    dump_json(json_save_path, records)

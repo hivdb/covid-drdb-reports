@@ -1,4 +1,5 @@
 from preset import dump_csv
+from preset import dump_json
 from preset import DATA_FILE_PATH
 from collections import defaultdict
 
@@ -55,5 +56,5 @@ def gen_vp_infection(conn):
             )),
             'num_fold': sum([r['num_fold'] for r in rx_list])
         })
-    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_infection.csv'
-    dump_csv(save_path, infection_results)
+    dump_csv(DATA_FILE_PATH / 'table_vp_infection.csv', infection_results)
+    dump_json(DATA_FILE_PATH / 'table_vp_infection.json', infection_results)

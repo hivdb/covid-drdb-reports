@@ -1,4 +1,6 @@
+from operator import itemgetter
 from preset import dump_csv
+from preset import dump_json
 from preset import DATA_FILE_PATH
 from collections import defaultdict
 
@@ -40,11 +42,14 @@ def gen_vp_dosage(conn):
     results = []
     for dosage, rx_list in dosage_group.items():
         results.append({
-            'dosage': dosage,
+            'dosage': int(dosage),
             'num_ref_name': len(set(
                 r['ref_name'] for r in rx_list
             )),
             'num_fold': sum([r['num_fold'] for r in rx_list])
         })
-    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_dosage.csv'
-    dump_csv(save_path, results)
+
+    results.sort(key=itemgetter('dosage'))
+
+    dump_csv(DATA_FILE_PATH / 'table_vp_dosage.csv', results)
+    dump_json(DATA_FILE_PATH / 'table_vp_dosage.json', results)

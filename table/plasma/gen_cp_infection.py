@@ -1,4 +1,6 @@
+from operator import itemgetter
 from preset import dump_csv
+from preset import dump_json
 from preset import DATA_FILE_PATH
 from collections import defaultdict
 
@@ -8,7 +10,7 @@ SELECT
     s.ref_name,
     s.rx_name,
     rx.as_wildtype,
-    rx.var_name infection,
+    rx.infected_var_name infection,
     SUM(s.cumulative_count) num_fold
 FROM
     susc_results_view s,
@@ -26,6 +28,11 @@ GROUP BY
     s.iso_name
 """
 
+EXCLUDE = [
+    'B.1.36.27',
+    'L452R variants',
+]
+
 
 def gen_cp_infection(conn):
     cursor = conn.cursor()
@@ -39,21 +46,26 @@ def gen_cp_infection(conn):
         as_wildtype = rec['as_wildtype']
         if as_wildtype:
             infection = 'wt'
+            continue
 
-        if infection:
-            infection_group['infected'].append(rec)
-            infection_group[infection].append(rec)
-        else:
-            infection_group['unknown'].append(rec)
+        # infection_group['infected'].append(rec)
+        infection_group[infection].append(rec)
 
     infection_results = []
     for infection, rx_list in infection_group.items():
+        if infection in EXCLUDE:
+            continue
         infection_results.append({
-            'infection': infection,
+            'variant': infection,
             'num_ref_name': len(set(
                 r['ref_name'] for r in rx_list
             )),
             'num_fold': sum([r['num_fold'] for r in rx_list])
         })
-    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp_infection.csv'
-    dump_csv(save_path, infection_results)
+    infection_results.sort(key=itemgetter('variant'))
+    dump_csv(
+        DATA_FILE_PATH / 'table_cp_infection.csv',
+        infection_results)
+    dump_json(
+        DATA_FILE_PATH / 'table_cp_infection.json',
+        infection_results)

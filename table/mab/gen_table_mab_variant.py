@@ -38,7 +38,7 @@ WHERE
 
 def gen_table_mab_variant(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'table_mab_variant.csv',
+        csv_save_path=DATA_FILE_PATH / 'mab' / 'table_mab_variant.csv',
         ):
     cursor = conn.cursor()
 

@@ -12,7 +12,7 @@ from .common import record_modifier
 
 def gen_table_cp_variants(
         conn,
-        csv_save_path=DATA_FILE_PATH / 'table_cp_variants.csv',
+        csv_save_path=DATA_FILE_PATH / 'cp' / 'summary_cp_variants.csv',
         ):
     indiv_records = gen_plasma_indiv_table(
         conn,

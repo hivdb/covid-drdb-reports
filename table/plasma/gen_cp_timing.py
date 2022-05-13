@@ -1,4 +1,5 @@
 from preset import dump_csv
+from preset import dump_json
 from preset import DATA_FILE_PATH
 from collections import defaultdict
 
@@ -36,13 +37,13 @@ def gen_cp_timing(conn):
     for rec in records:
         timing = int(rec['timing'])
         if timing < 2:
-            timing = '1'
+            timing = '1 month'
         elif timing < 4:
-            timing = '2-3'
+            timing = '2-3 months'
         elif timing < 7:
-            timing = '4-6'
+            timing = '4-6 months'
         else:
-            timing = '>6'
+            timing = '>6 months'
         timing_group[timing].append(rec)
 
     timing_results = []
@@ -57,5 +58,11 @@ def gen_cp_timing(conn):
 
     timing_results.sort(key=lambda x: x['timing'] if x['timing'] else 0)
 
-    save_path = DATA_FILE_PATH / 'cp' / 'summary_cp_timing.csv'
-    dump_csv(save_path, timing_results)
+    dump_csv(DATA_FILE_PATH / 'table_cp_time.csv', timing_results)
+    [
+        i.update({
+            'timing': i['timing'].replace('>', '&gt;')
+        })
+        for i in timing_results
+    ]
+    dump_json(DATA_FILE_PATH / 'table_cp_time.json', timing_results)

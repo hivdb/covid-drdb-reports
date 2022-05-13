@@ -1,11 +1,7 @@
 from preset import dump_csv
 from preset import DATA_FILE_PATH
-from preset import round_number
+from preset import dump_json
 from collections import defaultdict
-from statistics import median
-from resistancy import is_susc
-from resistancy import is_partial_resistant
-from resistancy import is_resistant
 
 SQL = """
 SELECT
@@ -40,13 +36,13 @@ def gen_vp_timing(conn):
     for rec in records:
         timing = int(rec['timing'])
         if timing < 2:
-            timing = '1'
+            timing = '1 month'
         elif timing < 4:
-            timing = '2-3'
+            timing = '2-3 months'
         elif timing < 7:
-            timing = '4-6'
+            timing = '4-6 months'
         else:
-            timing = '>6'
+            timing = '>6 months'
         timing_group[timing].append(rec)
 
     timing_results = []
@@ -61,5 +57,11 @@ def gen_vp_timing(conn):
 
     timing_results.sort(key=lambda x: x['timing'] if x['timing'] else 0)
 
-    save_path = DATA_FILE_PATH / 'vp' / 'summary_vp_timing.csv'
-    dump_csv(save_path, timing_results)
+    dump_csv(DATA_FILE_PATH / 'table_vp_time.csv', timing_results)
+    [
+        i.update({
+            'timing': i['timing'].replace('>', '&gt;')
+        })
+        for i in timing_results
+    ]
+    dump_json(DATA_FILE_PATH / 'table_vp_time.json', timing_results)

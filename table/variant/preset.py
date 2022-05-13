@@ -36,21 +36,23 @@ def get_fold_stat(rx_list):
 
 
 def group_var_name(var_name):
-    if var_name:
-        var_name = var_name.split()[0]
-        var_name = var_name.split('/')[0]
-        if var_name in [
+    ret_var_name = var_name
+    if ret_var_name:
+        ret_var_name = ret_var_name.split()[0]
+        if not ret_var_name.startswith('Omicron'):
+            ret_var_name = ret_var_name.split('/')[0]
+        if ret_var_name in [
                 'Kappa' 'Iota',
                 'Epsilon', 'Lambda', 'Eta', 'Mu']:
-            var_name = 'VOI'
-        elif var_name not in (
-                'Alpha', 'Beta', 'Gamma', 'Delta',
-                'Omicron'):
-            var_name = 'other variants'
+            ret_var_name = 'VOIs (Kappa, Iota, Epsilon, Lambda, Eta, Mu)'
+        elif ret_var_name not in (
+                'Alpha', 'Beta', 'Gamma', 'Delta') and (
+                    not ret_var_name.startswith('Omicron')
+                ):
+            ret_var_name = 'other variants'
     else:
-        var_name = 'other combo mut'
-
-    return var_name
+        ret_var_name = 'other combo mut'
+    return ret_var_name
 
 
 KEY_MUTATIONS = {
