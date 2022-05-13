@@ -17,8 +17,6 @@ library(gridExtra)
 library(plotly)
 library(ggbeeswarm)
 library(viridis)
-library(ggpubr)
-library(ggpmisc)
 
 
 knitr::opts_chunk$set(
@@ -35,21 +33,21 @@ VARIANT = c(
   "Beta",
   "Gamma",
   "Delta",
-  "Omicron"
+  "Omicron/BA.1"
 )
 VARIANT_GREEK = c(
   "Alpha" = 'α',
   "Beta" = 'β',
   "Gamma" = 'γ',
   "Delta" = 'δ',
-  "Omicron" = 'ο'
+  "Omicron/BA.1" = 'ο'
 )
 VARIANT_COLOR = c(
   "Alpha" = "#e91e63",
   "Beta" = "#3a96f3",
   "Gamma" = "#cddc39",
   "Delta" = "#795549",
-  "Omicron" = "#795549"
+  "Omicron/BA.1" = "#795549"
 )
 
 RX_NAME_LIST = c(
