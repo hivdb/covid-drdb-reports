@@ -66,10 +66,10 @@ def gen_report(db_path):
     from mab.gen_mab_synonyms import gen_mab_synonyms
     from mab.gen_mab_epitope_aligned import gen_mab_epitope_aligned
 
-    # gen_table_mab_variant(conn)
-    # gen_table_mab_muts(conn)
-    # gen_table_all_mab(conn)
-    # gen_table_mab()
+    gen_table_mab_variant(conn)
+    gen_table_mab_muts(conn)
+    gen_table_all_mab(conn)
+    gen_table_mab()
     # gen_mab_epitope_aligned(conn)
     # gen_mab_synonyms(conn)
 
