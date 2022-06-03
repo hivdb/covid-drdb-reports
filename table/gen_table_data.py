@@ -10,9 +10,7 @@ def gen_report(db_path):
     conn.row_factory = sqlite3.Row
 
     from plasma.gen_figure_vp_variant import gen_figure_vp_variant
-    gen_figure_vp_variant(conn)
-
-    return
+    from plasma.gen_cross_neutral import gen_cross_neutral
 
     from plasma.gen_table_cp_summary import gen_table_cp_summary
     from plasma.gen_table_vp_summary import gen_table_vp_summary
@@ -62,6 +60,9 @@ def gen_report(db_path):
     gen_figure_plasma_fold(conn)
     gen_figure_plasma_titer(conn)
     gen_figure_plasma_titer_fold(conn)
+
+    gen_figure_vp_variant(conn)
+    gen_cross_neutral()
 
     from mab.gen_table_mab import gen_table_mab
     from mab.gen_table_mab_variant import gen_table_mab_variant

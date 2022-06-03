@@ -41,10 +41,36 @@ def dump_csv(file_path, records, headers=None):
         writer.writerows(final_records)
 
 
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
+
+
 def load_csv(file_path):
     records = []
     with open(file_path, encoding='utf-8-sig') as fd:
         for record in csv.DictReader(fd):
+            for k, v in record.items():
+                if v == 'TRUE':
+                    record[k] = True
+                    continue
+                if v == 'FALSE':
+                    record[k] = False
+                    continue
+                if v == 'yes':
+                    record[k] = True
+                    continue
+                if v == 'no':
+                    record[k] = False
+                    continue
+                if v.isdigit():
+                    record[k] = int(v)
+                if isfloat(v):
+                    record[k] = float(v)
+
             records.append(record)
 
     return records
@@ -56,18 +82,21 @@ def dump_json(json_path, obj):
 
 
 def round_number(float_number):
+    result = float_number
     if float_number > 10:
-        return Decimal(str(float_number)).quantize(Decimal('1'))
+        result = Decimal(str(float_number)).quantize(Decimal('1'))
     elif float_number > 1:
-        return Decimal(str(float_number)).quantize(Decimal('1.0'))
+        result = Decimal(str(float_number)).quantize(Decimal('1.0'))
     elif float_number >= 0.1:
-        return Decimal(str(float_number)).quantize(Decimal('1.00'))
+        result = Decimal(str(float_number)).quantize(Decimal('1.00'))
     elif float_number == 0:
-        return 0
+        result = 0
     else:
         with localcontext() as ctx:
             ctx.prec = 2
-            return Decimal(str(float_number)) + Decimal(0)
+            result = Decimal(str(float_number)) + Decimal(0)
+
+    return float(result)
 
 
 def group_records_by(records, key_name):
