@@ -1,6 +1,4 @@
-from ast import Or
-from re import I
-from preset import row2dict
+from sql import row2dict
 from preset import dump_csv
 from operator import itemgetter
 import math

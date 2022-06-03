@@ -2,7 +2,7 @@
 # import math
 # from preset import DATA_FILE_PATH
 # from preset import dump_csv
-# from preset import row2dict
+# from sql import row2dict
 # from preset import round_number
 # import matplotlib.pyplot as plt
 # import numpy as np

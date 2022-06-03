@@ -1,7 +1,7 @@
 from operator import itemgetter
 from preset import DATA_FILE_PATH
 from preset import dump_json
-from preset import row2dict
+from sql import row2dict
 
 
 SQL = """

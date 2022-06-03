@@ -109,7 +109,7 @@ WHERE
     AND
     b.vaccine_name = e.vaccine_name
     AND
-    b.dosage = e.st_shot
+    b.dosage = 2
     AND
     a.potency_type = 'NT50'
     AND

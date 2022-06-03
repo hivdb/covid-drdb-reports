@@ -1,6 +1,6 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
-from preset import row2dict
+from sql import row2dict
 from collections import defaultdict
 
 SQL = """

@@ -1,7 +1,7 @@
 from preset import DATA_FILE_PATH
 from preset import dump_csv
 from collections import defaultdict
-from preset import row2dict
+from sql import row2dict
 
 SQL_TMPL = """
 SELECT

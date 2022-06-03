@@ -3,7 +3,7 @@ from preset import dump_json
 from preset import DATA_FILE_PATH
 from preset import round_number
 from preset import group_records_by
-from preset import row2dict
+from sql import row2dict
 from operator import itemgetter
 from statistics import median
 from resistancy import is_susc
