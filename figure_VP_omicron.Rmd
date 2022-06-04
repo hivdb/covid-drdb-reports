@@ -81,7 +81,7 @@ RX_NAME_COLOR = c(
 # TITER_LEVEL = c("low", "middle", "high")
 TITER_LEVEL = c("high", "middle", "low")
 
-df_titer = read.dbTable('figure/figure_vp_variant_titer.csv', tables_dir=TABLEDIR) %>%
+df_titer = read.dbTable('figure/figure_plasma_variant_titer.csv', tables_dir=TABLEDIR) %>%
   mutate(level=ifelse(titer <= 40, 'low', ifelse(titer > 40 & titer <= 100, 'middle', 'high')))
 ```
 
@@ -108,11 +108,11 @@ draw_blank <- function() {
 }
 
 draw_titer <- function(dfPlot, figLabel) {
-  
-  dfAgg = dfPlot %>% 
-    group_by(var_name, level) %>% 
+
+  dfAgg = dfPlot %>%
+    group_by(var_name, level) %>%
     summarize(num_exp=sum(num_exp), num_ref_name = n_distinct(ref_name))
-    
+
   dfAggRef = dfPlot %>%
     group_by(var_name) %>%
     summarize(num_exp=sum(num_exp), num_ref_name = n_distinct(ref_name)) %>%
@@ -124,7 +124,7 @@ draw_titer <- function(dfPlot, figLabel) {
       )
     )
 
-  
+
   # dfAgg = dfPlot %>%
   #   group_by(var_name, level) %>%
   #   summarise(num_results=sum(num_exp)) %>%
@@ -146,18 +146,18 @@ draw_titer <- function(dfPlot, figLabel) {
     #     )
     #   )
     # )
-  
+
   if (dim(dfAgg) == 0) {
     p <- draw_blank()
     return(p)
   }
-  
+
   max_y = max(dfAggRef$num_exp)
   if (max_y < 100 ) {
     max_y = 100
   }
 
-  
+
   p <- ggplot(data=dfAgg, aes(x=var_name, y=num_exp)) +
     geom_bar(
       aes(fill=level),
@@ -229,7 +229,7 @@ draw_panel <- function(df) {
   i = 1
   line_width = 4
   num_graph = length(RX_NAME_LIST)
-  
+
   for (vacc in RX_NAME_LIST) {
     dfPlot = df %>%
       filter(vaccine_name == vacc) %>%
@@ -237,16 +237,16 @@ draw_panel <- function(df) {
         var_name = factor(var_name, VARIANT),
         level = factor(level, TITER_LEVEL)
       )
-      
+
       p = draw_titer(dfPlot, vacc)
-      
+
       if (i %% line_width == 1) {
         p = p + theme(
           axis.title.y = element_text(size=25, face="bold", colour = "black"),
         ) +
           ylab("# Results")
       }
-      
+
       if (i > num_graph - line_width) {
         p = p + theme(
           axis.title.x = element_blank(),
@@ -254,10 +254,10 @@ draw_panel <- function(df) {
           # axis.text.x = element_text(size=35),
         )
       }
-      
+
       plots[[i]] = p
       i = i + 1
-      
+
   }
   plots
 }

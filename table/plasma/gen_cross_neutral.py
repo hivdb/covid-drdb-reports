@@ -38,8 +38,8 @@ VARIANT_LIST = [
 
 
 def gen_cross_neutral(
-        src=DATA_FILE_PATH / 'figure' / 'figure_vp_variant_titer.csv',
-        dst=DATA_FILE_PATH / 'plasma' / 'cross_neutraling.csv'):
+        src=DATA_FILE_PATH / 'figure' / 'figure_plasma_variant_titer.csv',
+        dst=DATA_FILE_PATH / 'plasma' / 'cross_neutral.csv'):
 
     table = load_csv(src)
 
@@ -81,7 +81,7 @@ def gen_cross_neutral(
 
     dump_csv(dst, results)
 
-    dst = dst.with_suffix('.json').with_stem('table_cross_neutral')
+    dst = dst.with_suffix('.json').with_stem(f'table_{dst.stem}')
     dst = dst.parent.parent / dst.name
     results = get_json_results(results)
     dump_json(dst, results)
