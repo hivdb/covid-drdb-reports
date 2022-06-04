@@ -1,10 +1,10 @@
-from unittest import result
 from preset import load_csv
 from preset import dump_csv
 from preset import dump_json
 from preset import DATA_FILE_PATH
 from scipy.stats.mstats import gmean
 from preset import round_number
+from preset import group_records_by
 
 
 WT_LIST = [
@@ -63,7 +63,8 @@ def gen_cross_neutral(
     table = [
         i
         for i in table
-        if i['infection'] in VARIANT_LIST and i['var_name'] in VARIANT_LIST
+        if i['infection'] in VARIANT_LIST
+        and i['var_name'] in VARIANT_LIST
     ]
 
     infection_variants = [
@@ -74,55 +75,94 @@ def gen_cross_neutral(
             for j in table
         ]
     ]
+    results = []
 
-    json_results = []
-    csv_results = []
+    get_result_table(table, infection_variants, results)
+
+    dump_csv(dst, results)
+
+    dst = dst.with_suffix('.json').with_stem('table_cross_neutral')
+    dst = dst.parent.parent / dst.name
+    results = get_json_results(results)
+    dump_json(dst, results)
+
+
+def get_result_table(table, infection_variants, results):
     for test in VARIANT_LIST:
-        rec = {
-            'test': test
-        }
         for inf in infection_variants:
             rec_list = [
                 i
                 for i in table
                 if i['infection'] == inf and i['var_name'] == test
             ]
-            titer_list = [i['titer'] for i in rec_list]
-            num_exp_list = [i['num_exp'] for i in rec_list]
-            num_ref_name = len(set(
-                [i['ref_name'] for i in rec_list]
-            ))
-            if not titer_list or not num_exp_list:
-                rec[inf] = {
-                    'geomean': '',
-                    'num_ref_name': num_ref_name,
-                }
-                csv_results.append({
-                    'infection': inf,
-                    'test': test,
-                    'geomean': '',
-                    'num_ref_name': num_ref_name
-                })
-                continue
-            geomean = gmean(
-                titer_list,
-                weights=num_exp_list
-            )
-            rec[inf] = {
-                    'geomean': round_number(geomean),
-                    'num_ref_name': num_ref_name,
-                }
-            csv_results.append({
-                'infection': inf,
-                'test': test,
-                'geomean': round_number(geomean),
-                'num_ref_name': num_ref_name
-            })
 
-        json_results.append(rec)
+            get_result_by_month(test, inf, rec_list, results, 0, 1)
+            get_result_by_month(test, inf, rec_list, results, 1, 6)
+            get_result_by_month(test, inf, rec_list, results, 6, 1000)
 
-    dump_csv(dst, csv_results)
 
-    dst = dst.with_suffix('.json').with_stem('table_cross_neutral')
-    dst = dst.parent.parent / dst.name
-    dump_json(dst, json_results)
+def get_result_by_month(test, inf, rec_list, results, start_month, stop_month):
+    rec_list = [
+        i
+        for i in rec_list
+        if i['month'] > start_month and i['month'] <= stop_month
+    ]
+
+    titer_list = [i['titer'] for i in rec_list]
+    num_exp_list = [i['num_exp'] for i in rec_list]
+    num_ref_name = len(set(
+        [i['ref_name'] for i in rec_list]
+    ))
+    if not titer_list or not num_exp_list:
+        results.append({
+            'infection': inf,
+            'test': test,
+            'geomean': '',
+            'num_ref_name': num_ref_name,
+            'group_name': f'{start_month}-{stop_month}'
+        })
+        return
+
+    geomean = gmean(
+        titer_list,
+        weights=num_exp_list
+    )
+    results.append({
+        'infection': inf,
+        'test': test,
+        'geomean': round_number(geomean),
+        'num_ref_name': num_ref_name,
+        'group_name': f'{start_month}-{stop_month}'
+    })
+
+
+def get_json_results(table):
+
+    results = []
+
+    for test, rec_list in group_records_by(table, 'test').items():
+        rec = {
+            'test': test
+        }
+        for inf, inf_rec_list in group_records_by(rec_list, 'infection').items():
+            has_results = False
+            geomean_values = {}
+            for idx, group_name in enumerate([
+                    '0-1', '1-6', '6-1000']):
+                group_data = [
+                    i
+                    for i in inf_rec_list
+                    if i['group_name'] == group_name
+                    ][0]
+
+                if group_data['geomean']:
+                    has_results = True
+                geomean_values[f'geomean_{idx+1}'] = group_data['geomean']
+                geomean_values[f'num_ref_name_{idx+1}'] = group_data['num_ref_name']
+                rec[inf] = geomean_values
+
+            geomean_values['has_results'] = 1 if has_results else 0
+
+        results.append(rec)
+
+    return results

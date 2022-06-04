@@ -15,6 +15,9 @@ library(gridExtra)
 library(plotly)
 library(ggbeeswarm)
 library(viridis)
+library(ggpubr)
+library(cowplot)
+library(grid)
 
 
 knitr::opts_chunk$set(
@@ -33,6 +36,15 @@ VARIANT = c(
   "Delta",
   "Omicron/BA.1",
   "Omicron/BA.2"
+)
+
+VARIANT_GREEK = c(
+  "Alpha" = 'α',
+  "Beta" = 'β',
+  "Gamma" = 'γ',
+  "Delta" = 'δ',
+  "Omicron/BA.1" = 'ο/BA.1',
+  "Omicron/BA.2" = 'ο/BA.2'
 )
 
 RX_NAME_LIST = c(
@@ -80,8 +92,14 @@ RX_NAME_COLOR = c(
 # TITER_LEVEL = c("low", "middle", "high")
 TITER_LEVEL = c("high", "middle", "low")
 
+LINE_WIDTH = 3
+
 df_titer = read.dbTable('figure/figure_vp_variant_titer.csv', tables_dir=TABLEDIR) %>%
-  mutate(level=ifelse(titer <= 40, 'low', ifelse(titer > 40 & titer <= 100, 'middle', 'high')))
+  mutate(level=ifelse(titer <= 40, 'low', ifelse(titer > 40 & titer <= 100, 'middle', 'high'))) %>%
+  mutate(
+    var_name = factor(var_name, VARIANT),
+    level = factor(level, TITER_LEVEL)
+  )
 ```
 
 ```{r functions, include=FALSE}
@@ -146,7 +164,7 @@ draw_titer <- function(dfPlot, figLabel) {
     #   )
     # )
   
-  if (dim(dfAgg) == 0) {
+  if (dim(dfAgg)[1] == 0) {
     p <- draw_blank()
     return(p)
   }
@@ -171,16 +189,16 @@ draw_titer <- function(dfPlot, figLabel) {
         'middle' = "#ee8e7f",
         'high' = "#ffffff"
       ),
-      name="NT titer",
+      name="Neutralization titer",
       breaks=TITER_LEVEL,
       labels=c(
-        "<=40",
-        "40~100",
-        ">100"
+        'high' = ">100",
+        'middle' = "40~100",
+        'low' = "<=40"
       )
     ) +
     scale_x_discrete(
-      labels=VARIANT,
+      labels=VARIANT_GREEK,
       limits=VARIANT
     ) +
     scale_y_continuous(
@@ -216,8 +234,8 @@ draw_titer <- function(dfPlot, figLabel) {
     "text",
     y= Inf,
     x = Inf,
-    label=RX_NAME_COMP_LIST[figLabel],
-    size=10,
+    label=figLabel,
+    size=7,
     vjust=1.1,
     hjust=1.1)
   p
@@ -226,7 +244,6 @@ draw_titer <- function(dfPlot, figLabel) {
 draw_panel <- function(df) {
   plots = list()
   i = 1
-  line_width = 4
   num_graph = length(RX_NAME_LIST)
   
   for (vacc in RX_NAME_LIST) {
@@ -239,14 +256,14 @@ draw_panel <- function(df) {
       
       p = draw_titer(dfPlot, vacc)
       
-      if (i %% line_width == 1) {
+      if (i %% LINE_WIDTH == 1) {
         p = p + theme(
           axis.title.y = element_text(size=25, face="bold", colour = "black"),
         ) +
           ylab("# Results")
       }
       
-      if (i > num_graph - line_width) {
+      if (i > num_graph - LINE_WIDTH) {
         p = p + theme(
           axis.title.x = element_blank(),
           axis.text.x = element_text(size=24, angle=90, hjust=1),
@@ -260,200 +277,176 @@ draw_panel <- function(df) {
   }
   plots
 }
+
+add_x_labels <- function(p) {
+  p = p + theme(
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(size=24, angle=90, hjust=1),
+      # axis.text.x = element_text(size=35),
+    )
+}
+
+adjust_plot_axis <- function(p, num_graph, i) {
+  if (i %% LINE_WIDTH == 1) {
+    p = p + theme(
+      axis.title.y = element_text(size=25, face="bold", colour = "black"),
+    ) +
+      ylab("# Results")
+  }
+  
+  if (i > num_graph - LINE_WIDTH) {
+    p = add_x_labels(p)
+  }
+  p
+} 
+
+is_blank_figure <- function(dfPlot) {
+  dfAgg = dfPlot %>% 
+    group_by(var_name, level) %>% 
+    summarize(num_exp=sum(num_exp), num_ref_name = n_distinct(ref_name))
+  
+  dfAggRef = dfPlot %>%
+    group_by(var_name) %>%
+    summarize(num_exp=sum(num_exp), num_ref_name = n_distinct(ref_name)) %>%
+    mutate(
+      label=ifelse(
+        num_ref_name > 0,
+        sprintf('%s', num_ref_name),
+        ''
+      )
+    )
+  
+  if (dim(dfAgg)[1] == 0) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+
+draw_panel_groups <- function(df) {
+  plots = list()
+  i = 1
+  num_graph = length(RX_NAME_LIST)
+  last_in_column = list()
+  
+  for (vacc in RX_NAME_LIST) {
+    dfPlot = df %>%
+      filter(vaccine_name == vacc)
+    
+    if (dim(dfPlot)[1] == 0) {
+      num_graph = num_graph - 3
+      next
+    }
+    
+    dfPlot2 = dfPlot %>% filter(month==1)
+    figLabel = paste(RX_NAME_COMP_LIST[vacc], '1M', sep=' ')
+    p = draw_titer(dfPlot2, figLabel)
+    p = adjust_plot_axis(p, num_graph * 3, i)
+    plots[[i]] = p
+    if (!is_blank_figure(dfPlot2)) {
+      last_in_column[1] = i
+    }
+    i = i + 1
+    
+    dfPlot2 = dfPlot %>% filter(month>1 & month <= 6)
+    figLabel = paste(RX_NAME_COMP_LIST[vacc], '2-6M', sep=' ')
+    p = draw_titer(dfPlot2, figLabel)
+    p = adjust_plot_axis(p, num_graph * 3, i)
+    plots[[i]] = p
+    if (!is_blank_figure(dfPlot2)) {
+      last_in_column[2] = i
+    }
+    i = i + 1
+    
+    dfPlot2 = dfPlot %>% filter(month>6)
+    figLabel = paste(RX_NAME_COMP_LIST[vacc], '>6M', sep=' ')
+    p = draw_titer(dfPlot2, figLabel)
+    p = adjust_plot_axis(p, num_graph * 3, i)
+    plots[[i]] = p
+    if (!is_blank_figure(dfPlot2)) {
+      last_in_column[3] = i
+    }
+    i = i + 1
+  }
+  
+  for (index in last_in_column) {
+    if (index < max(unlist(last_in_column))) {
+      next
+    }
+    plots[[index]] = add_x_labels(plots[[index]])
+  }
+  
+  p = draw_titer(df, figLabel) + theme(
+      legend.position = "bottom",
+      legend.key.size = unit(1, 'cm'),
+      legend.text = element_text(size=14),
+      legend.title = element_text(size=14)
+    )
+  
+  legend = get_legend(p)
+  plots[[i]] = legend
+  
+  plots
+}
 ```
 
+## Figures  {.tabset}
 
-## Titer, no infection, 2 shots {.tabset}
+### Titer, No history of infection, 2 shots
 
-### 1M
-```{r titer-1m-noinf-2shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+```{r titer-noinf-2shots, fig.height=64, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df = df_titer %>%
-  filter(month==1) %>%
   filter(dosage==2) %>%
   filter(infection=='') %>%
   filter(var_name %in% VARIANT)
 
-plots = draw_panel(df)
+plots = draw_panel_groups(df)
 
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
+lines = (length(plots) %/% LINE_WIDTH) - 1
+heights_ratios = rep(1, lines)
+heights_ratios[length(heights_ratios) + 1] = 1.2
+heights_ratios[length(heights_ratios) + 1] = 0.1
+
+grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
 ```
 
 
-### 2 to 6M
-```{r titer-2-6m-noinf-2shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+### Titer, No history of infection, 3 shots
+
+```{r titer-noinf-3shots, fig.height=54, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df = df_titer %>%
-  filter(month>1 & month <= 6) %>%
-  filter(dosage==2) %>%
-  filter(infection=='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-### Gr 6M
-```{r titer-gr6m-noinf-2shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month>6) %>%
-  filter(dosage==2) %>%
-  filter(infection=='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-## Titer, no infection, 3 shots {.tabset}
-
-### 1M
-```{r titer-1m-noinf-3shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month==1) %>%
   filter(dosage==3) %>%
   filter(infection=='') %>%
   filter(var_name %in% VARIANT)
 
-plots = draw_panel(df)
+plots = draw_panel_groups(df)
 
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
+lines = (length(plots) %/% LINE_WIDTH) - 1
+heights_ratios = rep(1, lines)
+heights_ratios[length(heights_ratios) + 1] = 1.2
+heights_ratios[length(heights_ratios) + 1] = 0.1
+
+grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
 ```
 
+### Titer, history of infection, 2 or more shots
 
-### 2 to 6M
-```{r titer-2-6m-noinf-3shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month>1 & month <= 6) %>%
-  filter(dosage==3) %>%
-  filter(infection=='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-### Gr 6M
-```{r titer-gr6m-noinf-3shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
+```{r titer-inf-shots, fig.height=32, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df = df_titer %>%
-  filter(month>6) %>%
-  filter(dosage==3) %>%
-  filter(infection=='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-
-
-## Titer, infection, 2 shots {.tabset}
-
-### 1M
-```{r titer-1m-inf-2shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month==1) %>%
-  filter(dosage==2) %>%
+  filter(dosage>=2) %>%
   filter(infection!='') %>%
-  filter(var_name %in% VARIANT)
+  filter(var_name %in% VARIANT) %>%
+  filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
 
-plots = draw_panel(df)
+plots = draw_panel_groups(df)
 
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
+lines = (length(plots) %/% LINE_WIDTH) - 1
+heights_ratios = rep(1, lines)
+heights_ratios[length(heights_ratios) + 1] = 1.2
+heights_ratios[length(heights_ratios) + 1] = 0.1
+
+grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
 ```
-
-
-### 2 to 6M
-```{r titer-2-6m-inf-2shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month>1 & month <= 6) %>%
-  filter(dosage==2) %>%
-  filter(infection!='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-### Gr 6M
-```{r titer-gr6m-inf-2shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month>6) %>%
-  filter(dosage==2) %>%
-  filter(infection!='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-## Titer, infection, 3 shots {.tabset}
-
-### 1M
-```{r titer-1m-inf-3shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month==1) %>%
-  filter(dosage==3) %>%
-  filter(infection!='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-
-### 2 to 6M
-```{r titer-2-6m-inf-3shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month>1 & month <= 6) %>%
-  filter(dosage==3) %>%
-  filter(infection!='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
-### Gr 6M
-```{r titer-gr6m-inf-3shots, fig.height=20, fig.retina=4, fig.width=20, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(month>6) %>%
-  filter(dosage==3) %>%
-  filter(infection!='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel(df)
-
-grid.arrange(grobs = plots, ncol=4)
-# grid.arrange(grobs = plots)
-```
-
