@@ -135,12 +135,10 @@ def get_json_results(table):
 
     for test, rec_list in group_records_by(table, 'test').items():
         rec = {
-            'test': test
+            'test': test.replace('Omicron/', '')
         }
         for inf, inf_rec_list in group_records_by(
                 rec_list, 'vaccine_name').items():
-            has_results = False
-            geomean_values = {}
             for idx, group_name in enumerate([
                     '0-1', '1-6', '6-1000']):
                 group_data = [
@@ -149,14 +147,10 @@ def get_json_results(table):
                     if i['group_name'] == group_name
                     ][0]
 
-                if group_data['geomean']:
-                    has_results = True
-                geomean_values[f'geomean_{idx+1}'] = group_data['geomean']
-                geomean_values[f'num_ref_name_{idx+1}'] = group_data[
-                        'num_ref_name']
-                rec[inf] = geomean_values
-
-            geomean_values['has_results'] = 1 if has_results else 0
+                rec[f'{inf}_{idx+1}'] = {
+                    'geomean': group_data['geomean'],
+                    'num_ref_name': group_data['num_ref_name']
+                }
 
         results.append(rec)
 
