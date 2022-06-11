@@ -37,10 +37,10 @@ def gen_vp_timing(conn):
         timing = int(rec['timing'])
         if timing < 2:
             timing = '1 month'
-        elif timing < 4:
-            timing = '2-3 months'
+        # elif timing < 4:
+        #     timing = '2-3 months'
         elif timing < 7:
-            timing = '4-6 months'
+            timing = '2-6 months'
         else:
             timing = '>6 months'
         timing_group[timing].append(rec)
