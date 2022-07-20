@@ -20,6 +20,7 @@ SHOW_VARIANT = [
     'Omicron/BA.2.12.1',
     'Omicron/BA.4',
     'Omicron/BA.5',
+    'Omicron/BA.2.75',
     'Iota',
     'Epsilon',
     'Kappa',

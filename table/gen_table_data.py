@@ -41,35 +41,34 @@ def gen_report(db_path):
     from plasma.gen_figure_plasma_titer_fold import \
         gen_figure_plasma_titer_fold
 
-    # gen_table_cp_muts(conn)
-    # gen_table_cp_variants(conn)
-    # gen_table_vp_muts(conn)
-    # gen_table_vp_variants(conn)
-    # gen_table_cp_summary()
-    # gen_table_vp_summary()
+    gen_table_cp_muts(conn)
+    gen_table_cp_variants(conn)
+    gen_table_vp_muts(conn)
+    gen_table_vp_variants(conn)
+    gen_table_cp_summary()
+    gen_table_vp_summary()
 
-    # gen_vp_summary(conn)
-    # gen_vp_efficacy(conn)
-    # gen_vp_infection(conn)
-    # gen_vp_timing(conn)
-    # gen_vp_vaccine_species(conn)
-    # gen_vp_vaccine(conn)
-    # gen_vp_dosage(conn)
+    gen_vp_summary(conn)
+    gen_vp_efficacy(conn)
+    gen_vp_infection(conn)
+    gen_vp_timing(conn)
+    gen_vp_vaccine_species(conn)
+    gen_vp_vaccine(conn)
+    gen_vp_dosage(conn)
 
-    # gen_cp_summary(conn)
-    # gen_cp_severity(conn)
-    # gen_cp_infection(conn)
-    # gen_cp_timing(conn)
+    gen_cp_summary(conn)
+    gen_cp_severity(conn)
+    gen_cp_infection(conn)
+    gen_cp_timing(conn)
 
-    # gen_figure_plasma_fold(conn)
-    # gen_figure_plasma_titer(conn)
-    # gen_figure_plasma_titer_fold(conn)
+    gen_figure_plasma_fold(conn)
+    gen_figure_plasma_titer(conn)
+    gen_figure_plasma_titer_fold(conn)
 
     gen_figure_plasma_variant_titer(conn)
     gen_figure_plasma_variant_fold(conn)
     gen_cross_neutral()
     gen_vacc_neutral()
-    return
 
     from mab.gen_table_mab import gen_table_mab
     from mab.gen_table_mab_variant import gen_table_mab_variant

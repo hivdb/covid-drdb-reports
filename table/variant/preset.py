@@ -520,6 +520,12 @@ KEY_VARIANTS = {
             "mut.var_name = 'Omicron/BA.5'"
         ]
     },
+    'Omicron/BA.2.75': {
+        'iso_type': 'isolate_mutations_combo_s_mut_view',
+        'filter': [
+            "mut.var_name = 'Omicron/BA.2.75'"
+        ]
+    },
     'Lambda': {
         'iso_type': 'isolate_mutations_combo_s_mut_view',
         'filter': [
