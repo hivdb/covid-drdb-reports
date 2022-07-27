@@ -32,8 +32,7 @@ VARIANT_LIST = [
     'Omicron/BA.2',
     'Omicron/BA.2.12.1',
     'Omicron/BA.3',
-    'Omicron/BA.4',
-    'Omicron/BA.5',
+    'Omicron/BA.4/5',
     'Omicron/BA.2.75',
 ]
 

@@ -44,4 +44,12 @@ def gen_figure_plasma_variant_titer(
         for i in table
     ]
 
+    [
+        i.update({
+            'var_name': 'Omicron/BA.4/5'
+        })
+        for i in table
+        if i['var_name'] in ('Omicron/BA.5', 'Omicron/BA.4')
+    ]
+
     dump_csv(save_path, table)
