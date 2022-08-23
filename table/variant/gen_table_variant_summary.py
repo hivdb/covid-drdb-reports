@@ -434,7 +434,7 @@ def by_combo(conn, iso_type):
     [
         i.update({
             'var_type': 'Other variants containing >=1 RBD mutation',
-            'var_name': f"{i['var_name']}({i['pattern']})"
+            'var_name': f"{i['var_name']} ({i['pattern']})"
             })
         for i in other_list
     ]
