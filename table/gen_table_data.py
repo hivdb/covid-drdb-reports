@@ -9,6 +9,11 @@ def gen_report(db_path):
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
 
+    from omicron_plasma.cp_titer import analyze_cp_titer
+
+    analyze_cp_titer(conn)
+    return
+
     from plasma.gen_figure_plasma_variant_titer import \
         gen_figure_plasma_variant_titer
     from plasma.gen_figure_plasma_variant_fold import \
