@@ -187,7 +187,10 @@ def gen_plasma_aggre_table(
             num_i_fold = len(i_fold)
             num_r_fold = len(r_fold)
             num_results = num_s_fold + num_i_fold + num_r_fold
-            median_fold = median(all_fold)
+            if all_fold:
+                median_fold = median(all_fold)
+            else:
+                median_fold = ''
 
             rec = {
                 'pattern': iso_name,
