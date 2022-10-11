@@ -35,7 +35,10 @@ VARIANT = c(
   "Gamma",
   "Delta",
   "Omicron/BA.1",
-  "Omicron/BA.2"
+  "Omicron/BA.2",
+  "Omicron/BA.5",
+  'Omicron/BA.4/5',
+  "Omicron/BA.2.75"
 )
 
 VARIANT_GREEK = c(
@@ -44,7 +47,9 @@ VARIANT_GREEK = c(
   "Gamma" = 'γ',
   "Delta" = 'δ',
   "Omicron/BA.1" = 'ο/BA.1',
-  "Omicron/BA.2" = 'ο/BA.2'
+  "Omicron/BA.2" = 'ο/BA.2',
+  "Omicron/BA.4/5" = 'ο/BA.4/5',
+  "Omicron/BA.2.75" = 'ο/BA.2.75'
 )
 
 RX_NAME_LIST = c(
