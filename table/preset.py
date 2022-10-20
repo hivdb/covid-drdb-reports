@@ -1,15 +1,29 @@
 import csv
 from pathlib import Path
-import decimal
 from decimal import Decimal
 from collections import defaultdict
 import json
 from decimal import localcontext
+import yaml
+import sqlite3
+from werkzeug.local import Local
+
+
+g = Local()
 
 
 WS = Path(__file__).absolute().parent.parent
 DATA_FILE_PATH = WS / 'report_tables'
 DATA_FILE_PATH.mkdir(exist_ok=True)
+
+
+def init_db(db_path):
+    db_path = Path(db_path).resolve()
+    print('Using sqlite database:', db_path)
+
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    g.conn = conn
 
 
 def dump_csv(file_path, records, headers=None):
@@ -106,3 +120,14 @@ def group_records_by(records, key_name):
         group_result[key].append(rec)
 
     return group_result
+
+
+def load_yaml(file_path):
+    return yaml.load(open(file_path), Loader=yaml.Loader)
+
+
+def is_preprint(doi):
+    if doi.startswith('10.1101'):
+        return True
+    else:
+        return False

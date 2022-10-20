@@ -187,8 +187,8 @@ def process_record(variant, records):
         medium_value = median(fold_values)
 
         outlier = get_outlier(rec_list, 'fold')
-        if outlier:
-            print('Outliers', outlier)
+        # if outlier:
+        #     print('Outliers', outlier)
 
         if medium_value >= 1000:
             fold_cmp = '>'

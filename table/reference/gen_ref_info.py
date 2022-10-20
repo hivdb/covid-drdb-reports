@@ -2,6 +2,8 @@ from preset import DATA_FILE_PATH
 from preset import dump_csv
 from sql import row2dict
 from collections import defaultdict
+from preset import is_preprint
+
 
 SQL = """
 SELECT
@@ -28,12 +30,6 @@ WHERE
 ;
 """
 
-
-def is_preprint(doi):
-    if doi.startswith('10.1101'):
-        return True
-    else:
-        return False
 
 
 def gen_ref_info(

@@ -1,5 +1,5 @@
 tables:
-	@python table/gen_table_data.py ../covid-drdb/build/covid-drdb-latest.db
+	@python table/work.py ../covid-drdb/build/covid-drdb-latest.db
 
 syncdb:
 	@curl https://api.github.com/repos/hivdb/covid-drdb-payload/releases/latest | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | sort | tail -1  | wget -i - -O master_query/covid-drdb-latest.db

@@ -1,0 +1,80 @@
+main_tasks:
+  # - reference
+  - variant
+  - plasma
+  - cp
+  - vp
+  - mab
+  - omicron_mab
+  - dms
+  - fold
+task_groups:
+  reference:
+    - reference.gen_ref_domain
+    - reference.gen_ref_info
+  variant:
+    - variant.gen_table_variant_summary
+    - variant.gen_table_variant_mab
+    - variant.gen_table_variant_vp
+    - variant.gen_table_variant_cp
+    - variant.gen_table_variant_aggre
+    - variant.gen_figure_variant_mab
+    - variant.gen_figure_variant_cp
+    - variant.gen_figure_variant_vp
+    - variant.gen_table_single_mut_summary
+    - variant.gen_wildtype
+  plasma:
+    - plasma.gen_figure_plasma_variant_titer
+    - plasma.gen_figure_plasma_variant_fold
+    - plasma.gen_cross_neutral
+    - plasma.gen_vacc_neutral
+    - plasma.gen_figure_plasma_fold
+    - plasma.gen_figure_plasma_titer
+    - plasma.gen_figure_plasma_titer_fold
+  cp:
+    - plasma.gen_table_cp_summary
+    - plasma.gen_table_cp_muts
+    - plasma.gen_table_cp_variants
+    - plasma.gen_cp_summary
+    - plasma.gen_cp_severity
+    - plasma.gen_cp_infection
+    - plasma.gen_cp_timing
+  vp:
+    - plasma.gen_table_vp_summary
+    - plasma.gen_table_vp_muts
+    - plasma.gen_table_vp_variants
+    - plasma.gen_vp_summary
+    - plasma.gen_vp_efficacy
+    - plasma.gen_vp_infection
+    - plasma.gen_vp_timing
+    - plasma.gen_vp_dosage
+    - plasma.gen_vp_vaccine_species
+    - plasma.gen_vp_vaccine
+  mab:
+    - mab.gen_table_mab
+    - mab.gen_table_mab_variant
+    - mab.gen_table_mab_muts
+    - mab.gen_table_all_mab
+    - mab.gen_mab_synonyms
+    - mab.gen_mab_epitope_aligned
+  omicron_mab:
+    - omicron.gen_omicron_ref_info
+    - omicron.gen_omicron_titer_fold
+    - omicron.gen_omicron_assay
+    - omicron.gen_omicron_single_mut
+    - omicron.gen_table_mab_omicron_muts
+    - omicron.gen_table_mab_omicron
+    - omicron.gen_ba_1_s_pattern
+    - omicron.gen_omicron_wildtype_ic50
+    - omicron.gen_omicron_titer_fold_ba1_compare
+    - variant.gen_omicron
+    - omicron_plasma.cp_titer.analyze_cp_titer
+  dms:
+    - dms.gen_compare_fold
+    - dms.gen_missing_fold
+    - dms.gen_issue_fold
+  fold:
+    - fold.gen_null_fold
+    - fold.gen_non_wt_control
+    - fold.gen_assay
+    - fold.gen_control
