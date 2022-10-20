@@ -34,7 +34,7 @@ WHERE
 """
 
 
-def gen_mab_epitope_aligned(
+def mab_epitope_alignment(
         conn,
         save_path=DATA_FILE_PATH / 'mab' / 'main_mab_epitope_aligned.csv'):
 

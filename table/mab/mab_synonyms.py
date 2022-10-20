@@ -21,7 +21,7 @@ SQL = """
 """
 
 
-def gen_mab_synonyms(
+def mab_synonyms(
         conn,
         json_save_path=DATA_FILE_PATH / 'mab' / 'mab_synonyms.json'):
 

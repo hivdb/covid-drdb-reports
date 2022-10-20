@@ -32,7 +32,7 @@ WHERE
 """
 
 
-def gen_table_all_mab(conn):
+def mab_summary(conn):
     cursor = conn.cursor()
 
     cursor.execute(SQL)

@@ -1,5 +1,7 @@
+from pathlib import Path
 from preset import DATA_FILE_PATH
 from preset import load_csv
+from preset import load_yaml
 from preset import dump_json
 from collections import defaultdict
 from statistics import median
@@ -10,84 +12,7 @@ from z_score import get_outlier
 from resistancy import is_partial_resistant
 from resistancy import is_resistant
 
-SHOW_VARIANT = [
-    'Alpha',
-    'Beta',
-    'Gamma',
-    'Delta',
-    'Omicron/BA.1',
-    'Omicron/BA.2',
-    'Omicron/BA.2.12.1',
-    'Omicron/BA.2.75',
-    'Omicron/BA.2.75.2',
-    'Omicron/BA.4/5',
-    'Omicron/BA.4.6',
-    'Iota',
-    'Epsilon',
-    'Kappa',
-    'Lambda',
-    'Mu',
-    'N501Y',
-    'E484K',
-    'K417N',
-    'L452R',
-    'G339D',
-    'R346K',
-    'S371F',
-    'S371L',
-    'S373P',
-    'S375F',
-    'T376A',
-    'D405N',
-    'R408S',
-    'N439K',
-    'N440K',
-    'G446S',
-    'G446V',
-    'Y453F',
-    'A475V',
-    'S477N',
-    'T478K',
-    'E484A',
-    'E484Q',
-    'F486V',
-    'L452R',
-    'F490S',
-    'S494P',
-    'Q496S',
-    'Q498R',
-]
-
-SHOW_MABS = {
-    'Casirivimab': 'cas',
-    'Etesevimab': 'ete',
-    'Tixagevimab': 'tix',
-    'Bamlanivimab': 'bam',
-    'Cilgavimab': 'cil',
-    'Imdevimab': 'imd',
-    'Sotrovimab': 'sot',
-    'Regdanvimab': 'reg',
-    'Bebtelovimab': 'beb',
-    'Casirivimab/Imdevimab': 'cas_imd',
-    'Cilgavimab/Tixagevimab': 'cil_tix',
-    'Bamlanivimab/Etesevimab': 'bam_ete',
-    'C135': 'C135',
-    'C144': 'C144',
-    'C135/C144': 'c_135_144',
-    'Amubarvimab': 'b_196',
-    'Romlusevimab': 'b_198',
-    'Amubarvimab/Romlusevimab': 'b_196_198',
-    'JMB2002': 'JMB2002',
-    'Adintrevimab': 'adi',
-    'Vir-7832': 'Vir7832',
-    'DXP-604': 'DXP604',
-}
-
-# DATA_PROBLEM = [
-#     ('Alpha', 'sot'),
-#     ('N501Y', 'sot'),
-# ]
-
+CONFIG = load_yaml(Path(__file__).resolve().parent / 'mab_report.yml')
 
 COLOR_SETTING = {
     'resistant': {
@@ -113,11 +38,11 @@ def get_color(medium_value):
     return color
 
 
-def group_variants(records):
+def group_variants(records, show_list):
     variant_groups = defaultdict(list)
     for r in records:
         variant = r['pattern']
-        if variant not in SHOW_VARIANT:
+        if variant not in show_list:
             continue
         variant_groups[variant].append(r)
 
@@ -160,12 +85,12 @@ def process_record(variant, records):
     mab_groups = defaultdict(list)
     for r in records:
         mab_name = r['ab_name']
-        if mab_name in SHOW_MABS.keys():
-            short_name = SHOW_MABS[mab_name]
+        if mab_name in CONFIG['SHOW_MABS'].keys():
+            short_name = CONFIG['SHOW_MABS'][mab_name]
             mab_groups[short_name].append(r)
 
     result = {'variant': variant}
-    for mab_name, short_name in SHOW_MABS.items():
+    for mab_name, short_name in CONFIG['SHOW_MABS'].items():
         result[short_name] = {}
         rec_list = mab_groups.get(short_name)
 
@@ -186,7 +111,7 @@ def process_record(variant, records):
         fold_values = [rec['fold'] for rec in rec_list]
         medium_value = median(fold_values)
 
-        outlier = get_outlier(rec_list, 'fold')
+        # outlier = get_outlier(rec_list, 'fold')
         # if outlier:
         #     print('Outliers', outlier)
 
@@ -233,17 +158,40 @@ def process_record(variant, records):
     return result
 
 
-def gen_table_mab():
-    mab_variant_records = load_csv(
-        DATA_FILE_PATH / 'mab' / 'table_mab_variant.csv')
-    mab_mut_records = load_csv(DATA_FILE_PATH / 'mab' / 'table_mab_muts.csv')
+def mab_report(
+        load_folder=DATA_FILE_PATH / 'mab',
+        dump_folder=DATA_FILE_PATH):
+
+    _mab_report(
+        mab_variants_file=load_folder / 'table_mab_variant.csv',
+        mab_muts_file=load_folder / 'table_mab_muts.csv',
+        dump_file=dump_folder/'table_mab.json',
+        show_list=CONFIG['WT_VARIANTS']
+    )
+
+    _mab_report(
+        mab_variants_file=load_folder / 'table_mab_omicron_variant.csv',
+        mab_muts_file=load_folder / 'table_mab_omicron_muts.csv',
+        dump_file=dump_folder/'table_mab_ba2.json',
+        show_list=CONFIG['OMICRON_VARIANTS']
+    )
+
+
+def _mab_report(mab_variants_file, mab_muts_file, dump_file, show_list):
+
+    mab_variant_records = (
+        load_csv(mab_variants_file) if mab_variants_file.exists() else []
+    )
+    mab_mut_records = (
+        load_csv(mab_muts_file) if mab_muts_file.exists() else []
+    )
 
     variant_groups = {}
-    variant_groups.update(group_variants(mab_variant_records))
-    variant_groups.update(group_variants(mab_mut_records))
+    variant_groups.update(group_variants(mab_variant_records, show_list))
+    variant_groups.update(group_variants(mab_mut_records, show_list))
 
     result = []
-    for variant in SHOW_VARIANT:
+    for variant in show_list:
         records = variant_groups.get(variant)
         if not records:
             continue
@@ -251,5 +199,4 @@ def gen_table_mab():
             process_record(variant, records)
         )
 
-    save_file = DATA_FILE_PATH / 'table_mab.json'
-    dump_json(save_file, result)
+    dump_json(dump_file, result)
