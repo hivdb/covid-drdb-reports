@@ -8,8 +8,11 @@ WT_VARIANTS:
   - Omicron/BA.2.12.1
   - Omicron/BA.2.75
   - Omicron/BA.2.75.2
+  - Omicron/XBB
   - Omicron/BA.4/5
   - Omicron/BA.4.6
+  - Omicron/BQ.1
+  - Omicron/BQ.1.1
   - Iota
   - Epsilon
   - Kappa
@@ -50,9 +53,9 @@ OMICRON_VARIANTS:
   - Omicron/BA.2.12.1
   - Omicron/BA.2.75
   - Omicron/BA.2.75.2
+  - Omicron/XBB
   - Omicron/BA.4/5
   - Omicron/BA.4.6
-  - Omicron/XBB
   - Omicron/BQ.1
   - Omicron/BQ.1.1
 SHOW_MABS:

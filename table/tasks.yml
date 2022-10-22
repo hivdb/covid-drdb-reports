@@ -51,8 +51,8 @@ task_groups:
     - plasma.gen_vp_vaccine_species
     - plasma.gen_vp_vaccine
   mab:
-    # - mab.mab_variants
-    # - mab.mab_mutations
+    - mab.mab_variants
+    - mab.mab_mutations
     # - mab.mab_synonyms
     # - mab.mab_summary
     - mab.mab_report
