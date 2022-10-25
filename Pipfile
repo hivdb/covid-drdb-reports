@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 matplotlib = "*"
+pyyaml = "*"
+werkzeug = "*"
+click = "*"
 
 [dev-packages]
 

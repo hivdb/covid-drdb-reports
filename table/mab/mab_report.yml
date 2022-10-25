@@ -13,6 +13,7 @@ WT_VARIANTS:
   - Omicron/BA.4.6
   - Omicron/BQ.1
   - Omicron/BQ.1.1
+  - Omicron/BF.7
   - Iota
   - Epsilon
   - Kappa
@@ -58,6 +59,7 @@ OMICRON_VARIANTS:
   - Omicron/BA.4.6
   - Omicron/BQ.1
   - Omicron/BQ.1.1
+  - Omicron/BF.7
 SHOW_MABS:
   Casirivimab: cas
   Etesevimab: ete

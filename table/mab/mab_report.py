@@ -83,13 +83,22 @@ def unique_reference(rec_list):
 
 def process_record(variant, records):
     mab_groups = defaultdict(list)
+
+    result = {'variant': variant}
+
+    if not records:
+        for mab_name, short_name in CONFIG['SHOW_MABS'].items():
+            result[short_name] = {}
+            result[short_name]['fold'] = '-'
+
+        return result
+
     for r in records:
         mab_name = r['ab_name']
         if mab_name in CONFIG['SHOW_MABS'].keys():
             short_name = CONFIG['SHOW_MABS'][mab_name]
             mab_groups[short_name].append(r)
 
-    result = {'variant': variant}
     for mab_name, short_name in CONFIG['SHOW_MABS'].items():
         result[short_name] = {}
         rec_list = mab_groups.get(short_name)
@@ -192,9 +201,10 @@ def _mab_report(mab_variants_file, mab_muts_file, dump_file, show_list):
 
     result = []
     for variant in show_list:
-        records = variant_groups.get(variant)
-        if not records:
+        records = variant_groups.get(variant, [])
+        if not records and not variant.startswith('Omicron'):
             continue
+
         result.append(
             process_record(variant, records)
         )

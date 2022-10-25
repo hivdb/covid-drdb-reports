@@ -28,9 +28,9 @@ task_groups:
     - plasma.gen_figure_plasma_variant_fold
     - plasma.gen_cross_neutral
     - plasma.gen_vacc_neutral
-    - plasma.gen_figure_plasma_fold
-    - plasma.gen_figure_plasma_titer
-    - plasma.gen_figure_plasma_titer_fold
+    # - plasma.gen_figure_plasma_fold
+    # - plasma.gen_figure_plasma_titer
+    # - plasma.gen_figure_plasma_titer_fold
   cp:
     - plasma.gen_table_cp_summary
     - plasma.gen_table_cp_muts

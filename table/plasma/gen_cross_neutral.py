@@ -1,3 +1,4 @@
+from pathlib import Path
 from preset import load_csv
 from preset import dump_csv
 from preset import dump_json
@@ -5,37 +6,14 @@ from preset import DATA_FILE_PATH
 from scipy.stats.mstats import gmean
 from preset import round_number
 from preset import group_records_by
+from preset import load_yaml
 
 
-WT_LIST = [
-    'A',
-    'A.1',
-    'A.2.2',
-    'B.1',
-    'B',
-    'B.1.2',
-    'B.1.1.117',
-    'B.1.177',
-    'B.1.319',
-    'B.1.1',
-]
+FOLDER = Path(__file__).parent
 
+WT_LIST = load_yaml(FOLDER / 'wt.yml')
 
-VARIANT_LIST = [
-    'WT',
-    'Alpha',
-    'Beta',
-    'Gamma',
-    'Delta',
-    'Omicron/BA.1',
-    'Omicron/BA.1.1',
-    'Omicron/BA.2',
-    'Omicron/BA.2.12.1',
-    'Omicron/BA.2.75',
-    'Omicron/BA.2.75.2',
-    'Omicron/BA.4/5',
-    'Omicron/BA.4.6',
-]
+VARIANT_LIST = load_yaml(FOLDER / 'variants.yml')
 
 
 def gen_cross_neutral(
