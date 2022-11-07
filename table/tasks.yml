@@ -1,9 +1,9 @@
 main_tasks:
-  # - reference
-  # - variant
-  # - plasma
-  # - cp
-  # - vp
+  - reference
+  - variant
+  - plasma
+  - cp
+  - vp
   - mab
   # - omicron_mab_analysis
   # - dms
@@ -28,9 +28,9 @@ task_groups:
     - plasma.gen_figure_plasma_variant_fold
     - plasma.gen_cross_neutral
     - plasma.gen_vacc_neutral
-    # - plasma.gen_figure_plasma_fold
-    # - plasma.gen_figure_plasma_titer
-    # - plasma.gen_figure_plasma_titer_fold
+    - plasma.gen_figure_plasma_fold
+    - plasma.gen_figure_plasma_titer
+    - plasma.gen_figure_plasma_titer_fold
   cp:
     - plasma.gen_table_cp_summary
     - plasma.gen_table_cp_muts
@@ -53,10 +53,10 @@ task_groups:
   mab:
     - mab.mab_variants
     - mab.mab_mutations
-    # - mab.mab_synonyms
-    # - mab.mab_summary
+    - mab.mab_synonyms
+    - mab.mab_summary
     - mab.mab_report
-    # - mab.mab_epitope_alignment
+    - mab.mab_epitope_alignment
   omicron_mab_analysis:
     - omicron.gen_omicron_ref_info
     - omicron.gen_omicron_titer_fold

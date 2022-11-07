@@ -22,8 +22,6 @@ WT_VARIANTS:
   - N501Y
   - E484K
   - K417N
-  - L452R
-  - G339D
   - R346K
   - S371F
   - S371L
@@ -34,20 +32,38 @@ WT_VARIANTS:
   - R408S
   - N439K
   - N440K
-  - G446S
   - G446V
   - Y453F
   - A475V
   - S477N
   - T478K
-  - E484A
   - E484Q
-  - F486V
-  - L452R
-  - F490S
   - S494P
   - Q496S
   - Q498R
+  - G339D
+  - G339H
+  - R346T
+  - K356T
+  - L368I
+  - K444R
+  - K444M
+  - K444T
+  - V445P
+  - G446S
+  - L452R
+  - L452M
+  - L452Q
+  - N460K
+  - E484A
+  - E484R
+  - F486P
+  - F486S
+  - F486I
+  - F486V
+  - F490V
+  - F490S
+  - Q493R
 OMICRON_VARIANTS:
   - Omicron/BA.1
   - Omicron/BA.1.1
