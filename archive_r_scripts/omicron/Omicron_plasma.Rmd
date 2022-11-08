@@ -1,0 +1,45 @@
+---
+title: "Omicron plasma"
+output:
+  html_document:
+    keep_md: yes
+    css: "css/main.css"
+---
+
+Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), "%m/%d/%Y %I:%M %p")` PDT
+
+```{r load-library, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+library(grid)
+library(gridExtra)
+library(plotly)
+library(ggbeeswarm)
+library(viridis)
+library(ggpubr)
+library(ggpmisc)
+
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = c("png", "svg")
+)
+source("./lib/readers.R", chdir = TRUE)
+source("./lib/datatables.R", chdir = TRUE)
+
+TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
+```
+
+```{r cp, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+df = read.dbTable('omicron_plasma/cp_titer.csv', tables_dir=TABLEDIR)
+
+dfPlot = df %>% 
+  filter(infection=='B.1' & var_name=='Omicron/BA.1' & month==1) %>%
+  arrange(titer)
+
+ggplot(dfPlot, aes(x=reorder(ref, titer), y=titer)) + geom_point()
+
+```

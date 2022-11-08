@@ -1,0 +1,999 @@
+---
+title: "Susceptibility summary figures"
+output:
+  html_document:
+    keep_md: yes
+    css: "css/main.css"
+---
+
+Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), "%m/%d/%Y %I:%M %p")` PDT
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+library(gridExtra)
+library(plotly)
+library(ggbeeswarm)
+library(viridis)
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = c("png", "svg")
+)
+source("./lib/readers.R", chdir = TRUE)
+source("./lib/datatables.R", chdir = TRUE)
+
+TABLEDIR = normalizePath(sprintf('%s/report_tables', .getpwd()))
+
+```
+## CP Figure {.tabset}
+
+### CP indiv muts
+```{r indiv-cp-iqr, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+INDIV_MUT_LIST = c(
+  'N501Y',
+  'E484K',
+  'K417N',
+  'L452R'
+)
+
+df = read.dbTable('figure/variant_single_cp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(pattern %in% INDIV_MUT_LIST) %>%
+  mutate(
+    pattern = factor(pattern, levels=INDIV_MUT_LIST)
+  )
+plot = ggplot(df, aes(pattern, fold)) +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold reduced neutralization (CP)")
+
+plot1 = plot + geom_boxplot(fill="#146aa8")
+plot1
+```
+
+### CP indiv muts (violin)
+```{r indiv-cp-violin, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    fill="#146aa8")
+plot2
+```
+
+
+### CP indiv muts (Jittery)
+```{r indiv-cp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot2 = plot + geom_quasirandom(color="#146aa8")
+plot2
+```
+
+### CP indiv muts (Jittery, Boxplot)
+```{r indiv-cp-iqr-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot3 = plot + geom_boxplot() + geom_quasirandom(color="#146aa8")
+plot3
+```
+
+
+### CP combo muts
+```{r combo-cp-iqr, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+COMBO_MUT_LIST = c(
+  'Alpha',
+  'Beta',
+  'Gamma',
+  'Epislon'
+)
+
+df = read.dbTable('figure/variant_combo_cp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(var_name %in% COMBO_MUT_LIST)  %>%
+  mutate(
+    var_name = factor(var_name, levels=COMBO_MUT_LIST)
+  )
+plot = ggplot(df, aes(var_name, fold)) +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold reduced neutralization (CP)")
+
+plot1 = plot + geom_boxplot(fill="#146aa8")
+plot1
+```
+
+### CP combo muts (Jittery)
+```{r combo-cp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot2 = plot + geom_quasirandom(color="#146aa8")
+plot2
+```
+
+### CP combo muts (violin)
+```{r combo-cp-violin, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    fill="#146aa8")
+plot2
+```
+
+### CP combo muts (Jittery, Boxplot)
+```{r combo-cp-iqr-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot3 = plot + geom_boxplot() + geom_quasirandom(color="#146aa8")
+plot3
+```
+
+
+## VP Figure {.tabset}
+
+### VP indiv muts
+```{r indiv-vp-iqr, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+VACCINE_LIST = c(
+  "BNT162b2",
+  "mRNA-1273",
+  "AZD1222",
+  "NVX-CoV2373",
+  "Sputnik V",
+  "CoronaVac",
+  "BBIBP-CorV",
+  "BBV152"
+)
+
+VACCINE_TYPE_LIST = c(
+  'mRNA',
+  'Viral vector',
+  'Inactivated virus',
+  'Protein subunit'
+)
+
+IGNORE_VACCINE_LIST = c(
+  "mRNA-1273.351",
+  "mRNA-1273.211",
+  "mRNA-1273 + mRNA-1273.351"
+)
+
+INDIV_MUT_LIST = c(
+  'N501Y',
+  'E484K',
+  'K417N',
+  'L452R'
+)
+
+df = read.dbTable('figure/variant_single_vp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(pattern %in% INDIV_MUT_LIST) %>%
+  filter(vaccine %in% VACCINE_LIST) %>%
+  mutate(
+    pattern = factor(pattern, levels=INDIV_MUT_LIST),
+    vaccine = factor(vaccine, levels=VACCINE_LIST),
+    vaccine_type = factor(vaccine_type, levels=VACCINE_TYPE_LIST),
+  )
+plot = ggplot(df, aes(pattern, fold)) +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  scale_fill_brewer(palette="Dark2") +
+  scale_color_brewer(palette="Dark2") +
+  # scale_fill_viridis(discrete=TRUE) +
+  # scale_color_viridis(discrete=TRUE) +
+  theme(
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold reduced neutralization (VP)")
+
+plot1 = plot + 
+  geom_boxplot(
+    fill="#146aa8",
+    position = position_dodge(preserve = "single")
+    )
+plot1
+```
+
+### VP indiv muts (Jittery)
+```{r indiv-vp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plot2 = plot +
+  # geom_boxplot(position = position_dodge2(preserve = "single")) +
+  # geom_point(pch=21, position=position_jitterdodge())
+  geom_quasirandom(aes(color=vaccine), dodge.width=1)
+plot2
+```
+
+### VP indiv muts (Violin)
+
+```{r indiv-vp-violin, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plot2 = plot +
+  geom_violin(
+    aes(fill=vaccine),
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    scale="width"
+    )
+plot2
+```
+
+### VP indiv By vaccine type
+
+```{r indiv-vp-violin-vp-type, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot3 = plot +
+  geom_violin(
+    aes(fill=vaccine_type),
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    scale="width"
+    )
+plot3
+```
+
+
+### VP combo muts
+```{r combo-vp-iqr, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+COMBO_MUT_LIST = c(
+  'Alpha',
+  'Beta',
+  'Gamma',
+  'Delta'
+)
+
+df = read.dbTable('figure/variant_combo_vp.csv', tables_dir=TABLEDIR)
+df = df %>%
+  filter(var_name %in% COMBO_MUT_LIST) %>%
+  filter(vaccine %in% VACCINE_LIST) %>%
+  mutate(
+    var_name = factor(var_name, levels=COMBO_MUT_LIST),
+    vaccine = factor(vaccine, levels=VACCINE_LIST),
+    vaccine_type = factor(vaccine_type, levels=VACCINE_TYPE_LIST),
+  )
+plot = ggplot(df, aes(var_name, fold, fill=vaccine)) +
+  scale_y_continuous(
+    trans='log10',
+    breaks=c(1, 3, 10, 100, 1000, 10000)
+    ) +
+  scale_fill_brewer(palette="Dark2") +
+  scale_color_brewer(palette="Dark2") +
+  # scale_fill_viridis(discrete=TRUE) +
+  # scale_color_viridis(discrete=TRUE) +
+  theme(
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5, size=16),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+  ylab("Fold reduced neutralization (VP)")
+
+plot1 = plot +
+  geom_boxplot(position = position_dodge2(preserve = "single"))
+plot1
+```
+
+### VP combo muts (Jittery)
+```{r combo-vp-jitter, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plot2 = plot +
+  # geom_boxplot(position = position_dodge2(preserve = "single")) +
+  # geom_point(pch=21, position=position_jitterdodge(0.25))
+  geom_quasirandom(aes(color=vaccine), dodge.width=1)
+plot2
+```
+
+### VP combo muts (Violin)
+
+```{r combo-vp-violin, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+plot2 = plot +
+  geom_violin(
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    scale="width"
+    )
+plot2
+```
+
+### VP combo By vaccine type
+
+```{r combo-vp-violin-vp-type, fig.height=5, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+plot3 = plot +
+  geom_violin(
+    aes(fill=vaccine_type),
+    draw_quantiles = c(0.25, 0.5, 0.75),
+    scale="width"
+    )
+plot3
+```
+
+
+## DMS  {.tabset}
+
+### DMS vs fold
+```{r dms-fold, fig.height=5, fig.retina=4, fig.width=5, message=FALSE, warning=FALSE, echo=FALSE}
+df = read.dbTable('dms/fold_dms.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    susceptible_level=ifelse(
+        fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
+  )
+ggplot(data=df, aes(
+        x=fold, y=score,
+        color=susceptible_level)) +
+      geom_point(size=2) +
+      # geom_text(size=3, vjust=-1) +
+      scale_x_continuous(
+        trans='log10',
+        breaks=c(1, 3, 10, 100, 1000, 10000)
+      ) +
+      scale_y_continuous(
+        breaks=c(0.1, 0.5, 1),
+        expand=c(0,0)
+      ) +
+      # geom_hline(
+      #   yintercept = 0.01,
+      #   linetype="dashed",
+      #   color = "blue") +
+      geom_hline(
+        yintercept = 0.1,
+        linetype="dashed",
+        color = "blue") +
+      # geom_hline(
+      #   yintercept = 0.06,
+      #   linetype="dashed",
+      #   color = "blue") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        axis.text.x = element_text(size=15),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      xlab("Fold reduced neutralization") +
+      ylab("Escape fraction")
+```
+
+### DMS vs fold 3D
+```{r dms-fold-3d, out.width="100%", message=FALSE, warning=FALSE, echo=FALSE}
+plot_ly(df, x=~fold, y=~score, z=~position)  %>%
+  layout(
+    scene =list(
+      xaxis = list(
+        type = "log",
+        nticks=6
+        )
+    )
+  ) %>%
+  add_markers(color = ~susceptible_level)
+```
+
+### DMS vs fold by mab
+```{r dms-fold-mab, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+EUA_MABS = c(
+  'Bamlanivimab',
+  'Etesevimab',
+  'Casirivimab',
+  'Imdevimab',
+  'Cilgavimab',
+  'Tixagevimab',
+  'Vir-7831',
+  'C135',
+  'C144'
+)
+
+plots = list()
+i = 1
+
+for (ab in EUA_MABS) {
+  dfPlot = df %>%
+    filter(mab == ab)
+
+  plot = ggplot(dfPlot, aes(x=fold, y=score, color=susceptible_level)) +
+      geom_point(size=2) +
+      scale_x_continuous(
+        trans='log10',
+        breaks=c(1, 3, 10, 100, 1000, 10000),
+        limits = c(0.1, 10000)
+      ) +
+      scale_y_continuous(
+        breaks=c(0, 0.25, 0.5, 1),
+        expand=c(0, 0),
+        limits=c(0, 1)
+      ) +
+      scale_color_manual(
+        values = c(
+        'resistant' = "#D55E00",
+        'partial-resistance' = "#0072B2",
+        'susceptible' = "#009E73"
+      )
+      ) +
+      geom_hline(
+        aes(yintercept = 0.1),
+        linetype="dashed",
+        color = "blue") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_blank(),
+        strip.background = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      xlab(ab) +
+      ylab("Escape fraction")
+
+  plots[[i]] = plot
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=3)
+
+```
+
+### DMS no fold
+```{r dms-missing-fold, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+df = read.dbTable('dms/dms_missing_fold.csv', tables_dir=TABLEDIR)
+
+plots = list()
+i = 1
+
+for (ab in EUA_MABS) {
+  dfPlot = df %>%
+    filter(mab == ab)
+
+  plot = ggplot(dfPlot, aes(x=position, y=score, color=amino_acid)) +
+      geom_point(size=0.5) +
+      scale_y_continuous(
+        breaks=c(0, 0.25, 0.5, 1),
+        expand=c(0, 0),
+        limits=c(0, 1)
+      ) +
+      geom_hline(
+        aes(yintercept = 0.1),
+        linetype="dashed",
+        color = "blue") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_blank(),
+        strip.background = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      xlab(ab) +
+      ylab("Escape fraction")
+
+  plots[[i]] = plot
+  i = i + 1
+}
+
+grid.arrange(grobs = plots, ncol=3)
+```
+
+## DMS Statistic Test  {.tabset}
+
+### All
+```{r dms-fold-st-all}
+df = read.dbTable('dms/fold_dms.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    susceptible_level=ifelse(
+        fold < 3, 'susceptible', ifelse(fold < 10, 'partial-resistance', 'resistant'))
+  )
+tbl = table(df$fold, df$score)
+chisq.test(tbl)
+
+result = cor.test(df$fold, df$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+### Fold >= 10 and score >= 0.1
+```{r dms-fold-st-10-01}
+df_Fold_gt10 = df %>%
+  filter(
+    fold >= 10 & score >= 0.1
+  )
+tbl = table(df_Fold_gt10$fold, df_Fold_gt10$score)
+chisq.test(tbl)
+
+
+result = cor.test(df_Fold_gt10$fold, df_Fold_gt10$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+### Fold >= 10
+```{r dms-fold-st-gt-10}
+df_Fold_gt10 = df %>%
+  filter(
+    fold >= 10
+  )
+tbl = table(df_Fold_gt10$fold, df_Fold_gt10$score)
+chisq.test(tbl)
+
+
+result = cor.test(df_Fold_gt10$fold, df_Fold_gt10$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+### Fold < 10
+```{r dms-fold-st-lt-10}
+df_Fold_lt10 = df %>%
+  filter(
+    fold < 10
+  )
+tbl = table(df_Fold_lt10$fold, df_Fold_lt10$score)
+chisq.test(tbl)
+
+
+result = cor.test(df_Fold_lt10$fold, df_Fold_lt10$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+
+### Fold >10 and score < 0.1
+```{r dms-fold-st-10-01-outliner}
+df_Score_outlier = df %>%
+  filter(
+    score <= 0.1 & fold >= 10
+  )
+tbl = table(df_Score_outlier$fold, df_Score_outlier$score)
+chisq.test(tbl)
+
+result = cor.test(df_Score_outlier$fold, df_Score_outlier$score, method="spearman", exact = FALSE)
+print(result)
+```
+
+
+### Mab, Score
+```{r dms-fold-st-mab-score}
+tbl = table(df$mab, df$score)
+chisq.test(tbl)
+
+```
+
+## Variant summary {.tabset}
+
+### Indiv summary (without distinguish study type)
+```{r indiv-mutations, fig.height=15, fig.retina=4, fig.width=15, message=FALSE, warning=FALSE, echo=FALSE}
+
+MIN_SAMPLES = 10
+
+df = read.dbTable('variant/summary_single.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    samples=cp + vp + all.mAbs
+  ) %>%
+  filter(
+    samples > MIN_SAMPLES
+  ) %>%
+  filter(
+    ref != ''
+  )
+
+plots = list()
+i = 1
+
+for (d in unique(df$domain)) {
+  dfPlot = df %>%
+    filter(domain == d)
+
+  p <- ggplot(dfPlot, aes(x=reorder(pattern, position), y=samples)) +
+      geom_bar(
+        stat='identity',
+        width=0.01 * length(unique(dfPlot$pattern)),
+        fill="#146aa8"
+        ) +
+      scale_y_continuous(
+        expand=expansion(mult = c(0, .1))
+        ) +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=12, angle=45, hjust=1),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      annotate(
+          "text",
+          y=Inf,
+          x=Inf,
+          label=d,
+          size=10,
+          vjust=2,
+          hjust=1.1
+          )
+  plots[[i]] = p
+  i = i + 1
+
+}
+
+grid.arrange(grobs = plots, ncol=1)
+
+```
+
+### Indiv summary (distinguish by study type)
+```{r indiv-mutations-study-type, fig.height=15, fig.retina=4, fig.width=15, message=FALSE, warning=FALSE, echo=FALSE}
+
+STUDY_TYPE_ORDER = c(
+  "CP",
+  "VP",
+  "mAb"
+)
+
+df = read.dbTable('variant/summary_single.csv', tables_dir=TABLEDIR) %>%
+  mutate(
+    samples=cp + vp + all.mAbs
+  ) %>%
+  filter(
+    samples > MIN_SAMPLES
+  )
+
+dfCP = df %>%
+  select(
+    pattern,
+    position,
+    domain,
+    samples=cp
+  ) %>%
+  mutate(
+    study_type=factor("CP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfVP = df %>%
+  select(
+    pattern,
+    position,
+    domain,
+    samples=vp
+  ) %>%
+  mutate(
+    study_type=factor("VP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfMAb = df %>%
+  select(
+    pattern,
+    position,
+    domain,
+    samples=all.mAbs
+  ) %>%
+  mutate(
+    study_type=factor("mAb", levels=STUDY_TYPE_ORDER)
+  )
+
+df = bind_rows(dfCP, dfVP, dfMAb)
+
+plots = list()
+i = 1
+
+for (d in unique(df$domain)) {
+  dfPlot = df %>%
+    filter(domain == d)
+
+  p <- ggplot(dfPlot, aes(x=reorder(pattern, position), y=samples)) +
+      geom_bar(
+        aes(fill=study_type),
+        stat='identity',
+        width=0.01 * length(unique(dfPlot$pattern)),
+        position = 'stack'
+        ) +
+      scale_y_continuous(
+        expand=expansion(mult = c(0, .1))
+        ) +
+      # scale_fill_viridis(discrete = TRUE) +
+      scale_fill_brewer(palette = "Dark2") +
+      # labs(fill="Study type") +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=12, angle=45, hjust=1),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      annotate(
+          "text",
+          y=Inf,
+          x=Inf,
+          label=d,
+          size=10,
+          vjust=2,
+          hjust=1.1
+          )
+  plots[[i]] = p
+  i = i + 1
+
+}
+
+grid.arrange(grobs = plots, ncol=1)
+
+```
+
+### Domain summary
+
+```{r indiv-domain-study-type, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+DOMAINS = c(
+  'NTD',
+  'RBD',
+  'CTD',
+  'S2'
+)
+
+get_domain_table = function(table, treatment) {
+  table = table %>%
+    mutate(
+      domain=factor(domain, levels=DOMAINS)
+    ) %>%
+    select(
+      domain,
+      S,
+      I,
+      R
+    ) %>%
+    group_by(
+      domain
+    ) %>%
+    summarise(
+      S_samples=sum(S),
+      I_samples=sum(I),
+      R_samples=sum(R)
+    ) %>%
+    pivot_longer(
+      cols=ends_with('samples'),
+      names_to="category",
+      values_to="samples"
+    ) %>%
+    mutate(
+      category=factor(category, levels=c('R_samples','I_samples', 'S_samples')),
+      treatment=treatment
+    )
+  table
+}
+
+get_domain_plot <- function(table) {
+  plot <- ggplot(table, aes(x=domain, y=samples, fill=category)) +
+      geom_bar(
+        stat = "identity",
+        width = 0.4,
+        color = "#000000"
+      ) +
+      facet_grid(cols=vars(treatment)) +
+      scale_y_continuous(
+        expand=expansion(
+          mult = c(0, .1))
+      ) +
+      scale_fill_manual(values = c(
+        'R_samples' = "#146aa8",
+        'I_samples' = "#7fcbee",
+        'S_samples' = "#ffffff"
+      )) +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=15),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_text(size=20),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        )
+      # annotate(
+      #     "text",
+      #     y=Inf,
+      #     x=Inf,
+      #     label=treatment,
+      #     size=10,
+      #     vjust=2,
+      #     hjust=1.1
+      #     )
+  plot
+}
+
+dfCP = read.dbTable('variant/summary_single_cp.csv', tables_dir=TABLEDIR)
+dfCP = get_domain_table(dfCP, 'CP')
+dfVP = read.dbTable('variant/summary_single_vp.csv', tables_dir=TABLEDIR)
+dfVP = get_domain_table(dfVP, 'VP')
+dfMAb = read.dbTable('variant/summary_single_mab.csv', tables_dir=TABLEDIR)
+dfMAb = get_domain_table(dfMAb, 'MAb')
+
+table = bind_rows(dfCP, dfVP, dfMAb)
+
+plot = get_domain_plot(table)
+plot
+# plots = list()
+# plots[[1]] = get_domain_plot(dfCP, 'CP')
+# plots[[2]] = get_domain_plot(dfVP, 'VP')
+# plots[[3]] = get_domain_plot(dfMAb, 'MAb')
+#
+# grid.arrange(grobs = plots, ncol=1)
+
+```
+
+
+### Variant summary (distinguish by study type)
+```{r combo-mutations-study-type, fig.height=10, fig.retina=4, fig.width=10, message=FALSE, warning=FALSE, echo=FALSE}
+
+NICKNAME_LIST = c(
+  'Alpha',
+  'Alpha/E484K',
+  'Beta',
+  'Gamma',
+  'Delta'
+)
+
+df = read.dbTable('variant/summary_combo.csv', tables_dir=TABLEDIR) %>%
+  filter(
+    var_name %in% NICKNAME_LIST
+  ) %>%
+  select(
+    var_name,
+    cp,
+    vp,
+    all.mAbs
+  ) %>%
+  group_by(
+    var_name
+  ) %>%
+  summarise(
+    cp=sum(cp),
+    vp=sum(vp),
+    all.mAbs=sum(all.mAbs)
+  ) %>%
+  mutate(
+    samples=cp + vp + all.mAbs,
+    var_name=factor(var_name, levels=NICKNAME_LIST)
+  )
+
+dfCP = df %>%
+  select(
+    var_name,
+    samples=cp
+  ) %>%
+  mutate(
+    study_type=factor("CP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfVP = df %>%
+  select(
+    var_name,
+    samples=vp
+  ) %>%
+  mutate(
+    study_type=factor("VP", levels=STUDY_TYPE_ORDER)
+  )
+
+dfMAb = df %>%
+  select(
+    var_name,
+    samples=all.mAbs
+  ) %>%
+  mutate(
+    study_type=factor("mAb", levels=STUDY_TYPE_ORDER)
+  )
+
+df = bind_rows(dfCP, dfVP, dfMAb)
+
+plots = list()
+i = 1
+
+for (s in unique(df$study_type)) {
+  dfPlot = df %>%
+    filter(study_type == s)
+
+  p <- ggplot(dfPlot, aes(x=var_name, y=samples)) +
+      geom_bar(
+        stat='identity',
+        fill="#146aa8"
+        ) +
+      scale_y_continuous(
+        expand=expansion(
+          mult = c(0, .1)
+          ),
+        limits = c(0, 800)
+        ) +
+      theme(
+        legend.position = "none",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=15, angle=45, hjust=1),
+        axis.text.y = element_text(size=15),
+        strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill = NA, color = 'black')
+        ) +
+      annotate(
+          "text",
+          y=Inf,
+          x=Inf,
+          label=s,
+          size=10,
+          vjust=2,
+          hjust=1.1
+          )
+  plots[[i]] = p
+  i = i + 1
+
+}
+
+grid.arrange(grobs = plots, ncol=1)
+
+```
