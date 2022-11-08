@@ -340,7 +340,10 @@ def by_combo(conn, iso_type):
                 continue
 
             var_name = var_name.split()[0]
-            var_name = var_name.split('/')[0]
+            if not var_name.startswith('Omicron'):
+                var_name = var_name.split('/')[0]
+            else:
+                var_name = '/'.join(var_name.split('/', 2)[:2])
             var_name_group_combo[var_name].append(rec)
 
     merged_same_combo = []
@@ -363,8 +366,10 @@ def by_combo(conn, iso_type):
         record = {
             'pattern': '+'.join(
                     sorted(list(rbd_muts),
-                           key=lambda x: int(re.search(r'\d+', x).group()))
+                           key=lambda x: (
+                            int(re.search(r'\d+', x).group()), x))
                 ),
+            'pattern_length': len(rbd_muts),
             'var_name': var_name,
             'num_ref_name': len(set(r['ref_name'] for r in record_list)),
             'cp': 0,
@@ -384,15 +389,20 @@ def by_combo(conn, iso_type):
     merged_same_combo = [
         i for i in merged_same_combo
         if i['var_name'] not in [
-            'SARS-CoV-1',
-            'WIV1',
-            'pCoV-GD',
-            'pCoV-GX',
             'PMSD4',
             'PMS20',
             'PMS1-1',
             'B.1',
-            'bCoV-RaTG13'
+            # 'Deltacron',
+            'Nabel21_D146',
+            'Nabel21_D152',
+            'Nabel21_RBM1',
+            'Nabel21_RBM2',
+            'Nabel21_RBM3',
+            'Pickering22_4581',
+            'Pickering22_4658',
+            'Pickering22_ON_PHL_21_44225',
+
         ]
     ]
 
@@ -405,12 +415,7 @@ def by_combo(conn, iso_type):
         'other mAbs',
         ))
 
-    vocs = ['Alpha', 'Beta', 'Gamma', 'Delta', 'Omicron']
-    vois = [
-        'Epsilon', 'Eta', 'Iota', 'Kappa', 'Lambda',
-        'Mu', 'Zeta', 'Theta'
-    ]
-
+    vocs = ['Alpha', 'Beta', 'Gamma', 'Delta']
     voc_list = [
         i for i in merged_same_combo
         if i['var_name'] in vocs
@@ -418,6 +423,11 @@ def by_combo(conn, iso_type):
     [
         i.update({'var_type': 'VOC'})
         for i in voc_list
+    ]
+
+    vois = [
+        'Epsilon', 'Eta', 'Iota', 'Kappa', 'Lambda',
+        'Mu', 'Zeta', 'Theta'
     ]
     voi_list = [
         i for i in merged_same_combo
@@ -427,20 +437,58 @@ def by_combo(conn, iso_type):
         i.update({'var_type': 'VOI'})
         for i in voi_list
     ]
+
+    NON_SARS2 = [
+        'RShSTT182',
+        'Rs4084',
+        'Rs4231',
+        'Rs7327',
+        'SHC014',
+        'bCoV-RaTG13',
+        'LYRa11',
+        'SARS-CoV-1',
+        'WIV1',
+        'pCoV-GD',
+        'pCoV-GX',
+    ]
+    non_sars2_list = [
+        i for i in merged_same_combo
+        if i['var_name'] in NON_SARS2
+    ]
+    [
+        i.update({'var_type': 'other coronavirus'})
+        for i in non_sars2_list
+    ]
+
+    omicron_list = [
+        i for i in merged_same_combo
+        if i['var_name'].startswith('Omicron')
+    ]
+    [
+        i.update({'var_type': 'Omicron'})
+        for i in omicron_list
+    ]
+
     other_list = [
         i for i in merged_same_combo
-        if i['var_name'] not in (vocs + vois)
+        if (
+            i['var_name'] not in (vocs + vois + NON_SARS2) and
+            not i['var_name'].startswith('Omicron')
+        )
     ]
     [
         i.update({
             'var_type': 'Other variants containing >=1 RBD mutation',
-            'var_name': f"{i['var_name']} ({i['pattern']})"
+            'var_name': (
+                f"{i['var_name']} ({i['pattern']})" if i['pattern_length'] < 8
+                else i['var_name']
+                )
             })
         for i in other_list
     ]
-    results = voc_list + voi_list + other_list
+    results = voc_list + omicron_list + voi_list + other_list + non_sars2_list
 
-    save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_by_var.csv'
+    # save_path = DATA_FILE_PATH / 'variant' / 'summary_combo_by_var.csv'
     dump_csv(
         DATA_FILE_PATH / 'table_variants.csv',
         results, headers)

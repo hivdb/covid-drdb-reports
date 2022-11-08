@@ -28,6 +28,10 @@ SQL = """
         AND
         iso.iso_name IN
             (SELECT control_iso_name FROM susc_results_view)
+        AND
+        iso.iso_name NOT IN
+            (SELECT DISTINCT iso_name FROM isolate_mutations
+                WHERE gene = 'S' AND position >= 306 AND position <= 535)
 
 
     UNION ALL
@@ -88,7 +92,7 @@ def gen_wildtype(
                 'pattern': pattern
             })
 
-    records.sort(key=itemgetter('var_name'))
+    records.sort(key=itemgetter('var_name', 'pattern'))
 
     json_save_path = get_save_path(
         save_file_name, DATA_FILE_PATH / 'variant', 'json')
