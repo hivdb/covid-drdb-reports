@@ -1,0 +1,40 @@
+---
+title: 
+output:
+  html_document
+---
+
+Report generated at: `r format(as.POSIXct(Sys.time(), format = "%y%m%d %H:%M"), "%m/%d/%Y %I:%M %p")` PDT
+
+```{r setup, include=FALSE}
+
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+library(plotly)
+library(ggplot2)
+library(gridExtra)
+library(ggbeeswarm)
+library(viridis)
+library(ggpubr)
+library(cowplot)
+library(grid)
+
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = c("svg")
+)
+
+source("./lib/readers.R", chdir = TRUE)
+source("./lib/datatables.R", chdir = TRUE)
+
+TABLEDIR = normalizePath(sprintf('%s/../report_tables', .getpwd()))
+
+```
+
+```{r constants, include=FALSE}
+
+
+```
