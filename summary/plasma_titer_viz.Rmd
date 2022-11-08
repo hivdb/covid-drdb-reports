@@ -32,84 +32,90 @@ TABLEDIR = normalizePath(sprintf('%s/../report_tables', .getpwd()))
 
 ```{r constants, include=FALSE}
 
-VARIANT = c(
+PRE_OMICRON = c(
   "Alpha",
   "Beta",
   "Gamma",
   "Delta",
-  "Omicron/BA.1",
-  "Omicron/BA.2",
-  'Omicron/BA.4/5',
-  "Omicron/BA.2.75"
+  "BA.1"
 )
 
-VARIANT_GREEK = c(
-  "Alpha" = 'α',
-  "Beta" = 'β',
-  "Gamma" = 'γ',
-  "Delta" = 'δ',
-  "Omicron/BA.1" = 'BA.1',
-  "Omicron/BA.2" = 'BA.2',
-  "Omicron/BA.4/5" = 'BA.4/5',
-  "Omicron/BA.2.75" = 'BA.2.75'
+OMICRON = c(
+  "BA.1",
+  "BA.2",
+  "BA.2.12.1",
+  "BA.2.75",
+  "BA.2.75.2",
+  "XBB",
+  "BA.4/5",
+  "BA.4.6",
+  "BQ.1",
+  "BQ.1.1",
+  "BF.7"
 )
 
-RX_NAME_LIST = c(
+VACCINES = c(
   "BNT162b2",
   'mRNA-1273',
   'AZD1222',
   'Ad26.COV2.S',
-  # 'NVX-CoV2373',
   'BBV152',
   'CoronaVac',
   'BBIBP-CorV',
   'Sputnik V'
+  # 'NVX-CoV2373',
   # 'MVC-COV1901',
   # 'ZF2001'
 )
 
-RX_NAME_COMP_LIST = c(
+VACCINE_META = c(
   "BNT162b2"= "BNT162b2\n(BioNTech)",
   'mRNA-1273' = 'mRNA-1273\n(Moderna)',
   'AZD1222' = "AZD1222\n(AstraZeneca)",
   'Ad26.COV2.S' = "Ad26.COV2.S\n(Janssen Vaccines)",
-  # 'NVX-CoV2373',
   'BBV152' = "BBV152\n(Bharat Biotech)",
   'CoronaVac' = "CoronaVac\n(Sinovac Biotech)",
   'BBIBP-CorV' = "BBIBP-CorV\n(Sinopharm Beijing)",
   'Sputnik V' = "Sputnik V\n(Gamaleya)"
-  # 'MVC-COV1901',
-  # 'ZF2001'
-)
-
-RX_NAME_COLOR = c(
-  "CP" = "#f44336",
-  "BNT162b2" = "#3a96f3",
-  'mRNA-1273' = "#a946bb",
-  'AZD1222' = "#f7c10a",
-  'Ad26.COV2.S' = "#f05723",
   # 'NVX-CoV2373',
-  'BBV152' = "#795548",
-  'CoronaVac' = "#4caf50",
-  'BBIBP-CorV' = "#e91e63",
-  'Sputnik V' = "#607d8b"
   # 'MVC-COV1901',
   # 'ZF2001'
 )
-# TITER_LEVEL = c("low", "middle", "high")
+
 TITER_LEVEL = c("high", "middle", "low")
+# TITER_LEVEL = c("low", "middle", "high")
 
-LINE_WIDTH = 3
+```
 
-df_titer = read.dbTable('figure/figure_plasma_variant_titer.csv', tables_dir=TABLEDIR) %>%
-  mutate(level=ifelse(titer <= 40, 'low', ifelse(titer > 40 & titer <= 100, 'middle', 'high'))) %>%
+```{r tables}
+df_nt = read.dbTable(
+    'figure/figure_plasma_variant_titer.csv', tables_dir=TABLEDIR) %>%
+  mutate(level=ifelse(
+    titer <= 40, 'low',
+    ifelse(titer > 40 & titer <= 100,
+           'middle', 'high'))) %>%
+  mutate(level = factor(level, TITER_LEVEL)) %>%
+  mutate(var_name = ifelse(startsWith(var_name, 'Omicron'), substring(var_name, 9), var_name))
+
+# print(unique(df_nt$var_name))
+
+df_nt_pre_omi = df_nt %>%
+  filter(var_name %in% PRE_OMICRON) %>%
   mutate(
-    var_name = factor(var_name, VARIANT),
-    level = factor(level, TITER_LEVEL)
+    var_name = factor(var_name, PRE_OMICRON),
+  )
+
+df_nt_omi = df_nt %>%
+  filter(var_name %in% OMICRON) %>%
+  mutate(
+    var_name = factor(var_name, OMICRON),
   )
 ```
 
 ```{r functions, include=FALSE}
+
+LINE_WIDTH = 3
+
 draw_blank <- function() {
   dfPlot = data.frame()
   p <- ggplot(dfPlot) +
@@ -131,7 +137,7 @@ draw_blank <- function() {
   p
 }
 
-draw_titer <- function(dfPlot, figLabel) {
+draw_sub_plot <- function(dfPlot, figLabel, x_labels) {
 
   dfAgg = dfPlot %>%
     group_by(var_name, level) %>%
@@ -159,17 +165,17 @@ draw_titer <- function(dfPlot, figLabel) {
   #       no=''
   #     )
   #   )
-    # mutate(
-    #   label = ifelse(
-    #     num_study > 1,
-    #     yes=sprintf('%s studies\n%s results', num_study, num_results),
-    #     no=ifelse(
-    #       num_study > 0,
-    #       yes=sprintf('%s study\n%s results', num_study, num_results),
-    #       no=''
-    #     )
-    #   )
-    # )
+  # mutate(
+  #   label = ifelse(
+  #     num_study > 1,
+  #     yes=sprintf('%s studies\n%s results', num_study, num_results),
+  #     no=ifelse(
+  #       num_study > 0,
+  #       yes=sprintf('%s study\n%s results', num_study, num_results),
+  #       no=''
+  #     )
+  #   )
+  # )
 
   if (dim(dfAgg)[1] == 0) {
     p <- draw_blank()
@@ -180,7 +186,6 @@ draw_titer <- function(dfPlot, figLabel) {
   if (max_y < 100 ) {
     max_y = 100
   }
-
 
   p <- ggplot(data=dfAgg, aes(x=var_name, y=num_exp)) +
     geom_bar(
@@ -205,8 +210,7 @@ draw_titer <- function(dfPlot, figLabel) {
       )
     ) +
     scale_x_discrete(
-      labels=VARIANT_GREEK,
-      limits=VARIANT
+      limits=x_labels
     ) +
     scale_y_continuous(
       expand=expansion(mult = c(0, .2)),
@@ -251,17 +255,13 @@ draw_titer <- function(dfPlot, figLabel) {
 draw_panel <- function(df) {
   plots = list()
   i = 1
-  num_graph = length(RX_NAME_LIST)
+  num_graph = length(VACCINES)
 
-  for (vacc in RX_NAME_LIST) {
+  for (vacc in VACCINES) {
     dfPlot = df %>%
-      filter(vaccine_name == vacc) %>%
-      mutate(
-        var_name = factor(var_name, VARIANT),
-        level = factor(level, TITER_LEVEL)
-      )
+      filter(vaccine_name == vacc)
 
-      p = draw_titer(dfPlot, vacc)
+      p = draw_sub_plot(dfPlot, vacc)
 
       if (i %% LINE_WIDTH == 1) {
         p = p + theme(
@@ -330,13 +330,13 @@ is_blank_figure <- function(dfPlot) {
   }
 }
 
-draw_panel_groups <- function(df) {
+draw_panel_groups <- function(df, x_labels) {
   plots = list()
   i = 1
-  num_graph = length(RX_NAME_LIST)
+  num_graph = length(VACCINES)
   last_in_column = list()
 
-  for (vacc in RX_NAME_LIST) {
+  for (vacc in VACCINES) {
     dfPlot = df %>%
       filter(vaccine_name == vacc)
 
@@ -345,32 +345,32 @@ draw_panel_groups <- function(df) {
       next
     }
 
-    dfPlot2 = dfPlot %>% filter(month==1)
-    figLabel = paste(RX_NAME_COMP_LIST[vacc], '1M', sep=' ')
-    p = draw_titer(dfPlot2, figLabel)
+    dfPlot_by_month = dfPlot %>% filter(month==1)
+    figTitle = paste(VACCINE_META[vacc], '1M', sep=' ')
+    p = draw_sub_plot(dfPlot_by_month, figTitle, x_labels)
     p = adjust_plot_axis(p, num_graph * 3, i)
     plots[[i]] = p
-    if (!is_blank_figure(dfPlot2)) {
+    if (!is_blank_figure(dfPlot_by_month)) {
       last_in_column[1] = i
     }
     i = i + 1
 
-    dfPlot2 = dfPlot %>% filter(month>1 & month <= 6)
-    figLabel = paste(RX_NAME_COMP_LIST[vacc], '2-6M', sep=' ')
-    p = draw_titer(dfPlot2, figLabel)
+    dfPlot_by_month = dfPlot %>% filter(month>1 & month <= 6)
+    figTitle = paste(VACCINE_META[vacc], '2-6M', sep=' ')
+    p = draw_sub_plot(dfPlot_by_month, figTitle, x_labels)
     p = adjust_plot_axis(p, num_graph * 3, i)
     plots[[i]] = p
-    if (!is_blank_figure(dfPlot2)) {
+    if (!is_blank_figure(dfPlot_by_month)) {
       last_in_column[2] = i
     }
     i = i + 1
 
-    dfPlot2 = dfPlot %>% filter(month>6)
-    figLabel = paste(RX_NAME_COMP_LIST[vacc], '>6M', sep=' ')
-    p = draw_titer(dfPlot2, figLabel)
+    dfPlot_by_month = dfPlot %>% filter(month>6)
+    figTitle = paste(VACCINE_META[vacc], '>6M', sep=' ')
+    p = draw_sub_plot(dfPlot_by_month, figTitle, x_labels)
     p = adjust_plot_axis(p, num_graph * 3, i)
     plots[[i]] = p
-    if (!is_blank_figure(dfPlot2)) {
+    if (!is_blank_figure(dfPlot_by_month)) {
       last_in_column[3] = i
     }
     i = i + 1
@@ -383,7 +383,7 @@ draw_panel_groups <- function(df) {
     plots[[index]] = add_x_labels(plots[[index]])
   }
 
-  p = draw_titer(df, figLabel) + theme(
+  p = draw_sub_plot(df, '', x_labels) + theme(
       legend.position = "bottom",
       legend.key.size = unit(1, 'cm'),
       legend.text = element_text(size=14),
@@ -395,65 +395,70 @@ draw_panel_groups <- function(df) {
 
   plots
 }
+
+show_panel <- function(plots) {
+  lines = (length(plots) %/% LINE_WIDTH) - 1
+  print(lines)
+  heights_ratios = rep(1, lines)
+  heights_ratios[length(heights_ratios) + 1] = 1.2
+  heights_ratios[length(heights_ratios) + 1] = 0.1
+  
+  grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
+}
 ```
 
-## Figures  {.tabset}
+## Figures {.tabset}
 
-### Titer, No history of infection, 2 shots
+### Pre Omicron, No history of infection, 2 shots
 
-```{r titer-noinf-2shots, fig.height=64, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+```{r nt-pre-omi-vac-2shot, fig.height=70, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
-df = df_titer %>%
+df_draw = df_nt_pre_omi %>%
   filter(dosage==2) %>%
-  filter(infection=='') %>%
-  filter(var_name %in% VARIANT)
+  filter(infection=='')
 
-plots = draw_panel_groups(df)
+plots = draw_panel_groups(df_draw, PRE_OMICRON)
 
-lines = (length(plots) %/% LINE_WIDTH) - 1
-heights_ratios = rep(1, lines)
-heights_ratios[length(heights_ratios) + 1] = 1.2
-heights_ratios[length(heights_ratios) + 1] = 0.1
-
-grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
+show_panel(plots)
 ```
 
+### Omicron, No history of infection, 2 or more shots
 
-### Titer, No history of infection, 3 shots
+```{r nt-omi-vac-2ormore, fig.height=50, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
-```{r titer-noinf-3shots, fig.height=54, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
-  filter(dosage==3) %>%
-  filter(infection=='') %>%
-  filter(var_name %in% VARIANT)
-
-plots = draw_panel_groups(df)
-
-lines = (length(plots) %/% LINE_WIDTH) - 1
-heights_ratios = rep(1, lines)
-heights_ratios[length(heights_ratios) + 1] = 1.2
-heights_ratios[length(heights_ratios) + 1] = 0.1
-
-grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
-```
-
-### Titer, history of infection, 2 or more shots
-
-```{r titer-inf-shots, fig.height=32, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
-
-df = df_titer %>%
+df_draw = df_nt_omi %>%
   filter(dosage>=2) %>%
-  filter(infection!='') %>%
-  filter(var_name %in% VARIANT) %>%
-  filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
+  filter(infection=='')
 
-plots = draw_panel_groups(df)
+plots = draw_panel_groups(df_draw, OMICRON)
 
-lines = (length(plots) %/% LINE_WIDTH) - 1
-heights_ratios = rep(1, lines)
-heights_ratios[length(heights_ratios) + 1] = 1.2
-heights_ratios[length(heights_ratios) + 1] = 0.1
+show_panel(plots)
+```
 
-grid.arrange(grobs = plots, ncol=LINE_WIDTH, heights=heights_ratios)
+### Pre-Omicron, history of infection, 2 or more shots
+
+```{r nt-pre-omi-inf-vac-2ormore, fig.height=50, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+
+df = df_nt_pre_omi %>%
+  filter(dosage>=2) %>%
+  filter(infection !='')
+  # filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
+
+plots = draw_panel_groups(df, PRE_OMICRON)
+
+show_panel(plots)
+```
+
+### Omicron, history of infection, 2 or more shots
+
+```{r nt-omi-inf-vac-2ormore, fig.height=50, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+
+df = df_nt_omi %>%
+  filter(dosage>=2) %>%
+  filter(infection !='')
+  # filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
+
+plots = draw_panel_groups(df, OMICRON)
+
+show_panel(plots)
 ```
