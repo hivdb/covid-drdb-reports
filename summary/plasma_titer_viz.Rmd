@@ -409,12 +409,12 @@ show_panel <- function(plots) {
 
 ## Figures {.tabset}
 
-### Pre Omicron, No history of infection, 2 shots
+### Pre Omicron, No history of infection, 2 or more shots
 
-```{r nt-pre-omi-vac-2shot, fig.height=70, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+```{r nt-pre-omi-vac-2shot, fig.height=80, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df_draw = df_nt_pre_omi %>%
-  filter(dosage==2) %>%
+  filter(dosage>=2) %>%
   filter(infection=='')
 
 plots = draw_panel_groups(df_draw, PRE_OMICRON)
@@ -424,7 +424,7 @@ show_panel(plots)
 
 ### Omicron, No history of infection, 2 or more shots
 
-```{r nt-omi-vac-2ormore, fig.height=50, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+```{r nt-omi-vac-2ormore, fig.height=80, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df_draw = df_nt_omi %>%
   filter(dosage>=2) %>%
@@ -437,12 +437,12 @@ show_panel(plots)
 
 ### Pre-Omicron, history of infection, 2 or more shots
 
-```{r nt-pre-omi-inf-vac-2ormore, fig.height=50, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+```{r nt-pre-omi-inf-vac-2ormore, fig.height=40, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df = df_nt_pre_omi %>%
   filter(dosage>=2) %>%
-  filter(infection !='')
-  # filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
+  filter(infection !='') %>%
+  filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
 
 plots = draw_panel_groups(df, PRE_OMICRON)
 
@@ -451,12 +451,12 @@ show_panel(plots)
 
 ### Omicron, history of infection, 2 or more shots
 
-```{r nt-omi-inf-vac-2ormore, fig.height=50, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
+```{r nt-omi-inf-vac-2ormore, fig.height=40, fig.retina=4, fig.width=18, message=FALSE, warning=FALSE, echo=FALSE}
 
 df = df_nt_omi %>%
   filter(dosage>=2) %>%
-  filter(infection !='')
-  # filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
+  filter(infection !='') %>%
+  filter(!(vaccine_name %in% c('BBV152', 'Sputnik V')))
 
 plots = draw_panel_groups(df, OMICRON)
 
