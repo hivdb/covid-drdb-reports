@@ -2,7 +2,7 @@ from preset import dump_csv
 from preset import dump_json
 from preset import DATA_FILE_PATH
 from collections import defaultdict
-
+from operator import itemgetter
 
 SQL = """
 SELECT
@@ -39,7 +39,7 @@ def gen_vp_infection(conn):
         infection = rec['infection']
         as_wildtype = rec['as_wildtype']
         if as_wildtype:
-            infection = 'wt'
+            infection = 'Wiletype'
 
         if infection:
             infection_group['infected'].append(rec)
@@ -56,5 +56,6 @@ def gen_vp_infection(conn):
             )),
             'num_fold': sum([r['num_fold'] for r in rx_list])
         })
+    infection_results.sort(key=itemgetter('infection'))
     dump_csv(DATA_FILE_PATH / 'table_vp_infection.csv', infection_results)
     dump_json(DATA_FILE_PATH / 'table_vp_infection.json', infection_results)

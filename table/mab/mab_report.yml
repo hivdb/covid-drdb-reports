@@ -9,6 +9,7 @@ WT_VARIANTS:
   - Omicron/BA.2.75
   - Omicron/BA.2.75.2
   - Omicron/XBB
+  # - Omicron/XBB.1
   - Omicron/BA.4/5
   - Omicron/BA.4.6
   - Omicron/BQ.1

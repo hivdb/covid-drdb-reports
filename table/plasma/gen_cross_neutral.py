@@ -30,6 +30,14 @@ def gen_cross_neutral(
 
     [
         i.update({
+            'infection': 'Omicron/BA.4/5'
+        })
+        for i in table
+        if i['infection'] in ['Omicron/BA.4', 'Omicron/BA.5']
+    ]
+
+    [
+        i.update({
             'infection': 'WT' if i['infection'] in WT_LIST else i['infection'],
             'var_name': 'WT' if i['var_name'] in WT_LIST else i['var_name']
         })
