@@ -20,10 +20,12 @@ WT_VARIANTS:
   - Kappa
   - Lambda
   - Mu
-  - N501Y
-  - E484K
-  - K417N
+  - G339D
+  - G339H
   - R346K
+  - R346T
+  - K356T
+  - L368I
   - S371F
   - S371L
   - S373P
@@ -31,40 +33,38 @@ WT_VARIANTS:
   - T376A
   - D405N
   - R408S
+  - K417N
   - N439K
   - N440K
+  - K444M
+  - K444R
+  - K444T
+  - V445A
+  - V445P
+  - G446S
   - G446V
+  - L452M
+  - L452Q
+  - L452R
   - Y453F
+  - N460K
   - A475V
   - S477N
   - T478K
-  - E484Q
-  - S494P
-  - Q496S
-  - Q498R
-  - G339D
-  - G339H
-  - R346T
-  - K356T
-  - L368I
-  - K444R
-  - K444M
-  - K444T
-  - V445P
-  - G446S
-  - L452R
-  - L452M
-  - L452Q
-  - N460K
   - E484A
+  - E484K
+  - E484Q
   - E484R
+  - F486I
   - F486P
   - F486S
-  - F486I
   - F486V
   - F490V
   - F490S
   - Q493R
+  - S494P
+  - Q496S
+  - Q498R
 OMICRON_VARIANTS:
   - Omicron/BA.1
   - Omicron/BA.1.1
