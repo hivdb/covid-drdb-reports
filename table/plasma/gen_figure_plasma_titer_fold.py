@@ -190,11 +190,15 @@ INFECTION = [
 def gen_figure_plasma_titer_fold(
         conn,
         save_path=DATA_FILE_PATH / 'figure' / 'figure_plasma_titer_fold.csv'):
+        
+    raise Exception('Archived analysis')
+
     sql_tmpl = " UNION ALL ".join([
         CP_TITER_FOLD_VARIANT_SQL,
         VP_TITER_FOLD_VARIANT_SQL,
         VP_TITER_FOLD_INFECTED_VARIANT_SQL,
     ])
+
 
     sql = sql_tmpl.format(
         infected_vaccinee=INFECTED_VACCINEE,

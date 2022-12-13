@@ -189,6 +189,8 @@ def gen_figure_plasma_fold(
         conn,
         save_path=DATA_FILE_PATH / 'figure' / 'figure_plasma_fold.csv',
         save_path_indiv=DATA_FILE_PATH / 'figure' / 'figure_plasma_fold_indiv.csv'):
+    raise Exception('Archived analysis')
+
     sql_tmpl = " UNION ALL ".join([
         CP_FOLD_VARIANT_SQL,
         VP_FOLD_VARIANT_SQL,
