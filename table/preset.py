@@ -25,6 +25,8 @@ def init_db(db_path):
     conn.row_factory = sqlite3.Row
     g.conn = conn
 
+    return conn
+
 
 def dump_csv(file_path, records, headers=None):
     if not records:
