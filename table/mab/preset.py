@@ -8,6 +8,7 @@ MAIN_MAB = {
     'Cilgavimab': 'CIL',
     'Tixagevimab': 'TIX',
     'Cilgavimab/Tixagevimab': 'CIL/TIX',
+    'AZD3152': 'AZD3152',
     'Sotrovimab': 'SOT',
     'Regdanvimab': 'REG',
     'Adintrevimab': 'ADI',
