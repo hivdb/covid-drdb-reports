@@ -27,7 +27,8 @@ def get_main_func(module_path):
     try:
         module = import_module(module_path)
         main_func_name = module_path_list[-1]
-    except ModuleNotFoundError:
+    except ModuleNotFoundError as e:
+        print('error', e)
         module_path = '.'.join(module_path_list[:-1])
         main_func_name = module_path_list[-1]
         module = import_module(module_path)
