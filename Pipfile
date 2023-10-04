@@ -8,6 +8,7 @@ matplotlib = "*"
 pyyaml = "*"
 werkzeug = "*"
 click = "*"
+scipy = "*"
 
 [dev-packages]
 
