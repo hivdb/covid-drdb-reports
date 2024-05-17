@@ -19,6 +19,9 @@ WT_VARIANTS:
   - Omicron/BQ.1.1
   - Omicron/BF.7
   - Omicron/CH.1.1
+  - Omicron/BN.1
+  - Omicron/EG.5
+  - JN.1
   - Iota
   - Epsilon
   - Kappa
