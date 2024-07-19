@@ -22,56 +22,56 @@ WT_VARIANTS:
   - Omicron/BN.1
   - Omicron/EG.5
   - JN.1
-  - Iota
-  - Epsilon
-  - Kappa
-  - Lambda
-  - Mu
-  - G339D
-  - G339H
-  - R346K
-  - R346T
-  - K356T
-  - L368I
-  - S371F
-  - S371L
-  - S373P
-  - S375F
-  - T376A
-  - D405N
-  - R408S
-  - K417N
-  - N439K
-  - N440K
-  - K444M
-  - K444R
-  - K444T
-  - V445A
-  - V445P
-  - G446S
-  - G446V
-  - L452M
-  - L452Q
-  - L452R
-  - Y453F
-  - N460K
-  - A475V
-  - S477N
-  - T478K
-  - E484A
-  - E484K
-  - E484Q
-  - E484R
-  - F486I
-  - F486P
-  - F486S
-  - F486V
-  - F490V
-  - F490S
-  - Q493R
-  - S494P
-  - Q496S
-  - Q498R
+  # - Iota
+  # - Epsilon
+  # - Kappa
+  # - Lambda
+  # - Mu
+  # - G339D
+  # - G339H
+  # - R346K
+  # - R346T
+  # - K356T
+  # - L368I
+  # - S371F
+  # - S371L
+  # - S373P
+  # - S375F
+  # - T376A
+  # - D405N
+  # - R408S
+  # - K417N
+  # - N439K
+  # - N440K
+  # - K444M
+  # - K444R
+  # - K444T
+  # - V445A
+  # - V445P
+  # - G446S
+  # - G446V
+  # - L452M
+  # - L452Q
+  # - L452R
+  # - Y453F
+  # - N460K
+  # - A475V
+  # - S477N
+  # - T478K
+  # - E484A
+  # - E484K
+  # - E484Q
+  # - E484R
+  # - F486I
+  # - F486P
+  # - F486S
+  # - F486V
+  # - F490V
+  # - F490S
+  # - Q493R
+  # - S494P
+  # - Q496S
+  # - Q498R
 OMICRON_VARIANTS:
   - Omicron/BA.1
   - Omicron/BA.1.1
